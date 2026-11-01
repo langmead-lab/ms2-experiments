@@ -1,0 +1,167 @@
+{
+  "format": "ms2-freeze-group-v1",
+  "group": "toy-ms-mtb152-pacbio-60mb-v1-counts",
+  "manifest_id": "toy-2885ee8-4bc8752a",
+  "config": {
+    "workload": {
+      "reads": 2856,
+      "bases": 60014409,
+      "reference": "mtb152",
+      "read_set": "mtb152-pacbio-60mb-v1"
+    },
+    "orbit": {
+      "revision": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+      "repo": "/scratch16/blangme2/ms2-experiments-check/source-2885ee8/ms2.bundle"
+    },
+    "rope": {
+      "batch_size": null,
+      "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+    },
+    "protocol": {
+      "runs": 3,
+      "warmup_runs": 0,
+      "report": "median",
+      "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+      "numa": {
+        "cpunodebind": 0,
+        "membind": 0
+      },
+      "threads": 1,
+      "transparent_hugepages": "always",
+      "truth_check": "run 1 of every cell, whole output",
+      "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+      "time_basis": {
+        "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+        "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+        "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+      },
+      "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+    }
+  },
+  "cells": [
+    {
+      "id": "ms-ordinary",
+      "status": "checked",
+      "layout": "ms",
+      "mode": "ordinary",
+      "interleave": 32,
+      "median_query_seconds": 2.4452,
+      "median_load_seconds": 0.0646524,
+      "query_seconds": [
+        2.4452
+      ],
+      "load_seconds": [
+        0.0646524
+      ],
+      "peak_rss_kib": 333172,
+      "mbases_per_second": 24.543762882381813,
+      "ns_per_base": 40.74354877009619,
+      "ops_per_base": {
+        "line": {
+          "bases": 60014409.0,
+          "repositions/base": 0.0214248,
+          "lf_ff/step": 0.365646,
+          "walk_up/rep": 3.04803,
+          "walk_down/rep": 3.26611
+        },
+        "ops_per_base": {
+          "lf": 1.0,
+          "psi": 0.0,
+          "phi": 0.0,
+          "walk": 0.135279186672,
+          "total": 1.135279186672,
+          "repositions": 0.0214248,
+          "lf_ff_per_step": 0.365646
+        },
+        "lf_basis": "one LF step per base, as in the TeraMS Figure 5 reproduction"
+      },
+      "query_spread_fraction": 0.0,
+      "tool": "ms2-stats",
+      "kind": "count",
+      "figures": [
+        "3"
+      ],
+      "cache": [
+        "fadvise-dontneed"
+      ],
+      "host": {
+        "hostname": "devlangmead1",
+        "machine": "x86_64",
+        "kernel": "4.18.0-477.21.1.el8_8.x86_64",
+        "cpu": "Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "rockfish",
+      "job": "toy-count",
+      "cell": "toy-ms-mtb152-pacbio-60mb-v1-counts/ms-ordinary"
+    },
+    {
+      "id": "psi-ordinary",
+      "status": "checked",
+      "layout": "psi",
+      "mode": "ordinary",
+      "interleave": 32,
+      "median_query_seconds": 2.99941,
+      "median_load_seconds": 0.0922026,
+      "query_seconds": [
+        2.99941
+      ],
+      "load_seconds": [
+        0.0922026
+      ],
+      "peak_rss_kib": 345772,
+      "mbases_per_second": 20.008738051816856,
+      "ns_per_base": 49.978164410483494,
+      "ops_per_base": {
+        "line": {
+          "bases": 60014409.0,
+          "repositions/base": 0.0214248,
+          "psi_steps/base": 0.706065,
+          "scan_rows/rep": 8.63892,
+          "len/rep": 64.3345,
+          "phi_steps/base": 0.0,
+          "dist/rep": 219.424,
+          "dist1_frac": 0.310063,
+          "lce/rep": 18.6484,
+          "capped_frac": 0.260872,
+          "scan_visits/rep": 1.25166,
+          "lf_ff/step": 0.0937774,
+          "walk_visits/base": 0.415375
+        },
+        "ops_per_base": {
+          "lf": 1.0,
+          "psi": 0.706065,
+          "phi": 0.0,
+          "walk": 0.0,
+          "total": 1.7060650000000002,
+          "repositions": 0.0214248,
+          "scan_rows_per_base": 0.185087133216,
+          "walk_visits_per_base": 0.415375,
+          "lf_ff_per_step": 0.0937774
+        },
+        "lf_basis": "one LF step per base, as in the TeraMS Figure 5 reproduction"
+      },
+      "query_spread_fraction": 0.0,
+      "tool": "ms2-stats",
+      "kind": "count",
+      "figures": [
+        "3"
+      ],
+      "cache": [
+        "fadvise-dontneed"
+      ],
+      "host": {
+        "hostname": "devlangmead1",
+        "machine": "x86_64",
+        "kernel": "4.18.0-477.21.1.el8_8.x86_64",
+        "cpu": "Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "rockfish",
+      "job": "toy-count",
+      "cell": "toy-ms-mtb152-pacbio-60mb-v1-counts/psi-ordinary"
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "format": "ms2-freeze-group-v1",
+  "group": "toy-chr22-h10-ms-simshort",
+  "manifest_id": "toy-2885ee8-4bc8752a",
+  "config": {
+    "workload": {
+      "reads": 32000,
+      "bases": 4000000,
+      "reference": "chr22-h10",
+      "read_set": "simshort-4mb-v1"
+    },
+    "orbit": {
+      "revision": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+      "repo": "/scratch16/blangme2/ms2-experiments-check/source-2885ee8/ms2.bundle"
+    },
+    "rope": {
+      "batch_size": null,
+      "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+    },
+    "protocol": {
+      "runs": 3,
+      "warmup_runs": 0,
+      "report": "median",
+      "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+      "numa": {
+        "cpunodebind": 0,
+        "membind": 0
+      },
+      "threads": 1,
+      "transparent_hugepages": "always",
+      "truth_check": "run 1 of every cell, whole output",
+      "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+      "time_basis": {
+        "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+        "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+        "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+      },
+      "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+    }
+  },
+  "cells": [
+    {
+      "id": "augphoni",
+      "status": "checked",
+      "median_query_seconds": 6.4456070102751255,
+      "median_load_seconds": 0.799184612929821,
+      "query_seconds": [
+        5.888306122273207,
+        6.608487520366907,
+        6.4456070102751255
+      ],
+      "load_seconds": [
+        0.8046132512390614,
+        0.799184612929821,
+        0.7817760109901428
+      ],
+      "peak_rss_kib": 979748,
+      "mbases_per_second": 0.6205777041050573,
+      "ns_per_base": 1611.4017525687814,
+      "query_spread_fraction": 0.11173212964203973,
+      "tool": "augphoni",
+      "kind": "ms",
+      "figures": [
+        "4"
+      ],
+      "cache": [
+        "fadvise-dontneed"
+      ],
+      "host": {
+        "hostname": "devlangmead1",
+        "machine": "x86_64",
+        "kernel": "4.18.0-477.21.1.el8_8.x86_64",
+        "cpu": "Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "rockfish",
+      "job": "toy-legacy",
+      "cell": "toy-chr22-h10-ms-simshort/augphoni"
+    },
+    {
+      "id": "moni",
+      "status": "checked",
+      "median_query_seconds": 6.632292177528143,
+      "median_load_seconds": 0.5269343741238117,
+      "query_seconds": [
+        6.652509614825249,
+        6.632292177528143,
+        6.478655472397804
+      ],
+      "load_seconds": [
+        0.5265778824687004,
+        0.5269343741238117,
+        0.5339046753942966
+      ],
+      "peak_rss_kib": 673260,
+      "mbases_per_second": 0.6031097383726544,
+      "ns_per_base": 1658.0730443820357,
+      "query_spread_fraction": 0.026213281588604552,
+      "tool": "moni",
+      "kind": "ms",
+      "figures": [
+        "4"
+      ],
+      "cache": [
+        "fadvise-dontneed"
+      ],
+      "host": {
+        "hostname": "devlangmead1",
+        "machine": "x86_64",
+        "kernel": "4.18.0-477.21.1.el8_8.x86_64",
+        "cpu": "Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "rockfish",
+      "job": "toy-legacy",
+      "cell": "toy-chr22-h10-ms-simshort/moni"
+    },
+    {
+      "id": "ms-ordinary",
+      "status": "checked",
+      "layout": "ms",
+      "mode": "ordinary",
+      "interleave": 32,
+      "median_query_seconds": 0.207186,
+      "median_load_seconds": 0.509151,
+      "query_seconds": [
+        0.20583,
+        0.207452,
+        0.207186
+      ],
+      "load_seconds": [
+        0.5066,
+        0.512711,
+        0.509151
+      ],
+      "peak_rss_kib": 505696,
+      "mbases_per_second": 19.306323786356224,
+      "ns_per_base": 51.7965,
+      "query_spread_fraction": 0.007828714295367373,
+      "tool": "ms2",
+      "kind": "ms",
+      "figures": [
+        "4"
+      ],
+      "cache": [
+        "fadvise-dontneed"
+      ],
+      "host": {
+        "hostname": "devlangmead1",
+        "machine": "x86_64",
+        "kernel": "4.18.0-477.21.1.el8_8.x86_64",
+        "cpu": "Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "rockfish",
+      "job": "toy-legacy",
+      "cell": "toy-chr22-h10-ms-simshort/ms-ordinary"
+    },
+    {
+      "id": "phoni",
+      "status": "checked",
+      "median_query_seconds": 8.419878296554089,
+      "median_load_seconds": 0.4846605099737644,
+      "query_seconds": [
+        8.433143265545368,
+        8.419878296554089,
+        8.247193548828363
+      ],
+      "load_seconds": [
+        0.4846605099737644,
+        0.5050616525113583,
+        0.4561775177717209
+      ],
+      "peak_rss_kib": 612376,
+      "mbases_per_second": 0.4750662490735806,
+      "ns_per_base": 2104.969574138522,
+      "query_spread_fraction": 0.022084608609260585,
+      "tool": "phoni",
+      "kind": "ms",
+      "figures": [
+        "4"
+      ],
+      "cache": [
+        "fadvise-dontneed"
+      ],
+      "host": {
+        "hostname": "devlangmead1",
+        "machine": "x86_64",
+        "kernel": "4.18.0-477.21.1.el8_8.x86_64",
+        "cpu": "Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "rockfish",
+      "job": "toy-legacy",
+      "cell": "toy-chr22-h10-ms-simshort/phoni"
+    }
+  ]
+}

@@ -63,5 +63,10 @@ the ms-bakery layout that `ms2exp` was extracted from. Its versions:
 | `freeze-code.before-thp-rerun.tar.gz` | 2026-10-31 21:49 UTC | 18f16c6c15652a118a6f1c1f395ad08ef763844cf6e6ec43154fd05d6880390f |
 | `freeze-code.tar.gz` (ran `freeze-2885ee8-00e665de`) | 2026-10-31 21:49 UTC | 300e2338a0a63d689359e4954478225f327e01df276dead353f8365b893132d6 |
 
-The toy equivalence check (`toy/`) runs the last snapshot and `ms2exp` side by side on the same
-inputs and compares their summaries.
+The toy run (`toy/`) checks that `ms2exp` behaves as the snapshot did. On 2026-11-01 both ran the
+toy on devlangmead1 at ms2 2885ee86 from the same source bundles, and `toy/compare.py` found the
+same group summaries, collect report, cell records and done markers, apart from timings, memory,
+hosts and paths. The only other differences were the sha256s of the separately built toy indexes,
+whose headers record their build path and time. The `ms2exp` runner and collect, run on the
+snapshot side's own manifest and inputs, gave identical records. `toy/expected/` holds the
+snapshot side's summaries.
