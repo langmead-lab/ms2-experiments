@@ -1,150 +1,150 @@
-key	bytes	s3_etag
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h1/rep/dual.replog	158965248	bd9080014abe231d6d87991491a581f4-19
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h1/rep/phi.replog	158965248	561811323c9030a8c0e6837e0f52cda2-19
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h1/rep/psi.replog	158965248	81df19bb4d2be07648b74ab172d48afb-19
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h10/rep/dual.replog	123600320	20f905c39566876df68c8b49dd221481-15
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h10/rep/phi.replog	123600320	07519e318fa60062d197f87727c940f0-15
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h10/rep/psi.replog	123600320	d1130486c1aa5f7bafd69e0639b75c71-15
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h100/rep/dual.replog	119797952	51e79eca4c97b0152ae1e905620d6101-15
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h100/rep/phi.replog	119797952	c06c41521f5dd34a89516f9478b2d044-15
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h100/rep/psi.replog	119797952	f8ff0b4bc70f6695017f4412ee4d2da1-15
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h2/rep/dual.replog	139857920	490a36e9b892da87cb59ecffcac79c0c-17
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h2/rep/phi.replog	139857920	9380612d0c8fb449735c519f35046538-17
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h2/rep/psi.replog	139857920	08473023f88dee5056f5b8c683060f03-17
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h20/rep/dual.replog	122305856	f4bdc9da901226285c3035d320a24c5d-15
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h20/rep/phi.replog	122305856	ca6c04bc9417ec95103b788921dc1696-15
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h20/rep/psi.replog	122305856	ef232f12b1240d20d227ab16070a11e8-15
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h5/rep/dual.replog	126570816	6327cd5b195f74fc6568bae1550294cc-16
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h5/rep/phi.replog	126570816	26abe26096e4a131b60b818abfc82352-16
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h5/rep/psi.replog	126570816	a069c9708349f229b76fd682abd27770-16
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h50/rep/dual.replog	120494144	4250c3984d33eef9e4c0b2985e71dc46-15
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h50/rep/phi.replog	120494144	49594760bedc732096e97716adb3518b-15
-a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h50/rep/psi.replog	120494144	b214cc3466638d1cbe0f67955020372f-15
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.000032/rep/dual.replog	1754432	f2f50b38e6ba7d5d73acc137eeddac5d
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.000032/rep/phi.replog	1754432	e30bd51af6d56bdd00501aa59d196415
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.000032/rep/psi.replog	1754432	9b4ba8ab5908461b308512957f3997f0
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00011/rep/dual.replog	2718848	21de189acca6d78ce2371d1b8c508431
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00011/rep/phi.replog	2718848	2b7e8d3d1dde443695a3e684241bc906
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00011/rep/psi.replog	2718848	fdfe3ad0476b17d4b62a1e42335d0a8d
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00019/rep/dual.replog	3712704	7c326e60fefd795435d13e7974008f2b
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00019/rep/phi.replog	3712704	450e936bffe7cff2492724f925f84d78
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00019/rep/psi.replog	3712704	fe9734d9d3b5ddaf8ecd10acc185425b
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00030/rep/dual.replog	4997056	2d6388516af8ad3561e8b8f12ef611d8
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00030/rep/phi.replog	4997056	d4cc632dbcf0a9d0aa72c66c63519c0b
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00030/rep/psi.replog	4997056	b689d021f298883e17a9c1d0962deda3
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00047/rep/dual.replog	7126912	e9459f37b541d19cb22bf871dd402e35
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00047/rep/phi.replog	7126912	6c4e90f41e84a543144591eaa3f108b6
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00047/rep/psi.replog	7126912	8c30c013664216a33b2382d450a7e591
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00076/rep/dual.replog	10568896	daf90b0894ca9c2a6b3f443cd2ed76d2-2
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00076/rep/phi.replog	10568896	7eb64ebd0963a507d45d37b6ef55b69f-2
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00076/rep/psi.replog	10568896	2c0367072ef15ea464c571e5f8ed1649-2
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0014/rep/dual.replog	18278784	cbf13e0656ae0ef083fb82f2ad0a70f6-3
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0014/rep/phi.replog	18278784	24a62da4ce9034cd11be9482a3ba760d-3
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0014/rep/psi.replog	18278784	f599be52e1b03c62de5a102734681e52-3
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0030/rep/dual.replog	37044416	63ed9d710a36da666ff61a31dea356b1-5
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0030/rep/phi.replog	37044416	95e59df4f4cecac1e5697868096b6761-5
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0030/rep/psi.replog	37044416	cb53a0935f73b8248cc173acc8d17c01-5
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0050/rep/dual.replog	60036800	5952763628aee932e0e2beb72e15241c-8
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0050/rep/phi.replog	60036800	0a0cc7617b060579de71b11bbc879d5a-8
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0050/rep/psi.replog	60036800	716cde16bbd26a719d51d803a68fdeca-8
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-exact/rep/dual.replog	1337280	2752b244d389d5285c0c7737b800d17f
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-exact/rep/phi.replog	1337280	8abe58204e10b9c3994b1058dae92e07
-a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-exact/rep/psi.replog	1337280	1abf794fe0d2529deb4d8bd08d06dfff
-loc-guccione_skin-ms2dual/cells/guccione_skin-locate-500kb__cap1-dual-ordinary/canonical.gz	3661933	b74016af4fe17e53d7adcef127f2cafb
-loc-guccione_skin-ms2dual/cells/guccione_skin-locate-500kb__cap10-dual-ordinary/canonical.gz	25101799	e08a818e510ecddc98380bfd9e1751f7-3
-loc-guccione_skin-ms2dual/cells/guccione_skin-locate-500kb__cap100-dual-ordinary/canonical.gz	217876202	cf45e5ae0835f4271c5da261648e2336-26
-loc-guccione_skin-ms2phi/cells/guccione_skin-locate-500kb__cap1-phi-ordinary/canonical.gz	3661933	b74016af4fe17e53d7adcef127f2cafb
-loc-guccione_skin-ms2phi/cells/guccione_skin-locate-500kb__cap10-phi-ordinary/canonical.gz	25101799	e08a818e510ecddc98380bfd9e1751f7-3
-loc-guccione_skin-ms2phi/cells/guccione_skin-locate-500kb__cap100-phi-ordinary/canonical.gz	217876202	cf45e5ae0835f4271c5da261648e2336-26
-loc-guccione_skin-rope-s11/cells/guccione_skin-locate-500kb__cap1-rope-s11/canonical.gz	3689383	bb3e5d290479fed511a04df45d34e921
-loc-guccione_skin-rope-s11/cells/guccione_skin-locate-500kb__cap10-rope-s11/canonical.gz	25495795	4a007e2716da3d16b41a90122b5ae4cb-4
-loc-guccione_skin-rope-s11/cells/guccione_skin-locate-500kb__cap100-rope-s11/canonical.gz	219305943	9d776d58aa26e4cad5c550bf71c23d6b-27
-loc-guccione_skin-rope-s6/cells/guccione_skin-locate-500kb__cap1-rope-s6/canonical.gz	3683335	5ac786143b16da7507d9a5b5504c8cf0
-loc-guccione_skin-rope-s6/cells/guccione_skin-locate-500kb__cap10-rope-s6/canonical.gz	25474385	457a11995870ed006e14ef18851e84df-4
-loc-guccione_skin-rope-s6/cells/guccione_skin-locate-500kb__cap100-rope-s6/canonical.gz	219360718	568296324a059a86e3f41c00bec7e97b-27
-loc-guccione_skin-rope-s8/cells/guccione_skin-locate-500kb__cap1-rope-s8/canonical.gz	3691264	89d80d8bf16c14072b3f5746d424f8dd
-loc-guccione_skin-rope-s8/cells/guccione_skin-locate-500kb__cap10-rope-s8/canonical.gz	25500815	220ff429cb90c4c1972f86738150d8cd-4
-loc-guccione_skin-rope-s8/cells/guccione_skin-locate-500kb__cap100-rope-s8/canonical.gz	219340418	34986352797f29322f49ad670d2ce500-27
-loc-human_ont_modern-ms2dual/cells/human_ont_modern-locate-10mb__cap1-dual-ordinary/canonical.gz	3270582	061731b27b2d98bfb327d5b355ba18f4
-loc-human_ont_modern-ms2dual/cells/human_ont_modern-locate-10mb__cap10-dual-ordinary/canonical.gz	18013394	96e864e18dc0117f5daaf40ffe1858b6-3
-loc-human_ont_modern-ms2dual/cells/human_ont_modern-locate-10mb__cap100-dual-ordinary/canonical.gz	152469219	61c8a1d4bd33acfab8cb9629c340919d-19
-loc-human_ont_modern-ms2phi/cells/human_ont_modern-locate-10mb__cap1-phi-ordinary/canonical.gz	3270582	061731b27b2d98bfb327d5b355ba18f4
-loc-human_ont_modern-ms2phi/cells/human_ont_modern-locate-10mb__cap10-phi-ordinary/canonical.gz	18013394	96e864e18dc0117f5daaf40ffe1858b6-3
-loc-human_ont_modern-ms2phi/cells/human_ont_modern-locate-10mb__cap100-phi-ordinary/canonical.gz	152469219	61c8a1d4bd33acfab8cb9629c340919d-19
-loc-human_ont_modern-rope-s11/cells/human_ont_modern-locate-10mb__cap1-rope-s11/canonical.gz	3305757	72be72a4563ade87f2c74755dc9725b6
-loc-human_ont_modern-rope-s11/cells/human_ont_modern-locate-10mb__cap10-rope-s11/canonical.gz	18377909	368d6847620fce52fa0e95545311c050-3
-loc-human_ont_modern-rope-s11/cells/human_ont_modern-locate-10mb__cap100-rope-s11/canonical.gz	153378572	5f76878769019725db20206e821941b9-19
-loc-human_ont_modern-rope-s6/cells/human_ont_modern-locate-10mb__cap1-rope-s6/canonical.gz	3299845	b0fcd03c1ab893f1b0ef22ddeeecc924
-loc-human_ont_modern-rope-s6/cells/human_ont_modern-locate-10mb__cap10-rope-s6/canonical.gz	18386166	6a89052a2ef6ee45514eb78372ada85c-3
-loc-human_ont_modern-rope-s6/cells/human_ont_modern-locate-10mb__cap100-rope-s6/canonical.gz	153874872	a65267ad49a24abef8fbe0815850dc91-19
-loc-human_ont_modern-rope-s8/cells/human_ont_modern-locate-10mb__cap1-rope-s8/canonical.gz	3306330	632748caf600887f97259c6bd12703b1
-loc-human_ont_modern-rope-s8/cells/human_ont_modern-locate-10mb__cap10-rope-s8/canonical.gz	18401204	c4f15ca37a56387cd1b780dfcf727102-3
-loc-human_ont_modern-rope-s8/cells/human_ont_modern-locate-10mb__cap100-rope-s8/canonical.gz	153753724	753731527e56f4641458a87a3a9671af-19
-loc-human_pacbio-ms2dual/cells/human_pacbio-locate-20mb__cap1-dual-ordinary/canonical.gz	4675556	86e4a8af1be95a317e6bc7647f3b2155
-loc-human_pacbio-ms2dual/cells/human_pacbio-locate-20mb__cap10-dual-ordinary/canonical.gz	25757865	402ebd179a77737c0045004ec72be1c6-4
-loc-human_pacbio-ms2dual/cells/human_pacbio-locate-20mb__cap100-dual-ordinary/canonical.gz	218705168	70d358d3668e44486adee40d70c6e1fa-27
-loc-human_pacbio-ms2phi/cells/human_pacbio-locate-20mb__cap1-phi-ordinary/canonical.gz	4675556	86e4a8af1be95a317e6bc7647f3b2155
-loc-human_pacbio-ms2phi/cells/human_pacbio-locate-20mb__cap10-phi-ordinary/canonical.gz	25757865	402ebd179a77737c0045004ec72be1c6-4
-loc-human_pacbio-ms2phi/cells/human_pacbio-locate-20mb__cap100-phi-ordinary/canonical.gz	218705168	70d358d3668e44486adee40d70c6e1fa-27
-loc-human_pacbio-rope-s11/cells/human_pacbio-locate-20mb__cap1-rope-s11/canonical.gz	4751484	bb17d90df50fd132b5594634960faad0
-loc-human_pacbio-rope-s11/cells/human_pacbio-locate-20mb__cap10-rope-s11/canonical.gz	26487114	a2bb3ad4cfbca3b5216b41e87a741f72-4
-loc-human_pacbio-rope-s11/cells/human_pacbio-locate-20mb__cap100-rope-s11/canonical.gz	220536410	02a299680d923f0eb1fbe0d40c5b1099-27
-loc-human_pacbio-rope-s6/cells/human_pacbio-locate-20mb__cap1-rope-s6/canonical.gz	4738920	4e7c809d26cd64f8bd9dd8b4108e1683
-loc-human_pacbio-rope-s6/cells/human_pacbio-locate-20mb__cap10-rope-s6/canonical.gz	26543656	e2f5c2f024da976318c2204b590b531e-4
-loc-human_pacbio-rope-s6/cells/human_pacbio-locate-20mb__cap100-rope-s6/canonical.gz	223004170	c2d58d71fcff5b232dc09240a57fa38c-27
-loc-human_pacbio-rope-s8/cells/human_pacbio-locate-20mb__cap1-rope-s8/canonical.gz	4750447	8ccfcba43dc9a6782970889796660349
-loc-human_pacbio-rope-s8/cells/human_pacbio-locate-20mb__cap10-rope-s8/canonical.gz	26557259	42b89bc3a4f6c8779c05b2e6d5e4b830-4
-loc-human_pacbio-rope-s8/cells/human_pacbio-locate-20mb__cap100-rope-s8/canonical.gz	222410197	f7eadad90f85f5089dc3c67e9c81abd3-27
-loc-human_short-ms2dual-ftab/cells/human_short-locate-6mb__cap1-dual-ftab/canonical.gz	2436396	034b3bcba07f0fb09b0cdbd9f33f7a42
-loc-human_short-ms2dual-ftab/cells/human_short-locate-6mb__cap10-dual-ftab/canonical.gz	15396806	ceb9fd08b39aacb9766d397e6999156c-2
-loc-human_short-ms2dual-ftab/cells/human_short-locate-6mb__cap100-dual-ftab/canonical.gz	135675501	c071c8cedee7a109d215bc54dc218869-17
-loc-human_short-ms2dual/cells/human_short-locate-6mb__cap1-dual-ordinary/canonical.gz	2436396	034b3bcba07f0fb09b0cdbd9f33f7a42
-loc-human_short-ms2dual/cells/human_short-locate-6mb__cap10-dual-ordinary/canonical.gz	15396806	ceb9fd08b39aacb9766d397e6999156c-2
-loc-human_short-ms2dual/cells/human_short-locate-6mb__cap100-dual-ordinary/canonical.gz	135675501	c071c8cedee7a109d215bc54dc218869-17
-loc-human_short-ms2phi-ftab/cells/human_short-locate-6mb__cap1-phi-ftab/canonical.gz	2436396	034b3bcba07f0fb09b0cdbd9f33f7a42
-loc-human_short-ms2phi-ftab/cells/human_short-locate-6mb__cap10-phi-ftab/canonical.gz	15396806	ceb9fd08b39aacb9766d397e6999156c-2
-loc-human_short-ms2phi-ftab/cells/human_short-locate-6mb__cap100-phi-ftab/canonical.gz	135675501	c071c8cedee7a109d215bc54dc218869-17
-loc-human_short-ms2phi/cells/human_short-locate-6mb__cap1-phi-ordinary/canonical.gz	2436396	034b3bcba07f0fb09b0cdbd9f33f7a42
-loc-human_short-ms2phi/cells/human_short-locate-6mb__cap10-phi-ordinary/canonical.gz	15396806	ceb9fd08b39aacb9766d397e6999156c-2
-loc-human_short-ms2phi/cells/human_short-locate-6mb__cap100-phi-ordinary/canonical.gz	135675501	c071c8cedee7a109d215bc54dc218869-17
-loc-human_short-rope-s11/cells/human_short-locate-6mb__cap1-rope-s11/canonical.gz	2460784	39a9b521ee4f4ae2541e9995de308b5d
-loc-human_short-rope-s11/cells/human_short-locate-6mb__cap10-rope-s11/canonical.gz	15670673	1ccf082ab5e3c3b46ff084f6c6f67f0e-2
-loc-human_short-rope-s11/cells/human_short-locate-6mb__cap100-rope-s11/canonical.gz	136455197	d8611e4843bf2f9eba043144d1bb56b1-17
-loc-human_short-rope-s6/cells/human_short-locate-6mb__cap1-rope-s6/canonical.gz	2458755	ef29cddedbedfae1f7c52f2f05edcf7a
-loc-human_short-rope-s6/cells/human_short-locate-6mb__cap10-rope-s6/canonical.gz	15686321	fa7310d471f51bf3c05e4c3e2fc87123-2
-loc-human_short-rope-s6/cells/human_short-locate-6mb__cap100-rope-s6/canonical.gz	136825644	848f08b604ba8fd6babce82ede94c4f6-17
-loc-human_short-rope-s8/cells/human_short-locate-6mb__cap1-rope-s8/canonical.gz	2462624	4aa6b425121b053729f14ae83cf0c54f
-loc-human_short-rope-s8/cells/human_short-locate-6mb__cap10-rope-s8/canonical.gz	15696734	5608c473985533c6204ebbc9dc148746-2
-loc-human_short-rope-s8/cells/human_short-locate-6mb__cap100-rope-s8/canonical.gz	136720774	2a3b67cd43027b2210f7ed844ba1f429-17
-traces/traces/human472/guccione_skin-ms-60mb-acgt-v2/dual.oracle	709638408	06c9de4097636e4349058032e35f3f3b-85
-traces/traces/human472/guccione_skin-ms-60mb-acgt-v2/ms.oracle	709638408	2a509eab54241331447c0812cc82ee52-85
-traces/traces/human472/guccione_skin-ms-60mb-acgt-v2/phi.oracle	709638408	2a509eab54241331447c0812cc82ee52-85
-traces/traces/human472/guccione_skin-ms-60mb-acgt-v2/psi.oracle	709638408	06c9de4097636e4349058032e35f3f3b-85
-traces/traces/human472/human472-apr008-hap1-p100k-s600-v1/dual.oracle	534944	1fbd04c32f9da49ec1042a75e648b5c6
-traces/traces/human472/human472-apr008-hap1-p100k-s600-v1/ms.oracle	534944	2076ed3ac3064eefd96beaa77dab4223
-traces/traces/human472/human472-apr008-hap1-p100k-s600-v1/phi.oracle	534944	2076ed3ac3064eefd96beaa77dab4223
-traces/traces/human472/human472-apr008-hap1-p100k-s600-v1/psi.oracle	534944	1fbd04c32f9da49ec1042a75e648b5c6
-traces/traces/human472/human472-apr008-pacbio-60mb-v2/dual.oracle	34642936	d1e43911ad57c619fe94e9666893fe19-5
-traces/traces/human472/human472-apr008-pacbio-60mb-v2/ms.oracle	34642936	01f95b58ff6ecbe466ee75c3126a504c-5
-traces/traces/human472/human472-apr008-pacbio-60mb-v2/phi.oracle	34642936	01f95b58ff6ecbe466ee75c3126a504c-5
-traces/traces/human472/human472-apr008-pacbio-60mb-v2/psi.oracle	34642936	d1e43911ad57c619fe94e9666893fe19-5
-traces/traces/human472/human_ont_modern-ms-60mb-acgt-v2/dual.oracle	24106096	f4dada1426be24444347d937376d0577-3
-traces/traces/human472/human_ont_modern-ms-60mb-acgt-v2/ms.oracle	24106096	1e8ad1cc89a13a4afcd82545a394fcfb-3
-traces/traces/human472/human_ont_modern-ms-60mb-acgt-v2/phi.oracle	24106096	1e8ad1cc89a13a4afcd82545a394fcfb-3
-traces/traces/human472/human_ont_modern-ms-60mb-acgt-v2/psi.oracle	24106096	f4dada1426be24444347d937376d0577-3
-traces/traces/human472/human_pacbio-ms-60mb-acgt-v2/dual.oracle	18030472	46640109a0a0749e30674527d91d6280-3
-traces/traces/human472/human_pacbio-ms-60mb-acgt-v2/ms.oracle	18030472	6905a49a1a51979346f761cc22ca5acf-3
-traces/traces/human472/human_pacbio-ms-60mb-acgt-v2/phi.oracle	18030472	6905a49a1a51979346f761cc22ca5acf-3
-traces/traces/human472/human_pacbio-ms-60mb-acgt-v2/psi.oracle	18030472	46640109a0a0749e30674527d91d6280-3
-traces/traces/human472/human_short-ms-60mb-acgt-v2/dual.oracle	137089760	a67e81f9144d034530b9be06d4fc3a8a-17
-traces/traces/human472/human_short-ms-60mb-acgt-v2/ms.oracle	137089760	3d0c942a118dfb0320db29fd155a9f54-17
-traces/traces/human472/human_short-ms-60mb-acgt-v2/phi.oracle	137089760	3d0c942a118dfb0320db29fd155a9f54-17
-traces/traces/human472/human_short-ms-60mb-acgt-v2/psi.oracle	137089760	a67e81f9144d034530b9be06d4fc3a8a-17
-traces/traces/mtb152/mtb152-heldout16-p100k-s600-v1/dual.oracle	621408	d4e66491636d210fadab2caa9fc26ebd
-traces/traces/mtb152/mtb152-heldout16-p100k-s600-v1/ms.oracle	621408	dbeebde3fbe68dce4e1f01eca3c25628
-traces/traces/mtb152/mtb152-heldout16-p100k-s600-v1/phi.oracle	621408	dbeebde3fbe68dce4e1f01eca3c25628
-traces/traces/mtb152/mtb152-heldout16-p100k-s600-v1/psi.oracle	621408	d4e66491636d210fadab2caa9fc26ebd
-traces/traces/mtb152/mtb152-pacbio-60mb-v2/dual.oracle	20582504	c3731d83acf3cf11186c2b7770d986e1-3
-traces/traces/mtb152/mtb152-pacbio-60mb-v2/ms.oracle	20582504	93bd5fcaecd762846fd3bae57aa7e5da-3
-traces/traces/mtb152/mtb152-pacbio-60mb-v2/phi.oracle	20582504	93bd5fcaecd762846fd3bae57aa7e5da-3
-traces/traces/mtb152/mtb152-pacbio-60mb-v2/psi.oracle	20582504	c3731d83acf3cf11186c2b7770d986e1-3
+key	bytes	sha256	s3_etag
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h1/rep/dual.replog	158965248	7e4148edc98ad13f8a4b7b87759388ae72c5575c8495706536cbae46415750dc	bd9080014abe231d6d87991491a581f4-19
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h1/rep/phi.replog	158965248	997bed30356784a3125d6d4c6a8e786796c3f80514bff93e7d4d5268851c2f31	561811323c9030a8c0e6837e0f52cda2-19
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h1/rep/psi.replog	158965248	fe8a1052e7672f55862a07a198ddb2750f421e372144a6293dfba4a7f4324f76	81df19bb4d2be07648b74ab172d48afb-19
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h10/rep/dual.replog	123600320	8321a118b04693b6d492c360b4b564e04db2390a1a339ba96fe65c36aa621a2d	20f905c39566876df68c8b49dd221481-15
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h10/rep/phi.replog	123600320	2015ef0a613ae314f44c4c1ce4a56df25c450fca9f6a4be10cf9170ded692b0b	07519e318fa60062d197f87727c940f0-15
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h10/rep/psi.replog	123600320	331042fc0fee7407685f0950b49b68cacd562fd50c2aff7f589db253f6a12254	d1130486c1aa5f7bafd69e0639b75c71-15
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h100/rep/dual.replog	119797952	b96cbe45e34d9870eb4736281d3e3fecc83b18da262c20c38ada309eed57cad6	51e79eca4c97b0152ae1e905620d6101-15
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h100/rep/phi.replog	119797952	e596b302fbc1c000295a53b98e56df01ecd1006b1f053e3daab92f91130c3637	c06c41521f5dd34a89516f9478b2d044-15
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h100/rep/psi.replog	119797952	5579d1982429b33f3295c0571f445e9adcc39535ca60871046c020a3c58ad75a	f8ff0b4bc70f6695017f4412ee4d2da1-15
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h2/rep/dual.replog	139857920	ec907c3ed5eb9f39f2f20b4affd6686af43a8d8ef10414b69034e93c89a1982c	490a36e9b892da87cb59ecffcac79c0c-17
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h2/rep/phi.replog	139857920	873f66792861f1e5bff3dba99fe1e442ec413a8d0de7a5b63879e355bd7c4789	9380612d0c8fb449735c519f35046538-17
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h2/rep/psi.replog	139857920	f18e1bf76fef302c867881d8b8565de4749aa1e6d6a0ddebe5ac9e267c5c9af4	08473023f88dee5056f5b8c683060f03-17
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h20/rep/dual.replog	122305856	200290a6007d8df838faf8508ccd8322225c9801ee2a9fca9fb0444149de9282	f4bdc9da901226285c3035d320a24c5d-15
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h20/rep/phi.replog	122305856	bd2a9f7a68fc36bd06864af09104cc36eaf242a115236cc222ebcdd8e54636f9	ca6c04bc9417ec95103b788921dc1696-15
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h20/rep/psi.replog	122305856	d4a7a06b709f505452b208f1243c230e2fb93502307080afa68401f473516a25	ef232f12b1240d20d227ab16070a11e8-15
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h5/rep/dual.replog	126570816	1d545ad2f5fca0afad7b614c61394d2fb386848d91db271ccef711c9655de553	6327cd5b195f74fc6568bae1550294cc-16
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h5/rep/phi.replog	126570816	39803f04947b2c884ccb8eaeae2fad3b32d9f58b2471ffad832d3fd5b25496a5	26abe26096e4a131b60b818abfc82352-16
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h5/rep/psi.replog	126570816	dabb3ba9abea7786cb2303fef82230aa4729b79e54c12c819c9f7171bab84338	a069c9708349f229b76fd682abd27770-16
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h50/rep/dual.replog	120494144	9531907e3d25e4f6d6aa04436f9d32c9be59a479884471f9c6b80ea4dcb4d836	4250c3984d33eef9e4c0b2985e71dc46-15
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h50/rep/phi.replog	120494144	caef33241e613d7c01dd70ddf9ae60aaf8160dfe27efdb93154d288ec53cc11d	49594760bedc732096e97716adb3518b-15
+a1-chr22-ladder/cells/fig_rep-b2__chr22-B-h50/rep/psi.replog	120494144	4c32d1fa30f6c51ff1376b83c0e1acc718b970d97e370dadb6f472d0b2f3a3af	b214cc3466638d1cbe0f67955020372f-15
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.000032/rep/dual.replog	1754432	4b6f6695ff661e393fd63e1f8b2e79844859188d263670f3cb07e0b65b608ec5	f2f50b38e6ba7d5d73acc137eeddac5d
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.000032/rep/phi.replog	1754432	1adb22123bd5e85ffacc3d65bb42dbd22f4de281493eb7f6b7eacefec0a4c349	e30bd51af6d56bdd00501aa59d196415
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.000032/rep/psi.replog	1754432	4a7ddffec68a0a846737e1519cc77a3459338ea67a078bd3757b8e637bdd2761	9b4ba8ab5908461b308512957f3997f0
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00011/rep/dual.replog	2718848	68c15fc6ebba8aafd6192f3d6623094d6854e858586f0a269491c63dda665765	21de189acca6d78ce2371d1b8c508431
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00011/rep/phi.replog	2718848	31d5a3663c3fc724d2f3d547555a334fa70015adb72b3288389264c323bb288b	2b7e8d3d1dde443695a3e684241bc906
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00011/rep/psi.replog	2718848	b3fef5de1af2d8c657fd3308c5c3491179b13d6a3d1a797d20803f93452221cb	fdfe3ad0476b17d4b62a1e42335d0a8d
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00019/rep/dual.replog	3712704	28be6673cbde4982e181b533ea3e80dda9d5c5a7e7e23c8a6fc49248d038ec41	7c326e60fefd795435d13e7974008f2b
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00019/rep/phi.replog	3712704	7e0d6a24d4f57b1659dda270f8990331e85da00b5cd7180f2804467c6f0cafdf	450e936bffe7cff2492724f925f84d78
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00019/rep/psi.replog	3712704	93f8ab86b226955dfd59077f8e0406afc9f8056f94ebe946108462b9f0aa70eb	fe9734d9d3b5ddaf8ecd10acc185425b
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00030/rep/dual.replog	4997056	3abcb79aba18d814061c9aa3e475707d7b1e3d56e1ffb5e400fcd9f893e76f9c	2d6388516af8ad3561e8b8f12ef611d8
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00030/rep/phi.replog	4997056	8e7511172ed2a46692ca9e661e315bd6e30d0d225fe5e1f222734e39be92aa54	d4cc632dbcf0a9d0aa72c66c63519c0b
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00030/rep/psi.replog	4997056	68568e5ac42da0a8b507abd3179b732b74d60a60504fefb0b44b6a1dfac969a8	b689d021f298883e17a9c1d0962deda3
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00047/rep/dual.replog	7126912	14e55baa11259bd60fb36d48d15a7434fdc183b97c576233e3f2e3b21fb5c5f8	e9459f37b541d19cb22bf871dd402e35
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00047/rep/phi.replog	7126912	980b8edfd73b7962e1137368b10cc8578f44cb38cf56dc44876a0d69d64f2b7a	6c4e90f41e84a543144591eaa3f108b6
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00047/rep/psi.replog	7126912	9ffb428ce93742c72ca954f4307c5f485f27dba4efe027040e53d5f5cda3a190	8c30c013664216a33b2382d450a7e591
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00076/rep/dual.replog	10568896	29d8c1735691e74a8df4e8413f0b387d7c5c5b7165f12c1b2838c6890f89d04e	daf90b0894ca9c2a6b3f443cd2ed76d2-2
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00076/rep/phi.replog	10568896	e4358775c81588dd1d29980cf35548c2a41d621b5964812c497bbe3e15e3dae5	7eb64ebd0963a507d45d37b6ef55b69f-2
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.00076/rep/psi.replog	10568896	8fe4e123f8c46b08900b859771c9af7aed614a47f10c20c3db08fe2789517f01	2c0367072ef15ea464c571e5f8ed1649-2
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0014/rep/dual.replog	18278784	81fd27d0ead7ac46d9220c7df12f2edf5789867e2894327d5db3a313157e20b8	cbf13e0656ae0ef083fb82f2ad0a70f6-3
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0014/rep/phi.replog	18278784	51080632d3c00d13c1972f99ee1507d59b3a44086ca2d49d4a1ce69b25916f52	24a62da4ce9034cd11be9482a3ba760d-3
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0014/rep/psi.replog	18278784	82267726de758ec8107bec451488b8e7150470d29156b362b8cb28a61a1ddbde	f599be52e1b03c62de5a102734681e52-3
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0030/rep/dual.replog	37044416	38e37b0c70367fa1b61a6f4f497c33964d4b5566d963c25d4b1162594e76533e	63ed9d710a36da666ff61a31dea356b1-5
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0030/rep/phi.replog	37044416	6c50272998febe47d3489d98ceb704a8eae586012a724588a8b8a4f9fce2430d	95e59df4f4cecac1e5697868096b6761-5
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0030/rep/psi.replog	37044416	4079a93a955d2ada24e192b176af7d833c28d90dc1f0a28518baeb594ae74a20	cb53a0935f73b8248cc173acc8d17c01-5
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0050/rep/dual.replog	60036800	afafeae99c84a0b261dcfbd7821987a46af5792802ccc9ae91985806306da44c	5952763628aee932e0e2beb72e15241c-8
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0050/rep/phi.replog	60036800	5f78d385ef6cfa3ab99011737088e86d744f3e101831aef3bb0dc121ffd21349	0a0cc7617b060579de71b11bbc879d5a-8
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-e0.0050/rep/psi.replog	60036800	861275b79060cd93f11fa53ba69b86a21769de16e1d3e1f956e2c64987ec599d	716cde16bbd26a719d51d803a68fdeca-8
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-exact/rep/dual.replog	1337280	e3da196dc389f0cb35d307385da6512d1f604ca43ced9b7b82305d252686f116	2752b244d389d5285c0c7737b800d17f
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-exact/rep/phi.replog	1337280	34ec9ef8043a754b297014989ccb7c9b0e638986cd8fab8dafe29bb330296346	8abe58204e10b9c3994b1058dae92e07
+a1-mtb152-errors/cells/fig_rep-a2__mtb152-A2-exact/rep/psi.replog	1337280	c2118a4ac7acfe96d80751a83f787d1e15e22ae2b1602983c59b6c8b50963e7c	1abf794fe0d2529deb4d8bd08d06dfff
+loc-guccione_skin-ms2dual/cells/guccione_skin-locate-500kb__cap1-dual-ordinary/canonical.gz	3661933	c7df8eaea0d5c41c10d15ce09109738b0d05a6bafd313b12533999bb4c2c8df7	b74016af4fe17e53d7adcef127f2cafb
+loc-guccione_skin-ms2dual/cells/guccione_skin-locate-500kb__cap10-dual-ordinary/canonical.gz	25101799	803873ecb84fb3b55bdb63bc896c2c05005a5a198a18918cee43c9844fb6ad7d	e08a818e510ecddc98380bfd9e1751f7-3
+loc-guccione_skin-ms2dual/cells/guccione_skin-locate-500kb__cap100-dual-ordinary/canonical.gz	217876202	0f7b774e99ceb990bb424d52be5591dd413809244c70bc2665a168070efb68bf	cf45e5ae0835f4271c5da261648e2336-26
+loc-guccione_skin-ms2phi/cells/guccione_skin-locate-500kb__cap1-phi-ordinary/canonical.gz	3661933	c7df8eaea0d5c41c10d15ce09109738b0d05a6bafd313b12533999bb4c2c8df7	b74016af4fe17e53d7adcef127f2cafb
+loc-guccione_skin-ms2phi/cells/guccione_skin-locate-500kb__cap10-phi-ordinary/canonical.gz	25101799	803873ecb84fb3b55bdb63bc896c2c05005a5a198a18918cee43c9844fb6ad7d	e08a818e510ecddc98380bfd9e1751f7-3
+loc-guccione_skin-ms2phi/cells/guccione_skin-locate-500kb__cap100-phi-ordinary/canonical.gz	217876202	0f7b774e99ceb990bb424d52be5591dd413809244c70bc2665a168070efb68bf	cf45e5ae0835f4271c5da261648e2336-26
+loc-guccione_skin-rope-s11/cells/guccione_skin-locate-500kb__cap1-rope-s11/canonical.gz	3689383	111c56baa78bdeb140b9baf7858f35565e1931f05e3a563e222557bf5ad6ea50	bb3e5d290479fed511a04df45d34e921
+loc-guccione_skin-rope-s11/cells/guccione_skin-locate-500kb__cap10-rope-s11/canonical.gz	25495795	9d963132ba6324c83eb22240f1f751020b72c9d638d263fcb072de1344d7f2c2	4a007e2716da3d16b41a90122b5ae4cb-4
+loc-guccione_skin-rope-s11/cells/guccione_skin-locate-500kb__cap100-rope-s11/canonical.gz	219305943	1379cf6c17928280bca0b9eb4e1a285f0f3faaabe22cf6844cfa5996506fef5e	9d776d58aa26e4cad5c550bf71c23d6b-27
+loc-guccione_skin-rope-s6/cells/guccione_skin-locate-500kb__cap1-rope-s6/canonical.gz	3683335	a8f721108231b2d80b53e1e1768d2c16fb530a9594efc37bb70a0eda117d5652	5ac786143b16da7507d9a5b5504c8cf0
+loc-guccione_skin-rope-s6/cells/guccione_skin-locate-500kb__cap10-rope-s6/canonical.gz	25474385	efe730924f0ab5391042ced086c91947f080585bb32566df29587da605a7c75a	457a11995870ed006e14ef18851e84df-4
+loc-guccione_skin-rope-s6/cells/guccione_skin-locate-500kb__cap100-rope-s6/canonical.gz	219360718	78cd567069b10a119e523fe4a6a4cbcefb25b7dcd055ca4071b74ceb383ff973	568296324a059a86e3f41c00bec7e97b-27
+loc-guccione_skin-rope-s8/cells/guccione_skin-locate-500kb__cap1-rope-s8/canonical.gz	3691264	07a9b7e85c03f7c053bd34b3f6753174cfb8efec4ed6e0f5c693a762b8047b5b	89d80d8bf16c14072b3f5746d424f8dd
+loc-guccione_skin-rope-s8/cells/guccione_skin-locate-500kb__cap10-rope-s8/canonical.gz	25500815	8ffc414034c08908b4b5a5ba1dda64693606c3474510722afd3e771844709e10	220ff429cb90c4c1972f86738150d8cd-4
+loc-guccione_skin-rope-s8/cells/guccione_skin-locate-500kb__cap100-rope-s8/canonical.gz	219340418	fc7e28873cae9ab61501b172b8c057afd1c42342deeb1c2c0b8e9795d867a1dd	34986352797f29322f49ad670d2ce500-27
+loc-human_ont_modern-ms2dual/cells/human_ont_modern-locate-10mb__cap1-dual-ordinary/canonical.gz	3270582	934bca401179f2d810246339a0942d8dd9fa8c8dffe63becb8a7f1f510f0cd4c	061731b27b2d98bfb327d5b355ba18f4
+loc-human_ont_modern-ms2dual/cells/human_ont_modern-locate-10mb__cap10-dual-ordinary/canonical.gz	18013394	59e00cdb24f1b0496a113692e3219e7ab5cb75158b076fdad65e88ff9386598c	96e864e18dc0117f5daaf40ffe1858b6-3
+loc-human_ont_modern-ms2dual/cells/human_ont_modern-locate-10mb__cap100-dual-ordinary/canonical.gz	152469219	1d74625c8a28fc7746b3059241f7827ed93a1fdf55574601d88db3e21a5924fc	61c8a1d4bd33acfab8cb9629c340919d-19
+loc-human_ont_modern-ms2phi/cells/human_ont_modern-locate-10mb__cap1-phi-ordinary/canonical.gz	3270582	934bca401179f2d810246339a0942d8dd9fa8c8dffe63becb8a7f1f510f0cd4c	061731b27b2d98bfb327d5b355ba18f4
+loc-human_ont_modern-ms2phi/cells/human_ont_modern-locate-10mb__cap10-phi-ordinary/canonical.gz	18013394	59e00cdb24f1b0496a113692e3219e7ab5cb75158b076fdad65e88ff9386598c	96e864e18dc0117f5daaf40ffe1858b6-3
+loc-human_ont_modern-ms2phi/cells/human_ont_modern-locate-10mb__cap100-phi-ordinary/canonical.gz	152469219	1d74625c8a28fc7746b3059241f7827ed93a1fdf55574601d88db3e21a5924fc	61c8a1d4bd33acfab8cb9629c340919d-19
+loc-human_ont_modern-rope-s11/cells/human_ont_modern-locate-10mb__cap1-rope-s11/canonical.gz	3305757	31988780eab012c2da31662a6bacd437d4860923c4fdd637b2bb0b0499900e57	72be72a4563ade87f2c74755dc9725b6
+loc-human_ont_modern-rope-s11/cells/human_ont_modern-locate-10mb__cap10-rope-s11/canonical.gz	18377909	655b0f02d33a5e7013da8d7c3d4226cd2658e6743844e77c5fdf916f1a0422da	368d6847620fce52fa0e95545311c050-3
+loc-human_ont_modern-rope-s11/cells/human_ont_modern-locate-10mb__cap100-rope-s11/canonical.gz	153378572	2e2c8af72ec61d2f2d44dbf912026bc18ad2715c5616c47f913f275767eea773	5f76878769019725db20206e821941b9-19
+loc-human_ont_modern-rope-s6/cells/human_ont_modern-locate-10mb__cap1-rope-s6/canonical.gz	3299845	b490d9f64bd0a5a7717ebe4acd05f2ac7e0708aeac6b9350ea0b1a8716bc617a	b0fcd03c1ab893f1b0ef22ddeeecc924
+loc-human_ont_modern-rope-s6/cells/human_ont_modern-locate-10mb__cap10-rope-s6/canonical.gz	18386166	833905328886aed9a385ddbbc99ee3a4f027544111954226d2c7ed6936d5c825	6a89052a2ef6ee45514eb78372ada85c-3
+loc-human_ont_modern-rope-s6/cells/human_ont_modern-locate-10mb__cap100-rope-s6/canonical.gz	153874872	78fa0201a8935c71570e30dfc2a1d3e484786395ec7290b925519d613425f876	a65267ad49a24abef8fbe0815850dc91-19
+loc-human_ont_modern-rope-s8/cells/human_ont_modern-locate-10mb__cap1-rope-s8/canonical.gz	3306330	7aefbda23115fc13ab9f20c816b47a7ba689cda3d6b66f4d0d9207cfa4a91c6c	632748caf600887f97259c6bd12703b1
+loc-human_ont_modern-rope-s8/cells/human_ont_modern-locate-10mb__cap10-rope-s8/canonical.gz	18401204	3b3bda0257211c670905117d0d4b59b91961db58caeb6c235b038e12a7bbc612	c4f15ca37a56387cd1b780dfcf727102-3
+loc-human_ont_modern-rope-s8/cells/human_ont_modern-locate-10mb__cap100-rope-s8/canonical.gz	153753724	e018207a2cd30b3a4eb328033c26014684dfa949e7d0055a76ded8a421bdaca6	753731527e56f4641458a87a3a9671af-19
+loc-human_pacbio-ms2dual/cells/human_pacbio-locate-20mb__cap1-dual-ordinary/canonical.gz	4675556	bdde7e4243b6e8f87b6d176a0ee655cab38f872c310fd67224122e38e6c3b924	86e4a8af1be95a317e6bc7647f3b2155
+loc-human_pacbio-ms2dual/cells/human_pacbio-locate-20mb__cap10-dual-ordinary/canonical.gz	25757865	9d4e51d4347542b5edac0a9eea00ec189a30d52b786908476d566660c62d0f66	402ebd179a77737c0045004ec72be1c6-4
+loc-human_pacbio-ms2dual/cells/human_pacbio-locate-20mb__cap100-dual-ordinary/canonical.gz	218705168	049b371c961dd13a484fc5ecf8a0a489b29901ce7c2f990a803d1518dc669016	70d358d3668e44486adee40d70c6e1fa-27
+loc-human_pacbio-ms2phi/cells/human_pacbio-locate-20mb__cap1-phi-ordinary/canonical.gz	4675556	bdde7e4243b6e8f87b6d176a0ee655cab38f872c310fd67224122e38e6c3b924	86e4a8af1be95a317e6bc7647f3b2155
+loc-human_pacbio-ms2phi/cells/human_pacbio-locate-20mb__cap10-phi-ordinary/canonical.gz	25757865	9d4e51d4347542b5edac0a9eea00ec189a30d52b786908476d566660c62d0f66	402ebd179a77737c0045004ec72be1c6-4
+loc-human_pacbio-ms2phi/cells/human_pacbio-locate-20mb__cap100-phi-ordinary/canonical.gz	218705168	049b371c961dd13a484fc5ecf8a0a489b29901ce7c2f990a803d1518dc669016	70d358d3668e44486adee40d70c6e1fa-27
+loc-human_pacbio-rope-s11/cells/human_pacbio-locate-20mb__cap1-rope-s11/canonical.gz	4751484	bbe38c246c943ba0b3ebe4c0006501926776acc17f34cdb37720cbecabf5e0cb	bb17d90df50fd132b5594634960faad0
+loc-human_pacbio-rope-s11/cells/human_pacbio-locate-20mb__cap10-rope-s11/canonical.gz	26487114	31df35b6c4e64a22b4e958df55125a82323f47b67de657a4a9294b24cb8d48b3	a2bb3ad4cfbca3b5216b41e87a741f72-4
+loc-human_pacbio-rope-s11/cells/human_pacbio-locate-20mb__cap100-rope-s11/canonical.gz	220536410	07c60b230ad60f860dd72e47a75354047a8d0d6d10431f6f73c47db3758d7026	02a299680d923f0eb1fbe0d40c5b1099-27
+loc-human_pacbio-rope-s6/cells/human_pacbio-locate-20mb__cap1-rope-s6/canonical.gz	4738920	8331e822417d60b6ab8f7de899912a746c39791fe66ead0a75010e99b7d25294	4e7c809d26cd64f8bd9dd8b4108e1683
+loc-human_pacbio-rope-s6/cells/human_pacbio-locate-20mb__cap10-rope-s6/canonical.gz	26543656	113c840487952bb44d98307e2f8fc653a2f35183144f7810470b768143ba7bd8	e2f5c2f024da976318c2204b590b531e-4
+loc-human_pacbio-rope-s6/cells/human_pacbio-locate-20mb__cap100-rope-s6/canonical.gz	223004170	e10cd77b50ba2172c70fe81ea556342befaac46870f8c0f3b232443a192bc4b8	c2d58d71fcff5b232dc09240a57fa38c-27
+loc-human_pacbio-rope-s8/cells/human_pacbio-locate-20mb__cap1-rope-s8/canonical.gz	4750447	6e1d4d87f63d23c465e1bb6d12880a6a9a3fbc6a41c4a23e2cf9f86d4ede5621	8ccfcba43dc9a6782970889796660349
+loc-human_pacbio-rope-s8/cells/human_pacbio-locate-20mb__cap10-rope-s8/canonical.gz	26557259	21709d93a02214f241c9609d97b0b5e4e0e886749a884ef6c8181c77548a686c	42b89bc3a4f6c8779c05b2e6d5e4b830-4
+loc-human_pacbio-rope-s8/cells/human_pacbio-locate-20mb__cap100-rope-s8/canonical.gz	222410197	3ddad62073a18da37e678a6996b650e47049c10509eac64caca171851ab1f241	f7eadad90f85f5089dc3c67e9c81abd3-27
+loc-human_short-ms2dual-ftab/cells/human_short-locate-6mb__cap1-dual-ftab/canonical.gz	2436396	fbf8c2a8de47be82f533bb3f919fa7f9cef998f39c7e0b71574239cf706c354f	034b3bcba07f0fb09b0cdbd9f33f7a42
+loc-human_short-ms2dual-ftab/cells/human_short-locate-6mb__cap10-dual-ftab/canonical.gz	15396806	5879fa107a248befb4fafd9e0596cbd60d270689cf36597805d61d2feccfebe0	ceb9fd08b39aacb9766d397e6999156c-2
+loc-human_short-ms2dual-ftab/cells/human_short-locate-6mb__cap100-dual-ftab/canonical.gz	135675501	d692929297bf5bf538615a5d4754c2a6626495687c30c371ed082b1f6336ea9e	c071c8cedee7a109d215bc54dc218869-17
+loc-human_short-ms2dual/cells/human_short-locate-6mb__cap1-dual-ordinary/canonical.gz	2436396	fbf8c2a8de47be82f533bb3f919fa7f9cef998f39c7e0b71574239cf706c354f	034b3bcba07f0fb09b0cdbd9f33f7a42
+loc-human_short-ms2dual/cells/human_short-locate-6mb__cap10-dual-ordinary/canonical.gz	15396806	5879fa107a248befb4fafd9e0596cbd60d270689cf36597805d61d2feccfebe0	ceb9fd08b39aacb9766d397e6999156c-2
+loc-human_short-ms2dual/cells/human_short-locate-6mb__cap100-dual-ordinary/canonical.gz	135675501	d692929297bf5bf538615a5d4754c2a6626495687c30c371ed082b1f6336ea9e	c071c8cedee7a109d215bc54dc218869-17
+loc-human_short-ms2phi-ftab/cells/human_short-locate-6mb__cap1-phi-ftab/canonical.gz	2436396	fbf8c2a8de47be82f533bb3f919fa7f9cef998f39c7e0b71574239cf706c354f	034b3bcba07f0fb09b0cdbd9f33f7a42
+loc-human_short-ms2phi-ftab/cells/human_short-locate-6mb__cap10-phi-ftab/canonical.gz	15396806	5879fa107a248befb4fafd9e0596cbd60d270689cf36597805d61d2feccfebe0	ceb9fd08b39aacb9766d397e6999156c-2
+loc-human_short-ms2phi-ftab/cells/human_short-locate-6mb__cap100-phi-ftab/canonical.gz	135675501	d692929297bf5bf538615a5d4754c2a6626495687c30c371ed082b1f6336ea9e	c071c8cedee7a109d215bc54dc218869-17
+loc-human_short-ms2phi/cells/human_short-locate-6mb__cap1-phi-ordinary/canonical.gz	2436396	fbf8c2a8de47be82f533bb3f919fa7f9cef998f39c7e0b71574239cf706c354f	034b3bcba07f0fb09b0cdbd9f33f7a42
+loc-human_short-ms2phi/cells/human_short-locate-6mb__cap10-phi-ordinary/canonical.gz	15396806	5879fa107a248befb4fafd9e0596cbd60d270689cf36597805d61d2feccfebe0	ceb9fd08b39aacb9766d397e6999156c-2
+loc-human_short-ms2phi/cells/human_short-locate-6mb__cap100-phi-ordinary/canonical.gz	135675501	d692929297bf5bf538615a5d4754c2a6626495687c30c371ed082b1f6336ea9e	c071c8cedee7a109d215bc54dc218869-17
+loc-human_short-rope-s11/cells/human_short-locate-6mb__cap1-rope-s11/canonical.gz	2460784	d4c18d265402cf27f4c5a1d11c01550f4c9bc42d91207bbc710bd65f95447f31	39a9b521ee4f4ae2541e9995de308b5d
+loc-human_short-rope-s11/cells/human_short-locate-6mb__cap10-rope-s11/canonical.gz	15670673	26082981e02b80297a44d5580d7a11622789481c842a58b4916c67c41ea1a25b	1ccf082ab5e3c3b46ff084f6c6f67f0e-2
+loc-human_short-rope-s11/cells/human_short-locate-6mb__cap100-rope-s11/canonical.gz	136455197	91e8c9789f241cc8930a8f55f0f36f746746cf7920ae99d987d30244f69fe6df	d8611e4843bf2f9eba043144d1bb56b1-17
+loc-human_short-rope-s6/cells/human_short-locate-6mb__cap1-rope-s6/canonical.gz	2458755	086dc51cf4b05afba87d812bca0aa0aff9e194e2be21ed0378678aeef9bf6c0a	ef29cddedbedfae1f7c52f2f05edcf7a
+loc-human_short-rope-s6/cells/human_short-locate-6mb__cap10-rope-s6/canonical.gz	15686321	008e1c06c56b1290cb569fc5ee222e9c6908b326c29cd22637395b19a57167be	fa7310d471f51bf3c05e4c3e2fc87123-2
+loc-human_short-rope-s6/cells/human_short-locate-6mb__cap100-rope-s6/canonical.gz	136825644	4f88be0f639baa2a5f8978eb3413877e655859012d189141aabcab2b688bb201	848f08b604ba8fd6babce82ede94c4f6-17
+loc-human_short-rope-s8/cells/human_short-locate-6mb__cap1-rope-s8/canonical.gz	2462624	0873fc441522e63745d4c1839aae6ddd47019c596fd7ac47f00aa9bbd14abaf8	4aa6b425121b053729f14ae83cf0c54f
+loc-human_short-rope-s8/cells/human_short-locate-6mb__cap10-rope-s8/canonical.gz	15696734	66004460b414c66f1c644458392ce064231bb02a18b7f0635f4a9198fc871010	5608c473985533c6204ebbc9dc148746-2
+loc-human_short-rope-s8/cells/human_short-locate-6mb__cap100-rope-s8/canonical.gz	136720774	88cdca552f3cbc53a15c4a769bd94d7c74e4733773cd6393b498c351c12cc3f6	2a3b67cd43027b2210f7ed844ba1f429-17
+traces/traces/human472/guccione_skin-ms-60mb-acgt-v2/dual.oracle	709638408	deb1412efd08b61c63aada29d93fe992c5914ca582d4d0bcb6b61119f95de3fc	06c9de4097636e4349058032e35f3f3b-85
+traces/traces/human472/guccione_skin-ms-60mb-acgt-v2/ms.oracle	709638408	7e508bf66606b4f1dd782b5340908624d92872cdcc55e5ac0b54fd77b7bb22f8	2a509eab54241331447c0812cc82ee52-85
+traces/traces/human472/guccione_skin-ms-60mb-acgt-v2/phi.oracle	709638408	7e508bf66606b4f1dd782b5340908624d92872cdcc55e5ac0b54fd77b7bb22f8	2a509eab54241331447c0812cc82ee52-85
+traces/traces/human472/guccione_skin-ms-60mb-acgt-v2/psi.oracle	709638408	deb1412efd08b61c63aada29d93fe992c5914ca582d4d0bcb6b61119f95de3fc	06c9de4097636e4349058032e35f3f3b-85
+traces/traces/human472/human472-apr008-hap1-p100k-s600-v1/dual.oracle	534944	c45afd1f80f82c2290d2bc0b22210f11ea70a8072233ec8be0dcf6c615befdb5	1fbd04c32f9da49ec1042a75e648b5c6
+traces/traces/human472/human472-apr008-hap1-p100k-s600-v1/ms.oracle	534944	23b39f61960b23e875003180267322d8254e79444a701f1dc0794c92a4194202	2076ed3ac3064eefd96beaa77dab4223
+traces/traces/human472/human472-apr008-hap1-p100k-s600-v1/phi.oracle	534944	23b39f61960b23e875003180267322d8254e79444a701f1dc0794c92a4194202	2076ed3ac3064eefd96beaa77dab4223
+traces/traces/human472/human472-apr008-hap1-p100k-s600-v1/psi.oracle	534944	c45afd1f80f82c2290d2bc0b22210f11ea70a8072233ec8be0dcf6c615befdb5	1fbd04c32f9da49ec1042a75e648b5c6
+traces/traces/human472/human472-apr008-pacbio-60mb-v2/dual.oracle	34642936	409a3ebca11e2056163eff6e8cfbfac9590e38675476e1162ec7116ad42bfff1	d1e43911ad57c619fe94e9666893fe19-5
+traces/traces/human472/human472-apr008-pacbio-60mb-v2/ms.oracle	34642936	81716505e7778eecbaa359ac564c6bccefe41572c6a77141c535ae58967d9315	01f95b58ff6ecbe466ee75c3126a504c-5
+traces/traces/human472/human472-apr008-pacbio-60mb-v2/phi.oracle	34642936	81716505e7778eecbaa359ac564c6bccefe41572c6a77141c535ae58967d9315	01f95b58ff6ecbe466ee75c3126a504c-5
+traces/traces/human472/human472-apr008-pacbio-60mb-v2/psi.oracle	34642936	409a3ebca11e2056163eff6e8cfbfac9590e38675476e1162ec7116ad42bfff1	d1e43911ad57c619fe94e9666893fe19-5
+traces/traces/human472/human_ont_modern-ms-60mb-acgt-v2/dual.oracle	24106096	dbb925bdf743b2a8f438de88357ad0b50d23fa44fe7542b1282c3814957a7958	f4dada1426be24444347d937376d0577-3
+traces/traces/human472/human_ont_modern-ms-60mb-acgt-v2/ms.oracle	24106096	7b01381f18edba2de749ff2d9f0e1727d1f78173d3348da474ab90e16a948f13	1e8ad1cc89a13a4afcd82545a394fcfb-3
+traces/traces/human472/human_ont_modern-ms-60mb-acgt-v2/phi.oracle	24106096	7b01381f18edba2de749ff2d9f0e1727d1f78173d3348da474ab90e16a948f13	1e8ad1cc89a13a4afcd82545a394fcfb-3
+traces/traces/human472/human_ont_modern-ms-60mb-acgt-v2/psi.oracle	24106096	dbb925bdf743b2a8f438de88357ad0b50d23fa44fe7542b1282c3814957a7958	f4dada1426be24444347d937376d0577-3
+traces/traces/human472/human_pacbio-ms-60mb-acgt-v2/dual.oracle	18030472	31fadabb1909ed24bfb28ab20a690a60b9e78ed54da2b968627e92507b659928	46640109a0a0749e30674527d91d6280-3
+traces/traces/human472/human_pacbio-ms-60mb-acgt-v2/ms.oracle	18030472	209e68404d02ecb0fa0d0ed26e1b039ccb1c7b9b73161bf630e2540e0db7e650	6905a49a1a51979346f761cc22ca5acf-3
+traces/traces/human472/human_pacbio-ms-60mb-acgt-v2/phi.oracle	18030472	209e68404d02ecb0fa0d0ed26e1b039ccb1c7b9b73161bf630e2540e0db7e650	6905a49a1a51979346f761cc22ca5acf-3
+traces/traces/human472/human_pacbio-ms-60mb-acgt-v2/psi.oracle	18030472	31fadabb1909ed24bfb28ab20a690a60b9e78ed54da2b968627e92507b659928	46640109a0a0749e30674527d91d6280-3
+traces/traces/human472/human_short-ms-60mb-acgt-v2/dual.oracle	137089760	e24dc42578fb1ca55d62d3537b0c7459b2f62e2d2e049b87db4ed6235ef9deea	a67e81f9144d034530b9be06d4fc3a8a-17
+traces/traces/human472/human_short-ms-60mb-acgt-v2/ms.oracle	137089760	9203268995fb755945bbbb558dc52d3d7766668a969cf64324d0d2523fc24eea	3d0c942a118dfb0320db29fd155a9f54-17
+traces/traces/human472/human_short-ms-60mb-acgt-v2/phi.oracle	137089760	9203268995fb755945bbbb558dc52d3d7766668a969cf64324d0d2523fc24eea	3d0c942a118dfb0320db29fd155a9f54-17
+traces/traces/human472/human_short-ms-60mb-acgt-v2/psi.oracle	137089760	e24dc42578fb1ca55d62d3537b0c7459b2f62e2d2e049b87db4ed6235ef9deea	a67e81f9144d034530b9be06d4fc3a8a-17
+traces/traces/mtb152/mtb152-heldout16-p100k-s600-v1/dual.oracle	621408	fc795615463f240e1d42c3d02386be6a77528b671484240fd7d2eedfc9e0af02	d4e66491636d210fadab2caa9fc26ebd
+traces/traces/mtb152/mtb152-heldout16-p100k-s600-v1/ms.oracle	621408	e5b54cf01576a3614ba19fb83d9adb7c4c7cb3a119d065a96463e99a4b9f1041	dbeebde3fbe68dce4e1f01eca3c25628
+traces/traces/mtb152/mtb152-heldout16-p100k-s600-v1/phi.oracle	621408	e5b54cf01576a3614ba19fb83d9adb7c4c7cb3a119d065a96463e99a4b9f1041	dbeebde3fbe68dce4e1f01eca3c25628
+traces/traces/mtb152/mtb152-heldout16-p100k-s600-v1/psi.oracle	621408	fc795615463f240e1d42c3d02386be6a77528b671484240fd7d2eedfc9e0af02	d4e66491636d210fadab2caa9fc26ebd
+traces/traces/mtb152/mtb152-pacbio-60mb-v2/dual.oracle	20582504	16c55a13fd1cce297296238be5c0da430718779a2593c993328a539fb9f293ea	c3731d83acf3cf11186c2b7770d986e1-3
+traces/traces/mtb152/mtb152-pacbio-60mb-v2/ms.oracle	20582504	553c651d22da3a8bd5553cf149fa1835af4fb08908ebc1bef501ec10d0d2b427	93bd5fcaecd762846fd3bae57aa7e5da-3
+traces/traces/mtb152/mtb152-pacbio-60mb-v2/phi.oracle	20582504	553c651d22da3a8bd5553cf149fa1835af4fb08908ebc1bef501ec10d0d2b427	93bd5fcaecd762846fd3bae57aa7e5da-3
+traces/traces/mtb152/mtb152-pacbio-60mb-v2/psi.oracle	20582504	16c55a13fd1cce297296238be5c0da430718779a2593c993328a539fb9f293ea	c3731d83acf3cf11186c2b7770d986e1-3
