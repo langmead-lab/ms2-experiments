@@ -1,0 +1,68 @@
+{
+  "run": 1,
+  "host": "ip-10-0-3-58.ec2.internal",
+  "started": 1793499586.7175462,
+  "one": {
+    "argv": [
+      "numactl",
+      "--cpunodebind=0",
+      "--membind=0",
+      "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simont/legacy/phoni-chr22-h10/reference.txt",
+      "-p",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simont/runs/chr22-h10-ms-simont__phoni/run1/one/reads.fa",
+      "-g",
+      "naive"
+    ],
+    "cache": "drop_caches",
+    "wall_seconds": 0.26475793000008707,
+    "peak_rss_kib": 614276,
+    "user_seconds": 0.06,
+    "system_seconds": 0.17,
+    "check": {
+      "reads": 1,
+      "positions": 16824,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simont/legacy/phoni-chr22-h10/reference.txt",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simont/runs/chr22-h10-ms-simont__phoni/run1/full/reads.fa",
+    "-g",
+    "naive"
+  ],
+  "cache": "drop_caches",
+  "timeout_s": 7200,
+  "wall_seconds": 121.07270863600024,
+  "user_seconds": 120.1,
+  "system_seconds": 0.92,
+  "peak_rss_kib": 629076,
+  "phase": {
+    "source": "one-read-wall",
+    "query_definition": "full run wall minus one-read run wall",
+    "load_seconds": 0.26475793000008707,
+    "query_seconds": 120.80795070600016
+  },
+  "check": {
+    "reads": 2782,
+    "positions": 59998845,
+    "failed": 0,
+    "every_position_checked": true,
+    "validation": "exact-ms-lengths",
+    "one_read": {
+      "reads": 1,
+      "positions": 16824,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "finished": 1793499727.8046644
+}

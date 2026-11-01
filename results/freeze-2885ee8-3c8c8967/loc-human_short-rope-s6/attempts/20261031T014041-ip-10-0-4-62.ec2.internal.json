@@ -1,0 +1,96 @@
+{
+  "job": "loc-human_short-rope-s6",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-4-62.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0aa1ad0e322d395b0",
+    "availability_zone": "us-east-1e",
+    "lifecycle": "spot"
+  },
+  "platform": "aws",
+  "started": 1793408192.6429975,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "loc-human_short-rope-s6",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 3,
+  "already_done": 0,
+  "order": [
+    "human_short-locate-6mb/cap10-rope-s6",
+    "human_short-locate-6mb/cap1-rope-s6",
+    "human_short-locate-6mb/cap100-rope-s6"
+  ],
+  "staging": {
+    "reads/human472/human_short-locate-6mb-v2/offsets.u64": {
+      "sha256": "150eb49086d6a941657871ba57c97cf2f3af5de8698e560582d6cbdcfe879b2f",
+      "bytes": 384008,
+      "fresh": true,
+      "seconds": 0.738149881362915
+    },
+    "reads/human472/human_short-locate-6mb-v2/reads.fa": {
+      "sha256": "a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338",
+      "bytes": 6420890,
+      "fresh": true,
+      "seconds": 0.7559518814086914
+    },
+    "reads/human472/human_short-locate-6mb-v2/truth.u32": {
+      "sha256": "350a3f83f92835ef6b6e732f9c55e408f8663ee8a7d6c8a885515e6a932fc176",
+      "bytes": 24000000,
+      "fresh": true,
+      "seconds": 0.8346519470214844
+    },
+    "ropebwt3/human472/index.fmd": {
+      "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626",
+      "bytes": 15427477160,
+      "fresh": false,
+      "seconds": 3.790855407714844e-05
+    },
+    "ropebwt3/human472/index.fmd.len.gz": {
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0",
+      "bytes": 286728,
+      "fresh": true,
+      "seconds": 0.717749834060669
+    },
+    "ropebwt3/human472/index.fmd.s6.ssa": {
+      "sha256": "be8947ff66e17eeb6cc3f267b678c81d823332340b97b43791d5092fb7916628",
+      "bytes": 355297611604,
+      "fresh": true,
+      "seconds": 871.112795829773
+    },
+    "tools/ropebwt3-cfad8475/ropebwt3": {
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d",
+      "bytes": 1595032,
+      "fresh": false,
+      "seconds": 3.743171691894531e-05
+    },
+    "tools/runtime/libgomp.so.1": {
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8",
+      "bytes": 1501072,
+      "fresh": false,
+      "seconds": 2.4557113647460938e-05
+    }
+  },
+  "finished": 1793410841.4306295,
+  "results": {
+    "human_short-locate-6mb/cap10-rope-s6": "checked",
+    "human_short-locate-6mb/cap1-rope-s6": "checked",
+    "human_short-locate-6mb/cap100-rope-s6": "checked"
+  }
+}

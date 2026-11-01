@@ -1,0 +1,37 @@
+{
+  "run": 3,
+  "host": "ip-10-0-4-177.ec2.internal",
+  "started": 1793517475.6125124,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t1",
+    "-K",
+    "1m",
+    "-l1",
+    "-p100",
+    "/work/stage/work/freeze-2885ee8-00e665de/loc-guccione_skin-rope-s6/rope/s6-ropebwt3_human472_index.fmd/index.fmd",
+    "/work/stage/inputs/d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c/reads.fa"
+  ],
+  "timeout_s": 14400,
+  "cache": "drop_caches",
+  "wall_seconds": 122.98000212900297,
+  "user_seconds": 25.83,
+  "system_seconds": 97.1,
+  "peak_rss_kib": 362400040,
+  "phase": {
+    "source": "ropebwt3-log-stamps",
+    "query_definition": "last processed stamp - last loaded stamp",
+    "load_seconds": 96.038,
+    "query_seconds": 26.298000000000002,
+    "components": {
+      "last_loaded_s": 96.038,
+      "last_processed_s": 122.336,
+      "processed_sequences": 3698
+    }
+  },
+  "finished": 1793517600.9273608
+}

@@ -1,0 +1,71 @@
+{
+  "run": 1,
+  "host": "ip-10-0-3-151.ec2.internal",
+  "started": 1793430630.4370298,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t1",
+    "-K",
+    "1m",
+    "-l1",
+    "-p10",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/loc-guccione_skin-rope-s11/rope/s11-ropebwt3_human472_index.fmd/index.fmd",
+    "/work/stage/inputs/d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c/reads.fa"
+  ],
+  "timeout_s": 14400,
+  "cache": "drop_caches",
+  "wall_seconds": 103.86195291900003,
+  "user_seconds": 92.98,
+  "system_seconds": 10.85,
+  "peak_rss_kib": 25968420,
+  "phase": {
+    "source": "ropebwt3-log-stamps",
+    "query_definition": "last processed stamp - last loaded stamp",
+    "load_seconds": 10.114,
+    "query_seconds": 93.068,
+    "components": {
+      "last_loaded_s": 10.114,
+      "last_processed_s": 103.182,
+      "processed_sequences": 3698
+    }
+  },
+  "check": {
+    "failed": 0,
+    "validation": "cross-tool-v1",
+    "tool": "rope",
+    "cap": 10,
+    "reads": 3698,
+    "intervals": 254100,
+    "zero_count_intervals": 0,
+    "reported_locations_checked": 2299824,
+    "locations_in_bounds": 2299824,
+    "ms_positions_checked": 499904,
+    "emitted_counts": 254100,
+    "complete_set_intervals": 31704,
+    "complete_set_locations": 75864,
+    "over_cap_intervals": 222396,
+    "over_cap_locations": 2223960,
+    "all_coordinates_checked": false,
+    "occurrence_reference_checked": false,
+    "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+    "count_checks": "cross-tool agreement",
+    "canonical": {
+      "format": "canonical-smem-v1",
+      "sha256": "414d116c91ca2ba821a3121036bb0517255c5fcf108fef265f27538affbc42e9",
+      "lines": 254100,
+      "bytes": 84375014,
+      "cap": 10,
+      "over_cap_lines": 222396,
+      "over_cap_locations": 2223960,
+      "over_cap_sha256": "0dda01507cba23f07e7fffd57f225e2d6b8095e6ab23c0cf1d7e357d93e0f88c",
+      "compressed_bytes": 25495795,
+      "compressed_sha256": "9d963132ba6324c83eb22240f1f751020b72c9d638d263fcb072de1344d7f2c2",
+      "path": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-guccione_skin-rope-s11/canonical/guccione_skin-locate-500kb__cap10-rope-s11.canonical.gz"
+    }
+  },
+  "finished": 1793430756.2453206
+}

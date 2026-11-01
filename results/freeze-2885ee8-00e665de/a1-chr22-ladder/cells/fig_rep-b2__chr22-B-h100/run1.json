@@ -1,0 +1,65 @@
+{
+  "run": 1,
+  "host": "ip-10-0-3-151.ec2.internal",
+  "started": 1793434307.2603328,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/usr/bin/python3",
+    "/work/code/bench/campaign-20261012/fig_rep.py",
+    "run",
+    "--binary",
+    "/work/stage/inputs/2b123fdd3470dbf05d3ec576a489d31a57daf9fd552398bcb390d6a616ef57cc/ms2-replog",
+    "--reads",
+    "/work/stage/inputs/8e5897988e4744c12a8f7fe9bf2734a38bb7ed3cdb9df40013370040c9da177f/reads.fa",
+    "--destination",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/a1-chr22-ladder/runs/fig_rep-b2__chr22-B-h100/run1/rep",
+    "--interleave",
+    "32",
+    "--index-psi",
+    "/work/stage/inputs/91d4d73f4f03b340ebcbd175b2676d738a2a5c0eb6b005a3d99438bd4445e4d9/index.tms.psi.orbitidx",
+    "--index-phi",
+    "/work/stage/inputs/79d3acf5297ebd632bd773e5e6447b3ead71313dca100c05109df08bedfd1116/index.tms.phi.orbitidx",
+    "--index-dual",
+    "/work/stage/inputs/9c90af192fe1c0e0d93bde0bd449b4428cc493e324b7a2ca08b9aeb02cbf2fb3/index.tms.full.orbitidx"
+  ],
+  "cache": "drop_caches",
+  "wall_seconds": 18.29113641100048,
+  "peak_rss_kib": 3030016,
+  "timeout_s": 14400,
+  "check": {
+    "outputs_identical": true,
+    "aligned": "every record matches psi in pattern, at, cap, lce and dist",
+    "log_sums_match_stats": true,
+    "bases": 59991907,
+    "repositions": 1871843
+  },
+  "phase": {
+    "source": "fig_rep.py",
+    "query_definition": "sum of the three modes' query_s",
+    "query_seconds": 9.59641,
+    "load_seconds": 3.238525
+  },
+  "rep": {
+    "repositions_per_base": 0.031201591908055198,
+    "times": {
+      "psi": {
+        "index_load_s": 0.713083,
+        "query_s": 2.77226,
+        "query_ns_per_base": 46.2106
+      },
+      "phi": {
+        "index_load_s": 0.991822,
+        "query_s": 4.61041,
+        "query_ns_per_base": 76.8505
+      },
+      "dual": {
+        "index_load_s": 1.53362,
+        "query_s": 2.21374,
+        "query_ns_per_base": 36.9007
+      }
+    }
+  },
+  "finished": 1793434325.8058867
+}

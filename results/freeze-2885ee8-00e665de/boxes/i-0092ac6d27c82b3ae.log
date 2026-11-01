@@ -1,0 +1,367 @@
+2026-11-01T01:33:21 run fig3-mtb152-pacbio-60mb-v2
+01:33:24 fig3-mtb152-pacbio-60mb-v2: 8 of 8 cells to run
+01:33:27 stage ms2/mtb152/index.ms.orbitidx
+01:33:28 stage ms2/mtb152/index.tms.full.orbitidx
+01:33:29 stage ms2/mtb152/index.tms.phi.orbitidx
+01:33:31 stage ms2/mtb152/index.tms.psi.orbitidx
+01:33:32 stage reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64
+01:33:32 stage reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa
+01:33:33 stage reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32
+01:33:35 stage tools/ms2-2885ee8/ms2-bench
+01:33:36 stage tools/ms_check
+01:33:38 fetched trace traces/mtb152/mtb152-pacbio-60mb-v2/phi.oracle 553c651d22da
+01:33:38 fig_ops-mtb152-pacbio-60mb-v2/phi-oracle run1
+01:33:40 fig_ops-mtb152-pacbio-60mb-v2/phi-oracle run2
+01:33:42 fig_ops-mtb152-pacbio-60mb-v2/phi-oracle run3
+01:33:52 fig_ops-mtb152-pacbio-60mb-v2/phi-oracle checked 1.84117 
+01:33:52 fig_ops-mtb152-pacbio-60mb-v2/dual-ordinary run1
+01:33:55 fig_ops-mtb152-pacbio-60mb-v2/dual-ordinary run2
+01:33:58 fig_ops-mtb152-pacbio-60mb-v2/dual-ordinary run3
+01:34:08 fig_ops-mtb152-pacbio-60mb-v2/dual-ordinary checked 2.26164 
+01:34:08 fig_ops-mtb152-pacbio-60mb-v2/phi-ordinary run1
+01:34:12 fig_ops-mtb152-pacbio-60mb-v2/phi-ordinary run2
+01:34:16 fig_ops-mtb152-pacbio-60mb-v2/phi-ordinary run3
+01:34:28 fig_ops-mtb152-pacbio-60mb-v2/phi-ordinary checked 3.60372 
+01:34:29 fetched trace traces/mtb152/mtb152-pacbio-60mb-v2/ms.oracle 553c651d22da
+01:34:29 fig_ops-mtb152-pacbio-60mb-v2/ms-oracle run1
+01:34:31 fig_ops-mtb152-pacbio-60mb-v2/ms-oracle run2
+01:34:33 fig_ops-mtb152-pacbio-60mb-v2/ms-oracle run3
+01:34:43 fig_ops-mtb152-pacbio-60mb-v2/ms-oracle checked 1.74388 
+01:34:44 fetched trace traces/mtb152/mtb152-pacbio-60mb-v2/dual.oracle 16c55a13fd1c
+01:34:44 fig_ops-mtb152-pacbio-60mb-v2/dual-oracle run1
+01:34:46 fig_ops-mtb152-pacbio-60mb-v2/dual-oracle run2
+01:34:48 fig_ops-mtb152-pacbio-60mb-v2/dual-oracle run3
+01:34:58 fig_ops-mtb152-pacbio-60mb-v2/dual-oracle checked 1.71721 
+01:34:58 fig_ops-mtb152-pacbio-60mb-v2/psi-ordinary run1
+01:35:01 fig_ops-mtb152-pacbio-60mb-v2/psi-ordinary run2
+01:35:03 fig_ops-mtb152-pacbio-60mb-v2/psi-ordinary run3
+01:35:13 fig_ops-mtb152-pacbio-60mb-v2/psi-ordinary checked 2.23335 
+01:35:13 fig_ops-mtb152-pacbio-60mb-v2/ms-ordinary run1
+01:35:16 fig_ops-mtb152-pacbio-60mb-v2/ms-ordinary run2
+01:35:18 fig_ops-mtb152-pacbio-60mb-v2/ms-ordinary run3
+01:35:28 fig_ops-mtb152-pacbio-60mb-v2/ms-ordinary checked 1.7738 
+01:35:29 fetched trace traces/mtb152/mtb152-pacbio-60mb-v2/psi.oracle 16c55a13fd1c
+01:35:29 fig_ops-mtb152-pacbio-60mb-v2/psi-oracle run1
+01:35:31 fig_ops-mtb152-pacbio-60mb-v2/psi-oracle run2
+01:35:33 fig_ops-mtb152-pacbio-60mb-v2/psi-oracle run3
+01:35:43 fig_ops-mtb152-pacbio-60mb-v2/psi-oracle checked 1.62819 
+01:35:47 fig3-mtb152-pacbio-60mb-v2: 0 cells without a done marker
+2026-11-01T01:35:47 job fig3-mtb152-pacbio-60mb-v2 exit 0
+2026-11-01T01:35:56 run fig3-human472-apr008-pacbio-60mb-v2-ms
+01:35:57 fig3-human472-apr008-pacbio-60mb-v2-ms: 2 of 2 cells to run
+01:35:59 stage ms2/human472/index.ms.orbitidx
+01:40:10 stage reads/human472/human472-apr008-pacbio-60mb-v2/offsets.u64
+01:40:10 stage reads/human472/human472-apr008-pacbio-60mb-v2/reads.fa
+01:40:11 stage reads/human472/human472-apr008-pacbio-60mb-v2/truth.u32
+01:40:13 fig_ops-human472-apr008-pacbio-60mb-v2/ms-ordinary run1
+01:41:05 fig_ops-human472-apr008-pacbio-60mb-v2/ms-ordinary run2
+01:41:51 fig_ops-human472-apr008-pacbio-60mb-v2/ms-ordinary run3
+01:42:45 fig_ops-human472-apr008-pacbio-60mb-v2/ms-ordinary checked 2.53446 
+01:42:46 fetched trace traces/human472/human472-apr008-pacbio-60mb-v2/ms.oracle 81716505e777
+01:42:46 fig_ops-human472-apr008-pacbio-60mb-v2/ms-oracle run1
+01:43:33 fig_ops-human472-apr008-pacbio-60mb-v2/ms-oracle run2
+01:44:18 fig_ops-human472-apr008-pacbio-60mb-v2/ms-oracle run3
+01:45:11 fig_ops-human472-apr008-pacbio-60mb-v2/ms-oracle checked 2.3332 
+01:45:13 fig3-human472-apr008-pacbio-60mb-v2-ms: 0 cells without a done marker
+2026-11-01T01:45:13 job fig3-human472-apr008-pacbio-60mb-v2-ms exit 0
+2026-11-01T01:45:21 run fig3-human472-apr008-pacbio-60mb-v2-dual
+01:45:21 fig3-human472-apr008-pacbio-60mb-v2-dual: 2 of 2 cells to run
+01:45:24 stage ms2/human472/index.tms.full.seqids.orbitidx
+02:01:34 fetched trace traces/human472/human472-apr008-pacbio-60mb-v2/dual.oracle 409a3ebca11e
+02:01:34 fig_ops-human472-apr008-pacbio-60mb-v2/dual-oracle run1
+02:03:16 fig_ops-human472-apr008-pacbio-60mb-v2/dual-oracle run2
+02:04:36 fig_ops-human472-apr008-pacbio-60mb-v2/dual-oracle run3
+02:06:03 fig_ops-human472-apr008-pacbio-60mb-v2/dual-oracle checked 2.20067 
+02:06:03 fig_ops-human472-apr008-pacbio-60mb-v2/dual-ordinary run1
+02:07:42 fig_ops-human472-apr008-pacbio-60mb-v2/dual-ordinary run2
+02:09:25 fig_ops-human472-apr008-pacbio-60mb-v2/dual-ordinary run3
+02:11:12 fig_ops-human472-apr008-pacbio-60mb-v2/dual-ordinary checked 3.02091 
+02:11:14 fig3-human472-apr008-pacbio-60mb-v2-dual: 0 cells without a done marker
+2026-11-01T02:11:14 job fig3-human472-apr008-pacbio-60mb-v2-dual exit 0
+2026-11-01T02:11:22 run fig4-chr22-h10-simpacbio
+02:11:26 fig4-chr22-h10-simpacbio: 12 of 12 cells to run
+02:11:28 stage augphoni/chr22-h10/reference.txt
+02:11:32 stage augphoni/chr22-h10/reference.txt.aug
+02:11:35 stage augphoni/chr22-h10/reference.txt.plain.slp
+02:11:36 stage moni/chr22-h10/index.idx
+02:11:37 stage moni/chr22-h10/index.plain.slp
+02:11:38 stage moni/chr22-h10/index.thrbv.ms
+02:11:41 stage ms2/chr22-h10/index.ms.orbitidx
+02:11:43 stage ms2/chr22-h10/index.tms.full.orbitidx
+02:11:52 stage ms2/chr22-h10/index.tms.phi.orbitidx
+02:11:59 stage ms2/chr22-h10/index.tms.psi.orbitidx
+02:12:02 stage phoni/chr22-h10/reference.txt.phoni
+02:12:04 stage reads/chr22-h10/simpacbio-60mb-v2/offsets.u64
+02:12:05 stage reads/chr22-h10/simpacbio-60mb-v2/one.fa
+02:12:05 stage reads/chr22-h10/simpacbio-60mb-v2/reads.fa
+02:12:06 stage reads/chr22-h10/simpacbio-60mb-v2/truth.u32
+02:12:08 stage ropebwt3/chr22-h10/index.fmd
+02:12:09 stage tools/augphoni/aug_phoni
+02:12:10 stage tools/moni/moni-ms
+02:12:11 stage tools/phoni/phoni
+02:12:11 stage tools/ropebwt3-cfad8475/ropebwt3
+02:12:12 stage tools/runtime/libgcc_s.so.1
+02:12:13 stage tools/runtime/libgomp.so.1
+02:12:14 stage tools/runtime/libstdc++.so.6
+02:12:15 chr22-h10-ms-simpacbio/phoni run1
+02:13:44 chr22-h10-ms-simpacbio/phoni run2
+02:14:53 chr22-h10-ms-simpacbio/phoni run3
+02:16:12 chr22-h10-ms-simpacbio/phoni checked 67.11609898699999 
+02:16:12 chr22-h10-ms-simpacbio/psi-ordinary run1
+02:16:16 chr22-h10-ms-simpacbio/psi-ordinary run2
+02:16:19 chr22-h10-ms-simpacbio/psi-ordinary run3
+02:16:30 chr22-h10-ms-simpacbio/psi-ordinary checked 2.82178 
+02:17:00 chr22-h10-ms-simpacbio/rope-default run1
+02:17:32 chr22-h10-ms-simpacbio/rope-default run2
+02:17:59 chr22-h10-ms-simpacbio/rope-default run3
+02:18:33 chr22-h10-ms-simpacbio/rope-default checked 26.155 
+02:18:33 chr22-h10-ms-simpacbio/phi-ordinary run1
+02:18:37 chr22-h10-ms-simpacbio/phi-ordinary run2
+02:18:40 chr22-h10-ms-simpacbio/phi-ordinary run3
+02:18:52 chr22-h10-ms-simpacbio/phi-ordinary checked 3.03528 
+02:18:52 chr22-h10-ms-simpacbio/augphoni run1
+02:20:14 chr22-h10-ms-simpacbio/augphoni run2
+02:21:17 chr22-h10-ms-simpacbio/augphoni run3
+02:22:31 chr22-h10-ms-simpacbio/augphoni checked 61.70085650899955 
+02:22:31 chr22-h10-ms-simpacbio/rope-l1 run1
+02:23:18 chr22-h10-ms-simpacbio/rope-l1 run2
+02:23:53 chr22-h10-ms-simpacbio/rope-l1 run3
+02:24:36 chr22-h10-ms-simpacbio/rope-l1 checked 34.792 
+02:24:36 chr22-h10-ms-simpacbio/moni run1
+02:26:07 chr22-h10-ms-simpacbio/moni run2
+02:27:17 chr22-h10-ms-simpacbio/moni run3
+02:28:37 chr22-h10-ms-simpacbio/moni checked 69.1716130990003 
+02:29:06 chr22-h10-ms-simpacbio/rope-l30 run1
+02:29:36 chr22-h10-ms-simpacbio/rope-l30 run2
+02:30:00 chr22-h10-ms-simpacbio/rope-l30 run3
+02:30:32 chr22-h10-ms-simpacbio/rope-l30 checked 23.778 
+02:31:01 chr22-h10-ms-simpacbio/rope-l25 run1
+02:31:32 chr22-h10-ms-simpacbio/rope-l25 run2
+02:31:56 chr22-h10-ms-simpacbio/rope-l25 run3
+02:32:29 chr22-h10-ms-simpacbio/rope-l25 checked 24.427999999999997 
+02:32:29 chr22-h10-ms-simpacbio/ms-ordinary run1
+02:32:32 chr22-h10-ms-simpacbio/ms-ordinary run2
+02:32:34 chr22-h10-ms-simpacbio/ms-ordinary run3
+02:32:45 chr22-h10-ms-simpacbio/ms-ordinary checked 1.97807 
+02:33:14 chr22-h10-ms-simpacbio/rope-l40 run1
+02:33:44 chr22-h10-ms-simpacbio/rope-l40 run2
+02:34:07 chr22-h10-ms-simpacbio/rope-l40 run3
+02:34:39 chr22-h10-ms-simpacbio/rope-l40 checked 23.255 
+02:34:39 chr22-h10-ms-simpacbio/dual-ordinary run1
+02:34:42 chr22-h10-ms-simpacbio/dual-ordinary run2
+02:34:46 chr22-h10-ms-simpacbio/dual-ordinary run3
+02:34:57 chr22-h10-ms-simpacbio/dual-ordinary checked 2.49016 
+02:35:03 fig4-chr22-h10-simpacbio: 0 cells without a done marker
+2026-11-01T02:35:03 job fig4-chr22-h10-simpacbio exit 0
+2026-11-01T02:35:11 run fig5-human_short-rope
+02:35:13 fig5-human_short-rope: 5 of 5 cells to run
+02:35:13 stage reads/human472/human_short-ms-60mb-acgt-v2/offsets.u64
+02:35:14 stage reads/human472/human_short-ms-60mb-acgt-v2/reads.fa
+02:35:15 stage reads/human472/human_short-ms-60mb-acgt-v2/truth.u32
+02:35:16 stage ropebwt3/human472/index.fmd
+02:37:01 human_short-ms-acgt60mb/rope-l25 run1
+02:37:53 human_short-ms-acgt60mb/rope-l25 run2
+02:38:39 human_short-ms-acgt60mb/rope-l25 run3
+02:39:33 human_short-ms-acgt60mb/rope-l25 checked 41.384 
+02:40:37 human_short-ms-acgt60mb/rope-l40 run1
+02:41:21 human_short-ms-acgt60mb/rope-l40 run2
+02:42:00 human_short-ms-acgt60mb/rope-l40 run3
+02:42:46 human_short-ms-acgt60mb/rope-l40 checked 34.088 
+02:42:46 human_short-ms-acgt60mb/rope-l1 run1
+02:44:23 human_short-ms-acgt60mb/rope-l1 run2
+02:45:48 human_short-ms-acgt60mb/rope-l1 run3
+02:47:21 human_short-ms-acgt60mb/rope-l1 checked 80.34 
+02:48:25 human_short-ms-acgt60mb/rope-l30 run1
+02:49:13 human_short-ms-acgt60mb/rope-l30 run2
+02:49:55 human_short-ms-acgt60mb/rope-l30 run3
+02:50:45 human_short-ms-acgt60mb/rope-l30 checked 37.635999999999996 
+02:51:49 human_short-ms-acgt60mb/rope-default run1
+02:52:57 human_short-ms-acgt60mb/rope-default run2
+02:53:58 human_short-ms-acgt60mb/rope-default run3
+02:55:06 human_short-ms-acgt60mb/rope-default checked 56.429 
+02:55:09 fig5-human_short-rope: 0 cells without a done marker
+2026-11-01T02:55:09 job fig5-human_short-rope exit 0
+2026-11-01T02:55:18 run fig5-human_pacbio-rope
+02:55:19 fig5-human_pacbio-rope: 5 of 5 cells to run
+02:55:19 stage reads/human472/human_pacbio-ms-60mb-acgt-v2/offsets.u64
+02:55:20 stage reads/human472/human_pacbio-ms-60mb-acgt-v2/reads.fa
+02:55:21 stage reads/human472/human_pacbio-ms-60mb-acgt-v2/truth.u32
+02:56:07 human_pacbio-ms-acgt60mb/rope-l25 run1
+02:56:55 human_pacbio-ms-acgt60mb/rope-l25 run2
+02:57:37 human_pacbio-ms-acgt60mb/rope-l25 run3
+02:58:26 human_pacbio-ms-acgt60mb/rope-l25 checked 37.21 
+02:59:10 human_pacbio-ms-acgt60mb/rope-l40 run1
+02:59:54 human_pacbio-ms-acgt60mb/rope-l40 run2
+03:00:33 human_pacbio-ms-acgt60mb/rope-l40 run3
+03:01:19 human_pacbio-ms-acgt60mb/rope-l40 checked 34.229 
+03:02:04 human_pacbio-ms-acgt60mb/rope-l30 run1
+03:02:50 human_pacbio-ms-acgt60mb/rope-l30 run2
+03:03:30 human_pacbio-ms-acgt60mb/rope-l30 run3
+03:04:18 human_pacbio-ms-acgt60mb/rope-l30 checked 35.825 
+03:05:02 human_pacbio-ms-acgt60mb/rope-default run1
+03:05:57 human_pacbio-ms-acgt60mb/rope-default run2
+03:06:46 human_pacbio-ms-acgt60mb/rope-default run3
+03:07:41 human_pacbio-ms-acgt60mb/rope-default checked 44.006 
+03:07:41 human_pacbio-ms-acgt60mb/rope-l1 run1
+03:08:50 human_pacbio-ms-acgt60mb/rope-l1 run2
+03:09:48 human_pacbio-ms-acgt60mb/rope-l1 run3
+03:10:54 human_pacbio-ms-acgt60mb/rope-l1 checked 53.387 
+03:10:57 fig5-human_pacbio-rope: 0 cells without a done marker
+2026-11-01T03:10:57 job fig5-human_pacbio-rope exit 0
+2026-11-01T03:11:05 run fig5-guccione_skin-ms2ms
+03:11:06 fig5-guccione_skin-ms2ms: 2 of 2 cells to run
+03:11:08 stage reads/human472/guccione_skin-ms-60mb-acgt-v2/offsets.u64
+03:11:09 stage reads/human472/guccione_skin-ms-60mb-acgt-v2/reads.fa
+03:11:10 stage reads/human472/guccione_skin-ms-60mb-acgt-v2/truth.u32
+03:11:15 fetched trace traces/human472/guccione_skin-ms-60mb-acgt-v2/ms.oracle 7e508bf66606
+03:11:15 guccione_skin-ms-acgt60mb/ms-oracle run1
+03:12:00 guccione_skin-ms-acgt60mb/ms-oracle run2
+03:12:45 guccione_skin-ms-acgt60mb/ms-oracle run3
+03:13:38 guccione_skin-ms-acgt60mb/ms-oracle checked 2.30162 
+03:13:38 guccione_skin-ms-acgt60mb/ms-ordinary run1
+03:14:28 guccione_skin-ms-acgt60mb/ms-ordinary run2
+03:15:18 guccione_skin-ms-acgt60mb/ms-ordinary run3
+03:16:16 guccione_skin-ms-acgt60mb/ms-ordinary checked 5.9054 
+03:16:18 fig5-guccione_skin-ms2ms: 0 cells without a done marker
+2026-11-01T03:16:18 job fig5-guccione_skin-ms2ms exit 0
+2026-11-01T03:16:26 run fig5-guccione_skin-ms2psi
+03:16:27 fig5-guccione_skin-ms2psi: 2 of 2 cells to run
+03:16:29 stage ms2/human472/index.tms.psi.orbitidx
+03:20:40 fetched trace traces/human472/guccione_skin-ms-60mb-acgt-v2/psi.oracle deb1412efd08
+03:20:40 guccione_skin-ms-acgt60mb/psi-oracle run1
+03:21:36 guccione_skin-ms-acgt60mb/psi-oracle run2
+03:22:27 guccione_skin-ms-acgt60mb/psi-oracle run3
+03:23:26 guccione_skin-ms-acgt60mb/psi-oracle checked 3.30032 
+03:23:26 guccione_skin-ms-acgt60mb/psi-ordinary run1
+03:24:35 guccione_skin-ms-acgt60mb/psi-ordinary run2
+03:25:43 guccione_skin-ms-acgt60mb/psi-ordinary run3
+03:26:58 guccione_skin-ms-acgt60mb/psi-ordinary checked 21.5319 
+03:27:00 fig5-guccione_skin-ms2psi: 0 cells without a done marker
+2026-11-01T03:27:00 job fig5-guccione_skin-ms2psi exit 0
+2026-11-01T03:27:09 run fig5-guccione_skin-ms2phi
+03:27:10 fig5-guccione_skin-ms2phi: 2 of 2 cells to run
+03:27:12 stage ms2/human472/index.tms.phi.orbitidx
+03:40:22 guccione_skin-ms-acgt60mb/phi-ordinary run1
+03:43:53 guccione_skin-ms-acgt60mb/phi-ordinary run2
+03:47:09 guccione_skin-ms-acgt60mb/phi-ordinary run3
+03:50:33 guccione_skin-ms-acgt60mb/phi-ordinary checked 134.168 
+03:50:36 fetched trace traces/human472/guccione_skin-ms-60mb-acgt-v2/phi.oracle 7e508bf66606
+03:50:36 guccione_skin-ms-acgt60mb/phi-oracle run1
+03:51:21 guccione_skin-ms-acgt60mb/phi-oracle run2
+03:52:05 guccione_skin-ms-acgt60mb/phi-oracle run3
+03:52:59 guccione_skin-ms-acgt60mb/phi-oracle checked 3.44351 
+03:53:01 fig5-guccione_skin-ms2phi: 0 cells without a done marker
+2026-11-01T03:53:01 job fig5-guccione_skin-ms2phi exit 0
+2026-11-01T03:53:09 run loc-human_short-ms2phi
+03:53:10 loc-human_short-ms2phi: 3 of 3 cells to run
+03:53:12 stage reads/human472/human_short-locate-6mb-v2/offsets.u64
+03:53:13 stage reads/human472/human_short-locate-6mb-v2/reads.fa
+03:53:14 stage reads/human472/human_short-locate-6mb-v2/truth.u32
+03:53:15 stage ropebwt3/human472/index.fmd.len.gz
+03:53:16 human_short-locate-6mb/cap10-phi-ordinary run1
+03:56:41 human_short-locate-6mb/cap10-phi-ordinary run2
+03:59:57 human_short-locate-6mb/cap10-phi-ordinary run3
+04:03:21 human_short-locate-6mb/cap10-phi-ordinary checked 2.56791 
+04:03:21 human_short-locate-6mb/cap1-phi-ordinary run1
+04:06:41 human_short-locate-6mb/cap1-phi-ordinary run2
+04:09:57 human_short-locate-6mb/cap1-phi-ordinary run3
+04:13:21 human_short-locate-6mb/cap1-phi-ordinary checked 2.44529 
+04:13:21 human_short-locate-6mb/cap100-phi-ordinary run1
+04:18:38 human_short-locate-6mb/cap100-phi-ordinary run2
+04:21:53 human_short-locate-6mb/cap100-phi-ordinary run3
+04:25:16 human_short-locate-6mb/cap100-phi-ordinary checked 3.4073 
+04:25:19 loc-human_short-ms2phi: 0 cells without a done marker
+2026-11-01T04:25:19 job loc-human_short-ms2phi exit 0
+2026-11-01T04:25:27 run loc-human_short-ms2dual-ftab
+04:25:29 loc-human_short-ms2dual-ftab: 3 of 3 cells to run
+04:25:31 stage ms2/human472/index.tms.full.seqids.orbitidx.ftab
+04:25:41 human_short-locate-6mb/cap10-dual-ftab run1
+04:29:10 human_short-locate-6mb/cap10-dual-ftab run2
+04:32:22 human_short-locate-6mb/cap10-dual-ftab run3
+04:35:43 human_short-locate-6mb/cap10-dual-ftab checked 1.03735 
+04:35:43 human_short-locate-6mb/cap100-dual-ftab run1
+04:40:59 human_short-locate-6mb/cap100-dual-ftab run2
+04:44:13 human_short-locate-6mb/cap100-dual-ftab run3
+04:47:35 human_short-locate-6mb/cap100-dual-ftab checked 1.87969 
+04:47:35 human_short-locate-6mb/cap1-dual-ftab run1
+04:50:52 human_short-locate-6mb/cap1-dual-ftab run2
+04:54:03 human_short-locate-6mb/cap1-dual-ftab run3
+04:57:29 human_short-locate-6mb/cap1-dual-ftab checked 0.91611 
+04:57:32 loc-human_short-ms2dual-ftab: 0 cells without a done marker
+2026-11-01T04:57:32 job loc-human_short-ms2dual-ftab exit 0
+2026-11-01T04:57:40 run loc-human_pacbio-ms2phi
+04:57:41 loc-human_pacbio-ms2phi: 3 of 3 cells to run
+04:57:44 stage reads/human472/human_pacbio-locate-20mb-v2/offsets.u64
+04:57:44 stage reads/human472/human_pacbio-locate-20mb-v2/reads.fa
+04:57:45 stage reads/human472/human_pacbio-locate-20mb-v2/truth.u32
+04:57:46 human_pacbio-locate-20mb/cap100-phi-ordinary run1
+05:04:24 human_pacbio-locate-20mb/cap100-phi-ordinary run2
+05:07:45 human_pacbio-locate-20mb/cap100-phi-ordinary run3
+05:11:14 human_pacbio-locate-20mb/cap100-phi-ordinary checked 4.59351 
+05:11:14 human_pacbio-locate-20mb/cap10-phi-ordinary run1
+05:15:01 human_pacbio-locate-20mb/cap10-phi-ordinary run2
+05:18:17 human_pacbio-locate-20mb/cap10-phi-ordinary run3
+05:21:40 human_pacbio-locate-20mb/cap10-phi-ordinary checked 2.97801 
+05:21:40 human_pacbio-locate-20mb/cap1-phi-ordinary run1
+05:25:06 human_pacbio-locate-20mb/cap1-phi-ordinary run2
+05:28:19 human_pacbio-locate-20mb/cap1-phi-ordinary run3
+05:31:46 human_pacbio-locate-20mb/cap1-phi-ordinary checked 2.71905 
+05:31:48 loc-human_pacbio-ms2phi: 0 cells without a done marker
+2026-11-01T05:31:48 job loc-human_pacbio-ms2phi exit 0
+2026-11-01T05:31:57 run loc-human_ont_modern-ms2psi
+05:31:58 loc-human_ont_modern-ms2psi: 3 of 3 cells to run
+05:32:00 stage ms2/human472/index.tms.psi-locate.orbitidx
+05:46:03 stage reads/human472/human_ont_modern-locate-10mb-v2/offsets.u64
+05:46:04 stage reads/human472/human_ont_modern-locate-10mb-v2/reads.fa
+05:46:05 stage reads/human472/human_ont_modern-locate-10mb-v2/truth.u32
+05:46:06 human_ont_modern-locate-10mb/cap10-psi-ordinary run1
+05:49:55 human_ont_modern-locate-10mb/cap10-psi-ordinary run2
+05:53:04 human_ont_modern-locate-10mb/cap10-psi-ordinary run3
+05:56:16 human_ont_modern-locate-10mb/cap10-psi-ordinary checked 1.61201 
+05:56:16 human_ont_modern-locate-10mb/cap100-psi-ordinary run1
+06:01:46 human_ont_modern-locate-10mb/cap100-psi-ordinary run2
+06:04:54 human_ont_modern-locate-10mb/cap100-psi-ordinary run3
+06:08:11 human_ont_modern-locate-10mb/cap100-psi-ordinary checked 2.76367 
+06:08:11 human_ont_modern-locate-10mb/cap1-psi-ordinary run1
+06:11:30 human_ont_modern-locate-10mb/cap1-psi-ordinary run2
+06:14:34 human_ont_modern-locate-10mb/cap1-psi-ordinary run3
+06:17:47 human_ont_modern-locate-10mb/cap1-psi-ordinary checked 1.43205 
+06:17:49 loc-human_ont_modern-ms2psi: 0 cells without a done marker
+2026-11-01T06:17:49 job loc-human_ont_modern-ms2psi exit 0
+2026-11-01T06:17:59 run loc-guccione_skin-ms2psi
+06:18:00 loc-guccione_skin-ms2psi: 3 of 3 cells to run
+06:18:02 stage reads/human472/guccione_skin-locate-500kb-v2/offsets.u64
+06:18:03 stage reads/human472/guccione_skin-locate-500kb-v2/reads.fa
+06:18:03 stage reads/human472/guccione_skin-locate-500kb-v2/truth.u32
+06:18:04 guccione_skin-locate-500kb/cap1-psi-ordinary run1
+06:21:17 guccione_skin-locate-500kb/cap1-psi-ordinary run2
+06:24:27 guccione_skin-locate-500kb/cap1-psi-ordinary run3
+06:27:43 guccione_skin-locate-500kb/cap1-psi-ordinary checked 0.821458 
+06:27:43 guccione_skin-locate-500kb/cap10-psi-ordinary run1
+06:31:11 guccione_skin-locate-500kb/cap10-psi-ordinary run2
+06:34:16 guccione_skin-locate-500kb/cap10-psi-ordinary run3
+06:37:28 guccione_skin-locate-500kb/cap10-psi-ordinary checked 1.03398 
+06:37:28 guccione_skin-locate-500kb/cap100-psi-ordinary run1
+06:43:55 guccione_skin-locate-500kb/cap100-psi-ordinary run2
+06:47:08 guccione_skin-locate-500kb/cap100-psi-ordinary run3
+06:50:25 guccione_skin-locate-500kb/cap100-psi-ordinary checked 2.64266 
+06:50:27 loc-guccione_skin-ms2psi: 0 cells without a done marker
+2026-11-01T06:50:27 job loc-guccione_skin-ms2psi exit 0
+2026-11-01T06:50:36 run loc-guccione_skin-rope-s6
+06:50:37 loc-guccione_skin-rope-s6: 3 of 3 cells to run
+06:50:37 stage ropebwt3/human472/index.fmd.s6.ssa
+07:04:30 guccione_skin-locate-500kb/cap1-rope-s6 run1
+07:06:39 guccione_skin-locate-500kb/cap1-rope-s6 run2
+07:08:27 guccione_skin-locate-500kb/cap1-rope-s6 run3
+07:10:22 guccione_skin-locate-500kb/cap1-rope-s6 checked 7.188000000000002 
+07:10:22 guccione_skin-locate-500kb/cap100-rope-s6 run1
+07:15:47 guccione_skin-locate-500kb/cap100-rope-s6 run2
+07:17:55 guccione_skin-locate-500kb/cap100-rope-s6 run3
+07:20:10 guccione_skin-locate-500kb/cap100-rope-s6 checked 26.221000000000004 
+07:20:10 guccione_skin-locate-500kb/cap10-rope-s6 run1
+07:22:21 guccione_skin-locate-500kb/cap10-rope-s6 run2
+07:24:12 guccione_skin-locate-500kb/cap10-rope-s6 run3
+07:26:13 guccione_skin-locate-500kb/cap10-rope-s6 checked 8.638999999999996 
+07:26:15 loc-guccione_skin-rope-s6: 0 cells without a done marker
+2026-11-01T07:26:15 job loc-guccione_skin-rope-s6 exit 0
+2026-11-01T07:26:19 nothing ready; 1 jobs unfinished; waiting

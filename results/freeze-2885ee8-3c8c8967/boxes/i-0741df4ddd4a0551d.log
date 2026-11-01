@@ -1,0 +1,232 @@
+2026-10-31T11:56:00 run fig3count-mtb152-pacbio-60mb-v2
+11:56:03 fig3count-mtb152-pacbio-60mb-v2: 7 of 8 cells to run
+11:56:05 stage ms2/mtb152/index.ms.orbitidx
+11:56:06 stage ms2/mtb152/index.tms.full.orbitidx
+11:56:07 stage ms2/mtb152/index.tms.phi.orbitidx
+11:56:09 stage ms2/mtb152/index.tms.psi.orbitidx
+11:56:10 stage reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64
+11:56:10 stage reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa
+11:56:11 stage reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32
+11:56:13 stage tools/ms2-2885ee8/ms2-stats
+11:56:13 stage tools/ms_check
+11:56:14 fig_ops-mtb152-pacbio-60mb-v2-counts/ms-oracle run1
+11:56:18 fig_ops-mtb152-pacbio-60mb-v2-counts/ms-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2-counts__ms-oracle/run1/run1.stderr
+11:56:18 fig_ops-mtb152-pacbio-60mb-v2-counts/phi-oracle run1
+11:56:21 fig_ops-mtb152-pacbio-60mb-v2-counts/phi-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2-counts__phi-oracle/run1/run1.stderr
+11:56:21 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-oracle run1
+11:56:25 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2-counts__dual-oracle/run1/run1.stderr
+11:56:25 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-ordinary run1
+Traceback (most recent call last):
+  File "/work/code/bench/freeze/run_job.py", line 683, in <module>
+    main()
+  File "/work/code/bench/freeze/run_job.py", line 679, in main
+    sys.exit(Runner(p.parse_args()).run())
+  File "/work/code/bench/freeze/run_job.py", line 623, in run
+    results[cell['id']] = self.run_cell(cell)['status']
+  File "/work/code/bench/freeze/run_job.py", line 535, in run_cell
+    record = self.run_once(cell, index, cell_dir)
+  File "/work/code/bench/freeze/run_job.py", line 436, in run_once
+    record['ops_per_base'] = parse_stats(stderr, cell['layout'])
+  File "/work/code/bench/campaign-20261012/explore_ops.py", line 852, in parse_stats
+    raise ValueError(f'Expected one stats line with {want}, found {len(rows)}')
+ValueError: Expected one stats line with psi_steps/base, found 2
+2026-10-31T11:56:28 job fig3count-mtb152-pacbio-60mb-v2 exit 1
+2026-10-31T11:56:31 run fig3count-mtb152-pacbio-60mb-v2
+11:56:34 fig3count-mtb152-pacbio-60mb-v2: 7 of 8 cells to run
+11:56:36 fig_ops-mtb152-pacbio-60mb-v2-counts/ms-oracle run1 reused
+11:56:39 fig_ops-mtb152-pacbio-60mb-v2-counts/ms-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2-counts__ms-oracle/run1/run1.stderr
+11:56:39 fig_ops-mtb152-pacbio-60mb-v2-counts/phi-oracle run1 reused
+11:56:42 fig_ops-mtb152-pacbio-60mb-v2-counts/phi-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2-counts__phi-oracle/run1/run1.stderr
+11:56:42 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-oracle run1 reused
+11:56:44 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2-counts__dual-oracle/run1/run1.stderr
+11:56:44 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-ordinary run1
+Traceback (most recent call last):
+  File "/work/code/bench/freeze/run_job.py", line 683, in <module>
+    main()
+  File "/work/code/bench/freeze/run_job.py", line 679, in main
+    sys.exit(Runner(p.parse_args()).run())
+  File "/work/code/bench/freeze/run_job.py", line 623, in run
+    results[cell['id']] = self.run_cell(cell)['status']
+  File "/work/code/bench/freeze/run_job.py", line 535, in run_cell
+    record = self.run_once(cell, index, cell_dir)
+  File "/work/code/bench/freeze/run_job.py", line 436, in run_once
+    record['ops_per_base'] = parse_stats(stderr, cell['layout'])
+  File "/work/code/bench/campaign-20261012/explore_ops.py", line 852, in parse_stats
+    raise ValueError(f'Expected one stats line with {want}, found {len(rows)}')
+ValueError: Expected one stats line with psi_steps/base, found 2
+2026-10-31T11:56:47 job fig3count-mtb152-pacbio-60mb-v2 exit 1
+2026-10-31T11:56:51 run fig3count-mtb152-heldout16-p100k-s600-v1
+11:56:54 fig3count-mtb152-heldout16-p100k-s600-v1: 6 of 8 cells to run
+11:56:56 stage reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64
+11:56:56 stage reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa
+11:56:57 stage reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32
+11:56:59 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-oracle run1
+11:57:02 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1-counts__dual-oracle/run1/run1.stderr
+11:57:02 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/psi-oracle run1
+11:57:06 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/psi-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1-counts__psi-oracle/run1/run1.stderr
+11:57:06 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/phi-oracle run1
+11:57:09 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/phi-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1-counts__phi-oracle/run1/run1.stderr
+11:57:09 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-ordinary run1
+Traceback (most recent call last):
+  File "/work/code/bench/freeze/run_job.py", line 683, in <module>
+    main()
+  File "/work/code/bench/freeze/run_job.py", line 679, in main
+    sys.exit(Runner(p.parse_args()).run())
+  File "/work/code/bench/freeze/run_job.py", line 623, in run
+    results[cell['id']] = self.run_cell(cell)['status']
+  File "/work/code/bench/freeze/run_job.py", line 535, in run_cell
+    record = self.run_once(cell, index, cell_dir)
+  File "/work/code/bench/freeze/run_job.py", line 436, in run_once
+    record['ops_per_base'] = parse_stats(stderr, cell['layout'])
+  File "/work/code/bench/campaign-20261012/explore_ops.py", line 852, in parse_stats
+    raise ValueError(f'Expected one stats line with {want}, found {len(rows)}')
+ValueError: Expected one stats line with psi_steps/base, found 2
+2026-10-31T11:57:12 job fig3count-mtb152-heldout16-p100k-s600-v1 exit 1
+2026-10-31T11:57:15 run fig3count-mtb152-heldout16-p100k-s600-v1
+11:57:18 fig3count-mtb152-heldout16-p100k-s600-v1: 6 of 8 cells to run
+11:57:20 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-oracle run1 reused
+11:57:23 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1-counts__dual-oracle/run1/run1.stderr
+11:57:23 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/psi-oracle run1 reused
+11:57:26 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/psi-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1-counts__psi-oracle/run1/run1.stderr
+11:57:26 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/phi-oracle run1 reused
+11:57:28 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/phi-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1-counts__phi-oracle/run1/run1.stderr
+11:57:28 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-ordinary run1
+Traceback (most recent call last):
+  File "/work/code/bench/freeze/run_job.py", line 683, in <module>
+    main()
+  File "/work/code/bench/freeze/run_job.py", line 679, in main
+    sys.exit(Runner(p.parse_args()).run())
+  File "/work/code/bench/freeze/run_job.py", line 623, in run
+    results[cell['id']] = self.run_cell(cell)['status']
+  File "/work/code/bench/freeze/run_job.py", line 535, in run_cell
+    record = self.run_once(cell, index, cell_dir)
+  File "/work/code/bench/freeze/run_job.py", line 436, in run_once
+    record['ops_per_base'] = parse_stats(stderr, cell['layout'])
+  File "/work/code/bench/campaign-20261012/explore_ops.py", line 852, in parse_stats
+    raise ValueError(f'Expected one stats line with {want}, found {len(rows)}')
+ValueError: Expected one stats line with psi_steps/base, found 2
+2026-10-31T11:57:31 job fig3count-mtb152-heldout16-p100k-s600-v1 exit 1
+2026-10-31T11:57:34 nothing ready; 25 jobs unfinished; waiting
+2026-10-31T11:58:35 nothing ready; 25 jobs unfinished; waiting
+2026-10-31T11:59:37 nothing ready; 25 jobs unfinished; waiting
+2026-10-31T12:00:38 nothing ready; 25 jobs unfinished; waiting
+2026-10-31T12:01:40 nothing ready; 25 jobs unfinished; waiting
+2026-10-31T12:02:41 nothing ready; 25 jobs unfinished; waiting
+2026-10-31T12:03:42 nothing ready; 25 jobs unfinished; waiting
+2026-10-31T12:04:44 nothing ready; 25 jobs unfinished; waiting
+2026-10-31T12:05:45 nothing ready; 25 jobs unfinished; waiting
+2026-10-31T12:06:47 nothing ready; 25 jobs unfinished; waiting
+2026-10-31T12:07:48 nothing ready; 25 jobs unfinished; waiting
+2026-10-31T12:08:51 run fig3count-human472-apr008-hap1-p100k-s600-v1
+12:08:54 fig3count-human472-apr008-hap1-p100k-s600-v1: 8 of 8 cells to run
+12:08:59 stage ms2/human472/index.ms.orbitidx
+12:13:34 stage ms2/human472/index.tms.full.seqids.orbitidx
+12:30:52 stage ms2/human472/index.tms.phi.orbitidx
+12:44:16 stage ms2/human472/index.tms.psi.orbitidx
+12:48:26 stage reads/human472/human472-apr008-hap1-p100k-s600-v1/offsets.u64
+12:48:26 stage reads/human472/human472-apr008-hap1-p100k-s600-v1/reads.fa
+12:48:27 stage reads/human472/human472-apr008-hap1-p100k-s600-v1/truth.u32
+12:48:30 fetched trace traces/human472/human472-apr008-hap1-p100k-s600-v1/ms.oracle 23b39f61960b
+12:48:30 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/ms-oracle run1
+12:50:27 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/ms-oracle checked 4.19179 
+12:50:27 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/psi-ordinary run1
+12:51:47 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/psi-ordinary checked 8.87906 
+12:51:47 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/ms-ordinary run1
+12:52:59 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/ms-ordinary checked 4.18464 
+12:53:00 fetched trace traces/human472/human472-apr008-hap1-p100k-s600-v1/dual.oracle c45afd1f80f8
+12:53:00 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/dual-oracle run1
+12:55:00 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/dual-oracle checked 4.37645 
+12:55:01 fetched trace traces/human472/human472-apr008-hap1-p100k-s600-v1/psi.oracle c45afd1f80f8
+12:55:01 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/psi-oracle run1
+12:56:16 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/psi-oracle checked 4.07634 
+12:56:16 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/dual-ordinary run1
+12:58:48 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/dual-ordinary checked 4.63762 
+12:58:49 fetched trace traces/human472/human472-apr008-hap1-p100k-s600-v1/phi.oracle 23b39f61960b
+12:58:49 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/phi-oracle run1
+12:59:58 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/phi-oracle checked 4.2823 
+12:59:58 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/phi-ordinary run1
+13:01:40 fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/phi-ordinary checked 4.90161 
+13:01:44 fig3count-human472-apr008-hap1-p100k-s600-v1: 0 cells without a done marker
+2026-10-31T13:01:44 job fig3count-human472-apr008-hap1-p100k-s600-v1 exit 0
+2026-10-31T13:01:47 run fig5-guccione_skin-ms2dual
+13:01:48 fig5-guccione_skin-ms2dual: 3 of 3 cells to run
+13:01:51 stage ms2/human472/index.tms.full.orbitidx
+13:19:39 stage reads/human472/guccione_skin-ms-60mb-acgt-v2/offsets.u64
+13:19:40 stage reads/human472/guccione_skin-ms-60mb-acgt-v2/reads.fa
+13:19:41 stage reads/human472/guccione_skin-ms-60mb-acgt-v2/truth.u32
+13:19:43 stage tools/ms2-2885ee8/ms2-bench
+13:22:54 recorded trace traces/human472/guccione_skin-ms-60mb-acgt-v2/dual.oracle deb1412efd08
+13:22:54 guccione_skin-ms-acgt60mb/dual-oracle run1
+13:24:54 guccione_skin-ms-acgt60mb/dual-oracle run2
+13:26:52 guccione_skin-ms-acgt60mb/dual-oracle run3
+13:29:00 guccione_skin-ms-acgt60mb/dual-oracle checked 5.23674 
+13:29:00 guccione_skin-ms-acgt60mb/dual-ordinary-plainfull run1
+13:31:45 guccione_skin-ms-acgt60mb/dual-ordinary-plainfull run2
+13:34:31 guccione_skin-ms-acgt60mb/dual-ordinary-plainfull run3
+13:37:25 guccione_skin-ms-acgt60mb/dual-ordinary-plainfull checked 19.3132 
+13:37:25 guccione_skin-ms-acgt60mb/dual-ordinary run1
+13:40:11 guccione_skin-ms-acgt60mb/dual-ordinary run2
+13:42:55 guccione_skin-ms-acgt60mb/dual-ordinary run3
+13:45:47 guccione_skin-ms-acgt60mb/dual-ordinary checked 19.3074 
+13:45:50 fig5-guccione_skin-ms2dual: 0 cells without a done marker
+2026-10-31T13:45:50 job fig5-guccione_skin-ms2dual exit 0
+2026-10-31T13:45:53 run loc-human_short-ms2dual-ftab
+13:45:54 loc-human_short-ms2dual-ftab: 3 of 3 cells to run
+13:45:56 stage ms2/human472/index.tms.full.seqids.orbitidx.ftab
+13:46:06 stage reads/human472/human_short-locate-6mb-v2/offsets.u64
+13:46:07 stage reads/human472/human_short-locate-6mb-v2/reads.fa
+13:46:08 stage reads/human472/human_short-locate-6mb-v2/truth.u32
+13:46:09 stage ropebwt3/human472/index.fmd.len.gz
+13:46:10 human_short-locate-6mb/cap10-dual-ftab run1
+13:50:47 human_short-locate-6mb/cap10-dual-ftab run2
+13:55:17 human_short-locate-6mb/cap10-dual-ftab run3
+13:59:52 human_short-locate-6mb/cap10-dual-ftab checked 1.729 
+13:59:52 human_short-locate-6mb/cap100-dual-ftab run1
+14:06:23 human_short-locate-6mb/cap100-dual-ftab run2
+14:10:50 human_short-locate-6mb/cap100-dual-ftab run3
+14:15:30 human_short-locate-6mb/cap100-dual-ftab checked 2.91856 
+14:15:30 human_short-locate-6mb/cap1-dual-ftab run1
+14:20:00 human_short-locate-6mb/cap1-dual-ftab run2
+14:24:27 human_short-locate-6mb/cap1-dual-ftab run3
+14:29:01 human_short-locate-6mb/cap1-dual-ftab checked 1.54897 
+14:29:04 loc-human_short-ms2dual-ftab: 0 cells without a done marker
+2026-10-31T14:29:04 job loc-human_short-ms2dual-ftab exit 0
+2026-10-31T14:29:07 run loc-human_ont_modern-ms2dual
+14:29:08 loc-human_ont_modern-ms2dual: 3 of 3 cells to run
+14:29:10 stage reads/human472/human_ont_modern-locate-10mb-v2/offsets.u64
+14:29:11 stage reads/human472/human_ont_modern-locate-10mb-v2/reads.fa
+14:29:12 stage reads/human472/human_ont_modern-locate-10mb-v2/truth.u32
+14:29:13 human_ont_modern-locate-10mb/cap10-dual-ordinary run1
+14:33:55 human_ont_modern-locate-10mb/cap10-dual-ordinary run2
+14:38:20 human_ont_modern-locate-10mb/cap10-dual-ordinary run3
+14:42:57 human_ont_modern-locate-10mb/cap10-dual-ordinary checked 1.99574 
+14:42:57 human_ont_modern-locate-10mb/cap1-dual-ordinary run1
+14:47:31 human_ont_modern-locate-10mb/cap1-dual-ordinary run2
+14:51:56 human_ont_modern-locate-10mb/cap1-dual-ordinary run3
+14:56:29 human_ont_modern-locate-10mb/cap1-dual-ordinary checked 1.75866 
+14:56:29 human_ont_modern-locate-10mb/cap100-dual-ordinary run1
+15:03:18 human_ont_modern-locate-10mb/cap100-dual-ordinary run2
+15:07:47 human_ont_modern-locate-10mb/cap100-dual-ordinary run3
+15:12:22 human_ont_modern-locate-10mb/cap100-dual-ordinary checked 3.80794 
+15:12:24 loc-human_ont_modern-ms2dual: 0 cells without a done marker
+2026-10-31T15:12:24 job loc-human_ont_modern-ms2dual exit 0
+2026-10-31T15:12:26 nothing ready; 8 jobs unfinished; waiting
+2026-10-31T15:13:28 nothing ready; 8 jobs unfinished; waiting
+2026-10-31T15:14:30 nothing ready; 8 jobs unfinished; waiting
+2026-10-31T15:15:31 nothing ready; 8 jobs unfinished; waiting
+2026-10-31T15:16:33 nothing ready; 8 jobs unfinished; waiting
+2026-10-31T15:17:34 nothing ready; 8 jobs unfinished; waiting
+2026-10-31T15:18:36 nothing ready; 8 jobs unfinished; waiting
+2026-10-31T15:19:38 nothing ready; 8 jobs unfinished; waiting
+2026-10-31T15:20:39 nothing ready; 8 jobs unfinished; waiting
+2026-10-31T15:21:41 nothing ready; 8 jobs unfinished; waiting
+2026-10-31T15:22:43 nothing ready; 8 jobs unfinished; waiting
+2026-10-31T15:23:44 nothing ready; 8 jobs unfinished; waiting
+2026-10-31T15:24:46 nothing ready; 8 jobs unfinished; waiting
+2026-10-31T15:25:48 nothing ready; 8 jobs unfinished; waiting
+2026-10-31T15:26:49 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:27:51 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:28:53 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:29:54 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:30:56 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:31:57 nothing ready; 7 jobs unfinished; waiting

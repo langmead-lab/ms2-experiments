@@ -1,0 +1,68 @@
+{
+  "run": 1,
+  "host": "ip-10-0-5-162.ec2.internal",
+  "started": 1793499758.9437132,
+  "one": {
+    "argv": [
+      "numactl",
+      "--cpunodebind=0",
+      "--membind=0",
+      "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/legacy/phoni-chr22-h100/reference.txt",
+      "-p",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__phoni/run1/one/reads.fa",
+      "-g",
+      "naive"
+    ],
+    "cache": "drop_caches",
+    "wall_seconds": 0.37209631199993964,
+    "peak_rss_kib": 984920,
+    "user_seconds": 0.08,
+    "system_seconds": 0.25,
+    "check": {
+      "reads": 1,
+      "positions": 16824,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/legacy/phoni-chr22-h100/reference.txt",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__phoni/run1/full/reads.fa",
+    "-g",
+    "naive"
+  ],
+  "cache": "drop_caches",
+  "timeout_s": 7200,
+  "wall_seconds": 132.65048087299965,
+  "user_seconds": 131.42,
+  "system_seconds": 1.18,
+  "peak_rss_kib": 999772,
+  "phase": {
+    "source": "one-read-wall",
+    "query_definition": "full run wall minus one-read run wall",
+    "load_seconds": 0.37209631199993964,
+    "query_seconds": 132.2783845609997
+  },
+  "check": {
+    "reads": 2782,
+    "positions": 59998845,
+    "failed": 0,
+    "every_position_checked": true,
+    "validation": "exact-ms-lengths",
+    "one_read": {
+      "reads": 1,
+      "positions": 16824,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "finished": 1793499911.1970344
+}

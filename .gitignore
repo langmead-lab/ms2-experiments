@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+figures/tikz/build/
+launchers/aws/cdk.out/
+launchers/aws/cdk.context.json

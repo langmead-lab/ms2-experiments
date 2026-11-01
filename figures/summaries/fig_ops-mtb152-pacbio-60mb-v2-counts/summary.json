@@ -1,0 +1,616 @@
+{
+  "format": "ms2-freeze-group-v1",
+  "group": "fig_ops-mtb152-pacbio-60mb-v2-counts",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "config": {
+    "workload": {
+      "reads": 2855,
+      "bases": 59990782,
+      "reference": "mtb152",
+      "read_set": "mtb152-pacbio-60mb-v2"
+    },
+    "orbit": {
+      "revision": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+      "repo": "https://github.com/langmead-lab/ms2.git"
+    },
+    "rope": {
+      "batch_size": null,
+      "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+    },
+    "protocol": {
+      "runs": 3,
+      "warmup_runs": 0,
+      "report": "median",
+      "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+      "numa": {
+        "cpunodebind": 0,
+        "membind": 0
+      },
+      "threads": 1,
+      "transparent_hugepages": "always",
+      "truth_check": "run 1 of every cell, whole output",
+      "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+      "time_basis": {
+        "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+        "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+        "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+      },
+      "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+    }
+  },
+  "cells": [
+    {
+      "id": "dual-oracle",
+      "status": "checked",
+      "layout": "dual",
+      "mode": "oracle",
+      "interleave": 32,
+      "block_bytes": 67108864,
+      "median_query_seconds": 1.95749,
+      "median_load_seconds": 0.113966,
+      "query_seconds": [
+        1.95749
+      ],
+      "load_seconds": [
+        0.113966
+      ],
+      "peak_rss_kib": 1024580,
+      "mbases_per_second": 30.646788489340942,
+      "ns_per_base": 32.6298463653966,
+      "ops_per_base": {
+        "line": {
+          "bases": 59990782.0,
+          "repositions/base": 0.0214196,
+          "psi_steps/base": 0.0,
+          "scan_rows/rep": 0.0,
+          "len/rep": 64.3494,
+          "phi_steps/base": 0.0,
+          "dist/rep": 0.0,
+          "dist1_frac": 0.0,
+          "lce/rep": 18.6525,
+          "capped_frac": 0.260873,
+          "scan_visits/rep": 0.0,
+          "lf_ff/step": 0.0937827,
+          "walk_visits/base": 0.0
+        },
+        "ops_per_base": {
+          "lf": 1.0,
+          "psi": 0.0,
+          "phi": 0.0,
+          "walk": 0.0,
+          "total": 1.0,
+          "repositions": 0.0214196,
+          "scan_rows_per_base": 0.0,
+          "walk_visits_per_base": 0.0,
+          "lf_ff_per_step": 0.0937827
+        },
+        "lf_basis": "one LF step per base, as in the TeraMS Figure 5 reproduction"
+      },
+      "query_spread_fraction": 0.0,
+      "tool": "ms2-stats",
+      "kind": "count",
+      "figures": [
+        "3"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-0-175.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0562f545fedb59614",
+        "availability_zone": "us-east-1a",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "fig3count-mtb152-pacbio-60mb-v2",
+      "cell": "fig_ops-mtb152-pacbio-60mb-v2-counts/dual-oracle"
+    },
+    {
+      "id": "dual-ordinary",
+      "status": "checked",
+      "layout": "dual",
+      "mode": "ordinary",
+      "interleave": 32,
+      "block_bytes": 67108864,
+      "median_query_seconds": 2.60194,
+      "median_load_seconds": 0.137377,
+      "query_seconds": [
+        2.60194
+      ],
+      "load_seconds": [
+        0.137377
+      ],
+      "peak_rss_kib": 1069364,
+      "mbases_per_second": 23.056174239221505,
+      "ns_per_base": 43.37233010231472,
+      "ops_per_base": {
+        "line": {
+          "bases": 59990782.0,
+          "repositions/base": 0.0214196,
+          "psi_steps/base": 0.00879277,
+          "scan_rows/rep": 8.63891,
+          "len/rep": 64.3494,
+          "phi_steps/base": 0.00298919,
+          "dist/rep": 219.413,
+          "dist1_frac": 0.310069,
+          "lce/rep": 18.6525,
+          "capped_frac": 0.260873,
+          "scan_visits/rep": 1.25166,
+          "lf_ff/step": 0.0937827,
+          "walk_visits/base": 0.00787013
+        },
+        "ops_per_base": {
+          "lf": 1.0,
+          "psi": 0.00879277,
+          "phi": 0.00298919,
+          "walk": 0.0,
+          "total": 1.01178196,
+          "repositions": 0.0214196,
+          "scan_rows_per_base": 0.185041996636,
+          "walk_visits_per_base": 0.00787013,
+          "lf_ff_per_step": 0.0937827
+        },
+        "lf_basis": "one LF step per base, as in the TeraMS Figure 5 reproduction",
+        "summary_lines": {
+          "dual": {
+            "up_raced": 5147.0,
+            "down_raced": 4832.0,
+            "up_psi_steps": 275368.0,
+            "down_psi_steps": 252117.0,
+            "psi_decided": 29174.0,
+            "phi_decided": 7230.0,
+            "psi_steps/base": 0.00879277,
+            "up_settled": 1262804.0,
+            "up_walked": 20057.0,
+            "down_settled": 1264525.0,
+            "down_walked": 18579.0,
+            "partial_steps": 176586.0,
+            "cont_walks": 220.0,
+            "cont_steps": 2738.0,
+            "partial_steps/rep": 0.137423,
+            "cont_steps/rep": 0.00213078
+          }
+        }
+      },
+      "query_spread_fraction": 0.0,
+      "tool": "ms2-stats",
+      "kind": "count",
+      "figures": [
+        "3"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-0-175.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0562f545fedb59614",
+        "availability_zone": "us-east-1a",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "fig3count-mtb152-pacbio-60mb-v2",
+      "cell": "fig_ops-mtb152-pacbio-60mb-v2-counts/dual-ordinary"
+    },
+    {
+      "id": "ms-oracle",
+      "status": "checked",
+      "layout": "ms",
+      "mode": "oracle",
+      "interleave": 32,
+      "block_bytes": 67108864,
+      "median_query_seconds": 1.91923,
+      "median_load_seconds": 0.059216,
+      "query_seconds": [
+        1.91923
+      ],
+      "load_seconds": [
+        0.059216
+      ],
+      "peak_rss_kib": 939828,
+      "mbases_per_second": 31.257734612318483,
+      "ns_per_base": 31.992081716821097,
+      "ops_per_base": {
+        "line": {
+          "bases": 59990782.0,
+          "repositions/base": 0.0214196,
+          "lf_ff/step": 0.36565,
+          "walk_up/rep": 0.0,
+          "walk_down/rep": 0.0
+        },
+        "ops_per_base": {
+          "lf": 1.0,
+          "psi": 0.0,
+          "phi": 0.0,
+          "walk": 0.0,
+          "total": 1.0,
+          "repositions": 0.0214196,
+          "lf_ff_per_step": 0.36565
+        },
+        "lf_basis": "one LF step per base, as in the TeraMS Figure 5 reproduction"
+      },
+      "query_spread_fraction": 0.0,
+      "tool": "ms2-stats",
+      "kind": "count",
+      "figures": [
+        "3"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-0-175.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0562f545fedb59614",
+        "availability_zone": "us-east-1a",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "fig3count-mtb152-pacbio-60mb-v2",
+      "cell": "fig_ops-mtb152-pacbio-60mb-v2-counts/ms-oracle"
+    },
+    {
+      "id": "ms-ordinary",
+      "status": "checked",
+      "layout": "ms",
+      "mode": "ordinary",
+      "interleave": 32,
+      "block_bytes": 67108864,
+      "median_query_seconds": 1.99655,
+      "median_load_seconds": 0.0488854,
+      "query_seconds": [
+        1.99655
+      ],
+      "load_seconds": [
+        0.0488854
+      ],
+      "peak_rss_kib": 919808,
+      "mbases_per_second": 30.04722245874133,
+      "ns_per_base": 33.28094639606465,
+      "ops_per_base": {
+        "line": {
+          "bases": 59990782.0,
+          "repositions/base": 0.0214196,
+          "lf_ff/step": 0.36565,
+          "walk_up/rep": 3.04799,
+          "walk_down/rep": 3.26606
+        },
+        "ops_per_base": {
+          "lf": 1.0,
+          "psi": 0.0,
+          "phi": 0.0,
+          "walk": 0.13524442538,
+          "total": 1.13524442538,
+          "repositions": 0.0214196,
+          "lf_ff_per_step": 0.36565
+        },
+        "lf_basis": "one LF step per base, as in the TeraMS Figure 5 reproduction"
+      },
+      "query_spread_fraction": 0.0,
+      "tool": "ms2-stats",
+      "kind": "count",
+      "figures": [
+        "3"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-0-175.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0562f545fedb59614",
+        "availability_zone": "us-east-1a",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "fig3count-mtb152-pacbio-60mb-v2",
+      "cell": "fig_ops-mtb152-pacbio-60mb-v2-counts/ms-ordinary"
+    },
+    {
+      "id": "phi-oracle",
+      "status": "checked",
+      "layout": "phi",
+      "mode": "oracle",
+      "interleave": 32,
+      "block_bytes": 67108864,
+      "median_query_seconds": 2.04652,
+      "median_load_seconds": 0.0706712,
+      "query_seconds": [
+        2.04652
+      ],
+      "load_seconds": [
+        0.0706712
+      ],
+      "peak_rss_kib": 954992,
+      "mbases_per_second": 29.313557649082345,
+      "ns_per_base": 34.11390770001965,
+      "ops_per_base": {
+        "line": {
+          "bases": 59990782.0,
+          "repositions/base": 0.0214196,
+          "psi_steps/base": 0.0,
+          "scan_rows/rep": 0.0,
+          "len/rep": 64.3494,
+          "phi_steps/base": 0.0,
+          "dist/rep": 0.0,
+          "dist1_frac": 0.0,
+          "lce/rep": 18.6525,
+          "capped_frac": 0.260873,
+          "scan_visits/rep": 0.0,
+          "lf_ff/step": 0.36565,
+          "walk_visits/base": 0.0
+        },
+        "ops_per_base": {
+          "lf": 1.0,
+          "psi": 0.0,
+          "phi": 0.0,
+          "walk": 0.0,
+          "total": 1.0,
+          "repositions": 0.0214196,
+          "scan_rows_per_base": 0.0,
+          "walk_visits_per_base": 0.0,
+          "lf_ff_per_step": 0.36565
+        },
+        "lf_basis": "one LF step per base, as in the TeraMS Figure 5 reproduction"
+      },
+      "query_spread_fraction": 0.0,
+      "tool": "ms2-stats",
+      "kind": "count",
+      "figures": [
+        "3"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-0-175.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0562f545fedb59614",
+        "availability_zone": "us-east-1a",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "fig3count-mtb152-pacbio-60mb-v2",
+      "cell": "fig_ops-mtb152-pacbio-60mb-v2-counts/phi-oracle"
+    },
+    {
+      "id": "phi-ordinary",
+      "status": "checked",
+      "layout": "phi",
+      "mode": "ordinary",
+      "interleave": 32,
+      "block_bytes": 67108864,
+      "median_query_seconds": 3.99054,
+      "median_load_seconds": 0.0939062,
+      "query_seconds": [
+        3.99054
+      ],
+      "load_seconds": [
+        0.0939062
+      ],
+      "peak_rss_kib": 999764,
+      "mbases_per_second": 15.033249134202388,
+      "ns_per_base": 66.51921956943319,
+      "ops_per_base": {
+        "line": {
+          "bases": 59990782.0,
+          "repositions/base": 0.0214196,
+          "psi_steps/base": 0.0,
+          "scan_rows/rep": 6.31405,
+          "len/rep": 64.3494,
+          "phi_steps/base": 0.90524,
+          "dist/rep": 219.413,
+          "dist1_frac": 0.310069,
+          "lce/rep": 18.6525,
+          "capped_frac": 0.260873,
+          "scan_visits/rep": 1.1304,
+          "lf_ff/step": 0.36565,
+          "walk_visits/base": 0.758054
+        },
+        "ops_per_base": {
+          "lf": 1.0,
+          "psi": 0.0,
+          "phi": 0.90524,
+          "walk": 0.0,
+          "total": 1.90524,
+          "repositions": 0.0214196,
+          "scan_rows_per_base": 0.13524442538,
+          "walk_visits_per_base": 0.758054,
+          "lf_ff_per_step": 0.36565
+        },
+        "lf_basis": "one LF step per base, as in the TeraMS Figure 5 reproduction",
+        "summary_lines": {
+          "phi": {
+            "up_settled": 1081483.0,
+            "up_walked": 201378.0,
+            "down_settled": 1091314.0,
+            "down_walked": 191790.0,
+            "partial_steps": 54076257.0,
+            "cont_walks": 787.0,
+            "cont_steps": 229798.0,
+            "partial_steps/rep": 42.0834,
+            "cont_steps/rep": 0.178834
+          }
+        }
+      },
+      "query_spread_fraction": 0.0,
+      "tool": "ms2-stats",
+      "kind": "count",
+      "figures": [
+        "3"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-0-175.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0562f545fedb59614",
+        "availability_zone": "us-east-1a",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "fig3count-mtb152-pacbio-60mb-v2",
+      "cell": "fig_ops-mtb152-pacbio-60mb-v2-counts/phi-ordinary"
+    },
+    {
+      "id": "psi-oracle",
+      "status": "checked",
+      "layout": "psi",
+      "mode": "oracle",
+      "interleave": 32,
+      "block_bytes": 67108864,
+      "median_query_seconds": 1.8611,
+      "median_load_seconds": 0.0718266,
+      "query_seconds": [
+        1.8611
+      ],
+      "load_seconds": [
+        0.0718266
+      ],
+      "peak_rss_kib": 951908,
+      "mbases_per_second": 32.2340454569878,
+      "ns_per_base": 31.023099515522233,
+      "ops_per_base": {
+        "line": {
+          "bases": 59990782.0,
+          "repositions/base": 0.0214196,
+          "psi_steps/base": 0.0,
+          "scan_rows/rep": 0.0,
+          "len/rep": 64.3494,
+          "phi_steps/base": 0.0,
+          "dist/rep": 0.0,
+          "dist1_frac": 0.0,
+          "lce/rep": 18.6525,
+          "capped_frac": 0.260873,
+          "scan_visits/rep": 0.0,
+          "lf_ff/step": 0.0937827,
+          "walk_visits/base": 0.0
+        },
+        "ops_per_base": {
+          "lf": 1.0,
+          "psi": 0.0,
+          "phi": 0.0,
+          "walk": 0.0,
+          "total": 1.0,
+          "repositions": 0.0214196,
+          "scan_rows_per_base": 0.0,
+          "walk_visits_per_base": 0.0,
+          "lf_ff_per_step": 0.0937827
+        },
+        "lf_basis": "one LF step per base, as in the TeraMS Figure 5 reproduction"
+      },
+      "query_spread_fraction": 0.0,
+      "tool": "ms2-stats",
+      "kind": "count",
+      "figures": [
+        "3"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-0-175.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0562f545fedb59614",
+        "availability_zone": "us-east-1a",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "fig3count-mtb152-pacbio-60mb-v2",
+      "cell": "fig_ops-mtb152-pacbio-60mb-v2-counts/psi-oracle"
+    },
+    {
+      "id": "psi-ordinary",
+      "status": "checked",
+      "layout": "psi",
+      "mode": "ordinary",
+      "interleave": 32,
+      "block_bytes": 67108864,
+      "median_query_seconds": 2.57351,
+      "median_load_seconds": 0.0611718,
+      "query_seconds": [
+        2.57351
+      ],
+      "load_seconds": [
+        0.0611718
+      ],
+      "peak_rss_kib": 931804,
+      "mbases_per_second": 23.31087969349254,
+      "ns_per_base": 42.89842396120124,
+      "ops_per_base": {
+        "line": {
+          "bases": 59990782.0,
+          "repositions/base": 0.0214196,
+          "psi_steps/base": 0.706021,
+          "scan_rows/rep": 8.63891,
+          "len/rep": 64.3494,
+          "phi_steps/base": 0.0,
+          "dist/rep": 219.413,
+          "dist1_frac": 0.310069,
+          "lce/rep": 18.6525,
+          "capped_frac": 0.260873,
+          "scan_visits/rep": 1.25166,
+          "lf_ff/step": 0.0937827,
+          "walk_visits/base": 0.415361
+        },
+        "ops_per_base": {
+          "lf": 1.0,
+          "psi": 0.706021,
+          "phi": 0.0,
+          "walk": 0.0,
+          "total": 1.706021,
+          "repositions": 0.0214196,
+          "scan_rows_per_base": 0.185041996636,
+          "walk_visits_per_base": 0.415361,
+          "lf_ff_per_step": 0.0937827
+        },
+        "lf_basis": "one LF step per base, as in the TeraMS Figure 5 reproduction"
+      },
+      "query_spread_fraction": 0.0,
+      "tool": "ms2-stats",
+      "kind": "count",
+      "figures": [
+        "3"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-2-66.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0769303767f334774",
+        "availability_zone": "us-east-1c",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "fig3count-mtb152-pacbio-60mb-v2",
+      "cell": "fig_ops-mtb152-pacbio-60mb-v2-counts/psi-ordinary"
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "psi-ordinary",
+  "cell": "fig_ops-mtb152-pacbio-60mb-v2/psi-ordinary",
+  "group": "fig_ops-mtb152-pacbio-60mb-v2",
+  "figures": [
+    "3"
+  ],
+  "tool": "ms2",
+  "kind": "ms",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "job": "fig3-mtb152-pacbio-60mb-v2",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-2-66.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0769303767f334774",
+    "availability_zone": "us-east-1c",
+    "lifecycle": "spot"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 2855,
+  "bases": 59990782,
+  "reference": "mtb152",
+  "read_set": "mtb152-pacbio-60mb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "checker": {
+      "name": "tools/ms_check",
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab"
+    },
+    "index": {
+      "name": "ms2/mtb152/index.tms.psi.orbitidx",
+      "sha256": "e9265a86e2330928fb3f20872aad05df75b36da3a1be49ae0cce2c53be996621"
+    },
+    "reads": {
+      "name": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "sha256": "a8dbcee173b893bd5cf791ec7553fc0eddd971da57a054ec99374e7620f37435"
+    },
+    "truth": {
+      "name": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "sha256": "a2a9ea4d3388c3ff6a35133c034c1e7fb3d3dac99421703c9f48243d2d4e6ccb"
+    },
+    "offsets": {
+      "name": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64",
+      "sha256": "e73a306f0ff5f6e74e77cdbf158597fb27f00d2d7db23273f6198af4568d8709"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793413885.9391334,
+  "layout": "psi",
+  "mode": "ordinary",
+  "interleave": 32,
+  "block_bytes": 67108864,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-2-66.ec2.internal",
+      "started": 1793413885.9392235,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/e9265a86e2330928fb3f20872aad05df75b36da3a1be49ae0cce2c53be996621/index.tms.psi.orbitidx",
+        "/work/stage/inputs/a8dbcee173b893bd5cf791ec7553fc0eddd971da57a054ec99374e7620f37435/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig3-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2__psi-ordinary/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "67108864",
+        "--mode",
+        "psi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 2.5448889760000384,
+      "user_seconds": 2.11,
+      "system_seconds": 0.41,
+      "peak_rss_kib": 931748,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 0.0630501,
+        "query_seconds": 2.4532,
+        "components": {
+          "index_load_s": 0.0630501,
+          "ftab_s": 0.0,
+          "query_s": 1.56438,
+          "read_s": 0.0243256,
+          "parse_s": 0.0589629,
+          "format_s": 0.701941,
+          "total_s": 2.4532
+        }
+      },
+      "check": {
+        "reads": 2855,
+        "positions": 59990782,
+        "failed": 0,
+        "validation": "ms_check: every MS value equals truth"
+      },
+      "finished": 1793413888.8838377
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-2-66.ec2.internal",
+      "started": 1793413888.8846126,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/e9265a86e2330928fb3f20872aad05df75b36da3a1be49ae0cce2c53be996621/index.tms.psi.orbitidx",
+        "/work/stage/inputs/a8dbcee173b893bd5cf791ec7553fc0eddd971da57a054ec99374e7620f37435/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig3-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2__psi-ordinary/run2/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "67108864",
+        "--mode",
+        "psi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 2.526853630000005,
+      "user_seconds": 2.01,
+      "system_seconds": 0.49,
+      "peak_rss_kib": 931796,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 0.0618442,
+        "query_seconds": 2.43581,
+        "components": {
+          "index_load_s": 0.0618442,
+          "ftab_s": 0.0,
+          "query_s": 1.54931,
+          "read_s": 0.0238147,
+          "parse_s": 0.0585195,
+          "format_s": 0.699945,
+          "total_s": 2.43581
+        }
+      },
+      "finished": 1793413891.4409132
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-2-66.ec2.internal",
+      "started": 1793413891.4412048,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/e9265a86e2330928fb3f20872aad05df75b36da3a1be49ae0cce2c53be996621/index.tms.psi.orbitidx",
+        "/work/stage/inputs/a8dbcee173b893bd5cf791ec7553fc0eddd971da57a054ec99374e7620f37435/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig3-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2__psi-ordinary/run3/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "67108864",
+        "--mode",
+        "psi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 2.5424997969994365,
+      "user_seconds": 2.07,
+      "system_seconds": 0.44,
+      "peak_rss_kib": 931780,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 0.0626516,
+        "query_seconds": 2.45279,
+        "components": {
+          "index_load_s": 0.0626516,
+          "ftab_s": 0.0,
+          "query_s": 1.56292,
+          "read_s": 0.0243282,
+          "parse_s": 0.0589001,
+          "format_s": 0.702874,
+          "total_s": 2.45279
+        }
+      },
+      "finished": 1793413894.0133584
+    }
+  ],
+  "check": {
+    "reads": 2855,
+    "positions": 59990782,
+    "failed": 0,
+    "validation": "ms_check: every MS value equals truth"
+  },
+  "query_seconds": [
+    2.4532,
+    2.43581,
+    2.45279
+  ],
+  "median_query_seconds": 2.45279,
+  "load_seconds": [
+    0.0630501,
+    0.0618442,
+    0.0626516
+  ],
+  "median_load_seconds": 0.0626516,
+  "wall_seconds": [
+    2.5448889760000384,
+    2.526853630000005,
+    2.5424997969994365
+  ],
+  "peak_rss_kib": 931796,
+  "query_spread_fraction": 0.007089885395814479,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 24.45818109173635,
+  "ns_per_base": 40.886114803437636,
+  "finished": 1793413894.0135806
+}

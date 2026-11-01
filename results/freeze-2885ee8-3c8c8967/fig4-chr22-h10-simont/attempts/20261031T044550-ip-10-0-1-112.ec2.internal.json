@@ -1,0 +1,228 @@
+{
+  "job": "fig4-chr22-h10-simont",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-1-112.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-04c9c6f667c1d3fc0",
+    "availability_zone": "us-east-1b",
+    "lifecycle": "spot"
+  },
+  "platform": "aws",
+  "started": 1793419725.787833,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "fig4-chr22-h10-simont",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 12,
+  "already_done": 0,
+  "order": [
+    "chr22-h10-ms-simont/phi-ordinary",
+    "chr22-h10-ms-simont/ms-ordinary",
+    "chr22-h10-ms-simont/phoni",
+    "chr22-h10-ms-simont/psi-ordinary",
+    "chr22-h10-ms-simont/rope-l25",
+    "chr22-h10-ms-simont/moni",
+    "chr22-h10-ms-simont/rope-default",
+    "chr22-h10-ms-simont/rope-l40",
+    "chr22-h10-ms-simont/augphoni",
+    "chr22-h10-ms-simont/dual-ordinary",
+    "chr22-h10-ms-simont/rope-l30",
+    "chr22-h10-ms-simont/rope-l1"
+  ],
+  "staging": {
+    "augphoni/chr22-h10/reference.txt": {
+      "sha256": "e298fd9187150e394d086b04faa7c214108aa96041976afb27db6daa01a62eef",
+      "bytes": 1016136629,
+      "fresh": true,
+      "seconds": 3.482553482055664
+    },
+    "augphoni/chr22-h10/reference.txt.aug": {
+      "sha256": "83c727ad499b257eb157f9b3830c0b15a0c0d5b124915f98d1be991d09830ebb",
+      "bytes": 859750127,
+      "fresh": true,
+      "seconds": 3.1807470321655273
+    },
+    "augphoni/chr22-h10/reference.txt.plain.slp": {
+      "sha256": "f146ce25a847cebc9caa51a76c4c32d433fccc35fb7d71a87b7c3cfc9a39f443",
+      "bytes": 122727903,
+      "fresh": true,
+      "seconds": 1.097010850906372
+    },
+    "moni/chr22-h10/index.idx": {
+      "sha256": "f0063bff7aff9194769aa421b1ea00becdfb61498d48fceae1a6157a1eb62c51",
+      "bytes": 207,
+      "fresh": true,
+      "seconds": 0.7021095752716064
+    },
+    "moni/chr22-h10/index.plain.slp": {
+      "sha256": "f146ce25a847cebc9caa51a76c4c32d433fccc35fb7d71a87b7c3cfc9a39f443",
+      "bytes": 122727903,
+      "fresh": true,
+      "seconds": 1.1771037578582764
+    },
+    "moni/chr22-h10/index.thrbv.ms": {
+      "sha256": "e7335f385772b2fd11375c4e7058bb06a07127e865085ba1bf75de532f2a77e3",
+      "bytes": 550179310,
+      "fresh": true,
+      "seconds": 2.42765474319458
+    },
+    "ms2/chr22-h10/index.ms.orbitidx": {
+      "sha256": "c53b78965fb4b45f522dc7a262df5989f638540cbd513f346b53169fa4467b1d",
+      "bytes": 616588583,
+      "fresh": true,
+      "seconds": 2.6384387016296387
+    },
+    "ms2/chr22-h10/index.tms.full.orbitidx": {
+      "sha256": "5b7244ebfea488b0e4b91003c9a40b1b5f468aafb52d7dec65cc96279afa9f69",
+      "bytes": 2983492659,
+      "fresh": true,
+      "seconds": 8.895383358001709
+    },
+    "ms2/chr22-h10/index.tms.phi.orbitidx": {
+      "sha256": "ca89d0bd12912111744f7ac25ee9afd03b39de55b75643d5cfcc48cc3be1d90f",
+      "bytes": 2399030323,
+      "fresh": true,
+      "seconds": 7.445404767990112
+    },
+    "ms2/chr22-h10/index.tms.psi.orbitidx": {
+      "sha256": "5b26102ac7829dbb54caa9e14a3e8cfd4c9978931c75617a173895f338ed62b6",
+      "bytes": 735260728,
+      "fresh": true,
+      "seconds": 2.777848482131958
+    },
+    "phoni/chr22-h10/reference.txt": {
+      "sha256": "e298fd9187150e394d086b04faa7c214108aa96041976afb27db6daa01a62eef",
+      "bytes": 1016136629,
+      "fresh": false,
+      "seconds": 4.1961669921875e-05
+    },
+    "phoni/chr22-h10/reference.txt.phoni": {
+      "sha256": "f546f86d0adff338f7c54c4343e0a2df30bb88a9ddbebbf1ed7f6b4582eb0bfb",
+      "bytes": 492033503,
+      "fresh": true,
+      "seconds": 2.223947525024414
+    },
+    "phoni/chr22-h10/reference.txt.plain.slp": {
+      "sha256": "f146ce25a847cebc9caa51a76c4c32d433fccc35fb7d71a87b7c3cfc9a39f443",
+      "bytes": 122727903,
+      "fresh": false,
+      "seconds": 3.814697265625e-05
+    },
+    "reads/chr22-h10/simont-60mb-v2/offsets.u64": {
+      "sha256": "cf4b6f0758440fae99658cd8fc4b933c70db03c0203bcecd3380401f6883d944",
+      "bytes": 22264,
+      "fresh": false,
+      "seconds": 3.743171691894531e-05
+    },
+    "reads/chr22-h10/simont-60mb-v2/one.fa": {
+      "sha256": "d5e1dffd360970fd5d5a0796f1300c9db0dc3681484baa9079a10160af525f0c",
+      "bytes": 16829,
+      "fresh": false,
+      "seconds": 2.6941299438476562e-05
+    },
+    "reads/chr22-h10/simont-60mb-v2/reads.fa": {
+      "sha256": "2cf92676c29eb68f71c4c3181e273b56a94c38f73baa2a80b1b9ac36410bdf2e",
+      "bytes": 60019991,
+      "fresh": false,
+      "seconds": 2.09808349609375e-05
+    },
+    "reads/chr22-h10/simont-60mb-v2/truth.u32": {
+      "sha256": "be43968df413dbb567a027f3385af7cbcbe4306fa71a9a05d0b624a1455368f5",
+      "bytes": 239995380,
+      "fresh": true,
+      "seconds": 1.4507813453674316
+    },
+    "ropebwt3/chr22-h10/index.fmd": {
+      "sha256": "8b2476a2048524cd48b04f6f97af1cd17be3e0620708cd409c1b0b700989c225",
+      "bytes": 104856784,
+      "fresh": true,
+      "seconds": 1.1705451011657715
+    },
+    "tools/augphoni/aug_phoni": {
+      "sha256": "79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b",
+      "bytes": 486296,
+      "fresh": false,
+      "seconds": 5.412101745605469e-05
+    },
+    "tools/moni/moni-ms": {
+      "sha256": "4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f",
+      "bytes": 453664,
+      "fresh": false,
+      "seconds": 2.4318695068359375e-05
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 2.4318695068359375e-05
+    },
+    "tools/ms_check": {
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab",
+      "bytes": 251000,
+      "fresh": false,
+      "seconds": 2.5272369384765625e-05
+    },
+    "tools/phoni/phoni": {
+      "sha256": "aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58",
+      "bytes": 451192,
+      "fresh": false,
+      "seconds": 2.4318695068359375e-05
+    },
+    "tools/ropebwt3-cfad8475/ropebwt3": {
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d",
+      "bytes": 1595032,
+      "fresh": false,
+      "seconds": 2.6226043701171875e-05
+    },
+    "tools/runtime/libgcc_s.so.1": {
+      "sha256": "6a15a152c0f5073642a8c23e13097fe6f30d269cd61d3b10bd542f676241d79d",
+      "bytes": 748744,
+      "fresh": false,
+      "seconds": 2.0503997802734375e-05
+    },
+    "tools/runtime/libgomp.so.1": {
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8",
+      "bytes": 1501072,
+      "fresh": false,
+      "seconds": 2.288818359375e-05
+    },
+    "tools/runtime/libstdc++.so.6": {
+      "sha256": "2e64f6e616747bde59b3f05e9850dde0476cb21703fc53b7d80e1acc49f464c4",
+      "bytes": 20888792,
+      "fresh": false,
+      "seconds": 2.0265579223632812e-05
+    }
+  },
+  "finished": 1793421950.4597611,
+  "results": {
+    "chr22-h10-ms-simont/phi-ordinary": "checked",
+    "chr22-h10-ms-simont/ms-ordinary": "checked",
+    "chr22-h10-ms-simont/phoni": "checked",
+    "chr22-h10-ms-simont/psi-ordinary": "checked",
+    "chr22-h10-ms-simont/rope-l25": "checked",
+    "chr22-h10-ms-simont/moni": "checked",
+    "chr22-h10-ms-simont/rope-default": "checked",
+    "chr22-h10-ms-simont/rope-l40": "checked",
+    "chr22-h10-ms-simont/augphoni": "checked",
+    "chr22-h10-ms-simont/dual-ordinary": "checked",
+    "chr22-h10-ms-simont/rope-l30": "checked",
+    "chr22-h10-ms-simont/rope-l1": "checked"
+  }
+}

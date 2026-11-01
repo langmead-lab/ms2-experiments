@@ -1,0 +1,3 @@
+stats: bases=59982702 repositions/base=0.036073 psi_steps/base=0 scan_rows/rep=0 len/rep=56.0501 phi_steps/base=0 dist/rep=0 dist1_frac=0 lce/rep=28.7789 capped_frac=0.280539 scan_visits/rep=0 lf_ff/step=0.289269 walk_visits/base=0
+stats: bases=59982702 repositions/base=0 lf_ff/step=-nan walk_up/rep=-nan walk_down/rep=-nan
+query: reads=2853 bases=59982702 threads=1 index_load_s=63.0993 ftab_k=0 ftab_s=0 query_s=3.16925 read_s=0.0232348 parse_s=0.0581262 format_s=0.683726 orient=fwd flipped=0 orient_s=0 total_s=4.03237 query_ns_per_base=52.8361 wall_ns_per_base=67.2256

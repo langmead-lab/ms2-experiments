@@ -1,0 +1,245 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "dual-oracle",
+  "cell": "fig_ops-mtb152-pacbio-60mb-v2-counts/dual-oracle",
+  "group": "fig_ops-mtb152-pacbio-60mb-v2-counts",
+  "figures": [
+    "3"
+  ],
+  "tool": "ms2-stats",
+  "kind": "count",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "job": "fig3count-mtb152-pacbio-60mb-v2",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-0-175.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0562f545fedb59614",
+    "availability_zone": "us-east-1a",
+    "lifecycle": "spot"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 2855,
+  "bases": 59990782,
+  "reference": "mtb152",
+  "read_set": "mtb152-pacbio-60mb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-stats",
+      "sha256": "e47323d8b749323cab0fc1976471c3e18fda5ea5509cafe193abac30fce802e8"
+    },
+    "checker": {
+      "name": "tools/ms_check",
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab"
+    },
+    "index": {
+      "name": "ms2/mtb152/index.tms.full.orbitidx",
+      "sha256": "af80e5f51daf70433a14618921da240c822b781215bc8b0a92bdf63620f52048"
+    },
+    "reads": {
+      "name": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "sha256": "a8dbcee173b893bd5cf791ec7553fc0eddd971da57a054ec99374e7620f37435"
+    },
+    "truth": {
+      "name": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "sha256": "a2a9ea4d3388c3ff6a35133c034c1e7fb3d3dac99421703c9f48243d2d4e6ccb"
+    },
+    "offsets": {
+      "name": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64",
+      "sha256": "e73a306f0ff5f6e74e77cdbf158597fb27f00d2d7db23273f6198af4568d8709"
+    },
+    "trace": {
+      "name": "traces/mtb152/mtb152-pacbio-60mb-v2/dual.oracle",
+      "sha256": "pending"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793448593.3902118,
+  "layout": "dual",
+  "mode": "oracle",
+  "interleave": 32,
+  "block_bytes": 67108864,
+  "preparation": {
+    "trace": {
+      "name": "traces/mtb152/mtb152-pacbio-60mb-v2/dual.oracle",
+      "sha256": "16c55a13fd1cce297296238be5c0da430718779a2593c993328a539fb9f293ea",
+      "bytes": 20582504,
+      "stored": "s3://ms2-freeze-159168350739/freeze/results/freeze-2885ee8-3c8c8967/traces/traces/mtb152/mtb152-pacbio-60mb-v2/dual.oracle",
+      "recorded": false
+    }
+  },
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-0-175.ec2.internal",
+      "started": 1793448594.6413693,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/e47323d8b749323cab0fc1976471c3e18fda5ea5509cafe193abac30fce802e8/ms2-stats",
+        "query",
+        "/work/stage/inputs/af80e5f51daf70433a14618921da240c822b781215bc8b0a92bdf63620f52048/index.tms.full.orbitidx",
+        "/work/stage/inputs/a8dbcee173b893bd5cf791ec7553fc0eddd971da57a054ec99374e7620f37435/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2-counts__dual-oracle/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "67108864",
+        "--mode",
+        "oracle",
+        "--oracle",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-pacbio-60mb-v2/traces/traces/mtb152/mtb152-pacbio-60mb-v2/dual.oracle"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 2.0986700040011783,
+      "user_seconds": 1.53,
+      "system_seconds": 0.54,
+      "peak_rss_kib": 1024580,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 0.113966,
+        "query_seconds": 1.95749,
+        "components": {
+          "index_load_s": 0.113966,
+          "ftab_s": 0.0,
+          "query_s": 1.07407,
+          "read_s": 0.0239037,
+          "parse_s": 0.0587243,
+          "format_s": 0.69621,
+          "total_s": 1.95749
+        }
+      },
+      "ops_per_base": {
+        "line": {
+          "bases": 59990782.0,
+          "repositions/base": 0.0214196,
+          "psi_steps/base": 0.0,
+          "scan_rows/rep": 0.0,
+          "len/rep": 64.3494,
+          "phi_steps/base": 0.0,
+          "dist/rep": 0.0,
+          "dist1_frac": 0.0,
+          "lce/rep": 18.6525,
+          "capped_frac": 0.260873,
+          "scan_visits/rep": 0.0,
+          "lf_ff/step": 0.0937827,
+          "walk_visits/base": 0.0
+        },
+        "ops_per_base": {
+          "lf": 1.0,
+          "psi": 0.0,
+          "phi": 0.0,
+          "walk": 0.0,
+          "total": 1.0,
+          "repositions": 0.0214196,
+          "scan_rows_per_base": 0.0,
+          "walk_visits_per_base": 0.0,
+          "lf_ff_per_step": 0.0937827
+        },
+        "lf_basis": "one LF step per base, as in the TeraMS Figure 5 reproduction"
+      },
+      "check": {
+        "reads": 2855,
+        "positions": 59990782,
+        "failed": 0,
+        "validation": "ms_check: every MS value equals truth"
+      },
+      "finished": 1793448597.1318529
+    }
+  ],
+  "check": {
+    "reads": 2855,
+    "positions": 59990782,
+    "failed": 0,
+    "validation": "ms_check: every MS value equals truth"
+  },
+  "query_seconds": [
+    1.95749
+  ],
+  "median_query_seconds": 1.95749,
+  "load_seconds": [
+    0.113966
+  ],
+  "median_load_seconds": 0.113966,
+  "wall_seconds": [
+    2.0986700040011783
+  ],
+  "peak_rss_kib": 1024580,
+  "query_spread_fraction": 0.0,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 30.646788489340942,
+  "ns_per_base": 32.6298463653966,
+  "ops_per_base": {
+    "line": {
+      "bases": 59990782.0,
+      "repositions/base": 0.0214196,
+      "psi_steps/base": 0.0,
+      "scan_rows/rep": 0.0,
+      "len/rep": 64.3494,
+      "phi_steps/base": 0.0,
+      "dist/rep": 0.0,
+      "dist1_frac": 0.0,
+      "lce/rep": 18.6525,
+      "capped_frac": 0.260873,
+      "scan_visits/rep": 0.0,
+      "lf_ff/step": 0.0937827,
+      "walk_visits/base": 0.0
+    },
+    "ops_per_base": {
+      "lf": 1.0,
+      "psi": 0.0,
+      "phi": 0.0,
+      "walk": 0.0,
+      "total": 1.0,
+      "repositions": 0.0214196,
+      "scan_rows_per_base": 0.0,
+      "walk_visits_per_base": 0.0,
+      "lf_ff_per_step": 0.0937827
+    },
+    "lf_basis": "one LF step per base, as in the TeraMS Figure 5 reproduction"
+  },
+  "finished": 1793448597.1322973
+}

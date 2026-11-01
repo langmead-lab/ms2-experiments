@@ -1,0 +1,242 @@
+2026-10-31T00:33:22 run fig5-human_pacbio-rope
+00:33:24 fig5-human_pacbio-rope: 5 of 5 cells to run
+00:33:24 stage reads/human472/human_pacbio-ms-60mb-acgt-v2/offsets.u64
+00:33:25 stage reads/human472/human_pacbio-ms-60mb-acgt-v2/reads.fa
+00:33:26 stage reads/human472/human_pacbio-ms-60mb-acgt-v2/truth.u32
+00:33:27 stage ropebwt3/human472/index.fmd
+00:34:07 stage tools/ropebwt3-cfad8475/ropebwt3
+00:34:08 stage tools/runtime/libgomp.so.1
+00:35:04 human_pacbio-ms-acgt60mb/rope-l25 run1
+00:36:02 human_pacbio-ms-acgt60mb/rope-l25 run2
+00:36:53 human_pacbio-ms-acgt60mb/rope-l25 run3
+00:37:53 human_pacbio-ms-acgt60mb/rope-l25 checked 45.467999999999996 
+00:38:47 human_pacbio-ms-acgt60mb/rope-l40 run1
+00:39:42 human_pacbio-ms-acgt60mb/rope-l40 run2
+00:40:31 human_pacbio-ms-acgt60mb/rope-l40 run3
+00:41:27 human_pacbio-ms-acgt60mb/rope-l40 checked 42.613 
+00:42:21 human_pacbio-ms-acgt60mb/rope-l30 run1
+00:43:18 human_pacbio-ms-acgt60mb/rope-l30 run2
+00:44:07 human_pacbio-ms-acgt60mb/rope-l30 run3
+00:45:05 human_pacbio-ms-acgt60mb/rope-l30 checked 43.543 
+00:45:59 human_pacbio-ms-acgt60mb/rope-default run1
+00:47:05 human_pacbio-ms-acgt60mb/rope-default run2
+00:48:04 human_pacbio-ms-acgt60mb/rope-default run3
+00:49:10 human_pacbio-ms-acgt60mb/rope-default checked 52.868 
+00:49:10 human_pacbio-ms-acgt60mb/rope-l1 run1
+00:50:30 human_pacbio-ms-acgt60mb/rope-l1 run2
+00:51:40 human_pacbio-ms-acgt60mb/rope-l1 run3
+00:52:57 human_pacbio-ms-acgt60mb/rope-l1 checked 63.373999999999995 
+00:53:00 fig5-human_pacbio-rope: 0 cells without a done marker
+2026-10-31T00:53:00 job fig5-human_pacbio-rope exit 0
+2026-10-31T00:53:03 run build-tools
+00:53:03 stage source/ms2-2885ee8/ms2.bundle
+00:53:04 stage source/ms2-2885ee8/orbit.bundle
+00:53:05 stage source/ms2-2885ee8/teratools.bundle
+00:53:06 build-tools 01-build_tools python3 /work/code/bench/freeze/build_tools.py --parts ms2 --ms2-repo /work/stage/inputs/cc88d25eec54d2cdb21f2e934cafba53fc4b4c55a24af722dc098703d1bf323e/ms2.bundle --submodule-repo orbit /work/stage/inputs/f13bff97b6f373b18da426da9130966a8c9ad380eee91a3b3d4dfadae592a960/orbit.bundle --submodule-repo teratools /work/stage/inputs/c941f5cf0ce8108d0087c9a826bad138c45b688d82d30e70356dfd97ee986ed1/teratools.bundle --ms2-commit 2885ee86270b4187fc45dcc69efd7de48a4aac03 --root /work/stage/work/freeze-2885ee8-3c8c8967/build-tools/outputs --work /work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src
+00:59:19 build-tools publish tools/ms2-2885ee8/ms2-bench 1da9ea81b9ab
+00:59:20 build-tools publish tools/ms2-2885ee8/ms2-replog 2b123fdd3470
+00:59:21 build-tools publish tools/ms2-2885ee8/ms2-stats e47323d8b749
+00:59:21 build-tools publish tools/ms_check 1142b2770f0b
+2026-10-31T00:59:24 job build-tools exit 0
+2026-10-31T00:59:26 run build-human472-ms
+00:59:28 stage precursors/human472/bwt.heads
+00:59:42 stage precursors/human472/bwt.len
+01:00:48 stage precursors/human472/min
+01:02:14 build-human472-ms 01-build-min /work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench build /work/stage/inputs/7814fdcdf4c3e4878c100699a2f60213ddd32efd36f93b21f1b72450e414cd28/bwt.heads /work/stage/inputs/aa5d481e926c87ec6c42d10c6c0635a3648dc953bccc0acd84247ccd4f945a84/bwt.len /work/stage/work/freeze-2885ee8-3c8c8967/build-human472-ms/outputs/ms2/human472/index.ms.orbitidx --layout min --minima /work/stage/inputs/fc9c00beda5e173428c5a562cc033bad69c6dc295612013472c71635b46181a9/min
+01:35:44 build-human472-ms 02-ftab-build /work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench ftab-build /work/stage/work/freeze-2885ee8-3c8c8967/build-human472-ms/outputs/ms2/human472/index.ms.orbitidx /work/stage/work/freeze-2885ee8-3c8c8967/build-human472-ms/outputs/ms2/human472/index.ms.orbitidx.ftab --kmer-len 14 -p 128
+01:38:29 build-human472-ms publish ms2/human472/index.ms.orbitidx 520539c526f8
+01:40:39 build-human472-ms publish ms2/human472/index.ms.orbitidx.ftab 58f86f421f69
+2026-10-31T01:40:44 job build-human472-ms exit 0
+2026-10-31T01:40:49 run build-human472-full
+01:40:50 stage precursors/human472/phi
+01:44:34 stage ropebwt3/human472/index.fmd.len.gz
+01:44:35 build-human472-full 01-build-full /work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench build /work/stage/inputs/7814fdcdf4c3e4878c100699a2f60213ddd32efd36f93b21f1b72450e414cd28/bwt.heads /work/stage/inputs/aa5d481e926c87ec6c42d10c6c0635a3648dc953bccc0acd84247ccd4f945a84/bwt.len /work/stage/work/freeze-2885ee8-3c8c8967/build-human472-full/outputs/ms2/human472/index.tms.full.orbitidx --layout full --phi /work/stage/inputs/aacc1d4737bfb9159ef778e8fb46dcae118e06bc3154507f58b3c6153ffb1ccd/phi --minima /work/stage/inputs/fc9c00beda5e173428c5a562cc033bad69c6dc295612013472c71635b46181a9/min
+11:28:55 build-human472-full 02-index-add-seq-ids /work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench index-add-seq-ids /work/stage/work/freeze-2885ee8-3c8c8967/build-human472-full/outputs/ms2/human472/index.tms.full.orbitidx /work/stage/inputs/8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0/index.fmd.len.gz /work/stage/work/freeze-2885ee8-3c8c8967/build-human472-full/outputs/ms2/human472/index.tms.full.seqids.orbitidx
+11:35:33 build-human472-full 03-ftab-build /work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench ftab-build /work/stage/work/freeze-2885ee8-3c8c8967/build-human472-full/outputs/ms2/human472/index.tms.full.seqids.orbitidx /work/stage/work/freeze-2885ee8-3c8c8967/build-human472-full/outputs/ms2/human472/index.tms.full.seqids.orbitidx.ftab --kmer-len 14 -p 128
+11:47:49 build-human472-full publish ms2/human472/index.tms.full.orbitidx a6c79f97b5f5
+12:00:53 build-human472-full publish ms2/human472/index.tms.full.seqids.orbitidx 39204a6a296d
+12:07:50 build-human472-full publish ms2/human472/index.tms.full.seqids.orbitidx.ftab 0f51634b327a
+2026-10-31T12:07:59 job build-human472-full exit 0
+2026-10-31T12:08:01 desired capacity 4 -> 5
+2026-10-31T12:08:02 run fig3count-mtb152-heldout16-p100k-s600-v1
+12:08:06 fig3count-mtb152-heldout16-p100k-s600-v1: 6 of 8 cells to run
+12:08:08 stage ms2/mtb152/index.ms.orbitidx
+12:08:09 stage ms2/mtb152/index.tms.full.orbitidx
+12:08:11 stage ms2/mtb152/index.tms.phi.orbitidx
+12:08:13 stage ms2/mtb152/index.tms.psi.orbitidx
+12:08:14 stage reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64
+12:08:15 stage reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa
+12:08:16 stage reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32
+12:08:18 fetched trace traces/mtb152/mtb152-heldout16-p100k-s600-v1/dual.oracle fc795615463f
+12:08:18 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-oracle run1
+12:08:44 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-oracle checked 2.18405 
+12:08:45 fetched trace traces/mtb152/mtb152-heldout16-p100k-s600-v1/psi.oracle fc795615463f
+12:08:45 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/psi-oracle run1
+12:08:52 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/psi-oracle checked 2.10318 
+12:08:53 fetched trace traces/mtb152/mtb152-heldout16-p100k-s600-v1/phi.oracle e5b54cf01576
+12:08:53 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/phi-oracle run1
+12:09:00 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/phi-oracle checked 2.27373 
+12:09:00 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-ordinary run1
+12:09:07 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-ordinary checked 2.41246 
+12:09:08 fetched trace traces/mtb152/mtb152-heldout16-p100k-s600-v1/ms.oracle e5b54cf01576
+12:09:08 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/ms-oracle run1
+12:09:15 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/ms-oracle checked 2.15507 
+12:09:15 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/ms-ordinary run1
+12:09:22 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/ms-ordinary checked 2.14744 
+12:09:26 fig3count-mtb152-heldout16-p100k-s600-v1: 0 cells without a done marker
+2026-10-31T12:09:26 job fig3count-mtb152-heldout16-p100k-s600-v1 exit 0
+2026-10-31T12:09:29 run fig3count-mtb152-pacbio-60mb-v2
+12:09:32 fig3count-mtb152-pacbio-60mb-v2: 7 of 8 cells to run
+12:09:34 stage reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64
+12:09:35 stage reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa
+12:09:36 stage reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32
+12:09:38 fetched trace traces/mtb152/mtb152-pacbio-60mb-v2/ms.oracle 553c651d22da
+12:09:38 fig_ops-mtb152-pacbio-60mb-v2-counts/ms-oracle run1
+12:09:45 fig_ops-mtb152-pacbio-60mb-v2-counts/ms-oracle checked 1.91923 
+12:09:46 fetched trace traces/mtb152/mtb152-pacbio-60mb-v2/phi.oracle 553c651d22da
+12:09:46 fig_ops-mtb152-pacbio-60mb-v2-counts/phi-oracle run1
+12:09:53 fig_ops-mtb152-pacbio-60mb-v2-counts/phi-oracle checked 2.04652 
+12:09:54 fetched trace traces/mtb152/mtb152-pacbio-60mb-v2/dual.oracle 16c55a13fd1c
+12:09:54 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-oracle run1
+12:10:01 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-oracle checked 1.95749 
+12:10:01 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-ordinary run1
+12:10:08 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-ordinary checked 2.60194 
+12:10:09 fetched trace traces/mtb152/mtb152-pacbio-60mb-v2/psi.oracle 16c55a13fd1c
+12:10:09 fig_ops-mtb152-pacbio-60mb-v2-counts/psi-oracle run1
+12:10:15 fig_ops-mtb152-pacbio-60mb-v2-counts/psi-oracle checked 1.8611 
+12:10:15 fig_ops-mtb152-pacbio-60mb-v2-counts/ms-ordinary run1
+12:10:22 fig_ops-mtb152-pacbio-60mb-v2-counts/ms-ordinary checked 1.99655 
+12:10:22 fig_ops-mtb152-pacbio-60mb-v2-counts/phi-ordinary run1
+12:10:30 fig_ops-mtb152-pacbio-60mb-v2-counts/phi-ordinary checked 3.99054 
+12:10:35 fig3count-mtb152-pacbio-60mb-v2: 0 cells without a done marker
+2026-10-31T12:10:35 job fig3count-mtb152-pacbio-60mb-v2 exit 0
+2026-10-31T12:10:38 run fig3count-human472-apr008-pacbio-60mb-v2
+12:10:41 fig3count-human472-apr008-pacbio-60mb-v2: 8 of 8 cells to run
+12:10:46 stage ms2/human472/index.tms.phi.orbitidx
+12:24:40 stage ms2/human472/index.tms.psi.orbitidx
+12:28:51 stage reads/human472/human472-apr008-pacbio-60mb-v2/offsets.u64
+12:28:52 stage reads/human472/human472-apr008-pacbio-60mb-v2/reads.fa
+12:28:53 stage reads/human472/human472-apr008-pacbio-60mb-v2/truth.u32
+12:28:56 fetched trace traces/human472/human472-apr008-pacbio-60mb-v2/phi.oracle 81716505e777
+12:28:56 fig_ops-human472-apr008-pacbio-60mb-v2-counts/phi-oracle run1
+12:30:24 fig_ops-human472-apr008-pacbio-60mb-v2-counts/phi-oracle checked 4.25604 
+12:30:24 fig_ops-human472-apr008-pacbio-60mb-v2-counts/ms-ordinary run1
+12:31:36 fig_ops-human472-apr008-pacbio-60mb-v2-counts/ms-ordinary checked 4.33106 
+12:31:36 fig_ops-human472-apr008-pacbio-60mb-v2-counts/phi-ordinary run1
+12:33:40 fig_ops-human472-apr008-pacbio-60mb-v2-counts/phi-ordinary checked 27.6294 
+12:33:40 fig_ops-human472-apr008-pacbio-60mb-v2-counts/psi-ordinary run1
+12:35:00 fig_ops-human472-apr008-pacbio-60mb-v2-counts/psi-ordinary checked 8.31801 
+12:35:01 fetched trace traces/human472/human472-apr008-pacbio-60mb-v2/ms.oracle 81716505e777
+12:35:01 fig_ops-human472-apr008-pacbio-60mb-v2-counts/ms-oracle run1
+12:36:12 fig_ops-human472-apr008-pacbio-60mb-v2-counts/ms-oracle checked 4.06808 
+12:36:12 fig_ops-human472-apr008-pacbio-60mb-v2-counts/dual-ordinary run1
+12:38:46 fig_ops-human472-apr008-pacbio-60mb-v2-counts/dual-ordinary checked 5.76237 
+12:38:47 fetched trace traces/human472/human472-apr008-pacbio-60mb-v2/dual.oracle 409a3ebca11e
+12:38:47 fig_ops-human472-apr008-pacbio-60mb-v2-counts/dual-oracle run1
+12:40:47 fig_ops-human472-apr008-pacbio-60mb-v2-counts/dual-oracle checked 4.30322 
+12:40:48 fetched trace traces/human472/human472-apr008-pacbio-60mb-v2/psi.oracle 409a3ebca11e
+12:40:48 fig_ops-human472-apr008-pacbio-60mb-v2-counts/psi-oracle run1
+12:42:03 fig_ops-human472-apr008-pacbio-60mb-v2-counts/psi-oracle checked 4.03237 
+12:42:08 fig3count-human472-apr008-pacbio-60mb-v2: 0 cells without a done marker
+2026-10-31T12:42:08 job fig3count-human472-apr008-pacbio-60mb-v2 exit 0
+2026-10-31T12:42:11 run fig5-human_short-ms2dual
+12:42:12 fig5-human_short-ms2dual: 4 of 4 cells to run
+12:42:14 stage reads/human472/human_short-ms-60mb-acgt-v2/offsets.u64
+12:42:15 stage reads/human472/human_short-ms-60mb-acgt-v2/reads.fa
+12:42:17 stage reads/human472/human_short-ms-60mb-acgt-v2/truth.u32
+12:42:18 human_short-ms-acgt60mb/dual-ftab run1
+12:44:51 human_short-ms-acgt60mb/dual-ftab run2
+12:47:23 human_short-ms-acgt60mb/dual-ftab run3
+12:50:02 human_short-ms-acgt60mb/dual-ftab checked 5.58886 
+12:52:38 recorded trace traces/human472/human_short-ms-60mb-acgt-v2/dual.oracle e24dc42578fb
+12:52:38 human_short-ms-acgt60mb/dual-oracle run1
+12:54:36 human_short-ms-acgt60mb/dual-oracle run2
+12:56:32 human_short-ms-acgt60mb/dual-oracle run3
+12:58:37 human_short-ms-acgt60mb/dual-oracle checked 4.08659 
+12:58:37 human_short-ms-acgt60mb/dual-ordinary run1
+13:01:10 human_short-ms-acgt60mb/dual-ordinary run2
+13:03:42 human_short-ms-acgt60mb/dual-ordinary run3
+13:06:22 human_short-ms-acgt60mb/dual-ordinary checked 7.20238 
+13:06:22 human_short-ms-acgt60mb/dual-ordinary-plainfull run1
+13:08:53 human_short-ms-acgt60mb/dual-ordinary-plainfull run2
+13:11:24 human_short-ms-acgt60mb/dual-ordinary-plainfull run3
+13:14:02 human_short-ms-acgt60mb/dual-ordinary-plainfull checked 7.14399 
+13:14:05 fig5-human_short-ms2dual: 0 cells without a done marker
+2026-10-31T13:14:05 job fig5-human_short-ms2dual exit 0
+2026-10-31T13:14:08 run loc-human_short-ms2phi
+13:14:09 loc-human_short-ms2phi: 3 of 3 cells to run
+13:14:11 stage reads/human472/human_short-locate-6mb-v2/offsets.u64
+13:14:12 stage reads/human472/human_short-locate-6mb-v2/reads.fa
+13:14:13 stage reads/human472/human_short-locate-6mb-v2/truth.u32
+13:14:14 human_short-locate-6mb/cap10-phi-ordinary run1
+13:18:58 human_short-locate-6mb/cap10-phi-ordinary run2
+13:23:26 human_short-locate-6mb/cap10-phi-ordinary run3
+13:28:00 human_short-locate-6mb/cap10-phi-ordinary checked 4.54217 
+13:28:00 human_short-locate-6mb/cap1-phi-ordinary run1
+13:32:30 human_short-locate-6mb/cap1-phi-ordinary run2
+13:36:59 human_short-locate-6mb/cap1-phi-ordinary run3
+13:41:34 human_short-locate-6mb/cap1-phi-ordinary checked 4.2983 
+13:41:34 human_short-locate-6mb/cap100-phi-ordinary run1
+13:48:06 human_short-locate-6mb/cap100-phi-ordinary run2
+13:52:39 human_short-locate-6mb/cap100-phi-ordinary run3
+13:57:17 human_short-locate-6mb/cap100-phi-ordinary checked 5.8073 
+13:57:20 loc-human_short-ms2phi: 0 cells without a done marker
+2026-10-31T13:57:20 job loc-human_short-ms2phi exit 0
+2026-10-31T13:57:23 run loc-human_pacbio-ms2phi
+13:57:24 loc-human_pacbio-ms2phi: 3 of 3 cells to run
+13:57:26 stage reads/human472/human_pacbio-locate-20mb-v2/offsets.u64
+13:57:27 stage reads/human472/human_pacbio-locate-20mb-v2/reads.fa
+13:57:27 stage reads/human472/human_pacbio-locate-20mb-v2/truth.u32
+13:57:28 human_pacbio-locate-20mb/cap100-phi-ordinary run1
+14:05:20 human_pacbio-locate-20mb/cap100-phi-ordinary run2
+14:09:49 human_pacbio-locate-20mb/cap100-phi-ordinary run3
+14:14:26 human_pacbio-locate-20mb/cap100-phi-ordinary checked 7.25739 
+14:14:26 human_pacbio-locate-20mb/cap10-phi-ordinary run1
+14:19:25 human_pacbio-locate-20mb/cap10-phi-ordinary run2
+14:23:55 human_pacbio-locate-20mb/cap10-phi-ordinary run3
+14:28:29 human_pacbio-locate-20mb/cap10-phi-ordinary checked 4.92017 
+14:28:29 human_pacbio-locate-20mb/cap1-phi-ordinary run1
+14:33:06 human_pacbio-locate-20mb/cap1-phi-ordinary run2
+14:37:31 human_pacbio-locate-20mb/cap1-phi-ordinary run3
+14:42:05 human_pacbio-locate-20mb/cap1-phi-ordinary checked 4.49375 
+14:42:08 loc-human_pacbio-ms2phi: 0 cells without a done marker
+2026-10-31T14:42:08 job loc-human_pacbio-ms2phi exit 0
+2026-10-31T14:42:11 run loc-guccione_skin-ms2phi
+14:42:12 loc-guccione_skin-ms2phi: 3 of 3 cells to run
+14:42:14 stage reads/human472/guccione_skin-locate-500kb-v2/offsets.u64
+14:42:15 stage reads/human472/guccione_skin-locate-500kb-v2/reads.fa
+14:42:16 stage reads/human472/guccione_skin-locate-500kb-v2/truth.u32
+14:42:16 guccione_skin-locate-500kb/cap100-phi-ordinary run1
+14:49:59 guccione_skin-locate-500kb/cap100-phi-ordinary run2
+14:54:33 guccione_skin-locate-500kb/cap100-phi-ordinary run3
+14:59:08 guccione_skin-locate-500kb/cap100-phi-ordinary checked 3.78919 
+14:59:08 guccione_skin-locate-500kb/cap1-phi-ordinary run1
+15:03:41 guccione_skin-locate-500kb/cap1-phi-ordinary run2
+15:08:10 guccione_skin-locate-500kb/cap1-phi-ordinary run3
+15:12:44 guccione_skin-locate-500kb/cap1-phi-ordinary checked 1.1555 
+15:12:44 guccione_skin-locate-500kb/cap10-phi-ordinary run1
+15:17:35 guccione_skin-locate-500kb/cap10-phi-ordinary run2
+15:22:05 guccione_skin-locate-500kb/cap10-phi-ordinary run3
+15:26:41 guccione_skin-locate-500kb/cap10-phi-ordinary checked 1.47473 
+15:26:43 loc-guccione_skin-ms2phi: 0 cells without a done marker
+2026-10-31T15:26:43 job loc-guccione_skin-ms2phi exit 0
+2026-10-31T15:26:46 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:27:47 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:28:49 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:29:50 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:30:52 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:31:54 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:32:55 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:33:57 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:34:58 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:36:00 nothing ready; 7 jobs unfinished; waiting
+2026-10-31T15:37:02 nothing ready; 6 jobs unfinished; waiting
+2026-10-31T15:38:03 nothing ready; 6 jobs unfinished; waiting
+2026-10-31T15:39:05 nothing ready; 6 jobs unfinished; waiting
+2026-10-31T15:40:07 nothing ready; 6 jobs unfinished; waiting
+2026-10-31T15:41:08 nothing ready; 6 jobs unfinished; waiting
+2026-10-31T15:42:10 nothing ready; 6 jobs unfinished; waiting
+2026-10-31T15:43:12 nothing ready; 6 jobs unfinished; waiting
+2026-10-31T15:44:13 nothing ready; 6 jobs unfinished; waiting
+2026-10-31T15:45:15 nothing ready; 6 jobs unfinished; waiting
+2026-10-31T15:46:17 nothing ready; 6 jobs unfinished; waiting

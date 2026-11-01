@@ -1,0 +1,48 @@
+{
+  "run": 2,
+  "host": "ip-10-0-1-112.ec2.internal",
+  "started": 1793415149.051877,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/7246fde73b3e721b99949716e402e48e51109cd7ac81101c165d87dc6735d0a5/index.tms.psi.orbitidx",
+    "/work/stage/inputs/b940ed881ebeac87042a7fec0e30832147773b5325249faaa8f450f35ff1c74d/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig3-human472-apr008-hap1-p100k-s600-v1-psi/runs/fig_ops-human472-apr008-hap1-p100k-s600-v1__psi-oracle/run2/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--block-bytes",
+    "67108864",
+    "--mode",
+    "oracle",
+    "--oracle",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig3-human472-apr008-hap1-p100k-s600-v1-psi/traces/traces/human472/human472-apr008-hap1-p100k-s600-v1/psi.oracle"
+  ],
+  "timeout_s": 7200,
+  "cache": "drop_caches",
+  "wall_seconds": 70.87735707399952,
+  "user_seconds": 18.52,
+  "system_seconds": 52.32,
+  "peak_rss_kib": 102215564,
+  "phase": {
+    "source": "orbit-query-line",
+    "query_definition": "total_s",
+    "load_seconds": 64.1953,
+    "query_seconds": 4.1534,
+    "components": {
+      "index_load_s": 64.1953,
+      "ftab_s": 0.0,
+      "query_s": 3.00946,
+      "read_s": 0.0245855,
+      "parse_s": 0.0587799,
+      "format_s": 0.934196,
+      "total_s": 4.1534
+    }
+  },
+  "finished": 1793415220.5474093
+}

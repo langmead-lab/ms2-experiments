@@ -1,0 +1,192 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "mtb152-A2-e0.00011",
+  "cell": "fig_rep-a2/mtb152-A2-e0.00011",
+  "group": "fig_rep-a2",
+  "figures": [
+    "A1"
+  ],
+  "tool": "ms2-replog",
+  "kind": "rep",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "job": "a1-mtb152-errors",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-3-151.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0538f31c74f746367",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": null,
+  "bases": 20018392,
+  "reference": "mtb152",
+  "read_set": "mtb152-A2-e0.00011-v1",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-replog",
+      "sha256": "2b123fdd3470dbf05d3ec576a489d31a57daf9fd552398bcb390d6a616ef57cc"
+    },
+    "reads": {
+      "name": "reads/mtb152/mtb152-A2-e0.00011-v1/reads.fa",
+      "sha256": "b84f9070c69d2735f05e173baffe6dfd8074b93eac8cce8710227cb29d1ab616"
+    },
+    "index_psi": {
+      "name": "ms2/mtb152/index.tms.psi.orbitidx",
+      "sha256": "e9265a86e2330928fb3f20872aad05df75b36da3a1be49ae0cce2c53be996621"
+    },
+    "index_phi": {
+      "name": "ms2/mtb152/index.tms.phi.orbitidx",
+      "sha256": "001a37f83414eb0fb1c8cc8c686f610c6d7ea3ca0c9f70eef8a21f8ce459058f"
+    },
+    "index_dual": {
+      "name": "ms2/mtb152/index.tms.full.orbitidx",
+      "sha256": "af80e5f51daf70433a14618921da240c822b781215bc8b0a92bdf63620f52048"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793433976.5632114,
+  "interleave": 32,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-3-151.ec2.internal",
+      "started": 1793433976.563287,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/usr/bin/python3",
+        "/work/code/bench/campaign-20261012/fig_rep.py",
+        "run",
+        "--binary",
+        "/work/stage/inputs/2b123fdd3470dbf05d3ec576a489d31a57daf9fd552398bcb390d6a616ef57cc/ms2-replog",
+        "--reads",
+        "/work/stage/inputs/b84f9070c69d2735f05e173baffe6dfd8074b93eac8cce8710227cb29d1ab616/reads.fa",
+        "--destination",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/a1-mtb152-errors/runs/fig_rep-a2__mtb152-A2-e0.00011/run1/rep",
+        "--interleave",
+        "32",
+        "--index-psi",
+        "/work/stage/inputs/e9265a86e2330928fb3f20872aad05df75b36da3a1be49ae0cce2c53be996621/index.tms.psi.orbitidx",
+        "--index-phi",
+        "/work/stage/inputs/001a37f83414eb0fb1c8cc8c686f610c6d7ea3ca0c9f70eef8a21f8ce459058f/index.tms.phi.orbitidx",
+        "--index-dual",
+        "/work/stage/inputs/af80e5f51daf70433a14618921da240c822b781215bc8b0a92bdf63620f52048/index.tms.full.orbitidx"
+      ],
+      "cache": "drop_caches",
+      "wall_seconds": 3.6654746799995337,
+      "peak_rss_kib": 460072,
+      "timeout_s": 14400,
+      "check": {
+        "outputs_identical": true,
+        "aligned": "every record matches psi in pattern, at, cap, lce and dist",
+        "log_sums_match_stats": true,
+        "bases": 20018392,
+        "repositions": 42482
+      },
+      "phase": {
+        "source": "fig_rep.py",
+        "query_definition": "sum of the three modes' query_s",
+        "query_seconds": 1.49039,
+        "load_seconds": 0.2922015
+      },
+      "rep": {
+        "repositions_per_base": 0.002122148472264905,
+        "times": {
+          "psi": {
+            "index_load_s": 0.0618898,
+            "query_s": 0.583598,
+            "query_ns_per_base": 29.1531
+          },
+          "phi": {
+            "index_load_s": 0.0943547,
+            "query_s": 0.497113,
+            "query_ns_per_base": 24.8328
+          },
+          "dual": {
+            "index_load_s": 0.135957,
+            "query_s": 0.409679,
+            "query_ns_per_base": 20.4651
+          }
+        }
+      },
+      "finished": 1793433980.2659454
+    }
+  ],
+  "check": {
+    "outputs_identical": true,
+    "aligned": "every record matches psi in pattern, at, cap, lce and dist",
+    "log_sums_match_stats": true,
+    "bases": 20018392,
+    "repositions": 42482
+  },
+  "rep": {
+    "repositions_per_base": 0.002122148472264905,
+    "times": {
+      "psi": {
+        "index_load_s": 0.0618898,
+        "query_s": 0.583598,
+        "query_ns_per_base": 29.1531
+      },
+      "phi": {
+        "index_load_s": 0.0943547,
+        "query_s": 0.497113,
+        "query_ns_per_base": 24.8328
+      },
+      "dual": {
+        "index_load_s": 0.135957,
+        "query_s": 0.409679,
+        "query_ns_per_base": 20.4651
+      }
+    }
+  },
+  "query_seconds": [
+    1.49039
+  ],
+  "median_query_seconds": 1.49039,
+  "load_seconds": [
+    0.2922015
+  ],
+  "median_load_seconds": 0.2922015,
+  "peak_rss_kib": 460072,
+  "rep_dir": "rep",
+  "finished": 1793433980.2661643
+}

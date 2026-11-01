@@ -1,0 +1,99 @@
+% Runtime bit widths of the HPRC2 Orbit indexes, from their ORBITIDX headers
+% (ms index-plan, binary ms-dca2a4e, 2026-10-05), and of the ms-bakery chr22-h100
+% indexes (chr22 of 100 haplotypes; frozen hprc2 build 1d580b6), from the
+% preambles of their MSIX v4 / TMSX v8 files.  MB = rows x bits / 8 / 1e6,
+% the packed rows only (each Orbit table adds about 100 bytes of preamble and 8
+% of slack).  "HPRC2+, 472 haps" is human472 and "10 haps from HPRC2" is p10
+% (its first 10 assemblies: CHM13, GRCh38 and both haplotypes of CN1, YAO,
+% KSA001 and HG002); both use the FMD text (every contig and its reverse
+% complement, each ending in $, N kept), and p10's sep row the %-separated
+% Movi text.  "100 chr22s" is the ms-bakery chr22-h100 cell.
+% Widths are those of indexes built from Orbit idxfmt 51823f3 on: LF's phi off
+% column has width 0 (queries read phi points only at run heads, where the
+% offset is 0).  Files built earlier, including the rewrapped HPRC2 indexes,
+% carry 1 bit there (phi samples route) or 11 (chr22-h100, LF-walk route).
+
+% ---------------------------------------------------------------------------
+% Table 1: each structure's fields and their widths.  A tms LF row holds every
+% column its layout keeps, whatever the query (LF is loaded whole).
+% ---------------------------------------------------------------------------
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lr rrrr rrr rr rr rr@{}}
+ & & \multicolumn{4}{c}{Move fields}
+   & \multicolumn{3}{c}{LCP (Orbit-ms)}
+   & \multicolumn{2}{c}{$\psi$ link}
+   & \multicolumn{2}{c}{$\phi$ link}
+   & \multicolumn{2}{c}{Total} \\
+\cmidrule(lr){3-6}\cmidrule(lr){7-9}\cmidrule(lr){10-11}\cmidrule(lr){12-13}\cmidrule(l){14-15}
+Lex space & Rows & len & ptr & off & chr & top & sub & spill & int & off & int & off & bits & MB \\
+\midrule
+\multicolumn{15}{@{}l}{\emph{HPRC2+, 472 haps} ($n = 2{,}842.4$G, $r = 5.259$G)} \\
+Orbit-ms LF                    & 5{,}305.2M & 13 & 33 & 13 & 3 & 10 & 2  & 29 & -- & -- & -- & -- & 103 & 68{,}304 \\
+Orbit-tms LF+$\psi$            & 7{,}671.2M & 13 & 33 & 13 & 3 & -- & -- & -- & 33 & 13 & -- & -- & 108 & 103{,}561 \\
+Orbit-tms LF+$\psi$+$\phi$     & 7{,}671.2M & 13 & 33 & 13 & 3 & -- & -- & -- & 33 & 13 & 33 & 0  & 141 & 135{,}205 \\
+Orbit-tms LF+$\phi$            & 5{,}305.2M & 13 & 33 & 13 & 3 & -- & -- & -- & -- & -- & 33 & 0  & 95  & 62{,}999 \\
+\midrule
+\multicolumn{15}{@{}l}{\emph{10 haps from HPRC2} ($n = 60.37$G, $r = 3.581$G)} \\
+Orbit-ms LF                    & 3{,}603.5M & 8  & 32 & 8  & 3 & 5  & 1  & 25 & -- & -- & -- & -- & 82  & 36{,}936 \\
+Orbit-ms LF, sep text          & 3{,}602.0M & 8  & 32 & 8  & 3 & 5  & 1  & 25 & -- & -- & -- & -- & 82  & 36{,}920 \\
+Orbit-tms LF+$\psi$            & 4{,}823.1M & 8  & 33 & 8  & 3 & -- & -- & -- & 33 & 8  & -- & -- & 93  & 56{,}069 \\
+Orbit-tms LF+$\psi$+$\phi$     & 4{,}823.1M & 8  & 33 & 8  & 3 & -- & -- & -- & 33 & 8  & 32 & 0  & 125 & 75{,}361 \\
+Orbit-tms LF+$\phi$            & 3{,}603.5M & 8  & 32 & 8  & 3 & -- & -- & -- & -- & -- & 32 & 0  & 83  & 37{,}386 \\
+\midrule
+\multicolumn{15}{@{}l}{\emph{100 chr22s} ($n = 10.10$G, $r = 69.25$M)} \\
+Orbit-ms LF                    & 69.89M     & 11 & 27 & 11 & 3 & 7  & 2  & 22 & -- & -- & -- & -- & 83  & 725 \\
+Orbit-tms LF+$\psi$            & 100.34M    & 11 & 27 & 11 & 3 & -- & -- & -- & 27 & 11 & -- & -- & 90  & 1{,}129 \\
+Orbit-tms LF+$\psi$+$\phi$     & 100.34M    & 11 & 27 & 11 & 3 & -- & -- & -- & 27 & 11 & 27 & 0  & 117 & 1{,}467 \\
+Orbit-tms LF+$\phi$            & 69.89M     & 11 & 27 & 11 & 3 & -- & -- & -- & -- & -- & 27 & 0  & 79  & 690 \\
+\midrule
+ & & \multicolumn{4}{c}{Move fields} & & & & & & & & \multicolumn{2}{c}{Total} \\
+\cmidrule(lr){3-6}\cmidrule(l){14-15}
+Text space & Rows & st/len & ptr & off & plcp & & & & & & & & bits & MB \\
+\midrule
+\multicolumn{15}{@{}l}{\emph{HPRC2+, 472 haps}} \\
+Orbit-tms $\phi$ (lengths)     & 5{,}833.4M & 13 & 33 & 13 & 25 & & & & & & & & 84  & 61{,}251 \\
+Orbit-tms $\phi$ (starts)      & 5{,}833.4M & 42 & 33 & 13 & 25 & & & & & & & & 113 & 82{,}397 \\
+Orbit-tms $\phi^{-1}$          & 5{,}833.4M & 42 & 33 & 13 & 25 & & & & & & & & 113 & 82{,}397 \\
+\midrule
+\multicolumn{15}{@{}l}{\emph{10 haps from HPRC2}} \\
+Orbit-tms $\phi$ (lengths)     & 4{,}095.9M & 8  & 32 & 8  & 25 & & & & & & & & 73  & 37{,}375 \\
+Orbit-tms $\phi$ (starts)      & 4{,}095.9M & 36 & 32 & 8  & 25 & & & & & & & & 101 & 51{,}711 \\
+Orbit-tms $\phi^{-1}$          & 4{,}095.9M & 36 & 32 & 8  & 25 & & & & & & & & 101 & 51{,}711 \\
+\midrule
+\multicolumn{15}{@{}l}{\emph{100 chr22s}} \\
+Orbit-tms $\phi$ (lengths)     & 77.96M     & 11 & 27 & 11 & 22 & & & & & & & & 71  & 692 \\
+Orbit-tms $\phi$ (starts)      & 77.96M     & 34 & 27 & 11 & 22 & & & & & & & & 94  & 916 \\
+Orbit-tms $\phi^{-1}$          & 77.96M     & 34 & 27 & 11 & 22 & & & & & & & & 94  & 916 \\
+\midrule
+\multicolumn{15}{@{}l}{\emph{Built at load, not stored}: start tables of $\phi$ (starts) and of $\phi^{-1}$, one each} \\
+HPRC2+, 472 haps: $2^{11}$ positions per entry   & 1{,}387.9M & \multicolumn{4}{c}{interval: 33} & & & & & & & & 33 & 5{,}725 \\
+10 haps from HPRC2: $2^{6}$ positions per entry  & 943.2M     & \multicolumn{4}{c}{interval: 32} & & & & & & & & 32 & 3{,}773 \\
+100 chr22s: $2^{10}$ positions per entry         & 9.87M      & \multicolumn{4}{c}{interval: 27} & & & & & & & & 27 & 33 \\
+\midrule
+\multicolumn{15}{@{}l}{\emph{Orbit-ms spillover arrays} (byte arrays, 64 per index)} \\
+HPRC2+, 472 haps / 10 haps from HPRC2 (FMD, sep) / 100 chr22s & & \multicolumn{11}{l}{} & & 22{,}929 / 1{,}475, 1{,}300 / 191 \\
+\end{tabular}
+
+\bigskip
+
+% ---------------------------------------------------------------------------
+% Table 2: what each query loads, and its total MB, per index file.  -- means
+% the index's layout cannot serve the query (it is refused at load).
+% ---------------------------------------------------------------------------
+\begin{tabular}{@{}ll rrr rrr rrr@{}}
+ & & \multicolumn{3}{c}{HPRC2+, 472 haps} & \multicolumn{3}{c}{10 haps from HPRC2} & \multicolumn{3}{c}{100 chr22s} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}\cmidrule(l){9-11}
+Query (\texttt{tms-batch}) & Loaded & psi & full & phi & psi & full & phi & psi & full & phi \\
+\midrule
+\texttt{--mode psi}                    & LF                 & 103{,}561 & 135{,}205 & --        & 56{,}069 & 75{,}361  & --        & 1{,}129 & 1{,}467 & -- \\
+\texttt{--mode phi}                    & LF, $\phi$ (len)   & --        & 196{,}456 & 124{,}250 & --       & 112{,}737 & 74{,}762  & --      & 2{,}159 & 1{,}382 \\
+\texttt{--mode phiskip}, \texttt{dual} & LF, $\phi$ (len)   & --        & 196{,}456 & --        & --       & 112{,}737 & --        & --      & 2{,}159 & -- \\
+\texttt{--mode phi --phi-starts}       & LF, $\phi$ (starts)& --        & 217{,}602 & 145{,}396 & --       & 127{,}072 & 89{,}097  & --      & 2{,}384 & 1{,}606 \\
+any mode, \texttt{--positions} or \texttt{smem-one}
+                                       & LF, $\phi$ (starts)& --        & 217{,}602 & 145{,}396$^a$ & --   & 127{,}072 & 89{,}097$^a$ & --   & 2{,}384 & 1{,}606$^a$ \\
+any mode, \texttt{--report smem-all}   & LF, $\phi$ (starts), $\phi^{-1}$, 2 start tables
+                                                            & --        & 311{,}449 & 239{,}244$^a$ & --   & 186{,}329 & 148{,}354$^a$ & --  & 3{,}366 & 2{,}589$^a$ \\
+\midrule
+Orbit-ms \texttt{batch}                & LF, spill arrays   & \multicolumn{3}{c}{91{,}234} & \multicolumn{3}{c}{38{,}411 (FMD) / 38{,}220 (sep)} & \multicolumn{3}{c}{916} \\
+\end{tabular}
+% a: phi mode only; psi, phiskip and dual walk psi, which the phi layout lacks.

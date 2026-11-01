@@ -1,0 +1,2 @@
+ftab: k=14 entry_bits=93 bytes=3590324240 load_s=1.23073
+query: reads=480000 bases=60000000 threads=1 index_load_s=60.8527 ftab_k=14 ftab_s=1.23073 query_s=23.1836 read_s=0.0110946 parse_s=0.0535677 format_s=0.559192 orient=fwd flipped=0 orient_s=0 total_s=23.8754 query_ns_per_base=386.393 wall_ns_per_base=397.924

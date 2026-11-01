@@ -1,0 +1,90 @@
+{
+  "job": "fig5-human_short-ms2ms",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-3-151.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0538f31c74f746367",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot"
+  },
+  "platform": "aws",
+  "started": 1793420935.669208,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "fig5-human_short-ms2ms",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 3,
+  "already_done": 0,
+  "order": [
+    "human_short-ms-acgt60mb/ms-oracle",
+    "human_short-ms-acgt60mb/ms-ordinary",
+    "human_short-ms-acgt60mb/ms-ftab"
+  ],
+  "staging": {
+    "ms2/human472/index.ms.orbitidx": {
+      "sha256": "520539c526f8c8fe9cb72a0179b2301418498bdf3eb747d026b64ed3c87021d2",
+      "bytes": 107285232940,
+      "fresh": true,
+      "seconds": 260.34403347969055
+    },
+    "ms2/human472/index.ms.orbitidx.ftab": {
+      "sha256": "58f86f421f6950813ba3180535461b51303e0a945089e4b6c5855aae46329f93",
+      "bytes": 1577062408,
+      "fresh": true,
+      "seconds": 5.223927021026611
+    },
+    "reads/human472/human_short-ms-60mb-acgt-v2/offsets.u64": {
+      "sha256": "26fa15047d34b53e7c39b84c8870527b353e1eeaa6c824d8b951234f24377f24",
+      "bytes": 3840008,
+      "fresh": true,
+      "seconds": 0.8298742771148682
+    },
+    "reads/human472/human_short-ms-60mb-acgt-v2/reads.fa": {
+      "sha256": "9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f",
+      "bytes": 64688890,
+      "fresh": true,
+      "seconds": 1.0313284397125244
+    },
+    "reads/human472/human_short-ms-60mb-acgt-v2/truth.u32": {
+      "sha256": "42b7cbcb1271a33b22d3801991bfddb4fee5a09ed76ce7fbd78a5bfebde28d00",
+      "bytes": 240000000,
+      "fresh": true,
+      "seconds": 1.430983543395996
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 4.029273986816406e-05
+    },
+    "tools/ms_check": {
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab",
+      "bytes": 251000,
+      "fresh": false,
+      "seconds": 3.361701965332031e-05
+    }
+  },
+  "finished": 1793421926.7410564,
+  "results": {
+    "human_short-ms-acgt60mb/ms-oracle": "checked",
+    "human_short-ms-acgt60mb/ms-ordinary": "checked",
+    "human_short-ms-acgt60mb/ms-ftab": "checked"
+  }
+}

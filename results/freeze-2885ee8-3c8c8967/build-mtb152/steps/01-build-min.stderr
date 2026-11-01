@@ -1,0 +1,7 @@
+mem	load_rlbwt	t=0.0s	rss=0.059GiB	peak=0.059GiB	peak_per=9.5B
+mem	ms_split_rows	t=1.0s	rss=0.036GiB	peak=0.215GiB	peak_per=34.4B
+mem	ms_pass1	t=1.2s	rss=0.036GiB	peak=0.036GiB	peak_per=5.8B
+mem	ms_pass2	t=1.5s	rss=0.087GiB	peak=0.087GiB	peak_per=13.9B
+mem	ms_encoding	t=1.6s	rss=0.101GiB	peak=0.101GiB	peak_per=16.1B
+mem	ms_assemble	t=1.8s	rss=0.094GiB	peak=0.168GiB	peak_per=26.9B
+mem	write	t=1.9s	rss=0.094GiB	peak=0.094GiB	peak_per=15.0B

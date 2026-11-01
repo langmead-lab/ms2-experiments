@@ -1,0 +1,71 @@
+{
+  "run": 1,
+  "host": "ip-10-0-5-162.ec2.internal",
+  "started": 1793513936.1390307,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t1",
+    "-K",
+    "1m",
+    "-l1",
+    "-p1",
+    "/work/stage/work/freeze-2885ee8-00e665de/loc-human_ont_modern-rope-s8/rope/s8-ropebwt3_human472_index.fmd/index.fmd",
+    "/work/stage/inputs/2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83/reads.fa"
+  ],
+  "timeout_s": 14400,
+  "cache": "drop_caches",
+  "wall_seconds": 41.16249441599939,
+  "user_seconds": 13.84,
+  "system_seconds": 27.33,
+  "peak_rss_kib": 101831876,
+  "phase": {
+    "source": "ropebwt3-log-stamps",
+    "query_definition": "last processed stamp - last loaded stamp",
+    "load_seconds": 27.157,
+    "query_seconds": 13.794999999999998,
+    "components": {
+      "last_loaded_s": 27.157,
+      "last_processed_s": 40.952,
+      "processed_sequences": 494
+    }
+  },
+  "check": {
+    "failed": 0,
+    "validation": "cross-tool-v1",
+    "tool": "rope",
+    "cap": 1,
+    "reads": 494,
+    "intervals": 186634,
+    "zero_count_intervals": 0,
+    "reported_locations_checked": 186634,
+    "locations_in_bounds": 186634,
+    "ms_positions_checked": 9949236,
+    "emitted_counts": 186634,
+    "complete_set_intervals": 15481,
+    "complete_set_locations": 15481,
+    "over_cap_intervals": 171153,
+    "over_cap_locations": 171153,
+    "all_coordinates_checked": false,
+    "occurrence_reference_checked": false,
+    "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+    "count_checks": "cross-tool agreement",
+    "canonical": {
+      "format": "canonical-smem-v1",
+      "sha256": "b3792c2ccfad1e8a6f9ac3065387a75c55a2918402f1966888e26ca64cc41759",
+      "lines": 186634,
+      "bytes": 10460405,
+      "cap": 1,
+      "over_cap_lines": 171153,
+      "over_cap_locations": 171153,
+      "over_cap_sha256": "0e1cbee6b5477d2b133d620a87fecbb92d551f2863f400f345f13c612ee51e18",
+      "compressed_bytes": 3306330,
+      "compressed_sha256": "7aefbda23115fc13ab9f20c816b47a7ba689cda3d6b66f4d0d9207cfa4a91c6c",
+      "path": "/work/stage/work/freeze-2885ee8-00e665de/loc-human_ont_modern-rope-s8/canonical/human_ont_modern-locate-10mb__cap1-rope-s8.canonical.gz"
+    }
+  },
+  "finished": 1793513985.2589777
+}

@@ -1,0 +1,72 @@
+{
+  "run": 1,
+  "host": "ip-10-0-1-112.ec2.internal",
+  "started": 1793417509.1244998,
+  "one": {
+    "argv": [
+      "numactl",
+      "--cpunodebind=0",
+      "--membind=0",
+      "/work/stage/inputs/79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b/aug_phoni",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simont/legacy/augphoni-chr22-h100/reference.txt",
+      "-p",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__augphoni/run1/one/reads.fa",
+      "-g",
+      "naive",
+      "-t",
+      "compressed"
+    ],
+    "cache": "drop_caches",
+    "wall_seconds": 0.7969564400009403,
+    "peak_rss_kib": 1546392,
+    "user_seconds": 0.08,
+    "system_seconds": 0.69,
+    "check": {
+      "reads": 1,
+      "positions": 16824,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b/aug_phoni",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simont/legacy/augphoni-chr22-h100/reference.txt",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__augphoni/run1/full/reads.fa",
+    "-g",
+    "naive",
+    "-t",
+    "compressed"
+  ],
+  "cache": "drop_caches",
+  "timeout_s": 7200,
+  "wall_seconds": 121.69483056099853,
+  "user_seconds": 119.98,
+  "system_seconds": 1.68,
+  "peak_rss_kib": 1561336,
+  "phase": {
+    "source": "one-read-wall",
+    "query_definition": "full run wall minus one-read run wall",
+    "load_seconds": 0.7969564400009403,
+    "query_seconds": 120.89787412099759
+  },
+  "check": {
+    "reads": 2782,
+    "positions": 59998845,
+    "failed": 0,
+    "every_position_checked": true,
+    "validation": "exact-ms-lengths",
+    "one_read": {
+      "reads": 1,
+      "positions": 16824,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "finished": 1793417651.2643259
+}

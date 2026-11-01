@@ -1,0 +1,51 @@
+{
+  "run": 3,
+  "host": "ip-10-0-4-177.ec2.internal",
+  "started": 1793500037.1817865,
+  "one": {
+    "argv": [
+      "numactl",
+      "--cpunodebind=0",
+      "--membind=0",
+      "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/legacy/moni-chr22-h10/index",
+      "-p",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__moni/run3/one/reads.fa",
+      "-o",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__moni/run3/one/output",
+      "-t",
+      "1"
+    ],
+    "cache": "drop_caches",
+    "wall_seconds": 0.27476315700005216,
+    "peak_rss_kib": 674484,
+    "user_seconds": 0.04,
+    "system_seconds": 0.2
+  },
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/legacy/moni-chr22-h10/index",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__moni/run3/full/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__moni/run3/full/output",
+    "-t",
+    "1"
+  ],
+  "cache": "drop_caches",
+  "timeout_s": 7200,
+  "wall_seconds": 68.63801648000026,
+  "user_seconds": 67.78,
+  "system_seconds": 0.81,
+  "peak_rss_kib": 675048,
+  "phase": {
+    "source": "one-read-wall",
+    "query_definition": "full run wall minus one-read run wall",
+    "load_seconds": 0.27476315700005216,
+    "query_seconds": 68.36325332300021
+  },
+  "finished": 1793500106.1746764
+}

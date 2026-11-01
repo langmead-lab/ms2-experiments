@@ -1,0 +1,5 @@
+stats: bases=59140032 repositions/base=0.000651606 psi_steps/base=0.000859097 scan_rows/rep=11.3112 len/rep=2908.19 phi_steps/base=0.000705529 dist/rep=177.94 dist1_frac=0.384705 lce/rep=1671.16 capped_frac=0.467407 scan_visits/rep=1.44281 lf_ff/step=0.0938947 walk_visits/base=0.000800659
+stats: dual up_raced=1220 down_raced=1541 up_psi_steps=23157 down_psi_steps=27650 psi_decided=880 phi_decided=2407 psi_steps/base=0.000859097
+stats: dual up_settled=36462 up_walked=1625 down_settled=36223 down_walked=1902 partial_steps=41516 cont_walks=21 cont_steps=209 partial_steps/rep=1.07733 cont_steps/rep=0.0054235
+stats: bases=59140032 repositions/base=0 lf_ff/step=-nan walk_up/rep=-nan walk_down/rep=-nan
+query: reads=600 bases=59140032 threads=1 index_load_s=0.136151 ftab_k=0 ftab_s=0 query_s=1.30612 read_s=0.0234346 parse_s=0.058014 format_s=0.898637 orient=fwd flipped=0 orient_s=0 total_s=2.41246 query_ns_per_base=22.0852 wall_ns_per_base=40.7923

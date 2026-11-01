@@ -1,0 +1,33 @@
+{
+  "job": "build-chr22-h10",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "outputs": {
+    "ms2/chr22-h10/index.ms.orbitidx": {
+      "sha256": "c53b78965fb4b45f522dc7a262df5989f638540cbd513f346b53169fa4467b1d",
+      "bytes": 616588583
+    },
+    "ms2/chr22-h10/index.tms.full.orbitidx": {
+      "sha256": "5b7244ebfea488b0e4b91003c9a40b1b5f468aafb52d7dec65cc96279afa9f69",
+      "bytes": 2983492659
+    },
+    "ms2/chr22-h10/index.tms.phi.orbitidx": {
+      "sha256": "ca89d0bd12912111744f7ac25ee9afd03b39de55b75643d5cfcc48cc3be1d90f",
+      "bytes": 2399030323
+    },
+    "ms2/chr22-h10/index.tms.psi.orbitidx": {
+      "sha256": "5b26102ac7829dbb54caa9e14a3e8cfd4c9978931c75617a173895f338ed62b6",
+      "bytes": 735260728
+    }
+  },
+  "host": {
+    "hostname": "ip-10-0-2-66.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0769303767f334774",
+    "availability_zone": "us-east-1c",
+    "lifecycle": "spot"
+  },
+  "finished": 1793411697.0926533
+}

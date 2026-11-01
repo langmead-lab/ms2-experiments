@@ -1,0 +1,268 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "phi-ordinary",
+  "cell": "human_pacbio-ms-acgt60mb/phi-ordinary",
+  "group": "human_pacbio-ms-acgt60mb",
+  "figures": [
+    "5"
+  ],
+  "tool": "ms2",
+  "kind": "ms",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "job": "fig5-human_pacbio-ms2phi",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-0-221.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0e932ef405716a7e3",
+    "availability_zone": "us-east-1a",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "transparent_hugepages": "always",
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 2869,
+  "bases": 59989426,
+  "reference": "human472",
+  "read_set": "human_pacbio-ms-60mb-acgt-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "checker": {
+      "name": "tools/ms_check",
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab"
+    },
+    "index": {
+      "name": "ms2/human472/index.tms.phi.orbitidx",
+      "sha256": "ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070"
+    },
+    "reads": {
+      "name": "reads/human472/human_pacbio-ms-60mb-acgt-v2/reads.fa",
+      "sha256": "6861789d6d73968791997b513495c24fdfc967971d5a9faaca41acf712e85905"
+    },
+    "truth": {
+      "name": "reads/human472/human_pacbio-ms-60mb-acgt-v2/truth.u32",
+      "sha256": "f2b026564d99de1bd1670b1a49f3d3f7ddfdcdc88c24fe27e5db0403882227c0"
+    },
+    "offsets": {
+      "name": "reads/human472/human_pacbio-ms-60mb-acgt-v2/offsets.u64",
+      "sha256": "32d2dd10ba5a70f85f5b69d5cda62d437099a7f04e387fa1c9babbbdd7ccb61c"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793501663.8669035,
+  "layout": "phi",
+  "mode": "ordinary",
+  "interleave": 32,
+  "cap_s": 3600,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-0-221.ec2.internal",
+      "started": 1793501663.8669846,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+        "/work/stage/inputs/6861789d6d73968791997b513495c24fdfc967971d5a9faaca41acf712e85905/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig5-human_pacbio-ms2phi/runs/human_pacbio-ms-acgt60mb__phi-ordinary/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "phi"
+      ],
+      "timeout_s": 3600,
+      "cache": "drop_caches",
+      "wall_seconds": 69.47538663199975,
+      "user_seconds": 23.01,
+      "system_seconds": 46.42,
+      "peak_rss_kib": 153977724,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 60.7515,
+        "query_seconds": 8.45053,
+        "components": {
+          "index_load_s": 60.7515,
+          "ftab_s": 0.0,
+          "query_s": 7.65623,
+          "read_s": 0.0137234,
+          "parse_s": 0.046054,
+          "format_s": 0.653367,
+          "total_s": 8.45053
+        }
+      },
+      "check": {
+        "reads": 2869,
+        "positions": 59989426,
+        "failed": 0,
+        "validation": "ms_check: every MS value equals truth"
+      },
+      "finished": 1793501734.3080237
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-0-221.ec2.internal",
+      "started": 1793501734.308759,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+        "/work/stage/inputs/6861789d6d73968791997b513495c24fdfc967971d5a9faaca41acf712e85905/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig5-human_pacbio-ms2phi/runs/human_pacbio-ms-acgt60mb__phi-ordinary/run2/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "phi"
+      ],
+      "timeout_s": 3600,
+      "cache": "drop_caches",
+      "wall_seconds": 69.29947135199927,
+      "user_seconds": 22.61,
+      "system_seconds": 46.64,
+      "peak_rss_kib": 153978848,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 60.5658,
+        "query_seconds": 8.46256,
+        "components": {
+          "index_load_s": 60.5658,
+          "ftab_s": 0.0,
+          "query_s": 7.66801,
+          "read_s": 0.0138138,
+          "parse_s": 0.0459732,
+          "format_s": 0.653767,
+          "total_s": 8.46256
+        }
+      },
+      "finished": 1793501804.5257354
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-0-221.ec2.internal",
+      "started": 1793501804.5266776,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+        "/work/stage/inputs/6861789d6d73968791997b513495c24fdfc967971d5a9faaca41acf712e85905/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig5-human_pacbio-ms2phi/runs/human_pacbio-ms-acgt60mb__phi-ordinary/run3/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "phi"
+      ],
+      "timeout_s": 3600,
+      "cache": "drop_caches",
+      "wall_seconds": 69.09083230900069,
+      "user_seconds": 22.81,
+      "system_seconds": 46.23,
+      "peak_rss_kib": 153977576,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 60.3651,
+        "query_seconds": 8.45404,
+        "components": {
+          "index_load_s": 60.3651,
+          "ftab_s": 0.0,
+          "query_s": 7.65925,
+          "read_s": 0.0131862,
+          "parse_s": 0.0460171,
+          "format_s": 0.65446,
+          "total_s": 8.45404
+        }
+      },
+      "finished": 1793501874.533739
+    }
+  ],
+  "check": {
+    "reads": 2869,
+    "positions": 59989426,
+    "failed": 0,
+    "validation": "ms_check: every MS value equals truth"
+  },
+  "query_seconds": [
+    8.45053,
+    8.46256,
+    8.45404
+  ],
+  "median_query_seconds": 8.45404,
+  "load_seconds": [
+    60.7515,
+    60.5658,
+    60.3651
+  ],
+  "median_load_seconds": 60.5658,
+  "wall_seconds": [
+    69.47538663199975,
+    69.29947135199927,
+    69.09083230900069
+  ],
+  "peak_rss_kib": 153978848,
+  "query_spread_fraction": 0.001422988299085327,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 7.095947736230252,
+  "ns_per_base": 140.92550243771296,
+  "finished": 1793501874.533976
+}

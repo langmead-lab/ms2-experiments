@@ -1,0 +1,37 @@
+% Fig Ops: time and operations per base for ms2-lcp, ms2-psi, ms2-dual and
+% ms2-phi on held-out genomes (mtb152 and HPRC2 full), with oracle replay.
+\documentclass[border=1pt]{standalone}
+\input{figures-style}
+% Shorter panels for the paper, with coarser y ticks and short axis labels
+% that fit the reduced height; the caption says the time is query time.
+\pgfplotsset{ops axis/.append style={height=0.8in}}
+\renewcommand{\figOpsTimeLabel}{ns per base}
+\renewcommand{\figOpsLabel}{Ops per base}
+\begin{document}
+\input{data/fig-ops/limits}
+\begin{tikzpicture}
+\begin{axis}[name=t1, ops axis, ymax=\FigOpsTimeMaxMtb, ytick distance=50,
+    ylabel={\figOpsTimeLabel}, fig legend, legend to name=legFigOps]
+  \figLegendOps
+  \figOpsTime{data/fig-ops/mtb152.dat}
+  \figOpsTitle{\figTitle{mtb152}}
+\end{axis}
+\begin{axis}[name=t2, at={($(t1.south east)+(19pt,0)$)}, anchor=south west, ops axis,
+    ymax=\FigOpsTimeMaxHuman, ytick distance=100]
+  \figOpsTime{data/fig-ops/human472.dat}
+  \figOpsTitle{\figTitle{human472}}
+\end{axis}
+\begin{axis}[name=o1, at={($(t2.south east)+(33pt,0)$)}, anchor=south west, ops count axis,
+    ymax=4, ytick={0,2,4}, ylabel={\figOpsLabel}]
+  \figOpsOps{data/fig-ops/mtb152.dat}
+  \figOpsTitle{\figTitle{mtb152}}
+\end{axis}
+\begin{axis}[name=o2, at={($(o1.south east)+(6pt,0)$)}, anchor=south west, ops count axis,
+    ymax=4, ytick={0,2,4}, yticklabels={}]
+  \figOpsOps{data/fig-ops/human472.dat}
+  \figOpsTitle{\figTitle{human472}}
+\end{axis}
+\node[anchor=south, inner sep=0pt] at ($(t1.north west)!0.5!(o2.north east)+(0,12pt)$)
+  {\pgfplotslegendfromname{legFigOps}};
+\end{tikzpicture}
+\end{document}

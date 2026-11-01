@@ -1,0 +1,29 @@
+% Draft text for Section 4.2 (Datasets): query strings for the MS-only comparison against the
+% repositioning oracle (reproduction of TeraTools Figure 5, with Orbit modes added).
+% Provenance: /vast/blangme2/terams-fig (bench/make_patterns.sh, bench/sample_patterns.py,
+% patterns/*.fa and *.fa.tsv); index/pattern split from Nate Brown's
+% /vast/blangme2/nbrown/ms_lcp/data/<collection>/pattern/<collection>.5%.fa.
+% Collection sizes (N, n, r, M, m) are from TeraTools Table S8.
+
+\paragraph{Held-out query strings.}
+To compare the MS-only algorithms with each other and with the repositioning oracle, we used the three collections and the index/query split from the TeraTools matching statistics benchmark~\cite{teratools}.
+Each collection consists of the forward and reverse-complement strands of its genomes; 5\% of these sequences were withheld as queries and the remaining 95\% were indexed.
+Both strands of a withheld sequence are withheld together, so no query occurs in the index as its own reverse complement.
+% verified for mtb152 (16 sequences = both strands of 8 genomes); for chr19.1000 (100 = 2 x 50) and human100 inferred from the split, verify.
+The queries are therefore complete genomic sequences from individuals related to, but absent from, the index, so the matches are long and repositioning is rare (0.01\% to 0.07\% of query characters in TeraTools' measurements).
+The withheld sequences contain only A, C, G and T.
+\begin{itemize}
+  \item \textbf{mtb152}: 152 \textit{Mycobacterium tuberculosis} genomes. We used all 16 withheld sequences, both strands of 8 complete genomes (70.6\,Mbp; 4.39 to 4.43\,Mbp each).
+  \item \textbf{chr19.1000}: 1{,}000 chromosome~19 haplotypes from 1000 Genomes Phase~3, generated with \texttt{bcftools consensus}. Of the 100 withheld sequences (55.0\,Gbp), we used 19 whole sequences (1.03\,Gbp; 48.8 to 62.8\,Mbp each).
+  \item \textbf{human100}: 100 human haplotype assemblies, including those of HPRC release~1. Of the 3{,}864 withheld sequences (63.8\,Gbp), we used 97 whole sequences (1.09\,Gbp; 1.4\,kbp to 179\,Mbp each).
+\end{itemize}
+For chr19.1000 and human100, we chose whole withheld sequences in random order (fixed seed 20261006) until their total length reached 1\,Gbp, and kept them in their original order.
+Sequences were not split or trimmed.
+The oracle records the outcome of every repositioning step (the target BWT interval and the longest common extension) for a given index and query set, and replays it at query time, so it does no candidate scan and no LCE computation.
+Its time and operation count are a lower bound for any method that shares the same LF-step machinery.
+
+% Bib entry to add to refs.bib (verify fields before use; Table S8/S9 and Figure 5 are in this paper):
+% @article{teratools,
+%   title={{RLBWT}-Based Index Construction in Compressed Space for Terabase-Scale Pangenome Analysis},
+%   author={Brown, Nathaniel K. and others},
+%   year={2026}}

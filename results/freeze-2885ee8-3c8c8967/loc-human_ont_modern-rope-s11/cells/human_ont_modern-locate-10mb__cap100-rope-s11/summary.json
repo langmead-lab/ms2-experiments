@@ -1,0 +1,310 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "cap100-rope-s11",
+  "cell": "human_ont_modern-locate-10mb/cap100-rope-s11",
+  "group": "human_ont_modern-locate-10mb",
+  "figures": [
+    "6"
+  ],
+  "tool": "ropebwt3",
+  "kind": "locate",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "job": "loc-human_ont_modern-rope-s11",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-3-151.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0538f31c74f746367",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 494,
+  "bases": 9949236,
+  "reference": "human472",
+  "read_set": "human_ont_modern-locate-10mb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ropebwt3-cfad8475/ropebwt3",
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+    },
+    "runtime": {
+      "name": "tools/runtime/libgomp.so.1",
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8"
+    },
+    "fmd": {
+      "name": "ropebwt3/human472/index.fmd",
+      "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626"
+    },
+    "ssa": {
+      "name": "ropebwt3/human472/index.fmd.s11.ssa",
+      "sha256": "f9a56c2a175de8ef0a5783065de44e8aee0473dc2c70ba04f4d1b51a37ad8fd9"
+    },
+    "lengths": {
+      "name": "ropebwt3/human472/index.fmd.len.gz",
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0"
+    },
+    "reads": {
+      "name": "reads/human472/human_ont_modern-locate-10mb-v2/reads.fa",
+      "sha256": "2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83"
+    },
+    "truth": {
+      "name": "reads/human472/human_ont_modern-locate-10mb-v2/truth.u32",
+      "sha256": "7d70430a4d56c92922290e51cd7e94571e303669df896139934037a1f7276930"
+    },
+    "offsets": {
+      "name": "reads/human472/human_ont_modern-locate-10mb-v2/offsets.u64",
+      "sha256": "0b943e71d1e1bd7dc7f6ce977debc0dc06cda6347ab14c6b02b25b92a5074a04"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793428331.163322,
+  "cap": 100,
+  "shift": 11,
+  "batch": "1m",
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-3-151.ec2.internal",
+      "started": 1793428331.163699,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-K",
+        "1m",
+        "-l1",
+        "-p100",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-rope-s11/rope/s11-ropebwt3_human472_index.fmd/index.fmd",
+        "/work/stage/inputs/2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83/reads.fa"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 712.3779574309992,
+      "user_seconds": 702.07,
+      "system_seconds": 11.18,
+      "peak_rss_kib": 25998924,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 10.209,
+        "query_seconds": 701.4830000000001,
+        "components": {
+          "last_loaded_s": 10.209,
+          "last_processed_s": 711.692,
+          "processed_sequences": 494
+        }
+      },
+      "check": {
+        "failed": 0,
+        "validation": "cross-tool-v1",
+        "tool": "rope",
+        "cap": 100,
+        "reads": 494,
+        "intervals": 186634,
+        "zero_count_intervals": 0,
+        "reported_locations_checked": 15375646,
+        "locations_in_bounds": 15375646,
+        "ms_positions_checked": 9949236,
+        "emitted_counts": 186634,
+        "complete_set_intervals": 37245,
+        "complete_set_locations": 436746,
+        "over_cap_intervals": 149389,
+        "over_cap_locations": 14938900,
+        "all_coordinates_checked": false,
+        "occurrence_reference_checked": false,
+        "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+        "count_checks": "cross-tool agreement",
+        "canonical": {
+          "format": "canonical-smem-v1",
+          "sha256": "f7858a8770fce5cb81c932f34b86a9b483615d051061ce980a337637bbaa710b",
+          "lines": 186634,
+          "bytes": 535181892,
+          "cap": 100,
+          "over_cap_lines": 149389,
+          "over_cap_locations": 14938900,
+          "over_cap_sha256": "1645e67c9d1bf1f57afd666bb89879cbf6b3a7c64e100e18a168d89255a026e2",
+          "compressed_bytes": 153378572,
+          "compressed_sha256": "2e2c8af72ec61d2f2d44dbf912026bc18ad2715c5616c47f913f275767eea773",
+          "path": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-rope-s11/canonical/human_ont_modern-locate-10mb__cap100-rope-s11.canonical.gz"
+        }
+      },
+      "finished": 1793429186.6918218
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-3-151.ec2.internal",
+      "started": 1793429186.6925616,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-K",
+        "1m",
+        "-l1",
+        "-p100",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-rope-s11/rope/s11-ropebwt3_human472_index.fmd/index.fmd",
+        "/work/stage/inputs/2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83/reads.fa"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 711.9632308330001,
+      "user_seconds": 701.73,
+      "system_seconds": 11.13,
+      "peak_rss_kib": 25998928,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 10.21,
+        "query_seconds": 701.069,
+        "components": {
+          "last_loaded_s": 10.21,
+          "last_processed_s": 711.279,
+          "processed_sequences": 494
+        }
+      },
+      "finished": 1793429898.931394
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-3-151.ec2.internal",
+      "started": 1793429898.9320586,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-K",
+        "1m",
+        "-l1",
+        "-p100",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-rope-s11/rope/s11-ropebwt3_human472_index.fmd/index.fmd",
+        "/work/stage/inputs/2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83/reads.fa"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 713.9959531799996,
+      "user_seconds": 703.81,
+      "system_seconds": 11.07,
+      "peak_rss_kib": 25998904,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 10.207,
+        "query_seconds": 703.104,
+        "components": {
+          "last_loaded_s": 10.207,
+          "last_processed_s": 713.311,
+          "processed_sequences": 494
+        }
+      },
+      "finished": 1793430613.1955357
+    }
+  ],
+  "check": {
+    "failed": 0,
+    "validation": "cross-tool-v1",
+    "tool": "rope",
+    "cap": 100,
+    "reads": 494,
+    "intervals": 186634,
+    "zero_count_intervals": 0,
+    "reported_locations_checked": 15375646,
+    "locations_in_bounds": 15375646,
+    "ms_positions_checked": 9949236,
+    "emitted_counts": 186634,
+    "complete_set_intervals": 37245,
+    "complete_set_locations": 436746,
+    "over_cap_intervals": 149389,
+    "over_cap_locations": 14938900,
+    "all_coordinates_checked": false,
+    "occurrence_reference_checked": false,
+    "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+    "count_checks": "cross-tool agreement",
+    "canonical": {
+      "format": "canonical-smem-v1",
+      "sha256": "f7858a8770fce5cb81c932f34b86a9b483615d051061ce980a337637bbaa710b",
+      "lines": 186634,
+      "bytes": 535181892,
+      "cap": 100,
+      "over_cap_lines": 149389,
+      "over_cap_locations": 14938900,
+      "over_cap_sha256": "1645e67c9d1bf1f57afd666bb89879cbf6b3a7c64e100e18a168d89255a026e2",
+      "compressed_bytes": 153378572,
+      "compressed_sha256": "2e2c8af72ec61d2f2d44dbf912026bc18ad2715c5616c47f913f275767eea773",
+      "path": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-rope-s11/canonical/human_ont_modern-locate-10mb__cap100-rope-s11.canonical.gz"
+    }
+  },
+  "query_seconds": [
+    701.4830000000001,
+    701.069,
+    703.104
+  ],
+  "median_query_seconds": 701.4830000000001,
+  "load_seconds": [
+    10.209,
+    10.21,
+    10.207
+  ],
+  "median_load_seconds": 10.209,
+  "wall_seconds": [
+    712.3779574309992,
+    711.9632308330001,
+    713.9959531799996
+  ],
+  "peak_rss_kib": 25998928,
+  "query_spread_fraction": 0.0029009968880216366,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 0.014183146277244067,
+  "ns_per_base": 70506.21776385645,
+  "locations": 15375646,
+  "smems": 186634,
+  "locations_per_second": 21918.772087135396,
+  "finished": 1793430613.1957924
+}

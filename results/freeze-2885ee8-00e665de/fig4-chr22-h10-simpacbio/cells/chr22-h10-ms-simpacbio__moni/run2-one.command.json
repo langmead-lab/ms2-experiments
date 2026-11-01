@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/legacy/moni-chr22-h10/index",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__moni/run2/one/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__moni/run2/one/output",
+    "-t",
+    "1"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__moni/run2/one",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 0.27032362099998863,
+  "stdout": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__moni/run2/one/one.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__moni/run2/one/one.stderr",
+  "native_wall_seconds": 0.25,
+  "user_seconds": 0.05,
+  "system_seconds": 0.19,
+  "peak_rss_kib": 674476
+}

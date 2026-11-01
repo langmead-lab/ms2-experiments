@@ -1,0 +1,285 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "dual-oracle",
+  "cell": "guccione_skin-ms-acgt60mb/dual-oracle",
+  "group": "guccione_skin-ms-acgt60mb",
+  "figures": [
+    "5"
+  ],
+  "tool": "ms2",
+  "kind": "ms",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "job": "fig5-guccione_skin-ms2dual",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-0-221.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0e932ef405716a7e3",
+    "availability_zone": "us-east-1a",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "transparent_hugepages": "always",
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 438969,
+  "bases": 59999995,
+  "reference": "human472",
+  "read_set": "guccione_skin-ms-60mb-acgt-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "checker": {
+      "name": "tools/ms_check",
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab"
+    },
+    "index": {
+      "name": "ms2/human472/index.tms.full.seqids.orbitidx",
+      "sha256": "39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588"
+    },
+    "reads": {
+      "name": "reads/human472/guccione_skin-ms-60mb-acgt-v2/reads.fa",
+      "sha256": "b75f41ae7ce8983c6db6e20dbfe76094795ebc95dd02720d6d40220c41c499ae"
+    },
+    "truth": {
+      "name": "reads/human472/guccione_skin-ms-60mb-acgt-v2/truth.u32",
+      "sha256": "5097de82474dea3125a026abf545af93b9cd1c4126d59d49835e0d2b0b68b1d0"
+    },
+    "offsets": {
+      "name": "reads/human472/guccione_skin-ms-60mb-acgt-v2/offsets.u64",
+      "sha256": "588031bfe4f67069a5077f53e1a78b13e0f53423f0d6fe94a01c3bb4926ec39f"
+    },
+    "trace": {
+      "name": "traces/human472/guccione_skin-ms-60mb-acgt-v2/dual.oracle",
+      "sha256": "pending"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793505675.940307,
+  "layout": "dual",
+  "mode": "oracle",
+  "interleave": 32,
+  "preparation": {
+    "trace": {
+      "name": "traces/human472/guccione_skin-ms-60mb-acgt-v2/dual.oracle",
+      "sha256": "deb1412efd08b61c63aada29d93fe992c5914ca582d4d0bcb6b61119f95de3fc",
+      "bytes": 709638408,
+      "stored": "s3://ms2-freeze-159168350739/freeze/results/freeze-2885ee8-00e665de/traces/traces/human472/guccione_skin-ms-60mb-acgt-v2/dual.oracle",
+      "recorded": false
+    }
+  },
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-0-221.ec2.internal",
+      "started": 1793505679.0252244,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/b75f41ae7ce8983c6db6e20dbfe76094795ebc95dd02720d6d40220c41c499ae/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2dual/runs/guccione_skin-ms-acgt60mb__dual-oracle/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "oracle",
+        "--oracle",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2dual/traces/traces/human472/guccione_skin-ms-60mb-acgt-v2/dual.oracle"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 79.4470060700005,
+      "user_seconds": 25.42,
+      "system_seconds": 53.98,
+      "peak_rss_kib": 179554784,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 75.8125,
+        "query_seconds": 3.32762,
+        "components": {
+          "index_load_s": 75.8125,
+          "ftab_s": 0.0,
+          "query_s": 2.66981,
+          "read_s": 0.0102315,
+          "parse_s": 0.0517585,
+          "format_s": 0.536418,
+          "total_s": 3.32762
+        }
+      },
+      "check": {
+        "reads": 438969,
+        "positions": 59999995,
+        "failed": 0,
+        "validation": "ms_check: every MS value equals truth"
+      },
+      "finished": 1793505798.9643157
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-0-221.ec2.internal",
+      "started": 1793505798.964955,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/b75f41ae7ce8983c6db6e20dbfe76094795ebc95dd02720d6d40220c41c499ae/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2dual/runs/guccione_skin-ms-acgt60mb__dual-oracle/run2/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "oracle",
+        "--oracle",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2dual/traces/traces/human472/guccione_skin-ms-60mb-acgt-v2/dual.oracle"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 79.4668562550014,
+      "user_seconds": 25.17,
+      "system_seconds": 54.25,
+      "peak_rss_kib": 179554780,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 75.8295,
+        "query_seconds": 3.32696,
+        "components": {
+          "index_load_s": 75.8295,
+          "ftab_s": 0.0,
+          "query_s": 2.6712,
+          "read_s": 0.0102712,
+          "parse_s": 0.0514406,
+          "format_s": 0.534844,
+          "total_s": 3.32696
+        }
+      },
+      "finished": 1793505879.4955778
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-0-221.ec2.internal",
+      "started": 1793505879.4959629,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/b75f41ae7ce8983c6db6e20dbfe76094795ebc95dd02720d6d40220c41c499ae/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2dual/runs/guccione_skin-ms-acgt60mb__dual-oracle/run3/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "oracle",
+        "--oracle",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2dual/traces/traces/human472/guccione_skin-ms-60mb-acgt-v2/dual.oracle"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 79.49419985399982,
+      "user_seconds": 25.2,
+      "system_seconds": 54.25,
+      "peak_rss_kib": 179554800,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 75.8572,
+        "query_seconds": 3.32683,
+        "components": {
+          "index_load_s": 75.8572,
+          "ftab_s": 0.0,
+          "query_s": 2.67005,
+          "read_s": 0.0102603,
+          "parse_s": 0.0517629,
+          "format_s": 0.534205,
+          "total_s": 3.32683
+        }
+      },
+      "finished": 1793505960.0565405
+    }
+  ],
+  "check": {
+    "reads": 438969,
+    "positions": 59999995,
+    "failed": 0,
+    "validation": "ms_check: every MS value equals truth"
+  },
+  "query_seconds": [
+    3.32762,
+    3.32696,
+    3.32683
+  ],
+  "median_query_seconds": 3.32696,
+  "load_seconds": [
+    75.8125,
+    75.8295,
+    75.8572
+  ],
+  "median_load_seconds": 75.8295,
+  "wall_seconds": [
+    79.4470060700005,
+    79.4668562550014,
+    79.49419985399982
+  ],
+  "peak_rss_kib": 179554800,
+  "query_spread_fraction": 0.00023745401207103371,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 18.034480426575612,
+  "ns_per_base": 55.4493379541115,
+  "finished": 1793505960.056781
+}

@@ -1,0 +1,8 @@
+x y dx dy anchor text
+0.5790 29.5098 -2.2 0 {east} {min}
+0.6890 17.8465 -2.2 0 {east} {psi}
+1.6340 18.9955 -2.2 0 {east} {dual}
+0.1150 2.20167 -2 -2 {north west} {-l1}
+0.6430 0.828488 0 2.2 {south} {MONI}
+0.5850 0.70257 0 -2.2 {north} {PHONI}
+0.9350 0.908968 2.5 0 {west} {AugPHONI}

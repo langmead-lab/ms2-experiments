@@ -1,0 +1,92 @@
+{
+  "job": "fig5-human_pacbio-ms2dual",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "host": {
+    "hostname": "ip-10-0-3-58.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-03bb2fe316bbb737d",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793501592.7646842,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "fig5-human_pacbio-ms2dual",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 3,
+  "already_done": 0,
+  "order": [
+    "human_pacbio-ms-acgt60mb/dual-ordinary-plainfull",
+    "human_pacbio-ms-acgt60mb/dual-oracle",
+    "human_pacbio-ms-acgt60mb/dual-ordinary"
+  ],
+  "staging": {
+    "ms2/human472/index.tms.full.orbitidx": {
+      "sha256": "a6c79f97b5f55f613671ae649d91b779fa6eb75e97e427c4a8b8a3e4d25c9ba5",
+      "bytes": 409195004007,
+      "fresh": true,
+      "seconds": 979.2338519096375
+    },
+    "ms2/human472/index.tms.full.seqids.orbitidx": {
+      "sha256": "39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588",
+      "bytes": 409196490183,
+      "fresh": true,
+      "seconds": 1031.164978504181
+    },
+    "reads/human472/human_pacbio-ms-60mb-acgt-v2/offsets.u64": {
+      "sha256": "32d2dd10ba5a70f85f5b69d5cda62d437099a7f04e387fa1c9babbbdd7ccb61c",
+      "bytes": 22960,
+      "fresh": true,
+      "seconds": 0.8070385456085205
+    },
+    "reads/human472/human_pacbio-ms-60mb-acgt-v2/reads.fa": {
+      "sha256": "6861789d6d73968791997b513495c24fdfc967971d5a9faaca41acf712e85905",
+      "bytes": 60011268,
+      "fresh": true,
+      "seconds": 1.0728473663330078
+    },
+    "reads/human472/human_pacbio-ms-60mb-acgt-v2/truth.u32": {
+      "sha256": "f2b026564d99de1bd1670b1a49f3d3f7ddfdcdc88c24fe27e5db0403882227c0",
+      "bytes": 239957704,
+      "fresh": true,
+      "seconds": 1.4304430484771729
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 5.817413330078125e-05
+    },
+    "tools/ms_check": {
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab",
+      "bytes": 251000,
+      "fresh": false,
+      "seconds": 2.7894973754882812e-05
+    }
+  },
+  "finished": 1793504493.821807,
+  "results": {
+    "human_pacbio-ms-acgt60mb/dual-ordinary-plainfull": "checked",
+    "human_pacbio-ms-acgt60mb/dual-oracle": "checked",
+    "human_pacbio-ms-acgt60mb/dual-ordinary": "checked"
+  }
+}

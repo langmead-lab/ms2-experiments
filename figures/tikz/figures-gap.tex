@@ -1,0 +1,15 @@
+% Speed-gap annotation styles for the speed-against-memory figures (data/gap/, written by
+% bench/campaign-20261012/gap_annotations.py): a dashed line at the fastest ms2
+% speed and an arrow up to it from the ropebwt3 reference point, labeled
+% with the speed ratio.
+\tikzset{
+  fig gap line/.style={draw=figInk, densely dashed, line width=0.5pt},
+  fig gap arrow/.style={draw=figInk, line width=0.4pt, -{Stealth[length=3pt, width=2.4pt]},
+    shorten <=2.2pt},
+  % A thin leader from a point to a label set off from it.
+  fig leader/.style={draw=figInkTwo!70, line width=0.35pt, shorten <=2.4pt},
+  fig leader label/.style={font=\figPointFont, text=figInkTwo, inner sep=0.8pt},
+  fig gap label/.style={font=\sffamily\bfseries\fontsize{7.5}{8.5}\selectfont, text=figInk,
+    inner sep=1.5pt, fill=white, fill opacity=0.8, text opacity=1},
+}
+\usetikzlibrary{arrows.meta}

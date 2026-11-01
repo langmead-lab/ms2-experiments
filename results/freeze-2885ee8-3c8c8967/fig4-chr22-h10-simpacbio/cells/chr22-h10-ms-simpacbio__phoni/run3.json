@@ -1,0 +1,47 @@
+{
+  "run": 3,
+  "host": "ip-10-0-3-151.ec2.internal",
+  "started": 1793419653.4029784,
+  "one": {
+    "argv": [
+      "numactl",
+      "--cpunodebind=0",
+      "--membind=0",
+      "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simpacbio/legacy/phoni-chr22-h10/reference.txt",
+      "-p",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__phoni/run3/one/reads.fa",
+      "-g",
+      "naive"
+    ],
+    "cache": "drop_caches",
+    "wall_seconds": 0.3532911199999944,
+    "peak_rss_kib": 614232,
+    "user_seconds": 0.04,
+    "system_seconds": 0.28
+  },
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simpacbio/legacy/phoni-chr22-h10/reference.txt",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__phoni/run3/full/reads.fa",
+    "-g",
+    "naive"
+  ],
+  "cache": "drop_caches",
+  "timeout_s": 7200,
+  "wall_seconds": 71.489721492,
+  "user_seconds": 70.02,
+  "system_seconds": 1.43,
+  "peak_rss_kib": 615068,
+  "phase": {
+    "source": "one-read-wall",
+    "query_definition": "full run wall minus one-read run wall",
+    "load_seconds": 0.3532911199999944,
+    "query_seconds": 71.136430372
+  },
+  "finished": 1793419725.3294535
+}

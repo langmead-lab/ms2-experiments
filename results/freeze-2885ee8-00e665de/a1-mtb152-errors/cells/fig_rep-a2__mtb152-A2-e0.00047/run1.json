@@ -1,0 +1,65 @@
+{
+  "run": 1,
+  "host": "ip-10-0-3-151.ec2.internal",
+  "started": 1793433936.2161386,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/usr/bin/python3",
+    "/work/code/bench/campaign-20261012/fig_rep.py",
+    "run",
+    "--binary",
+    "/work/stage/inputs/2b123fdd3470dbf05d3ec576a489d31a57daf9fd552398bcb390d6a616ef57cc/ms2-replog",
+    "--reads",
+    "/work/stage/inputs/0708604622a52bf9d0dacedd4ad237d10506dd62cae4ee430722c15c1e78f4c0/reads.fa",
+    "--destination",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/a1-mtb152-errors/runs/fig_rep-a2__mtb152-A2-e0.00047/run1/rep",
+    "--interleave",
+    "32",
+    "--index-psi",
+    "/work/stage/inputs/e9265a86e2330928fb3f20872aad05df75b36da3a1be49ae0cce2c53be996621/index.tms.psi.orbitidx",
+    "--index-phi",
+    "/work/stage/inputs/001a37f83414eb0fb1c8cc8c686f610c6d7ea3ca0c9f70eef8a21f8ce459058f/index.tms.phi.orbitidx",
+    "--index-dual",
+    "/work/stage/inputs/af80e5f51daf70433a14618921da240c822b781215bc8b0a92bdf63620f52048/index.tms.full.orbitidx"
+  ],
+  "cache": "drop_caches",
+  "wall_seconds": 3.7259852189999947,
+  "peak_rss_kib": 469504,
+  "timeout_s": 14400,
+  "check": {
+    "outputs_identical": true,
+    "aligned": "every record matches psi in pattern, at, cap, lce and dist",
+    "log_sums_match_stats": true,
+    "bases": 20024212,
+    "repositions": 111358
+  },
+  "phase": {
+    "source": "fig_rep.py",
+    "query_definition": "sum of the three modes' query_s",
+    "query_seconds": 1.567982,
+    "load_seconds": 0.29039349999999997
+  },
+  "rep": {
+    "repositions_per_base": 0.005561167650442374,
+    "times": {
+      "psi": {
+        "index_load_s": 0.0612761,
+        "query_s": 0.510303,
+        "query_ns_per_base": 25.4843
+      },
+      "phi": {
+        "index_load_s": 0.0939194,
+        "query_s": 0.615857,
+        "query_ns_per_base": 30.7556
+      },
+      "dual": {
+        "index_load_s": 0.135198,
+        "query_s": 0.441822,
+        "query_ns_per_base": 22.0644
+      }
+    }
+  },
+  "finished": 1793433939.9791021
+}

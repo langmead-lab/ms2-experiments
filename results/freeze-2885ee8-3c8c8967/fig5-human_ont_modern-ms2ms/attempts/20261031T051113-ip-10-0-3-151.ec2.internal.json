@@ -1,0 +1,82 @@
+{
+  "job": "fig5-human_ont_modern-ms2ms",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-3-151.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0538f31c74f746367",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot"
+  },
+  "platform": "aws",
+  "started": 1793422969.1376371,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "fig5-human_ont_modern-ms2ms",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 2,
+  "already_done": 0,
+  "order": [
+    "human_ont_modern-ms-acgt60mb/ms-oracle",
+    "human_ont_modern-ms-acgt60mb/ms-ordinary"
+  ],
+  "staging": {
+    "ms2/human472/index.ms.orbitidx": {
+      "sha256": "520539c526f8c8fe9cb72a0179b2301418498bdf3eb747d026b64ed3c87021d2",
+      "bytes": 107285232940,
+      "fresh": false,
+      "seconds": 3.910064697265625e-05
+    },
+    "reads/human472/human_ont_modern-ms-60mb-acgt-v2/offsets.u64": {
+      "sha256": "60506322dffa16a5d9d9cbc2dc516ddf97bd61d84b05a6dfa34a7fc3ca748f71",
+      "bytes": 21656,
+      "fresh": true,
+      "seconds": 0.6642463207244873
+    },
+    "reads/human472/human_ont_modern-ms-60mb-acgt-v2/reads.fa": {
+      "sha256": "34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26",
+      "bytes": 59955193,
+      "fresh": true,
+      "seconds": 0.993065357208252
+    },
+    "reads/human472/human_ont_modern-ms-60mb-acgt-v2/truth.u32": {
+      "sha256": "4d04f6784335bcea477f8b4cd14a7f8134990c74a2a7c7d8af44be913a293643",
+      "bytes": 239738620,
+      "fresh": true,
+      "seconds": 1.4153499603271484
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 3.5762786865234375e-05
+    },
+    "tools/ms_check": {
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab",
+      "bytes": 251000,
+      "fresh": false,
+      "seconds": 3.504753112792969e-05
+    }
+  },
+  "finished": 1793423473.528947,
+  "results": {
+    "human_ont_modern-ms-acgt60mb/ms-oracle": "checked",
+    "human_ont_modern-ms-acgt60mb/ms-ordinary": "checked"
+  }
+}

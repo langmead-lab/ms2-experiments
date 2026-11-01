@@ -1,0 +1,72 @@
+{
+  "run": 1,
+  "host": "ip-10-0-0-221.ec2.internal",
+  "started": 1793498028.9149256,
+  "one": {
+    "argv": [
+      "numactl",
+      "--cpunodebind=0",
+      "--membind=0",
+      "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simshort/legacy/moni-chr22-h100/index",
+      "-p",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simshort/runs/chr22-h100-ms-simshort__moni/run1/one/reads.fa",
+      "-o",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simshort/runs/chr22-h100-ms-simshort__moni/run1/one/output",
+      "-t",
+      "1"
+    ],
+    "cache": "drop_caches",
+    "wall_seconds": 0.3608202620000611,
+    "peak_rss_kib": 1095340,
+    "user_seconds": 0.01,
+    "system_seconds": 0.31,
+    "check": {
+      "reads": 1,
+      "positions": 125,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simshort/legacy/moni-chr22-h100/index",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simshort/runs/chr22-h100-ms-simshort__moni/run1/full/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simshort/runs/chr22-h100-ms-simshort__moni/run1/full/output",
+    "-t",
+    "1"
+  ],
+  "cache": "drop_caches",
+  "timeout_s": 7200,
+  "wall_seconds": 79.56389797600013,
+  "user_seconds": 77.55,
+  "system_seconds": 1.96,
+  "peak_rss_kib": 1095428,
+  "phase": {
+    "source": "one-read-wall",
+    "query_definition": "full run wall minus one-read run wall",
+    "load_seconds": 0.3608202620000611,
+    "query_seconds": 79.20307771400007
+  },
+  "check": {
+    "reads": 480000,
+    "positions": 60000000,
+    "failed": 0,
+    "every_position_checked": true,
+    "validation": "exact-ms-lengths",
+    "one_read": {
+      "reads": 1,
+      "positions": 125,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "finished": 1793498128.7832615
+}

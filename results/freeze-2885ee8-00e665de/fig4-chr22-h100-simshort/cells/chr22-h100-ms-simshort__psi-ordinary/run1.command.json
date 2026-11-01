@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/91d4d73f4f03b340ebcbd175b2676d738a2a5c0eb6b005a3d99438bd4445e4d9/index.tms.psi.orbitidx",
+    "/work/stage/inputs/2c0295c2b8a7293650484eabe480e6f9a68ed354bb3ceda91a23fe982176505b/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simshort/runs/chr22-h100-ms-simshort__psi-ordinary/run1/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--mode",
+    "psi"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simshort/runs/chr22-h100-ms-simshort__psi-ordinary/run1",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 4.060696009000367,
+  "stdout": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simshort/runs/chr22-h100-ms-simshort__psi-ordinary/run1/run1.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simshort/runs/chr22-h100-ms-simshort__psi-ordinary/run1/run1.stderr",
+  "native_wall_seconds": 4.05,
+  "user_seconds": 3.55,
+  "system_seconds": 0.48,
+  "peak_rss_kib": 1106992
+}

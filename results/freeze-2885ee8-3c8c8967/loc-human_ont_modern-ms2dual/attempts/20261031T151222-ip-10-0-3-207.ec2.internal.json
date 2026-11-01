@@ -1,0 +1,84 @@
+{
+  "job": "loc-human_ont_modern-ms2dual",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-3-207.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0741df4ddd4a0551d",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot"
+  },
+  "platform": "aws",
+  "started": 1793456947.362084,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "loc-human_ont_modern-ms2dual",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 3,
+  "already_done": 0,
+  "order": [
+    "human_ont_modern-locate-10mb/cap10-dual-ordinary",
+    "human_ont_modern-locate-10mb/cap1-dual-ordinary",
+    "human_ont_modern-locate-10mb/cap100-dual-ordinary"
+  ],
+  "staging": {
+    "ms2/human472/index.tms.full.seqids.orbitidx": {
+      "sha256": "39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588",
+      "bytes": 409196490183,
+      "fresh": false,
+      "seconds": 3.695487976074219e-05
+    },
+    "reads/human472/human_ont_modern-locate-10mb-v2/offsets.u64": {
+      "sha256": "0b943e71d1e1bd7dc7f6ce977debc0dc06cda6347ab14c6b02b25b92a5074a04",
+      "bytes": 3960,
+      "fresh": true,
+      "seconds": 0.7799031734466553
+    },
+    "reads/human472/human_ont_modern-locate-10mb-v2/reads.fa": {
+      "sha256": "2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83",
+      "bytes": 9952584,
+      "fresh": true,
+      "seconds": 0.7915430068969727
+    },
+    "reads/human472/human_ont_modern-locate-10mb-v2/truth.u32": {
+      "sha256": "7d70430a4d56c92922290e51cd7e94571e303669df896139934037a1f7276930",
+      "bytes": 39796944,
+      "fresh": true,
+      "seconds": 1.130523681640625
+    },
+    "ropebwt3/human472/index.fmd.len.gz": {
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0",
+      "bytes": 286728,
+      "fresh": false,
+      "seconds": 5.6743621826171875e-05
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 2.5033950805664062e-05
+    }
+  },
+  "finished": 1793459542.0424445,
+  "results": {
+    "human_ont_modern-locate-10mb/cap10-dual-ordinary": "checked",
+    "human_ont_modern-locate-10mb/cap1-dual-ordinary": "checked",
+    "human_ont_modern-locate-10mb/cap100-dual-ordinary": "checked"
+  }
+}

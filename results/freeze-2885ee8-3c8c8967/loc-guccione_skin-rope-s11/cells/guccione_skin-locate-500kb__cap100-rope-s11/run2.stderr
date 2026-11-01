@@ -1,0 +1,7 @@
+[M::rb3_fmi_load_all::5.577*1.00] loaded the BWT
+[M::rb3_fmi_load_all::10.221*1.00] loaded the sampled suffix array
+[M::rb3_fmi_load_all::10.230*1.00] loaded the sequence names and lengths
+[M::worker_pipeline::846.066*1.00] processed 3698 sequences
+[M::main] Version: 3.10-r285-dirty
+[M::main] CMD: /work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3 mem -t1 -K 1m -l1 -p100 /work/stage/work/freeze-2885ee8-3c8c8967/loc-guccione_skin-rope-s11/rope/s11-ropebwt3_human472_index.fmd/index.fmd /work/stage/inputs/d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c/reads.fa
+[M::main] Real time: 846.722 sec; CPU: 846.682 sec; Peak RSS: 25.056 GB

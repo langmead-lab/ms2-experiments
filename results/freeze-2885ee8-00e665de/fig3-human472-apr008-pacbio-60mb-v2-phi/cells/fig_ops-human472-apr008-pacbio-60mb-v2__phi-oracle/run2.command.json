@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+    "/work/stage/inputs/c8ce0e7314229be50c85c7dc652cb74c08c4d2a5378ef5471c70890c87606db0/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig3-human472-apr008-pacbio-60mb-v2-phi/runs/fig_ops-human472-apr008-pacbio-60mb-v2__phi-oracle/run2/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--block-bytes",
+    "67108864",
+    "--mode",
+    "oracle",
+    "--oracle",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig3-human472-apr008-pacbio-60mb-v2-phi/traces/traces/human472/human472-apr008-pacbio-60mb-v2/phi.oracle"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-00e665de/fig3-human472-apr008-pacbio-60mb-v2-phi/runs/fig_ops-human472-apr008-pacbio-60mb-v2__phi-oracle/run2",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 42.40864232900003,
+  "stdout": "/work/stage/work/freeze-2885ee8-00e665de/fig3-human472-apr008-pacbio-60mb-v2-phi/runs/fig_ops-human472-apr008-pacbio-60mb-v2__phi-oracle/run2/run2.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-00e665de/fig3-human472-apr008-pacbio-60mb-v2-phi/runs/fig_ops-human472-apr008-pacbio-60mb-v2__phi-oracle/run2/run2.stderr",
+  "native_wall_seconds": 42.39,
+  "user_seconds": 14.5,
+  "system_seconds": 27.86,
+  "peak_rss_kib": 94779484
+}

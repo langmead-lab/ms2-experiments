@@ -1,0 +1,111 @@
+{
+  "job": "fig3count-mtb152-pacbio-60mb-v2",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-0-175.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0562f545fedb59614",
+    "availability_zone": "us-east-1a",
+    "lifecycle": "spot"
+  },
+  "platform": "aws",
+  "started": 1793448569.41241,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "fig3count-mtb152-pacbio-60mb-v2",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 8,
+  "already_done": 1,
+  "order": [
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/ms-oracle",
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/phi-oracle",
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/psi-ordinary",
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/dual-oracle",
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/dual-ordinary",
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/psi-oracle",
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/ms-ordinary",
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/phi-ordinary"
+  ],
+  "staging": {
+    "ms2/mtb152/index.ms.orbitidx": {
+      "sha256": "588384459f9c10c677a94f6d7e1045a12196f002a5b5b75f972091251a869613",
+      "bytes": 81097318,
+      "fresh": false,
+      "seconds": 3.6716461181640625e-05
+    },
+    "ms2/mtb152/index.tms.full.orbitidx": {
+      "sha256": "af80e5f51daf70433a14618921da240c822b781215bc8b0a92bdf63620f52048",
+      "bytes": 406217055,
+      "fresh": false,
+      "seconds": 2.4557113647460938e-05
+    },
+    "ms2/mtb152/index.tms.phi.orbitidx": {
+      "sha256": "001a37f83414eb0fb1c8cc8c686f610c6d7ea3ca0c9f70eef8a21f8ce459058f",
+      "bytes": 334946655,
+      "fresh": false,
+      "seconds": 2.1457672119140625e-05
+    },
+    "ms2/mtb152/index.tms.psi.orbitidx": {
+      "sha256": "e9265a86e2330928fb3f20872aad05df75b36da3a1be49ae0cce2c53be996621",
+      "bytes": 93302840,
+      "fresh": false,
+      "seconds": 2.0503997802734375e-05
+    },
+    "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64": {
+      "sha256": "e73a306f0ff5f6e74e77cdbf158597fb27f00d2d7db23273f6198af4568d8709",
+      "bytes": 22848,
+      "fresh": true,
+      "seconds": 0.719944953918457
+    },
+    "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa": {
+      "sha256": "a8dbcee173b893bd5cf791ec7553fc0eddd971da57a054ec99374e7620f37435",
+      "bytes": 60012512,
+      "fresh": true,
+      "seconds": 0.9740848541259766
+    },
+    "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32": {
+      "sha256": "a2a9ea4d3388c3ff6a35133c034c1e7fb3d3dac99421703c9f48243d2d4e6ccb",
+      "bytes": 239963128,
+      "fresh": true,
+      "seconds": 1.4558851718902588
+    },
+    "tools/ms2-2885ee8/ms2-stats": {
+      "sha256": "e47323d8b749323cab0fc1976471c3e18fda5ea5509cafe193abac30fce802e8",
+      "bytes": 4431520,
+      "fresh": false,
+      "seconds": 3.7670135498046875e-05
+    },
+    "tools/ms_check": {
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab",
+      "bytes": 251000,
+      "fresh": false,
+      "seconds": 2.09808349609375e-05
+    }
+  },
+  "finished": 1793448630.9580934,
+  "results": {
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/ms-oracle": "checked",
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/phi-oracle": "checked",
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/dual-oracle": "checked",
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/dual-ordinary": "checked",
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/psi-oracle": "checked",
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/ms-ordinary": "checked",
+    "fig_ops-mtb152-pacbio-60mb-v2-counts/phi-ordinary": "checked"
+  }
+}

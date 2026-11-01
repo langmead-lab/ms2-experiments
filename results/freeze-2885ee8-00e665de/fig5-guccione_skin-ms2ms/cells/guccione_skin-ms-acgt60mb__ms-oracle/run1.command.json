@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/520539c526f8c8fe9cb72a0179b2301418498bdf3eb747d026b64ed3c87021d2/index.ms.orbitidx",
+    "/work/stage/inputs/b75f41ae7ce8983c6db6e20dbfe76094795ebc95dd02720d6d40220c41c499ae/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2ms/runs/guccione_skin-ms-acgt60mb__ms-oracle/run1/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--mode",
+    "oracle",
+    "--oracle",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2ms/traces/traces/human472/guccione_skin-ms-60mb-acgt-v2/ms.oracle"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2ms/runs/guccione_skin-ms-acgt60mb__ms-oracle/run1",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 44.35980016299982,
+  "stdout": "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2ms/runs/guccione_skin-ms-acgt60mb__ms-oracle/run1/run1.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2ms/runs/guccione_skin-ms-acgt60mb__ms-oracle/run1/run1.stderr",
+  "native_wall_seconds": 44.34,
+  "user_seconds": 13.33,
+  "system_seconds": 30.99,
+  "peak_rss_kib": 105468544
+}

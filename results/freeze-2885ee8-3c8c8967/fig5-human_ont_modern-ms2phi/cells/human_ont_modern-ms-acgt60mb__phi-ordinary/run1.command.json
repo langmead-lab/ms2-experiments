@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+    "/work/stage/inputs/34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-human_ont_modern-ms2phi/runs/human_ont_modern-ms-acgt60mb__phi-ordinary/run1/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--mode",
+    "phi"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-human_ont_modern-ms2phi/runs/human_ont_modern-ms-acgt60mb__phi-ordinary/run1",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 111.28025677500409,
+  "stdout": "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-human_ont_modern-ms2phi/runs/human_ont_modern-ms-acgt60mb__phi-ordinary/run1/run1.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-human_ont_modern-ms2phi/runs/human_ont_modern-ms-acgt60mb__phi-ordinary/run1/run1.stderr",
+  "native_wall_seconds": 111.26,
+  "user_seconds": 33.26,
+  "system_seconds": 77.97,
+  "peak_rss_kib": 154138472
+}

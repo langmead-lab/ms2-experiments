@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/7246fde73b3e721b99949716e402e48e51109cd7ac81101c165d87dc6735d0a5/index.tms.psi.orbitidx",
+    "/work/stage/inputs/34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig5-human_ont_modern-ms2psi/runs/human_ont_modern-ms-acgt60mb__psi-ordinary/run3/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--mode",
+    "psi"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-00e665de/fig5-human_ont_modern-ms2psi/runs/human_ont_modern-ms-acgt60mb__psi-ordinary/run3",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 49.33214692400088,
+  "stdout": "/work/stage/work/freeze-2885ee8-00e665de/fig5-human_ont_modern-ms2psi/runs/human_ont_modern-ms-acgt60mb__psi-ordinary/run3/run3.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-00e665de/fig5-human_ont_modern-ms2psi/runs/human_ont_modern-ms-acgt60mb__psi-ordinary/run3/run3.stderr",
+  "native_wall_seconds": 49.32,
+  "user_seconds": 19.15,
+  "system_seconds": 30.15,
+  "peak_rss_kib": 101556064
+}

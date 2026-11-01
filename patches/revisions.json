@@ -1,0 +1,30 @@
+{
+  "phoni": {
+    "upstream": "1b81e468086f99a1428f8af190835659bf47f503",
+    "pr": {
+      "url": "https://github.com/koeppl/phoni/pull/4",
+      "head": "2722db95d379412075495996d51cd0671a7e97e7"
+    },
+    "freeze_source": {
+      "branch": "backup/pre-split-ms-initial-state",
+      "commit": "955355081329d732203d5ed8e8d3e3ce6d064593",
+      "relation": "same code as the PR head; the header differs only in comments"
+    },
+    "patch": "phoni.patch",
+    "license": "MIT"
+  },
+  "aug_phoni": {
+    "upstream": "74395806673e3ddc4d83ac5261133d64c4885ba3",
+    "pr": {
+      "url": "https://github.com/drnatebrown/aug_phoni/pull/2",
+      "head": "0bf0b0c2cae1aa68560e25f2973fc0b91deb1d59"
+    },
+    "freeze_source": {
+      "branch": "backup/pre-split-aug-ms-initialization",
+      "commit": "d1b18d6b20cc10f5476c3b9b69c35d84ef397726",
+      "relation": "same code as the PR head; the header differs only in comments and whitespace"
+    },
+    "patch": "aug_phoni.patch",
+    "license": "MIT"
+  }
+}

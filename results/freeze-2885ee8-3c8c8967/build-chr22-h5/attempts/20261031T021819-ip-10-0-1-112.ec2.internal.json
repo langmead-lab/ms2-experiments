@@ -1,0 +1,109 @@
+{
+  "job": "build-chr22-h5",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-1-112.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-04c9c6f667c1d3fc0",
+    "availability_zone": "us-east-1b",
+    "lifecycle": "spot"
+  },
+  "started": 1793412583.019833,
+  "argv": [
+    "/work/code/bench/freeze/build_job.py",
+    "build-chr22-h5",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict"
+  ],
+  "steps": [
+    {
+      "label": "01-build-psi",
+      "argv": [
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "build",
+        "/work/stage/inputs/0dd3555f9eb01984441a3cc3822ddbd5898031ca7ce8348b99db02c7e9ede31d/bwt.heads",
+        "/work/stage/inputs/ee30f5a69206dd4bac84b2b596c9b168b7784bb69e40c140b0d4f321c53660bf/bwt.len",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-chr22-h5/outputs/ms2/chr22-h5/index.tms.psi.orbitidx",
+        "--layout",
+        "psi"
+      ],
+      "wall_seconds": 14.170384566000394,
+      "peak_rss_kib": 804416,
+      "unverified": false
+    },
+    {
+      "label": "02-build-phi",
+      "argv": [
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "build",
+        "/work/stage/inputs/0dd3555f9eb01984441a3cc3822ddbd5898031ca7ce8348b99db02c7e9ede31d/bwt.heads",
+        "/work/stage/inputs/ee30f5a69206dd4bac84b2b596c9b168b7784bb69e40c140b0d4f321c53660bf/bwt.len",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-chr22-h5/outputs/ms2/chr22-h5/index.tms.phi.orbitidx",
+        "--layout",
+        "phi",
+        "--minima",
+        "/work/stage/inputs/b029cb16660b0f09e495291643d569575db340564df971b39b2915c4fa7f90f5/min"
+      ],
+      "wall_seconds": 235.44185526599995,
+      "peak_rss_kib": 2714772,
+      "unverified": false
+    },
+    {
+      "label": "03-build-full",
+      "argv": [
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "build",
+        "/work/stage/inputs/0dd3555f9eb01984441a3cc3822ddbd5898031ca7ce8348b99db02c7e9ede31d/bwt.heads",
+        "/work/stage/inputs/ee30f5a69206dd4bac84b2b596c9b168b7784bb69e40c140b0d4f321c53660bf/bwt.len",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-chr22-h5/outputs/ms2/chr22-h5/index.tms.full.orbitidx",
+        "--layout",
+        "full",
+        "--minima",
+        "/work/stage/inputs/b029cb16660b0f09e495291643d569575db340564df971b39b2915c4fa7f90f5/min"
+      ],
+      "wall_seconds": 242.6044358270001,
+      "peak_rss_kib": 3324744,
+      "unverified": false
+    }
+  ],
+  "staging": {
+    "precursors/chr22-h5/bwt.heads": {
+      "sha256": "0dd3555f9eb01984441a3cc3822ddbd5898031ca7ce8348b99db02c7e9ede31d",
+      "bytes": 51070624,
+      "fresh": true,
+      "seconds": 0.9843246936798096
+    },
+    "precursors/chr22-h5/bwt.len": {
+      "sha256": "ee30f5a69206dd4bac84b2b596c9b168b7784bb69e40c140b0d4f321c53660bf",
+      "bytes": 255353120,
+      "fresh": true,
+      "seconds": 1.28080415725708
+    },
+    "precursors/chr22-h5/min": {
+      "sha256": "b029cb16660b0f09e495291643d569575db340564df971b39b2915c4fa7f90f5",
+      "bytes": 140232335,
+      "fresh": true,
+      "seconds": 1.0989904403686523
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 3.790855407714844e-05
+    }
+  },
+  "finished": 1793413099.3374562,
+  "status": 0
+}

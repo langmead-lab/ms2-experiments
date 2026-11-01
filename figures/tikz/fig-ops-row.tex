@@ -1,0 +1,104 @@
+% Fig Ops, one row: time and operations per base for held-out whole genomes
+% (data/fig-ops) and simulated PacBio HiFi reads from the same genomes
+% (data/fig-ops2), for mtb152 and HPRC2. Panel titles name the reference;
+% above each pair of panels, the query type. The HPRC2 read panels clip the ms2-phi bar, mark it
+% with a break and print its value inside the bar.
+\documentclass[border=1pt]{standalone}
+\input{figures-style}
+\usetikzlibrary{calc}
+\pgfplotsset{ops axis/.append style={height=0.8in, width=0.62in, clip=true, clip mode=individual,
+    xticklabel style={font=\sffamily\fontsize{6.5}{7.5}\selectfont}}}
+\pgfplotsset{ops count axis/.append style={width=0.52in},
+  ops tick/.append style={mark size=4.6pt, mark options={line width=0.9pt}}}
+\renewcommand{\figPointFont}{\sffamily\fontsize{6}{7}\selectfont}
+\renewcommand{\figOpsTimeLabel}{ns per base}
+\renewcommand{\figOpsLabel}{Ops per base}
+% \figOpsGet{file}{column}\macro: the phi row's value of a column.
+\newcommand{\figOpsGet}[3]{%
+  \pgfplotstableread{#1}\figOpsTable
+  \pgfplotstablegetelem{2}{#2}\of\figOpsTable
+  \let#3\pgfplotsretval}
+\figOpsGet{data/fig-ops2/human472.dat}{nslab}\PhiNsHuman
+\figOpsGet{data/fig-ops2/human472.dat}{totlab}\PhiOpsHuman
+% Bars and labels; the clipped variants skip the phi label.
+\newcommand{\figRowTime}[2]{%
+  \pgfplotsinvokeforeach{lcp,psi,dual,phi}{%
+    \addplot[ops bar=\figOpsColor{##1}, discard if not={key}{##1}] table[x=x, y=ns] {#1};}%
+  \addplot[ops tick] table[x=x, y=oracle] {#1};
+  \addplot[ops labels, #2] table[x=x, y=ns, meta=nslab] {#1};}
+\newcommand{\figRowOps}[2]{%
+  \pgfplotsinvokeforeach{psi,dual,phi}{%
+    \addplot[ops bar=\figOpsColor{##1}, discard if not={key}{##1}] table[x=x, y=total] {#1};
+    \addplot[ops bar=\figOpsColor{##1}!45, discard if not={key}{##1}] table[x=x, y=lf] {#1};}%
+  \addplot[ops labels, discard if={key}{lcp}, #2] table[x=x, y=total, meta=totlab] {#1};}
+\newcommand{\figRowBreak}[2]{%
+  \draw[white, line width=1.4pt] (axis cs:1.64,0.80*#2) -- (axis cs:2.36,0.86*#2);
+  \node[anchor=east, rotate=90, font=\sffamily\fontsize{5.5}{6.5}\selectfont, text=white, inner sep=0.6pt]
+    at (axis cs:2,0.785*#2) {#1};}
+\newcommand{\figRowOneDecimal}[1]{\pgfmathprintnumber[fixed, precision=1, assume math mode=true]{#1}}
+\newcommand{\figRowTitle}[1]{%
+  \node[anchor=south west, inner sep=1pt, font=\sffamily\fontsize{6.5}{7.5}\selectfont, text=figInk]
+    at (rel axis cs:0,1) {#1};}
+% \figRowGroup{first panel}{last panel}{text}: a query-type header centered
+% over a pair of panels, above a thin rule spanning them.
+\newcommand{\figRowGroup}[3]{%
+  \draw[figInkTwo!70, line width=0.4pt] ($(#1.north west)+(0,10.5pt)$) -- ($(#2.north east)+(0,10.5pt)$);
+  \node[anchor=south, inner sep=1pt, font=\sffamily\fontsize{6.5}{7.5}\selectfont, text=figInkTwo]
+    at ($(#1.north west)!0.5!(#2.north east)+(0,11pt)$) {#3};}
+\begin{document}
+\input{data/fig-ops/limits}
+\input{data/fig-ops2/limits}
+\begin{tikzpicture}
+% Time panels.
+\begin{axis}[name=t1, ops axis, ymax=\FigOpsTimeMaxMtb, ytick distance=\FigOpsTimeStepMtb, ylabel={\figOpsTimeLabel},
+    fig legend, legend to name=legFigOpsRow]
+  \figLegendOps
+  \figRowTime{data/fig-ops/mtb152.dat}{}
+  \figRowTitle{mtb152}
+\end{axis}
+\begin{axis}[name=t2, at={($(t1.south east)+(15pt,0)$)}, anchor=south west, ops axis,
+    ymax=\FigOpsTimeMaxHuman, ytick distance=\FigOpsTimeStepHuman]
+  \figRowTime{data/fig-ops/human472.dat}{}
+  \figRowTitle{HPRC2}
+\end{axis}
+\begin{axis}[name=t3, at={($(t2.south east)+(15pt,0)$)}, anchor=south west, ops axis,
+    ymax=\FigOpsTwoTimeMaxMtb, ytick distance=\FigOpsTwoTimeStepMtb]
+  \figRowTime{data/fig-ops2/mtb152.dat}{}
+  \figRowTitle{mtb152}
+\end{axis}
+\begin{axis}[name=t4, at={($(t3.south east)+(15pt,0)$)}, anchor=south west, ops axis,
+    ymax=120, ytick distance=50]
+  \figRowTime{data/fig-ops2/human472.dat}{discard if={key}{phi}}
+  \figRowBreak{\PhiNsHuman}{120}
+  \figRowTitle{HPRC2}
+\end{axis}
+% Operation panels share one axis range.
+\begin{axis}[name=o1, at={($(t4.south east)+(30pt,0)$)}, anchor=south west, ops count axis,
+    ymax=4, ytick={0,1,2,3,4}, ylabel={\figOpsLabel}]
+  \figRowOps{data/fig-ops/mtb152.dat}{}
+  \figRowTitle{mtb152}
+\end{axis}
+\begin{axis}[name=o2, at={($(o1.south east)+(5pt,0)$)}, anchor=south west, ops count axis,
+    ymax=4, ytick={0,1,2,3,4}, yticklabels={}]
+  \figRowOps{data/fig-ops/human472.dat}{}
+  \figRowTitle{HPRC2}
+\end{axis}
+\begin{axis}[name=o3, at={($(o2.south east)+(5pt,0)$)}, anchor=south west, ops count axis,
+    ymax=4, ytick={0,1,2,3,4}, yticklabels={}]
+  \figRowOps{data/fig-ops2/mtb152.dat}{}
+  \figRowTitle{mtb152}
+\end{axis}
+\begin{axis}[name=o4, at={($(o3.south east)+(5pt,0)$)}, anchor=south west, ops count axis,
+    ymax=4, ytick={0,1,2,3,4}, yticklabels={}]
+  \figRowOps{data/fig-ops2/human472.dat}{discard if={key}{phi}}
+  \figRowBreak{\figRowOneDecimal{\PhiOpsHuman}}{4}
+  \figRowTitle{HPRC2}
+\end{axis}
+\figRowGroup{t1}{t2}{query: genomes}
+\figRowGroup{t3}{t4}{query: PacBio reads}
+\figRowGroup{o1}{o2}{query: genomes}
+\figRowGroup{o3}{o4}{query: PacBio reads}
+\node[anchor=south, inner sep=0pt] at ($(t1.north west)!0.5!(o4.north east)+(0,24pt)$)
+  {\pgfplotslegendfromname{legFigOpsRow}};
+\end{tikzpicture}
+\end{document}

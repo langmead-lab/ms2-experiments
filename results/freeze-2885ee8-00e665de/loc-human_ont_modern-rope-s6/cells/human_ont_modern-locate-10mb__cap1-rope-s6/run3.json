@@ -1,0 +1,37 @@
+{
+  "run": 3,
+  "host": "ip-10-0-3-58.ec2.internal",
+  "started": 1793515059.6324434,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t1",
+    "-K",
+    "1m",
+    "-l1",
+    "-p1",
+    "/work/stage/work/freeze-2885ee8-00e665de/loc-human_ont_modern-rope-s6/rope/s6-ropebwt3_human472_index.fmd/index.fmd",
+    "/work/stage/inputs/2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83/reads.fa"
+  ],
+  "timeout_s": 14400,
+  "cache": "drop_caches",
+  "wall_seconds": 110.97038703199723,
+  "user_seconds": 12.35,
+  "system_seconds": 98.62,
+  "peak_rss_kib": 362057952,
+  "phase": {
+    "source": "ropebwt3-log-stamps",
+    "query_definition": "last processed stamp - last loaded stamp",
+    "load_seconds": 98.016,
+    "query_seconds": 12.313999999999993,
+    "components": {
+      "last_loaded_s": 98.016,
+      "last_processed_s": 110.33,
+      "processed_sequences": 494
+    }
+  },
+  "finished": 1793515172.8976974
+}

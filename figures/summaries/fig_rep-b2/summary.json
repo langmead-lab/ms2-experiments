@@ -1,0 +1,407 @@
+{
+  "format": "ms2-freeze-group-v1",
+  "group": "fig_rep-b2",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "config": {
+    "workload": {
+      "reads": null,
+      "bases": 59991907,
+      "reference": "chr22-h1",
+      "read_set": "pacbio-60mb-v2"
+    },
+    "orbit": {
+      "revision": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+      "repo": "https://github.com/langmead-lab/ms2.git"
+    },
+    "rope": {
+      "batch_size": null,
+      "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+    },
+    "protocol": {
+      "runs": 3,
+      "warmup_runs": 0,
+      "report": "median",
+      "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+      "numa": {
+        "cpunodebind": 0,
+        "membind": 0
+      },
+      "threads": 1,
+      "transparent_hugepages": "always",
+      "truth_check": "run 1 of every cell, whole output",
+      "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+      "time_basis": {
+        "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+        "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+        "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+      },
+      "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+    }
+  },
+  "cells": [
+    {
+      "id": "chr22-B-h1",
+      "status": "checked",
+      "interleave": 32,
+      "median_query_seconds": 7.856459999999999,
+      "median_load_seconds": 1.613671,
+      "query_seconds": [
+        7.856459999999999
+      ],
+      "load_seconds": [
+        1.613671
+      ],
+      "peak_rss_kib": 1692904,
+      "tool": "ms2-replog",
+      "kind": "rep",
+      "figures": [
+        "A1"
+      ],
+      "host": {
+        "hostname": "ip-10-0-3-151.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0538f31c74f746367",
+        "availability_zone": "us-east-1d",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "a1-chr22-ladder",
+      "cell": "fig_rep-b2/chr22-B-h1",
+      "rep": {
+        "repositions_per_base": 0.04140278454558879,
+        "times": {
+          "psi": {
+            "index_load_s": 0.358567,
+            "query_s": 2.56214,
+            "query_ns_per_base": 42.7081
+          },
+          "phi": {
+            "index_load_s": 0.504833,
+            "query_s": 2.77426,
+            "query_ns_per_base": 46.2439
+          },
+          "dual": {
+            "index_load_s": 0.750271,
+            "query_s": 2.52006,
+            "query_ns_per_base": 42.0066
+          }
+        }
+      }
+    },
+    {
+      "id": "chr22-B-h10",
+      "status": "checked",
+      "interleave": 32,
+      "median_query_seconds": 7.57529,
+      "median_load_seconds": 2.147569,
+      "query_seconds": [
+        7.57529
+      ],
+      "load_seconds": [
+        2.147569
+      ],
+      "peak_rss_kib": 2094264,
+      "tool": "ms2-replog",
+      "kind": "rep",
+      "figures": [
+        "A1"
+      ],
+      "host": {
+        "hostname": "ip-10-0-3-151.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0538f31c74f746367",
+        "availability_zone": "us-east-1d",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "a1-chr22-ladder",
+      "cell": "fig_rep-b2/chr22-B-h10",
+      "rep": {
+        "repositions_per_base": 0.03219192548754951,
+        "times": {
+          "psi": {
+            "index_load_s": 0.473245,
+            "query_s": 2.61596,
+            "query_ns_per_base": 43.6053
+          },
+          "phi": {
+            "index_load_s": 0.669054,
+            "query_s": 2.7296,
+            "query_ns_per_base": 45.4994
+          },
+          "dual": {
+            "index_load_s": 1.00527,
+            "query_s": 2.22973,
+            "query_ns_per_base": 37.1672
+          }
+        }
+      }
+    },
+    {
+      "id": "chr22-B-h100",
+      "status": "checked",
+      "interleave": 32,
+      "median_query_seconds": 9.59641,
+      "median_load_seconds": 3.238525,
+      "query_seconds": [
+        9.59641
+      ],
+      "load_seconds": [
+        3.238525
+      ],
+      "peak_rss_kib": 3030016,
+      "tool": "ms2-replog",
+      "kind": "rep",
+      "figures": [
+        "A1"
+      ],
+      "host": {
+        "hostname": "ip-10-0-3-151.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0538f31c74f746367",
+        "availability_zone": "us-east-1d",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "a1-chr22-ladder",
+      "cell": "fig_rep-b2/chr22-B-h100",
+      "rep": {
+        "repositions_per_base": 0.031201591908055198,
+        "times": {
+          "psi": {
+            "index_load_s": 0.713083,
+            "query_s": 2.77226,
+            "query_ns_per_base": 46.2106
+          },
+          "phi": {
+            "index_load_s": 0.991822,
+            "query_s": 4.61041,
+            "query_ns_per_base": 76.8505
+          },
+          "dual": {
+            "index_load_s": 1.53362,
+            "query_s": 2.21374,
+            "query_ns_per_base": 36.9007
+          }
+        }
+      }
+    },
+    {
+      "id": "chr22-B-h2",
+      "status": "checked",
+      "interleave": 32,
+      "median_query_seconds": 7.447380000000001,
+      "median_load_seconds": 1.758154,
+      "query_seconds": [
+        7.447380000000001
+      ],
+      "load_seconds": [
+        1.758154
+      ],
+      "peak_rss_kib": 1782892,
+      "tool": "ms2-replog",
+      "kind": "rep",
+      "figures": [
+        "A1"
+      ],
+      "host": {
+        "hostname": "ip-10-0-3-151.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0538f31c74f746367",
+        "availability_zone": "us-east-1d",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "a1-chr22-ladder",
+      "cell": "fig_rep-b2/chr22-B-h2",
+      "rep": {
+        "repositions_per_base": 0.036426246626899195,
+        "times": {
+          "psi": {
+            "index_load_s": 0.388013,
+            "query_s": 2.53419,
+            "query_ns_per_base": 42.2422
+          },
+          "phi": {
+            "index_load_s": 0.552866,
+            "query_s": 2.58981,
+            "query_ns_per_base": 43.1693
+          },
+          "dual": {
+            "index_load_s": 0.817275,
+            "query_s": 2.32338,
+            "query_ns_per_base": 38.7283
+          }
+        }
+      }
+    },
+    {
+      "id": "chr22-B-h20",
+      "status": "checked",
+      "interleave": 32,
+      "median_query_seconds": 8.05083,
+      "median_load_seconds": 2.364806,
+      "query_seconds": [
+        8.05083
+      ],
+      "load_seconds": [
+        2.364806
+      ],
+      "peak_rss_kib": 2256932,
+      "tool": "ms2-replog",
+      "kind": "rep",
+      "figures": [
+        "A1"
+      ],
+      "host": {
+        "hostname": "ip-10-0-3-151.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0538f31c74f746367",
+        "availability_zone": "us-east-1d",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "a1-chr22-ladder",
+      "cell": "fig_rep-b2/chr22-B-h20",
+      "rep": {
+        "repositions_per_base": 0.03185478001224398,
+        "times": {
+          "psi": {
+            "index_load_s": 0.51887,
+            "query_s": 2.69063,
+            "query_ns_per_base": 44.8499
+          },
+          "phi": {
+            "index_load_s": 0.736246,
+            "query_s": 3.08429,
+            "query_ns_per_base": 51.4118
+          },
+          "dual": {
+            "index_load_s": 1.10969,
+            "query_s": 2.27591,
+            "query_ns_per_base": 37.937
+          }
+        }
+      }
+    },
+    {
+      "id": "chr22-B-h5",
+      "status": "checked",
+      "interleave": 32,
+      "median_query_seconds": 7.489550000000001,
+      "median_load_seconds": 2.037979,
+      "query_seconds": [
+        7.489550000000001
+      ],
+      "load_seconds": [
+        2.037979
+      ],
+      "peak_rss_kib": 1985532,
+      "tool": "ms2-replog",
+      "kind": "rep",
+      "figures": [
+        "A1"
+      ],
+      "host": {
+        "hostname": "ip-10-0-3-151.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0538f31c74f746367",
+        "availability_zone": "us-east-1d",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "a1-chr22-ladder",
+      "cell": "fig_rep-b2/chr22-B-h5",
+      "rep": {
+        "repositions_per_base": 0.032965596509542526,
+        "times": {
+          "psi": {
+            "index_load_s": 0.448531,
+            "query_s": 2.60733,
+            "query_ns_per_base": 43.4613
+          },
+          "phi": {
+            "index_load_s": 0.633952,
+            "query_s": 2.60596,
+            "query_ns_per_base": 43.4386
+          },
+          "dual": {
+            "index_load_s": 0.955496,
+            "query_s": 2.27626,
+            "query_ns_per_base": 37.9429
+          }
+        }
+      }
+    },
+    {
+      "id": "chr22-B-h50",
+      "status": "checked",
+      "interleave": 32,
+      "median_query_seconds": 8.664259999999999,
+      "median_load_seconds": 2.8351439999999997,
+      "query_seconds": [
+        8.664259999999999
+      ],
+      "load_seconds": [
+        2.8351439999999997
+      ],
+      "peak_rss_kib": 2674188,
+      "tool": "ms2-replog",
+      "kind": "rep",
+      "figures": [
+        "A1"
+      ],
+      "host": {
+        "hostname": "ip-10-0-3-151.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0538f31c74f746367",
+        "availability_zone": "us-east-1d",
+        "lifecycle": "spot"
+      },
+      "platform": "aws",
+      "job": "a1-chr22-ladder",
+      "cell": "fig_rep-b2/chr22-B-h50",
+      "rep": {
+        "repositions_per_base": 0.03138291636570246,
+        "times": {
+          "psi": {
+            "index_load_s": 0.610985,
+            "query_s": 2.72626,
+            "query_ns_per_base": 45.4438
+          },
+          "phi": {
+            "index_load_s": 0.879239,
+            "query_s": 3.6811,
+            "query_ns_per_base": 61.36
+          },
+          "dual": {
+            "index_load_s": 1.34492,
+            "query_s": 2.2569,
+            "query_ns_per_base": 37.6201
+          }
+        }
+      }
+    }
+  ]
+}

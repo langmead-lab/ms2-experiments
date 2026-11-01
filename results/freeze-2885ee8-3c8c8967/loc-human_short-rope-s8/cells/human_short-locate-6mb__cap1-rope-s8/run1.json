@@ -1,0 +1,71 @@
+{
+  "run": 1,
+  "host": "ip-10-0-2-66.ec2.internal",
+  "started": 1793408992.2067752,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t1",
+    "-K",
+    "1m",
+    "-l1",
+    "-p1",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_short-rope-s8/rope/s8-ropebwt3_human472_index.fmd/index.fmd",
+    "/work/stage/inputs/a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338/reads.fa"
+  ],
+  "timeout_s": 14400,
+  "cache": "drop_caches",
+  "wall_seconds": 54.50086380399989,
+  "user_seconds": 9.17,
+  "system_seconds": 45.31,
+  "peak_rss_kib": 101825064,
+  "phase": {
+    "source": "ropebwt3-log-stamps",
+    "query_definition": "last processed stamp - last loaded stamp",
+    "load_seconds": 42.79,
+    "query_seconds": 9.146,
+    "components": {
+      "last_loaded_s": 42.79,
+      "last_processed_s": 51.936,
+      "processed_sequences": 48000
+    }
+  },
+  "check": {
+    "failed": 0,
+    "validation": "cross-tool-v1",
+    "tool": "rope",
+    "cap": 1,
+    "reads": 48000,
+    "intervals": 158111,
+    "zero_count_intervals": 0,
+    "reported_locations_checked": 158111,
+    "locations_in_bounds": 158111,
+    "ms_positions_checked": 6000000,
+    "emitted_counts": 158111,
+    "complete_set_intervals": 10395,
+    "complete_set_locations": 10395,
+    "over_cap_intervals": 147716,
+    "over_cap_locations": 147716,
+    "all_coordinates_checked": false,
+    "occurrence_reference_checked": false,
+    "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+    "count_checks": "cross-tool agreement",
+    "canonical": {
+      "format": "canonical-smem-v1",
+      "sha256": "985d49b7805c049167390ac3940020116b79ad11929994622a70c4e8ef512bf9",
+      "lines": 158111,
+      "bytes": 8491999,
+      "cap": 1,
+      "over_cap_lines": 147716,
+      "over_cap_locations": 147716,
+      "over_cap_sha256": "620c47a82558d030769eb1060120eb48c0601543727a7fb535812910dff39605",
+      "compressed_bytes": 2462624,
+      "compressed_sha256": "0873fc441522e63745d4c1839aae6ddd47019c596fd7ac47f00aa9bbd14abaf8",
+      "path": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_short-rope-s8/canonical/human_short-locate-6mb__cap1-rope-s8.canonical.gz"
+    }
+  },
+  "finished": 1793409052.1116445
+}

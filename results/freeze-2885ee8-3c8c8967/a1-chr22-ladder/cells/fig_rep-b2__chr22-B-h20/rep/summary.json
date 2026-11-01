@@ -1,0 +1,132 @@
+{
+ "format": "fig-rep-summary-v1",
+ "run": "/work/stage/work/freeze-2885ee8-3c8c8967/a1-chr22-ladder/runs/fig_rep-b2__chr22-B-h20/run1/rep",
+ "bases": 59991907,
+ "repositions": 1911029,
+ "repositions_per_base": 0.03185478001224398,
+ "cap0": 2142,
+ "aligned": "every record matches psi in pattern, at, cap, lce and dist",
+ "interval_and_scan_match_psi": {
+  "psi": true,
+  "phi": false,
+  "dual": true
+ },
+ "sums": {
+  "psi": {
+   "repositions": 1911029,
+   "psi": 70859652,
+   "phi": 0,
+   "stats_line": {
+    "repositions": 1911030.1991036,
+    "psi": 70859440.95305,
+    "phi": 0.0
+   }
+  },
+  "phi": {
+   "repositions": 1911029,
+   "psi": 0,
+   "phi": 18322116,
+   "stats_line": {
+    "repositions": 1911030.1991036,
+    "psi": 0.0,
+    "phi": 18322128.31687
+   }
+  },
+  "dual": {
+   "repositions": 1911029,
+   "psi": 1714741,
+   "phi": 652688,
+   "stats_line": {
+    "repositions": 1911030.1991036,
+    "psi": 1714742.6785903,
+    "phi": 652687.9513972
+   }
+  }
+ },
+ "outputs_identical": true,
+ "times": {
+  "psi": {
+   "index_load_s": 0.51887,
+   "query_s": 2.69063,
+   "query_ns_per_base": 44.8499
+  },
+  "phi": {
+   "index_load_s": 0.736246,
+   "query_s": 3.08429,
+   "query_ns_per_base": 51.4118
+  },
+  "dual": {
+   "index_load_s": 1.10969,
+   "query_s": 2.27591,
+   "query_ns_per_base": 37.937
+  }
+ },
+ "steps_per_reposition": {
+  "psi": {
+   "p5": 22.0,
+   "p25": 24.0,
+   "p50": 26.0,
+   "p75": 28.0,
+   "p95": 65.0,
+   "mean": 37.120925439798164,
+   "n": 1908887
+  },
+  "phi": {
+   "p5": 0.0,
+   "p25": 0.0,
+   "p50": 0.0,
+   "p75": 0.0,
+   "p95": 40.0,
+   "mean": 9.59832404956396,
+   "n": 1908887
+  },
+  "dual": {
+   "p5": 0.0,
+   "p25": 0.0,
+   "p50": 0.0,
+   "p75": 0.0,
+   "p95": 0.0,
+   "mean": 1.2402143238442087,
+   "n": 1908887
+  }
+ },
+ "min_psi_phi": {
+  "p5": 0.0,
+  "p25": 0.0,
+  "p50": 0.0,
+  "p75": 0.0,
+  "p95": 26.0,
+  "mean": 4.761108436486811,
+  "n": 1908887
+ },
+ "ratio_dual_to_min": {
+  "p5": NaN,
+  "p25": NaN,
+  "p50": NaN,
+  "p75": NaN,
+  "p95": NaN,
+  "mean": NaN,
+  "n": 1908887
+ },
+ "dual_le_2min_frac": 0.9976913248400769,
+ "dual_le_min_plus1_frac": 0.9782532962925516,
+ "psi_lt_phi_frac": 0.08603076033311557,
+ "cap": {
+  "p5": 12.0,
+  "p25": 13.0,
+  "p50": 14.0,
+  "p75": 18.0,
+  "p95": 256.0,
+  "mean": 52.82740518427754,
+  "n": 1908887
+ },
+ "dist": {
+  "p5": 1.0,
+  "p25": 1.0,
+  "p50": 20.0,
+  "p75": 41.0,
+  "p95": 138.0,
+  "mean": 40.701637132004144,
+  "n": 1908887
+ }
+}

@@ -1,0 +1,45 @@
+{
+  "run": 1,
+  "host": "ip-10-0-5-162.ec2.internal",
+  "started": 1793498670.3991783,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t1",
+    "-K",
+    "1m",
+    "-l30",
+    "/work/stage/inputs/7e3c46f0db21cf8b79fb1e40b37c4ac82a24e6e75ed1f8428d1eaba5e12ebb46/index.fmd",
+    "/work/stage/inputs/2cf92676c29eb68f71c4c3181e273b56a94c38f73baa2a80b1b9ac36410bdf2e/reads.fa"
+  ],
+  "timeout_s": 7200,
+  "cache": "drop_caches",
+  "wall_seconds": 32.179580448999786,
+  "user_seconds": 32.16,
+  "system_seconds": 0.08,
+  "peak_rss_kib": 174404,
+  "phase": {
+    "source": "ropebwt3-log-stamps",
+    "query_definition": "last processed stamp - last loaded stamp",
+    "load_seconds": 0.046,
+    "query_seconds": 32.108000000000004,
+    "components": {
+      "last_loaded_s": 0.046,
+      "last_processed_s": 32.154,
+      "processed_sequences": 2782
+    }
+  },
+  "check": {
+    "failed": 0,
+    "reads": 2782,
+    "intervals": 428521,
+    "min_length": 30,
+    "validation": "all long-SMEM intervals from exact MS truth; counts from original MEM search",
+    "occurrence_counts_checked": true,
+    "exact_ms_equivalence": false
+  },
+  "finished": 1793498708.276672
+}

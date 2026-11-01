@@ -1,0 +1,56 @@
+{
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "cells": 294,
+  "missing": [],
+  "unchecked": [],
+  "wrong_commit": [],
+  "locate_comparisons": "not run",
+  "d9_dual_seqids": [
+    {
+      "group": "human_short-ms-acgt60mb",
+      "seqids_over_plain": 1.0000616326975684,
+      "passes": true
+    },
+    {
+      "group": "human_pacbio-ms-acgt60mb",
+      "seqids_over_plain": 0.9985419245809507,
+      "passes": true
+    },
+    {
+      "group": "human_ont_modern-ms-acgt60mb",
+      "seqids_over_plain": 0.9940037109900516,
+      "passes": true
+    },
+    {
+      "group": "guccione_skin-ms-acgt60mb",
+      "seqids_over_plain": 1.0000783167127865,
+      "passes": true
+    }
+  ],
+  "groups": [
+    "chr22-h10-ms-simont",
+    "chr22-h10-ms-simpacbio",
+    "chr22-h10-ms-simshort",
+    "chr22-h100-ms-simont",
+    "chr22-h100-ms-simpacbio",
+    "chr22-h100-ms-simshort",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts",
+    "fig_ops-human472-apr008-pacbio-60mb-v2",
+    "fig_ops-human472-apr008-pacbio-60mb-v2-counts",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1-counts",
+    "fig_ops-mtb152-pacbio-60mb-v2",
+    "fig_ops-mtb152-pacbio-60mb-v2-counts",
+    "fig_rep-a2",
+    "fig_rep-b2",
+    "guccione_skin-locate-500kb",
+    "guccione_skin-ms-acgt60mb",
+    "human_ont_modern-locate-10mb",
+    "human_ont_modern-ms-acgt60mb",
+    "human_pacbio-locate-20mb",
+    "human_pacbio-ms-acgt60mb",
+    "human_short-locate-6mb",
+    "human_short-ms-acgt60mb"
+  ]
+}

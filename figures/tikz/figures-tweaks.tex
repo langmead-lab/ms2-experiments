@@ -1,0 +1,59 @@
+% Refinements on top of figures-style.tex, used by the figures folded into the
+% paper: panel titles in the lower right corner on a common baseline, larger
+% marks and point labels, and legends split into outlined groups.
+\renewcommand{\figPanelTitle}[1]{%
+  \node[anchor=base east, inner sep=0pt, font=\figTitleFont, text=figInk]
+    at ($(rel axis cs:1,0)+(-3pt,4.5pt)$) {#1};}
+\renewcommand{\figPointFont}{\sffamily\fontsize{7.5}{8.5}\selectfont}
+\pgfplotsset{
+  every axis plot post/.append style={every mark/.append style={scale=1.3}},
+  fig group legend/.style={fig legend,
+    legend image post style={scale=1.35},
+    legend style={draw=figInkTwo!60, rounded corners=1.5pt, line width=0.4pt,
+      inner xsep=3pt, inner ysep=1.5pt}},
+  % Narrower spacing between entries, for legend rows that would otherwise
+  % run past the panels.
+  fig tight group legend/.style={fig group legend,
+    legend style={/tikz/every even column/.append style={column sep=3pt}}},
+}
+% \figLargerMarks: ms2 and ropebwt3 marks 30% larger than the shared style, for figures that
+% name every point in the legend instead of with point labels.
+\newcommand{\figLargerMarks}{\pgfplotsset{
+  ms key/lcp/.append style={mark size=2.08pt}, ms key/psi/.append style={mark size=2.08pt},
+  ms key/dual/.append style={mark size=2.08pt}, ms key/phi/.append style={mark size=2.08pt},
+  ms key/rl1/.append style={mark size=2.08pt}, ms key/rl19/.append style={mark size=1.95pt},
+  ms key/rl25/.append style={mark size=2.47pt}, ms key/rl30/.append style={mark size=2.08pt},
+  ms key/rl40/.append style={mark size=2.08pt}, ms key/s11/.append style={mark size=2.21pt},
+  ms key/s8/.append style={mark size=2.6pt}, ms key/s6/.append style={mark size=2.21pt},
+  ms key/lcpF/.append style={mark size=2.99pt}, ms key/psiF/.append style={mark size=2.99pt},
+  ms key/phiF/.append style={mark size=2.99pt}, ms key/dualF/.append style={mark size=2.99pt}}}
+% Legend groups, one outlined box each.
+\newcommand{\figLegendMSGroup}{%
+  \figLegendGroupName{ms2:}%
+  \figLegendKey{lcp}{min}\figLegendKey{psi}{psi}\figLegendKey{dual}{dual}}
+\newcommand{\figLegendRopeGroup}{%
+  \figLegendGroupName{ropebwt3:}%
+  \figLegendKey{rl1}{-l1}\figLegendKey{rl19}{-l19*}\figLegendKey{rl25}{-l25*}%
+  \figLegendKey{rl30}{-l30*}\figLegendKey{rl40}{-l40*}}
+\newcommand{\figLegendLocateMSGroup}{%
+  \figLegendGroupName{ms2:}\figLegendKey{psi}{psi}\figLegendKey{dual}{dual}}
+\newcommand{\figLegendLocateRopeGroup}{%
+  \figLegendGroupName{ropebwt3 -l1:}%
+  \figLegendKey{s11}{-s11}\figLegendKey{s8}{-s8}\figLegendKey{s6}{-s6}}
+\newcommand{\figLegendFtabGroup}{%
+  \figLegendGroupName{ftab:}\figLegendFtab}
+% Kept as a name for the oracle legend entry used by the paper figures.
+\newcommand{\figLegendOracleOnly}{\figLegendOracle}
+\newcommand{\figLegendOthersGroup}{%
+  \figLegendGroupName{Others:}\figLegendOthers}
+% \figLegendRow{first panel}{last panel}{legend name}{legend name}[...]: named
+% legend boxes side by side, centered above a row of panels. The third box is
+% optional (\figLegendRowThree).
+\newcommand{\figLegendRow}[4]{%
+  \node[anchor=south, inner sep=0pt]
+    at ($(#1.north west)!0.5!(#2.north east)+(0,3pt)$)
+    {\pgfplotslegendfromname{#3}\hspace{6pt}\pgfplotslegendfromname{#4}};}
+\newcommand{\figLegendRowThree}[5]{%
+  \node[anchor=south, inner sep=0pt]
+    at ($(#1.north west)!0.5!(#2.north east)+(0,3pt)$)
+    {\pgfplotslegendfromname{#3}\hspace{4pt}\pgfplotslegendfromname{#4}\hspace{4pt}\pgfplotslegendfromname{#5}};}

@@ -1,0 +1,33 @@
+{
+  "rerun_of": "freeze-2885ee8-3c8c8967",
+  "seeded": 1793483338.466422,
+  "protocol_change": {
+    "transparent_hugepages": [
+      null,
+      "always"
+    ]
+  },
+  "copied": {
+    "build-tools": 2,
+    "build-human472-ms": 2,
+    "build-human472-psi": 2,
+    "build-human472-phi": 2,
+    "build-human472-psi-locate": 2,
+    "build-human472-full": 2,
+    "build-mtb152": 2,
+    "build-chr22-h10": 2,
+    "build-chr22-h100": 2,
+    "build-chr22-h1": 2,
+    "build-chr22-h2": 2,
+    "build-chr22-h5": 2,
+    "build-chr22-h20": 2,
+    "build-chr22-h50": 2,
+    "fig3count-mtb152-heldout16-p100k-s600-v1": 43,
+    "fig3count-mtb152-pacbio-60mb-v2": 42,
+    "fig3count-human472-apr008-hap1-p100k-s600-v1": 43,
+    "fig3count-human472-apr008-pacbio-60mb-v2": 43,
+    "a1-mtb152-errors": 133,
+    "a1-chr22-ladder": 94,
+    "traces": 32
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "run": 1,
+  "host": "ip-10-0-4-177.ec2.internal",
+  "started": 1793499135.2958858,
+  "one": {
+    "argv": [
+      "numactl",
+      "--cpunodebind=0",
+      "--membind=0",
+      "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/legacy/phoni-chr22-h10/reference.txt",
+      "-p",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__phoni/run1/one/reads.fa",
+      "-g",
+      "naive"
+    ],
+    "cache": "drop_caches",
+    "wall_seconds": 0.2601242949999687,
+    "peak_rss_kib": 614284,
+    "user_seconds": 0.04,
+    "system_seconds": 0.19,
+    "check": {
+      "reads": 1,
+      "positions": 16750,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/legacy/phoni-chr22-h10/reference.txt",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__phoni/run1/full/reads.fa",
+    "-g",
+    "naive"
+  ],
+  "cache": "drop_caches",
+  "timeout_s": 7200,
+  "wall_seconds": 66.86745375400005,
+  "user_seconds": 65.48,
+  "system_seconds": 1.34,
+  "peak_rss_kib": 615060,
+  "phase": {
+    "source": "one-read-wall",
+    "query_definition": "full run wall minus one-read run wall",
+    "load_seconds": 0.2601242949999687,
+    "query_seconds": 66.60732945900008
+  },
+  "check": {
+    "reads": 2864,
+    "positions": 59991907,
+    "failed": 0,
+    "every_position_checked": true,
+    "validation": "exact-ms-lengths",
+    "one_read": {
+      "reads": 1,
+      "positions": 16750,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "finished": 1793499224.447796
+}

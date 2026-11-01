@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+    "/work/stage/inputs/34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig5-human_ont_modern-ms2dual/runs/human_ont_modern-ms-acgt60mb__dual-oracle/run3/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--mode",
+    "oracle",
+    "--oracle",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig5-human_ont_modern-ms2dual/traces/traces/human472/human_ont_modern-ms-60mb-acgt-v2/dual.oracle"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-00e665de/fig5-human_ont_modern-ms2dual/runs/human_ont_modern-ms-acgt60mb__dual-oracle/run3",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 77.34644651899998,
+  "stdout": "/work/stage/work/freeze-2885ee8-00e665de/fig5-human_ont_modern-ms2dual/runs/human_ont_modern-ms-acgt60mb__dual-oracle/run3/run3.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-00e665de/fig5-human_ont_modern-ms2dual/runs/human_ont_modern-ms-acgt60mb__dual-oracle/run3/run3.stderr",
+  "native_wall_seconds": 77.33,
+  "user_seconds": 23.91,
+  "system_seconds": 53.39,
+  "peak_rss_kib": 179302932
+}

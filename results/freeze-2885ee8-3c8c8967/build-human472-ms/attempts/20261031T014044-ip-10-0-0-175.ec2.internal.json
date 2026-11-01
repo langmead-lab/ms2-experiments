@@ -1,0 +1,93 @@
+{
+  "job": "build-human472-ms",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-0-175.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0562f545fedb59614",
+    "availability_zone": "us-east-1a",
+    "lifecycle": "spot"
+  },
+  "started": 1793408367.2513294,
+  "argv": [
+    "/work/code/bench/freeze/build_job.py",
+    "build-human472-ms",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict"
+  ],
+  "steps": [
+    {
+      "label": "01-build-min",
+      "argv": [
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "build",
+        "/work/stage/inputs/7814fdcdf4c3e4878c100699a2f60213ddd32efd36f93b21f1b72450e414cd28/bwt.heads",
+        "/work/stage/inputs/aa5d481e926c87ec6c42d10c6c0635a3648dc953bccc0acd84247ccd4f945a84/bwt.len",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-human472-ms/outputs/ms2/human472/index.ms.orbitidx",
+        "--layout",
+        "min",
+        "--minima",
+        "/work/stage/inputs/fc9c00beda5e173428c5a562cc033bad69c6dc295612013472c71635b46181a9/min"
+      ],
+      "wall_seconds": 2009.1521209399998,
+      "peak_rss_kib": 104775592,
+      "unverified": false
+    },
+    {
+      "label": "02-ftab-build",
+      "argv": [
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "ftab-build",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-human472-ms/outputs/ms2/human472/index.ms.orbitidx",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-human472-ms/outputs/ms2/human472/index.ms.orbitidx.ftab",
+        "--kmer-len",
+        "14",
+        "-p",
+        "128"
+      ],
+      "wall_seconds": 68.19908639300002,
+      "peak_rss_kib": 106316920,
+      "unverified": false
+    }
+  ],
+  "staging": {
+    "precursors/human472/bwt.heads": {
+      "sha256": "7814fdcdf4c3e4878c100699a2f60213ddd32efd36f93b21f1b72450e414cd28",
+      "bytes": 5259024318,
+      "fresh": true,
+      "seconds": 14.016127824783325
+    },
+    "precursors/human472/bwt.len": {
+      "sha256": "aa5d481e926c87ec6c42d10c6c0635a3648dc953bccc0acd84247ccd4f945a84",
+      "bytes": 26295121590,
+      "fresh": true,
+      "seconds": 66.10985136032104
+    },
+    "precursors/human472/min": {
+      "sha256": "fc9c00beda5e173428c5a562cc033bad69c6dc295612013472c71635b46181a9",
+      "bytes": 31664341510,
+      "fresh": true,
+      "seconds": 86.27611970901489
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 3.8623809814453125e-05
+    }
+  },
+  "finished": 1793410844.0803766,
+  "status": 0
+}

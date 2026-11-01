@@ -1,0 +1,26 @@
+% Fig LFtab: short reads only, SMEM offset reporting at N = 1, 10 and 100;
+% ms2-psi, ms2-phi and ms2-dual without (circle) and with (diamond) ftab, plus
+% ropebwt3 -s11, -s8, -s6 (Human472). The legend names every point, so only the ftab points carry
+% labels (their speed-ups), and the ms2 and ropebwt3 markers are drawn 30% larger than the shared style.
+\documentclass[border=1pt]{standalone}
+\input{figures-style}
+\input{figures-tweaks}
+\figLargerMarks
+\begin{document}
+\input{data/fig-lftab/limits}
+\begin{tikzpicture}
+\begin{groupplot}[group style={fig row=3}, locate axis, ymode=log, width=\figPanelWthree]
+  \nextgroupplot[ylabel={\figLocLabel}, fig group legend, legend to name=legFigLFtabMS]
+    \figLegendGroupName{ms2:}\figLegendKey{psi}{psi}\figLegendKey{phi}{phi}\figLegendKey{dual}{dual}\figLegendFtab
+    \figPanelBody{fig-lftab}{cap1}{rs}{s11,s8,s6,dual,dualF,phi,phiF,psi,psiF}
+  \nextgroupplot[locate rest, fig group legend, legend to name=legFigLFtabRope]
+    \figLegendLocateRopeGroup
+    \figPanelBody{fig-lftab}{cap10}{rs}{s11,s8,s6,dual,dualF,phi,phiF,psi,psiF}
+  \nextgroupplot[locate rest]
+    \figPanelBody{fig-lftab}{cap100}{rs}{s11,s8,s6,dual,dualF,phi,phiF,psi,psiF}
+\end{groupplot}
+\node[font=\figLabelFont, text=figInkTwo, anchor=north]
+  at ($(group c1r1.south west)!0.5!(group c3r1.south east)+(0,-8pt)$) {\figMemLabel};
+\figLegendRow{group c1r1}{group c3r1}{legFigLFtabMS}{legFigLFtabRope}
+\end{tikzpicture}
+\end{document}

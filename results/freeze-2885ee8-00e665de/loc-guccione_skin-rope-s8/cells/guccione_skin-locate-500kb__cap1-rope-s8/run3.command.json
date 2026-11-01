@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t1",
+    "-K",
+    "1m",
+    "-l1",
+    "-p1",
+    "/work/stage/work/freeze-2885ee8-00e665de/loc-guccione_skin-rope-s8/rope/s8-ropebwt3_human472_index.fmd/index.fmd",
+    "/work/stage/inputs/d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c/reads.fa"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-00e665de/loc-guccione_skin-rope-s8/runs/guccione_skin-locate-500kb__cap1-rope-s8/run3",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 36.8826237760004,
+  "stdout": "/work/stage/work/freeze-2885ee8-00e665de/loc-guccione_skin-rope-s8/runs/guccione_skin-locate-500kb__cap1-rope-s8/run3/run3.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-00e665de/loc-guccione_skin-rope-s8/runs/guccione_skin-locate-500kb__cap1-rope-s8/run3/run3.stderr",
+  "native_wall_seconds": 36.87,
+  "user_seconds": 9.03,
+  "system_seconds": 27.82,
+  "peak_rss_kib": 101836280
+}

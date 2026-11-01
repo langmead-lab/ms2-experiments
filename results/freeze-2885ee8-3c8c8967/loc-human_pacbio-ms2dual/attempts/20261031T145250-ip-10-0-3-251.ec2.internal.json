@@ -1,0 +1,84 @@
+{
+  "job": "loc-human_pacbio-ms2dual",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-3-251.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0062bff3047f36f6e",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot"
+  },
+  "platform": "aws",
+  "started": 1793455657.501361,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "loc-human_pacbio-ms2dual",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 3,
+  "already_done": 0,
+  "order": [
+    "human_pacbio-locate-20mb/cap10-dual-ordinary",
+    "human_pacbio-locate-20mb/cap1-dual-ordinary",
+    "human_pacbio-locate-20mb/cap100-dual-ordinary"
+  ],
+  "staging": {
+    "ms2/human472/index.tms.full.seqids.orbitidx": {
+      "sha256": "39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588",
+      "bytes": 409196490183,
+      "fresh": false,
+      "seconds": 3.4332275390625e-05
+    },
+    "reads/human472/human_pacbio-locate-20mb-v2/offsets.u64": {
+      "sha256": "de01f5e61baf5a0b905c9783f6e1553d096f2424744708fa735c757c93451c73",
+      "bytes": 7632,
+      "fresh": true,
+      "seconds": 0.7415142059326172
+    },
+    "reads/human472/human_pacbio-locate-20mb-v2/reads.fa": {
+      "sha256": "8eca4b06b72beec9b6ecbc692c5b0fbdc970cd5bd53dc3609861ed70ebcdfde5",
+      "bytes": 19993392,
+      "fresh": true,
+      "seconds": 0.8363149166107178
+    },
+    "reads/human472/human_pacbio-locate-20mb-v2/truth.u32": {
+      "sha256": "4752a77813af1254088abf060a0297ceb43a7aa8288f73f0c0f6dbb457ae7af7",
+      "bytes": 79947324,
+      "fresh": true,
+      "seconds": 0.9179065227508545
+    },
+    "ropebwt3/human472/index.fmd.len.gz": {
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0",
+      "bytes": 286728,
+      "fresh": false,
+      "seconds": 5.173683166503906e-05
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 2.4557113647460938e-05
+    }
+  },
+  "finished": 1793458370.7014775,
+  "results": {
+    "human_pacbio-locate-20mb/cap10-dual-ordinary": "checked",
+    "human_pacbio-locate-20mb/cap1-dual-ordinary": "checked",
+    "human_pacbio-locate-20mb/cap100-dual-ordinary": "checked"
+  }
+}

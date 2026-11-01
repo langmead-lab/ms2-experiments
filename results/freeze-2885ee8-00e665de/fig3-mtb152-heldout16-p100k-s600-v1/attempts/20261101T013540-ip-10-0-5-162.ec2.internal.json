@@ -1,0 +1,114 @@
+{
+  "job": "fig3-mtb152-heldout16-p100k-s600-v1",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "host": {
+    "hostname": "ip-10-0-5-162.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-052f1ee60b355c51c",
+    "availability_zone": "us-east-1f",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793496799.369223,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "fig3-mtb152-heldout16-p100k-s600-v1",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 8,
+  "already_done": 0,
+  "order": [
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/ms-ordinary",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/phi-oracle",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/phi-ordinary",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/dual-ordinary",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/dual-oracle",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/psi-ordinary",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/ms-oracle",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/psi-oracle"
+  ],
+  "staging": {
+    "ms2/mtb152/index.ms.orbitidx": {
+      "sha256": "588384459f9c10c677a94f6d7e1045a12196f002a5b5b75f972091251a869613",
+      "bytes": 81097318,
+      "fresh": true,
+      "seconds": 1.0246233940124512
+    },
+    "ms2/mtb152/index.tms.full.orbitidx": {
+      "sha256": "af80e5f51daf70433a14618921da240c822b781215bc8b0a92bdf63620f52048",
+      "bytes": 406217055,
+      "fresh": true,
+      "seconds": 1.7787902355194092
+    },
+    "ms2/mtb152/index.tms.phi.orbitidx": {
+      "sha256": "001a37f83414eb0fb1c8cc8c686f610c6d7ea3ca0c9f70eef8a21f8ce459058f",
+      "bytes": 334946655,
+      "fresh": true,
+      "seconds": 1.6163945198059082
+    },
+    "ms2/mtb152/index.tms.psi.orbitidx": {
+      "sha256": "e9265a86e2330928fb3f20872aad05df75b36da3a1be49ae0cce2c53be996621",
+      "bytes": 93302840,
+      "fresh": true,
+      "seconds": 1.1376063823699951
+    },
+    "reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64": {
+      "sha256": "9de94e142446fe7357a4ca582e738e6b81b801177e634ca0c6857ec33a52e2b1",
+      "bytes": 4808,
+      "fresh": true,
+      "seconds": 0.7797403335571289
+    },
+    "reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa": {
+      "sha256": "443da8857d5413ee2abc9353e2ab116f9f10e01de3b963a1e65257c27b7dfdde",
+      "bytes": 59144122,
+      "fresh": true,
+      "seconds": 1.0909605026245117
+    },
+    "reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32": {
+      "sha256": "22b995df1e45cdce31c15920beef160d5ff6d1507ae9986bb34ff1fefd7abd45",
+      "bytes": 236560128,
+      "fresh": true,
+      "seconds": 1.5089495182037354
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": true,
+      "seconds": 0.8172104358673096
+    },
+    "tools/ms_check": {
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab",
+      "bytes": 251000,
+      "fresh": true,
+      "seconds": 0.792177677154541
+    }
+  },
+  "finished": 1793496940.16766,
+  "results": {
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/ms-ordinary": "checked",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/phi-oracle": "checked",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/phi-ordinary": "checked",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/dual-ordinary": "checked",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/dual-oracle": "checked",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/psi-ordinary": "checked",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/ms-oracle": "checked",
+    "fig_ops-mtb152-heldout16-p100k-s600-v1/psi-oracle": "checked"
+  }
+}

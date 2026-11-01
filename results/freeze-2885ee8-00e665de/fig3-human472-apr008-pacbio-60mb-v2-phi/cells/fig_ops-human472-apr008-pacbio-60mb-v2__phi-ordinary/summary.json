@@ -1,0 +1,275 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "phi-ordinary",
+  "cell": "fig_ops-human472-apr008-pacbio-60mb-v2/phi-ordinary",
+  "group": "fig_ops-human472-apr008-pacbio-60mb-v2",
+  "figures": [
+    "3"
+  ],
+  "tool": "ms2",
+  "kind": "ms",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "job": "fig3-human472-apr008-pacbio-60mb-v2-phi",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-1-47.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-004afdcce3342ad28",
+    "availability_zone": "us-east-1b",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "transparent_hugepages": "always",
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 2853,
+  "bases": 59982702,
+  "reference": "human472",
+  "read_set": "human472-apr008-pacbio-60mb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "checker": {
+      "name": "tools/ms_check",
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab"
+    },
+    "index": {
+      "name": "ms2/human472/index.tms.phi.orbitidx",
+      "sha256": "ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070"
+    },
+    "reads": {
+      "name": "reads/human472/human472-apr008-pacbio-60mb-v2/reads.fa",
+      "sha256": "c8ce0e7314229be50c85c7dc652cb74c08c4d2a5378ef5471c70890c87606db0"
+    },
+    "truth": {
+      "name": "reads/human472/human472-apr008-pacbio-60mb-v2/truth.u32",
+      "sha256": "0155da562348fb0b1a7baa5b5880f64d2e5225ed824ff19c77a2d1d9774401ae"
+    },
+    "offsets": {
+      "name": "reads/human472/human472-apr008-pacbio-60mb-v2/offsets.u64",
+      "sha256": "206cbe31bc09fe7215a6240a72d62184b515fb7d3fb4586b0f16015b6d3bef73"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793498149.5671263,
+  "layout": "phi",
+  "mode": "ordinary",
+  "interleave": 32,
+  "block_bytes": 67108864,
+  "cap_s": 3600,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-1-47.ec2.internal",
+      "started": 1793498149.5672233,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+        "/work/stage/inputs/c8ce0e7314229be50c85c7dc652cb74c08c4d2a5378ef5471c70890c87606db0/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig3-human472-apr008-pacbio-60mb-v2-phi/runs/fig_ops-human472-apr008-pacbio-60mb-v2__phi-ordinary/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "67108864",
+        "--mode",
+        "phi"
+      ],
+      "timeout_s": 3600,
+      "cache": "drop_caches",
+      "wall_seconds": 73.762619803,
+      "user_seconds": 28.44,
+      "system_seconds": 45.28,
+      "peak_rss_kib": 154560760,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 59.2065,
+        "query_seconds": 14.2926,
+        "components": {
+          "index_load_s": 59.2065,
+          "ftab_s": 0.0,
+          "query_s": 13.527,
+          "read_s": 0.0159837,
+          "parse_s": 0.0585208,
+          "format_s": 0.599633,
+          "total_s": 14.2926
+        }
+      },
+      "check": {
+        "reads": 2853,
+        "positions": 59982702,
+        "failed": 0,
+        "validation": "ms_check: every MS value equals truth"
+      },
+      "finished": 1793498239.9352565
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-1-47.ec2.internal",
+      "started": 1793498239.9359968,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+        "/work/stage/inputs/c8ce0e7314229be50c85c7dc652cb74c08c4d2a5378ef5471c70890c87606db0/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig3-human472-apr008-pacbio-60mb-v2-phi/runs/fig_ops-human472-apr008-pacbio-60mb-v2__phi-ordinary/run2/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "67108864",
+        "--mode",
+        "phi"
+      ],
+      "timeout_s": 3600,
+      "cache": "drop_caches",
+      "wall_seconds": 74.07486503500013,
+      "user_seconds": 28.29,
+      "system_seconds": 45.74,
+      "peak_rss_kib": 154561392,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 59.5107,
+        "query_seconds": 14.2987,
+        "components": {
+          "index_load_s": 59.5107,
+          "ftab_s": 0.0,
+          "query_s": 13.5334,
+          "read_s": 0.0159872,
+          "parse_s": 0.058427,
+          "format_s": 0.598986,
+          "total_s": 14.2987
+        }
+      },
+      "finished": 1793498314.922783
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-1-47.ec2.internal",
+      "started": 1793498314.9232152,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+        "/work/stage/inputs/c8ce0e7314229be50c85c7dc652cb74c08c4d2a5378ef5471c70890c87606db0/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig3-human472-apr008-pacbio-60mb-v2-phi/runs/fig_ops-human472-apr008-pacbio-60mb-v2__phi-ordinary/run3/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "67108864",
+        "--mode",
+        "phi"
+      ],
+      "timeout_s": 3600,
+      "cache": "drop_caches",
+      "wall_seconds": 73.75889728900006,
+      "user_seconds": 28.37,
+      "system_seconds": 45.34,
+      "peak_rss_kib": 154560104,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 59.2025,
+        "query_seconds": 14.2903,
+        "components": {
+          "index_load_s": 59.2025,
+          "ftab_s": 0.0,
+          "query_s": 13.5247,
+          "read_s": 0.016041,
+          "parse_s": 0.0583524,
+          "format_s": 0.599393,
+          "total_s": 14.2903
+        }
+      },
+      "finished": 1793498389.5981612
+    }
+  ],
+  "check": {
+    "reads": 2853,
+    "positions": 59982702,
+    "failed": 0,
+    "validation": "ms_check: every MS value equals truth"
+  },
+  "query_seconds": [
+    14.2926,
+    14.2987,
+    14.2903
+  ],
+  "median_query_seconds": 14.2926,
+  "load_seconds": [
+    59.2065,
+    59.5107,
+    59.2025
+  ],
+  "median_load_seconds": 59.2065,
+  "wall_seconds": [
+    73.762619803,
+    74.07486503500013,
+    73.75889728900006
+  ],
+  "peak_rss_kib": 154561392,
+  "query_spread_fraction": 0.0005877167205406968,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 4.196766298644054,
+  "ns_per_base": 238.27869574798413,
+  "finished": 1793498389.5983992
+}

@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/4489aebc9baec5653adcc67ab4a9d687f30607bbb534b37b1e0e0b058fe9983b/index.ms.orbitidx",
+    "/work/stage/inputs/8e5897988e4744c12a8f7fe9bf2734a38bb7ed3cdb9df40013370040c9da177f/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simpacbio/runs/chr22-h100-ms-simpacbio__ms-ordinary/run2/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--mode",
+    "min"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simpacbio/runs/chr22-h100-ms-simpacbio__ms-ordinary/run2",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 2.513371626999742,
+  "stdout": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simpacbio/runs/chr22-h100-ms-simpacbio__ms-ordinary/run2/run2.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simpacbio/runs/chr22-h100-ms-simpacbio__ms-ordinary/run2/run2.stderr",
+  "native_wall_seconds": 2.5,
+  "user_seconds": 2.0,
+  "system_seconds": 0.49,
+  "peak_rss_kib": 1316052
+}

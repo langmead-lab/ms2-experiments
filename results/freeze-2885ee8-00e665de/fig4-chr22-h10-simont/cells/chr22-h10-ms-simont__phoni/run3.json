@@ -1,0 +1,47 @@
+{
+  "run": 3,
+  "host": "ip-10-0-3-58.ec2.internal",
+  "started": 1793499847.7198255,
+  "one": {
+    "argv": [
+      "numactl",
+      "--cpunodebind=0",
+      "--membind=0",
+      "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simont/legacy/phoni-chr22-h10/reference.txt",
+      "-p",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simont/runs/chr22-h10-ms-simont__phoni/run3/one/reads.fa",
+      "-g",
+      "naive"
+    ],
+    "cache": "drop_caches",
+    "wall_seconds": 0.2596364830001221,
+    "peak_rss_kib": 614308,
+    "user_seconds": 0.07,
+    "system_seconds": 0.15
+  },
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simont/legacy/phoni-chr22-h10/reference.txt",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simont/runs/chr22-h10-ms-simont__phoni/run3/full/reads.fa",
+    "-g",
+    "naive"
+  ],
+  "cache": "drop_caches",
+  "timeout_s": 7200,
+  "wall_seconds": 118.4042893740002,
+  "user_seconds": 117.26,
+  "system_seconds": 1.09,
+  "peak_rss_kib": 629088,
+  "phase": {
+    "source": "one-read-wall",
+    "query_definition": "full run wall minus one-read run wall",
+    "load_seconds": 0.2596364830001221,
+    "query_seconds": 118.14465289100008
+  },
+  "finished": 1793499966.4648187
+}

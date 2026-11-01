@@ -1,0 +1,112 @@
+{
+  "job": "fig3count-human472-apr008-hap1-p100k-s600-v1",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-3-207.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0741df4ddd4a0551d",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot"
+  },
+  "platform": "aws",
+  "started": 1793448531.1691113,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "fig3count-human472-apr008-hap1-p100k-s600-v1",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 8,
+  "already_done": 0,
+  "order": [
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/ms-oracle",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/psi-ordinary",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/ms-ordinary",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/dual-oracle",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/psi-oracle",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/dual-ordinary",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/phi-oracle",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/phi-ordinary"
+  ],
+  "staging": {
+    "ms2/human472/index.ms.orbitidx": {
+      "sha256": "520539c526f8c8fe9cb72a0179b2301418498bdf3eb747d026b64ed3c87021d2",
+      "bytes": 107285232940,
+      "fresh": true,
+      "seconds": 275.09877133369446
+    },
+    "ms2/human472/index.tms.full.seqids.orbitidx": {
+      "sha256": "39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588",
+      "bytes": 409196490183,
+      "fresh": true,
+      "seconds": 1038.0807378292084
+    },
+    "ms2/human472/index.tms.phi.orbitidx": {
+      "sha256": "ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070",
+      "bytes": 322202280039,
+      "fresh": true,
+      "seconds": 803.3357632160187
+    },
+    "ms2/human472/index.tms.psi.orbitidx": {
+      "sha256": "7246fde73b3e721b99949716e402e48e51109cd7ac81101c165d87dc6735d0a5",
+      "bytes": 103560962104,
+      "fresh": true,
+      "seconds": 250.04640436172485
+    },
+    "reads/human472/human472-apr008-hap1-p100k-s600-v1/offsets.u64": {
+      "sha256": "c1e5c080ca240e5a805c0de92f2153007b07144de7a0b379de06e0896f578194",
+      "bytes": 4808,
+      "fresh": true,
+      "seconds": 0.7078189849853516
+    },
+    "reads/human472/human472-apr008-hap1-p100k-s600-v1/reads.fa": {
+      "sha256": "b940ed881ebeac87042a7fec0e30832147773b5325249faaa8f450f35ff1c74d",
+      "bytes": 59863793,
+      "fresh": true,
+      "seconds": 0.8846390247344971
+    },
+    "reads/human472/human472-apr008-hap1-p100k-s600-v1/truth.u32": {
+      "sha256": "8b9d44b5a9d6137399432a343352eb32e4c99499c691204f08c0198cdb5cc1d7",
+      "bytes": 239438812,
+      "fresh": true,
+      "seconds": 1.336359977722168
+    },
+    "tools/ms2-2885ee8/ms2-stats": {
+      "sha256": "e47323d8b749323cab0fc1976471c3e18fda5ea5509cafe193abac30fce802e8",
+      "bytes": 4431520,
+      "fresh": false,
+      "seconds": 3.933906555175781e-05
+    },
+    "tools/ms_check": {
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab",
+      "bytes": 251000,
+      "fresh": false,
+      "seconds": 3.361701965332031e-05
+    }
+  },
+  "finished": 1793451700.2102368,
+  "results": {
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/ms-oracle": "checked",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/psi-ordinary": "checked",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/ms-ordinary": "checked",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/dual-oracle": "checked",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/psi-oracle": "checked",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/dual-ordinary": "checked",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/phi-oracle": "checked",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1-counts/phi-ordinary": "checked"
+  }
+}

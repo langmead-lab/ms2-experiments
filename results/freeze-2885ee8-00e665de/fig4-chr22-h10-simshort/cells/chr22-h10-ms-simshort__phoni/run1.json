@@ -1,0 +1,68 @@
+{
+  "run": 1,
+  "host": "ip-10-0-1-47.ec2.internal",
+  "started": 1793499287.0902793,
+  "one": {
+    "argv": [
+      "numactl",
+      "--cpunodebind=0",
+      "--membind=0",
+      "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/legacy/phoni-chr22-h10/reference.txt",
+      "-p",
+      "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__phoni/run1/one/reads.fa",
+      "-g",
+      "naive"
+    ],
+    "cache": "drop_caches",
+    "wall_seconds": 0.2226939060001314,
+    "peak_rss_kib": 613768,
+    "user_seconds": 0.03,
+    "system_seconds": 0.16,
+    "check": {
+      "reads": 1,
+      "positions": 125,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/legacy/phoni-chr22-h10/reference.txt",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__phoni/run1/full/reads.fa",
+    "-g",
+    "naive"
+  ],
+  "cache": "drop_caches",
+  "timeout_s": 7200,
+  "wall_seconds": 85.48155336400032,
+  "user_seconds": 83.29,
+  "system_seconds": 2.14,
+  "peak_rss_kib": 613768,
+  "phase": {
+    "source": "one-read-wall",
+    "query_definition": "full run wall minus one-read run wall",
+    "load_seconds": 0.2226939060001314,
+    "query_seconds": 85.25885945800019
+  },
+  "check": {
+    "reads": 480000,
+    "positions": 60000000,
+    "failed": 0,
+    "every_position_checked": true,
+    "validation": "exact-ms-lengths",
+    "one_read": {
+      "reads": 1,
+      "positions": 125,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "finished": 1793499390.889445
+}

@@ -1,0 +1,2 @@
+/work/code/bench/campaign-20261012/fig_rep.py:256: RuntimeWarning: invalid value encountered in true_divide
+  min_psi_phi=box(lo), ratio_dual_to_min=box(cost['dual'] / lo),

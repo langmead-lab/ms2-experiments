@@ -1,0 +1,98 @@
+{
+  "job": "loc-human_short-rope-s8",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "host": {
+    "hostname": "ip-10-0-0-221.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0e932ef405716a7e3",
+    "availability_zone": "us-east-1a",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793508613.5695276,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "loc-human_short-rope-s8",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 3,
+  "already_done": 0,
+  "order": [
+    "human_short-locate-6mb/cap100-rope-s8",
+    "human_short-locate-6mb/cap10-rope-s8",
+    "human_short-locate-6mb/cap1-rope-s8"
+  ],
+  "staging": {
+    "reads/human472/human_short-locate-6mb-v2/offsets.u64": {
+      "sha256": "150eb49086d6a941657871ba57c97cf2f3af5de8698e560582d6cbdcfe879b2f",
+      "bytes": 384008,
+      "fresh": false,
+      "seconds": 4.410743713378906e-05
+    },
+    "reads/human472/human_short-locate-6mb-v2/reads.fa": {
+      "sha256": "a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338",
+      "bytes": 6420890,
+      "fresh": false,
+      "seconds": 2.002716064453125e-05
+    },
+    "reads/human472/human_short-locate-6mb-v2/truth.u32": {
+      "sha256": "350a3f83f92835ef6b6e732f9c55e408f8663ee8a7d6c8a885515e6a932fc176",
+      "bytes": 24000000,
+      "fresh": false,
+      "seconds": 2.2172927856445312e-05
+    },
+    "ropebwt3/human472/index.fmd": {
+      "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626",
+      "bytes": 15427477160,
+      "fresh": false,
+      "seconds": 2.384185791015625e-05
+    },
+    "ropebwt3/human472/index.fmd.len.gz": {
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0",
+      "bytes": 286728,
+      "fresh": false,
+      "seconds": 2.1696090698242188e-05
+    },
+    "ropebwt3/human472/index.fmd.s8.ssa": {
+      "sha256": "908fc09333a2fa529c6b7589e707692379fdb4a5715101eb24d16717b537b303",
+      "bytes": 88824872508,
+      "fresh": true,
+      "seconds": 206.777352809906
+    },
+    "tools/ropebwt3-cfad8475/ropebwt3": {
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d",
+      "bytes": 1595032,
+      "fresh": false,
+      "seconds": 5.1975250244140625e-05
+    },
+    "tools/runtime/libgomp.so.1": {
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8",
+      "bytes": 1501072,
+      "fresh": false,
+      "seconds": 2.7418136596679688e-05
+    }
+  },
+  "finished": 1793509501.9979844,
+  "results": {
+    "human_short-locate-6mb/cap100-rope-s8": "checked",
+    "human_short-locate-6mb/cap10-rope-s8": "checked",
+    "human_short-locate-6mb/cap1-rope-s8": "checked"
+  }
+}

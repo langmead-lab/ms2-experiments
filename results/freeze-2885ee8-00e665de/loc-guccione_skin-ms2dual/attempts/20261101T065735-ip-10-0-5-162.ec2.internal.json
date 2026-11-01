@@ -1,0 +1,86 @@
+{
+  "job": "loc-guccione_skin-ms2dual",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "host": {
+    "hostname": "ip-10-0-5-162.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-052f1ee60b355c51c",
+    "availability_zone": "us-east-1f",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793514259.0751035,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "loc-guccione_skin-ms2dual",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 3,
+  "already_done": 0,
+  "order": [
+    "guccione_skin-locate-500kb/cap1-dual-ordinary",
+    "guccione_skin-locate-500kb/cap10-dual-ordinary",
+    "guccione_skin-locate-500kb/cap100-dual-ordinary"
+  ],
+  "staging": {
+    "ms2/human472/index.tms.full.seqids.orbitidx": {
+      "sha256": "39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588",
+      "bytes": 409196490183,
+      "fresh": false,
+      "seconds": 4.00543212890625e-05
+    },
+    "reads/human472/guccione_skin-locate-500kb-v2/offsets.u64": {
+      "sha256": "60ee55c2fa46274c6410c96dc77a3f19f47464bdfb36f85e6b10e30944e81a90",
+      "bytes": 29592,
+      "fresh": true,
+      "seconds": 0.8367595672607422
+    },
+    "reads/human472/guccione_skin-locate-500kb-v2/reads.fa": {
+      "sha256": "d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c",
+      "bytes": 528378,
+      "fresh": true,
+      "seconds": 0.7638177871704102
+    },
+    "reads/human472/guccione_skin-locate-500kb-v2/truth.u32": {
+      "sha256": "bbdbca28a0fbcb796168de6b5f8b59fb51b6f3780708f28490d78c21d6aed3cf",
+      "bytes": 1999616,
+      "fresh": true,
+      "seconds": 0.8544197082519531
+    },
+    "ropebwt3/human472/index.fmd.len.gz": {
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0",
+      "bytes": 286728,
+      "fresh": false,
+      "seconds": 3.62396240234375e-05
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 4.029273986816406e-05
+    }
+  },
+  "finished": 1793516255.927816,
+  "results": {
+    "guccione_skin-locate-500kb/cap1-dual-ordinary": "checked",
+    "guccione_skin-locate-500kb/cap10-dual-ordinary": "checked",
+    "guccione_skin-locate-500kb/cap100-dual-ordinary": "checked"
+  }
+}

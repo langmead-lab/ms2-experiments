@@ -1,0 +1,52 @@
+{
+  "run": 1,
+  "host": "ip-10-0-2-156.ec2.internal",
+  "started": 1793444977.1438315,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+    "/work/stage/inputs/6861789d6d73968791997b513495c24fdfc967971d5a9faaca41acf712e85905/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-human_pacbio-ms2phi/runs/human_pacbio-ms-acgt60mb__phi-oracle/run1/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--mode",
+    "oracle",
+    "--oracle",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-human_pacbio-ms2phi/traces/traces/human472/human_pacbio-ms-60mb-acgt-v2/phi.oracle"
+  ],
+  "timeout_s": 7200,
+  "cache": "drop_caches",
+  "wall_seconds": 63.27000652000004,
+  "user_seconds": 15.97,
+  "system_seconds": 47.26,
+  "peak_rss_kib": 94178780,
+  "phase": {
+    "source": "orbit-query-line",
+    "query_definition": "total_s",
+    "load_seconds": 56.8067,
+    "query_seconds": 4.1099,
+    "components": {
+      "index_load_s": 56.8067,
+      "ftab_s": 0.0,
+      "query_s": 3.22315,
+      "read_s": 0.0163397,
+      "parse_s": 0.0459189,
+      "format_s": 0.736408,
+      "total_s": 4.1099
+    }
+  },
+  "check": {
+    "reads": 2869,
+    "positions": 59989426,
+    "failed": 0,
+    "validation": "ms_check: every MS value equals truth"
+  },
+  "finished": 1793445041.7374654
+}

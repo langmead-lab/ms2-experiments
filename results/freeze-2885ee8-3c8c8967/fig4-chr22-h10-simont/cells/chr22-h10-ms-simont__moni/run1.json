@@ -1,0 +1,72 @@
+{
+  "run": 1,
+  "host": "ip-10-0-1-112.ec2.internal",
+  "started": 1793420448.5558398,
+  "one": {
+    "argv": [
+      "numactl",
+      "--cpunodebind=0",
+      "--membind=0",
+      "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/legacy/moni-chr22-h10/index",
+      "-p",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/runs/chr22-h10-ms-simont__moni/run1/one/reads.fa",
+      "-o",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/runs/chr22-h10-ms-simont__moni/run1/one/output",
+      "-t",
+      "1"
+    ],
+    "cache": "drop_caches",
+    "wall_seconds": 0.38650979900012317,
+    "peak_rss_kib": 674464,
+    "user_seconds": 0.05,
+    "system_seconds": 0.31,
+    "check": {
+      "reads": 1,
+      "positions": 16824,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/legacy/moni-chr22-h10/index",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/runs/chr22-h10-ms-simont__moni/run1/full/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/runs/chr22-h10-ms-simont__moni/run1/full/output",
+    "-t",
+    "1"
+  ],
+  "cache": "drop_caches",
+  "timeout_s": 7200,
+  "wall_seconds": 95.33582535000096,
+  "user_seconds": 94.23,
+  "system_seconds": 1.07,
+  "peak_rss_kib": 681104,
+  "phase": {
+    "source": "one-read-wall",
+    "query_definition": "full run wall minus one-read run wall",
+    "load_seconds": 0.38650979900012317,
+    "query_seconds": 94.94931555100084
+  },
+  "check": {
+    "reads": 2782,
+    "positions": 59998845,
+    "failed": 0,
+    "every_position_checked": true,
+    "validation": "exact-ms-lengths",
+    "one_read": {
+      "reads": 1,
+      "positions": 16824,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "finished": 1793420563.4414434
+}

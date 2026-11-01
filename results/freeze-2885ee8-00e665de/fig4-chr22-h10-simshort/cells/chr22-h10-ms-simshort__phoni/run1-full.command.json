@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/legacy/phoni-chr22-h10/reference.txt",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__phoni/run1/full/reads.fa",
+    "-g",
+    "naive"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__phoni/run1/full",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 85.48155336400032,
+  "stdout": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__phoni/run1/full/full.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__phoni/run1/full/full.stderr",
+  "native_wall_seconds": 85.47,
+  "user_seconds": 83.29,
+  "system_seconds": 2.14,
+  "peak_rss_kib": 613732
+}

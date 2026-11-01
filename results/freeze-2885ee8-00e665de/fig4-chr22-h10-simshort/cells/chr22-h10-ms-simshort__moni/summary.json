@@ -1,0 +1,324 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "moni",
+  "cell": "chr22-h10-ms-simshort/moni",
+  "group": "chr22-h10-ms-simshort",
+  "figures": [
+    "A2"
+  ],
+  "tool": "moni",
+  "kind": "ms",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "job": "fig4-chr22-h10-simshort",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-1-47.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-004afdcce3342ad28",
+    "availability_zone": "us-east-1b",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "transparent_hugepages": "always",
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 480000,
+  "bases": 60000000,
+  "reference": "chr22-h10",
+  "read_set": "simshort-60mb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/moni/moni-ms",
+      "sha256": "4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f"
+    },
+    "reads": {
+      "name": "reads/chr22-h10/simshort-60mb-v2/reads.fa",
+      "sha256": "2c0295c2b8a7293650484eabe480e6f9a68ed354bb3ceda91a23fe982176505b"
+    },
+    "truth": {
+      "name": "reads/chr22-h10/simshort-60mb-v2/truth.u32",
+      "sha256": "1c73cef8f388954964021056c56754e7584ad41d9085f31b409a0de11c278084"
+    },
+    "offsets": {
+      "name": "reads/chr22-h10/simshort-60mb-v2/offsets.u64",
+      "sha256": "26fa15047d34b53e7c39b84c8870527b353e1eeaa6c824d8b951234f24377f24"
+    },
+    "one": {
+      "name": "reads/chr22-h10/simshort-60mb-v2/one.fa",
+      "sha256": "c6f2290c0ff99f3ae8bd2092949a32955f41bcd80a63e2973743d6febe22c4f7"
+    },
+    "bundle/index.thrbv.ms": {
+      "name": "moni/chr22-h10/index.thrbv.ms",
+      "sha256": "e7335f385772b2fd11375c4e7058bb06a07127e865085ba1bf75de532f2a77e3"
+    },
+    "bundle/index.plain.slp": {
+      "name": "moni/chr22-h10/index.plain.slp",
+      "sha256": "f146ce25a847cebc9caa51a76c4c32d433fccc35fb7d71a87b7c3cfc9a39f443"
+    },
+    "bundle/index.idx": {
+      "name": "moni/chr22-h10/index.idx",
+      "sha256": "f0063bff7aff9194769aa421b1ea00becdfb61498d48fceae1a6157a1eb62c51"
+    },
+    "runtime/libstdc++.so.6": {
+      "name": "tools/runtime/libstdc++.so.6",
+      "sha256": "2e64f6e616747bde59b3f05e9850dde0476cb21703fc53b7d80e1acc49f464c4"
+    },
+    "runtime/libgcc_s.so.1": {
+      "name": "tools/runtime/libgcc_s.so.1",
+      "sha256": "6a15a152c0f5073642a8c23e13097fe6f30d269cd61d3b10bd542f676241d79d"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793498599.7111764,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-1-47.ec2.internal",
+      "started": 1793498599.7112763,
+      "one": {
+        "argv": [
+          "numactl",
+          "--cpunodebind=0",
+          "--membind=0",
+          "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+          "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/legacy/moni-chr22-h10/index",
+          "-p",
+          "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run1/one/reads.fa",
+          "-o",
+          "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run1/one/output",
+          "-t",
+          "1"
+        ],
+        "cache": "drop_caches",
+        "wall_seconds": 0.24427435600000535,
+        "peak_rss_kib": 674196,
+        "user_seconds": 0.03,
+        "system_seconds": 0.17,
+        "check": {
+          "reads": 1,
+          "positions": 125,
+          "failed": 0,
+          "every_position_checked": true,
+          "validation": "exact-ms-lengths"
+        }
+      },
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/legacy/moni-chr22-h10/index",
+        "-p",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run1/full/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run1/full/output",
+        "-t",
+        "1"
+      ],
+      "cache": "drop_caches",
+      "timeout_s": 7200,
+      "wall_seconds": 72.66531645299983,
+      "user_seconds": 70.7,
+      "system_seconds": 1.91,
+      "peak_rss_kib": 674204,
+      "phase": {
+        "source": "one-read-wall",
+        "query_definition": "full run wall minus one-read run wall",
+        "load_seconds": 0.24427435600000535,
+        "query_seconds": 72.42104209699983
+      },
+      "check": {
+        "reads": 480000,
+        "positions": 60000000,
+        "failed": 0,
+        "every_position_checked": true,
+        "validation": "exact-ms-lengths",
+        "one_read": {
+          "reads": 1,
+          "positions": 125,
+          "failed": 0,
+          "every_position_checked": true,
+          "validation": "exact-ms-lengths"
+        }
+      },
+      "finished": 1793498691.1885161
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-1-47.ec2.internal",
+      "started": 1793498691.189401,
+      "one": {
+        "argv": [
+          "numactl",
+          "--cpunodebind=0",
+          "--membind=0",
+          "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+          "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/legacy/moni-chr22-h10/index",
+          "-p",
+          "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run2/one/reads.fa",
+          "-o",
+          "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run2/one/output",
+          "-t",
+          "1"
+        ],
+        "cache": "drop_caches",
+        "wall_seconds": 0.2437292060001255,
+        "peak_rss_kib": 674196,
+        "user_seconds": 0.0,
+        "system_seconds": 0.21
+      },
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/legacy/moni-chr22-h10/index",
+        "-p",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run2/full/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run2/full/output",
+        "-t",
+        "1"
+      ],
+      "cache": "drop_caches",
+      "timeout_s": 7200,
+      "wall_seconds": 72.98806084300008,
+      "user_seconds": 71.29,
+      "system_seconds": 1.65,
+      "peak_rss_kib": 674196,
+      "phase": {
+        "source": "one-read-wall",
+        "query_definition": "full run wall minus one-read run wall",
+        "load_seconds": 0.2437292060001255,
+        "query_seconds": 72.74433163699996
+      },
+      "finished": 1793498764.5067184
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-1-47.ec2.internal",
+      "started": 1793498764.5072827,
+      "one": {
+        "argv": [
+          "numactl",
+          "--cpunodebind=0",
+          "--membind=0",
+          "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+          "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/legacy/moni-chr22-h10/index",
+          "-p",
+          "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run3/one/reads.fa",
+          "-o",
+          "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run3/one/output",
+          "-t",
+          "1"
+        ],
+        "cache": "drop_caches",
+        "wall_seconds": 0.2459406210000452,
+        "peak_rss_kib": 674284,
+        "user_seconds": 0.0,
+        "system_seconds": 0.21
+      },
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/legacy/moni-chr22-h10/index",
+        "-p",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run3/full/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run3/full/output",
+        "-t",
+        "1"
+      ],
+      "cache": "drop_caches",
+      "timeout_s": 7200,
+      "wall_seconds": 72.07873704100007,
+      "user_seconds": 70.32,
+      "system_seconds": 1.71,
+      "peak_rss_kib": 674284,
+      "phase": {
+        "source": "one-read-wall",
+        "query_definition": "full run wall minus one-read run wall",
+        "load_seconds": 0.2459406210000452,
+        "query_seconds": 71.83279642000002
+      },
+      "finished": 1793498836.907585
+    }
+  ],
+  "check": {
+    "reads": 480000,
+    "positions": 60000000,
+    "failed": 0,
+    "every_position_checked": true,
+    "validation": "exact-ms-lengths",
+    "one_read": {
+      "reads": 1,
+      "positions": 125,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "query_seconds": [
+    72.42104209699983,
+    72.74433163699996,
+    71.83279642000002
+  ],
+  "median_query_seconds": 72.42104209699983,
+  "load_seconds": [
+    0.24427435600000535,
+    0.2437292060001255,
+    0.2459406210000452
+  ],
+  "median_load_seconds": 0.24427435600000535,
+  "wall_seconds": [
+    72.66531645299983,
+    72.98806084300008,
+    72.07873704100007
+  ],
+  "peak_rss_kib": 674284,
+  "query_spread_fraction": 0.012586607298180523,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 0.8284884926073939,
+  "ns_per_base": 1207.0173682833304,
+  "finished": 1793498836.9078362
+}

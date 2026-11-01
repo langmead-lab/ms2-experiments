@@ -1,0 +1,369 @@
+figure,read_set,series,peak_gib_plotted,peak_gib_measured,speed,metric,median_query_s,median_load_s,x_note,cell
+fig-ms,human_short,ms2-lcp,99.922,99.922,21.74369976299367,Mbases/s,2.75942,41.9044,,ms-ordinary
+fig-ms,human_short,ms2-psi,96.453,96.453,11.398176291793312,Mbases/s,5.264,45.2135,,psi-ordinary
+fig-ms,human_short,ms2-phi,146.602,146.602,1.9510799227372353,Mbases/s,30.7522,60.972,,phi-ordinary
+fig-ms,human_short,ms2-dual,227.62,227.62,14.222053664549161,Mbases/s,4.2188,94.9155,,dual-ordinary
+fig-ms,human_short,ropebwt3 -l1,14.593,14.593,0.7468259895444361,Mbases/s,80.34,4.274,,rope-l1
+fig-ms,human_short,ropebwt3 -l19*,14.53,14.53,1.0632830636729342,Mbases/s,56.429,4.211,,rope-default
+fig-ms,human_short,ropebwt3 -l25*,14.519,14.519,1.4498356852890006,Mbases/s,41.384,4.222,,rope-l25
+fig-ms,human_short,ropebwt3 -l30*,14.515,14.515,1.5942183016261027,Mbases/s,37.635999999999996,4.157,,rope-l30
+fig-ms,human_short,ropebwt3 -l40*,14.514,14.514,1.7601501994836892,Mbases/s,34.088,4.184,,rope-l40
+fig-ms,human_pacbio,ms2-lcp,100.167,100.167,25.765554830175063,Mbases/s,2.32828,41.3255,,ms-ordinary
+fig-ms,human_pacbio,ms2-psi,96.7,96.7,17.257979194715826,Mbases/s,3.47604,45.1973,,psi-ordinary
+fig-ms,human_pacbio,ms2-phi,146.846,146.846,7.095947736230252,Mbases/s,8.45404,60.5658,,phi-ordinary
+fig-ms,human_pacbio,ms2-dual,227.865,227.865,23.611005455103633,Mbases/s,2.54074,92.4861,,dual-ordinary
+fig-ms,human_pacbio,ropebwt3 -l1,14.466,14.466,1.1236710435124657,Mbases/s,53.387,4.264,,rope-l1
+fig-ms,human_pacbio,ropebwt3 -l19*,14.443,14.443,1.3632101531609326,Mbases/s,44.006,4.263,,rope-default
+fig-ms,human_pacbio,ropebwt3 -l25*,14.436,14.436,1.6121855952700885,Mbases/s,37.21,4.27,,rope-l25
+fig-ms,human_pacbio,ropebwt3 -l30*,14.434,14.434,1.674512937892533,Mbases/s,35.825,4.162,,rope-l30
+fig-ms,human_pacbio,ropebwt3 -l40*,14.435,14.435,1.7525906687311927,Mbases/s,34.229,4.271,,rope-l40
+fig-ms,human_ont_modern,ms2-lcp,100.32,100.32,23.46872124394532,Mbases/s,2.55381,41.8429,,ms-ordinary
+fig-ms,human_ont_modern,ms2-psi,96.852,96.852,15.074790860753254,Mbases/s,3.97582,45.1755,,psi-ordinary
+fig-ms,human_ont_modern,ms2-phi,147.001,147.001,5.6832185968006526,Mbases/s,10.5459,60.7854,,phi-ordinary
+fig-ms,human_ont_modern,ms2-dual,228.019,228.019,21.069550834736575,Mbases/s,2.84461,92.9605,,dual-ordinary
+fig-ms,human_ont_modern,ropebwt3 -l1,14.482,14.482,0.9449242448130164,Mbases/s,63.428,4.197,,rope-l1
+fig-ms,human_ont_modern,ropebwt3 -l19*,14.446,14.446,1.2121479421579533,Mbases/s,49.445,4.195,,rope-default
+fig-ms,human_ont_modern,ropebwt3 -l25*,14.439,14.439,1.4814409125738437,Mbases/s,40.457,4.195,,rope-l25
+fig-ms,human_ont_modern,ropebwt3 -l30*,14.437,14.437,1.5492195052601647,Mbases/s,38.687000000000005,4.178,,rope-l30
+fig-ms,human_ont_modern,ropebwt3 -l40*,14.435,14.435,1.6353694507353542,Mbases/s,36.649,4.247,,rope-l40
+fig-ms,guccione_skin,ms2-lcp,99.922,99.922,10.160191519626105,Mbases/s,5.9054,43.2357,,ms-ordinary
+fig-ms,guccione_skin,ms2-psi,96.453,96.453,2.7865629600731934,Mbases/s,21.5319,45.7175,,psi-ordinary
+fig-ms,guccione_skin,ms2-phi,146.602,146.602,0.4472004874485719,Mbases/s,134.168,60.6225,,phi-ordinary
+fig-ms,guccione_skin,ms2-dual,227.621,227.621,5.22070488222959,Mbases/s,11.4927,95.5437,,dual-ordinary
+fig-ms,guccione_skin,ropebwt3 -l1,15.857,15.857,0.07806045131954699,Mbases/s,768.635,4.232,,rope-l1
+fig-ms,guccione_skin,ropebwt3 -l19*,14.565,14.565,0.2422245704550593,Mbases/s,247.70399999999998,4.157,,rope-default
+fig-ms,guccione_skin,ropebwt3 -l25*,14.496,14.496,0.7465564458933172,Mbases/s,80.369,4.152,,rope-l25
+fig-ms,guccione_skin,ropebwt3 -l30*,14.495,14.495,1.1876248490726629,Mbases/s,50.521,4.157,,rope-l30
+fig-ms,guccione_skin,ropebwt3 -l40*,14.494,14.494,2.137893996080527,Mbases/s,28.065,4.154,,rope-l40
+fig-ms-oracle,human_short,ms2-lcp,99.922,99.922,21.74369976299367,Mbases/s,2.75942,41.9044,,ms-ordinary
+fig-ms-oracle,human_short,ms2-lcp oracle,99.922,100.049,28.236357133445026,Mbases/s,2.12492,42.3433,drawn as a tick at the ordinary peak memory,ms-oracle
+fig-ms-oracle,human_short,ms2-psi,96.453,96.453,11.398176291793312,Mbases/s,5.264,45.2135,,psi-ordinary
+fig-ms-oracle,human_short,ms2-psi oracle,96.453,96.581,30.732194534791407,Mbases/s,1.95235,45.3198,drawn as a tick at the ordinary peak memory,psi-oracle
+fig-ms-oracle,human_short,ms2-phi,146.602,146.602,1.9510799227372353,Mbases/s,30.7522,60.972,,phi-ordinary
+fig-ms-oracle,human_short,ms2-phi oracle,146.602,89.685,25.530611202832198,Mbases/s,2.35012,40.5478,drawn as a tick at the ordinary peak memory,phi-oracle
+fig-ms-oracle,human_short,ms2-dual,227.62,227.62,14.222053664549161,Mbases/s,4.2188,94.9155,,dual-ordinary
+fig-ms-oracle,human_short,ms2-dual oracle,227.62,170.703,28.832430718071688,Mbases/s,2.08099,75.0253,drawn as a tick at the ordinary peak memory,dual-oracle
+fig-ms-oracle,human_short,ropebwt3 -l1,14.593,14.593,0.7468259895444361,Mbases/s,80.34,4.274,,rope-l1
+fig-ms-oracle,human_short,ropebwt3 -l19*,14.53,14.53,1.0632830636729342,Mbases/s,56.429,4.211,,rope-default
+fig-ms-oracle,human_short,ropebwt3 -l25*,14.519,14.519,1.4498356852890006,Mbases/s,41.384,4.222,,rope-l25
+fig-ms-oracle,human_short,ropebwt3 -l30*,14.515,14.515,1.5942183016261027,Mbases/s,37.635999999999996,4.157,,rope-l30
+fig-ms-oracle,human_short,ropebwt3 -l40*,14.514,14.514,1.7601501994836892,Mbases/s,34.088,4.184,,rope-l40
+fig-ms-oracle,human_pacbio,ms2-lcp,100.167,100.167,25.765554830175063,Mbases/s,2.32828,41.3255,,ms-ordinary
+fig-ms-oracle,human_pacbio,ms2-lcp oracle,100.167,100.182,26.771790946862016,Mbases/s,2.24077,41.3516,drawn as a tick at the ordinary peak memory,ms-oracle
+fig-ms-oracle,human_pacbio,ms2-psi,96.7,96.7,17.257979194715826,Mbases/s,3.47604,45.1973,,psi-ordinary
+fig-ms-oracle,human_pacbio,ms2-psi oracle,96.7,96.714,31.23050404506315,Mbases/s,1.92086,44.8515,drawn as a tick at the ordinary peak memory,psi-oracle
+fig-ms-oracle,human_pacbio,ms2-phi,146.846,146.846,7.095947736230252,Mbases/s,8.45404,60.5658,,phi-ordinary
+fig-ms-oracle,human_pacbio,ms2-phi oracle,146.846,89.819,25.534260674138174,Mbases/s,2.34937,40.4703,drawn as a tick at the ordinary peak memory,phi-oracle
+fig-ms-oracle,human_pacbio,ms2-dual,227.865,227.865,23.611005455103633,Mbases/s,2.54074,92.4861,,dual-ordinary
+fig-ms-oracle,human_pacbio,ms2-dual oracle,227.865,170.837,28.69758228090318,Mbases/s,2.0904,75.0854,drawn as a tick at the ordinary peak memory,dual-oracle
+fig-ms-oracle,human_pacbio,ropebwt3 -l1,14.466,14.466,1.1236710435124657,Mbases/s,53.387,4.264,,rope-l1
+fig-ms-oracle,human_pacbio,ropebwt3 -l19*,14.443,14.443,1.3632101531609326,Mbases/s,44.006,4.263,,rope-default
+fig-ms-oracle,human_pacbio,ropebwt3 -l25*,14.436,14.436,1.6121855952700885,Mbases/s,37.21,4.27,,rope-l25
+fig-ms-oracle,human_pacbio,ropebwt3 -l30*,14.434,14.434,1.674512937892533,Mbases/s,35.825,4.162,,rope-l30
+fig-ms-oracle,human_pacbio,ropebwt3 -l40*,14.435,14.435,1.7525906687311927,Mbases/s,34.229,4.271,,rope-l40
+fig-ms-oracle,human_ont_modern,ms2-lcp,100.32,100.32,23.46872124394532,Mbases/s,2.55381,41.8429,,ms-ordinary
+fig-ms-oracle,human_ont_modern,ms2-lcp oracle,100.32,100.344,24.78984452229589,Mbases/s,2.41771,41.5655,drawn as a tick at the ordinary peak memory,ms-oracle
+fig-ms-oracle,human_ont_modern,ms2-psi,96.852,96.852,15.074790860753254,Mbases/s,3.97582,45.1755,,psi-ordinary
+fig-ms-oracle,human_ont_modern,ms2-psi oracle,96.852,96.873,27.992328745370397,Mbases/s,2.14111,45.5895,drawn as a tick at the ordinary peak memory,psi-oracle
+fig-ms-oracle,human_ont_modern,ms2-phi,147.001,147.001,5.6832185968006526,Mbases/s,10.5459,60.7854,,phi-ordinary
+fig-ms-oracle,human_ont_modern,ms2-phi oracle,147.001,89.978,23.78321574260726,Mbases/s,2.52004,40.1649,drawn as a tick at the ordinary peak memory,phi-oracle
+fig-ms-oracle,human_ont_modern,ms2-dual,228.019,228.019,21.069550834736575,Mbases/s,2.84461,92.9605,,dual-ordinary
+fig-ms-oracle,human_ont_modern,ms2-dual oracle,228.019,170.997,26.768612186744917,Mbases/s,2.23899,73.4545,drawn as a tick at the ordinary peak memory,dual-oracle
+fig-ms-oracle,human_ont_modern,ropebwt3 -l1,14.482,14.482,0.9449242448130164,Mbases/s,63.428,4.197,,rope-l1
+fig-ms-oracle,human_ont_modern,ropebwt3 -l19*,14.446,14.446,1.2121479421579533,Mbases/s,49.445,4.195,,rope-default
+fig-ms-oracle,human_ont_modern,ropebwt3 -l25*,14.439,14.439,1.4814409125738437,Mbases/s,40.457,4.195,,rope-l25
+fig-ms-oracle,human_ont_modern,ropebwt3 -l30*,14.437,14.437,1.5492195052601647,Mbases/s,38.687000000000005,4.178,,rope-l30
+fig-ms-oracle,human_ont_modern,ropebwt3 -l40*,14.435,14.435,1.6353694507353542,Mbases/s,36.649,4.247,,rope-l40
+fig-ms-oracle,guccione_skin,ms2-lcp,99.922,99.922,10.160191519626105,Mbases/s,5.9054,43.2357,,ms-ordinary
+fig-ms-oracle,guccione_skin,ms2-lcp oracle,99.922,100.583,26.068592991023714,Mbases/s,2.30162,42.0383,drawn as a tick at the ordinary peak memory,ms-oracle
+fig-ms-oracle,guccione_skin,ms2-psi,96.453,96.453,2.7865629600731934,Mbases/s,21.5319,45.7175,,psi-ordinary
+fig-ms-oracle,guccione_skin,ms2-psi oracle,96.453,97.114,18.180053752363406,Mbases/s,3.30032,46.6357,drawn as a tick at the ordinary peak memory,psi-oracle
+fig-ms-oracle,guccione_skin,ms2-phi,146.602,146.602,0.4472004874485719,Mbases/s,134.168,60.6225,,phi-ordinary
+fig-ms-oracle,guccione_skin,ms2-phi oracle,146.602,90.219,17.424080371481427,Mbases/s,3.44351,40.1403,drawn as a tick at the ordinary peak memory,phi-oracle
+fig-ms-oracle,guccione_skin,ms2-dual,227.621,227.621,5.22070488222959,Mbases/s,11.4927,95.5437,,dual-ordinary
+fig-ms-oracle,guccione_skin,ms2-dual oracle,227.621,171.237,18.034480426575612,Mbases/s,3.32696,75.8295,drawn as a tick at the ordinary peak memory,dual-oracle
+fig-ms-oracle,guccione_skin,ropebwt3 -l1,15.857,15.857,0.07806045131954699,Mbases/s,768.635,4.232,,rope-l1
+fig-ms-oracle,guccione_skin,ropebwt3 -l19*,14.565,14.565,0.2422245704550593,Mbases/s,247.70399999999998,4.157,,rope-default
+fig-ms-oracle,guccione_skin,ropebwt3 -l25*,14.496,14.496,0.7465564458933172,Mbases/s,80.369,4.152,,rope-l25
+fig-ms-oracle,guccione_skin,ropebwt3 -l30*,14.495,14.495,1.1876248490726629,Mbases/s,50.521,4.157,,rope-l30
+fig-ms-oracle,guccione_skin,ropebwt3 -l40*,14.494,14.494,2.137893996080527,Mbases/s,28.065,4.154,,rope-l40
+fig-ms-ftab,human_short,ms2-lcp,99.922,99.922,21.74369976299367,Mbases/s,2.75942,41.9044,,ms-ordinary
+fig-ms-ftab,human_short,ms2-lcp+ftab,101.39,101.39,26.854649211144682,Mbases/s,2.23425,43.267719,,ms-ftab
+fig-ms-ftab,human_short,ms2-psi,96.453,96.453,11.398176291793312,Mbases/s,5.264,45.2135,,psi-ordinary
+fig-ms-ftab,human_short,ms2-psi+ftab,97.922,97.922,14.968790072698425,Mbases/s,4.00834,45.623518000000004,,psi-ftab
+fig-ms-ftab,human_short,ms2-phi,146.602,146.602,1.9510799227372353,Mbases/s,30.7522,60.972,,phi-ordinary
+fig-ms-ftab,human_short,ms2-phi+ftab,149.946,149.946,2.513046901832011,Mbases/s,23.8754,62.069810000000004,,phi-ftab
+fig-ms-ftab,human_short,ms2-dual,227.62,227.62,14.222053664549161,Mbases/s,4.2188,94.9155,,dual-ordinary
+fig-ms-ftab,human_short,ms2-dual+ftab,230.964,230.964,19.07238287172869,Mbases/s,3.14591,95.19887,,dual-ftab
+fig-ms-ftab,human_short,ropebwt3 -l1,14.593,14.593,0.7468259895444361,Mbases/s,80.34,4.274,,rope-l1
+fig-ms-ftab,human_short,ropebwt3 -l19*,14.53,14.53,1.0632830636729342,Mbases/s,56.429,4.211,,rope-default
+fig-ms-ftab,human_short,ropebwt3 -l25*,14.519,14.519,1.4498356852890006,Mbases/s,41.384,4.222,,rope-l25
+fig-ms-ftab,human_short,ropebwt3 -l30*,14.515,14.515,1.5942183016261027,Mbases/s,37.635999999999996,4.157,,rope-l30
+fig-ms-ftab,human_short,ropebwt3 -l40*,14.514,14.514,1.7601501994836892,Mbases/s,34.088,4.184,,rope-l40
+fig-ms22-10,simshort,ms2-lcp,0.579,0.579,29.509841532150972,Mbases/s,2.03322,0.26014,,ms-ordinary
+fig-ms22-10,simshort,ms2-psi,0.689,0.689,17.84651992861392,Mbases/s,3.362,0.340239,,psi-ordinary
+fig-ms22-10,simshort,ms2-phi,1.09,1.09,14.616357165303691,Mbases/s,4.10499,0.456613,,phi-ordinary
+fig-ms22-10,simshort,ms2-dual,1.634,1.634,18.995517057974315,Mbases/s,3.15864,0.685887,,dual-ordinary
+fig-ms22-10,simshort,ropebwt3 -l1,0.115,0.115,2.2016732716864817,Mbases/s,27.252,0.029,,rope-l1
+fig-ms22-10,simshort,ropebwt3 -l19*,0.111,0.111,2.6843235504652827,Mbases/s,22.352,0.029,,rope-default
+fig-ms22-10,simshort,ropebwt3 -l25*,0.113,0.113,2.821803132201477,Mbases/s,21.262999999999998,0.03,,rope-l25
+fig-ms22-10,simshort,ropebwt3 -l30*,0.113,0.113,2.8643719864419728,Mbases/s,20.947,0.029,,rope-l30
+fig-ms22-10,simshort,ropebwt3 -l40*,0.111,0.111,2.9215562156108486,Mbases/s,20.537,0.029,,rope-l40
+fig-ms22-10,simshort,MONI,0.643,0.643,0.8284884926073939,Mbases/s,72.42104209699983,0.24427435600000535,one-read-wall fallback timing,moni
+fig-ms22-10,simshort,PHONI,0.585,0.585,0.7025702886227729,Mbases/s,85.40070790300024,0.21855410499983918,one-read-wall fallback timing,phoni
+fig-ms22-10,simshort,AugPHONI,0.935,0.935,0.908967541840122,Mbases/s,66.00895767799966,0.3405731080001715,one-read-wall fallback timing,augphoni
+fig-ms22-10,simpacbio,ms2-lcp,0.813,0.813,30.32850556350382,Mbases/s,1.97807,0.268203,,ms-ordinary
+fig-ms22-10,simpacbio,ms2-psi,0.923,0.923,21.26030626058729,Mbases/s,2.82178,0.342221,,psi-ordinary
+fig-ms22-10,simpacbio,ms2-phi,1.323,1.323,19.764867491631744,Mbases/s,3.03528,0.473061,,phi-ordinary
+fig-ms22-10,simpacbio,ms2-dual,1.87,1.87,24.091587287563854,Mbases/s,2.49016,0.709901,,dual-ordinary
+fig-ms22-10,simpacbio,ropebwt3 -l1,0.114,0.114,1.724301764773511,Mbases/s,34.792,0.03,,rope-l1
+fig-ms22-10,simpacbio,ropebwt3 -l19*,0.106,0.106,2.293707015866947,Mbases/s,26.155,0.029,,rope-default
+fig-ms22-10,simpacbio,ropebwt3 -l25*,0.105,0.105,2.4558665056492552,Mbases/s,24.427999999999997,0.03,,rope-l25
+fig-ms22-10,simpacbio,ropebwt3 -l30*,0.105,0.105,2.5230005467238628,Mbases/s,23.778,0.029,,rope-l30
+fig-ms22-10,simpacbio,ropebwt3 -l40*,0.105,0.105,2.5797422919802195,Mbases/s,23.255,0.03,,rope-l40
+fig-ms22-10,simpacbio,MONI,0.644,0.644,0.867290848257911,Mbases/s,69.1716130990003,0.27476315700005216,one-read-wall fallback timing,moni
+fig-ms22-10,simpacbio,PHONI,0.587,0.587,0.8938527105340269,Mbases/s,67.11609898699999,0.25328073499986203,one-read-wall fallback timing,phoni
+fig-ms22-10,simpacbio,AugPHONI,0.937,0.937,0.9723026614914124,Mbases/s,61.70085650899955,0.36640427699967404,one-read-wall fallback timing,augphoni
+fig-ms22-10,simont,ms2-lcp,1.003,1.003,22.58499461713933,Mbases/s,2.65658,0.261926,,ms-ordinary
+fig-ms22-10,simont,ms2-psi,1.114,1.114,10.489473610598768,Mbases/s,5.71991,0.335055,,psi-ordinary
+fig-ms22-10,simont,ms2-phi,1.515,1.515,11.115425729000705,Mbases/s,5.3978,0.464965,,phi-ordinary
+fig-ms22-10,simont,ms2-dual,2.059,2.059,15.123992659680928,Mbases/s,3.96713,0.689012,,dual-ordinary
+fig-ms22-10,simont,ropebwt3 -l1,0.138,0.138,0.7298419253600623,Mbases/s,82.208,0.03,,rope-l1
+fig-ms22-10,simont,ropebwt3 -l19*,0.113,0.113,1.612438726148885,Mbases/s,37.209999999999994,0.029,,rope-default
+fig-ms22-10,simont,ropebwt3 -l25*,0.111,0.111,1.963634266077565,Mbases/s,30.555,0.029,,rope-l25
+fig-ms22-10,simont,ropebwt3 -l30*,0.107,0.107,2.150804595640952,Mbases/s,27.896,0.029,,rope-l30
+fig-ms22-10,simont,ropebwt3 -l40*,0.11,0.11,2.3459041679699717,Mbases/s,25.576,0.028,,rope-l40
+fig-ms22-10,simont,MONI,0.65,0.65,0.692488232661675,Mbases/s,86.64240368299988,0.2755723800000851,one-read-wall fallback timing,moni
+fig-ms22-10,simont,PHONI,0.6,0.6,0.5028960419523134,Mbases/s,119.30665583900009,0.2606861790000039,one-read-wall fallback timing,phoni
+fig-ms22-10,simont,AugPHONI,0.95,0.95,0.6073651280744773,Mbases/s,98.78546236300008,0.3697993099995074,one-read-wall fallback timing,augphoni
+fig-ms22-100,simshort,ms2-lcp,1.02,1.02,28.029786319595623,Mbases/s,2.14058,0.438315,,ms-ordinary
+fig-ms22-100,simshort,ms2-psi,1.056,1.056,17.136198505723492,Mbases/s,3.50136,0.516933,,psi-ordinary
+fig-ms22-100,simshort,ms2-phi,1.65,1.65,7.201031187666073,Mbases/s,8.33214,0.682246,,phi-ordinary
+fig-ms22-100,simshort,ms2-dual,2.53,2.53,18.343911655721463,Mbases/s,3.27084,1.0539,,dual-ordinary
+fig-ms22-100,simshort,ropebwt3 -l1,0.17,0.17,2.0178241129981505,Mbases/s,29.735,0.047,,rope-l1
+fig-ms22-100,simshort,ropebwt3 -l19*,0.17,0.17,2.4339783375927957,Mbases/s,24.651,0.047,,rope-default
+fig-ms22-100,simshort,ropebwt3 -l25*,0.171,0.171,2.4934546814611647,Mbases/s,24.063,0.047,,rope-l25
+fig-ms22-100,simshort,ropebwt3 -l30*,0.169,0.169,2.560600887674975,Mbases/s,23.432,0.046,,rope-l30
+fig-ms22-100,simshort,ropebwt3 -l40*,0.167,0.167,2.5980774227071963,Mbases/s,23.094,0.046,,rope-l40
+fig-ms22-100,simshort,MONI,1.045,1.045,0.7575463193066587,Mbases/s,79.20307771400007,0.36643907099983153,one-read-wall fallback timing,moni
+fig-ms22-100,simshort,PHONI,0.939,0.939,0.6374968110397418,Mbases/s,94.11811786499993,0.3207157429997096,one-read-wall fallback timing,phoni
+fig-ms22-100,simshort,AugPHONI,1.474,1.474,0.8618971026653275,Mbases/s,69.61387828599982,0.49139491400001134,one-read-wall fallback timing,augphoni
+fig-ms22-100,simpacbio,ms2-lcp,1.256,1.256,29.240096992737733,Mbases/s,2.0517,0.441288,,ms-ordinary
+fig-ms22-100,simpacbio,ms2-psi,1.291,1.291,20.135228649582977,Mbases/s,2.97945,0.508609,,psi-ordinary
+fig-ms22-100,simpacbio,ms2-phi,1.886,1.886,12.613199180872446,Mbases/s,4.75628,0.681342,,phi-ordinary
+fig-ms22-100,simpacbio,ms2-dual,2.764,2.764,24.342524011052998,Mbases/s,2.46449,1.05374,,dual-ordinary
+fig-ms22-100,simpacbio,ropebwt3 -l1,0.169,0.169,1.6198705818820036,Mbases/s,37.035,0.046,,rope-l1
+fig-ms22-100,simpacbio,ropebwt3 -l19*,0.162,0.162,2.145403104101849,Mbases/s,27.963,0.046,,rope-default
+fig-ms22-100,simpacbio,ropebwt3 -l25*,0.162,0.162,2.2692403449710636,Mbases/s,26.436999999999998,0.045,,rope-l25
+fig-ms22-100,simpacbio,ropebwt3 -l30*,0.162,0.162,2.3126289271809104,Mbases/s,25.941,0.046,,rope-l30
+fig-ms22-100,simpacbio,ropebwt3 -l40*,0.162,0.162,2.3723468443530527,Mbases/s,25.288,0.046,,rope-l40
+fig-ms22-100,simpacbio,MONI,1.045,1.045,0.804806808508775,Mbases/s,74.54199736600003,0.38944544799983305,one-read-wall fallback timing,moni
+fig-ms22-100,simpacbio,PHONI,0.94,0.94,0.84163216018937,Mbases/s,71.2804356079996,0.34055784399970435,one-read-wall fallback timing,phoni
+fig-ms22-100,simpacbio,AugPHONI,1.476,1.476,0.9243359690283912,Mbases/s,64.90270746800002,0.5124652699998933,one-read-wall fallback timing,augphoni
+fig-ms22-100,simont,ms2-lcp,1.445,1.445,21.56835322453088,Mbases/s,2.7818,0.439822,,ms-ordinary
+fig-ms22-100,simont,ms2-psi,1.482,1.482,9.888952344221279,Mbases/s,6.06726,0.509015,,psi-ordinary
+fig-ms22-100,simont,ms2-phi,2.075,2.075,4.7433291696642454,Mbases/s,12.6491,0.679765,,phi-ordinary
+fig-ms22-100,simont,ms2-dual,2.955,2.955,14.848773467700822,Mbases/s,4.04066,1.05418,,dual-ordinary
+fig-ms22-100,simont,ropebwt3 -l1,0.195,0.195,0.6647629520475092,Mbases/s,90.256,0.046,,rope-l1
+fig-ms22-100,simont,ropebwt3 -l19*,0.17,0.17,1.413466947794949,Mbases/s,42.448,0.045,,rope-default
+fig-ms22-100,simont,ropebwt3 -l25*,0.166,0.166,1.7017569560654622,Mbases/s,35.257,0.045,,rope-l25
+fig-ms22-100,simont,ropebwt3 -l30*,0.166,0.166,1.868657188239691,Mbases/s,32.108000000000004,0.046,,rope-l30
+fig-ms22-100,simont,ropebwt3 -l40*,0.166,0.166,2.0409853046229207,Mbases/s,29.397,0.046,,rope-l40
+fig-ms22-100,simont,MONI,1.051,1.051,0.6131433644122217,Mbases/s,97.85451247200035,0.3980768809997244,one-read-wall fallback timing,moni
+fig-ms22-100,simont,PHONI,0.953,0.953,0.45136182567905,Mbases/s,132.92848793700023,0.36893950700005007,one-read-wall fallback timing,phoni
+fig-ms22-100,simont,AugPHONI,1.489,1.489,0.5555624329953034,Mbases/s,107.99658406800017,0.5370435119998547,one-read-wall fallback timing,augphoni
+fig-l1,human_short,ms2-psi,328.514,336.514,126928.4802556054,locations/s,1.24567,184.646,offset horizontally for visibility,cap1-psi-ordinary
+fig-l1,human_short,ms2-phi,336.514,336.514,64659.40645076862,locations/s,2.44529,188.317,offset horizontally for visibility,cap1-phi-ordinary
+fig-l1,human_short,ms2-dual,344.514,336.514,151389.3144389123,locations/s,1.0444,188.363,offset horizontally for visibility,cap1-dual-ordinary
+fig-l1,human_short,ropebwt3 -s11,24.725,24.725,9530.500301386377,locations/s,16.59,6.965,,cap1-rope-s11
+fig-l1,human_short,ropebwt3 -s8,97.11,97.11,20255.060210094798,locations/s,7.806000000000001,27.19,,cap1-rope-s8
+fig-l1,human_short,ropebwt3 -s6,345.282,345.282,23375.36960378476,locations/s,6.763999999999996,99.534,,cap1-rope-s6
+fig-l1,human_pacbio,ms2-psi,328.753,336.753,110717.55634988626,locations/s,2.36957,181.882,offset horizontally for visibility,cap1-psi-ordinary
+fig-l1,human_pacbio,ms2-phi,336.753,336.753,96487.00833011529,locations/s,2.71905,186.825,offset horizontally for visibility,cap1-phi-ordinary
+fig-l1,human_pacbio,ms2-dual,344.753,336.753,142010.4794794903,locations/s,1.84742,188.898,offset horizontally for visibility,cap1-dual-ordinary
+fig-l1,human_pacbio,ropebwt3 -s11,24.724,24.724,6877.42155346423,locations/s,38.147000000000006,7.219,,cap1-rope-s11
+fig-l1,human_pacbio,ropebwt3 -s8,97.105,97.105,12986.486486486485,locations/s,20.202,27.99,,cap1-rope-s8
+fig-l1,human_pacbio,ropebwt3 -s6,345.276,345.276,14352.699819464962,locations/s,18.278999999999996,96.676,,cap1-rope-s6
+fig-l1,human_ont_modern,ms2-psi,328.691,336.691,130326.45508187563,locations/s,1.43205,181.29,offset horizontally for visibility,cap1-psi-ordinary
+fig-l1,human_ont_modern,ms2-phi,336.688,336.688,124573.8162303595,locations/s,1.49818,188.814,offset horizontally for visibility,cap1-phi-ordinary
+fig-l1,human_ont_modern,ms2-dual,344.691,336.691,160516.3798367607,locations/s,1.16271,192.23,offset horizontally for visibility,cap1-dual-ordinary
+fig-l1,human_ont_modern,ropebwt3 -s11,24.73,24.73,6497.04100814593,locations/s,28.726,7.174,,cap1-rope-s11
+fig-l1,human_ont_modern,ropebwt3 -s8,97.114,97.114,13529.10474809714,locations/s,13.794999999999998,27.157,,cap1-rope-s8
+fig-l1,human_ont_modern,ropebwt3 -s6,345.287,345.287,15151.323266764088,locations/s,12.317999999999998,99.381,,cap1-rope-s6
+fig-l1,guccione_skin,ms2-psi,328.526,336.526,309328.0484212218,locations/s,0.821458,185.059,offset horizontally for visibility,cap1-psi-ordinary
+fig-l1,guccione_skin,ms2-phi,336.527,336.527,321831.7431729494,locations/s,0.789543,187.571,offset horizontally for visibility,cap1-phi-ordinary
+fig-l1,guccione_skin,ms2-dual,344.527,336.527,364025.511870584,locations/s,0.698028,188.471,offset horizontally for visibility,cap1-dual-ordinary
+fig-l1,guccione_skin,ropebwt3 -s11,24.735,24.735,9382.615759545086,locations/s,27.081999999999997,7.096,,cap1-rope-s11
+fig-l1,guccione_skin,ropebwt3 -s8,97.119,97.119,28049.453582073074,locations/s,9.059000000000001,27.59,,cap1-rope-s8
+fig-l1,guccione_skin,ropebwt3 -s6,345.292,345.292,35350.58430717862,locations/s,7.188000000000002,97.819,,cap1-rope-s6
+fig-l10,human_short,ms2-psi,328.517,336.517,1053654.349128421,locations/s,1.36878,187.327,offset horizontally for visibility,cap10-psi-ordinary
+fig-l10,human_short,ms2-phi,336.518,336.518,561632.2223130873,locations/s,2.56791,188.323,offset horizontally for visibility,cap10-phi-ordinary
+fig-l10,human_short,ms2-dual,344.517,336.517,1249595.8064376381,locations/s,1.15415,186.132,offset horizontally for visibility,cap10-dual-ordinary
+fig-l10,human_short,ropebwt3 -s11,24.734,24.734,29255.75592835264,locations/s,49.297,6.964,,cap10-rope-s11
+fig-l10,human_short,ropebwt3 -s8,97.117,97.117,128003.99396467565,locations/s,11.266999999999996,27.64,,cap10-rope-s8
+fig-l10,human_short,ropebwt3 -s6,345.289,345.289,188624.2479727962,locations/s,7.646000000000001,98.151,,cap10-rope-s6
+fig-l10,human_pacbio,ms2-psi,328.842,336.842,920189.3527859693,locations/s,2.5772,181.673,offset horizontally for visibility,cap10-psi-ordinary
+fig-l10,human_pacbio,ms2-phi,336.842,336.842,796341.1808556721,locations/s,2.97801,187.929,offset horizontally for visibility,cap10-phi-ordinary
+fig-l10,human_pacbio,ms2-dual,344.843,336.843,1146788.1390355714,locations/s,2.06796,186.408,offset horizontally for visibility,cap10-dual-ordinary
+fig-l10,human_pacbio,ropebwt3 -s11,24.728,24.728,26386.4880502025,locations/s,89.876,7.178,,cap10-rope-s11
+fig-l10,human_pacbio,ropebwt3 -s8,97.11,97.11,91338.46864889847,locations/s,25.964,27.149,,cap10-rope-s8
+fig-l10,human_pacbio,ropebwt3 -s6,345.282,345.282,120546.53586133278,locations/s,19.673000000000002,98.205,,cap10-rope-s6
+fig-l10,human_ont_modern,ms2-psi,328.75,336.75,1024529.6245060515,locations/s,1.61201,184.743,offset horizontally for visibility,cap10-psi-ordinary
+fig-l10,human_ont_modern,ms2-phi,336.751,336.751,1008550.5786082867,locations/s,1.63755,184.397,offset horizontally for visibility,cap10-phi-ordinary
+fig-l10,human_ont_modern,ms2-dual,344.749,336.749,1239661.9278519207,locations/s,1.33226,192.273,offset horizontally for visibility,cap10-dual-ordinary
+fig-l10,human_ont_modern,ropebwt3 -s11,24.737,24.737,23233.15420757955,locations/s,71.086,7.31,,cap10-rope-s11
+fig-l10,human_ont_modern,ropebwt3 -s8,97.119,97.119,89253.7829658452,locations/s,18.504000000000005,27.068,,cap10-rope-s8
+fig-l10,human_ont_modern,ropebwt3 -s6,345.292,345.292,122609.65107646624,locations/s,13.469999999999999,99.325,,cap10-rope-s6
+fig-l10,guccione_skin,ms2-psi,328.563,336.563,2224244.182672779,locations/s,1.03398,181.615,offset horizontally for visibility,cap10-psi-ordinary
+fig-l10,guccione_skin,ms2-phi,336.563,336.563,2258582.287431501,locations/s,1.01826,189.382,offset horizontally for visibility,cap10-phi-ordinary
+fig-l10,guccione_skin,ms2-dual,344.564,336.564,2515277.6532194735,locations/s,0.914342,185.353,offset horizontally for visibility,cap10-dual-ordinary
+fig-l10,guccione_skin,ropebwt3 -s11,24.767,24.767,30710.18053626749,locations/s,74.888,7.11,,cap10-rope-s11
+fig-l10,guccione_skin,ropebwt3 -s8,97.15,97.15,158761.83901698186,locations/s,14.486000000000004,27.284,,cap10-rope-s8
+fig-l10,guccione_skin,ropebwt3 -s6,345.321,345.321,266214.14515568945,locations/s,8.638999999999996,98.924,,cap10-rope-s6
+fig-l100,human_short,ms2-psi,328.563,336.563,6032591.791316067,locations/s,2.25566,186.768,offset horizontally for visibility,cap100-psi-ordinary
+fig-l100,human_short,ms2-phi,336.564,336.564,3993624.2772870013,locations/s,3.4073,186.449,offset horizontally for visibility,cap100-phi-ordinary
+fig-l100,human_short,ms2-dual,344.562,336.562,6661873.405822999,locations/s,2.04259,188.694,offset horizontally for visibility,cap100-dual-ordinary
+fig-l100,human_short,ropebwt3 -s11,24.801,24.801,24895.899007455522,locations/s,546.5749999999999,7.109,,cap100-rope-s11
+fig-l100,human_short,ropebwt3 -s8,97.181,97.181,218162.92305965722,locations/s,62.373000000000005,27.64,,cap100-rope-s8
+fig-l100,human_short,ropebwt3 -s6,345.353,345.353,685308.0177276387,locations/s,19.85600000000001,99.291,,cap100-rope-s6
+fig-l100,human_pacbio,ms2-psi,329.387,337.387,5354070.199494671,locations/s,4.17154,181.536,offset horizontally for visibility,cap100-psi-ordinary
+fig-l100,human_pacbio,ms2-phi,337.392,337.392,4862233.455462162,locations/s,4.59351,190.458,offset horizontally for visibility,cap100-phi-ordinary
+fig-l100,human_pacbio,ms2-dual,345.394,337.394,6144622.046637541,locations/s,3.63484,183.643,offset horizontally for visibility,cap100-dual-ordinary
+fig-l100,human_pacbio,ropebwt3 -s11,24.775,24.775,26582.05132477524,locations/s,840.218,7.223,,cap100-rope-s11
+fig-l100,human_pacbio,ropebwt3 -s8,97.159,97.159,211707.5015640107,locations/s,105.498,27.996,,cap100-rope-s8
+fig-l100,human_pacbio,ropebwt3 -s6,345.329,345.329,577228.9044530019,locations/s,38.693,98.277,,cap100-rope-s6
+fig-l100,human_ont_modern,ms2-psi,329.214,337.214,5563488.4049108615,locations/s,2.76367,183.771,offset horizontally for visibility,cap100-psi-ordinary
+fig-l100,human_ont_modern,ms2-phi,337.219,337.219,5482217.325574762,locations/s,2.80464,186.318,offset horizontally for visibility,cap100-phi-ordinary
+fig-l100,human_ont_modern,ms2-dual,345.217,337.217,6129931.54699018,locations/s,2.50829,192.076,offset horizontally for visibility,cap100-dual-ordinary
+fig-l100,human_ont_modern,ropebwt3 -s11,24.797,24.797,25478.513608683043,locations/s,603.475,7.175,,cap100-rope-s11
+fig-l100,human_ont_modern,ropebwt3 -s8,97.18,97.18,207361.47486817083,locations/s,74.149,27.527,,cap100-rope-s8
+fig-l100,human_ont_modern,ropebwt3 -s6,345.352,345.352,574060.8572281961,locations/s,26.783999999999992,99.394,,cap100-rope-s6
+fig-l100,guccione_skin,ms2-psi,328.754,336.754,8244803.34208714,locations/s,2.64266,187.315,offset horizontally for visibility,cap100-psi-ordinary
+fig-l100,guccione_skin,ms2-phi,336.753,336.753,8549425.936825583,locations/s,2.5485,186.73,offset horizontally for visibility,cap100-phi-ordinary
+fig-l100,guccione_skin,ms2-dual,344.754,336.754,8718597.867189532,locations/s,2.49905,189.618,offset horizontally for visibility,cap100-dual-ordinary
+fig-l100,guccione_skin,ropebwt3 -s11,25.057,25.057,30090.973624388535,locations/s,724.078,7.118,,cap100-rope-s11
+fig-l100,guccione_skin,ropebwt3 -s8,97.44,97.44,258304.13391661036,locations/s,84.351,27.595,,cap100-rope-s8
+fig-l100,guccione_skin,ropebwt3 -s6,345.612,345.612,830945.1203234048,locations/s,26.221000000000004,98.594,,cap100-rope-s6
+fig-lftab,human_short,ms2-psi,311.514,336.514,126928.4802556054,locations/s,1.24567,184.646,offset horizontally for visibility,cap1-psi-ordinary
+fig-lftab,human_short,ms2-psi+ftab,321.514,339.857,146839.592852632,locations/s,1.07676,181.84563,offset horizontally for visibility,cap1-psi-ftab
+fig-lftab,human_short,ms2-phi,331.514,336.514,64659.40645076862,locations/s,2.44529,188.317,offset horizontally for visibility,cap1-phi-ordinary
+fig-lftab,human_short,ms2-phi+ftab,341.514,339.857,70045.23162935759,locations/s,2.25727,191.99424,offset horizontally for visibility,cap1-phi-ftab
+fig-lftab,human_short,ms2-dual,351.514,336.514,151389.3144389123,locations/s,1.0444,188.363,offset horizontally for visibility,cap1-dual-ordinary
+fig-lftab,human_short,ms2-dual+ftab,361.514,339.858,172589.53619106876,locations/s,0.91611,186.64127,offset horizontally for visibility,cap1-dual-ftab
+fig-lftab,human_short,ropebwt3 -s11,24.725,24.725,9530.500301386377,locations/s,16.59,6.965,,cap1-rope-s11
+fig-lftab,human_short,ropebwt3 -s8,97.11,97.11,20255.060210094798,locations/s,7.806000000000001,27.19,,cap1-rope-s8
+fig-lftab,human_short,ropebwt3 -s6,345.282,345.282,23375.36960378476,locations/s,6.763999999999996,99.534,,cap1-rope-s6
+fig-lftab,human_short,ms2-psi,311.517,336.517,1053654.349128421,locations/s,1.36878,187.327,offset horizontally for visibility,cap10-psi-ordinary
+fig-lftab,human_short,ms2-psi+ftab,321.517,339.861,1206778.5122583883,locations/s,1.1951,181.48664,offset horizontally for visibility,cap10-psi-ftab
+fig-lftab,human_short,ms2-phi,331.518,336.518,561632.2223130873,locations/s,2.56791,188.323,offset horizontally for visibility,cap10-phi-ordinary
+fig-lftab,human_short,ms2-phi+ftab,341.518,339.861,616457.5790863978,locations/s,2.33953,186.4915,offset horizontally for visibility,cap10-phi-ftab
+fig-lftab,human_short,ms2-dual,351.517,336.517,1249595.8064376381,locations/s,1.15415,186.132,offset horizontally for visibility,cap10-dual-ordinary
+fig-lftab,human_short,ms2-dual+ftab,361.517,339.862,1390293.5364149034,locations/s,1.03735,186.77956,offset horizontally for visibility,cap10-dual-ftab
+fig-lftab,human_short,ropebwt3 -s11,24.734,24.734,29255.75592835264,locations/s,49.297,6.964,,cap10-rope-s11
+fig-lftab,human_short,ropebwt3 -s8,97.117,97.117,128003.99396467565,locations/s,11.266999999999996,27.64,,cap10-rope-s8
+fig-lftab,human_short,ropebwt3 -s6,345.289,345.289,188624.2479727962,locations/s,7.646000000000001,98.151,,cap10-rope-s6
+fig-lftab,human_short,ms2-psi,311.563,336.563,6032591.791316067,locations/s,2.25566,186.768,offset horizontally for visibility,cap100-psi-ordinary
+fig-lftab,human_short,ms2-psi+ftab,321.563,339.905,6514962.2962200465,locations/s,2.08865,183.99078,offset horizontally for visibility,cap100-psi-ftab
+fig-lftab,human_short,ms2-phi,331.564,336.564,3993624.2772870013,locations/s,3.4073,186.449,offset horizontally for visibility,cap100-phi-ordinary
+fig-lftab,human_short,ms2-phi+ftab,341.564,339.905,4250835.173829242,locations/s,3.20113,186.5439,offset horizontally for visibility,cap100-phi-ftab
+fig-lftab,human_short,ms2-dual,351.562,336.562,6661873.405822999,locations/s,2.04259,188.694,offset horizontally for visibility,cap100-dual-ordinary
+fig-lftab,human_short,ms2-dual+ftab,361.562,339.905,7239212.848927217,locations/s,1.87969,186.45565000000002,offset horizontally for visibility,cap100-dual-ftab
+fig-lftab,human_short,ropebwt3 -s11,24.801,24.801,24895.899007455522,locations/s,546.5749999999999,7.109,,cap100-rope-s11
+fig-lftab,human_short,ropebwt3 -s8,97.181,97.181,218162.92305965722,locations/s,62.373000000000005,27.64,,cap100-rope-s8
+fig-lftab,human_short,ropebwt3 -s6,345.353,345.353,685308.0177276387,locations/s,19.85600000000001,99.291,,cap100-rope-s6
+fig-loracle,human_short,ms2-psi,328.563,336.563,6032591.791316067,locations/s,2.25566,186.768,offset horizontally for visibility,cap100-psi-ordinary
+fig-loracle,human_short,ms2-phi,336.564,336.564,3993624.2772870013,locations/s,3.4073,186.449,offset horizontally for visibility,cap100-phi-ordinary
+fig-loracle,human_short,ms2-dual,344.562,336.562,6661873.405822999,locations/s,2.04259,188.694,offset horizontally for visibility,cap100-dual-ordinary
+fig-loracle,human_short,ropebwt3 -s11,24.801,24.801,24895.899007455522,locations/s,546.5749999999999,7.109,,cap100-rope-s11
+fig-loracle,human_short,ropebwt3 -s8,97.181,97.181,218162.92305965722,locations/s,62.373000000000005,27.64,,cap100-rope-s8
+fig-loracle,human_short,ropebwt3 -s6,345.353,345.353,685308.0177276387,locations/s,19.85600000000001,99.291,,cap100-rope-s6
+fig-loracle,human_pacbio,ms2-psi,329.387,337.387,5354070.199494671,locations/s,4.17154,181.536,offset horizontally for visibility,cap100-psi-ordinary
+fig-loracle,human_pacbio,ms2-phi,337.392,337.392,4862233.455462162,locations/s,4.59351,190.458,offset horizontally for visibility,cap100-phi-ordinary
+fig-loracle,human_pacbio,ms2-dual,345.394,337.394,6144622.046637541,locations/s,3.63484,183.643,offset horizontally for visibility,cap100-dual-ordinary
+fig-loracle,human_pacbio,ropebwt3 -s11,24.775,24.775,26582.05132477524,locations/s,840.218,7.223,,cap100-rope-s11
+fig-loracle,human_pacbio,ropebwt3 -s8,97.159,97.159,211707.5015640107,locations/s,105.498,27.996,,cap100-rope-s8
+fig-loracle,human_pacbio,ropebwt3 -s6,345.329,345.329,577228.9044530019,locations/s,38.693,98.277,,cap100-rope-s6
+fig-loracle,human_ont_modern,ms2-psi,329.214,337.214,5563488.4049108615,locations/s,2.76367,183.771,offset horizontally for visibility,cap100-psi-ordinary
+fig-loracle,human_ont_modern,ms2-phi,337.219,337.219,5482217.325574762,locations/s,2.80464,186.318,offset horizontally for visibility,cap100-phi-ordinary
+fig-loracle,human_ont_modern,ms2-dual,345.217,337.217,6129931.54699018,locations/s,2.50829,192.076,offset horizontally for visibility,cap100-dual-ordinary
+fig-loracle,human_ont_modern,ropebwt3 -s11,24.797,24.797,25478.513608683043,locations/s,603.475,7.175,,cap100-rope-s11
+fig-loracle,human_ont_modern,ropebwt3 -s8,97.18,97.18,207361.47486817083,locations/s,74.149,27.527,,cap100-rope-s8
+fig-loracle,human_ont_modern,ropebwt3 -s6,345.352,345.352,574060.8572281961,locations/s,26.783999999999992,99.394,,cap100-rope-s6
+fig-loracle,guccione_skin,ms2-psi,328.754,336.754,8244803.34208714,locations/s,2.64266,187.315,offset horizontally for visibility,cap100-psi-ordinary
+fig-loracle,guccione_skin,ms2-phi,336.753,336.753,8549425.936825583,locations/s,2.5485,186.73,offset horizontally for visibility,cap100-phi-ordinary
+fig-loracle,guccione_skin,ms2-dual,344.754,336.754,8718597.867189532,locations/s,2.49905,189.618,offset horizontally for visibility,cap100-dual-ordinary
+fig-loracle,guccione_skin,ropebwt3 -s11,25.057,25.057,30090.973624388535,locations/s,724.078,7.118,,cap100-rope-s11
+fig-loracle,guccione_skin,ropebwt3 -s8,97.44,97.44,258304.13391661036,locations/s,84.351,27.595,,cap100-rope-s8
+fig-loracle,guccione_skin,ropebwt3 -s6,345.612,345.612,830945.1203234048,locations/s,26.221000000000004,98.594,,cap100-rope-s6
+fig-loracle1,human_short,ms2-psi,328.514,336.514,126928.4802556054,locations/s,1.24567,184.646,offset horizontally for visibility,cap1-psi-ordinary
+fig-loracle1,human_short,ms2-phi,336.514,336.514,64659.40645076862,locations/s,2.44529,188.317,offset horizontally for visibility,cap1-phi-ordinary
+fig-loracle1,human_short,ms2-dual,344.514,336.514,151389.3144389123,locations/s,1.0444,188.363,offset horizontally for visibility,cap1-dual-ordinary
+fig-loracle1,human_short,ropebwt3 -s11,24.725,24.725,9530.500301386377,locations/s,16.59,6.965,,cap1-rope-s11
+fig-loracle1,human_short,ropebwt3 -s8,97.11,97.11,20255.060210094798,locations/s,7.806000000000001,27.19,,cap1-rope-s8
+fig-loracle1,human_short,ropebwt3 -s6,345.282,345.282,23375.36960378476,locations/s,6.763999999999996,99.534,,cap1-rope-s6
+fig-loracle1,human_pacbio,ms2-psi,328.753,336.753,110717.55634988626,locations/s,2.36957,181.882,offset horizontally for visibility,cap1-psi-ordinary
+fig-loracle1,human_pacbio,ms2-phi,336.753,336.753,96487.00833011529,locations/s,2.71905,186.825,offset horizontally for visibility,cap1-phi-ordinary
+fig-loracle1,human_pacbio,ms2-dual,344.753,336.753,142010.4794794903,locations/s,1.84742,188.898,offset horizontally for visibility,cap1-dual-ordinary
+fig-loracle1,human_pacbio,ropebwt3 -s11,24.724,24.724,6877.42155346423,locations/s,38.147000000000006,7.219,,cap1-rope-s11
+fig-loracle1,human_pacbio,ropebwt3 -s8,97.105,97.105,12986.486486486485,locations/s,20.202,27.99,,cap1-rope-s8
+fig-loracle1,human_pacbio,ropebwt3 -s6,345.276,345.276,14352.699819464962,locations/s,18.278999999999996,96.676,,cap1-rope-s6
+fig-loracle1,human_ont_modern,ms2-psi,328.691,336.691,130326.45508187563,locations/s,1.43205,181.29,offset horizontally for visibility,cap1-psi-ordinary
+fig-loracle1,human_ont_modern,ms2-phi,336.688,336.688,124573.8162303595,locations/s,1.49818,188.814,offset horizontally for visibility,cap1-phi-ordinary
+fig-loracle1,human_ont_modern,ms2-dual,344.691,336.691,160516.3798367607,locations/s,1.16271,192.23,offset horizontally for visibility,cap1-dual-ordinary
+fig-loracle1,human_ont_modern,ropebwt3 -s11,24.73,24.73,6497.04100814593,locations/s,28.726,7.174,,cap1-rope-s11
+fig-loracle1,human_ont_modern,ropebwt3 -s8,97.114,97.114,13529.10474809714,locations/s,13.794999999999998,27.157,,cap1-rope-s8
+fig-loracle1,human_ont_modern,ropebwt3 -s6,345.287,345.287,15151.323266764088,locations/s,12.317999999999998,99.381,,cap1-rope-s6
+fig-loracle1,guccione_skin,ms2-psi,328.526,336.526,309328.0484212218,locations/s,0.821458,185.059,offset horizontally for visibility,cap1-psi-ordinary
+fig-loracle1,guccione_skin,ms2-phi,336.527,336.527,321831.7431729494,locations/s,0.789543,187.571,offset horizontally for visibility,cap1-phi-ordinary
+fig-loracle1,guccione_skin,ms2-dual,344.527,336.527,364025.511870584,locations/s,0.698028,188.471,offset horizontally for visibility,cap1-dual-ordinary
+fig-loracle1,guccione_skin,ropebwt3 -s11,24.735,24.735,9382.615759545086,locations/s,27.081999999999997,7.096,,cap1-rope-s11
+fig-loracle1,guccione_skin,ropebwt3 -s8,97.119,97.119,28049.453582073074,locations/s,9.059000000000001,27.59,,cap1-rope-s8
+fig-loracle1,guccione_skin,ropebwt3 -s6,345.292,345.292,35350.58430717862,locations/s,7.188000000000002,97.819,,cap1-rope-s6
+fig-ops,mtb152,ms2-lcp,1.102,1.102,30.864372883667027,ns/base,1.82532,0.0346327,,ms-ordinary
+fig-ops,mtb152,ms2-lcp oracle,1.104,1.104,31.58334442565063,ns/base,1.86784,0.0356307,drawn as a tick across the ordinary bar,ms-oracle
+fig-ops,mtb152,ms2-psi,1.114,1.114,47.13271037797207,ns/base,2.78743,0.043894,,psi-ordinary
+fig-ops,mtb152,ms2-psi oracle,1.115,1.115,29.692915959193257,ns/base,1.75604,0.0436053,drawn as a tick across the ordinary bar,psi-oracle
+fig-ops,mtb152,ms2-dual,1.245,1.245,33.39142596338129,ns/base,1.97477,0.0926664,,dual-ordinary
+fig-ops,mtb152,ms2-dual oracle,1.182,1.182,30.981383303952217,ns/base,1.83224,0.0728155,drawn as a tick across the ordinary bar,dual-oracle
+fig-ops,mtb152,ms2-phi,1.179,1.179,35.96278067620931,ns/base,2.12684,0.0648638,,phi-ordinary
+fig-ops,mtb152,ms2-phi oracle,1.118,1.118,32.44435173792263,ns/base,1.91876,0.0434278,drawn as a tick across the ordinary bar,phi-oracle
+fig-ops,mtb152,ms2-lcp ops,1.102,1.102,1.00506511588768,ops/base,1.82532,0.0346327,"LF 1.0000 + psi, phi, walk 0.0051",ms-ordinary
+fig-ops,mtb152,ms2-psi ops,1.114,1.114,2.7661800000000003,ops/base,2.78743,0.043894,"LF 1.0000 + psi, phi, walk 1.7662",psi-ordinary
+fig-ops,mtb152,ms2-dual ops,1.245,1.245,1.001564626,ops/base,1.97477,0.0926664,"LF 1.0000 + psi, phi, walk 0.0016",dual-ordinary
+fig-ops,mtb152,ms2-phi ops,1.179,1.179,1.0226455,ops/base,2.12684,0.0648638,"LF 1.0000 + psi, phi, walk 0.0226",phi-ordinary
+fig-ops,human472,ms2-lcp,100.949,100.949,41.51156580245645,ns/base,2.48487,42.5517,,ms-ordinary
+fig-ops,human472,ms2-lcp oracle,100.949,100.949,41.765994061146614,ns/base,2.5001,42.3937,drawn as a tick across the ordinary bar,ms-oracle
+fig-ops,human472,ms2-psi,97.481,97.481,68.39993843604604,ns/base,4.0944,45.2259,,psi-ordinary
+fig-ops,human472,ms2-psi oracle,97.483,97.483,35.61310686756999,ns/base,2.13179,45.2728,drawn as a tick across the ordinary bar,psi-oracle
+fig-ops,human472,ms2-dual,228.65,228.65,39.753287783602936,ns/base,2.37962,93.4158,,dual-ordinary
+fig-ops,human472,ms2-dual oracle,171.606,171.606,37.7903645796572,ns/base,2.26212,74.0841,drawn as a tick across the ordinary bar,dual-oracle
+fig-ops,human472,ms2-phi,147.631,147.631,46.642563528923624,ns/base,2.79201,58.9042,,phi-ordinary
+fig-ops,human472,ms2-phi oracle,90.588,90.588,41.8510262237686,ns/base,2.50519,39.192,drawn as a tick across the ordinary bar,phi-oracle
+fig-ops,human472,ms2-lcp ops,100.949,100.949,1.00331579990098,ops/base,2.48487,42.5517,"LF 1.0000 + psi, phi, walk 0.0033",ms-ordinary
+fig-ops,human472,ms2-psi ops,97.481,97.481,3.40698,ops/base,4.0944,45.2259,"LF 1.0000 + psi, phi, walk 2.4070",psi-ordinary
+fig-ops,human472,ms2-dual ops,228.65,228.65,1.00949926,ops/base,2.37962,93.4158,"LF 1.0000 + psi, phi, walk 0.0095",dual-ordinary
+fig-ops,human472,ms2-phi ops,147.631,147.631,1.0697829,ops/base,2.79201,58.9042,"LF 1.0000 + psi, phi, walk 0.0698",phi-ordinary
+fig-ops2,mtb152,ms2-lcp,0.879,0.879,29.5678759446743,ns/base,1.7738,0.0349594,,ms-ordinary
+fig-ops2,mtb152,ms2-lcp oracle,0.9,0.9,29.069132654413476,ns/base,1.74388,0.0439238,drawn as a tick across the ordinary bar,ms-oracle
+fig-ops2,mtb152,ms2-psi,0.892,0.892,37.22821949545516,ns/base,2.23335,0.0440034,,psi-ordinary
+fig-ops2,mtb152,ms2-psi oracle,0.91,0.91,27.140669711556686,ns/base,1.62819,0.0520893,drawn as a tick across the ordinary bar,psi-oracle
+fig-ops2,mtb152,ms2-dual,1.023,1.023,37.69979194470243,ns/base,2.26164,0.095582,,dual-ordinary
+fig-ops2,mtb152,ms2-dual oracle,0.979,0.979,28.62456435390357,ns/base,1.71721,0.0813393,drawn as a tick across the ordinary bar,dual-oracle
+fig-ops2,mtb152,ms2-phi,0.957,0.957,60.07122894313997,ns/base,3.60372,0.065732,,phi-ordinary
+fig-ops2,mtb152,ms2-phi oracle,0.912,0.912,30.690881809141946,ns/base,1.84117,0.0527415,drawn as a tick across the ordinary bar,phi-oracle
+fig-ops2,mtb152,ms2-lcp ops,0.879,0.879,1.13524442538,ops/base,1.7738,0.0349594,"LF 1.0000 + psi, phi, walk 0.1352",ms-ordinary
+fig-ops2,mtb152,ms2-psi ops,0.892,0.892,1.706021,ops/base,2.23335,0.0440034,"LF 1.0000 + psi, phi, walk 0.7060",psi-ordinary
+fig-ops2,mtb152,ms2-dual ops,1.023,1.023,1.01178196,ops/base,2.26164,0.095582,"LF 1.0000 + psi, phi, walk 0.0118",dual-ordinary
+fig-ops2,mtb152,ms2-phi ops,0.957,0.957,1.90524,ops/base,3.60372,0.065732,"LF 1.0000 + psi, phi, walk 0.9052",phi-ordinary
+fig-ops2,human472,ms2-lcp,100.722,100.722,42.25318159225305,ns/base,2.53446,43.1587,,ms-ordinary
+fig-ops2,human472,ms2-lcp oracle,100.753,100.753,38.89788092573756,ns/base,2.3332,41.9473,drawn as a tick across the ordinary bar,ms-oracle
+fig-ops2,human472,ms2-psi,97.252,97.252,68.1278079136882,ns/base,4.08649,46.0373,,psi-ordinary
+fig-ops2,human472,ms2-psi oracle,97.284,97.284,34.155847130727786,ns/base,2.04876,45.9449,drawn as a tick across the ordinary bar,psi-oracle
+fig-ops2,human472,ms2-dual,228.42,228.42,50.363019658567566,ns/base,3.02091,94.4983,,dual-ordinary
+fig-ops2,human472,ms2-dual oracle,171.408,171.408,36.688410602109926,ns/base,2.20067,75.8988,drawn as a tick across the ordinary bar,dual-oracle
+fig-ops2,human472,ms2-phi,147.401,147.401,238.27869574798413,ns/base,14.2926,59.2065,,phi-ordinary
+fig-ops2,human472,ms2-phi oracle,90.389,90.389,40.40664923697503,ns/base,2.4237,39.8112,drawn as a tick across the ordinary bar,phi-oracle
+fig-ops2,human472,ms2-lcp ops,100.722,100.722,1.2353860647100001,ops/base,2.53446,43.1587,"LF 1.0000 + psi, phi, walk 0.2354",ms-ordinary
+fig-ops2,human472,ms2-psi ops,97.252,97.252,2.86249,ops/base,4.08649,46.0373,"LF 1.0000 + psi, phi, walk 1.8625",psi-ordinary
+fig-ops2,human472,ms2-dual ops,228.42,228.42,1.1128056,ops/base,3.02091,94.4983,"LF 1.0000 + psi, phi, walk 0.1128",dual-ordinary
+fig-ops2,human472,ms2-phi ops,147.401,147.401,7.72344,ops/base,14.2926,59.2065,"LF 1.0000 + psi, phi, walk 6.7234",phi-ordinary

@@ -1,0 +1,40 @@
+{
+  "run": 1,
+  "host": "ip-10-0-4-177.ec2.internal",
+  "started": 1793500966.9907866,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t1",
+    "-l1",
+    "/work/stage/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd",
+    "/work/stage/inputs/9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f/reads.fa"
+  ],
+  "timeout_s": 7200,
+  "cache": "drop_caches",
+  "wall_seconds": 84.71596072900047,
+  "user_seconds": 80.14,
+  "system_seconds": 4.54,
+  "peak_rss_kib": 15300440,
+  "phase": {
+    "source": "ropebwt3-log-stamps",
+    "query_definition": "last processed stamp - last loaded stamp",
+    "load_seconds": 4.305,
+    "query_seconds": 80.34,
+    "components": {
+      "last_loaded_s": 4.305,
+      "last_processed_s": 84.645,
+      "processed_sequences": 480000
+    }
+  },
+  "check": {
+    "reads": 480000,
+    "positions": 60000000,
+    "failed": 0,
+    "validation": "MS rebuilt from every -l1 SMEM equals truth"
+  },
+  "finished": 1793501063.7319152
+}

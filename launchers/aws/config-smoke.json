@@ -1,0 +1,18 @@
+{
+    "account": "159168350739",
+    "region": "us-east-1",
+    "instance_types": [
+        "r6idn.metal",
+        "i4i.metal"
+    ],
+    "box_count": 1,
+    "initial_boxes": 1,
+    "max_idle_minutes": 10,
+    "spot_max_price": null,
+    "max_hours_per_box": 3,
+    "root_volume_gb": 100,
+    "instance_role_name": "index-zone-movi-kmer-bench-role",
+    "bench_s3_root": "s3://ms2-freeze-159168350739/smoke",
+    "manifest": "manifest.json",
+    "ssh_cidr": "0.0.0.0/0"
+}

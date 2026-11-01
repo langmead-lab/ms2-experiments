@@ -1,0 +1,4 @@
+replog: repositions=1882721 bytes=120494144 path=/work/stage/work/freeze-2885ee8-3c8c8967/a1-chr22-ladder/runs/fig_rep-b2__chr22-B-h50/run1/rep/psi.replog
+stats: bases=59991907 repositions/base=0.0313829 psi_steps/base=1.21963 scan_rows/rep=8.58977 len/rep=54.41 phi_steps/base=0 dist/rep=92.8591 dist1_frac=0.322083 lce/rep=22.9915 capped_frac=0.278543 scan_visits/rep=1.25001 lf_ff/step=0.177203 walk_visits/base=0.744183
+stats: bases=59991907 repositions/base=0 lf_ff/step=-nan walk_up/rep=-nan walk_down/rep=-nan
+query: reads=2864 bases=59991907 threads=1 index_load_s=0.610985 ftab_k=0 ftab_s=0 query_s=2.72626 read_s=0.0115435 parse_s=0.0448091 format_s=0.689855 orient=fwd flipped=0 orient_s=0 total_s=3.65142 query_ns_per_base=45.4438 wall_ns_per_base=60.8651

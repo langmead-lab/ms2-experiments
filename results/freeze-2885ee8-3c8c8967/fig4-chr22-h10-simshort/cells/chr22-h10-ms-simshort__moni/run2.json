@@ -1,0 +1,51 @@
+{
+  "run": 2,
+  "host": "ip-10-0-2-66.ec2.internal",
+  "started": 1793417589.4110134,
+  "one": {
+    "argv": [
+      "numactl",
+      "--cpunodebind=0",
+      "--membind=0",
+      "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simshort/legacy/moni-chr22-h10/index",
+      "-p",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run2/one/reads.fa",
+      "-o",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run2/one/output",
+      "-t",
+      "1"
+    ],
+    "cache": "drop_caches",
+    "wall_seconds": 0.3622004400003789,
+    "peak_rss_kib": 674124,
+    "user_seconds": 0.03,
+    "system_seconds": 0.3
+  },
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simshort/legacy/moni-chr22-h10/index",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run2/full/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__moni/run2/full/output",
+    "-t",
+    "1"
+  ],
+  "cache": "drop_caches",
+  "timeout_s": 7200,
+  "wall_seconds": 80.20384652299981,
+  "user_seconds": 78.26,
+  "system_seconds": 1.9,
+  "peak_rss_kib": 674124,
+  "phase": {
+    "source": "one-read-wall",
+    "query_definition": "full run wall minus one-read run wall",
+    "load_seconds": 0.3622004400003789,
+    "query_seconds": 79.84164608299943
+  },
+  "finished": 1793417670.0585234
+}

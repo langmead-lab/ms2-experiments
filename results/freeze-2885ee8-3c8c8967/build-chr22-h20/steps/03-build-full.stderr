@@ -1,0 +1,11 @@
+mem	lcp_summary	t=0.0s	rss=1.220GiB	peak=2.650GiB	peak_per=52.1B
+mem	load	t=0.9s	rss=0.630GiB	peak=1.347GiB	peak_per=26.5B
+mem	tms_union_rows	t=10.2s	rss=0.779GiB	peak=2.412GiB	peak_per=47.5B
+mem	tms_lf_enc	t=11.6s	rss=1.272GiB	peak=1.272GiB	peak_per=25.0B
+mem	tms_phi_walk	t=210.6s	rss=1.509GiB	peak=2.424GiB	peak_per=47.7B
+mem	tms_phi	t=311.7s	rss=2.150GiB	peak=3.853GiB	peak_per=75.8B
+mem	tms_phi_cols	t=325.2s	rss=2.379GiB	peak=2.403GiB	peak_per=47.3B
+mem	tms_build_phi	t=390.6s	rss=2.792GiB	peak=4.116GiB	peak_per=81.0B
+mem	tms_assemble	t=394.8s	rss=3.241GiB	peak=4.111GiB	peak_per=80.9B
+mem	tms_phi_len	t=396.6s	rss=3.706GiB	peak=3.706GiB	peak_per=72.9B
+mem	write	t=401.2s	rss=3.715GiB	peak=3.715GiB	peak_per=73.1B

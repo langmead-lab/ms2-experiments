@@ -1,0 +1,92 @@
+{
+  "job": "loc-human_short-ms2phi-ftab",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "host": {
+    "hostname": "ip-10-0-0-221.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0e932ef405716a7e3",
+    "availability_zone": "us-east-1a",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793506647.7375264,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "loc-human_short-ms2phi-ftab",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 3,
+  "already_done": 0,
+  "order": [
+    "human_short-locate-6mb/cap100-phi-ftab",
+    "human_short-locate-6mb/cap10-phi-ftab",
+    "human_short-locate-6mb/cap1-phi-ftab"
+  ],
+  "staging": {
+    "ms2/human472/index.tms.full.seqids.orbitidx": {
+      "sha256": "39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588",
+      "bytes": 409196490183,
+      "fresh": false,
+      "seconds": 3.5762786865234375e-05
+    },
+    "ms2/human472/index.tms.full.seqids.orbitidx.ftab": {
+      "sha256": "0f51634b327a5bfb3aeb1513c825e64e4e06c80e777ae6752675ec4703d15383",
+      "bytes": 3590332424,
+      "fresh": true,
+      "seconds": 10.526021003723145
+    },
+    "reads/human472/human_short-locate-6mb-v2/offsets.u64": {
+      "sha256": "150eb49086d6a941657871ba57c97cf2f3af5de8698e560582d6cbdcfe879b2f",
+      "bytes": 384008,
+      "fresh": true,
+      "seconds": 0.743765115737915
+    },
+    "reads/human472/human_short-locate-6mb-v2/reads.fa": {
+      "sha256": "a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338",
+      "bytes": 6420890,
+      "fresh": true,
+      "seconds": 0.748971700668335
+    },
+    "reads/human472/human_short-locate-6mb-v2/truth.u32": {
+      "sha256": "350a3f83f92835ef6b6e732f9c55e408f8663ee8a7d6c8a885515e6a932fc176",
+      "bytes": 24000000,
+      "fresh": true,
+      "seconds": 0.8625597953796387
+    },
+    "ropebwt3/human472/index.fmd.len.gz": {
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0",
+      "bytes": 286728,
+      "fresh": true,
+      "seconds": 0.8572695255279541
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 3.933906555175781e-05
+    }
+  },
+  "finished": 1793508602.5872438,
+  "results": {
+    "human_short-locate-6mb/cap100-phi-ftab": "checked",
+    "human_short-locate-6mb/cap10-phi-ftab": "checked",
+    "human_short-locate-6mb/cap1-phi-ftab": "checked"
+  }
+}

@@ -1,0 +1,345 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "cap1-dual-ordinary",
+  "cell": "human_pacbio-locate-20mb/cap1-dual-ordinary",
+  "group": "human_pacbio-locate-20mb",
+  "figures": [
+    "A3"
+  ],
+  "tool": "ms2",
+  "kind": "locate",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "job": "loc-human_pacbio-ms2dual",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-3-58.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-03bb2fe316bbb737d",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "transparent_hugepages": "always",
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 953,
+  "bases": 19986831,
+  "reference": "human472",
+  "read_set": "human_pacbio-locate-20mb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "index": {
+      "name": "ms2/human472/index.tms.full.seqids.orbitidx",
+      "sha256": "39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588"
+    },
+    "lengths": {
+      "name": "ropebwt3/human472/index.fmd.len.gz",
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0"
+    },
+    "reads": {
+      "name": "reads/human472/human_pacbio-locate-20mb-v2/reads.fa",
+      "sha256": "8eca4b06b72beec9b6ecbc692c5b0fbdc970cd5bd53dc3609861ed70ebcdfde5"
+    },
+    "truth": {
+      "name": "reads/human472/human_pacbio-locate-20mb-v2/truth.u32",
+      "sha256": "4752a77813af1254088abf060a0297ceb43a7aa8288f73f0c0f6dbb457ae7af7"
+    },
+    "offsets": {
+      "name": "reads/human472/human_pacbio-locate-20mb-v2/offsets.u64",
+      "sha256": "de01f5e61baf5a0b905c9783f6e1553d096f2424744708fa735c757c93451c73"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793510010.6225505,
+  "layout": "dual",
+  "mode": "ordinary",
+  "interleave": 32,
+  "cap": 1,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-3-58.ec2.internal",
+      "started": 1793510010.622637,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/8eca4b06b72beec9b6ecbc692c5b0fbdc970cd5bd53dc3609861ed70ebcdfde5/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/loc-human_pacbio-ms2dual/runs/human_pacbio-locate-20mb__cap1-dual-ordinary/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "dual",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "1"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 191.89834831500048,
+      "user_seconds": 83.65,
+      "system_seconds": 108.19,
+      "peak_rss_kib": 353110660,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 189.381,
+        "query_seconds": 1.85523,
+        "components": {
+          "index_load_s": 189.381,
+          "ftab_s": 0.0,
+          "query_s": 1.76037,
+          "read_s": 0.00564682,
+          "parse_s": 0.0169641,
+          "format_s": 0.0663074,
+          "total_s": 1.85523
+        }
+      },
+      "check": {
+        "failed": 0,
+        "validation": "cross-tool-v1",
+        "tool": "orbit",
+        "cap": 1,
+        "reads": 953,
+        "intervals": 262353,
+        "zero_count_intervals": 0,
+        "reported_locations_checked": 262353,
+        "locations_in_bounds": 262353,
+        "ms_positions_checked": 19986831,
+        "emitted_counts": 262353,
+        "complete_set_intervals": 18276,
+        "complete_set_locations": 18276,
+        "over_cap_intervals": 244077,
+        "over_cap_locations": 244077,
+        "all_coordinates_checked": false,
+        "occurrence_reference_checked": false,
+        "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+        "count_checks": "cross-tool agreement",
+        "canonical": {
+          "format": "canonical-smem-v1",
+          "sha256": "1b82fffffef87e67964a8d3bcbb2ea9f3e15384a1aac80eeccdcf055685f684f",
+          "lines": 262353,
+          "bytes": 14756924,
+          "cap": 1,
+          "over_cap_lines": 244077,
+          "over_cap_locations": 244077,
+          "over_cap_sha256": "25112146a4bc51ff7f52f8a572165e76ead245a1193c172890f39906aaacf8d6",
+          "compressed_bytes": 4675556,
+          "compressed_sha256": "bdde7e4243b6e8f87b6d176a0ee655cab38f872c310fd67224122e38e6c3b924",
+          "path": "/work/stage/work/freeze-2885ee8-00e665de/loc-human_pacbio-ms2dual/canonical/human_pacbio-locate-20mb__cap1-dual-ordinary.canonical.gz"
+        }
+      },
+      "finished": 1793510218.2458498
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-3-58.ec2.internal",
+      "started": 1793510218.246445,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/8eca4b06b72beec9b6ecbc692c5b0fbdc970cd5bd53dc3609861ed70ebcdfde5/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/loc-human_pacbio-ms2dual/runs/human_pacbio-locate-20mb__cap1-dual-ordinary/run2/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "dual",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "1"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 191.41135122299966,
+      "user_seconds": 82.94,
+      "system_seconds": 108.4,
+      "peak_rss_kib": 353109984,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 188.898,
+        "query_seconds": 1.84742,
+        "components": {
+          "index_load_s": 188.898,
+          "ftab_s": 0.0,
+          "query_s": 1.75451,
+          "read_s": 0.00556755,
+          "parse_s": 0.0169928,
+          "format_s": 0.0644912,
+          "total_s": 1.84742
+        }
+      },
+      "finished": 1793510414.0745142
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-3-58.ec2.internal",
+      "started": 1793510414.075003,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/8eca4b06b72beec9b6ecbc692c5b0fbdc970cd5bd53dc3609861ed70ebcdfde5/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/loc-human_pacbio-ms2dual/runs/human_pacbio-locate-20mb__cap1-dual-ordinary/run3/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "dual",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "1"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 187.72452118900037,
+      "user_seconds": 81.29,
+      "system_seconds": 106.37,
+      "peak_rss_kib": 353109744,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 185.247,
+        "query_seconds": 1.82932,
+        "components": {
+          "index_load_s": 185.247,
+          "ftab_s": 0.0,
+          "query_s": 1.73699,
+          "read_s": 0.00518288,
+          "parse_s": 0.0170403,
+          "format_s": 0.0642205,
+          "total_s": 1.82932
+        }
+      },
+      "finished": 1793510606.1994154
+    }
+  ],
+  "check": {
+    "failed": 0,
+    "validation": "cross-tool-v1",
+    "tool": "orbit",
+    "cap": 1,
+    "reads": 953,
+    "intervals": 262353,
+    "zero_count_intervals": 0,
+    "reported_locations_checked": 262353,
+    "locations_in_bounds": 262353,
+    "ms_positions_checked": 19986831,
+    "emitted_counts": 262353,
+    "complete_set_intervals": 18276,
+    "complete_set_locations": 18276,
+    "over_cap_intervals": 244077,
+    "over_cap_locations": 244077,
+    "all_coordinates_checked": false,
+    "occurrence_reference_checked": false,
+    "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+    "count_checks": "cross-tool agreement",
+    "canonical": {
+      "format": "canonical-smem-v1",
+      "sha256": "1b82fffffef87e67964a8d3bcbb2ea9f3e15384a1aac80eeccdcf055685f684f",
+      "lines": 262353,
+      "bytes": 14756924,
+      "cap": 1,
+      "over_cap_lines": 244077,
+      "over_cap_locations": 244077,
+      "over_cap_sha256": "25112146a4bc51ff7f52f8a572165e76ead245a1193c172890f39906aaacf8d6",
+      "compressed_bytes": 4675556,
+      "compressed_sha256": "bdde7e4243b6e8f87b6d176a0ee655cab38f872c310fd67224122e38e6c3b924",
+      "path": "/work/stage/work/freeze-2885ee8-00e665de/loc-human_pacbio-ms2dual/canonical/human_pacbio-locate-20mb__cap1-dual-ordinary.canonical.gz"
+    }
+  },
+  "query_seconds": [
+    1.85523,
+    1.84742,
+    1.82932
+  ],
+  "median_query_seconds": 1.84742,
+  "load_seconds": [
+    189.381,
+    188.898,
+    185.247
+  ],
+  "median_load_seconds": 188.898,
+  "wall_seconds": [
+    191.89834831500048,
+    191.41135122299966,
+    187.72452118900037
+  ],
+  "peak_rss_kib": 353110660,
+  "query_spread_fraction": 0.014024964545149385,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 10.818780244882051,
+  "ns_per_base": 92.43186175937547,
+  "locations": 262353,
+  "smems": 262353,
+  "locations_per_second": 142010.4794794903,
+  "finished": 1793510606.1996565
+}

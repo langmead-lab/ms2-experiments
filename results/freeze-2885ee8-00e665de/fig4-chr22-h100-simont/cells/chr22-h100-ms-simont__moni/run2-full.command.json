@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/legacy/moni-chr22-h100/index",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__moni/run2/full/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__moni/run2/full/output",
+    "-t",
+    "1"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__moni/run2/full",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 98.25258935300008,
+  "stdout": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__moni/run2/full/full.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__moni/run2/full/full.stderr",
+  "native_wall_seconds": 98.24,
+  "user_seconds": 97.12,
+  "system_seconds": 1.08,
+  "peak_rss_kib": 1102080
+}

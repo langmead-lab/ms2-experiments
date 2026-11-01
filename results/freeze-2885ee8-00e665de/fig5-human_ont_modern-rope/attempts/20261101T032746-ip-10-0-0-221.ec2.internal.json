@@ -1,0 +1,90 @@
+{
+  "job": "fig5-human_ont_modern-rope",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "host": {
+    "hostname": "ip-10-0-0-221.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0e932ef405716a7e3",
+    "availability_zone": "us-east-1a",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793502579.3161461,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "fig5-human_ont_modern-rope",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 5,
+  "already_done": 0,
+  "order": [
+    "human_ont_modern-ms-acgt60mb/rope-l40",
+    "human_ont_modern-ms-acgt60mb/rope-l30",
+    "human_ont_modern-ms-acgt60mb/rope-l25",
+    "human_ont_modern-ms-acgt60mb/rope-l1",
+    "human_ont_modern-ms-acgt60mb/rope-default"
+  ],
+  "staging": {
+    "reads/human472/human_ont_modern-ms-60mb-acgt-v2/offsets.u64": {
+      "sha256": "60506322dffa16a5d9d9cbc2dc516ddf97bd61d84b05a6dfa34a7fc3ca748f71",
+      "bytes": 21656,
+      "fresh": false,
+      "seconds": 4.4345855712890625e-05
+    },
+    "reads/human472/human_ont_modern-ms-60mb-acgt-v2/reads.fa": {
+      "sha256": "34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26",
+      "bytes": 59955193,
+      "fresh": false,
+      "seconds": 2.1696090698242188e-05
+    },
+    "reads/human472/human_ont_modern-ms-60mb-acgt-v2/truth.u32": {
+      "sha256": "4d04f6784335bcea477f8b4cd14a7f8134990c74a2a7c7d8af44be913a293643",
+      "bytes": 239738620,
+      "fresh": false,
+      "seconds": 2.4080276489257812e-05
+    },
+    "ropebwt3/human472/index.fmd": {
+      "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626",
+      "bytes": 15427477160,
+      "fresh": true,
+      "seconds": 41.05743765830994
+    },
+    "tools/ropebwt3-cfad8475/ropebwt3": {
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d",
+      "bytes": 1595032,
+      "fresh": false,
+      "seconds": 5.0067901611328125e-05
+    },
+    "tools/runtime/libgomp.so.1": {
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8",
+      "bytes": 1501072,
+      "fresh": false,
+      "seconds": 2.9325485229492188e-05
+    }
+  },
+  "finished": 1793503666.355505,
+  "results": {
+    "human_ont_modern-ms-acgt60mb/rope-l40": "checked",
+    "human_ont_modern-ms-acgt60mb/rope-l30": "checked",
+    "human_ont_modern-ms-acgt60mb/rope-l25": "checked",
+    "human_ont_modern-ms-acgt60mb/rope-l1": "checked",
+    "human_ont_modern-ms-acgt60mb/rope-default": "checked"
+  }
+}

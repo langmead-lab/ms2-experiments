@@ -1,0 +1,263 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "rope-default",
+  "cell": "chr22-h100-ms-simont/rope-default",
+  "group": "chr22-h100-ms-simont",
+  "figures": [
+    "4"
+  ],
+  "tool": "ropebwt3",
+  "kind": "ms",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "job": "fig4-chr22-h100-simont",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-5-162.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-052f1ee60b355c51c",
+    "availability_zone": "us-east-1f",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "transparent_hugepages": "always",
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 2782,
+  "bases": 59998845,
+  "reference": "chr22-h100",
+  "read_set": "simont-60mb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ropebwt3-cfad8475/ropebwt3",
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+    },
+    "runtime": {
+      "name": "tools/runtime/libgomp.so.1",
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8"
+    },
+    "fmd": {
+      "name": "ropebwt3/chr22-h100/index.fmd",
+      "sha256": "7e3c46f0db21cf8b79fb1e40b37c4ac82a24e6e75ed1f8428d1eaba5e12ebb46"
+    },
+    "reads": {
+      "name": "reads/chr22-h100/simont-60mb-v2/reads.fa",
+      "sha256": "2cf92676c29eb68f71c4c3181e273b56a94c38f73baa2a80b1b9ac36410bdf2e"
+    },
+    "truth": {
+      "name": "reads/chr22-h100/simont-60mb-v2/truth.u32",
+      "sha256": "e2a2c8f6903dd1f9a3551253e02bd14c9f340b0420cb42338c17942fadf54e58"
+    },
+    "offsets": {
+      "name": "reads/chr22-h100/simont-60mb-v2/offsets.u64",
+      "sha256": "cf4b6f0758440fae99658cd8fc4b933c70db03c0203bcecd3380401f6883d944"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793499390.7044067,
+  "min_len": 19,
+  "batch": "1m",
+  "preparation": {
+    "reference": {
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-K",
+        "1m",
+        "--old-mem",
+        "-l19",
+        "/work/stage/inputs/7e3c46f0db21cf8b79fb1e40b37c4ac82a24e6e75ed1f8428d1eaba5e12ebb46/index.fmd",
+        "/work/stage/inputs/2cf92676c29eb68f71c4c3181e273b56a94c38f73baa2a80b1b9ac36410bdf2e/reads.fa"
+      ],
+      "wall_seconds": 62.02340468500006
+    }
+  },
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-5-162.ec2.internal",
+      "started": 1793499452.7594962,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-K",
+        "1m",
+        "/work/stage/inputs/7e3c46f0db21cf8b79fb1e40b37c4ac82a24e6e75ed1f8428d1eaba5e12ebb46/index.fmd",
+        "/work/stage/inputs/2cf92676c29eb68f71c4c3181e273b56a94c38f73baa2a80b1b9ac36410bdf2e/reads.fa"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 42.51581561899957,
+      "user_seconds": 42.54,
+      "system_seconds": 0.06,
+      "peak_rss_kib": 178448,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 0.045,
+        "query_seconds": 42.448,
+        "components": {
+          "last_loaded_s": 0.045,
+          "last_processed_s": 42.493,
+          "processed_sequences": 2782
+        }
+      },
+      "check": {
+        "failed": 0,
+        "reads": 2782,
+        "intervals": 685263,
+        "min_length": 19,
+        "validation": "all long-SMEM intervals from exact MS truth; counts from original MEM search",
+        "occurrence_counts_checked": true,
+        "exact_ms_equivalence": false
+      },
+      "finished": 1793499501.86181
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-5-162.ec2.internal",
+      "started": 1793499501.8622553,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-K",
+        "1m",
+        "/work/stage/inputs/7e3c46f0db21cf8b79fb1e40b37c4ac82a24e6e75ed1f8428d1eaba5e12ebb46/index.fmd",
+        "/work/stage/inputs/2cf92676c29eb68f71c4c3181e273b56a94c38f73baa2a80b1b9ac36410bdf2e/reads.fa"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 42.6260519399998,
+      "user_seconds": 42.6,
+      "system_seconds": 0.1,
+      "peak_rss_kib": 175220,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 0.046,
+        "query_seconds": 42.553,
+        "components": {
+          "last_loaded_s": 0.046,
+          "last_processed_s": 42.599,
+          "processed_sequences": 2782
+        }
+      },
+      "finished": 1793499544.5043643
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-5-162.ec2.internal",
+      "started": 1793499544.504883,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-K",
+        "1m",
+        "/work/stage/inputs/7e3c46f0db21cf8b79fb1e40b37c4ac82a24e6e75ed1f8428d1eaba5e12ebb46/index.fmd",
+        "/work/stage/inputs/2cf92676c29eb68f71c4c3181e273b56a94c38f73baa2a80b1b9ac36410bdf2e/reads.fa"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 42.44013534700025,
+      "user_seconds": 42.47,
+      "system_seconds": 0.06,
+      "peak_rss_kib": 175744,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 0.045,
+        "query_seconds": 42.370999999999995,
+        "components": {
+          "last_loaded_s": 0.045,
+          "last_processed_s": 42.416,
+          "processed_sequences": 2782
+        }
+      },
+      "finished": 1793499586.9639306
+    }
+  ],
+  "check": {
+    "failed": 0,
+    "reads": 2782,
+    "intervals": 685263,
+    "min_length": 19,
+    "validation": "all long-SMEM intervals from exact MS truth; counts from original MEM search",
+    "occurrence_counts_checked": true,
+    "exact_ms_equivalence": false
+  },
+  "query_seconds": [
+    42.448,
+    42.553,
+    42.370999999999995
+  ],
+  "median_query_seconds": 42.448,
+  "load_seconds": [
+    0.045,
+    0.046,
+    0.045
+  ],
+  "median_load_seconds": 0.045,
+  "wall_seconds": [
+    42.51581561899957,
+    42.6260519399998,
+    42.44013534700025
+  ],
+  "peak_rss_kib": 178448,
+  "query_spread_fraction": 0.00428759894459108,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 1.413466947794949,
+  "ns_per_base": 707.4802856621657,
+  "finished": 1793499586.9641645
+}

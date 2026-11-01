@@ -1,0 +1,29 @@
+{
+  "job": "build-chr22-h20",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "outputs": {
+    "ms2/chr22-h20/index.tms.full.orbitidx": {
+      "sha256": "13aec2d7b3e231c8c76624157842c739c30dc36a2d15211466fe71b2bc5e721c",
+      "bytes": 3261930805
+    },
+    "ms2/chr22-h20/index.tms.phi.orbitidx": {
+      "sha256": "6adf3c65e8ec721e51beb1ebebcfcc49b9e5636afc7129303bd795cd76a0448f",
+      "bytes": 2623036725
+    },
+    "ms2/chr22-h20/index.tms.psi.orbitidx": {
+      "sha256": "f2242f972bec07a75ae62350e7ea97f72fceb6c8f49e73cc5e2facd7a9dd5495",
+      "bytes": 793444408
+    }
+  },
+  "host": {
+    "hostname": "ip-10-0-2-66.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0769303767f334774",
+    "availability_zone": "us-east-1c",
+    "lifecycle": "spot"
+  },
+  "finished": 1793413547.7817159
+}

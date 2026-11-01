@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b/aug_phoni",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simont/legacy/augphoni-chr22-h100/reference.txt",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__augphoni/run1/full/reads.fa",
+    "-g",
+    "naive",
+    "-t",
+    "compressed"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__augphoni/run1/full",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 121.69483056099853,
+  "stdout": "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__augphoni/run1/full/full.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__augphoni/run1/full/full.stderr",
+  "native_wall_seconds": 121.68,
+  "user_seconds": 119.98,
+  "system_seconds": 1.68,
+  "peak_rss_kib": 1561336
+}

@@ -1,0 +1,90 @@
+{
+  "job": "fig5-guccione_skin-rope",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "host": {
+    "hostname": "ip-10-0-1-47.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-004afdcce3342ad28",
+    "availability_zone": "us-east-1b",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793503704.0579073,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "fig5-guccione_skin-rope",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 5,
+  "already_done": 0,
+  "order": [
+    "guccione_skin-ms-acgt60mb/rope-l40",
+    "guccione_skin-ms-acgt60mb/rope-l25",
+    "guccione_skin-ms-acgt60mb/rope-l1",
+    "guccione_skin-ms-acgt60mb/rope-default",
+    "guccione_skin-ms-acgt60mb/rope-l30"
+  ],
+  "staging": {
+    "reads/human472/guccione_skin-ms-60mb-acgt-v2/offsets.u64": {
+      "sha256": "588031bfe4f67069a5077f53e1a78b13e0f53423f0d6fe94a01c3bb4926ec39f",
+      "bytes": 3511760,
+      "fresh": true,
+      "seconds": 0.738471508026123
+    },
+    "reads/human472/guccione_skin-ms-60mb-acgt-v2/reads.fa": {
+      "sha256": "b75f41ae7ce8983c6db6e20dbfe76094795ebc95dd02720d6d40220c41c499ae",
+      "bytes": 64278575,
+      "fresh": true,
+      "seconds": 0.9738061428070068
+    },
+    "reads/human472/guccione_skin-ms-60mb-acgt-v2/truth.u32": {
+      "sha256": "5097de82474dea3125a026abf545af93b9cd1c4126d59d49835e0d2b0b68b1d0",
+      "bytes": 239999980,
+      "fresh": true,
+      "seconds": 1.513671875
+    },
+    "ropebwt3/human472/index.fmd": {
+      "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626",
+      "bytes": 15427477160,
+      "fresh": true,
+      "seconds": 40.62861680984497
+    },
+    "tools/ropebwt3-cfad8475/ropebwt3": {
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d",
+      "bytes": 1595032,
+      "fresh": false,
+      "seconds": 5.054473876953125e-05
+    },
+    "tools/runtime/libgomp.so.1": {
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8",
+      "bytes": 1501072,
+      "fresh": false,
+      "seconds": 3.0279159545898438e-05
+    }
+  },
+  "finished": 1793508605.6722896,
+  "results": {
+    "guccione_skin-ms-acgt60mb/rope-l40": "checked",
+    "guccione_skin-ms-acgt60mb/rope-l25": "checked",
+    "guccione_skin-ms-acgt60mb/rope-l1": "checked",
+    "guccione_skin-ms-acgt60mb/rope-default": "checked",
+    "guccione_skin-ms-acgt60mb/rope-l30": "checked"
+  }
+}

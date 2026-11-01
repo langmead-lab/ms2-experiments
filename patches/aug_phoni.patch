@@ -1,0 +1,219 @@
+From 900dd24365fa83893f67249625187cab0e74a690 Mon Sep 17 00:00:00 2001
+From: Benjamin Langmead <langmea@cs.jhu.edu>
+Date: Sun, 1 Nov 2026 09:52:46 -0500
+Subject: [PATCH 1/3] Set run1 before computing the succeeding LCE
+
+When rank is 0 there is no preceding occurrence of c, so the query loops call compute_succeeding_lce() right away. That lambda reads samples_start[run1], but run1 was only assigned later, in the branch that compares against the threshold. The rank-0 case therefore read an uninitialized run number, and the resulting matching statistics lengths can be too short. Assign run1 as soon as the succeeding occurrence sa1 is selected, in both the in-memory and file-based query loops.
+---
+ include/ms/aug_phoni.hpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/ms/aug_phoni.hpp b/include/ms/aug_phoni.hpp
+index a5876f7..b2c8d9e 100644
+--- a/include/ms/aug_phoni.hpp
++++ b/include/ms/aug_phoni.hpp
+@@ -367,6 +367,7 @@ public:
+ 
+ 				if(rank < number_of_runs_of_c) {
+ 					sa1 = this->bwt.select(rank, c);
++					run1 = this->bwt.run_of_position(sa1);
+ 					DCHECK_GT(sa1, pos);
+ 				}
+ 
+@@ -440,7 +441,6 @@ public:
+ 					// {
+                         // INSERT CHECK HERE
+                         // Check thresholds and boundary LCEs first
+-                        run1 = this->bwt.run_of_position(sa1);
+                         const size_t thr = thresholds[run1];
+                         if (pos < thr) // check preceding thr_lce or compute new preceding LCE
+                         {
+@@ -684,6 +684,7 @@ public:
+ 
+ 				if(rank < number_of_runs_of_c) {
+ 					sa1 = this->bwt.select(rank, c);
++					run1 = this->bwt.run_of_position(sa1);
+ 					DCHECK_GT(sa1, pos);
+ 				}
+ 				
+@@ -757,7 +758,6 @@ public:
+ 					// {
+                         // INSERT CHECK HERE
+                         // Check thresholds and boundary LCEs first
+-                        run1 = this->bwt.run_of_position(sa1);
+                         const size_t thr = thresholds[run1];
+                         if (pos < thr) // check preceding thr_lce or compute new preceding LCE
+                         {
+-- 
+2.54.0 (Apple Git-157)
+
+
+From f191c268c8a8e5449d27d04cea7d79b9d40915ae Mon Sep 17 00:00:00 2001
+From: Benjamin Langmead <langmea@cs.jhu.edu>
+Date: Sun, 1 Nov 2026 09:52:46 -0500
+Subject: [PATCH 2/3] Start matching statistics at the first occurrence of the
+ last character
+
+The query loops initialize the BWT row with bwt.select(1, c) and the reference pointer with the sample at the start of that row's run. select is zero-based, so this picks the second occurrence of c. When that occurrence lies inside a run rather than at its start, the row and the pointer refer to different suffixes, and the matching statistics computed from that state can be wrong. Selecting occurrence 0 picks the start of the first run of c, so the row and its sample agree. Both the in-memory and file-based query loops are fixed.
+---
+ include/ms/aug_phoni.hpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/ms/aug_phoni.hpp b/include/ms/aug_phoni.hpp
+index b2c8d9e..6341a4b 100644
+--- a/include/ms/aug_phoni.hpp
++++ b/include/ms/aug_phoni.hpp
+@@ -317,7 +317,7 @@ public:
+         DCHECK_GT(this->bwt.number_of_letter(pattern_at(m-1)), 0);
+ 
+         //! Start with the last character
+-        auto pos = this->bwt.select(1, pattern_at(m-1));
++        auto pos = this->bwt.select(0, pattern_at(m-1));
+         {
+             const ri::ulint run_of_j = this->bwt.run_of_position(pos);
+             ON_DEBUG(ms_references[m-1] = samples_start[run_of_j]);
+@@ -633,7 +633,7 @@ public:
+         DCHECK_GT(this->bwt.number_of_letter(pattern_at(m-1)), 0);
+ 
+         //! Start with the last character
+-        auto pos = this->bwt.select(1, pattern_at(m-1));
++        auto pos = this->bwt.select(0, pattern_at(m-1));
+         {
+             const ri::ulint run_of_j = this->bwt.run_of_position(pos);
+             ON_DEBUG(ms_references[m-1] = samples_start[run_of_j]);
+-- 
+2.54.0 (Apple Git-157)
+
+
+From 0bf0b0c2cae1aa68560e25f2973fc0b91deb1d59 Mon Sep 17 00:00:00 2001
+From: Benjamin Langmead <langmea@cs.jhu.edu>
+Date: Sun, 1 Nov 2026 09:52:46 -0500
+Subject: [PATCH 3/3] Add a regression test for matching statistics
+ initialization
+
+The test builds an index for a 16-character reference, queries a few short patterns, and checks the lengths against a brute-force substring search and the pointers against the reference. With neither fix, 6 of the 7 queries fail. With only the run1 fix, ACT, CCT and TCT still fail, and with only the select fix, AA, GC and mutated still fail. Run it with python3 test/regression/check.py <build-dir>.
+---
+ test/regression/check.py     | 79 ++++++++++++++++++++++++++++++++++++
+ test/regression/queries.fa   | 14 +++++++
+ test/regression/reference.fa |  2 +
+ 3 files changed, 95 insertions(+)
+ create mode 100755 test/regression/check.py
+ create mode 100644 test/regression/queries.fa
+ create mode 100644 test/regression/reference.fa
+
+diff --git a/test/regression/check.py b/test/regression/check.py
+new file mode 100755
+index 0000000..c8fe6bc
+--- /dev/null
++++ b/test/regression/check.py
+@@ -0,0 +1,79 @@
++#!/usr/bin/env python3
++"""Regression test for the matching-statistics query initialization.
++
++Builds an index for reference.fa in a temporary directory, queries
++queries.fa, and checks every MS length against a brute-force substring
++search and every pointer against the reference text.
++
++Usage: python3 test/regression/check.py <build-dir>
++"""
++import subprocess
++import sys
++import tempfile
++from pathlib import Path
++
++HERE = Path(__file__).resolve().parent
++
++
++def read_fasta(path):
++    records = {}
++    for line in path.read_text().splitlines():
++        if line.startswith('>'):
++            name = line[1:].split()[0]
++            records[name] = ''
++        elif line.strip():
++            records[name] += line.strip()
++    return records
++
++
++def read_output(path):
++    rows = []
++    for line in path.read_text().splitlines():
++        if line.startswith('>'):
++            rows.append([])
++        elif line.strip():
++            rows[-1].extend(map(int, line.split()))
++    return rows
++
++
++def matching_statistics(query, text):
++    lengths = []
++    for i in range(len(query)):
++        length = 0
++        while i + length < len(query) and query[i:i + length + 1] in text:
++            length += 1
++        lengths.append(length)
++    return lengths
++
++
++def main():
++    if len(sys.argv) != 2:
++        sys.exit(__doc__)
++    build = Path(sys.argv[1]).resolve()
++    text = ''.join(read_fasta(HERE / 'reference.fa').values())
++    queries = read_fasta(HERE / 'queries.fa')
++    with tempfile.TemporaryDirectory() as tmp:
++        tmp = Path(tmp)
++        reference = tmp / 'reference.txt'
++        reference.write_text(text)
++        patterns = tmp / 'queries.fa'
++        patterns.write_text((HERE / 'queries.fa').read_text())
++        subprocess.run([sys.executable, str(build / 'aug'), 'build', '-r', str(reference),
++                        '-w', '4', '-p', '10'], check=True, stdout=subprocess.DEVNULL)
++        subprocess.run([str(build / 'test' / 'src' / 'aug_phoni'), str(reference), '-p', str(patterns),
++                        '-g', 'naive'], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
++        lengths = read_output(Path(str(patterns) + '.lengths.aug'))
++        pointers = read_output(Path(str(patterns) + '.pointers.aug'))
++    failures = 0
++    for (name, query), observed, refs in zip(queries.items(), lengths, pointers):
++        expected = matching_statistics(query, text)
++        bad_pointer = any(text[p:p + n] != query[i:i + n] for i, (p, n) in enumerate(zip(refs, observed)))
++        if observed != expected or bad_pointer:
++            failures += 1
++            print(f'FAIL {name}: lengths {observed}, expected {expected}, pointers {refs}')
++    print(f'{len(queries) - failures}/{len(queries)} queries passed')
++    return 1 if failures else 0
++
++
++if __name__ == '__main__':
++    sys.exit(main())
+diff --git a/test/regression/queries.fa b/test/regression/queries.fa
+new file mode 100644
+index 0000000..b253f46
+--- /dev/null
++++ b/test/regression/queries.fa
+@@ -0,0 +1,14 @@
++>AA
++AA
++>GC
++GC
++>ACT
++ACT
++>CCT
++CCT
++>TCT
++TCT
++>whole
++ATTACCCTTGCTAAGT
++>mutated
++ATTACCCATGCTAAGT
+diff --git a/test/regression/reference.fa b/test/regression/reference.fa
+new file mode 100644
+index 0000000..8634845
+--- /dev/null
++++ b/test/regression/reference.fa
+@@ -0,0 +1,2 @@
++>ref
++ATTACCCTTGCTAAGT
+-- 
+2.54.0 (Apple Git-157)
+

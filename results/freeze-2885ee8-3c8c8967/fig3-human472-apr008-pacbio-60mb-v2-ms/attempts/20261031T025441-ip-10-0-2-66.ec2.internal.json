@@ -1,0 +1,82 @@
+{
+  "job": "fig3-human472-apr008-pacbio-60mb-v2-ms",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-2-66.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0769303767f334774",
+    "availability_zone": "us-east-1c",
+    "lifecycle": "spot"
+  },
+  "platform": "aws",
+  "started": 1793414772.0112588,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "fig3-human472-apr008-pacbio-60mb-v2-ms",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 2,
+  "already_done": 0,
+  "order": [
+    "fig_ops-human472-apr008-pacbio-60mb-v2/ms-ordinary",
+    "fig_ops-human472-apr008-pacbio-60mb-v2/ms-oracle"
+  ],
+  "staging": {
+    "ms2/human472/index.ms.orbitidx": {
+      "sha256": "520539c526f8c8fe9cb72a0179b2301418498bdf3eb747d026b64ed3c87021d2",
+      "bytes": 107285232940,
+      "fresh": false,
+      "seconds": 3.695487976074219e-05
+    },
+    "reads/human472/human472-apr008-pacbio-60mb-v2/offsets.u64": {
+      "sha256": "206cbe31bc09fe7215a6240a72d62184b515fb7d3fb4586b0f16015b6d3bef73",
+      "bytes": 22832,
+      "fresh": true,
+      "seconds": 0.7398948669433594
+    },
+    "reads/human472/human472-apr008-pacbio-60mb-v2/reads.fa": {
+      "sha256": "c8ce0e7314229be50c85c7dc652cb74c08c4d2a5378ef5471c70890c87606db0",
+      "bytes": 60004416,
+      "fresh": true,
+      "seconds": 0.849003791809082
+    },
+    "reads/human472/human472-apr008-pacbio-60mb-v2/truth.u32": {
+      "sha256": "0155da562348fb0b1a7baa5b5880f64d2e5225ed824ff19c77a2d1d9774401ae",
+      "bytes": 239930808,
+      "fresh": true,
+      "seconds": 1.4091506004333496
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 3.910064697265625e-05
+    },
+    "tools/ms_check": {
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab",
+      "bytes": 251000,
+      "fresh": false,
+      "seconds": 3.933906555175781e-05
+    }
+  },
+  "finished": 1793415281.5080547,
+  "results": {
+    "fig_ops-human472-apr008-pacbio-60mb-v2/ms-ordinary": "checked",
+    "fig_ops-human472-apr008-pacbio-60mb-v2/ms-oracle": "checked"
+  }
+}

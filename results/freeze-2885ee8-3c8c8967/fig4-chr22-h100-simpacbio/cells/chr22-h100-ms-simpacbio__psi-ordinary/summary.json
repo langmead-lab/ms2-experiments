@@ -1,0 +1,264 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "psi-ordinary",
+  "cell": "chr22-h100-ms-simpacbio/psi-ordinary",
+  "group": "chr22-h100-ms-simpacbio",
+  "figures": [
+    "4"
+  ],
+  "tool": "ms2",
+  "kind": "ms",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "job": "fig4-chr22-h100-simpacbio",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-2-66.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0769303767f334774",
+    "availability_zone": "us-east-1c",
+    "lifecycle": "spot"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 2864,
+  "bases": 59991907,
+  "reference": "chr22-h100",
+  "read_set": "simpacbio-60mb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "checker": {
+      "name": "tools/ms_check",
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab"
+    },
+    "index": {
+      "name": "ms2/chr22-h100/index.tms.psi.orbitidx",
+      "sha256": "91d4d73f4f03b340ebcbd175b2676d738a2a5c0eb6b005a3d99438bd4445e4d9"
+    },
+    "reads": {
+      "name": "reads/chr22-h100/simpacbio-60mb-v2/reads.fa",
+      "sha256": "8e5897988e4744c12a8f7fe9bf2734a38bb7ed3cdb9df40013370040c9da177f"
+    },
+    "truth": {
+      "name": "reads/chr22-h100/simpacbio-60mb-v2/truth.u32",
+      "sha256": "6a374986ec3ed3cbf560be5b0d969a41ad7d811bb4bf89cd599c6577eaf64851"
+    },
+    "offsets": {
+      "name": "reads/chr22-h100/simpacbio-60mb-v2/offsets.u64",
+      "sha256": "67170819571b8b03f75bb7c33bfebcb2f236c196cc7876a973e17662ad346435"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793416822.8285801,
+  "layout": "psi",
+  "mode": "ordinary",
+  "interleave": 32,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-2-66.ec2.internal",
+      "started": 1793416822.8286593,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/91d4d73f4f03b340ebcbd175b2676d738a2a5c0eb6b005a3d99438bd4445e4d9/index.tms.psi.orbitidx",
+        "/work/stage/inputs/8e5897988e4744c12a8f7fe9bf2734a38bb7ed3cdb9df40013370040c9da177f/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simpacbio/runs/chr22-h100-ms-simpacbio__psi-ordinary/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "psi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 4.231520236999131,
+      "user_seconds": 3.34,
+      "system_seconds": 0.86,
+      "peak_rss_kib": 1350636,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 0.718198,
+        "query_seconds": 3.45781,
+        "components": {
+          "index_load_s": 0.718198,
+          "ftab_s": 0.0,
+          "query_s": 2.62348,
+          "read_s": 0.0167572,
+          "parse_s": 0.0461631,
+          "format_s": 0.694924,
+          "total_s": 3.45781
+        }
+      },
+      "check": {
+        "reads": 2864,
+        "positions": 59991907,
+        "failed": 0,
+        "validation": "ms_check: every MS value equals truth"
+      },
+      "finished": 1793416827.437318
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-2-66.ec2.internal",
+      "started": 1793416827.4380217,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/91d4d73f4f03b340ebcbd175b2676d738a2a5c0eb6b005a3d99438bd4445e4d9/index.tms.psi.orbitidx",
+        "/work/stage/inputs/8e5897988e4744c12a8f7fe9bf2734a38bb7ed3cdb9df40013370040c9da177f/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simpacbio/runs/chr22-h100-ms-simpacbio__psi-ordinary/run2/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "psi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 4.1947987969997484,
+      "user_seconds": 3.38,
+      "system_seconds": 0.78,
+      "peak_rss_kib": 1350636,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 0.714276,
+        "query_seconds": 3.42946,
+        "components": {
+          "index_load_s": 0.714276,
+          "ftab_s": 0.0,
+          "query_s": 2.59749,
+          "read_s": 0.0165472,
+          "parse_s": 0.0460648,
+          "format_s": 0.693753,
+          "total_s": 3.42946
+        }
+      },
+      "finished": 1793416831.6691327
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-2-66.ec2.internal",
+      "started": 1793416831.6694994,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/91d4d73f4f03b340ebcbd175b2676d738a2a5c0eb6b005a3d99438bd4445e4d9/index.tms.psi.orbitidx",
+        "/work/stage/inputs/8e5897988e4744c12a8f7fe9bf2734a38bb7ed3cdb9df40013370040c9da177f/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simpacbio/runs/chr22-h100-ms-simpacbio__psi-ordinary/run3/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "psi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 4.202084343000024,
+      "user_seconds": 3.37,
+      "system_seconds": 0.8,
+      "peak_rss_kib": 1350624,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 0.712946,
+        "query_seconds": 3.43146,
+        "components": {
+          "index_load_s": 0.712946,
+          "ftab_s": 0.0,
+          "query_s": 2.59995,
+          "read_s": 0.016595,
+          "parse_s": 0.0460925,
+          "format_s": 0.693209,
+          "total_s": 3.43146
+        }
+      },
+      "finished": 1793416835.9023051
+    }
+  ],
+  "check": {
+    "reads": 2864,
+    "positions": 59991907,
+    "failed": 0,
+    "validation": "ms_check: every MS value equals truth"
+  },
+  "query_seconds": [
+    3.45781,
+    3.42946,
+    3.43146
+  ],
+  "median_query_seconds": 3.43146,
+  "load_seconds": [
+    0.718198,
+    0.714276,
+    0.712946
+  ],
+  "median_load_seconds": 0.714276,
+  "wall_seconds": [
+    4.231520236999131,
+    4.1947987969997484,
+    4.202084343000024
+  ],
+  "peak_rss_kib": 1350636,
+  "query_spread_fraction": 0.008261789442394682,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 17.482910189831735,
+  "ns_per_base": 57.19871515336227,
+  "finished": 1793416835.9025457
+}

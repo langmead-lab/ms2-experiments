@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t1",
+    "-K",
+    "1m",
+    "-l1",
+    "-p100",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-rope-s6/rope/s6-ropebwt3_human472_index.fmd/index.fmd",
+    "/work/stage/inputs/2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83/reads.fa"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-rope-s6/runs/human_ont_modern-locate-10mb__cap100-rope-s6/run1",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 194.32767732199864,
+  "stdout": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-rope-s6/runs/human_ont_modern-locate-10mb__cap100-rope-s6/run1/run1.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-rope-s6/runs/human_ont_modern-locate-10mb__cap100-rope-s6/run1/run1.stderr",
+  "native_wall_seconds": 194.31,
+  "user_seconds": 30.71,
+  "system_seconds": 164.44,
+  "peak_rss_kib": 362125804
+}

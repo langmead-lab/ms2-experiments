@@ -1,0 +1,232 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "rope-l1",
+  "cell": "human_short-ms-acgt60mb/rope-l1",
+  "group": "human_short-ms-acgt60mb",
+  "figures": [
+    "5"
+  ],
+  "tool": "ropebwt3",
+  "kind": "ms",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "job": "fig5-human_short-rope",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-4-62.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0aa1ad0e322d395b0",
+    "availability_zone": "us-east-1e",
+    "lifecycle": "spot"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 480000,
+  "bases": 60000000,
+  "reference": "human472",
+  "read_set": "human_short-ms-60mb-acgt-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ropebwt3-cfad8475/ropebwt3",
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+    },
+    "runtime": {
+      "name": "tools/runtime/libgomp.so.1",
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8"
+    },
+    "fmd": {
+      "name": "ropebwt3/human472/index.fmd",
+      "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626"
+    },
+    "reads": {
+      "name": "reads/human472/human_short-ms-60mb-acgt-v2/reads.fa",
+      "sha256": "9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f"
+    },
+    "truth": {
+      "name": "reads/human472/human_short-ms-60mb-acgt-v2/truth.u32",
+      "sha256": "42b7cbcb1271a33b22d3801991bfddb4fee5a09ed76ce7fbd78a5bfebde28d00"
+    },
+    "offsets": {
+      "name": "reads/human472/human_short-ms-60mb-acgt-v2/offsets.u64",
+      "sha256": "26fa15047d34b53e7c39b84c8870527b353e1eeaa6c824d8b951234f24377f24"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793407334.8241816,
+  "min_len": 1,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-4-62.ec2.internal",
+      "started": 1793407334.8242655,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-l1",
+        "/work/stage/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd",
+        "/work/stage/inputs/9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f/reads.fa"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 95.61933102,
+      "user_seconds": 89.49,
+      "system_seconds": 6.09,
+      "peak_rss_kib": 15300200,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 5.54,
+        "query_seconds": 89.666,
+        "components": {
+          "last_loaded_s": 5.54,
+          "last_processed_s": 95.206,
+          "processed_sequences": 480000
+        }
+      },
+      "check": {
+        "reads": 480000,
+        "positions": 60000000,
+        "failed": 0,
+        "validation": "MS rebuilt from every -l1 SMEM equals truth"
+      },
+      "finished": 1793407442.4647026
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-4-62.ec2.internal",
+      "started": 1793407442.465308,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-l1",
+        "/work/stage/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd",
+        "/work/stage/inputs/9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f/reads.fa"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 95.70559013999991,
+      "user_seconds": 89.59,
+      "system_seconds": 6.08,
+      "peak_rss_kib": 15300256,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 5.531,
+        "query_seconds": 89.765,
+        "components": {
+          "last_loaded_s": 5.531,
+          "last_processed_s": 95.296,
+          "processed_sequences": 480000
+        }
+      },
+      "finished": 1793407538.316126
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-4-62.ec2.internal",
+      "started": 1793407538.3164678,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-l1",
+        "/work/stage/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd",
+        "/work/stage/inputs/9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f/reads.fa"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 96.38784263299999,
+      "user_seconds": 90.24,
+      "system_seconds": 6.11,
+      "peak_rss_kib": 15300268,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 5.502,
+        "query_seconds": 90.477,
+        "components": {
+          "last_loaded_s": 5.502,
+          "last_processed_s": 95.979,
+          "processed_sequences": 480000
+        }
+      },
+      "finished": 1793407634.8500378
+    }
+  ],
+  "check": {
+    "reads": 480000,
+    "positions": 60000000,
+    "failed": 0,
+    "validation": "MS rebuilt from every -l1 SMEM equals truth"
+  },
+  "query_seconds": [
+    89.666,
+    89.765,
+    90.477
+  ],
+  "median_query_seconds": 89.765,
+  "load_seconds": [
+    5.54,
+    5.531,
+    5.502
+  ],
+  "median_load_seconds": 5.531,
+  "wall_seconds": [
+    95.61933102,
+    95.70559013999991,
+    96.38784263299999
+  ],
+  "peak_rss_kib": 15300268,
+  "query_spread_fraction": 0.009034701721160887,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 0.6684119645741659,
+  "ns_per_base": 1496.0833333333333,
+  "finished": 1793407634.8502774
+}

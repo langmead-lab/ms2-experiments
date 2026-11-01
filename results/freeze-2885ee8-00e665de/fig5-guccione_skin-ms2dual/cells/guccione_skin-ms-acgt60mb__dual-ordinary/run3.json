@@ -1,0 +1,44 @@
+{
+  "run": 3,
+  "host": "ip-10-0-0-221.ec2.internal",
+  "started": 1793506520.225982,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+    "/work/stage/inputs/b75f41ae7ce8983c6db6e20dbfe76094795ebc95dd02720d6d40220c41c499ae/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2dual/runs/guccione_skin-ms-acgt60mb__dual-ordinary/run3/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--mode",
+    "dual"
+  ],
+  "timeout_s": 7200,
+  "cache": "drop_caches",
+  "wall_seconds": 107.49066747299912,
+  "user_seconds": 35.39,
+  "system_seconds": 72.04,
+  "peak_rss_kib": 238677368,
+  "phase": {
+    "source": "orbit-query-line",
+    "query_definition": "total_s",
+    "load_seconds": 95.5744,
+    "query_seconds": 11.5084,
+    "components": {
+      "index_load_s": 95.5744,
+      "ftab_s": 0.0,
+      "query_s": 10.845,
+      "read_s": 0.0108793,
+      "parse_s": 0.0518482,
+      "format_s": 0.53712,
+      "total_s": 11.5084
+    }
+  },
+  "finished": 1793506629.1198986
+}

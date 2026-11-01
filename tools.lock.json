@@ -1,0 +1,107 @@
+{
+  "format": "ms2exp-tools-lock-v1",
+  "note": "Tools of the freeze manifests freeze-2885ee8-3c8c8967 and freeze-2885ee8-00e665de. TOOLS.md describes each entry. ms2exp.build.tools --lock reads this file in place of its pin flags.",
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "tag": "paper-v1",
+    "submodules": {
+      "orbit": {
+        "repo": "https://github.com/BenLangmead/runperm.git",
+        "commit": "bc4b455b04cca7c339b6b8be26caa9cfcd0cf0cc"
+      },
+      "teratools": {
+        "repo": "https://github.com/BenLangmead/TeraTools.git",
+        "commit": "de922b0331740569dbcd6a8b1b0b2ea47df14ee2"
+      }
+    },
+    "local_changes": null,
+    "build": "ms2exp.build.tools: make ms2-bench and make ms2-replog in src/, and the counting build ms2-stats (ms2-bench plus -DMS_STATS -DTMS_STATS), all with g++ -static-libstdc++ -static-libgcc",
+    "freeze_binaries": {
+      "tools/ms2-2885ee8/ms2-bench": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "tools/ms2-2885ee8/ms2-stats": "e47323d8b749323cab0fc1976471c3e18fda5ea5509cafe193abac30fce802e8",
+      "tools/ms2-2885ee8/ms2-replog": "2b123fdd3470dbf05d3ec576a489d31a57daf9fd552398bcb390d6a616ef57cc",
+      "tools/ms_check": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab"
+    },
+    "freeze_binaries_source": "results/freeze-2885ee8-3c8c8967/build-tools/outputs.json (built on AWS i4i.metal from the source bundles; the rerun reuses them)"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "local_changes": null,
+    "build": "make -j2",
+    "binary": "tools/ropebwt3-cfad8475/ropebwt3",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d",
+    "license": "MIT"
+  },
+  "moni": {
+    "repo": "https://github.com/maxrossi91/moni.git",
+    "commit": "7f3f954f5bc6174457ea374acee1f2dcca61527b",
+    "local_changes": "compile only: #include <array> at the top of src/compress_dictionary.cpp; CMAKE_CXX_FLAGS=-include cstdint",
+    "binary": "tools/moni/moni-ms",
+    "binary_sha256": "4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f",
+    "license": "GPL-3.0-or-later"
+  },
+  "phoni": {
+    "repo": "https://github.com/koeppl/phoni.git",
+    "commit": "1b81e468086f99a1428f8af190835659bf47f503",
+    "fork": {
+      "repo": "https://github.com/BenLangmead/phoni.git",
+      "branch": "fix/ms-initial-state",
+      "commit": "f586c33849d26cd8199a2c454c9c91c2ea2a1541"
+    },
+    "upstream_pr": {
+      "url": "https://github.com/koeppl/phoni/pull/4",
+      "head": "2722db95d379412075495996d51cd0671a7e97e7"
+    },
+    "patch": "patches/phoni.patch",
+    "local_changes": "matching statistics start at the first occurrence of the last character; CMAKE_CXX_FLAGS=-include cstdint -ftrivial-auto-var-init=zero",
+    "binary": "tools/phoni/phoni",
+    "binary_sha256": "aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58",
+    "freeze_source": {
+      "branch": "backup/pre-split-ms-initial-state",
+      "commit": "955355081329d732203d5ed8e8d3e3ce6d064593",
+      "relation": "same code as the PR head; the header differs only in comments"
+    },
+    "regression_test": {
+      "test": "the PR test/regression/check.py (16-character reference, 7 queries)",
+      "freeze_binary": "7/7",
+      "upstream_base": "4/7"
+    },
+    "license": "MIT"
+  },
+  "augphoni": {
+    "repo": "https://github.com/drnatebrown/aug_phoni.git",
+    "commit": "74395806673e3ddc4d83ac5261133d64c4885ba3",
+    "fork": {
+      "repo": "https://github.com/BenLangmead/phoni.git",
+      "branch": "fix/aug-ms-initialization",
+      "commit": "304c9eaef1a42ee60b07307b7b759eee209a813a"
+    },
+    "upstream_pr": {
+      "url": "https://github.com/drnatebrown/aug_phoni/pull/2",
+      "head": "0bf0b0c2cae1aa68560e25f2973fc0b91deb1d59"
+    },
+    "patch": "patches/aug_phoni.patch",
+    "local_changes": "succeeding-run and initial-occurrence fixes to matching statistics initialization; CMAKE_CXX_FLAGS=-include cstdint -ftrivial-auto-var-init=zero",
+    "binary": "tools/augphoni/aug_phoni",
+    "binary_sha256": "79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b",
+    "freeze_source": {
+      "branch": "backup/pre-split-aug-ms-initialization",
+      "commit": "d1b18d6b20cc10f5476c3b9b69c35d84ef397726",
+      "relation": "same code as the PR head; the header differs only in comments and whitespace"
+    },
+    "regression_test": {
+      "test": "the PR test/regression/check.py (16-character reference, 7 queries)",
+      "freeze_binary": "7/7",
+      "upstream_base": "1/7"
+    },
+    "license": "MIT"
+  },
+  "runtime": {
+    "note": "Shared libraries the pinned ropebwt3 (libgomp) and the legacy binaries (Rockfish spack GCC 13.1 libstdc++ and libgcc_s) load, shipped as manifest inputs",
+    "tools/runtime/libgomp.so.1": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8",
+    "tools/runtime/libstdc++.so.6": "2e64f6e616747bde59b3f05e9850dde0476cb21703fc53b7d80e1acc49f464c4",
+    "tools/runtime/libgcc_s.so.1": "6a15a152c0f5073642a8c23e13097fe6f30d269cd61d3b10bd542f676241d79d"
+  }
+}

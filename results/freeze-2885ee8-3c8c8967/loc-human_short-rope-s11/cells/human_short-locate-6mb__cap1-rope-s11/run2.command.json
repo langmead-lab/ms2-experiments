@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t1",
+    "-K",
+    "1m",
+    "-l1",
+    "-p1",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_short-rope-s11/rope/s11-ropebwt3_human472_index.fmd/index.fmd",
+    "/work/stage/inputs/a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338/reads.fa"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_short-rope-s11/runs/human_short-locate-6mb__cap1-rope-s11/run2",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 31.30024787100001,
+  "stdout": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_short-rope-s11/runs/human_short-locate-6mb__cap1-rope-s11/run2/run2.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_short-rope-s11/runs/human_short-locate-6mb__cap1-rope-s11/run2/run2.stderr",
+  "native_wall_seconds": 31.28,
+  "user_seconds": 20.42,
+  "system_seconds": 10.88,
+  "peak_rss_kib": 25925440
+}

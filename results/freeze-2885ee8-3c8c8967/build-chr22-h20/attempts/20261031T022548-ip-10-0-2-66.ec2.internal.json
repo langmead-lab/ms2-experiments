@@ -1,0 +1,109 @@
+{
+  "job": "build-chr22-h20",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-2-66.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0769303767f334774",
+    "availability_zone": "us-east-1c",
+    "lifecycle": "spot"
+  },
+  "started": 1793412692.1384084,
+  "argv": [
+    "/work/code/bench/freeze/build_job.py",
+    "build-chr22-h20",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict"
+  ],
+  "steps": [
+    {
+      "label": "01-build-psi",
+      "argv": [
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "build",
+        "/work/stage/inputs/14e41d830def2baf8a36ccf52325b4b3e0d5d5f829c49b07dd4775dc8e997d65/bwt.heads",
+        "/work/stage/inputs/087bc1ad05ee4fdc81a11e19c58d3d40112d8cc24c78585a63dbc389e553c4f5/bwt.len",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-chr22-h20/outputs/ms2/chr22-h20/index.tms.psi.orbitidx",
+        "--layout",
+        "psi"
+      ],
+      "wall_seconds": 15.494963688999633,
+      "peak_rss_kib": 931664,
+      "unverified": false
+    },
+    {
+      "label": "02-build-phi",
+      "argv": [
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "build",
+        "/work/stage/inputs/14e41d830def2baf8a36ccf52325b4b3e0d5d5f829c49b07dd4775dc8e997d65/bwt.heads",
+        "/work/stage/inputs/087bc1ad05ee4fdc81a11e19c58d3d40112d8cc24c78585a63dbc389e553c4f5/bwt.len",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-chr22-h20/outputs/ms2/chr22-h20/index.tms.phi.orbitidx",
+        "--layout",
+        "phi",
+        "--minima",
+        "/work/stage/inputs/d163c3def3e301d5c5c1c9a55b7acc407b6972cc332262bb6bed338248b5d6de/min"
+      ],
+      "wall_seconds": 397.7565143510001,
+      "peak_rss_kib": 3171888,
+      "unverified": false
+    },
+    {
+      "label": "03-build-full",
+      "argv": [
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "build",
+        "/work/stage/inputs/14e41d830def2baf8a36ccf52325b4b3e0d5d5f829c49b07dd4775dc8e997d65/bwt.heads",
+        "/work/stage/inputs/087bc1ad05ee4fdc81a11e19c58d3d40112d8cc24c78585a63dbc389e553c4f5/bwt.len",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-chr22-h20/outputs/ms2/chr22-h20/index.tms.full.orbitidx",
+        "--layout",
+        "full",
+        "--minima",
+        "/work/stage/inputs/d163c3def3e301d5c5c1c9a55b7acc407b6972cc332262bb6bed338248b5d6de/min"
+      ],
+      "wall_seconds": 416.89393206100067,
+      "peak_rss_kib": 3895828,
+      "unverified": false
+    }
+  ],
+  "staging": {
+    "precursors/chr22-h20/bwt.heads": {
+      "sha256": "14e41d830def2baf8a36ccf52325b4b3e0d5d5f829c49b07dd4775dc8e997d65",
+      "bytes": 54558889,
+      "fresh": true,
+      "seconds": 1.0567963123321533
+    },
+    "precursors/chr22-h20/bwt.len": {
+      "sha256": "087bc1ad05ee4fdc81a11e19c58d3d40112d8cc24c78585a63dbc389e553c4f5",
+      "bytes": 272794445,
+      "fresh": true,
+      "seconds": 1.5926284790039062
+    },
+    "precursors/chr22-h20/min": {
+      "sha256": "d163c3def3e301d5c5c1c9a55b7acc407b6972cc332262bb6bed338248b5d6de",
+      "bytes": 168661937,
+      "fresh": true,
+      "seconds": 1.3356869220733643
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 3.790855407714844e-05
+    }
+  },
+  "finished": 1793413549.0123072,
+  "status": 0
+}

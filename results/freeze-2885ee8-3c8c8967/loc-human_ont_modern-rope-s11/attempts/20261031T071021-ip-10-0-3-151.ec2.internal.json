@@ -1,0 +1,96 @@
+{
+  "job": "loc-human_ont_modern-rope-s11",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-3-151.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0538f31c74f746367",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot"
+  },
+  "platform": "aws",
+  "started": 1793427851.396397,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "loc-human_ont_modern-rope-s11",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 3,
+  "already_done": 0,
+  "order": [
+    "human_ont_modern-locate-10mb/cap10-rope-s11",
+    "human_ont_modern-locate-10mb/cap1-rope-s11",
+    "human_ont_modern-locate-10mb/cap100-rope-s11"
+  ],
+  "staging": {
+    "reads/human472/human_ont_modern-locate-10mb-v2/offsets.u64": {
+      "sha256": "0b943e71d1e1bd7dc7f6ce977debc0dc06cda6347ab14c6b02b25b92a5074a04",
+      "bytes": 3960,
+      "fresh": true,
+      "seconds": 0.6904919147491455
+    },
+    "reads/human472/human_ont_modern-locate-10mb-v2/reads.fa": {
+      "sha256": "2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83",
+      "bytes": 9952584,
+      "fresh": true,
+      "seconds": 0.8164494037628174
+    },
+    "reads/human472/human_ont_modern-locate-10mb-v2/truth.u32": {
+      "sha256": "7d70430a4d56c92922290e51cd7e94571e303669df896139934037a1f7276930",
+      "bytes": 39796944,
+      "fresh": true,
+      "seconds": 0.9165318012237549
+    },
+    "ropebwt3/human472/index.fmd": {
+      "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626",
+      "bytes": 15427477160,
+      "fresh": false,
+      "seconds": 3.9577484130859375e-05
+    },
+    "ropebwt3/human472/index.fmd.len.gz": {
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0",
+      "bytes": 286728,
+      "fresh": false,
+      "seconds": 2.1219253540039062e-05
+    },
+    "ropebwt3/human472/index.fmd.s11.ssa": {
+      "sha256": "f9a56c2a175de8ef0a5783065de44e8aee0473dc2c70ba04f4d1b51a37ad8fd9",
+      "bytes": 11103656940,
+      "fresh": false,
+      "seconds": 2.288818359375e-05
+    },
+    "tools/ropebwt3-cfad8475/ropebwt3": {
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d",
+      "bytes": 1595032,
+      "fresh": false,
+      "seconds": 2.0265579223632812e-05
+    },
+    "tools/runtime/libgomp.so.1": {
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8",
+      "bytes": 1501072,
+      "fresh": false,
+      "seconds": 2.3365020751953125e-05
+    }
+  },
+  "finished": 1793430621.7602,
+  "results": {
+    "human_ont_modern-locate-10mb/cap10-rope-s11": "checked",
+    "human_ont_modern-locate-10mb/cap1-rope-s11": "checked",
+    "human_ont_modern-locate-10mb/cap100-rope-s11": "checked"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+    "/work/stage/inputs/b75f41ae7ce8983c6db6e20dbfe76094795ebc95dd02720d6d40220c41c499ae/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2phi/runs/guccione_skin-ms-acgt60mb__phi-ordinary/run3/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--mode",
+    "phi"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2phi/runs/guccione_skin-ms-acgt60mb__phi-ordinary/run3",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 194.71977525500006,
+  "stdout": "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2phi/runs/guccione_skin-ms-acgt60mb__phi-ordinary/run3/run3.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-00e665de/fig5-guccione_skin-ms2phi/runs/guccione_skin-ms-acgt60mb__phi-ordinary/run3/run3.stderr",
+  "native_wall_seconds": 194.7,
+  "user_seconds": 148.57,
+  "system_seconds": 46.1,
+  "peak_rss_kib": 153723512
+}

@@ -1,0 +1,146 @@
+{
+  "job": "a1-mtb152-errors",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-3-151.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0538f31c74f746367",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot"
+  },
+  "platform": "aws",
+  "started": 1793433878.0800729,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "a1-mtb152-errors",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 10,
+  "already_done": 0,
+  "order": [
+    "fig_rep-a2/mtb152-A2-e0.0030",
+    "fig_rep-a2/mtb152-A2-e0.00019",
+    "fig_rep-a2/mtb152-A2-e0.00076",
+    "fig_rep-a2/mtb152-A2-e0.00047",
+    "fig_rep-a2/mtb152-A2-e0.00030",
+    "fig_rep-a2/mtb152-A2-e0.0014",
+    "fig_rep-a2/mtb152-A2-e0.00011",
+    "fig_rep-a2/mtb152-A2-exact",
+    "fig_rep-a2/mtb152-A2-e0.000032",
+    "fig_rep-a2/mtb152-A2-e0.0050"
+  ],
+  "staging": {
+    "ms2/mtb152/index.tms.full.orbitidx": {
+      "sha256": "af80e5f51daf70433a14618921da240c822b781215bc8b0a92bdf63620f52048",
+      "bytes": 406217055,
+      "fresh": false,
+      "seconds": 4.100799560546875e-05
+    },
+    "ms2/mtb152/index.tms.phi.orbitidx": {
+      "sha256": "001a37f83414eb0fb1c8cc8c686f610c6d7ea3ca0c9f70eef8a21f8ce459058f",
+      "bytes": 334946655,
+      "fresh": false,
+      "seconds": 2.2172927856445312e-05
+    },
+    "ms2/mtb152/index.tms.psi.orbitidx": {
+      "sha256": "e9265a86e2330928fb3f20872aad05df75b36da3a1be49ae0cce2c53be996621",
+      "bytes": 93302840,
+      "fresh": false,
+      "seconds": 2.1219253540039062e-05
+    },
+    "reads/mtb152/mtb152-A2-e0.000032-v1/reads.fa": {
+      "sha256": "ef85fb65d3f1ee66139293050246282b6ad13f2d8325c546994ec2a4bf7423bf",
+      "bytes": 20013253,
+      "fresh": true,
+      "seconds": 0.9085738658905029
+    },
+    "reads/mtb152/mtb152-A2-e0.00011-v1/reads.fa": {
+      "sha256": "b84f9070c69d2735f05e173baffe6dfd8074b93eac8cce8710227cb29d1ab616",
+      "bytes": 20025016,
+      "fresh": true,
+      "seconds": 0.9446322917938232
+    },
+    "reads/mtb152/mtb152-A2-e0.00019-v1/reads.fa": {
+      "sha256": "53a8d65521d2f532b2d5d62143a94884aff8f71cb773711fc4a869bc5c1914af",
+      "bytes": 20012869,
+      "fresh": true,
+      "seconds": 0.9208700656890869
+    },
+    "reads/mtb152/mtb152-A2-e0.00030-v1/reads.fa": {
+      "sha256": "7ac1737f145d508ee16bcf54f246687c4125394958f1b11782fe2ccc92fc4c7d",
+      "bytes": 20023051,
+      "fresh": true,
+      "seconds": 0.910574197769165
+    },
+    "reads/mtb152/mtb152-A2-e0.00047-v1/reads.fa": {
+      "sha256": "0708604622a52bf9d0dacedd4ad237d10506dd62cae4ee430722c15c1e78f4c0",
+      "bytes": 20030766,
+      "fresh": true,
+      "seconds": 0.8963816165924072
+    },
+    "reads/mtb152/mtb152-A2-e0.00076-v1/reads.fa": {
+      "sha256": "f824458f319b510012a381c134ad17cccb9416a43d672126e8da91c13e5b2941",
+      "bytes": 20024300,
+      "fresh": true,
+      "seconds": 0.893723726272583
+    },
+    "reads/mtb152/mtb152-A2-e0.0014-v1/reads.fa": {
+      "sha256": "9c5269820b758590c3adeeae65e3934074c2a25d469c5ce7ecf48968ba4cb3c2",
+      "bytes": 20016141,
+      "fresh": true,
+      "seconds": 0.9234139919281006
+    },
+    "reads/mtb152/mtb152-A2-e0.0030-v1/reads.fa": {
+      "sha256": "42cd6a991eb3a82aaa724881bfdab70cd3af21dff6537f2e18b8874a80435dc1",
+      "bytes": 20029309,
+      "fresh": true,
+      "seconds": 0.8975205421447754
+    },
+    "reads/mtb152/mtb152-A2-e0.0050-v1/reads.fa": {
+      "sha256": "4351e2c79930af319de217d517581fe984d20dc908ae783d4879f2033813228b",
+      "bytes": 20024402,
+      "fresh": true,
+      "seconds": 1.0745444297790527
+    },
+    "reads/mtb152/mtb152-A2-exact-v1/reads.fa": {
+      "sha256": "220ef90b47078cb01cedb8e379224c0958500face23f804fd665102b7e2a48fe",
+      "bytes": 20010045,
+      "fresh": true,
+      "seconds": 0.9047603607177734
+    },
+    "tools/ms2-2885ee8/ms2-replog": {
+      "sha256": "2b123fdd3470dbf05d3ec576a489d31a57daf9fd552398bcb390d6a616ef57cc",
+      "bytes": 4484664,
+      "fresh": true,
+      "seconds": 0.8338305950164795
+    }
+  },
+  "finished": 1793434030.8016467,
+  "results": {
+    "fig_rep-a2/mtb152-A2-e0.0030": "checked",
+    "fig_rep-a2/mtb152-A2-e0.00019": "checked",
+    "fig_rep-a2/mtb152-A2-e0.00076": "checked",
+    "fig_rep-a2/mtb152-A2-e0.00047": "checked",
+    "fig_rep-a2/mtb152-A2-e0.00030": "checked",
+    "fig_rep-a2/mtb152-A2-e0.0014": "checked",
+    "fig_rep-a2/mtb152-A2-e0.00011": "checked",
+    "fig_rep-a2/mtb152-A2-exact": "checked",
+    "fig_rep-a2/mtb152-A2-e0.000032": "checked",
+    "fig_rep-a2/mtb152-A2-e0.0050": "checked"
+  }
+}

@@ -1,0 +1,345 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "cap100-psi-ordinary",
+  "cell": "guccione_skin-locate-500kb/cap100-psi-ordinary",
+  "group": "guccione_skin-locate-500kb",
+  "figures": [
+    "6"
+  ],
+  "tool": "ms2",
+  "kind": "locate",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "job": "loc-guccione_skin-ms2psi",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-4-177.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0092ac6d27c82b3ae",
+    "availability_zone": "us-east-1e",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "transparent_hugepages": "always",
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 3698,
+  "bases": 499904,
+  "reference": "human472",
+  "read_set": "guccione_skin-locate-500kb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "index": {
+      "name": "ms2/human472/index.tms.psi-locate.orbitidx",
+      "sha256": "e262fd441c92cbfb50ac52aefb02c67574b403252a6f99cf4ae11cd93c6d2134"
+    },
+    "lengths": {
+      "name": "ropebwt3/human472/index.fmd.len.gz",
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0"
+    },
+    "reads": {
+      "name": "reads/human472/guccione_skin-locate-500kb-v2/reads.fa",
+      "sha256": "d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c"
+    },
+    "truth": {
+      "name": "reads/human472/guccione_skin-locate-500kb-v2/truth.u32",
+      "sha256": "bbdbca28a0fbcb796168de6b5f8b59fb51b6f3780708f28490d78c21d6aed3cf"
+    },
+    "offsets": {
+      "name": "reads/human472/guccione_skin-locate-500kb-v2/offsets.u64",
+      "sha256": "60ee55c2fa46274c6410c96dc77a3f19f47464bdfb36f85e6b10e30944e81a90"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793515048.665796,
+  "layout": "psi",
+  "mode": "ordinary",
+  "interleave": 32,
+  "cap": 100,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-4-177.ec2.internal",
+      "started": 1793515048.6658778,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/e262fd441c92cbfb50ac52aefb02c67574b403252a6f99cf4ae11cd93c6d2134/index.tms.psi-locate.orbitidx",
+        "/work/stage/inputs/d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/loc-guccione_skin-ms2psi/runs/guccione_skin-locate-500kb__cap100-psi-ordinary/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "psi",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "100"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 190.64109417799773,
+      "user_seconds": 84.63,
+      "system_seconds": 105.95,
+      "peak_rss_kib": 353109872,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 187.355,
+        "query_seconds": 2.64762,
+        "components": {
+          "index_load_s": 187.355,
+          "ftab_s": 0.0,
+          "query_s": 1.42845,
+          "read_s": 0.000723768,
+          "parse_s": 0.00101673,
+          "format_s": 0.99381,
+          "total_s": 2.64762
+        }
+      },
+      "check": {
+        "failed": 0,
+        "validation": "cross-tool-v1",
+        "tool": "orbit",
+        "cap": 100,
+        "reads": 3698,
+        "intervals": 254100,
+        "zero_count_intervals": 0,
+        "reported_locations_checked": 21788212,
+        "locations_in_bounds": 21788212,
+        "ms_positions_checked": 499904,
+        "emitted_counts": 254100,
+        "complete_set_intervals": 40406,
+        "complete_set_locations": 418812,
+        "over_cap_intervals": 213694,
+        "over_cap_locations": 21369400,
+        "all_coordinates_checked": false,
+        "occurrence_reference_checked": false,
+        "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+        "count_checks": "cross-tool agreement",
+        "canonical": {
+          "format": "canonical-smem-v1",
+          "sha256": "f0e22f1364ebab8be8c45362ad44ccc7f0a766d1d91b5e645d0ca3a17c84631f",
+          "lines": 254100,
+          "bytes": 758942662,
+          "cap": 100,
+          "over_cap_lines": 213694,
+          "over_cap_locations": 21369400,
+          "over_cap_sha256": "e618c413d6143b9b96df64efea5bafc79eace8f7ff34f98cf828640494850363",
+          "compressed_bytes": 217876202,
+          "compressed_sha256": "0f7b774e99ceb990bb424d52be5591dd413809244c70bc2665a168070efb68bf",
+          "path": "/work/stage/work/freeze-2885ee8-00e665de/loc-guccione_skin-ms2psi/canonical/guccione_skin-locate-500kb__cap100-psi-ordinary.canonical.gz"
+        }
+      },
+      "finished": 1793515435.9347858
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-4-177.ec2.internal",
+      "started": 1793515435.9354794,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/e262fd441c92cbfb50ac52aefb02c67574b403252a6f99cf4ae11cd93c6d2134/index.tms.psi-locate.orbitidx",
+        "/work/stage/inputs/d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/loc-guccione_skin-ms2psi/runs/guccione_skin-locate-500kb__cap100-psi-ordinary/run2/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "psi",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "100"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 190.59456156600208,
+      "user_seconds": 83.83,
+      "system_seconds": 106.7,
+      "peak_rss_kib": 353110364,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 187.315,
+        "query_seconds": 2.64266,
+        "components": {
+          "index_load_s": 187.315,
+          "ftab_s": 0.0,
+          "query_s": 1.43008,
+          "read_s": 0.000753575,
+          "parse_s": 0.0010356,
+          "format_s": 0.986834,
+          "total_s": 2.64266
+        }
+      },
+      "finished": 1793515628.173571
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-4-177.ec2.internal",
+      "started": 1793515628.1741076,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/e262fd441c92cbfb50ac52aefb02c67574b403252a6f99cf4ae11cd93c6d2134/index.tms.psi-locate.orbitidx",
+        "/work/stage/inputs/d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/loc-guccione_skin-ms2psi/runs/guccione_skin-locate-500kb__cap100-psi-ordinary/run3/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "psi",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "100"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 186.79225126999881,
+      "user_seconds": 82.78,
+      "system_seconds": 103.95,
+      "peak_rss_kib": 353112280,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 183.564,
+        "query_seconds": 2.59347,
+        "components": {
+          "index_load_s": 183.564,
+          "ftab_s": 0.0,
+          "query_s": 1.41293,
+          "read_s": 0.000737022,
+          "parse_s": 0.000973307,
+          "format_s": 0.959848,
+          "total_s": 2.59347
+        }
+      },
+      "finished": 1793515816.6447701
+    }
+  ],
+  "check": {
+    "failed": 0,
+    "validation": "cross-tool-v1",
+    "tool": "orbit",
+    "cap": 100,
+    "reads": 3698,
+    "intervals": 254100,
+    "zero_count_intervals": 0,
+    "reported_locations_checked": 21788212,
+    "locations_in_bounds": 21788212,
+    "ms_positions_checked": 499904,
+    "emitted_counts": 254100,
+    "complete_set_intervals": 40406,
+    "complete_set_locations": 418812,
+    "over_cap_intervals": 213694,
+    "over_cap_locations": 21369400,
+    "all_coordinates_checked": false,
+    "occurrence_reference_checked": false,
+    "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+    "count_checks": "cross-tool agreement",
+    "canonical": {
+      "format": "canonical-smem-v1",
+      "sha256": "f0e22f1364ebab8be8c45362ad44ccc7f0a766d1d91b5e645d0ca3a17c84631f",
+      "lines": 254100,
+      "bytes": 758942662,
+      "cap": 100,
+      "over_cap_lines": 213694,
+      "over_cap_locations": 21369400,
+      "over_cap_sha256": "e618c413d6143b9b96df64efea5bafc79eace8f7ff34f98cf828640494850363",
+      "compressed_bytes": 217876202,
+      "compressed_sha256": "0f7b774e99ceb990bb424d52be5591dd413809244c70bc2665a168070efb68bf",
+      "path": "/work/stage/work/freeze-2885ee8-00e665de/loc-guccione_skin-ms2psi/canonical/guccione_skin-locate-500kb__cap100-psi-ordinary.canonical.gz"
+    }
+  },
+  "query_seconds": [
+    2.64762,
+    2.64266,
+    2.59347
+  ],
+  "median_query_seconds": 2.64266,
+  "load_seconds": [
+    187.355,
+    187.315,
+    183.564
+  ],
+  "median_load_seconds": 187.315,
+  "wall_seconds": [
+    190.64109417799773,
+    190.59456156600208,
+    186.79225126999881
+  ],
+  "peak_rss_kib": 353112280,
+  "query_spread_fraction": 0.0204907176859679,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 0.1891669756987278,
+  "ns_per_base": 5286.334976315452,
+  "locations": 21788212,
+  "smems": 254100,
+  "locations_per_second": 8244803.34208714,
+  "finished": 1793515816.6450503
+}

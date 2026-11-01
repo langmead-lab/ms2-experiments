@@ -1,0 +1,35 @@
+% Fig L1: SMEM offset reporting (locate) with at most N = 1 positions per
+% SMEM; ms2-psi, ms2-phi and ms2-dual against ropebwt3 -s11, -s8, -s6 (Human472).
+% The legend names every point, so no panel carries point labels, and the ms2 and ropebwt3
+% markers are drawn 30% larger than the shared style.
+\documentclass[border=1pt]{standalone}
+\input{figures-style}
+\input{figures-tweaks}
+\input{figures-gap}
+\figLargerMarks
+\begin{document}
+\input{data/fig-l1/limits}
+\begin{tikzpicture}
+\begin{groupplot}[group style={fig row=4}, locate axis, ymode=log]
+  \nextgroupplot[ylabel={\figLocLabel}, fig group legend, legend to name=legFigLHundredMS]
+    \figLegendGroupName{ms2:}\figLegendKey{psi}{psi}\figLegendKey{phi}{phi}\figLegendKey{dual}{dual}
+    \figPlotLinks{data/fig-l1/human_short.dat}{rs}
+    \figPlotKeys{data/fig-l1/human_short.dat}{s11,s8,s6,dual,phi,psi}
+    \figPanelTitle{\figTitle{human_short}}
+    \input{data/gap/fig-l1-human_short}
+  \nextgroupplot[locate rest, fig group legend, legend to name=legFigLHundredRope]
+    \figLegendLocateRopeGroup
+    \figPanelBody{fig-l1}{human_pacbio}{rs}{s11,s8,s6,dual,phi,psi}
+    \input{data/gap/fig-l1-human_pacbio}
+  \nextgroupplot[locate rest]
+    \figPanelBody{fig-l1}{human_ont_modern}{rs}{s11,s8,s6,dual,phi,psi}
+    \input{data/gap/fig-l1-human_ont_modern}
+  \nextgroupplot[locate rest]
+    \figPanelBody{fig-l1}{guccione_skin}{rs}{s11,s8,s6,dual,phi,psi}
+    \input{data/gap/fig-l1-guccione_skin}
+\end{groupplot}
+\node[font=\figLabelFont, text=figInkTwo, anchor=north]
+  at ($(group c1r1.south west)!0.5!(group c4r1.south east)+(0,-8pt)$) {\figMemLabel};
+\figLegendRow{group c1r1}{group c4r1}{legFigLHundredMS}{legFigLHundredRope}
+\end{tikzpicture}
+\end{document}

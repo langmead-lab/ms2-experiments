@@ -1,0 +1,47 @@
+{
+  "run": 2,
+  "host": "ip-10-0-2-66.ec2.internal",
+  "started": 1793418344.396078,
+  "one": {
+    "argv": [
+      "numactl",
+      "--cpunodebind=0",
+      "--membind=0",
+      "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simshort/legacy/phoni-chr22-h10/reference.txt",
+      "-p",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__phoni/run2/one/reads.fa",
+      "-g",
+      "naive"
+    ],
+    "cache": "drop_caches",
+    "wall_seconds": 0.3217641960000037,
+    "peak_rss_kib": 613688,
+    "user_seconds": 0.01,
+    "system_seconds": 0.28
+  },
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simshort/legacy/phoni-chr22-h10/reference.txt",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__phoni/run2/full/reads.fa",
+    "-g",
+    "naive"
+  ],
+  "cache": "drop_caches",
+  "timeout_s": 7200,
+  "wall_seconds": 95.33775839600094,
+  "user_seconds": 93.25,
+  "system_seconds": 2.05,
+  "peak_rss_kib": 613688,
+  "phase": {
+    "source": "one-read-wall",
+    "query_definition": "full run wall minus one-read run wall",
+    "load_seconds": 0.3217641960000037,
+    "query_seconds": 95.01599420000093
+  },
+  "finished": 1793418440.1356816
+}

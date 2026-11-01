@@ -1,0 +1,4 @@
+stats: bases=59140032 repositions/base=0.000651606 psi_steps/base=0 scan_rows/rep=7.77328 len/rep=2908.19 phi_steps/base=0.0226455 dist/rep=177.94 dist1_frac=0.384705 lce/rep=1671.16 capped_frac=0.467407 scan_visits/rep=1.25114 lf_ff/step=0.367401 walk_visits/base=0.0194656
+stats: phi up_settled=31911 up_walked=6176 down_settled=31806 down_walked=6319 partial_steps=1316553 cont_walks=99 cont_steps=22704 partial_steps/rep=34.1642 cont_steps/rep=0.589163
+stats: bases=59140032 repositions/base=0 lf_ff/step=-nan walk_up/rep=-nan walk_down/rep=-nan
+query: reads=600 bases=59140032 threads=1 index_load_s=0.0938638 ftab_k=0 ftab_s=0 query_s=1.42775 read_s=0.0232547 parse_s=0.0578201 format_s=0.89443 orient=fwd flipped=0 orient_s=0 total_s=2.52576 query_ns_per_base=24.1419 wall_ns_per_base=42.7081

@@ -1,0 +1,71 @@
+{
+  "run": 1,
+  "host": "ip-10-0-5-162.ec2.internal",
+  "started": 1793512855.1229827,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t1",
+    "-K",
+    "1m",
+    "-l1",
+    "-p1",
+    "/work/stage/work/freeze-2885ee8-00e665de/loc-human_pacbio-rope-s6/rope/s6-ropebwt3_human472_index.fmd/index.fmd",
+    "/work/stage/inputs/8eca4b06b72beec9b6ecbc692c5b0fbdc970cd5bd53dc3609861ed70ebcdfde5/reads.fa"
+  ],
+  "timeout_s": 14400,
+  "cache": "drop_caches",
+  "wall_seconds": 115.50264539100135,
+  "user_seconds": 18.36,
+  "system_seconds": 97.18,
+  "peak_rss_kib": 362048520,
+  "phase": {
+    "source": "ropebwt3-log-stamps",
+    "query_definition": "last processed stamp - last loaded stamp",
+    "load_seconds": 96.62,
+    "query_seconds": 18.251999999999995,
+    "components": {
+      "last_loaded_s": 96.62,
+      "last_processed_s": 114.872,
+      "processed_sequences": 953
+    }
+  },
+  "check": {
+    "failed": 0,
+    "validation": "cross-tool-v1",
+    "tool": "rope",
+    "cap": 1,
+    "reads": 953,
+    "intervals": 262353,
+    "zero_count_intervals": 0,
+    "reported_locations_checked": 262353,
+    "locations_in_bounds": 262353,
+    "ms_positions_checked": 19986831,
+    "emitted_counts": 262353,
+    "complete_set_intervals": 18276,
+    "complete_set_locations": 18276,
+    "over_cap_intervals": 244077,
+    "over_cap_locations": 244077,
+    "all_coordinates_checked": false,
+    "occurrence_reference_checked": false,
+    "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+    "count_checks": "cross-tool agreement",
+    "canonical": {
+      "format": "canonical-smem-v1",
+      "sha256": "cb1b6fd6bc4d417f48701d74d95d93d01aa2fc729083aa85737ff8aa100dda70",
+      "lines": 262353,
+      "bytes": 14757970,
+      "cap": 1,
+      "over_cap_lines": 244077,
+      "over_cap_locations": 244077,
+      "over_cap_sha256": "3ef4a2467c4bb4d43ef166bf08dc29071d7425b1dab69d85ba197631c681c3e1",
+      "compressed_bytes": 4738920,
+      "compressed_sha256": "8331e822417d60b6ab8f7de899912a746c39791fe66ead0a75010e99b7d25294",
+      "path": "/work/stage/work/freeze-2885ee8-00e665de/loc-human_pacbio-rope-s6/canonical/human_pacbio-locate-20mb__cap1-rope-s6.canonical.gz"
+    }
+  },
+  "finished": 1793512984.2235222
+}

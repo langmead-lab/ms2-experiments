@@ -1,0 +1,26 @@
+[M::rb3_fmi_load_all::5.535*1.00] loaded the BWT
+[M::rb3_fmi_load_all::10.140*1.00] loaded the sampled suffix array
+[M::rb3_fmi_load_all::10.149*1.00] loaded the sequence names and lengths
+[M::worker_pipeline::12.424*1.00] processed 50 sequences
+[M::worker_pipeline::14.855*1.00] processed 47 sequences
+[M::worker_pipeline::17.938*1.00] processed 47 sequences
+[M::worker_pipeline::20.130*1.00] processed 46 sequences
+[M::worker_pipeline::22.565*1.00] processed 51 sequences
+[M::worker_pipeline::25.359*1.00] processed 50 sequences
+[M::worker_pipeline::27.313*1.00] processed 48 sequences
+[M::worker_pipeline::30.240*1.00] processed 48 sequences
+[M::worker_pipeline::32.161*1.00] processed 44 sequences
+[M::worker_pipeline::34.866*1.00] processed 47 sequences
+[M::worker_pipeline::36.981*1.00] processed 46 sequences
+[M::worker_pipeline::39.722*1.00] processed 49 sequences
+[M::worker_pipeline::42.132*1.00] processed 50 sequences
+[M::worker_pipeline::43.870*1.00] processed 48 sequences
+[M::worker_pipeline::46.006*1.00] processed 48 sequences
+[M::worker_pipeline::48.217*1.00] processed 49 sequences
+[M::worker_pipeline::50.603*1.00] processed 50 sequences
+[M::worker_pipeline::52.824*1.00] processed 48 sequences
+[M::worker_pipeline::55.250*1.00] processed 49 sequences
+[M::worker_pipeline::56.736*1.00] processed 38 sequences
+[M::main] Version: 3.10-r285-dirty
+[M::main] CMD: /work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3 mem -t1 -K 1m -l1 -p1 /work/stage/work/freeze-2885ee8-3c8c8967/loc-human_pacbio-rope-s11/rope/s11-ropebwt3_human472_index.fmd/index.fmd /work/stage/inputs/8eca4b06b72beec9b6ecbc692c5b0fbdc970cd5bd53dc3609861ed70ebcdfde5/reads.fa
+[M::main] Real time: 57.387 sec; CPU: 57.461 sec; Peak RSS: 24.721 GB

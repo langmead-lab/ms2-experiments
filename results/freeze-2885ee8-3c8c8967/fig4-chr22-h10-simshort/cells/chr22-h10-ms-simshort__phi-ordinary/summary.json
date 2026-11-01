@@ -1,0 +1,264 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "phi-ordinary",
+  "cell": "chr22-h10-ms-simshort/phi-ordinary",
+  "group": "chr22-h10-ms-simshort",
+  "figures": [
+    "A2"
+  ],
+  "tool": "ms2",
+  "kind": "ms",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "job": "fig4-chr22-h10-simshort",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-2-66.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0769303767f334774",
+    "availability_zone": "us-east-1c",
+    "lifecycle": "spot"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 480000,
+  "bases": 60000000,
+  "reference": "chr22-h10",
+  "read_set": "simshort-60mb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "checker": {
+      "name": "tools/ms_check",
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab"
+    },
+    "index": {
+      "name": "ms2/chr22-h10/index.tms.phi.orbitidx",
+      "sha256": "ca89d0bd12912111744f7ac25ee9afd03b39de55b75643d5cfcc48cc3be1d90f"
+    },
+    "reads": {
+      "name": "reads/chr22-h10/simshort-60mb-v2/reads.fa",
+      "sha256": "2c0295c2b8a7293650484eabe480e6f9a68ed354bb3ceda91a23fe982176505b"
+    },
+    "truth": {
+      "name": "reads/chr22-h10/simshort-60mb-v2/truth.u32",
+      "sha256": "1c73cef8f388954964021056c56754e7584ad41d9085f31b409a0de11c278084"
+    },
+    "offsets": {
+      "name": "reads/chr22-h10/simshort-60mb-v2/offsets.u64",
+      "sha256": "26fa15047d34b53e7c39b84c8870527b353e1eeaa6c824d8b951234f24377f24"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793418685.5987816,
+  "layout": "phi",
+  "mode": "ordinary",
+  "interleave": 32,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-2-66.ec2.internal",
+      "started": 1793418685.5988557,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/ca89d0bd12912111744f7ac25ee9afd03b39de55b75643d5cfcc48cc3be1d90f/index.tms.phi.orbitidx",
+        "/work/stage/inputs/2c0295c2b8a7293650484eabe480e6f9a68ed354bb3ceda91a23fe982176505b/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__phi-ordinary/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "phi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 5.145052535999639,
+      "user_seconds": 4.41,
+      "system_seconds": 0.71,
+      "peak_rss_kib": 1142432,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 0.659763,
+        "query_seconds": 4.43024,
+        "components": {
+          "index_load_s": 0.659763,
+          "ftab_s": 0.0,
+          "query_s": 3.74319,
+          "read_s": 0.0103938,
+          "parse_s": 0.05323,
+          "format_s": 0.559461,
+          "total_s": 4.43024
+        }
+      },
+      "check": {
+        "reads": 480000,
+        "positions": 60000000,
+        "failed": 0,
+        "validation": "ms_check: every MS value equals truth"
+      },
+      "finished": 1793418691.1993241
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-2-66.ec2.internal",
+      "started": 1793418691.1998107,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/ca89d0bd12912111744f7ac25ee9afd03b39de55b75643d5cfcc48cc3be1d90f/index.tms.phi.orbitidx",
+        "/work/stage/inputs/2c0295c2b8a7293650484eabe480e6f9a68ed354bb3ceda91a23fe982176505b/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__phi-ordinary/run2/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "phi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 5.270661673999712,
+      "user_seconds": 4.5,
+      "system_seconds": 0.75,
+      "peak_rss_kib": 1142432,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 0.67378,
+        "query_seconds": 4.54563,
+        "components": {
+          "index_load_s": 0.67378,
+          "ftab_s": 0.0,
+          "query_s": 3.84767,
+          "read_s": 0.0109619,
+          "parse_s": 0.0555995,
+          "format_s": 0.56541,
+          "total_s": 4.54563
+        }
+      },
+      "finished": 1793418696.5022736
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-2-66.ec2.internal",
+      "started": 1793418696.502652,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/ca89d0bd12912111744f7ac25ee9afd03b39de55b75643d5cfcc48cc3be1d90f/index.tms.phi.orbitidx",
+        "/work/stage/inputs/2c0295c2b8a7293650484eabe480e6f9a68ed354bb3ceda91a23fe982176505b/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simshort/runs/chr22-h10-ms-simshort__phi-ordinary/run3/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "phi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 5.178908413001409,
+      "user_seconds": 4.43,
+      "system_seconds": 0.72,
+      "peak_rss_kib": 1142452,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 0.664411,
+        "query_seconds": 4.46276,
+        "components": {
+          "index_load_s": 0.664411,
+          "ftab_s": 0.0,
+          "query_s": 3.77424,
+          "read_s": 0.0105842,
+          "parse_s": 0.0530657,
+          "format_s": 0.56037,
+          "total_s": 4.46276
+        }
+      },
+      "finished": 1793418701.7107947
+    }
+  ],
+  "check": {
+    "reads": 480000,
+    "positions": 60000000,
+    "failed": 0,
+    "validation": "ms_check: every MS value equals truth"
+  },
+  "query_seconds": [
+    4.43024,
+    4.54563,
+    4.46276
+  ],
+  "median_query_seconds": 4.46276,
+  "load_seconds": [
+    0.659763,
+    0.67378,
+    0.664411
+  ],
+  "median_load_seconds": 0.664411,
+  "wall_seconds": [
+    5.145052535999639,
+    5.270661673999712,
+    5.178908413001409
+  ],
+  "peak_rss_kib": 1142452,
+  "query_spread_fraction": 0.02585619661375464,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 13.444594824727298,
+  "ns_per_base": 74.37933333333334,
+  "finished": 1793418701.711034
+}

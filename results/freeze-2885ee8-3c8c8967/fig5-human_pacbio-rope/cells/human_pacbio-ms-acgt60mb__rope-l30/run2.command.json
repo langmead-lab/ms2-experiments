@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t1",
+    "-l30",
+    "/work/stage/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd",
+    "/work/stage/inputs/6861789d6d73968791997b513495c24fdfc967971d5a9faaca41acf712e85905/reads.fa"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-human_pacbio-rope/runs/human_pacbio-ms-acgt60mb__rope-l30/run2",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 49.50576702000001,
+  "stdout": "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-human_pacbio-rope/runs/human_pacbio-ms-acgt60mb__rope-l30/run2/run2.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-human_pacbio-rope/runs/human_pacbio-ms-acgt60mb__rope-l30/run2/run2.stderr",
+  "native_wall_seconds": 49.49,
+  "user_seconds": 43.49,
+  "system_seconds": 5.97,
+  "peak_rss_kib": 15134492
+}

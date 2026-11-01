@@ -1,0 +1,30 @@
+{
+ "locations": {
+  "reads/chr22-h10/simont-60mb-v2/offsets.u64": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h10-simont-60mb-v2/offsets.u64",
+  "reads/chr22-h10/simont-60mb-v2/one.fa": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h10-simont-60mb-v2/one.fa",
+  "reads/chr22-h10/simont-60mb-v2/reads.fa": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h10-simont-60mb-v2/reads.fa",
+  "reads/chr22-h10/simont-60mb-v2/truth.u32": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h10-simont-60mb-v2/truth.u32",
+  "reads/chr22-h10/simpacbio-60mb-v2/offsets.u64": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h10-simpacbio-60mb-v2/offsets.u64",
+  "reads/chr22-h10/simpacbio-60mb-v2/one.fa": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h10-simpacbio-60mb-v2/one.fa",
+  "reads/chr22-h10/simpacbio-60mb-v2/reads.fa": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h10-simpacbio-60mb-v2/reads.fa",
+  "reads/chr22-h10/simpacbio-60mb-v2/truth.u32": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h10-simpacbio-60mb-v2/truth.u32",
+  "reads/chr22-h10/simshort-60mb-v2/offsets.u64": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h10-simshort-60mb-v2/offsets.u64",
+  "reads/chr22-h10/simshort-60mb-v2/one.fa": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h10-simshort-60mb-v2/one.fa",
+  "reads/chr22-h10/simshort-60mb-v2/reads.fa": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h10-simshort-60mb-v2/reads.fa",
+  "reads/chr22-h10/simshort-60mb-v2/truth.u32": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h10-simshort-60mb-v2/truth.u32",
+  "reads/chr22-h100/simont-60mb-v2/offsets.u64": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h100-simont-60mb-v2/offsets.u64",
+  "reads/chr22-h100/simont-60mb-v2/one.fa": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h100-simont-60mb-v2/one.fa",
+  "reads/chr22-h100/simont-60mb-v2/reads.fa": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h100-simont-60mb-v2/reads.fa",
+  "reads/chr22-h100/simont-60mb-v2/truth.u32": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h100-simont-60mb-v2/truth.u32",
+  "reads/chr22-h100/simpacbio-60mb-v2/offsets.u64": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h100-simpacbio-60mb-v2/offsets.u64",
+  "reads/chr22-h100/simpacbio-60mb-v2/one.fa": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h100-simpacbio-60mb-v2/one.fa",
+  "reads/chr22-h100/simpacbio-60mb-v2/reads.fa": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h100-simpacbio-60mb-v2/reads.fa",
+  "reads/chr22-h100/simpacbio-60mb-v2/truth.u32": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h100-simpacbio-60mb-v2/truth.u32",
+  "reads/chr22-h100/simshort-60mb-v2/offsets.u64": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h100-simshort-60mb-v2/offsets.u64",
+  "reads/chr22-h100/simshort-60mb-v2/one.fa": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h100-simshort-60mb-v2/one.fa",
+  "reads/chr22-h100/simshort-60mb-v2/reads.fa": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h100-simshort-60mb-v2/reads.fa",
+  "reads/chr22-h100/simshort-60mb-v2/truth.u32": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-h100-simshort-60mb-v2/truth.u32",
+  "reads/chr22-sim/pacbio-60mb-v2/reads.fa": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-sim-pacbio-60mb-v2/reads.fa"
+ },
+ "notes": "D13.1 APR008 chr22 simulated sets, pending approval of the q-arm-only source"
+}

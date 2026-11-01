@@ -1,0 +1,98 @@
+{
+  "job": "loc-human_pacbio-rope-s11",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "host": {
+    "hostname": "ip-10-0-0-221.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0e932ef405716a7e3",
+    "availability_zone": "us-east-1a",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793509513.2362638,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "loc-human_pacbio-rope-s11",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 3,
+  "already_done": 0,
+  "order": [
+    "human_pacbio-locate-20mb/cap1-rope-s11",
+    "human_pacbio-locate-20mb/cap10-rope-s11",
+    "human_pacbio-locate-20mb/cap100-rope-s11"
+  ],
+  "staging": {
+    "reads/human472/human_pacbio-locate-20mb-v2/offsets.u64": {
+      "sha256": "de01f5e61baf5a0b905c9783f6e1553d096f2424744708fa735c757c93451c73",
+      "bytes": 7632,
+      "fresh": true,
+      "seconds": 0.6657445430755615
+    },
+    "reads/human472/human_pacbio-locate-20mb-v2/reads.fa": {
+      "sha256": "8eca4b06b72beec9b6ecbc692c5b0fbdc970cd5bd53dc3609861ed70ebcdfde5",
+      "bytes": 19993392,
+      "fresh": true,
+      "seconds": 0.9393186569213867
+    },
+    "reads/human472/human_pacbio-locate-20mb-v2/truth.u32": {
+      "sha256": "4752a77813af1254088abf060a0297ceb43a7aa8288f73f0c0f6dbb457ae7af7",
+      "bytes": 79947324,
+      "fresh": true,
+      "seconds": 1.0358448028564453
+    },
+    "ropebwt3/human472/index.fmd": {
+      "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626",
+      "bytes": 15427477160,
+      "fresh": false,
+      "seconds": 3.838539123535156e-05
+    },
+    "ropebwt3/human472/index.fmd.len.gz": {
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0",
+      "bytes": 286728,
+      "fresh": false,
+      "seconds": 2.0742416381835938e-05
+    },
+    "ropebwt3/human472/index.fmd.s11.ssa": {
+      "sha256": "f9a56c2a175de8ef0a5783065de44e8aee0473dc2c70ba04f4d1b51a37ad8fd9",
+      "bytes": 11103656940,
+      "fresh": true,
+      "seconds": 30.536418676376343
+    },
+    "tools/ropebwt3-cfad8475/ropebwt3": {
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d",
+      "bytes": 1595032,
+      "fresh": false,
+      "seconds": 4.363059997558594e-05
+    },
+    "tools/runtime/libgomp.so.1": {
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8",
+      "bytes": 1501072,
+      "fresh": false,
+      "seconds": 2.3603439331054688e-05
+    }
+  },
+  "finished": 1793512792.8207238,
+  "results": {
+    "human_pacbio-locate-20mb/cap1-rope-s11": "checked",
+    "human_pacbio-locate-20mb/cap10-rope-s11": "checked",
+    "human_pacbio-locate-20mb/cap100-rope-s11": "checked"
+  }
+}

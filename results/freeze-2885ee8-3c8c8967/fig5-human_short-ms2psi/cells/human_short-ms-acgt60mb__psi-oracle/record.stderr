@@ -1,0 +1,2 @@
+oracle: reads=480000 repositions=8328108 bytes=137089760
+query: reads=480000 bases=60000000 threads=1 index_load_s=63.5578 ftab_k=0 ftab_s=0 query_s=9.7276 read_s=0.0102432 parse_s=0.053159 format_s=0.557983 orient=fwd flipped=0 orient_s=0 total_s=10.4514 query_ns_per_base=162.127 wall_ns_per_base=174.19

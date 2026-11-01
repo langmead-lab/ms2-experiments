@@ -1,0 +1,342 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "cap1-phi-ordinary",
+  "cell": "human_ont_modern-locate-10mb/cap1-phi-ordinary",
+  "group": "human_ont_modern-locate-10mb",
+  "figures": [
+    "A3"
+  ],
+  "tool": "ms2",
+  "kind": "locate",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "job": "loc-human_ont_modern-ms2phi",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-4-110.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0361bc9ec5a9fa0f8",
+    "availability_zone": "us-east-1e",
+    "lifecycle": "spot"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 494,
+  "bases": 9949236,
+  "reference": "human472",
+  "read_set": "human_ont_modern-locate-10mb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "index": {
+      "name": "ms2/human472/index.tms.full.seqids.orbitidx",
+      "sha256": "39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588"
+    },
+    "lengths": {
+      "name": "ropebwt3/human472/index.fmd.len.gz",
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0"
+    },
+    "reads": {
+      "name": "reads/human472/human_ont_modern-locate-10mb-v2/reads.fa",
+      "sha256": "2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83"
+    },
+    "truth": {
+      "name": "reads/human472/human_ont_modern-locate-10mb-v2/truth.u32",
+      "sha256": "7d70430a4d56c92922290e51cd7e94571e303669df896139934037a1f7276930"
+    },
+    "offsets": {
+      "name": "reads/human472/human_ont_modern-locate-10mb-v2/offsets.u64",
+      "sha256": "0b943e71d1e1bd7dc7f6ce977debc0dc06cda6347ab14c6b02b25b92a5074a04"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793455687.456873,
+  "layout": "phi",
+  "mode": "ordinary",
+  "interleave": 32,
+  "cap": 1,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-4-110.ec2.internal",
+      "started": 1793455687.4569657,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-ms2phi/runs/human_ont_modern-locate-10mb__cap1-phi-ordinary/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "phi",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "1"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 266.4124653380004,
+      "user_seconds": 86.24,
+      "system_seconds": 180.1,
+      "peak_rss_kib": 353040976,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 255.279,
+        "query_seconds": 2.36953,
+        "components": {
+          "index_load_s": 255.279,
+          "ftab_s": 0.0,
+          "query_s": 2.30719,
+          "read_s": 0.00394203,
+          "parse_s": 0.00790929,
+          "format_s": 0.0445409,
+          "total_s": 2.36953
+        }
+      },
+      "check": {
+        "failed": 0,
+        "validation": "cross-tool-v1",
+        "tool": "orbit",
+        "cap": 1,
+        "reads": 494,
+        "intervals": 186634,
+        "zero_count_intervals": 0,
+        "reported_locations_checked": 186634,
+        "locations_in_bounds": 186634,
+        "ms_positions_checked": 9949236,
+        "emitted_counts": 186634,
+        "complete_set_intervals": 15481,
+        "complete_set_locations": 15481,
+        "over_cap_intervals": 171153,
+        "over_cap_locations": 171153,
+        "all_coordinates_checked": false,
+        "occurrence_reference_checked": false,
+        "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+        "count_checks": "cross-tool agreement",
+        "canonical": {
+          "format": "canonical-smem-v1",
+          "sha256": "61a2a2df8f16838f788f68afabdca913819748004a56a5a81c4bfd402d80ed83",
+          "lines": 186634,
+          "bytes": 10455320,
+          "cap": 1,
+          "over_cap_lines": 171153,
+          "over_cap_locations": 171153,
+          "over_cap_sha256": "385d055474649083d058c8e6937b27d04c773a8dde915a9de17a586dc6ad75fe",
+          "compressed_bytes": 3270582,
+          "compressed_sha256": "934bca401179f2d810246339a0942d8dd9fa8c8dffe63becb8a7f1f510f0cd4c",
+          "path": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-ms2phi/canonical/human_ont_modern-locate-10mb__cap1-phi-ordinary.canonical.gz"
+        }
+      },
+      "finished": 1793455965.276314
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-4-110.ec2.internal",
+      "started": 1793455965.2768888,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-ms2phi/runs/human_ont_modern-locate-10mb__cap1-phi-ordinary/run2/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "phi",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "1"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 263.2744369440006,
+      "user_seconds": 84.7,
+      "system_seconds": 178.5,
+      "peak_rss_kib": 353041016,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 252.176,
+        "query_seconds": 2.3373,
+        "components": {
+          "index_load_s": 252.176,
+          "ftab_s": 0.0,
+          "query_s": 2.27611,
+          "read_s": 0.00395071,
+          "parse_s": 0.00779018,
+          "format_s": 0.0436107,
+          "total_s": 2.3373
+        }
+      },
+      "finished": 1793456232.9507542
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-4-110.ec2.internal",
+      "started": 1793456232.9513204,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-ms2phi/runs/human_ont_modern-locate-10mb__cap1-phi-ordinary/run3/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "phi",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "1"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 265.6907254079997,
+      "user_seconds": 87.09,
+      "system_seconds": 178.53,
+      "peak_rss_kib": 353041008,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 254.594,
+        "query_seconds": 2.33409,
+        "components": {
+          "index_load_s": 254.594,
+          "ftab_s": 0.0,
+          "query_s": 2.27254,
+          "read_s": 0.00383137,
+          "parse_s": 0.00779175,
+          "format_s": 0.0440716,
+          "total_s": 2.33409
+        }
+      },
+      "finished": 1793456503.0672712
+    }
+  ],
+  "check": {
+    "failed": 0,
+    "validation": "cross-tool-v1",
+    "tool": "orbit",
+    "cap": 1,
+    "reads": 494,
+    "intervals": 186634,
+    "zero_count_intervals": 0,
+    "reported_locations_checked": 186634,
+    "locations_in_bounds": 186634,
+    "ms_positions_checked": 9949236,
+    "emitted_counts": 186634,
+    "complete_set_intervals": 15481,
+    "complete_set_locations": 15481,
+    "over_cap_intervals": 171153,
+    "over_cap_locations": 171153,
+    "all_coordinates_checked": false,
+    "occurrence_reference_checked": false,
+    "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+    "count_checks": "cross-tool agreement",
+    "canonical": {
+      "format": "canonical-smem-v1",
+      "sha256": "61a2a2df8f16838f788f68afabdca913819748004a56a5a81c4bfd402d80ed83",
+      "lines": 186634,
+      "bytes": 10455320,
+      "cap": 1,
+      "over_cap_lines": 171153,
+      "over_cap_locations": 171153,
+      "over_cap_sha256": "385d055474649083d058c8e6937b27d04c773a8dde915a9de17a586dc6ad75fe",
+      "compressed_bytes": 3270582,
+      "compressed_sha256": "934bca401179f2d810246339a0942d8dd9fa8c8dffe63becb8a7f1f510f0cd4c",
+      "path": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-ms2phi/canonical/human_ont_modern-locate-10mb__cap1-phi-ordinary.canonical.gz"
+    }
+  },
+  "query_seconds": [
+    2.36953,
+    2.3373,
+    2.33409
+  ],
+  "median_query_seconds": 2.3373,
+  "load_seconds": [
+    255.279,
+    252.176,
+    254.594
+  ],
+  "median_load_seconds": 254.594,
+  "wall_seconds": [
+    266.4124653380004,
+    263.2744369440006,
+    265.6907254079997
+  ],
+  "peak_rss_kib": 353041016,
+  "query_spread_fraction": 0.01516279467761944,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 4.2567218585547435,
+  "ns_per_base": 234.9225608880923,
+  "locations": 186634,
+  "smems": 186634,
+  "locations_per_second": 79850.25456723571,
+  "finished": 1793456503.0675185
+}

@@ -1,0 +1,51 @@
+{
+  "run": 2,
+  "host": "ip-10-0-3-151.ec2.internal",
+  "started": 1793419991.4266818,
+  "one": {
+    "argv": [
+      "numactl",
+      "--cpunodebind=0",
+      "--membind=0",
+      "/work/stage/inputs/79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b/aug_phoni",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simpacbio/legacy/augphoni-chr22-h10/reference.txt",
+      "-p",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__augphoni/run2/one/reads.fa",
+      "-g",
+      "naive",
+      "-t",
+      "compressed"
+    ],
+    "cache": "drop_caches",
+    "wall_seconds": 0.5261683470000662,
+    "peak_rss_kib": 981312,
+    "user_seconds": 0.02,
+    "system_seconds": 0.46
+  },
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b/aug_phoni",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simpacbio/legacy/augphoni-chr22-h10/reference.txt",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simpacbio/runs/chr22-h10-ms-simpacbio__augphoni/run2/full/reads.fa",
+    "-g",
+    "naive",
+    "-t",
+    "compressed"
+  ],
+  "cache": "drop_caches",
+  "timeout_s": 7200,
+  "wall_seconds": 67.47815772399997,
+  "user_seconds": 65.9,
+  "system_seconds": 1.54,
+  "peak_rss_kib": 982144,
+  "phase": {
+    "source": "one-read-wall",
+    "query_definition": "full run wall minus one-read run wall",
+    "load_seconds": 0.5261683470000662,
+    "query_seconds": 66.9519893769999
+  },
+  "finished": 1793420059.5188272
+}

@@ -1,0 +1,27 @@
+% Fig MS+ftab: short reads only, ms2 layouts (with ms2-phi) without (circle) and with
+% (diamond) ftab, plus ropebwt3 MS-only modes (Human472). Single panel; the
+% ropebwt3 legend group comes from an empty hidden axis, since one axis
+% supplies only one named legend. The legend names every point, so the panel carries no point
+% labels, and the ms2 and ropebwt3 markers are drawn 30% larger than the shared style.
+\documentclass[border=1pt]{standalone}
+\input{figures-style}
+\input{figures-tweaks}
+\figLargerMarks
+\begin{document}
+\input{data/fig-ms-ftab/limits}
+\begin{tikzpicture}
+\begin{axis}[name=ftab, ms speed axis, ymode=log, width=3.4in, height=1.45in,
+    xlabel={\figMemLabel}, ylabel={\figSpeedLabel}, xlabel style={yshift=2pt},
+    fig group legend, legend to name=legFigMSFtabMS]
+  \figLegendGroupName{ms2:}\figLegendKey{lcp}{min}\figLegendKey{psi}{psi}\figLegendKey{phi}{phi}\figLegendKey{dual}{dual}\figLegendFtab
+  \figPlotLinks{data/fig-ms-ftab/human_short.dat}{lcp,psi,phi,dual}
+  \figPlotKeys{data/fig-ms-ftab/human_short.dat}{rl40,rl30,rl25,rl19,rl1,dualF,phiF,psiF,lcpF,dual,phi,psi,lcp}
+  \figPanelTitle{\figTitle{human_short}}
+\end{axis}
+\begin{axis}[hide axis, xmin=0, xmax=1, ymin=0, ymax=1, scale only axis, width=1in, height=0.5in, at={(ftab.south west)},
+    fig group legend, legend to name=legFigMSFtabRope]
+  \figLegendRopeGroup
+\end{axis}
+\figLegendRow{ftab}{ftab}{legFigMSFtabMS}{legFigMSFtabRope}
+\end{tikzpicture}
+\end{document}

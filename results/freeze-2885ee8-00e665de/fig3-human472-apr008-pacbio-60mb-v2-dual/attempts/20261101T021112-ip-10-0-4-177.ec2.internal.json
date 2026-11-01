@@ -1,0 +1,84 @@
+{
+  "job": "fig3-human472-apr008-pacbio-60mb-v2-dual",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "host": {
+    "hostname": "ip-10-0-4-177.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0092ac6d27c82b3ae",
+    "availability_zone": "us-east-1e",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793497521.1742554,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "fig3-human472-apr008-pacbio-60mb-v2-dual",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 2,
+  "already_done": 0,
+  "order": [
+    "fig_ops-human472-apr008-pacbio-60mb-v2/dual-oracle",
+    "fig_ops-human472-apr008-pacbio-60mb-v2/dual-ordinary"
+  ],
+  "staging": {
+    "ms2/human472/index.tms.full.seqids.orbitidx": {
+      "sha256": "39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588",
+      "bytes": 409196490183,
+      "fresh": true,
+      "seconds": 969.5393273830414
+    },
+    "reads/human472/human472-apr008-pacbio-60mb-v2/offsets.u64": {
+      "sha256": "206cbe31bc09fe7215a6240a72d62184b515fb7d3fb4586b0f16015b6d3bef73",
+      "bytes": 22832,
+      "fresh": false,
+      "seconds": 5.435943603515625e-05
+    },
+    "reads/human472/human472-apr008-pacbio-60mb-v2/reads.fa": {
+      "sha256": "c8ce0e7314229be50c85c7dc652cb74c08c4d2a5378ef5471c70890c87606db0",
+      "bytes": 60004416,
+      "fresh": false,
+      "seconds": 2.1696090698242188e-05
+    },
+    "reads/human472/human472-apr008-pacbio-60mb-v2/truth.u32": {
+      "sha256": "0155da562348fb0b1a7baa5b5880f64d2e5225ed824ff19c77a2d1d9774401ae",
+      "bytes": 239930808,
+      "fresh": false,
+      "seconds": 2.6702880859375e-05
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 2.2649765014648438e-05
+    },
+    "tools/ms_check": {
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab",
+      "bytes": 251000,
+      "fresh": false,
+      "seconds": 2.384185791015625e-05
+    }
+  },
+  "finished": 1793499072.037867,
+  "results": {
+    "fig_ops-human472-apr008-pacbio-60mb-v2/dual-oracle": "checked",
+    "fig_ops-human472-apr008-pacbio-60mb-v2/dual-ordinary": "checked"
+  }
+}

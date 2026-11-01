@@ -1,0 +1,35 @@
+% Fig MS+Oracle: Fig MS plus an oracle replay tick on a
+% vertical line above each ms2 layout's ordinary point (Human472), with ms2-phi beside ms2-psi.
+% The legend names every point, so no panel carries point labels, and the ms2 and ropebwt3
+% markers are drawn 30% larger than the shared style.
+\documentclass[border=1pt]{standalone}
+\input{figures-style}
+\input{figures-tweaks}
+\input{figures-gap}
+\figLargerMarks
+\begin{document}
+\input{data/fig-ms-oracle/limits}
+\begin{tikzpicture}
+\begin{groupplot}[group style={fig row=4}, ms speed axis, ymode=log]
+  \nextgroupplot[ylabel={\figSpeedLabel}, fig group legend, legend to name=legFigMSOracleMS]
+    \figLegendGroupName{ms2:}\figLegendKey{lcp}{min}\figLegendKey{psi}{psi}\figLegendKey{phi}{phi}\figLegendKey{dual}{dual}\figLegendOracleOnly
+    \figPlotLinks{data/fig-ms-oracle/human_short.dat}{lcp,psi,phi,dual}
+    \figPlotKeys{data/fig-ms-oracle/human_short.dat}{rl40,rl30,rl25,rl19,rl1,dualO,phiO,psiO,lcpO,dual,phi,psi,lcp}
+    \figPanelTitle{\figTitle{human_short}}
+    \input{data/gap/fig-ms-oracle-human_short}
+  \nextgroupplot[ms speed rest, fig group legend, legend to name=legFigMSOracleRope]
+    \figLegendRopeGroup
+    \figPanelBody{fig-ms-oracle}{human_pacbio}{lcp,psi,phi,dual}{rl40,rl30,rl25,rl19,rl1,dualO,phiO,psiO,lcpO,dual,phi,psi,lcp}
+    \input{data/gap/fig-ms-oracle-human_pacbio}
+  \nextgroupplot[ms speed rest]
+    \figPanelBody{fig-ms-oracle}{human_ont_modern}{lcp,psi,phi,dual}{rl40,rl30,rl25,rl19,rl1,dualO,phiO,psiO,lcpO,dual,phi,psi,lcp}
+    \input{data/gap/fig-ms-oracle-human_ont_modern}
+  \nextgroupplot[ms speed rest]
+    \figPanelBody{fig-ms-oracle}{guccione_skin}{lcp,psi,phi,dual}{rl40,rl30,rl25,rl19,rl1,dualO,phiO,psiO,lcpO,dual,phi,psi,lcp}
+    \input{data/gap/fig-ms-oracle-guccione_skin}
+\end{groupplot}
+\node[font=\figLabelFont, text=figInkTwo, anchor=north]
+  at ($(group c1r1.south west)!0.5!(group c4r1.south east)+(0,-8pt)$) {\figMemLabel};
+\figLegendRow{group c1r1}{group c4r1}{legFigMSOracleMS}{legFigMSOracleRope}
+\end{tikzpicture}
+\end{document}

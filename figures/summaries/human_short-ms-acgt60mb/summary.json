@@ -1,0 +1,862 @@
+{
+  "format": "ms2-freeze-group-v1",
+  "group": "human_short-ms-acgt60mb",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "config": {
+    "workload": {
+      "reads": 480000,
+      "bases": 60000000,
+      "reference": "human472",
+      "read_set": "human_short-ms-60mb-acgt-v2"
+    },
+    "orbit": {
+      "revision": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+      "repo": "https://github.com/langmead-lab/ms2.git"
+    },
+    "rope": {
+      "batch_size": null,
+      "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+    },
+    "protocol": {
+      "runs": 3,
+      "warmup_runs": 0,
+      "report": "median",
+      "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+      "numa": {
+        "cpunodebind": 0,
+        "membind": 0
+      },
+      "threads": 1,
+      "transparent_hugepages": "always",
+      "truth_check": "run 1 of every cell, whole output",
+      "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+      "time_basis": {
+        "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+        "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+        "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+      },
+      "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+    }
+  },
+  "cells": [
+    {
+      "id": "dual-ftab",
+      "status": "checked",
+      "layout": "dual",
+      "mode": "ftab",
+      "interleave": 32,
+      "median_query_seconds": 3.14591,
+      "median_load_seconds": 95.19887,
+      "query_seconds": [
+        3.17583,
+        3.14591,
+        3.14347
+      ],
+      "load_seconds": [
+        96.60755,
+        95.19887,
+        94.82155999999999
+      ],
+      "peak_rss_kib": 242183532,
+      "mbases_per_second": 19.07238287172869,
+      "ns_per_base": 52.43183333333334,
+      "query_spread_fraction": 0.010286371828818917,
+      "tool": "ms2",
+      "kind": "ms",
+      "figures": [
+        "A5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-1-47.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-004afdcce3342ad28",
+        "availability_zone": "us-east-1b",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-ms2dual",
+      "cell": "human_short-ms-acgt60mb/dual-ftab"
+    },
+    {
+      "id": "dual-oracle",
+      "status": "checked",
+      "layout": "dual",
+      "mode": "oracle",
+      "interleave": 32,
+      "median_query_seconds": 2.08099,
+      "median_load_seconds": 75.0253,
+      "query_seconds": [
+        2.06355,
+        2.10023,
+        2.08099
+      ],
+      "load_seconds": [
+        74.3451,
+        76.2575,
+        75.0253
+      ],
+      "peak_rss_kib": 178995416,
+      "mbases_per_second": 28.832430718071688,
+      "ns_per_base": 34.683166666666665,
+      "query_spread_fraction": 0.017626225978980968,
+      "tool": "ms2",
+      "kind": "ms",
+      "figures": [
+        "5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-1-47.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-004afdcce3342ad28",
+        "availability_zone": "us-east-1b",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-ms2dual",
+      "cell": "human_short-ms-acgt60mb/dual-oracle"
+    },
+    {
+      "id": "dual-ordinary",
+      "status": "checked",
+      "layout": "dual",
+      "mode": "ordinary",
+      "interleave": 32,
+      "median_query_seconds": 4.2188,
+      "median_load_seconds": 94.9155,
+      "query_seconds": [
+        4.2188,
+        4.21897,
+        4.21358
+      ],
+      "load_seconds": [
+        94.96,
+        94.9155,
+        94.534
+      ],
+      "peak_rss_kib": 238677148,
+      "mbases_per_second": 14.222053664549161,
+      "ns_per_base": 70.31333333333333,
+      "query_spread_fraction": 0.001277614487531843,
+      "tool": "ms2",
+      "kind": "ms",
+      "figures": [
+        "5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-1-47.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-004afdcce3342ad28",
+        "availability_zone": "us-east-1b",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-ms2dual",
+      "cell": "human_short-ms-acgt60mb/dual-ordinary"
+    },
+    {
+      "id": "dual-ordinary-plainfull",
+      "status": "checked",
+      "layout": "dual",
+      "mode": "ordinary",
+      "interleave": 32,
+      "median_query_seconds": 4.21854,
+      "median_load_seconds": 94.485,
+      "query_seconds": [
+        4.21987,
+        4.21854,
+        4.18768
+      ],
+      "load_seconds": [
+        95.0368,
+        94.485,
+        93.6895
+      ],
+      "peak_rss_kib": 238677136,
+      "mbases_per_second": 14.222930208081468,
+      "ns_per_base": 70.309,
+      "query_spread_fraction": 0.007630602056635694,
+      "tool": "ms2",
+      "kind": "ms",
+      "figures": [
+        "D9-check"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-1-47.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-004afdcce3342ad28",
+        "availability_zone": "us-east-1b",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-ms2dual",
+      "cell": "human_short-ms-acgt60mb/dual-ordinary-plainfull"
+    },
+    {
+      "id": "ms-ftab",
+      "status": "checked",
+      "layout": "ms",
+      "mode": "ftab",
+      "interleave": 32,
+      "median_query_seconds": 2.23425,
+      "median_load_seconds": 43.267719,
+      "query_seconds": [
+        2.23425,
+        2.23422,
+        2.23754
+      ],
+      "load_seconds": [
+        43.331834,
+        43.267719,
+        43.257858
+      ],
+      "peak_rss_kib": 106315644,
+      "mbases_per_second": 26.854649211144682,
+      "ns_per_base": 37.2375,
+      "query_spread_fraction": 0.0014859572563500011,
+      "tool": "ms2",
+      "kind": "ms",
+      "figures": [
+        "A5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-0-221.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0e932ef405716a7e3",
+        "availability_zone": "us-east-1a",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-ms2ms",
+      "cell": "human_short-ms-acgt60mb/ms-ftab"
+    },
+    {
+      "id": "ms-oracle",
+      "status": "checked",
+      "layout": "ms",
+      "mode": "oracle",
+      "interleave": 32,
+      "median_query_seconds": 2.12492,
+      "median_load_seconds": 42.3433,
+      "query_seconds": [
+        2.11227,
+        2.12492,
+        2.13445
+      ],
+      "load_seconds": [
+        42.0629,
+        42.3433,
+        43.4375
+      ],
+      "peak_rss_kib": 104909160,
+      "mbases_per_second": 28.236357133445026,
+      "ns_per_base": 35.41533333333333,
+      "query_spread_fraction": 0.01043804002033022,
+      "tool": "ms2",
+      "kind": "ms",
+      "figures": [
+        "5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-0-221.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0e932ef405716a7e3",
+        "availability_zone": "us-east-1a",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-ms2ms",
+      "cell": "human_short-ms-acgt60mb/ms-oracle"
+    },
+    {
+      "id": "ms-ordinary",
+      "status": "checked",
+      "layout": "ms",
+      "mode": "ordinary",
+      "interleave": 32,
+      "median_query_seconds": 2.75942,
+      "median_load_seconds": 41.9044,
+      "query_seconds": [
+        2.75942,
+        2.75836,
+        2.76236
+      ],
+      "load_seconds": [
+        41.8741,
+        41.9044,
+        42.044
+      ],
+      "peak_rss_kib": 104775336,
+      "mbases_per_second": 21.74369976299367,
+      "ns_per_base": 45.99033333333333,
+      "query_spread_fraction": 0.0014495799841995796,
+      "tool": "ms2",
+      "kind": "ms",
+      "figures": [
+        "5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-0-221.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0e932ef405716a7e3",
+        "availability_zone": "us-east-1a",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-ms2ms",
+      "cell": "human_short-ms-acgt60mb/ms-ordinary"
+    },
+    {
+      "id": "phi-ftab",
+      "status": "checked",
+      "layout": "phi",
+      "mode": "ftab",
+      "interleave": 32,
+      "median_query_seconds": 23.8754,
+      "median_load_seconds": 62.069810000000004,
+      "query_seconds": [
+        23.8754,
+        23.9406,
+        23.665
+      ],
+      "load_seconds": [
+        62.08343,
+        62.069810000000004,
+        60.201080000000005
+      ],
+      "peak_rss_kib": 157229716,
+      "mbases_per_second": 2.513046901832011,
+      "ns_per_base": 397.92333333333335,
+      "query_spread_fraction": 0.01154326210241507,
+      "tool": "ms2",
+      "kind": "ms",
+      "figures": [
+        "A5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-0-221.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0e932ef405716a7e3",
+        "availability_zone": "us-east-1a",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-ms2phi",
+      "cell": "human_short-ms-acgt60mb/phi-ftab"
+    },
+    {
+      "id": "phi-oracle",
+      "status": "checked",
+      "layout": "phi",
+      "mode": "oracle",
+      "interleave": 32,
+      "median_query_seconds": 2.35012,
+      "median_load_seconds": 40.5478,
+      "query_seconds": [
+        2.341,
+        2.35036,
+        2.35012
+      ],
+      "load_seconds": [
+        40.0955,
+        40.562,
+        40.5478
+      ],
+      "peak_rss_kib": 94041592,
+      "mbases_per_second": 25.530611202832198,
+      "ns_per_base": 39.16866666666667,
+      "query_spread_fraction": 0.003982775347641648,
+      "tool": "ms2",
+      "kind": "ms",
+      "figures": [
+        "5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-0-221.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0e932ef405716a7e3",
+        "availability_zone": "us-east-1a",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-ms2phi",
+      "cell": "human_short-ms-acgt60mb/phi-oracle"
+    },
+    {
+      "id": "phi-ordinary",
+      "status": "checked",
+      "layout": "phi",
+      "mode": "ordinary",
+      "interleave": 32,
+      "median_query_seconds": 30.7522,
+      "median_load_seconds": 60.972,
+      "query_seconds": [
+        30.667,
+        30.7522,
+        30.8476
+      ],
+      "load_seconds": [
+        59.5986,
+        60.9992,
+        60.972
+      ],
+      "peak_rss_kib": 153723264,
+      "mbases_per_second": 1.9510799227372353,
+      "ns_per_base": 512.5366666666666,
+      "query_spread_fraction": 0.005872750567439023,
+      "cap_s": 3600,
+      "tool": "ms2",
+      "kind": "ms",
+      "figures": [
+        "5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-0-221.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0e932ef405716a7e3",
+        "availability_zone": "us-east-1a",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-ms2phi",
+      "cell": "human_short-ms-acgt60mb/phi-ordinary"
+    },
+    {
+      "id": "psi-ftab",
+      "status": "checked",
+      "layout": "psi",
+      "mode": "ftab",
+      "interleave": 32,
+      "median_query_seconds": 4.00834,
+      "median_load_seconds": 45.623518000000004,
+      "query_seconds": [
+        4.00675,
+        4.00959,
+        4.00834
+      ],
+      "load_seconds": [
+        45.623518000000004,
+        45.896587,
+        45.579603
+      ],
+      "peak_rss_kib": 102678688,
+      "mbases_per_second": 14.968790072698425,
+      "ns_per_base": 66.80566666666665,
+      "query_spread_fraction": 0.0007085227301077139,
+      "tool": "ms2",
+      "kind": "ms",
+      "figures": [
+        "A5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-1-47.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-004afdcce3342ad28",
+        "availability_zone": "us-east-1b",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-ms2psi",
+      "cell": "human_short-ms-acgt60mb/psi-ftab"
+    },
+    {
+      "id": "psi-oracle",
+      "status": "checked",
+      "layout": "psi",
+      "mode": "oracle",
+      "interleave": 32,
+      "median_query_seconds": 1.95235,
+      "median_load_seconds": 45.3198,
+      "query_seconds": [
+        1.95041,
+        1.95235,
+        1.96205
+      ],
+      "load_seconds": [
+        45.2798,
+        45.3198,
+        45.3784
+      ],
+      "peak_rss_kib": 101272252,
+      "mbases_per_second": 30.732194534791407,
+      "ns_per_base": 32.53916666666667,
+      "query_spread_fraction": 0.005962045739749581,
+      "tool": "ms2",
+      "kind": "ms",
+      "figures": [
+        "5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-1-47.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-004afdcce3342ad28",
+        "availability_zone": "us-east-1b",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-ms2psi",
+      "cell": "human_short-ms-acgt60mb/psi-oracle"
+    },
+    {
+      "id": "psi-ordinary",
+      "status": "checked",
+      "layout": "psi",
+      "mode": "ordinary",
+      "interleave": 32,
+      "median_query_seconds": 5.264,
+      "median_load_seconds": 45.2135,
+      "query_seconds": [
+        5.264,
+        5.30673,
+        5.25498
+      ],
+      "load_seconds": [
+        45.2135,
+        45.9895,
+        45.1022
+      ],
+      "peak_rss_kib": 101138380,
+      "mbases_per_second": 11.398176291793312,
+      "ns_per_base": 87.73333333333333,
+      "query_spread_fraction": 0.009830927051671767,
+      "tool": "ms2",
+      "kind": "ms",
+      "figures": [
+        "5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-1-47.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-004afdcce3342ad28",
+        "availability_zone": "us-east-1b",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-ms2psi",
+      "cell": "human_short-ms-acgt60mb/psi-ordinary"
+    },
+    {
+      "id": "rope-default",
+      "status": "checked",
+      "min_len": 19,
+      "median_query_seconds": 56.429,
+      "median_load_seconds": 4.211,
+      "query_seconds": [
+        56.650999999999996,
+        56.429,
+        56.183
+      ],
+      "load_seconds": [
+        4.145,
+        4.269,
+        4.211
+      ],
+      "peak_rss_kib": 15236280,
+      "mbases_per_second": 1.0632830636729342,
+      "ns_per_base": 940.4833333333333,
+      "query_spread_fraction": 0.008293607896648823,
+      "tool": "ropebwt3",
+      "kind": "ms",
+      "figures": [
+        "5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-4-177.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0092ac6d27c82b3ae",
+        "availability_zone": "us-east-1e",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-rope",
+      "cell": "human_short-ms-acgt60mb/rope-default"
+    },
+    {
+      "id": "rope-l1",
+      "status": "checked",
+      "min_len": 1,
+      "median_query_seconds": 80.34,
+      "median_load_seconds": 4.274,
+      "query_seconds": [
+        80.34,
+        80.354,
+        80.065
+      ],
+      "load_seconds": [
+        4.305,
+        4.168,
+        4.274
+      ],
+      "peak_rss_kib": 15301644,
+      "mbases_per_second": 0.7468259895444361,
+      "ns_per_base": 1339.0,
+      "query_spread_fraction": 0.003597211849639052,
+      "tool": "ropebwt3",
+      "kind": "ms",
+      "figures": [
+        "5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-4-177.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0092ac6d27c82b3ae",
+        "availability_zone": "us-east-1e",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-rope",
+      "cell": "human_short-ms-acgt60mb/rope-l1"
+    },
+    {
+      "id": "rope-l25",
+      "status": "checked",
+      "min_len": 25,
+      "median_query_seconds": 41.384,
+      "median_load_seconds": 4.222,
+      "query_seconds": [
+        41.717,
+        41.384,
+        41.376
+      ],
+      "load_seconds": [
+        4.274,
+        4.222,
+        4.156
+      ],
+      "peak_rss_kib": 15223928,
+      "mbases_per_second": 1.4498356852890006,
+      "ns_per_base": 689.7333333333333,
+      "query_spread_fraction": 0.00823989947805918,
+      "tool": "ropebwt3",
+      "kind": "ms",
+      "figures": [
+        "5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-4-177.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0092ac6d27c82b3ae",
+        "availability_zone": "us-east-1e",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-rope",
+      "cell": "human_short-ms-acgt60mb/rope-l25"
+    },
+    {
+      "id": "rope-l30",
+      "status": "checked",
+      "min_len": 30,
+      "median_query_seconds": 37.635999999999996,
+      "median_load_seconds": 4.157,
+      "query_seconds": [
+        37.714,
+        37.453,
+        37.635999999999996
+      ],
+      "load_seconds": [
+        4.275,
+        4.157,
+        4.136
+      ],
+      "peak_rss_kib": 15220528,
+      "mbases_per_second": 1.5942183016261027,
+      "ns_per_base": 627.2666666666667,
+      "query_spread_fraction": 0.006934849612073433,
+      "tool": "ropebwt3",
+      "kind": "ms",
+      "figures": [
+        "5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-4-177.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0092ac6d27c82b3ae",
+        "availability_zone": "us-east-1e",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-rope",
+      "cell": "human_short-ms-acgt60mb/rope-l30"
+    },
+    {
+      "id": "rope-l40",
+      "status": "checked",
+      "min_len": 40,
+      "median_query_seconds": 34.088,
+      "median_load_seconds": 4.184,
+      "query_seconds": [
+        33.879000000000005,
+        34.238,
+        34.088
+      ],
+      "load_seconds": [
+        4.215,
+        4.146,
+        4.184
+      ],
+      "peak_rss_kib": 15219092,
+      "mbases_per_second": 1.7601501994836892,
+      "ns_per_base": 568.1333333333333,
+      "query_spread_fraction": 0.010531565360243918,
+      "tool": "ropebwt3",
+      "kind": "ms",
+      "figures": [
+        "5"
+      ],
+      "cache": [
+        "drop_caches"
+      ],
+      "host": {
+        "hostname": "ip-10-0-4-177.ec2.internal",
+        "machine": "x86_64",
+        "kernel": "6.1.189-236.400.amzn2023.x86_64",
+        "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+        "instance_type": "i4i.metal",
+        "instance_id": "i-0092ac6d27c82b3ae",
+        "availability_zone": "us-east-1e",
+        "lifecycle": "spot",
+        "thp_enabled": "always",
+        "thp_defrag": "madvise"
+      },
+      "platform": "aws",
+      "job": "fig5-human_short-rope",
+      "cell": "human_short-ms-acgt60mb/rope-l40"
+    }
+  ]
+}

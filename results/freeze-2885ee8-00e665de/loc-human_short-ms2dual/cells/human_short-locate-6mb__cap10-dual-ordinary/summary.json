@@ -1,0 +1,345 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "cap10-dual-ordinary",
+  "cell": "human_short-locate-6mb/cap10-dual-ordinary",
+  "group": "human_short-locate-6mb",
+  "figures": [
+    "A4"
+  ],
+  "tool": "ms2",
+  "kind": "locate",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "job": "loc-human_short-ms2dual",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-5-162.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-052f1ee60b355c51c",
+    "availability_zone": "us-east-1f",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "transparent_hugepages": "always",
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 48000,
+  "bases": 6000000,
+  "reference": "human472",
+  "read_set": "human_short-locate-6mb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "index": {
+      "name": "ms2/human472/index.tms.full.seqids.orbitidx",
+      "sha256": "39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588"
+    },
+    "lengths": {
+      "name": "ropebwt3/human472/index.fmd.len.gz",
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0"
+    },
+    "reads": {
+      "name": "reads/human472/human_short-locate-6mb-v2/reads.fa",
+      "sha256": "a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338"
+    },
+    "truth": {
+      "name": "reads/human472/human_short-locate-6mb-v2/truth.u32",
+      "sha256": "350a3f83f92835ef6b6e732f9c55e408f8663ee8a7d6c8a885515e6a932fc176"
+    },
+    "offsets": {
+      "name": "reads/human472/human_short-locate-6mb-v2/offsets.u64",
+      "sha256": "150eb49086d6a941657871ba57c97cf2f3af5de8698e560582d6cbdcfe879b2f"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793506999.8628237,
+  "layout": "dual",
+  "mode": "ordinary",
+  "interleave": 32,
+  "cap": 10,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-5-162.ec2.internal",
+      "started": 1793506999.862931,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/loc-human_short-ms2dual/runs/human_short-locate-6mb__cap10-dual-ordinary/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "dual",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "10"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 187.91681067599893,
+      "user_seconds": 80.76,
+      "system_seconds": 107.1,
+      "peak_rss_kib": 352863772,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 186.132,
+        "query_seconds": 1.15415,
+        "components": {
+          "index_load_s": 186.132,
+          "ftab_s": 0.0,
+          "query_s": 1.05104,
+          "read_s": 0.00160756,
+          "parse_s": 0.00539759,
+          "format_s": 0.0812651,
+          "total_s": 1.15415
+        }
+      },
+      "check": {
+        "failed": 0,
+        "validation": "cross-tool-v1",
+        "tool": "orbit",
+        "cap": 10,
+        "reads": 48000,
+        "intervals": 158111,
+        "zero_count_intervals": 0,
+        "reported_locations_checked": 1442221,
+        "locations_in_bounds": 1442221,
+        "ms_positions_checked": 6000000,
+        "emitted_counts": 158111,
+        "complete_set_intervals": 18465,
+        "complete_set_locations": 45761,
+        "over_cap_intervals": 139646,
+        "over_cap_locations": 1396460,
+        "all_coordinates_checked": false,
+        "occurrence_reference_checked": false,
+        "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+        "count_checks": "cross-tool agreement",
+        "canonical": {
+          "format": "canonical-smem-v1",
+          "sha256": "446eb6dc989c14747f0dd4bb24a14fe67ce978d7c6b712fcda788429c5aae7e5",
+          "lines": 158111,
+          "bytes": 53184203,
+          "cap": 10,
+          "over_cap_lines": 139646,
+          "over_cap_locations": 1396460,
+          "over_cap_sha256": "33af9fb46fd5a5540cf84a14ad92d8d4490a5cb43190a0749ce52b38bb2745e5",
+          "compressed_bytes": 15396806,
+          "compressed_sha256": "5879fa107a248befb4fafd9e0596cbd60d270689cf36597805d61d2feccfebe0",
+          "path": "/work/stage/work/freeze-2885ee8-00e665de/loc-human_short-ms2dual/canonical/human_short-locate-6mb__cap10-dual-ordinary.canonical.gz"
+        }
+      },
+      "finished": 1793507204.426619
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-5-162.ec2.internal",
+      "started": 1793507204.4272344,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/loc-human_short-ms2dual/runs/human_short-locate-6mb__cap10-dual-ordinary/run2/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "dual",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "10"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 190.80412054499902,
+      "user_seconds": 81.8,
+      "system_seconds": 108.95,
+      "peak_rss_kib": 352863776,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 188.991,
+        "query_seconds": 1.16808,
+        "components": {
+          "index_load_s": 188.991,
+          "ftab_s": 0.0,
+          "query_s": 1.06199,
+          "read_s": 0.00167106,
+          "parse_s": 0.00543348,
+          "format_s": 0.0836994,
+          "total_s": 1.16808
+        }
+      },
+      "finished": 1793507399.9519167
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-5-162.ec2.internal",
+      "started": 1793507399.9522753,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/loc-human_short-ms2dual/runs/human_short-locate-6mb__cap10-dual-ordinary/run3/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "dual",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "10"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 187.4474129049995,
+      "user_seconds": 80.73,
+      "system_seconds": 106.66,
+      "peak_rss_kib": 352863788,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 185.709,
+        "query_seconds": 1.15123,
+        "components": {
+          "index_load_s": 185.709,
+          "ftab_s": 0.0,
+          "query_s": 1.04719,
+          "read_s": 0.00167209,
+          "parse_s": 0.00575832,
+          "format_s": 0.0817754,
+          "total_s": 1.15123
+        }
+      },
+      "finished": 1793507592.140265
+    }
+  ],
+  "check": {
+    "failed": 0,
+    "validation": "cross-tool-v1",
+    "tool": "orbit",
+    "cap": 10,
+    "reads": 48000,
+    "intervals": 158111,
+    "zero_count_intervals": 0,
+    "reported_locations_checked": 1442221,
+    "locations_in_bounds": 1442221,
+    "ms_positions_checked": 6000000,
+    "emitted_counts": 158111,
+    "complete_set_intervals": 18465,
+    "complete_set_locations": 45761,
+    "over_cap_intervals": 139646,
+    "over_cap_locations": 1396460,
+    "all_coordinates_checked": false,
+    "occurrence_reference_checked": false,
+    "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+    "count_checks": "cross-tool agreement",
+    "canonical": {
+      "format": "canonical-smem-v1",
+      "sha256": "446eb6dc989c14747f0dd4bb24a14fe67ce978d7c6b712fcda788429c5aae7e5",
+      "lines": 158111,
+      "bytes": 53184203,
+      "cap": 10,
+      "over_cap_lines": 139646,
+      "over_cap_locations": 1396460,
+      "over_cap_sha256": "33af9fb46fd5a5540cf84a14ad92d8d4490a5cb43190a0749ce52b38bb2745e5",
+      "compressed_bytes": 15396806,
+      "compressed_sha256": "5879fa107a248befb4fafd9e0596cbd60d270689cf36597805d61d2feccfebe0",
+      "path": "/work/stage/work/freeze-2885ee8-00e665de/loc-human_short-ms2dual/canonical/human_short-locate-6mb__cap10-dual-ordinary.canonical.gz"
+    }
+  },
+  "query_seconds": [
+    1.15415,
+    1.16808,
+    1.15123
+  ],
+  "median_query_seconds": 1.15415,
+  "load_seconds": [
+    186.132,
+    188.991,
+    185.709
+  ],
+  "median_load_seconds": 186.132,
+  "wall_seconds": [
+    187.91681067599893,
+    190.80412054499902,
+    187.4474129049995
+  ],
+  "peak_rss_kib": 352863788,
+  "query_spread_fraction": 0.014599488801282355,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 5.198631027162847,
+  "ns_per_base": 192.35833333333332,
+  "locations": 1442221,
+  "smems": 158111,
+  "locations_per_second": 1249595.8064376381,
+  "finished": 1793507592.1404884
+}

@@ -1,0 +1,230 @@
+{
+  "job": "fig4-chr22-h10-simshort",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "host": {
+    "hostname": "ip-10-0-1-47.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-004afdcce3342ad28",
+    "availability_zone": "us-east-1b",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793498546.95915,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "fig4-chr22-h10-simshort",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 12,
+  "already_done": 0,
+  "order": [
+    "chr22-h10-ms-simshort/moni",
+    "chr22-h10-ms-simshort/ms-ordinary",
+    "chr22-h10-ms-simshort/rope-l40",
+    "chr22-h10-ms-simshort/rope-default",
+    "chr22-h10-ms-simshort/rope-l30",
+    "chr22-h10-ms-simshort/rope-l1",
+    "chr22-h10-ms-simshort/phoni",
+    "chr22-h10-ms-simshort/rope-l25",
+    "chr22-h10-ms-simshort/psi-ordinary",
+    "chr22-h10-ms-simshort/phi-ordinary",
+    "chr22-h10-ms-simshort/augphoni",
+    "chr22-h10-ms-simshort/dual-ordinary"
+  ],
+  "staging": {
+    "augphoni/chr22-h10/reference.txt": {
+      "sha256": "e298fd9187150e394d086b04faa7c214108aa96041976afb27db6daa01a62eef",
+      "bytes": 1016136629,
+      "fresh": true,
+      "seconds": 3.528167963027954
+    },
+    "augphoni/chr22-h10/reference.txt.aug": {
+      "sha256": "83c727ad499b257eb157f9b3830c0b15a0c0d5b124915f98d1be991d09830ebb",
+      "bytes": 859750127,
+      "fresh": true,
+      "seconds": 3.09125018119812
+    },
+    "augphoni/chr22-h10/reference.txt.plain.slp": {
+      "sha256": "f146ce25a847cebc9caa51a76c4c32d433fccc35fb7d71a87b7c3cfc9a39f443",
+      "bytes": 122727903,
+      "fresh": true,
+      "seconds": 1.1906187534332275
+    },
+    "moni/chr22-h10/index.idx": {
+      "sha256": "f0063bff7aff9194769aa421b1ea00becdfb61498d48fceae1a6157a1eb62c51",
+      "bytes": 207,
+      "fresh": true,
+      "seconds": 0.7648162841796875
+    },
+    "moni/chr22-h10/index.plain.slp": {
+      "sha256": "f146ce25a847cebc9caa51a76c4c32d433fccc35fb7d71a87b7c3cfc9a39f443",
+      "bytes": 122727903,
+      "fresh": true,
+      "seconds": 1.1568806171417236
+    },
+    "moni/chr22-h10/index.thrbv.ms": {
+      "sha256": "e7335f385772b2fd11375c4e7058bb06a07127e865085ba1bf75de532f2a77e3",
+      "bytes": 550179310,
+      "fresh": true,
+      "seconds": 2.362806797027588
+    },
+    "ms2/chr22-h10/index.ms.orbitidx": {
+      "sha256": "c53b78965fb4b45f522dc7a262df5989f638540cbd513f346b53169fa4467b1d",
+      "bytes": 616588583,
+      "fresh": true,
+      "seconds": 2.574427604675293
+    },
+    "ms2/chr22-h10/index.tms.full.orbitidx": {
+      "sha256": "5b7244ebfea488b0e4b91003c9a40b1b5f468aafb52d7dec65cc96279afa9f69",
+      "bytes": 2983492659,
+      "fresh": true,
+      "seconds": 8.404552936553955
+    },
+    "ms2/chr22-h10/index.tms.phi.orbitidx": {
+      "sha256": "ca89d0bd12912111744f7ac25ee9afd03b39de55b75643d5cfcc48cc3be1d90f",
+      "bytes": 2399030323,
+      "fresh": true,
+      "seconds": 6.95316743850708
+    },
+    "ms2/chr22-h10/index.tms.psi.orbitidx": {
+      "sha256": "5b26102ac7829dbb54caa9e14a3e8cfd4c9978931c75617a173895f338ed62b6",
+      "bytes": 735260728,
+      "fresh": true,
+      "seconds": 2.836287021636963
+    },
+    "phoni/chr22-h10/reference.txt": {
+      "sha256": "e298fd9187150e394d086b04faa7c214108aa96041976afb27db6daa01a62eef",
+      "bytes": 1016136629,
+      "fresh": false,
+      "seconds": 4.076957702636719e-05
+    },
+    "phoni/chr22-h10/reference.txt.phoni": {
+      "sha256": "f546f86d0adff338f7c54c4343e0a2df30bb88a9ddbebbf1ed7f6b4582eb0bfb",
+      "bytes": 492033503,
+      "fresh": true,
+      "seconds": 2.0990304946899414
+    },
+    "phoni/chr22-h10/reference.txt.plain.slp": {
+      "sha256": "f146ce25a847cebc9caa51a76c4c32d433fccc35fb7d71a87b7c3cfc9a39f443",
+      "bytes": 122727903,
+      "fresh": false,
+      "seconds": 3.790855407714844e-05
+    },
+    "reads/chr22-h10/simshort-60mb-v2/offsets.u64": {
+      "sha256": "26fa15047d34b53e7c39b84c8870527b353e1eeaa6c824d8b951234f24377f24",
+      "bytes": 3840008,
+      "fresh": true,
+      "seconds": 0.8688085079193115
+    },
+    "reads/chr22-h10/simshort-60mb-v2/one.fa": {
+      "sha256": "c6f2290c0ff99f3ae8bd2092949a32955f41bcd80a63e2973743d6febe22c4f7",
+      "bytes": 130,
+      "fresh": true,
+      "seconds": 0.747596025466919
+    },
+    "reads/chr22-h10/simshort-60mb-v2/reads.fa": {
+      "sha256": "2c0295c2b8a7293650484eabe480e6f9a68ed354bb3ceda91a23fe982176505b",
+      "bytes": 64688890,
+      "fresh": true,
+      "seconds": 1.042781114578247
+    },
+    "reads/chr22-h10/simshort-60mb-v2/truth.u32": {
+      "sha256": "1c73cef8f388954964021056c56754e7584ad41d9085f31b409a0de11c278084",
+      "bytes": 240000000,
+      "fresh": true,
+      "seconds": 1.3862838745117188
+    },
+    "ropebwt3/chr22-h10/index.fmd": {
+      "sha256": "8b2476a2048524cd48b04f6f97af1cd17be3e0620708cd409c1b0b700989c225",
+      "bytes": 104856784,
+      "fresh": true,
+      "seconds": 1.2597498893737793
+    },
+    "tools/augphoni/aug_phoni": {
+      "sha256": "79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b",
+      "bytes": 486296,
+      "fresh": true,
+      "seconds": 0.7628452777862549
+    },
+    "tools/moni/moni-ms": {
+      "sha256": "4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f",
+      "bytes": 453664,
+      "fresh": true,
+      "seconds": 0.8194959163665771
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 3.62396240234375e-05
+    },
+    "tools/ms_check": {
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab",
+      "bytes": 251000,
+      "fresh": false,
+      "seconds": 3.552436828613281e-05
+    },
+    "tools/phoni/phoni": {
+      "sha256": "aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58",
+      "bytes": 451192,
+      "fresh": true,
+      "seconds": 0.8362057209014893
+    },
+    "tools/ropebwt3-cfad8475/ropebwt3": {
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d",
+      "bytes": 1595032,
+      "fresh": true,
+      "seconds": 0.8808751106262207
+    },
+    "tools/runtime/libgcc_s.so.1": {
+      "sha256": "6a15a152c0f5073642a8c23e13097fe6f30d269cd61d3b10bd542f676241d79d",
+      "bytes": 748744,
+      "fresh": true,
+      "seconds": 0.8340826034545898
+    },
+    "tools/runtime/libgomp.so.1": {
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8",
+      "bytes": 1501072,
+      "fresh": true,
+      "seconds": 0.842789888381958
+    },
+    "tools/runtime/libstdc++.so.6": {
+      "sha256": "2e64f6e616747bde59b3f05e9850dde0476cb21703fc53b7d80e1acc49f464c4",
+      "bytes": 20888792,
+      "fresh": true,
+      "seconds": 0.9094538688659668
+    }
+  },
+  "finished": 1793499976.1390676,
+  "results": {
+    "chr22-h10-ms-simshort/moni": "checked",
+    "chr22-h10-ms-simshort/ms-ordinary": "checked",
+    "chr22-h10-ms-simshort/rope-l40": "checked",
+    "chr22-h10-ms-simshort/rope-default": "checked",
+    "chr22-h10-ms-simshort/rope-l30": "checked",
+    "chr22-h10-ms-simshort/rope-l1": "checked",
+    "chr22-h10-ms-simshort/phoni": "checked",
+    "chr22-h10-ms-simshort/rope-l25": "checked",
+    "chr22-h10-ms-simshort/psi-ordinary": "checked",
+    "chr22-h10-ms-simshort/phi-ordinary": "checked",
+    "chr22-h10-ms-simshort/augphoni": "checked",
+    "chr22-h10-ms-simshort/dual-ordinary": "checked"
+  }
+}

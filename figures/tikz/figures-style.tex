@@ -1,0 +1,322 @@
+% Shared style for the ms2 paper figures (TikZ/pgfplots).
+%
+% Every fig-*.tex inputs this file, so a change here changes all figures.
+% Data come from data/<fig>/ as written by
+% bench/campaign-20261012/paper_figures_tikz.py.
+%
+% Load order: \documentclass, then \input{figures-style}. The body font is
+% newtxtext/newtxmath (Times-like), matching preview.tex.
+
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{plotmarks,calc}
+\pgfplotsset{compat=1.18}
+
+% Colors. Layout colors, ropebwt3 red and the Others purple were validated as
+% one set in paper_figures.py (no normal-vision failure). Psi aqua and dual
+% dark yellow sit just under 3:1 contrast on white, so identity also rides on
+% the legend and direct labels. Text never wears a series color.
+\definecolor{figInk}{HTML}{0B0B0B}
+\definecolor{figInkTwo}{HTML}{52514E}
+\definecolor{figMuted}{HTML}{8A8984}
+\definecolor{figGrid}{HTML}{E4E3DF}
+\definecolor{msLcp}{HTML}{2A78D6}
+\definecolor{msPsi}{HTML}{1BAF7A}
+\definecolor{msDual}{HTML}{C98500}
+\definecolor{ropeRed}{HTML}{E34948}
+\definecolor{ropeLnineteen}{HTML}{4D4D4D}
+\definecolor{ropeLtwentyfive}{HTML}{6E6E6E}
+\definecolor{ropeLthirty}{HTML}{919191}
+\definecolor{ropeLforty}{HTML}{B3B3B3}
+\definecolor{othersPurple}{HTML}{7D3C98}
+% ms2-phi appears only in Fig Ops. With the three layout colors it passes the
+% palette checker; it is too close to othersPurple and ropeRed to share a
+% figure with them.
+\definecolor{msPhi}{HTML}{A3478F}
+
+% Font sizes (absolute, so they do not depend on the class option). Figure
+% text is sans serif (Helvetica clone from newtxtext's \sffamily) because
+% option names such as -l1 read as -11 in Times.
+\newcommand{\figTickFont}{\sffamily\fontsize{7}{8}\selectfont}
+\newcommand{\figLabelFont}{\sffamily\fontsize{8}{9}\selectfont}
+\newcommand{\figLegendFont}{\sffamily\fontsize{7.5}{8.5}\selectfont}
+\newcommand{\figTitleFont}{\sffamily\fontsize{7.5}{8.5}\selectfont}
+\newcommand{\figPointFont}{\sffamily\fontsize{6.5}{7.5}\selectfont}
+
+% Panel geometry. A four-panel row: the left margin (tick labels plus y
+% label) is about 0.32 in, so four panels and three gaps fill 6.5 in.
+\newlength{\figPanelW}\setlength{\figPanelW}{1.38in}
+\newlength{\figPanelH}\setlength{\figPanelH}{1.12in}
+\newlength{\figPanelWthree}\setlength{\figPanelWthree}{1.88in}
+\newlength{\figHsep}\setlength{\figHsep}{5pt}
+
+% Marks that pgf's plotmarks library lacks: filled hexagon and filled star.
+\pgfdeclareplotmark{hexagon*}{%
+  \pgfpathmoveto{\pgfqpointpolar{90}{1.1\pgfplotmarksize}}%
+  \foreach \a in {150,210,270,330,30}{\pgfpathlineto{\pgfqpointpolar{\a}{1.1\pgfplotmarksize}}}%
+  \pgfpathclose\pgfusepathqfillstroke}
+\pgfdeclareplotmark{fstar*}{%
+  \pgfpathmoveto{\pgfqpointpolar{90}{1.45\pgfplotmarksize}}%
+  \foreach \a/\r in {126/0.6,162/1.45,198/0.6,234/1.45,270/0.6,306/1.45,342/0.6,18/1.45,54/0.6}%
+    {\pgfpathlineto{\pgfqpointpolar{\a}{\r\pgfplotmarksize}}}%
+  \pgfpathclose\pgfusepathqfillstroke}
+\pgfdeclareplotmark{fplus*}{%
+  \pgfpathrectangle{\pgfqpoint{-1.25\pgfplotmarksize}{-0.4\pgfplotmarksize}}{\pgfqpoint{2.5\pgfplotmarksize}{0.8\pgfplotmarksize}}%
+  \pgfpathrectangle{\pgfqpoint{-0.4\pgfplotmarksize}{-1.25\pgfplotmarksize}}{\pgfqpoint{0.8\pgfplotmarksize}{2.5\pgfplotmarksize}}%
+  \pgfusepathqfill}
+
+% Keeps only rows whose column #1 equals #2 (string compare).
+\pgfplotsset{
+  discard if not/.style 2 args={
+    x filter/.append code={%
+      \edef\figTempA{\thisrow{#1}}\edef\figTempB{#2}%
+      \ifx\figTempA\figTempB\else\def\pgfmathresult{nan}\fi}},
+  discard if/.style 2 args={
+    x filter/.append code={%
+      \edef\figTempA{\thisrow{#1}}\edef\figTempB{#2}%
+      \ifx\figTempA\figTempB\def\pgfmathresult{nan}\fi}},
+}
+
+% Base axis style for every panel.
+\pgfplotsset{
+  fig axis/.style={
+    scale only axis, width=\figPanelW, height=\figPanelH,
+    axis lines*=left, minor tick length=0pt, axis line style={figMuted, line width=0.4pt},
+    every tick/.style={figMuted, line width=0.4pt},
+    major tick length=2pt,
+    tick label style={font=\figTickFont, text=figInkTwo},
+    label style={font=\figLabelFont, text=figInkTwo},
+    ymajorgrids, grid style={figGrid, line width=0.35pt},
+    xmin=0, xmax=\FigXmax, ymin=\FigYmin, ymax=\FigYmax,
+    % ymode=log is given in each figure's axis options: inside a style it is
+    % ignored by a plain axis environment (pgfplots reads it early).
+    clip=false, unbounded coords=discard,
+    xtick pos=bottom, ytick pos=left,
+    xticklabel style={yshift=0.5pt}, yticklabel style={xshift=0.5pt},
+    axis on top=false,
+  },
+  ms speed axis/.style={
+    fig axis, ytick={0.01,0.1,1,10,100}, yticklabels={0.01,0.1,1,10,100},
+    xtick={0,50,100,150,200}, xticklabels={0,,100,,200},
+  },
+  % Panels after the first drop the 0 label so it cannot touch the previous 200.
+  ms speed rest/.style={xticklabels={,,100,,200}},
+  chr22 speed axis/.style={
+    fig axis, ytick={0.1,1,10,100}, yticklabels={0.1,1,10,100},
+    xtick={0,0.5,1,1.5,2,2.5}, xticklabels={0,,1,,2,},
+  },
+  chr22 speed rest/.style={xticklabels={,,1,,2,}},
+  locate axis/.style={
+    fig axis, ytick={1e3,1e4,1e5,1e6,1e7}, yticklabels={1k,10k,100k,1M,10M},
+    xtick={0,100,200,300}, xticklabels={0,100,200,300},
+  },
+  locate rest/.style={xticklabels={,100,200,300}},
+  % Groupplot layout: tick labels only on the leftmost panel.
+  % Used as group style={fig row=N}.
+  group/fig row/.style={group size=#1 by 1, horizontal sep=\figHsep,
+    yticklabels at=edge left, ylabels at=edge left},
+  fig legend/.style={
+    legend columns=-1,
+    legend style={draw=none, fill=none, font=\figLegendFont, text=figInk,
+      inner xsep=0pt, inner ysep=1pt,
+      /tikz/every even column/.append style={column sep=5pt},
+      /tikz/every odd column/.append style={column sep=1pt}},
+    legend cell align=left,
+  },
+}
+% Panel title: a small corner label inside the plot, top left.
+\newcommand{\figPanelTitle}[1]{%
+  \node[anchor=north west, inner sep=1.5pt, font=\figTitleFont, text=figInk]
+    at (rel axis cs:0,1) {#1};}
+
+% Series styles, one per data key. Filled marks carry a thin white rim so
+% overlapping points stay separable.
+\pgfplotsset{
+  fig mark/.style={only marks, mark size=1.6pt, forget plot},
+  fig filled/.style 2 args={fig mark, mark=#2,
+    mark options={fill=#1, draw=white, line width=0.3pt, solid}},
+  fig hollow/.style 2 args={fig mark, mark=#2,
+    mark options={fill=white, draw=#1, line width=0.65pt, solid}},
+  fig tick/.style 2 args={only marks, forget plot, mark=-, mark size=#2,
+    mark options={draw=#1, line width=1.0pt, line cap=butt}},
+  ms key/lcp/.style={fig filled={msLcp}{*}},
+  ms key/psi/.style={fig filled={msPsi}{*}},
+  ms key/dual/.style={fig filled={msDual}{*}},
+  ms key/phi/.style={fig filled={msPhi}{*}},
+  ms key/lcpF/.style={fig filled={msLcp}{diamond*}, mark size=2.3pt},
+  ms key/psiF/.style={fig filled={msPsi}{diamond*}, mark size=2.3pt},
+  ms key/phiF/.style={fig filled={msPhi}{diamond*}, mark size=2.3pt},
+  ms key/dualF/.style={fig filled={msDual}{diamond*}, mark size=2.3pt},
+  % Oracle replay: a hollow square in the layout's color, so it does not read
+  % as an error-bar whisker.
+  fig oracle/.style={fig hollow={#1}{square}, mark size=1.7pt, forget plot},
+  ms key/lcpO/.style={fig oracle={msLcp}},
+  ms key/psiO/.style={fig oracle={msPsi}},
+  ms key/dualO/.style={fig oracle={msDual}},
+  ms key/phiO/.style={fig oracle={msPhi}},
+  ms key/rl1/.style={fig filled={ropeRed}{*}},
+  ms key/rl19/.style={fig mark, mark=x, mark size=1.5pt,
+    mark options={draw=ropeLnineteen, line width=0.8pt}},
+  ms key/rl25/.style={fig mark, mark=triangle*,
+    mark size=1.9pt, mark options={fill=ropeLtwentyfive, draw=white, line width=0.3pt, solid, rotate=180}},
+  ms key/rl30/.style={fig filled={ropeLthirty}{pentagon*}},
+  ms key/rl40/.style={fig filled={ropeLforty}{hexagon*}},
+  ms key/moni/.style={fig hollow={othersPurple}{square}, mark size=1.5pt},
+  ms key/phoni/.style={fig hollow={othersPurple}{diamond}, mark size=2.2pt},
+  ms key/augphoni/.style={fig hollow={othersPurple}{triangle}, mark size=1.9pt},
+  ms key/s11/.style={fig mark, mark=fplus*, mark size=1.7pt, mark options={fill=ropeRed}},
+  ms key/s8/.style={fig filled={ropeRed}{fstar*}, mark size=2.0pt},
+  ms key/s6/.style={fig filled={ropeRed}{hexagon*}, mark size=1.7pt},
+  % Thin joining lines for rows that share a layout.
+  fig link/.style={no marks, forget plot, line width=0.6pt, draw=#1},
+  ms link/lcp/.style={fig link=msLcp},
+  ms link/psi/.style={fig link=msPsi},
+  ms link/dual/.style={fig link=msDual},
+  ms link/phi/.style={fig link=msPhi},
+  ms link/rs/.style={fig link=ropeRed!55},
+  % Direct point labels from <panel>-labels.dat.
+  fig point labels/.style={
+    only marks, mark=none, forget plot,
+    point meta=explicit symbolic,
+    visualization depends on={value \thisrow{anchor}\as\figLabelAnchor},
+    visualization depends on={\thisrow{dx}\as\figLabelDx},
+    visualization depends on={\thisrow{dy}\as\figLabelDy},
+    nodes near coords,
+    nodes near coords style={font=\figPointFont, text=figInkTwo, inner sep=0.6pt,
+      anchor=\figLabelAnchor, xshift=\figLabelDx pt, yshift=\figLabelDy pt},
+  },
+}
+
+% \figPlotKeys{file}{key,key,...}: one \addplot per key, each marker shifted
+% by the row's dx (pt). Keys absent from the file plot nothing.
+\newcommand{\figPlotKeys}[2]{%
+  \pgfplotsinvokeforeach{#2}{%
+    \addplot[ms key/##1, discard if not={key}{##1},
+      visualization depends on={\thisrow{dx}\as\figDx}, scatter,
+      scatter/@pre marker code/.code={\pgfscope\pgftransformxshift{\figDx pt}},
+      scatter/@post marker code/.code={\endpgfscope},
+    ] table[x=x, y=y] {#1};}}
+% \figPlotLinks{file}{layout,...}: joining lines, drawn first so marks sit on top.
+\newcommand{\figPlotLinks}[2]{%
+  \pgfplotsinvokeforeach{#2}{%
+    \addplot[ms link/##1, discard if not={layout}{##1}] table[x=x, y=y] {#1};}}
+\newcommand{\figPlotLabels}[1]{%
+  \addplot[fig point labels] table[x=x, y=y, meta=text] {#1};}
+
+% Short panel titles; the captions carry the full read-set descriptions.
+\newcommand{\figTitle}[1]{\csname figtitle:#1\endcsname}
+\expandafter\def\csname figtitle:human_short\endcsname{Short reads}
+\expandafter\def\csname figtitle:human_pacbio\endcsname{PacBio HiFi}
+\expandafter\def\csname figtitle:human_ont_modern\endcsname{Nanopore}
+\expandafter\def\csname figtitle:guccione_skin\endcsname{Skin metagenome}
+\expandafter\def\csname figtitle:simshort\endcsname{Sim.\ short reads}
+\expandafter\def\csname figtitle:simpacbio\endcsname{Sim.\ PacBio HiFi}
+\expandafter\def\csname figtitle:simont\endcsname{Sim.\ Nanopore}
+\expandafter\def\csname figtitle:cap1\endcsname{\textit{N} = 1}
+\expandafter\def\csname figtitle:cap10\endcsname{\textit{N} = 10}
+\expandafter\def\csname figtitle:cap100\endcsname{\textit{N} = 100}
+
+% \figPanelBody{fig}{panel}{link layouts}{keys}: everything drawn inside one
+% panel, after its \nextgroupplot.
+\newcommand{\figPanelBody}[4]{%
+  \figPlotLinks{data/#1/#2.dat}{#3}%
+  \figPlotKeys{data/#1/#2.dat}{#4}%
+  \figPlotLabels{data/#1/#2-labels.dat}%
+  \figPanelTitle{\figTitle{#2}}}
+
+% Legend groups. An empty-legend entry names the tool before its modes.
+\newcommand{\figLegendGroupName}[1]{\addlegendimage{empty legend}\addlegendentry{\textit{#1}}}
+\newcommand{\figLegendKey}[2]{\addlegendimage{ms key/#1}\addlegendentry{#2}}
+\newcommand{\figLegendMS}{%
+  \figLegendGroupName{ms2:}%
+  \figLegendKey{lcp}{min}\figLegendKey{psi}{psi}\figLegendKey{dual}{dual}%
+  \figLegendGroupName{ropebwt3:}%
+  \figLegendKey{rl1}{-l1}\figLegendKey{rl19}{-l19*}\figLegendKey{rl25}{-l25*}%
+  \figLegendKey{rl30}{-l30*}\figLegendKey{rl40}{-l40*}}
+\newcommand{\figLegendOracle}{%
+  \addlegendimage{fig hollow={figInkTwo}{square}, mark size=1.7pt}\addlegendentry{oracle}}
+\newcommand{\figLegendFtab}{%
+  \addlegendimage{fig filled={figInkTwo}{*}}\addlegendentry{ordinary}%
+  \addlegendimage{fig filled={figInkTwo}{diamond*}, mark size=2.3pt}\addlegendentry{ftab}}
+\newcommand{\figLegendOthers}{%
+  \figLegendKey{moni}{MONI}\figLegendKey{phoni}{PHONI}\figLegendKey{augphoni}{AugPHONI}}
+\newcommand{\figLegendLocate}{%
+  \figLegendGroupName{ms2:}%
+  \figLegendKey{psi}{psi}\figLegendKey{dual}{dual}%
+  \figLegendGroupName{ropebwt3 -l1:}%
+  \figLegendKey{s11}{-s11}\figLegendKey{s8}{-s8}\figLegendKey{s6}{-s6}}
+
+% Shared x label and legend placed relative to a row of panels.
+% \figRowFurniture{first}{last}{x label}{legend name}
+\newcommand{\figRowFurniture}[4]{%
+  \node[font=\figLabelFont, text=figInkTwo, anchor=north]
+    at ($(#1.south west)!0.5!(#2.south east)+(0,-8pt)$) {#3};
+  \node[anchor=south, inner sep=0pt]
+    at ($(#1.north west)!0.5!(#2.north east)+(0,2pt)$) {\pgfplotslegendfromname{#4}};}
+
+\newcommand{\figMemLabel}{Peak resident memory (GiB)}
+\newcommand{\figSpeedLabel}{Speed (Mbases/s)}
+\newcommand{\figLocLabel}{Locations/s}
+
+% Fig Ops: bar panels for time and operations per base (data/fig-ops/).
+% Bars are drawn per layout key with zero bar shift so each sits on its own x.
+% An ops bar is the full total in the layout color with the LF segment (one
+% step per base, which is also what the oracle performs) painted over it as a
+% 45 percent tint; the white rim leaves a surface gap between the segments.
+\newlength{\figOpsPanelW}\setlength{\figOpsPanelW}{1.25in}
+\newlength{\figOpsCountPanelW}\setlength{\figOpsCountPanelW}{1.0in}
+\pgfplotsset{
+  ops axis/.style={
+    fig axis, width=\figOpsPanelW, xmin=-0.6, xmax=3.6, ymin=0,
+    xtick={0,1,2,3}, xticklabels={min,psi,phi,dual}, major x tick style={draw=none},
+    xticklabel style={font=\figLabelFont, text=figInkTwo},
+    % Numeric tick labels outside math mode, so they take the sans tick font.
+    yticklabel style={/pgf/number format/assume math mode=true},
+  },
+  % Operation panels leave out ms2-min (keyed lcp), whose only added work is a short LCP scan.
+  ops count axis/.style={ops axis, width=\figOpsCountPanelW, xmin=0.4, xmax=3.6,
+    xtick={1,2,3}, xticklabels={psi,phi,dual}},
+  ops bar/.style={ybar, bar shift=0pt, bar width=0.62, forget plot, draw=white, line width=0.5pt, fill=#1},
+  ops tick/.style={only marks, forget plot, mark=-, mark size=8.6pt,
+    mark options={draw=figInk, line width=1.0pt, line cap=butt}},
+  ops labels/.style={only marks, mark=none, forget plot, point meta=explicit symbolic,
+    nodes near coords, nodes near coords style={font=\figPointFont, text=figInkTwo, inner sep=0.6pt,
+      anchor=south, yshift=0.6pt}},
+  ops legend bar/.style={legend image code/.code={\fill[#1] (0pt,-2.6pt) rectangle (11pt,2.6pt);}},
+}
+\newcommand{\figOpsColor}[1]{\csname figopscolor:#1\endcsname}
+\expandafter\def\csname figopscolor:lcp\endcsname{msLcp}
+\expandafter\def\csname figopscolor:psi\endcsname{msPsi}
+\expandafter\def\csname figopscolor:dual\endcsname{msDual}
+\expandafter\def\csname figopscolor:phi\endcsname{msPhi}
+% \figOpsTime{file}: ordinary time bars, oracle ticks and bar labels.
+\newcommand{\figOpsTime}[1]{%
+  \pgfplotsinvokeforeach{lcp,psi,dual,phi}{%
+    \addplot[ops bar=\figOpsColor{##1}, discard if not={key}{##1}] table[x=x, y=ns] {#1};}%
+  \addplot[ops tick] table[x=x, y=oracle] {#1};
+  \addplot[ops labels] table[x=x, y=ns, meta=nslab] {#1};}
+% \figOpsOps{file}: stacked operation bars and total labels.
+\newcommand{\figOpsOps}[1]{%
+  \pgfplotsinvokeforeach{psi,dual,phi}{%
+    \addplot[ops bar=\figOpsColor{##1}, discard if not={key}{##1}] table[x=x, y=total] {#1};
+    \addplot[ops bar=\figOpsColor{##1}!45, discard if not={key}{##1}] table[x=x, y=lf] {#1};}%
+  \addplot[ops labels, discard if={key}{lcp}] table[x=x, y=total, meta=totlab] {#1};}
+\newcommand{\figLegendOps}{%
+  \addlegendimage{ops legend bar=msLcp}\addlegendentry{min}%
+  \addlegendimage{ops legend bar=msPsi}\addlegendentry{psi}%
+  \addlegendimage{ops legend bar=msPhi}\addlegendentry{phi}%
+  \addlegendimage{ops legend bar=msDual}\addlegendentry{dual}%
+  \addlegendimage{line legend, draw=figInk, line width=1.0pt}\addlegendentry{oracle time}%
+  \addlegendimage{ops legend bar=figInkTwo!45}\addlegendentry{LF steps}%
+  \addlegendimage{ops legend bar=figInkTwo}\addlegendentry{Recovery ($\psi$ \& $\phi$) steps}}
+% Bar panels put the title above the plot, clear of the bar labels.
+\newcommand{\figOpsTitle}[1]{%
+  \node[anchor=south west, inner sep=1.5pt, font=\figTitleFont, text=figInk]
+    at (rel axis cs:0,1) {#1};}
+\newcommand{\figOpsTimeLabel}{ns per base (query time)}
+\newcommand{\figOpsLabel}{Operations per base}
+\expandafter\def\csname figtitle:mtb152\endcsname{mtb152}
+\expandafter\def\csname figtitle:human472\endcsname{HPRC2}

@@ -1,0 +1,5 @@
+replog: repositions=78079 bytes=4997056 path=/work/stage/work/freeze-2885ee8-3c8c8967/a1-mtb152-errors/runs/fig_rep-a2__mtb152-A2-e0.00030/run1/rep/phi.replog
+stats: bases=20016455 repositions/base=0.00390074 psi_steps/base=0 scan_rows/rep=7.97018 len/rep=351.748 phi_steps/base=0.162387 dist/rep=218.394 dist1_frac=0.308431 lce/rep=131.322 capped_frac=0.362735 scan_visits/rep=1.2395 lf_ff/step=0.367257 walk_visits/base=0.136971
+stats: phi up_settled=64499 up_walked=12866 down_settled=64743 down_walked=12699 partial_steps=3226005 cont_walks=143 cont_steps=24417 partial_steps/rep=41.3172 cont_steps/rep=0.312722
+stats: bases=20016455 repositions/base=0 lf_ff/step=-nan walk_up/rep=-nan walk_down/rep=-nan
+query: reads=958 bases=20016455 threads=1 index_load_s=0.0944107 ftab_k=0 ftab_s=0 query_s=0.562495 read_s=0.00571165 parse_s=0.0172238 format_s=0.252246 orient=fwd flipped=0 orient_s=0 total_s=0.871372 query_ns_per_base=28.1016 wall_ns_per_base=43.5328

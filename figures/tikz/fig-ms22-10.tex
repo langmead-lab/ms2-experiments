@@ -1,0 +1,32 @@
+% Fig MS22-10: MS-only on chr22-h10 with simulated short, PacBio HiFi and
+% Nanopore reads; ms2 layouts (with ms2-phi), ropebwt3 MS-only modes, MONI, PHONI, AugPHONI.
+% The legend names every point, so no panel carries point labels, and the ms2 and ropebwt3
+% markers are drawn 30% larger than the shared style.
+\documentclass[border=1pt]{standalone}
+\input{figures-style}
+\input{figures-tweaks}
+\input{figures-gap}
+\figLargerMarks
+\begin{document}
+\input{data/fig-ms22-10/limits}
+\begin{tikzpicture}
+\begin{groupplot}[group style={fig row=3}, chr22 speed axis, ymode=log, width=1.85in]
+  \nextgroupplot[ylabel={\figSpeedLabel}, fig tight group legend, legend to name=legFigMSxxiiMS]
+    \figLegendGroupName{ms2:}\figLegendKey{lcp}{min}\figLegendKey{psi}{psi}\figLegendKey{phi}{phi}\figLegendKey{dual}{dual}
+    \figPlotKeys{data/fig-ms22-10/simshort.dat}{rl40,rl30,rl25,rl19,rl1,dual,phi,psi,lcp,moni,phoni,augphoni}
+    \figPanelTitle{\figTitle{simshort}}
+    \input{data/gap/fig-ms22-10-simshort}
+  \nextgroupplot[chr22 speed rest, fig tight group legend, legend to name=legFigMSxxiiRope]
+    \figLegendRopeGroup
+    \figPanelBody{fig-ms22-10}{simpacbio}{}{rl40,rl30,rl25,rl19,rl1,dual,phi,psi,lcp,moni,phoni,augphoni}
+    \input{data/gap/fig-ms22-10-simpacbio}
+  \nextgroupplot[chr22 speed rest, fig tight group legend, legend to name=legFigMSxxiiOthers]
+    \figLegendOthersGroup
+    \figPanelBody{fig-ms22-10}{simont}{}{rl40,rl30,rl25,rl19,rl1,dual,phi,psi,lcp,moni,phoni,augphoni}
+    \input{data/gap/fig-ms22-10-simont}
+\end{groupplot}
+\node[font=\figLabelFont, text=figInkTwo, anchor=north]
+  at ($(group c1r1.south west)!0.5!(group c3r1.south east)+(0,-8pt)$) {\figMemLabel};
+\figLegendRowThree{group c1r1}{group c3r1}{legFigMSxxiiMS}{legFigMSxxiiRope}{legFigMSxxiiOthers}
+\end{tikzpicture}
+\end{document}

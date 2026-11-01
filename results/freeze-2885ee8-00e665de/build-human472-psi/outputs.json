@@ -1,0 +1,25 @@
+{
+  "job": "build-human472-psi",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "outputs": {
+    "ms2/human472/index.tms.psi.orbitidx": {
+      "sha256": "7246fde73b3e721b99949716e402e48e51109cd7ac81101c165d87dc6735d0a5",
+      "bytes": 103560962104
+    },
+    "ms2/human472/index.tms.psi.orbitidx.ftab": {
+      "sha256": "4ac1fd74ca9f3d25f1cd61290caf3763026464faa388272fd9563ebd4e9de0a9",
+      "bytes": 1577062408
+    }
+  },
+  "host": {
+    "hostname": "ip-10-0-2-66.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0769303767f334774",
+    "availability_zone": "us-east-1c",
+    "lifecycle": "spot"
+  },
+  "finished": 1793411244.1451006
+}

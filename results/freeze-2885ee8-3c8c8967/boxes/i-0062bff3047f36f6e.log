@@ -1,0 +1,97 @@
+2026-10-31T12:09:36 run fig3-human472-apr008-pacbio-60mb-v2-dual
+12:09:37 fig3-human472-apr008-pacbio-60mb-v2-dual: 2 of 2 cells to run
+12:09:39 stage ms2/human472/index.tms.full.seqids.orbitidx
+12:26:32 stage reads/human472/human472-apr008-pacbio-60mb-v2/offsets.u64
+12:26:33 stage reads/human472/human472-apr008-pacbio-60mb-v2/reads.fa
+12:26:34 stage reads/human472/human472-apr008-pacbio-60mb-v2/truth.u32
+12:26:35 stage tools/ms2-2885ee8/ms2-bench
+12:26:36 stage tools/ms_check
+12:29:33 recorded trace traces/human472/human472-apr008-pacbio-60mb-v2/dual.oracle 409a3ebca11e
+12:29:33 fig_ops-human472-apr008-pacbio-60mb-v2/dual-oracle run1
+12:31:33 fig_ops-human472-apr008-pacbio-60mb-v2/dual-oracle run2
+12:33:32 fig_ops-human472-apr008-pacbio-60mb-v2/dual-oracle run3
+12:35:39 fig_ops-human472-apr008-pacbio-60mb-v2/dual-oracle checked 4.40622 
+12:35:39 fig_ops-human472-apr008-pacbio-60mb-v2/dual-ordinary run1
+12:38:12 fig_ops-human472-apr008-pacbio-60mb-v2/dual-ordinary run2
+12:40:45 fig_ops-human472-apr008-pacbio-60mb-v2/dual-ordinary run3
+12:43:25 fig_ops-human472-apr008-pacbio-60mb-v2/dual-ordinary checked 5.67199 
+12:43:27 fig3-human472-apr008-pacbio-60mb-v2-dual: 0 cells without a done marker
+2026-10-31T12:43:27 job fig3-human472-apr008-pacbio-60mb-v2-dual exit 0
+2026-10-31T12:43:36 run fig5-human_ont_modern-ms2dual
+12:43:37 fig5-human_ont_modern-ms2dual: 3 of 3 cells to run
+12:43:39 stage ms2/human472/index.tms.full.orbitidx
+12:59:46 stage reads/human472/human_ont_modern-ms-60mb-acgt-v2/offsets.u64
+12:59:46 stage reads/human472/human_ont_modern-ms-60mb-acgt-v2/reads.fa
+12:59:47 stage reads/human472/human_ont_modern-ms-60mb-acgt-v2/truth.u32
+12:59:49 human_ont_modern-ms-acgt60mb/dual-ordinary-plainfull run1
+13:02:43 human_ont_modern-ms-acgt60mb/dual-ordinary-plainfull run2
+13:05:15 human_ont_modern-ms-acgt60mb/dual-ordinary-plainfull run3
+13:07:54 human_ont_modern-ms-acgt60mb/dual-ordinary-plainfull checked 5.31962 
+13:07:54 human_ont_modern-ms-acgt60mb/dual-ordinary run1
+13:10:25 human_ont_modern-ms-acgt60mb/dual-ordinary run2
+13:12:54 human_ont_modern-ms-acgt60mb/dual-ordinary run3
+13:15:35 human_ont_modern-ms-acgt60mb/dual-ordinary checked 5.20996 
+13:18:08 recorded trace traces/human472/human_ont_modern-ms-60mb-acgt-v2/dual.oracle dbb925bdf743
+13:18:08 human_ont_modern-ms-acgt60mb/dual-oracle run1
+13:20:07 human_ont_modern-ms-acgt60mb/dual-oracle run2
+13:22:06 human_ont_modern-ms-acgt60mb/dual-oracle run3
+13:24:13 human_ont_modern-ms-acgt60mb/dual-oracle checked 4.43571 
+13:24:16 fig5-human_ont_modern-ms2dual: 0 cells without a done marker
+2026-10-31T13:24:16 job fig5-human_ont_modern-ms2dual exit 0
+2026-10-31T13:24:24 run loc-human_short-ms2dual
+13:24:26 loc-human_short-ms2dual: 3 of 3 cells to run
+13:24:28 stage reads/human472/human_short-locate-6mb-v2/offsets.u64
+13:24:28 stage reads/human472/human_short-locate-6mb-v2/reads.fa
+13:24:29 stage reads/human472/human_short-locate-6mb-v2/truth.u32
+13:24:30 stage ropebwt3/human472/index.fmd.len.gz
+13:24:31 human_short-locate-6mb/cap10-dual-ordinary run1
+13:29:10 human_short-locate-6mb/cap10-dual-ordinary run2
+13:33:38 human_short-locate-6mb/cap10-dual-ordinary run3
+13:38:11 human_short-locate-6mb/cap10-dual-ordinary checked 1.89544 
+13:38:11 human_short-locate-6mb/cap1-dual-ordinary run1
+13:42:45 human_short-locate-6mb/cap1-dual-ordinary run2
+13:47:08 human_short-locate-6mb/cap1-dual-ordinary run3
+13:51:41 human_short-locate-6mb/cap1-dual-ordinary checked 1.7212 
+13:51:41 human_short-locate-6mb/cap100-dual-ordinary run1
+13:58:15 human_short-locate-6mb/cap100-dual-ordinary run2
+14:02:47 human_short-locate-6mb/cap100-dual-ordinary run3
+14:07:26 human_short-locate-6mb/cap100-dual-ordinary checked 3.22993 
+14:07:28 loc-human_short-ms2dual: 0 cells without a done marker
+2026-10-31T14:07:28 job loc-human_short-ms2dual exit 0
+2026-10-31T14:07:37 run loc-human_pacbio-ms2dual
+14:07:38 loc-human_pacbio-ms2dual: 3 of 3 cells to run
+14:07:40 stage reads/human472/human_pacbio-locate-20mb-v2/offsets.u64
+14:07:41 stage reads/human472/human_pacbio-locate-20mb-v2/reads.fa
+14:07:42 stage reads/human472/human_pacbio-locate-20mb-v2/truth.u32
+14:07:43 human_pacbio-locate-20mb/cap10-dual-ordinary run1
+14:12:42 human_pacbio-locate-20mb/cap10-dual-ordinary run2
+14:17:17 human_pacbio-locate-20mb/cap10-dual-ordinary run3
+14:21:58 human_pacbio-locate-20mb/cap10-dual-ordinary checked 3.37058 
+14:21:58 human_pacbio-locate-20mb/cap1-dual-ordinary run1
+14:26:40 human_pacbio-locate-20mb/cap1-dual-ordinary run2
+14:31:14 human_pacbio-locate-20mb/cap1-dual-ordinary run3
+14:35:50 human_pacbio-locate-20mb/cap1-dual-ordinary checked 3.02976 
+14:35:50 human_pacbio-locate-20mb/cap100-dual-ordinary run1
+14:43:42 human_pacbio-locate-20mb/cap100-dual-ordinary run2
+14:48:12 human_pacbio-locate-20mb/cap100-dual-ordinary run3
+14:52:50 human_pacbio-locate-20mb/cap100-dual-ordinary checked 5.78763 
+14:52:53 loc-human_pacbio-ms2dual: 0 cells without a done marker
+2026-10-31T14:52:53 job loc-human_pacbio-ms2dual exit 0
+2026-10-31T14:53:01 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T14:54:08 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T14:55:15 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T14:56:22 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T14:57:29 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T14:58:36 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T14:59:43 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T15:00:50 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T15:01:57 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T15:03:04 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T15:04:11 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T15:05:18 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T15:06:25 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T15:07:33 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T15:08:40 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T15:09:47 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T15:10:54 nothing ready; 9 jobs unfinished; waiting
+2026-10-31T15:12:01 nothing ready; 9 jobs unfinished; waiting

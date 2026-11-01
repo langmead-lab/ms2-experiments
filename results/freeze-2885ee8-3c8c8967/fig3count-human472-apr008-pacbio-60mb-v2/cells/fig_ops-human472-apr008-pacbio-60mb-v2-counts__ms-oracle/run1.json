@@ -1,0 +1,73 @@
+{
+  "run": 1,
+  "host": "ip-10-0-0-175.ec2.internal",
+  "started": 1793450101.403165,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/e47323d8b749323cab0fc1976471c3e18fda5ea5509cafe193abac30fce802e8/ms2-stats",
+    "query",
+    "/work/stage/inputs/520539c526f8c8fe9cb72a0179b2301418498bdf3eb747d026b64ed3c87021d2/index.ms.orbitidx",
+    "/work/stage/inputs/c8ce0e7314229be50c85c7dc652cb74c08c4d2a5378ef5471c70890c87606db0/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig3count-human472-apr008-pacbio-60mb-v2/runs/fig_ops-human472-apr008-pacbio-60mb-v2-counts__ms-oracle/run1/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--block-bytes",
+    "67108864",
+    "--mode",
+    "oracle",
+    "--oracle",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig3count-human472-apr008-pacbio-60mb-v2/traces/traces/human472/human472-apr008-pacbio-60mb-v2/ms.oracle"
+  ],
+  "timeout_s": 14400,
+  "cache": "drop_caches",
+  "wall_seconds": 67.29964310799551,
+  "user_seconds": 14.22,
+  "system_seconds": 53.04,
+  "peak_rss_kib": 105644936,
+  "phase": {
+    "source": "orbit-query-line",
+    "query_definition": "total_s",
+    "load_seconds": 60.6041,
+    "query_seconds": 4.06808,
+    "components": {
+      "index_load_s": 60.6041,
+      "ftab_s": 0.0,
+      "query_s": 3.19849,
+      "read_s": 0.0233986,
+      "parse_s": 0.0581314,
+      "format_s": 0.689024,
+      "total_s": 4.06808
+    }
+  },
+  "ops_per_base": {
+    "line": {
+      "bases": 59982702.0,
+      "repositions/base": 0.036073,
+      "lf_ff/step": 0.685784,
+      "walk_up/rep": 0.0,
+      "walk_down/rep": 0.0
+    },
+    "ops_per_base": {
+      "lf": 1.0,
+      "psi": 0.0,
+      "phi": 0.0,
+      "walk": 0.0,
+      "total": 1.0,
+      "repositions": 0.036073,
+      "lf_ff_per_step": 0.685784
+    },
+    "lf_basis": "one LF step per base, as in the TeraMS Figure 5 reproduction"
+  },
+  "check": {
+    "reads": 2853,
+    "positions": 59982702,
+    "failed": 0,
+    "validation": "ms_check: every MS value equals truth"
+  },
+  "finished": 1793450169.6738746
+}

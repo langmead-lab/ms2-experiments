@@ -1,0 +1,84 @@
+{
+  "job": "fig3-human472-apr008-hap1-p100k-s600-v1-psi",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "host": {
+    "hostname": "ip-10-0-1-47.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-004afdcce3342ad28",
+    "availability_zone": "us-east-1b",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793496806.5671248,
+  "argv": [
+    "/work/code/bench/freeze/run_job.py",
+    "fig3-human472-apr008-hap1-p100k-s600-v1-psi",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 2,
+  "already_done": 0,
+  "order": [
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1/psi-oracle",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1/psi-ordinary"
+  ],
+  "staging": {
+    "ms2/human472/index.tms.psi.orbitidx": {
+      "sha256": "7246fde73b3e721b99949716e402e48e51109cd7ac81101c165d87dc6735d0a5",
+      "bytes": 103560962104,
+      "fresh": true,
+      "seconds": 242.4443597793579
+    },
+    "reads/human472/human472-apr008-hap1-p100k-s600-v1/offsets.u64": {
+      "sha256": "c1e5c080ca240e5a805c0de92f2153007b07144de7a0b379de06e0896f578194",
+      "bytes": 4808,
+      "fresh": true,
+      "seconds": 0.7609496116638184
+    },
+    "reads/human472/human472-apr008-hap1-p100k-s600-v1/reads.fa": {
+      "sha256": "b940ed881ebeac87042a7fec0e30832147773b5325249faaa8f450f35ff1c74d",
+      "bytes": 59863793,
+      "fresh": true,
+      "seconds": 1.033958911895752
+    },
+    "reads/human472/human472-apr008-hap1-p100k-s600-v1/truth.u32": {
+      "sha256": "8b9d44b5a9d6137399432a343352eb32e4c99499c691204f08c0198cdb5cc1d7",
+      "bytes": 239438812,
+      "fresh": true,
+      "seconds": 1.4158103466033936
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": true,
+      "seconds": 0.8346147537231445
+    },
+    "tools/ms_check": {
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab",
+      "bytes": 251000,
+      "fresh": true,
+      "seconds": 0.7262592315673828
+    }
+  },
+  "finished": 1793497374.1773672,
+  "results": {
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1/psi-oracle": "checked",
+    "fig_ops-human472-apr008-hap1-p100k-s600-v1/psi-ordinary": "checked"
+  }
+}

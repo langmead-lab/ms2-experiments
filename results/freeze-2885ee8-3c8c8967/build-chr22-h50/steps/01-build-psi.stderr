@@ -1,0 +1,5 @@
+mem	load	t=0.0s	rss=0.176GiB	peak=0.638GiB	peak_per=11.1B
+mem	tms_union_rows	t=10.7s	rss=0.361GiB	peak=2.310GiB	peak_per=40.0B
+mem	tms_lf_enc	t=12.3s	rss=0.933GiB	peak=0.933GiB	peak_per=16.2B
+mem	tms_assemble	t=15.7s	rss=1.066GiB	peak=1.823GiB	peak_per=31.6B
+mem	write	t=17.0s	rss=1.066GiB	peak=1.066GiB	peak_per=18.5B

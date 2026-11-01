@@ -1,0 +1,120 @@
+{
+  "job": "build-human472-full",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-0-175.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0562f545fedb59614",
+    "availability_zone": "us-east-1a",
+    "lifecycle": "spot"
+  },
+  "started": 1793410849.6026647,
+  "argv": [
+    "/work/code/bench/freeze/build_job.py",
+    "build-human472-full",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict"
+  ],
+  "steps": [
+    {
+      "label": "01-build-full",
+      "argv": [
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "build",
+        "/work/stage/inputs/7814fdcdf4c3e4878c100699a2f60213ddd32efd36f93b21f1b72450e414cd28/bwt.heads",
+        "/work/stage/inputs/aa5d481e926c87ec6c42d10c6c0635a3648dc953bccc0acd84247ccd4f945a84/bwt.len",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-human472-full/outputs/ms2/human472/index.tms.full.orbitidx",
+        "--layout",
+        "full",
+        "--phi",
+        "/work/stage/inputs/aacc1d4737bfb9159ef778e8fb46dcae118e06bc3154507f58b3c6153ffb1ccd/phi",
+        "--minima",
+        "/work/stage/inputs/fc9c00beda5e173428c5a562cc033bad69c6dc295612013472c71635b46181a9/min"
+      ],
+      "wall_seconds": 35059.177384382,
+      "peak_rss_kib": 479474352,
+      "unverified": false
+    },
+    {
+      "label": "02-index-add-seq-ids",
+      "argv": [
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "index-add-seq-ids",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-human472-full/outputs/ms2/human472/index.tms.full.orbitidx",
+        "/work/stage/inputs/8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0/index.fmd.len.gz",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-human472-full/outputs/ms2/human472/index.tms.full.seqids.orbitidx"
+      ],
+      "wall_seconds": 397.80847287899815,
+      "peak_rss_kib": 14704,
+      "unverified": false
+    },
+    {
+      "label": "03-ftab-build",
+      "argv": [
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "ftab-build",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-human472-full/outputs/ms2/human472/index.tms.full.seqids.orbitidx",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-human472-full/outputs/ms2/human472/index.tms.full.seqids.orbitidx.ftab",
+        "--kmer-len",
+        "14",
+        "-p",
+        "128"
+      ],
+      "wall_seconds": 361.4396820320035,
+      "peak_rss_kib": 414306536,
+      "unverified": false
+    }
+  ],
+  "staging": {
+    "precursors/human472/bwt.heads": {
+      "sha256": "7814fdcdf4c3e4878c100699a2f60213ddd32efd36f93b21f1b72450e414cd28",
+      "bytes": 5259024318,
+      "fresh": false,
+      "seconds": 3.075599670410156e-05
+    },
+    "precursors/human472/bwt.len": {
+      "sha256": "aa5d481e926c87ec6c42d10c6c0635a3648dc953bccc0acd84247ccd4f945a84",
+      "bytes": 26295121590,
+      "fresh": false,
+      "seconds": 2.0265579223632812e-05
+    },
+    "precursors/human472/min": {
+      "sha256": "fc9c00beda5e173428c5a562cc033bad69c6dc295612013472c71635b46181a9",
+      "bytes": 31664341510,
+      "fresh": false,
+      "seconds": 1.9073486328125e-05
+    },
+    "precursors/human472/phi": {
+      "sha256": "aacc1d4737bfb9159ef778e8fb46dcae118e06bc3154507f58b3c6153ffb1ccd",
+      "bytes": 94662474942,
+      "fresh": true,
+      "seconds": 224.00083565711975
+    },
+    "ropebwt3/human472/index.fmd.len.gz": {
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0",
+      "bytes": 286728,
+      "fresh": true,
+      "seconds": 0.8261885643005371
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 3.7670135498046875e-05
+    }
+  },
+  "finished": 1793448478.8406715,
+  "status": 0
+}

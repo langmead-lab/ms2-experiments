@@ -1,0 +1,310 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "cap100-rope-s8",
+  "cell": "guccione_skin-locate-500kb/cap100-rope-s8",
+  "group": "guccione_skin-locate-500kb",
+  "figures": [
+    "6"
+  ],
+  "tool": "ropebwt3",
+  "kind": "locate",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "job": "loc-guccione_skin-rope-s8",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-1-112.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-04c9c6f667c1d3fc0",
+    "availability_zone": "us-east-1b",
+    "lifecycle": "spot"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 3698,
+  "bases": 499904,
+  "reference": "human472",
+  "read_set": "guccione_skin-locate-500kb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ropebwt3-cfad8475/ropebwt3",
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+    },
+    "runtime": {
+      "name": "tools/runtime/libgomp.so.1",
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8"
+    },
+    "fmd": {
+      "name": "ropebwt3/human472/index.fmd",
+      "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626"
+    },
+    "ssa": {
+      "name": "ropebwt3/human472/index.fmd.s8.ssa",
+      "sha256": "908fc09333a2fa529c6b7589e707692379fdb4a5715101eb24d16717b537b303"
+    },
+    "lengths": {
+      "name": "ropebwt3/human472/index.fmd.len.gz",
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0"
+    },
+    "reads": {
+      "name": "reads/human472/guccione_skin-locate-500kb-v2/reads.fa",
+      "sha256": "d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c"
+    },
+    "truth": {
+      "name": "reads/human472/guccione_skin-locate-500kb-v2/truth.u32",
+      "sha256": "bbdbca28a0fbcb796168de6b5f8b59fb51b6f3780708f28490d78c21d6aed3cf"
+    },
+    "offsets": {
+      "name": "reads/human472/guccione_skin-locate-500kb-v2/offsets.u64",
+      "sha256": "60ee55c2fa46274c6410c96dc77a3f19f47464bdfb36f85e6b10e30944e81a90"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793431948.8715596,
+  "cap": 100,
+  "shift": 8,
+  "batch": "1m",
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-1-112.ec2.internal",
+      "started": 1793431948.871637,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-K",
+        "1m",
+        "-l1",
+        "-p100",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/loc-guccione_skin-rope-s8/rope/s8-ropebwt3_human472_index.fmd/index.fmd",
+        "/work/stage/inputs/d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c/reads.fa"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 138.54958607799927,
+      "user_seconds": 93.01,
+      "system_seconds": 45.48,
+      "peak_rss_kib": 102172568,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 42.286,
+        "query_seconds": 93.685,
+        "components": {
+          "last_loaded_s": 42.286,
+          "last_processed_s": 135.971,
+          "processed_sequences": 3698
+        }
+      },
+      "check": {
+        "failed": 0,
+        "validation": "cross-tool-v1",
+        "tool": "rope",
+        "cap": 100,
+        "reads": 3698,
+        "intervals": 254100,
+        "zero_count_intervals": 0,
+        "reported_locations_checked": 21788212,
+        "locations_in_bounds": 21788212,
+        "ms_positions_checked": 499904,
+        "emitted_counts": 254100,
+        "complete_set_intervals": 40406,
+        "complete_set_locations": 418812,
+        "over_cap_intervals": 213694,
+        "over_cap_locations": 21369400,
+        "all_coordinates_checked": false,
+        "occurrence_reference_checked": false,
+        "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+        "count_checks": "cross-tool agreement",
+        "canonical": {
+          "format": "canonical-smem-v1",
+          "sha256": "e72528a19a5722c688b53692ea982ebd4c2060440ec01e4408b3edd0d6f4b6c8",
+          "lines": 254100,
+          "bytes": 758866188,
+          "cap": 100,
+          "over_cap_lines": 213694,
+          "over_cap_locations": 21369400,
+          "over_cap_sha256": "e52130b7eab3c37a264dde73601cd75253d53d914e1b1d5e1713fc9f45d1112a",
+          "compressed_bytes": 219340418,
+          "compressed_sha256": "fc7e28873cae9ab61501b172b8c057afd1c42342deeb1c2c0b8e9795d867a1dd",
+          "path": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-guccione_skin-rope-s8/canonical/guccione_skin-locate-500kb__cap100-rope-s8.canonical.gz"
+        }
+      },
+      "finished": 1793432287.054828
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-1-112.ec2.internal",
+      "started": 1793432287.0554757,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-K",
+        "1m",
+        "-l1",
+        "-p100",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/loc-guccione_skin-rope-s8/rope/s8-ropebwt3_human472_index.fmd/index.fmd",
+        "/work/stage/inputs/d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c/reads.fa"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 139.10397660500166,
+      "user_seconds": 93.35,
+      "system_seconds": 45.7,
+      "peak_rss_kib": 102172568,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 42.66,
+        "query_seconds": 93.86600000000001,
+        "components": {
+          "last_loaded_s": 42.66,
+          "last_processed_s": 136.526,
+          "processed_sequences": 3698
+        }
+      },
+      "finished": 1793432427.281417
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-1-112.ec2.internal",
+      "started": 1793432427.281785,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-K",
+        "1m",
+        "-l1",
+        "-p100",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/loc-guccione_skin-rope-s8/rope/s8-ropebwt3_human472_index.fmd/index.fmd",
+        "/work/stage/inputs/d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c/reads.fa"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 139.0548698729981,
+      "user_seconds": 93.71,
+      "system_seconds": 45.29,
+      "peak_rss_kib": 102172568,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 42.21,
+        "query_seconds": 94.269,
+        "components": {
+          "last_loaded_s": 42.21,
+          "last_processed_s": 136.479,
+          "processed_sequences": 3698
+        }
+      },
+      "finished": 1793432567.4566653
+    }
+  ],
+  "check": {
+    "failed": 0,
+    "validation": "cross-tool-v1",
+    "tool": "rope",
+    "cap": 100,
+    "reads": 3698,
+    "intervals": 254100,
+    "zero_count_intervals": 0,
+    "reported_locations_checked": 21788212,
+    "locations_in_bounds": 21788212,
+    "ms_positions_checked": 499904,
+    "emitted_counts": 254100,
+    "complete_set_intervals": 40406,
+    "complete_set_locations": 418812,
+    "over_cap_intervals": 213694,
+    "over_cap_locations": 21369400,
+    "all_coordinates_checked": false,
+    "occurrence_reference_checked": false,
+    "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+    "count_checks": "cross-tool agreement",
+    "canonical": {
+      "format": "canonical-smem-v1",
+      "sha256": "e72528a19a5722c688b53692ea982ebd4c2060440ec01e4408b3edd0d6f4b6c8",
+      "lines": 254100,
+      "bytes": 758866188,
+      "cap": 100,
+      "over_cap_lines": 213694,
+      "over_cap_locations": 21369400,
+      "over_cap_sha256": "e52130b7eab3c37a264dde73601cd75253d53d914e1b1d5e1713fc9f45d1112a",
+      "compressed_bytes": 219340418,
+      "compressed_sha256": "fc7e28873cae9ab61501b172b8c057afd1c42342deeb1c2c0b8e9795d867a1dd",
+      "path": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-guccione_skin-rope-s8/canonical/guccione_skin-locate-500kb__cap100-rope-s8.canonical.gz"
+    }
+  },
+  "query_seconds": [
+    93.685,
+    93.86600000000001,
+    94.269
+  ],
+  "median_query_seconds": 93.86600000000001,
+  "load_seconds": [
+    42.286,
+    42.66,
+    42.21
+  ],
+  "median_load_seconds": 42.286,
+  "wall_seconds": [
+    138.54958607799927,
+    139.10397660500166,
+    139.0548698729981
+  ],
+  "peak_rss_kib": 102172568,
+  "query_spread_fraction": 0.006221635096840209,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 0.00532571964289519,
+  "ns_per_base": 187768.05146588146,
+  "locations": 21788212,
+  "smems": 254100,
+  "locations_per_second": 232120.38437772993,
+  "finished": 1793432567.456904
+}

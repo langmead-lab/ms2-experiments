@@ -1,0 +1,143 @@
+2026-10-31T09:29:33 desired capacity 4 -> 5
+2026-10-31T09:29:34 autoscaling set-desired-capacity failed: aws: [ERROR]: An error occurred (ScalingActivityInProgress) when calling the SetDesiredCapacity operation: Scaling activity 5bd68645-050d-7bb9-303b-193377e78942 is in progress and blocks this action
+2026-10-31T09:29:34 run fig3count-mtb152-heldout16-p100k-s600-v1
+09:29:38 fig3count-mtb152-heldout16-p100k-s600-v1: 6 of 8 cells to run
+09:29:40 stage ms2/mtb152/index.ms.orbitidx
+09:29:41 stage ms2/mtb152/index.tms.full.orbitidx
+09:29:43 stage ms2/mtb152/index.tms.phi.orbitidx
+09:29:44 stage ms2/mtb152/index.tms.psi.orbitidx
+09:29:45 stage reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64
+09:29:46 stage reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa
+09:29:47 stage reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32
+09:29:49 stage tools/ms2-2885ee8/ms2-stats
+09:29:50 stage tools/ms_check
+09:29:50 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-oracle run1
+09:29:54 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1-counts__dual-oracle/run1/run1.stderr
+09:29:54 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/psi-oracle run1
+09:29:58 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/psi-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1-counts__psi-oracle/run1/run1.stderr
+09:29:58 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/phi-oracle run1
+09:30:01 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/phi-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1-counts__phi-oracle/run1/run1.stderr
+09:30:01 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-ordinary run1
+Traceback (most recent call last):
+  File "/work/code/bench/freeze/run_job.py", line 683, in <module>
+    main()
+  File "/work/code/bench/freeze/run_job.py", line 679, in main
+    sys.exit(Runner(p.parse_args()).run())
+  File "/work/code/bench/freeze/run_job.py", line 623, in run
+    results[cell['id']] = self.run_cell(cell)['status']
+  File "/work/code/bench/freeze/run_job.py", line 535, in run_cell
+    record = self.run_once(cell, index, cell_dir)
+  File "/work/code/bench/freeze/run_job.py", line 436, in run_once
+    record['ops_per_base'] = parse_stats(stderr, cell['layout'])
+  File "/work/code/bench/campaign-20261012/explore_ops.py", line 852, in parse_stats
+    raise ValueError(f'Expected one stats line with {want}, found {len(rows)}')
+ValueError: Expected one stats line with psi_steps/base, found 2
+2026-10-31T09:30:04 job fig3count-mtb152-heldout16-p100k-s600-v1 exit 1
+2026-10-31T09:30:07 desired capacity 4 -> 5
+2026-10-31T09:30:07 autoscaling set-desired-capacity failed: aws: [ERROR]: An error occurred (ScalingActivityInProgress) when calling the SetDesiredCapacity operation: Scaling activity 5bd68645-050d-7bb9-303b-193377e78942 is in progress and blocks this action
+2026-10-31T09:30:08 run fig3count-mtb152-heldout16-p100k-s600-v1
+09:30:11 fig3count-mtb152-heldout16-p100k-s600-v1: 6 of 8 cells to run
+09:30:13 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-oracle run1 reused
+09:30:15 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1-counts__dual-oracle/run1/run1.stderr
+09:30:15 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/psi-oracle run1 reused
+09:30:18 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/psi-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1-counts__psi-oracle/run1/run1.stderr
+09:30:18 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/phi-oracle run1 reused
+09:30:21 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/phi-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1-counts__phi-oracle/run1/run1.stderr
+09:30:21 fig_ops-mtb152-heldout16-p100k-s600-v1-counts/dual-ordinary run1
+Traceback (most recent call last):
+  File "/work/code/bench/freeze/run_job.py", line 683, in <module>
+    main()
+  File "/work/code/bench/freeze/run_job.py", line 679, in main
+    sys.exit(Runner(p.parse_args()).run())
+  File "/work/code/bench/freeze/run_job.py", line 623, in run
+    results[cell['id']] = self.run_cell(cell)['status']
+  File "/work/code/bench/freeze/run_job.py", line 535, in run_cell
+    record = self.run_once(cell, index, cell_dir)
+  File "/work/code/bench/freeze/run_job.py", line 436, in run_once
+    record['ops_per_base'] = parse_stats(stderr, cell['layout'])
+  File "/work/code/bench/campaign-20261012/explore_ops.py", line 852, in parse_stats
+    raise ValueError(f'Expected one stats line with {want}, found {len(rows)}')
+ValueError: Expected one stats line with psi_steps/base, found 2
+2026-10-31T09:30:23 job fig3count-mtb152-heldout16-p100k-s600-v1 exit 1
+2026-10-31T09:30:26 desired capacity 4 -> 5
+2026-10-31T09:30:27 autoscaling set-desired-capacity failed: aws: [ERROR]: An error occurred (ScalingActivityInProgress) when calling the SetDesiredCapacity operation: Scaling activity 5bd68645-050d-7bb9-303b-193377e78942 is in progress and blocks this action
+2026-10-31T09:30:27 run fig3count-mtb152-pacbio-60mb-v2
+09:30:30 fig3count-mtb152-pacbio-60mb-v2: 7 of 8 cells to run
+09:30:32 stage reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64
+09:30:33 stage reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa
+09:30:34 stage reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32
+09:30:36 fig_ops-mtb152-pacbio-60mb-v2-counts/ms-oracle run1
+09:30:39 fig_ops-mtb152-pacbio-60mb-v2-counts/ms-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2-counts__ms-oracle/run1/run1.stderr
+09:30:39 fig_ops-mtb152-pacbio-60mb-v2-counts/phi-oracle run1
+09:30:43 fig_ops-mtb152-pacbio-60mb-v2-counts/phi-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2-counts__phi-oracle/run1/run1.stderr
+09:30:43 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-oracle run1
+09:30:46 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2-counts__dual-oracle/run1/run1.stderr
+09:30:46 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-ordinary run1
+Traceback (most recent call last):
+  File "/work/code/bench/freeze/run_job.py", line 683, in <module>
+    main()
+  File "/work/code/bench/freeze/run_job.py", line 679, in main
+    sys.exit(Runner(p.parse_args()).run())
+  File "/work/code/bench/freeze/run_job.py", line 623, in run
+    results[cell['id']] = self.run_cell(cell)['status']
+  File "/work/code/bench/freeze/run_job.py", line 535, in run_cell
+    record = self.run_once(cell, index, cell_dir)
+  File "/work/code/bench/freeze/run_job.py", line 436, in run_once
+    record['ops_per_base'] = parse_stats(stderr, cell['layout'])
+  File "/work/code/bench/campaign-20261012/explore_ops.py", line 852, in parse_stats
+    raise ValueError(f'Expected one stats line with {want}, found {len(rows)}')
+ValueError: Expected one stats line with psi_steps/base, found 2
+2026-10-31T09:30:49 job fig3count-mtb152-pacbio-60mb-v2 exit 1
+2026-10-31T09:30:52 desired capacity 4 -> 5
+2026-10-31T09:30:52 autoscaling set-desired-capacity failed: aws: [ERROR]: An error occurred (ScalingActivityInProgress) when calling the SetDesiredCapacity operation: Scaling activity 5bd68645-050d-7bb9-303b-193377e78942 is in progress and blocks this action
+2026-10-31T09:30:53 run fig3count-mtb152-pacbio-60mb-v2
+09:30:56 fig3count-mtb152-pacbio-60mb-v2: 7 of 8 cells to run
+09:30:58 fig_ops-mtb152-pacbio-60mb-v2-counts/ms-oracle run1 reused
+09:31:01 fig_ops-mtb152-pacbio-60mb-v2-counts/ms-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2-counts__ms-oracle/run1/run1.stderr
+09:31:01 fig_ops-mtb152-pacbio-60mb-v2-counts/phi-oracle run1 reused
+09:31:04 fig_ops-mtb152-pacbio-60mb-v2-counts/phi-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2-counts__phi-oracle/run1/run1.stderr
+09:31:04 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-oracle run1 reused
+09:31:06 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-oracle failed None run 1: run1: exit 1, timeout=False; see /work/stage/work/freeze-2885ee8-3c8c8967/fig3count-mtb152-pacbio-60mb-v2/runs/fig_ops-mtb152-pacbio-60mb-v2-counts__dual-oracle/run1/run1.stderr
+09:31:06 fig_ops-mtb152-pacbio-60mb-v2-counts/dual-ordinary run1
+Traceback (most recent call last):
+  File "/work/code/bench/freeze/run_job.py", line 683, in <module>
+    main()
+  File "/work/code/bench/freeze/run_job.py", line 679, in main
+    sys.exit(Runner(p.parse_args()).run())
+  File "/work/code/bench/freeze/run_job.py", line 623, in run
+    results[cell['id']] = self.run_cell(cell)['status']
+  File "/work/code/bench/freeze/run_job.py", line 535, in run_cell
+    record = self.run_once(cell, index, cell_dir)
+  File "/work/code/bench/freeze/run_job.py", line 436, in run_once
+    record['ops_per_base'] = parse_stats(stderr, cell['layout'])
+  File "/work/code/bench/campaign-20261012/explore_ops.py", line 852, in parse_stats
+    raise ValueError(f'Expected one stats line with {want}, found {len(rows)}')
+ValueError: Expected one stats line with psi_steps/base, found 2
+2026-10-31T09:31:09 job fig3count-mtb152-pacbio-60mb-v2 exit 1
+2026-10-31T09:31:12 desired capacity 4 -> 5
+2026-10-31T09:31:12 autoscaling set-desired-capacity failed: aws: [ERROR]: An error occurred (ScalingActivityInProgress) when calling the SetDesiredCapacity operation: Scaling activity 5bd68645-050d-7bb9-303b-193377e78942 is in progress and blocks this action
+2026-10-31T09:31:12 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:32:14 desired capacity 4 -> 5
+2026-10-31T09:32:14 autoscaling set-desired-capacity failed: aws: [ERROR]: An error occurred (ScalingActivityInProgress) when calling the SetDesiredCapacity operation: Scaling activity 5bd68645-050d-7bb9-303b-193377e78942 is in progress and blocks this action
+2026-10-31T09:32:14 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:33:16 desired capacity 4 -> 5
+2026-10-31T09:33:16 autoscaling set-desired-capacity failed: aws: [ERROR]: An error occurred (ScalingActivityInProgress) when calling the SetDesiredCapacity operation: Scaling activity 5bd68645-050d-7bb9-303b-193377e78942 is in progress and blocks this action
+2026-10-31T09:33:16 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:34:17 desired capacity 4 -> 5
+2026-10-31T09:34:18 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:35:19 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:36:21 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:37:22 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:38:23 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:39:25 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:40:26 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:41:28 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:42:29 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:43:30 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:44:32 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:45:33 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:46:35 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:47:36 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:48:37 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:49:39 nothing ready; 32 jobs unfinished; waiting
+2026-10-31T09:50:40 nothing ready; 32 jobs unfinished; waiting

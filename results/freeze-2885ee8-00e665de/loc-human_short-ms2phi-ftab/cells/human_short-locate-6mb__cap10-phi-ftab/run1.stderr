@@ -1,0 +1,4 @@
+smem-all: positions as contig:strand:offset, 39132 sequences
+count: backward search table 1918731880 bytes, row shift 4, built in 15.1663 s
+ftab: k=14 entry_bits=93 bytes=3590324240 load_s=1.20688
+query: reads=48000 bases=6000000 threads=1 index_load_s=185.258 ftab_k=14 ftab_s=1.20688 query_s=2.23638 read_s=0.00163374 parse_s=0.00540197 format_s=0.0787913 orient=fwd flipped=0 orient_s=0 total_s=2.33685 query_ns_per_base=372.729 wall_ns_per_base=389.476

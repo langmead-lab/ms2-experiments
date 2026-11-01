@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/e47323d8b749323cab0fc1976471c3e18fda5ea5509cafe193abac30fce802e8/ms2-stats",
+    "query",
+    "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+    "/work/stage/inputs/c8ce0e7314229be50c85c7dc652cb74c08c4d2a5378ef5471c70890c87606db0/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig3count-human472-apr008-pacbio-60mb-v2/runs/fig_ops-human472-apr008-pacbio-60mb-v2-counts__phi-oracle/run1/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--block-bytes",
+    "67108864",
+    "--mode",
+    "oracle",
+    "--oracle",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig3count-human472-apr008-pacbio-60mb-v2/traces/traces/human472/human472-apr008-pacbio-60mb-v2/phi.oracle"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/fig3count-human472-apr008-pacbio-60mb-v2/runs/fig_ops-human472-apr008-pacbio-60mb-v2-counts__phi-oracle/run1",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 63.34926330699818,
+  "stdout": "/work/stage/work/freeze-2885ee8-3c8c8967/fig3count-human472-apr008-pacbio-60mb-v2/runs/fig_ops-human472-apr008-pacbio-60mb-v2-counts__phi-oracle/run1/run1.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-3c8c8967/fig3count-human472-apr008-pacbio-60mb-v2/runs/fig_ops-human472-apr008-pacbio-60mb-v2-counts__phi-oracle/run1/run1.stderr",
+  "native_wall_seconds": 63.34,
+  "user_seconds": 16.16,
+  "system_seconds": 47.15,
+  "peak_rss_kib": 94777436
+}

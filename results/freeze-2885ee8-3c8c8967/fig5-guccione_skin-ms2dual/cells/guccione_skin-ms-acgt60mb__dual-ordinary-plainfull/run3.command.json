@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/a6c79f97b5f55f613671ae649d91b779fa6eb75e97e427c4a8b8a3e4d25c9ba5/index.tms.full.orbitidx",
+    "/work/stage/inputs/b75f41ae7ce8983c6db6e20dbfe76094795ebc95dd02720d6d40220c41c499ae/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-guccione_skin-ms2dual/runs/guccione_skin-ms-acgt60mb__dual-ordinary-plainfull/run3/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--mode",
+    "dual"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-guccione_skin-ms2dual/runs/guccione_skin-ms-acgt60mb__dual-ordinary-plainfull/run3",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 165.41800694299945,
+  "stdout": "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-guccione_skin-ms2dual/runs/guccione_skin-ms-acgt60mb__dual-ordinary-plainfull/run3/run3.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-guccione_skin-ms2dual/runs/guccione_skin-ms-acgt60mb__dual-ordinary-plainfull/run3/run3.stderr",
+  "native_wall_seconds": 165.4,
+  "user_seconds": 43.62,
+  "system_seconds": 121.76,
+  "peak_rss_kib": 238677388
+}

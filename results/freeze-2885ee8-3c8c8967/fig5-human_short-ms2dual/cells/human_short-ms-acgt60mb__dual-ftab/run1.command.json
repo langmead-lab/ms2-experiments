@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+    "/work/stage/inputs/9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-human_short-ms2dual/runs/human_short-ms-acgt60mb__dual-ftab/run1/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--mode",
+    "dual",
+    "--ftab",
+    "/work/stage/inputs/0f51634b327a5bfb3aeb1513c825e64e4e06c80e777ae6752675ec4703d15383/index.tms.full.seqids.orbitidx.ftab"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-human_short-ms2dual/runs/human_short-ms-acgt60mb__dual-ftab/run1",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 151.91358282900183,
+  "stdout": "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-human_short-ms2dual/runs/human_short-ms-acgt60mb__dual-ftab/run1/run1.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-3c8c8967/fig5-human_short-ms2dual/runs/human_short-ms-acgt60mb__dual-ftab/run1/run1.stderr",
+  "native_wall_seconds": 151.9,
+  "user_seconds": 29.53,
+  "system_seconds": 122.33,
+  "peak_rss_kib": 242183512
+}

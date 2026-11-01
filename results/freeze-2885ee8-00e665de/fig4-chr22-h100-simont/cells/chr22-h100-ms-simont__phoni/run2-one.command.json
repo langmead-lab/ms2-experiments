@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/legacy/phoni-chr22-h100/reference.txt",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__phoni/run2/one/reads.fa",
+    "-g",
+    "naive"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__phoni/run2/one",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 0.3670376380000562,
+  "stdout": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__phoni/run2/one/one.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-00e665de/fig4-chr22-h100-simont/runs/chr22-h100-ms-simont__phoni/run2/one/one.stderr",
+  "native_wall_seconds": 0.35,
+  "user_seconds": 0.05,
+  "system_seconds": 0.28,
+  "peak_rss_kib": 984876
+}

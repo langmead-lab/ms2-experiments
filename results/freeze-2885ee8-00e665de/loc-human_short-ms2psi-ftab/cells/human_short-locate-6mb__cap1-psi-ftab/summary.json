@@ -1,0 +1,355 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "cap1-psi-ftab",
+  "cell": "human_short-locate-6mb/cap1-psi-ftab",
+  "group": "human_short-locate-6mb",
+  "figures": [
+    "A6"
+  ],
+  "tool": "ms2",
+  "kind": "locate",
+  "manifest_id": "freeze-2885ee8-00e665de",
+  "job": "loc-human_short-ms2psi-ftab",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-3-58.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-03bb2fe316bbb737d",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "transparent_hugepages": "always",
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 48000,
+  "bases": 6000000,
+  "reference": "human472",
+  "read_set": "human_short-locate-6mb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "index": {
+      "name": "ms2/human472/index.tms.psi-locate.orbitidx",
+      "sha256": "e262fd441c92cbfb50ac52aefb02c67574b403252a6f99cf4ae11cd93c6d2134"
+    },
+    "lengths": {
+      "name": "ropebwt3/human472/index.fmd.len.gz",
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0"
+    },
+    "reads": {
+      "name": "reads/human472/human_short-locate-6mb-v2/reads.fa",
+      "sha256": "a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338"
+    },
+    "truth": {
+      "name": "reads/human472/human_short-locate-6mb-v2/truth.u32",
+      "sha256": "350a3f83f92835ef6b6e732f9c55e408f8663ee8a7d6c8a885515e6a932fc176"
+    },
+    "offsets": {
+      "name": "reads/human472/human_short-locate-6mb-v2/offsets.u64",
+      "sha256": "150eb49086d6a941657871ba57c97cf2f3af5de8698e560582d6cbdcfe879b2f"
+    },
+    "ftab": {
+      "name": "ms2/human472/index.tms.psi-locate.orbitidx.ftab",
+      "sha256": "ace3effa86468082891e3c83d24139e6c3eff052c0a266176cccf597fbe9c53b"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793506649.813362,
+  "layout": "psi",
+  "mode": "ftab",
+  "interleave": 32,
+  "cap": 1,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-3-58.ec2.internal",
+      "started": 1793506649.8134434,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/e262fd441c92cbfb50ac52aefb02c67574b403252a6f99cf4ae11cd93c6d2134/index.tms.psi-locate.orbitidx",
+        "/work/stage/inputs/a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/loc-human_short-ms2psi-ftab/runs/human_short-locate-6mb__cap1-psi-ftab/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "psi",
+        "--ftab",
+        "/work/stage/inputs/ace3effa86468082891e3c83d24139e6c3eff052c0a266176cccf597fbe9c53b/index.tms.psi-locate.orbitidx.ftab",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "1"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 186.8796307850007,
+      "user_seconds": 81.77,
+      "system_seconds": 105.04,
+      "peak_rss_kib": 356365132,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 185.12804,
+        "query_seconds": 1.09323,
+        "components": {
+          "index_load_s": 183.902,
+          "ftab_s": 1.22604,
+          "query_s": 1.03976,
+          "read_s": 0.00164814,
+          "parse_s": 0.00571218,
+          "format_s": 0.043026,
+          "total_s": 1.09323
+        }
+      },
+      "check": {
+        "failed": 0,
+        "validation": "cross-tool-v1",
+        "tool": "orbit",
+        "cap": 1,
+        "reads": 48000,
+        "intervals": 158111,
+        "zero_count_intervals": 0,
+        "reported_locations_checked": 158111,
+        "locations_in_bounds": 158111,
+        "ms_positions_checked": 6000000,
+        "emitted_counts": 158111,
+        "complete_set_intervals": 10395,
+        "complete_set_locations": 10395,
+        "over_cap_intervals": 147716,
+        "over_cap_locations": 147716,
+        "all_coordinates_checked": false,
+        "occurrence_reference_checked": false,
+        "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+        "count_checks": "cross-tool agreement",
+        "canonical": {
+          "format": "canonical-smem-v1",
+          "sha256": "bf8e950c4fe50edc70d1767e58d768b72db79dd2478040f6c14978a7112e24a4",
+          "lines": 158111,
+          "bytes": 8475232,
+          "cap": 1,
+          "over_cap_lines": 147716,
+          "over_cap_locations": 147716,
+          "over_cap_sha256": "def99b235b18e821f4ddc813acff7a2c6bbc50ce6abf12cdd9b2808500b749d2",
+          "compressed_bytes": 2436396,
+          "compressed_sha256": "fbf8c2a8de47be82f533bb3f919fa7f9cef998f39c7e0b71574239cf706c354f",
+          "path": "/work/stage/work/freeze-2885ee8-00e665de/loc-human_short-ms2psi-ftab/canonical/human_short-locate-6mb__cap1-psi-ftab.canonical.gz"
+        }
+      },
+      "finished": 1793506842.5168903
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-3-58.ec2.internal",
+      "started": 1793506842.5175214,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/e262fd441c92cbfb50ac52aefb02c67574b403252a6f99cf4ae11cd93c6d2134/index.tms.psi-locate.orbitidx",
+        "/work/stage/inputs/a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/loc-human_short-ms2psi-ftab/runs/human_short-locate-6mb__cap1-psi-ftab/run2/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "psi",
+        "--ftab",
+        "/work/stage/inputs/ace3effa86468082891e3c83d24139e6c3eff052c0a266176cccf597fbe9c53b/index.tms.psi-locate.orbitidx.ftab",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "1"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 182.98181489200033,
+      "user_seconds": 80.24,
+      "system_seconds": 102.68,
+      "peak_rss_kib": 356366136,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 181.26457,
+        "query_seconds": 1.07366,
+        "components": {
+          "index_load_s": 180.066,
+          "ftab_s": 1.19857,
+          "query_s": 1.02117,
+          "read_s": 0.00158497,
+          "parse_s": 0.00534871,
+          "format_s": 0.0425408,
+          "total_s": 1.07366
+        }
+      },
+      "finished": 1793507026.8945966
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-3-58.ec2.internal",
+      "started": 1793507026.895097,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/e262fd441c92cbfb50ac52aefb02c67574b403252a6f99cf4ae11cd93c6d2134/index.tms.psi-locate.orbitidx",
+        "/work/stage/inputs/a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-00e665de/loc-human_short-ms2psi-ftab/runs/human_short-locate-6mb__cap1-psi-ftab/run3/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--mode",
+        "psi",
+        "--ftab",
+        "/work/stage/inputs/ace3effa86468082891e3c83d24139e6c3eff052c0a266176cccf597fbe9c53b/index.tms.psi-locate.orbitidx.ftab",
+        "--report",
+        "smem-all",
+        "--min-smem-len",
+        "1",
+        "--max-smem-positions",
+        "1"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 183.56862366799942,
+      "user_seconds": 79.2,
+      "system_seconds": 104.31,
+      "peak_rss_kib": 356366100,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 181.84563,
+        "query_seconds": 1.07676,
+        "components": {
+          "index_load_s": 180.646,
+          "ftab_s": 1.19963,
+          "query_s": 1.02437,
+          "read_s": 0.00162793,
+          "parse_s": 0.00573333,
+          "format_s": 0.0419862,
+          "total_s": 1.07676
+        }
+      },
+      "finished": 1793507211.8525658
+    }
+  ],
+  "check": {
+    "failed": 0,
+    "validation": "cross-tool-v1",
+    "tool": "orbit",
+    "cap": 1,
+    "reads": 48000,
+    "intervals": 158111,
+    "zero_count_intervals": 0,
+    "reported_locations_checked": 158111,
+    "locations_in_bounds": 158111,
+    "ms_positions_checked": 6000000,
+    "emitted_counts": 158111,
+    "complete_set_intervals": 10395,
+    "complete_set_locations": 10395,
+    "over_cap_intervals": 147716,
+    "over_cap_locations": 147716,
+    "all_coordinates_checked": false,
+    "occurrence_reference_checked": false,
+    "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+    "count_checks": "cross-tool agreement",
+    "canonical": {
+      "format": "canonical-smem-v1",
+      "sha256": "bf8e950c4fe50edc70d1767e58d768b72db79dd2478040f6c14978a7112e24a4",
+      "lines": 158111,
+      "bytes": 8475232,
+      "cap": 1,
+      "over_cap_lines": 147716,
+      "over_cap_locations": 147716,
+      "over_cap_sha256": "def99b235b18e821f4ddc813acff7a2c6bbc50ce6abf12cdd9b2808500b749d2",
+      "compressed_bytes": 2436396,
+      "compressed_sha256": "fbf8c2a8de47be82f533bb3f919fa7f9cef998f39c7e0b71574239cf706c354f",
+      "path": "/work/stage/work/freeze-2885ee8-00e665de/loc-human_short-ms2psi-ftab/canonical/human_short-locate-6mb__cap1-psi-ftab.canonical.gz"
+    }
+  },
+  "query_seconds": [
+    1.09323,
+    1.07366,
+    1.07676
+  ],
+  "median_query_seconds": 1.07676,
+  "load_seconds": [
+    185.12804,
+    181.26457,
+    181.84563
+  ],
+  "median_load_seconds": 181.84563,
+  "wall_seconds": [
+    186.8796307850007,
+    182.98181489200033,
+    183.56862366799942
+  ],
+  "peak_rss_kib": 356366136,
+  "query_spread_fraction": 0.018174895055536856,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 5.572272372673576,
+  "ns_per_base": 179.45999999999998,
+  "locations": 158111,
+  "smems": 158111,
+  "locations_per_second": 146839.592852632,
+  "finished": 1793507211.8527813
+}

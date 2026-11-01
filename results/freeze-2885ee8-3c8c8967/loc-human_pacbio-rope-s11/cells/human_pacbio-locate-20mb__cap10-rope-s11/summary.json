@@ -1,0 +1,310 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "cap10-rope-s11",
+  "cell": "human_pacbio-locate-20mb/cap10-rope-s11",
+  "group": "human_pacbio-locate-20mb",
+  "figures": [
+    "A4"
+  ],
+  "tool": "ropebwt3",
+  "kind": "locate",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "job": "loc-human_pacbio-rope-s11",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-3-151.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0538f31c74f746367",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 953,
+  "bases": 19986831,
+  "reference": "human472",
+  "read_set": "human_pacbio-locate-20mb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ropebwt3-cfad8475/ropebwt3",
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+    },
+    "runtime": {
+      "name": "tools/runtime/libgomp.so.1",
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8"
+    },
+    "fmd": {
+      "name": "ropebwt3/human472/index.fmd",
+      "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626"
+    },
+    "ssa": {
+      "name": "ropebwt3/human472/index.fmd.s11.ssa",
+      "sha256": "f9a56c2a175de8ef0a5783065de44e8aee0473dc2c70ba04f4d1b51a37ad8fd9"
+    },
+    "lengths": {
+      "name": "ropebwt3/human472/index.fmd.len.gz",
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0"
+    },
+    "reads": {
+      "name": "reads/human472/human_pacbio-locate-20mb-v2/reads.fa",
+      "sha256": "8eca4b06b72beec9b6ecbc692c5b0fbdc970cd5bd53dc3609861ed70ebcdfde5"
+    },
+    "truth": {
+      "name": "reads/human472/human_pacbio-locate-20mb-v2/truth.u32",
+      "sha256": "4752a77813af1254088abf060a0297ceb43a7aa8288f73f0c0f6dbb457ae7af7"
+    },
+    "offsets": {
+      "name": "reads/human472/human_pacbio-locate-20mb-v2/offsets.u64",
+      "sha256": "de01f5e61baf5a0b905c9783f6e1553d096f2424744708fa735c757c93451c73"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793424279.4394915,
+  "cap": 10,
+  "shift": 11,
+  "batch": "1m",
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-3-151.ec2.internal",
+      "started": 1793424279.4395723,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-K",
+        "1m",
+        "-l1",
+        "-p10",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_pacbio-rope-s11/rope/s11-ropebwt3_human472_index.fmd/index.fmd",
+        "/work/stage/inputs/8eca4b06b72beec9b6ecbc692c5b0fbdc970cd5bd53dc3609861ed70ebcdfde5/reads.fa"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 121.64210157499929,
+      "user_seconds": 110.99,
+      "system_seconds": 10.83,
+      "peak_rss_kib": 25926380,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 10.153,
+        "query_seconds": 110.80699999999999,
+        "components": {
+          "last_loaded_s": 10.153,
+          "last_processed_s": 120.96,
+          "processed_sequences": 953
+        }
+      },
+      "check": {
+        "failed": 0,
+        "validation": "cross-tool-v1",
+        "tool": "rope",
+        "cap": 10,
+        "reads": 953,
+        "intervals": 262353,
+        "zero_count_intervals": 0,
+        "reported_locations_checked": 2371512,
+        "locations_in_bounds": 2371512,
+        "ms_positions_checked": 19986831,
+        "emitted_counts": 262353,
+        "complete_set_intervals": 33273,
+        "complete_set_locations": 80712,
+        "over_cap_intervals": 229080,
+        "over_cap_locations": 2290800,
+        "all_coordinates_checked": false,
+        "occurrence_reference_checked": false,
+        "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+        "count_checks": "cross-tool agreement",
+        "canonical": {
+          "format": "canonical-smem-v1",
+          "sha256": "70813fe2baebb0ecc71857b27f70556e87f82518292496ee74de37ff1f1b96e4",
+          "lines": 262353,
+          "bytes": 87978625,
+          "cap": 10,
+          "over_cap_lines": 229080,
+          "over_cap_locations": 2290800,
+          "over_cap_sha256": "44880882aad751853db381ffc0b01a3c59a6c0cedd8109dbe3892ed236f353b9",
+          "compressed_bytes": 26487114,
+          "compressed_sha256": "31df35b6c4e64a22b4e958df55125a82323f47b67de657a4a9294b24cb8d48b3",
+          "path": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_pacbio-rope-s11/canonical/human_pacbio-locate-20mb__cap10-rope-s11.canonical.gz"
+        }
+      },
+      "finished": 1793424430.267633
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-3-151.ec2.internal",
+      "started": 1793424430.2685108,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-K",
+        "1m",
+        "-l1",
+        "-p10",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_pacbio-rope-s11/rope/s11-ropebwt3_human472_index.fmd/index.fmd",
+        "/work/stage/inputs/8eca4b06b72beec9b6ecbc692c5b0fbdc970cd5bd53dc3609861ed70ebcdfde5/reads.fa"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 121.55688722099967,
+      "user_seconds": 110.88,
+      "system_seconds": 10.86,
+      "peak_rss_kib": 25926388,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 10.158,
+        "query_seconds": 110.72,
+        "components": {
+          "last_loaded_s": 10.158,
+          "last_processed_s": 120.878,
+          "processed_sequences": 953
+        }
+      },
+      "finished": 1793424552.0737443
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-3-151.ec2.internal",
+      "started": 1793424552.074263,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-K",
+        "1m",
+        "-l1",
+        "-p10",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_pacbio-rope-s11/rope/s11-ropebwt3_human472_index.fmd/index.fmd",
+        "/work/stage/inputs/8eca4b06b72beec9b6ecbc692c5b0fbdc970cd5bd53dc3609861ed70ebcdfde5/reads.fa"
+      ],
+      "timeout_s": 14400,
+      "cache": "drop_caches",
+      "wall_seconds": 121.62817939600063,
+      "user_seconds": 110.97,
+      "system_seconds": 10.83,
+      "peak_rss_kib": 25926412,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 10.154,
+        "query_seconds": 110.794,
+        "components": {
+          "last_loaded_s": 10.154,
+          "last_processed_s": 120.948,
+          "processed_sequences": 953
+        }
+      },
+      "finished": 1793424673.9443347
+    }
+  ],
+  "check": {
+    "failed": 0,
+    "validation": "cross-tool-v1",
+    "tool": "rope",
+    "cap": 10,
+    "reads": 953,
+    "intervals": 262353,
+    "zero_count_intervals": 0,
+    "reported_locations_checked": 2371512,
+    "locations_in_bounds": 2371512,
+    "ms_positions_checked": 19986831,
+    "emitted_counts": 262353,
+    "complete_set_intervals": 33273,
+    "complete_set_locations": 80712,
+    "over_cap_intervals": 229080,
+    "over_cap_locations": 2290800,
+    "all_coordinates_checked": false,
+    "occurrence_reference_checked": false,
+    "coordinate_checks": "contig bounds; sequence identity by cross-tool agreement at count <= cap, deferred above",
+    "count_checks": "cross-tool agreement",
+    "canonical": {
+      "format": "canonical-smem-v1",
+      "sha256": "70813fe2baebb0ecc71857b27f70556e87f82518292496ee74de37ff1f1b96e4",
+      "lines": 262353,
+      "bytes": 87978625,
+      "cap": 10,
+      "over_cap_lines": 229080,
+      "over_cap_locations": 2290800,
+      "over_cap_sha256": "44880882aad751853db381ffc0b01a3c59a6c0cedd8109dbe3892ed236f353b9",
+      "compressed_bytes": 26487114,
+      "compressed_sha256": "31df35b6c4e64a22b4e958df55125a82323f47b67de657a4a9294b24cb8d48b3",
+      "path": "/work/stage/work/freeze-2885ee8-3c8c8967/loc-human_pacbio-rope-s11/canonical/human_pacbio-locate-20mb__cap10-rope-s11.canonical.gz"
+    }
+  },
+  "query_seconds": [
+    110.80699999999999,
+    110.72,
+    110.794
+  ],
+  "median_query_seconds": 110.794,
+  "load_seconds": [
+    10.153,
+    10.158,
+    10.154
+  ],
+  "median_load_seconds": 10.154,
+  "wall_seconds": [
+    121.64210157499929,
+    121.55688722099967,
+    121.62817939600063
+  ],
+  "peak_rss_kib": 25926412,
+  "query_spread_fraction": 0.0007852410780366183,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 0.18039633012618012,
+  "ns_per_base": 5543.350018819892,
+  "locations": 2371512,
+  "smems": 262353,
+  "locations_per_second": 21404.697005252994,
+  "finished": 1793424673.944573
+}

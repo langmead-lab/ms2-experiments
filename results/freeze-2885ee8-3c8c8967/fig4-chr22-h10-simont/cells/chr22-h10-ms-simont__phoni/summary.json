@@ -1,0 +1,309 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "phoni",
+  "cell": "chr22-h10-ms-simont/phoni",
+  "group": "chr22-h10-ms-simont",
+  "figures": [
+    "A2"
+  ],
+  "tool": "phoni",
+  "kind": "ms",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "job": "fig4-chr22-h10-simont",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-1-112.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-04c9c6f667c1d3fc0",
+    "availability_zone": "us-east-1b",
+    "lifecycle": "spot"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 2782,
+  "bases": 59998845,
+  "reference": "chr22-h10",
+  "read_set": "simont-60mb-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/phoni/phoni",
+      "sha256": "aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58"
+    },
+    "reads": {
+      "name": "reads/chr22-h10/simont-60mb-v2/reads.fa",
+      "sha256": "2cf92676c29eb68f71c4c3181e273b56a94c38f73baa2a80b1b9ac36410bdf2e"
+    },
+    "truth": {
+      "name": "reads/chr22-h10/simont-60mb-v2/truth.u32",
+      "sha256": "be43968df413dbb567a027f3385af7cbcbe4306fa71a9a05d0b624a1455368f5"
+    },
+    "offsets": {
+      "name": "reads/chr22-h10/simont-60mb-v2/offsets.u64",
+      "sha256": "cf4b6f0758440fae99658cd8fc4b933c70db03c0203bcecd3380401f6883d944"
+    },
+    "one": {
+      "name": "reads/chr22-h10/simont-60mb-v2/one.fa",
+      "sha256": "d5e1dffd360970fd5d5a0796f1300c9db0dc3681484baa9079a10160af525f0c"
+    },
+    "bundle/reference.txt.phoni": {
+      "name": "phoni/chr22-h10/reference.txt.phoni",
+      "sha256": "f546f86d0adff338f7c54c4343e0a2df30bb88a9ddbebbf1ed7f6b4582eb0bfb"
+    },
+    "bundle/reference.txt.plain.slp": {
+      "name": "phoni/chr22-h10/reference.txt.plain.slp",
+      "sha256": "f146ce25a847cebc9caa51a76c4c32d433fccc35fb7d71a87b7c3cfc9a39f443"
+    },
+    "bundle/reference.txt": {
+      "name": "phoni/chr22-h10/reference.txt",
+      "sha256": "e298fd9187150e394d086b04faa7c214108aa96041976afb27db6daa01a62eef"
+    },
+    "runtime/libstdc++.so.6": {
+      "name": "tools/runtime/libstdc++.so.6",
+      "sha256": "2e64f6e616747bde59b3f05e9850dde0476cb21703fc53b7d80e1acc49f464c4"
+    },
+    "runtime/libgcc_s.so.1": {
+      "name": "tools/runtime/libgcc_s.so.1",
+      "sha256": "6a15a152c0f5073642a8c23e13097fe6f30d269cd61d3b10bd542f676241d79d"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793419819.2841456,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-1-112.ec2.internal",
+      "started": 1793419819.284573,
+      "one": {
+        "argv": [
+          "numactl",
+          "--cpunodebind=0",
+          "--membind=0",
+          "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+          "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/legacy/phoni-chr22-h10/reference.txt",
+          "-p",
+          "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/runs/chr22-h10-ms-simont__phoni/run1/one/reads.fa",
+          "-g",
+          "naive"
+        ],
+        "cache": "drop_caches",
+        "wall_seconds": 0.3749669279986847,
+        "peak_rss_kib": 614232,
+        "user_seconds": 0.06,
+        "system_seconds": 0.28,
+        "check": {
+          "reads": 1,
+          "positions": 16824,
+          "failed": 0,
+          "every_position_checked": true,
+          "validation": "exact-ms-lengths"
+        }
+      },
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/legacy/phoni-chr22-h10/reference.txt",
+        "-p",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/runs/chr22-h10-ms-simont__phoni/run1/full/reads.fa",
+        "-g",
+        "naive"
+      ],
+      "cache": "drop_caches",
+      "timeout_s": 7200,
+      "wall_seconds": 130.9375674540006,
+      "user_seconds": 129.78,
+      "system_seconds": 1.11,
+      "peak_rss_kib": 629224,
+      "phase": {
+        "source": "one-read-wall",
+        "query_definition": "full run wall minus one-read run wall",
+        "load_seconds": 0.3749669279986847,
+        "query_seconds": 130.56260052600192
+      },
+      "check": {
+        "reads": 2782,
+        "positions": 59998845,
+        "failed": 0,
+        "every_position_checked": true,
+        "validation": "exact-ms-lengths",
+        "one_read": {
+          "reads": 1,
+          "positions": 16824,
+          "failed": 0,
+          "every_position_checked": true,
+          "validation": "exact-ms-lengths"
+        }
+      },
+      "finished": 1793419970.0609996
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-1-112.ec2.internal",
+      "started": 1793419970.0616624,
+      "one": {
+        "argv": [
+          "numactl",
+          "--cpunodebind=0",
+          "--membind=0",
+          "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+          "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/legacy/phoni-chr22-h10/reference.txt",
+          "-p",
+          "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/runs/chr22-h10-ms-simont__phoni/run2/one/reads.fa",
+          "-g",
+          "naive"
+        ],
+        "cache": "drop_caches",
+        "wall_seconds": 0.3736659119986143,
+        "peak_rss_kib": 614240,
+        "user_seconds": 0.06,
+        "system_seconds": 0.27
+      },
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/legacy/phoni-chr22-h10/reference.txt",
+        "-p",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/runs/chr22-h10-ms-simont__phoni/run2/full/reads.fa",
+        "-g",
+        "naive"
+      ],
+      "cache": "drop_caches",
+      "timeout_s": 7200,
+      "wall_seconds": 130.97400250899955,
+      "user_seconds": 129.83,
+      "system_seconds": 1.1,
+      "peak_rss_kib": 629220,
+      "phase": {
+        "source": "one-read-wall",
+        "query_definition": "full run wall minus one-read run wall",
+        "load_seconds": 0.3736659119986143,
+        "query_seconds": 130.60033659700093
+      },
+      "finished": 1793420101.4910524
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-1-112.ec2.internal",
+      "started": 1793420101.4914367,
+      "one": {
+        "argv": [
+          "numactl",
+          "--cpunodebind=0",
+          "--membind=0",
+          "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+          "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/legacy/phoni-chr22-h10/reference.txt",
+          "-p",
+          "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/runs/chr22-h10-ms-simont__phoni/run3/one/reads.fa",
+          "-g",
+          "naive"
+        ],
+        "cache": "drop_caches",
+        "wall_seconds": 0.37396602599983453,
+        "peak_rss_kib": 614224,
+        "user_seconds": 0.05,
+        "system_seconds": 0.29
+      },
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58/phoni",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/legacy/phoni-chr22-h10/reference.txt",
+        "-p",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h10-simont/runs/chr22-h10-ms-simont__phoni/run3/full/reads.fa",
+        "-g",
+        "naive"
+      ],
+      "cache": "drop_caches",
+      "timeout_s": 7200,
+      "wall_seconds": 130.84465969700068,
+      "user_seconds": 129.72,
+      "system_seconds": 1.07,
+      "peak_rss_kib": 629204,
+      "phase": {
+        "source": "one-read-wall",
+        "query_definition": "full run wall minus one-read run wall",
+        "load_seconds": 0.37396602599983453,
+        "query_seconds": 130.47069367100084
+      },
+      "finished": 1793420232.791382
+    }
+  ],
+  "check": {
+    "reads": 2782,
+    "positions": 59998845,
+    "failed": 0,
+    "every_position_checked": true,
+    "validation": "exact-ms-lengths",
+    "one_read": {
+      "reads": 1,
+      "positions": 16824,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "query_seconds": [
+    130.56260052600192,
+    130.60033659700093,
+    130.47069367100084
+  ],
+  "median_query_seconds": 130.56260052600192,
+  "load_seconds": [
+    0.3749669279986847,
+    0.3736659119986143,
+    0.37396602599983453
+  ],
+  "median_load_seconds": 0.37396602599983453,
+  "wall_seconds": [
+    130.9375674540006,
+    130.97400250899955,
+    130.84465969700068
+  ],
+  "peak_rss_kib": 629224,
+  "query_spread_fraction": 0.00099295606458351,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 0.45954082377557315,
+  "ns_per_base": 2176.085231740743,
+  "finished": 1793420232.7916434
+}

@@ -1,0 +1,109 @@
+{
+  "job": "build-human472-psi-locate",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "host": {
+    "hostname": "ip-10-0-4-185.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0a9b65edbe4e432a7",
+    "availability_zone": "us-east-1e",
+    "lifecycle": "spot"
+  },
+  "started": 1793447056.270487,
+  "argv": [
+    "/work/code/bench/freeze/build_job.py",
+    "build-human472-psi-locate",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/freeze/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict"
+  ],
+  "steps": [
+    {
+      "label": "01-build-psi-locate",
+      "argv": [
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "build",
+        "/work/stage/inputs/7814fdcdf4c3e4878c100699a2f60213ddd32efd36f93b21f1b72450e414cd28/bwt.heads",
+        "/work/stage/inputs/aa5d481e926c87ec6c42d10c6c0635a3648dc953bccc0acd84247ccd4f945a84/bwt.len",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-human472-psi-locate/outputs/ms2/human472/index.tms.psi-locate.orbitidx",
+        "--layout",
+        "psi-locate",
+        "--phi",
+        "/work/stage/inputs/aacc1d4737bfb9159ef778e8fb46dcae118e06bc3154507f58b3c6153ffb1ccd/phi",
+        "--minima",
+        "/work/stage/inputs/fc9c00beda5e173428c5a562cc033bad69c6dc295612013472c71635b46181a9/min",
+        "--seq-ids",
+        "/work/stage/inputs/8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0/index.fmd.len.gz"
+      ],
+      "wall_seconds": 33596.311994535,
+      "peak_rss_kib": 419666752,
+      "unverified": false
+    },
+    {
+      "label": "02-ftab-build",
+      "argv": [
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "ftab-build",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-human472-psi-locate/outputs/ms2/human472/index.tms.psi-locate.orbitidx",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-human472-psi-locate/outputs/ms2/human472/index.tms.psi-locate.orbitidx.ftab",
+        "--kmer-len",
+        "14",
+        "-p",
+        "128"
+      ],
+      "wall_seconds": 346.46670255600475,
+      "peak_rss_kib": 354491128,
+      "unverified": false
+    }
+  ],
+  "staging": {
+    "precursors/human472/bwt.heads": {
+      "sha256": "7814fdcdf4c3e4878c100699a2f60213ddd32efd36f93b21f1b72450e414cd28",
+      "bytes": 5259024318,
+      "fresh": true,
+      "seconds": 13.962019205093384
+    },
+    "precursors/human472/bwt.len": {
+      "sha256": "aa5d481e926c87ec6c42d10c6c0635a3648dc953bccc0acd84247ccd4f945a84",
+      "bytes": 26295121590,
+      "fresh": true,
+      "seconds": 65.83385229110718
+    },
+    "precursors/human472/min": {
+      "sha256": "fc9c00beda5e173428c5a562cc033bad69c6dc295612013472c71635b46181a9",
+      "bytes": 31664341510,
+      "fresh": true,
+      "seconds": 81.30210208892822
+    },
+    "precursors/human472/phi": {
+      "sha256": "aacc1d4737bfb9159ef778e8fb46dcae118e06bc3154507f58b3c6153ffb1ccd",
+      "bytes": 94662474942,
+      "fresh": true,
+      "seconds": 219.31264424324036
+    },
+    "ropebwt3/human472/index.fmd.len.gz": {
+      "sha256": "8467c13017e9a8b71fd2a4814978da2c29290da44a76a95b67398e5e1f54ebc0",
+      "bytes": 286728,
+      "fresh": true,
+      "seconds": 0.7586929798126221
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 3.9577484130859375e-05
+    }
+  },
+  "finished": 1793482058.3950036,
+  "status": 0
+}

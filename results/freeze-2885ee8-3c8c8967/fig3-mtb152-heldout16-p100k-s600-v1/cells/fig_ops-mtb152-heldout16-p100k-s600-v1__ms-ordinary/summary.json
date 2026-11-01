@@ -1,0 +1,271 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "ms-ordinary",
+  "cell": "fig_ops-mtb152-heldout16-p100k-s600-v1/ms-ordinary",
+  "group": "fig_ops-mtb152-heldout16-p100k-s600-v1",
+  "figures": [
+    "3"
+  ],
+  "tool": "ms2",
+  "kind": "ms",
+  "manifest_id": "freeze-2885ee8-3c8c8967",
+  "job": "fig3-mtb152-heldout16-p100k-s600-v1",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-2-66.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0769303767f334774",
+    "availability_zone": "us-east-1c",
+    "lifecycle": "spot"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "cpunodebind": 0,
+      "membind": 0
+    },
+    "threads": 1,
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench",
+    "source": "bundle"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 600,
+  "bases": 59140032,
+  "reference": "mtb152",
+  "read_set": "mtb152-heldout16-p100k-s600-v1",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "checker": {
+      "name": "tools/ms_check",
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab"
+    },
+    "index": {
+      "name": "ms2/mtb152/index.ms.orbitidx",
+      "sha256": "588384459f9c10c677a94f6d7e1045a12196f002a5b5b75f972091251a869613"
+    },
+    "reads": {
+      "name": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa",
+      "sha256": "443da8857d5413ee2abc9353e2ab116f9f10e01de3b963a1e65257c27b7dfdde"
+    },
+    "truth": {
+      "name": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32",
+      "sha256": "22b995df1e45cdce31c15920beef160d5ff6d1507ae9986bb34ff1fefd7abd45"
+    },
+    "offsets": {
+      "name": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64",
+      "sha256": "9de94e142446fe7357a4ca582e738e6b81b801177e634ca0c6857ec33a52e2b1"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793413561.0308616,
+  "layout": "ms",
+  "mode": "ordinary",
+  "interleave": 32,
+  "block_bytes": 67108864,
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-2-66.ec2.internal",
+      "started": 1793413561.030949,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/588384459f9c10c677a94f6d7e1045a12196f002a5b5b75f972091251a869613/index.ms.orbitidx",
+        "/work/stage/inputs/443da8857d5413ee2abc9353e2ab116f9f10e01de3b963a1e65257c27b7dfdde/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig3-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1__ms-ordinary/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "67108864",
+        "--mode",
+        "min"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 2.1802090419996603,
+      "user_seconds": 1.59,
+      "system_seconds": 0.57,
+      "peak_rss_kib": 1153332,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 0.0515226,
+        "query_seconds": 2.10219,
+        "components": {
+          "index_load_s": 0.0515226,
+          "ftab_s": 0.0,
+          "query_s": 0.973402,
+          "read_s": 0.024094,
+          "parse_s": 0.0585193,
+          "format_s": 0.920257,
+          "total_s": 2.10219
+        }
+      },
+      "check": {
+        "reads": 600,
+        "positions": 59140032,
+        "failed": 0,
+        "validation": "ms_check: every MS value equals truth"
+      },
+      "finished": 1793413573.0188494
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-2-66.ec2.internal",
+      "started": 1793413573.0195177,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/588384459f9c10c677a94f6d7e1045a12196f002a5b5b75f972091251a869613/index.ms.orbitidx",
+        "/work/stage/inputs/443da8857d5413ee2abc9353e2ab116f9f10e01de3b963a1e65257c27b7dfdde/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig3-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1__ms-ordinary/run2/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "67108864",
+        "--mode",
+        "min"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 2.1784657610005524,
+      "user_seconds": 1.59,
+      "system_seconds": 0.55,
+      "peak_rss_kib": 1153376,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 0.0500231,
+        "query_seconds": 2.09922,
+        "components": {
+          "index_load_s": 0.0500231,
+          "ftab_s": 0.0,
+          "query_s": 0.971645,
+          "read_s": 0.0237679,
+          "parse_s": 0.0582182,
+          "format_s": 0.920264,
+          "total_s": 2.09922
+        }
+      },
+      "finished": 1793413575.2302854
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-2-66.ec2.internal",
+      "started": 1793413575.2306285,
+      "argv": [
+        "numactl",
+        "--cpunodebind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/588384459f9c10c677a94f6d7e1045a12196f002a5b5b75f972091251a869613/index.ms.orbitidx",
+        "/work/stage/inputs/443da8857d5413ee2abc9353e2ab116f9f10e01de3b963a1e65257c27b7dfdde/reads.fa",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/fig3-mtb152-heldout16-p100k-s600-v1/runs/fig_ops-mtb152-heldout16-p100k-s600-v1__ms-ordinary/run3/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "67108864",
+        "--mode",
+        "min"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 2.177538867000294,
+      "user_seconds": 1.59,
+      "system_seconds": 0.56,
+      "peak_rss_kib": 1153344,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 0.0505029,
+        "query_seconds": 2.10025,
+        "components": {
+          "index_load_s": 0.0505029,
+          "ftab_s": 0.0,
+          "query_s": 0.972449,
+          "read_s": 0.0238023,
+          "parse_s": 0.0582357,
+          "format_s": 0.920147,
+          "total_s": 2.10025
+        }
+      },
+      "finished": 1793413577.4379706
+    }
+  ],
+  "check": {
+    "reads": 600,
+    "positions": 59140032,
+    "failed": 0,
+    "validation": "ms_check: every MS value equals truth"
+  },
+  "query_seconds": [
+    2.10219,
+    2.09922,
+    2.10025
+  ],
+  "median_query_seconds": 2.10025,
+  "load_seconds": [
+    0.0515226,
+    0.0500231,
+    0.0505029
+  ],
+  "median_load_seconds": 0.0505029,
+  "wall_seconds": [
+    2.1802090419996603,
+    2.1784657610005524,
+    2.177538867000294
+  ],
+  "peak_rss_kib": 1153376,
+  "query_spread_fraction": 0.001414117366980082,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 28.15856778954886,
+  "ns_per_base": 35.51316982716546,
+  "finished": 1793413577.4381964
+}

@@ -1,0 +1,72 @@
+{
+  "run": 1,
+  "host": "ip-10-0-2-66.ec2.internal",
+  "started": 1793416018.481915,
+  "one": {
+    "argv": [
+      "numactl",
+      "--cpunodebind=0",
+      "--membind=0",
+      "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simpacbio/legacy/moni-chr22-h100/index",
+      "-p",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simpacbio/runs/chr22-h100-ms-simpacbio__moni/run1/one/reads.fa",
+      "-o",
+      "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simpacbio/runs/chr22-h100-ms-simpacbio__moni/run1/one/output",
+      "-t",
+      "1"
+    ],
+    "cache": "drop_caches",
+    "wall_seconds": 0.5645757809998031,
+    "peak_rss_kib": 1095552,
+    "user_seconds": 0.05,
+    "system_seconds": 0.48,
+    "check": {
+      "reads": 1,
+      "positions": 16750,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f/moni-ms",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simpacbio/legacy/moni-chr22-h100/index",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simpacbio/runs/chr22-h100-ms-simpacbio__moni/run1/full/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simpacbio/runs/chr22-h100-ms-simpacbio__moni/run1/full/output",
+    "-t",
+    "1"
+  ],
+  "cache": "drop_caches",
+  "timeout_s": 7200,
+  "wall_seconds": 82.48517885000001,
+  "user_seconds": 81.19,
+  "system_seconds": 1.25,
+  "peak_rss_kib": 1096124,
+  "phase": {
+    "source": "one-read-wall",
+    "query_definition": "full run wall minus one-read run wall",
+    "load_seconds": 0.5645757809998031,
+    "query_seconds": 81.92060306900021
+  },
+  "check": {
+    "reads": 2864,
+    "positions": 59991907,
+    "failed": 0,
+    "every_position_checked": true,
+    "validation": "exact-ms-lengths",
+    "one_read": {
+      "reads": 1,
+      "positions": 16750,
+      "failed": 0,
+      "every_position_checked": true,
+      "validation": "exact-ms-lengths"
+    }
+  },
+  "finished": 1793416120.8833926
+}

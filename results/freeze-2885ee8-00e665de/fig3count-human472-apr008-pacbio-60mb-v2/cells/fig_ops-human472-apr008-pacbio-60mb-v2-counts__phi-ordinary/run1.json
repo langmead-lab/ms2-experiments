@@ -1,0 +1,94 @@
+{
+  "run": 1,
+  "host": "ip-10-0-0-175.ec2.internal",
+  "started": 1793449896.9234216,
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/e47323d8b749323cab0fc1976471c3e18fda5ea5509cafe193abac30fce802e8/ms2-stats",
+    "query",
+    "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+    "/work/stage/inputs/c8ce0e7314229be50c85c7dc652cb74c08c4d2a5378ef5471c70890c87606db0/reads.fa",
+    "-o",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig3count-human472-apr008-pacbio-60mb-v2/runs/fig_ops-human472-apr008-pacbio-60mb-v2-counts__phi-ordinary/run1/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--block-bytes",
+    "67108864",
+    "--mode",
+    "phi"
+  ],
+  "timeout_s": 14400,
+  "cache": "drop_caches",
+  "wall_seconds": 119.37246661500103,
+  "user_seconds": 41.66,
+  "system_seconds": 77.66,
+  "peak_rss_kib": 154559208,
+  "phase": {
+    "source": "orbit-query-line",
+    "query_definition": "total_s",
+    "load_seconds": 87.905,
+    "query_seconds": 27.6294,
+    "components": {
+      "index_load_s": 87.905,
+      "ftab_s": 0.0,
+      "query_s": 26.7619,
+      "read_s": 0.0235366,
+      "parse_s": 0.0583117,
+      "format_s": 0.685357,
+      "total_s": 27.6294
+    }
+  },
+  "ops_per_base": {
+    "line": {
+      "bases": 59982702.0,
+      "repositions/base": 0.036073,
+      "psi_steps/base": 0.0,
+      "scan_rows/rep": 6.52526,
+      "len/rep": 56.0501,
+      "phi_steps/base": 6.72344,
+      "dist/rep": 769.495,
+      "dist1_frac": 0.320507,
+      "lce/rep": 28.7789,
+      "capped_frac": 0.280539,
+      "scan_visits/rep": 1.14652,
+      "lf_ff/step": 0.685784,
+      "walk_visits/base": 5.86763
+    },
+    "ops_per_base": {
+      "lf": 1.0,
+      "psi": 0.0,
+      "phi": 6.72344,
+      "walk": 0.0,
+      "total": 7.72344,
+      "repositions": 0.036073,
+      "scan_rows_per_base": 0.23538570398000003,
+      "walk_visits_per_base": 5.86763,
+      "lf_ff_per_step": 0.685784
+    },
+    "lf_basis": "one LF step per base, as in the TeraMS Figure 5 reproduction",
+    "summary_lines": {
+      "phi": {
+        "up_settled": 1796293.0,
+        "up_walked": 365438.0,
+        "down_settled": 1804362.0,
+        "down_walked": 357369.0,
+        "partial_steps": 361782034.0,
+        "cont_walks": 9116.0,
+        "cont_steps": 41508183.0,
+        "partial_steps/rep": 167.201,
+        "cont_steps/rep": 19.1834
+      }
+    }
+  },
+  "check": {
+    "reads": 2853,
+    "positions": 59982702,
+    "failed": 0,
+    "validation": "ms_check: every MS value equals truth"
+  },
+  "finished": 1793450017.2909672
+}

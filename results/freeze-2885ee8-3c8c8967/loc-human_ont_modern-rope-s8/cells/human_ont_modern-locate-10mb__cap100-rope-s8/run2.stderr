@@ -1,0 +1,16 @@
+[M::rb3_fmi_load_all::5.511*1.00] loaded the BWT
+[M::rb3_fmi_load_all::42.122*1.00] loaded the sampled suffix array
+[M::rb3_fmi_load_all::42.131*1.00] loaded the sequence names and lengths
+[M::worker_pipeline::49.451*1.00] processed 26 sequences
+[M::worker_pipeline::58.473*1.00] processed 62 sequences
+[M::worker_pipeline::66.152*1.00] processed 72 sequences
+[M::worker_pipeline::81.170*1.01] processed 56 sequences
+[M::worker_pipeline::86.885*1.01] processed 59 sequences
+[M::worker_pipeline::95.622*1.01] processed 73 sequences
+[M::worker_pipeline::103.286*1.01] processed 28 sequences
+[M::worker_pipeline::110.337*1.01] processed 48 sequences
+[M::worker_pipeline::120.924*1.01] processed 43 sequences
+[M::worker_pipeline::124.851*1.01] processed 27 sequences
+[M::main] Version: 3.10-r285-dirty
+[M::main] CMD: /work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3 mem -t1 -K 1m -l1 -p100 /work/stage/work/freeze-2885ee8-3c8c8967/loc-human_ont_modern-rope-s8/rope/s8-ropebwt3_human472_index.fmd/index.fmd /work/stage/inputs/2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83/reads.fa
+[M::main] Real time: 127.399 sec; CPU: 128.321 sec; Peak RSS: 97.178 GB

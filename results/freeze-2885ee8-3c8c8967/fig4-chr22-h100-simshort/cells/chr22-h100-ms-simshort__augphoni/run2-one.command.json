@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "numactl",
+    "--cpunodebind=0",
+    "--membind=0",
+    "/work/stage/inputs/79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b/aug_phoni",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simshort/legacy/augphoni-chr22-h100/reference.txt",
+    "-p",
+    "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simshort/runs/chr22-h100-ms-simshort__augphoni/run2/one/reads.fa",
+    "-g",
+    "naive",
+    "-t",
+    "compressed"
+  ],
+  "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simshort/runs/chr22-h100-ms-simshort__augphoni/run2/one",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 0.7533637590004219,
+  "stdout": "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simshort/runs/chr22-h100-ms-simshort__augphoni/run2/one/one.stdout",
+  "stderr": "/work/stage/work/freeze-2885ee8-3c8c8967/fig4-chr22-h100-simshort/runs/chr22-h100-ms-simshort__augphoni/run2/one/one.stderr",
+  "native_wall_seconds": 0.74,
+  "user_seconds": 0.02,
+  "system_seconds": 0.71,
+  "peak_rss_kib": 1545620
+}
