@@ -1,32 +1,32 @@
-# ms2-experiments
+This repo contains the code and records behind the experiments and measurements for the paper
+titled "Fast Pengenome Matching Statistics in Compressed Space with Move Structures".   The `ms2`
+software itself is at [langmead-lab/ms2](https://github.com/langmead-lab/ms2).
+The paper used the version at commit 2885ee86, which is tagged `paper-v1`.
 
-The code and records behind every timed number, figure and table of the ms2 matching-statistics
-paper. ms2 itself is [langmead-lab/ms2](https://github.com/langmead-lab/ms2); the paper used commit
-2885ee86, tagged `paper-v1`.
-
-| Path | What it holds |
+| Path | Content |
 |---|---|
-| `ms2exp/` | The benchmark workflow as one Python package (standard library only, except the figures) |
-| `launchers/rockfish/`, `launchers/aws/` | The two platforms' launchers: Slurm on Rockfish, and an AWS spot fleet (CDK app and worker) |
-| `results/` | The small records of the two freeze runs; `results/README.md` maps them to the paper |
-| `figures/` | Everything `python -m ms2exp.figures` writes: summaries, drafts, TikZ data and the paper's figure PDFs |
-| `tools.lock.json`, `TOOLS.md` | The pinned tools and how each was built |
-| `patches/` | The PHONI and Augmented PHONI fixes the benchmark binaries carry |
-| `toy/` | A small end-to-end run of the whole workflow, on Rockfish |
-| `data/` | Input download and preparation scripts; `data/locations/` maps logical input names to Rockfish paths (lab-internal) |
+| `ms2exp/` | Benchmark workflow Python package; uses standard library only, except figure rendering |
+| `launchers/rockfish/`, `launchers/aws/` | Two "launchers" we used: one using Slurm on the JHU Rockfish cluster, and another for AWS spot instances (CDK app and worker) |
+| `results/` | Small recorded measurements from the two freeze runs; `results/README.md` maps them to paper elements |
+| `figures/` | Output from `python -m ms2exp.figures`: summaries, drafts, TikZ data and the paper's figure PDFs |
+| `tools.lock.json`, `TOOLS.md` | The tools pinned to specific versions, and how each was built |
+| `patches/` | The issue fixes made to PHONI and Augmented PHONI to achieve identical benchmarking results |
+| `toy/` | A small "toy" end-to-end run of the whole workflow, as though it will be run on Slurm/Rockfish |
+| `data/` | Input download and preparation scripts; `data/locations/` maps logical input names to Rockfish paths (relevant to Langmead lab, but maybe not others) |
 | `tests/` | Unit tests (`python -m pytest tests`) |
 
-## The workflow
+## Workflow
 
-The freeze benchmark has three parts. A **manifest** (`ms2exp.manifest`) lists jobs and cells and
-pins every input, tool binary included, by sha256 under a logical name. A **cell** is one tool
-configuration on one read set, run three times cold, with run 1's whole output checked against
-truth. The **runner** (`ms2exp.run.runner`) runs one job on either platform: it stages and verifies
-the inputs, runs the cells in a seeded random order, checks them, and writes each cell's records and
-a done marker as soon as the cell finishes, so an interrupted job resumes where it stopped. One
+The workflow has three parts. The **manifest** (`ms2exp.manifest`) lists jobs and cells and
+"pinned" inputs, tool binaries included, by sha256, giving each a logical name. A **cell** is one tool
+configuration run on one read set.  All measurements run the combination three times with a "cold"
+cache, with run 1's output checked against true statistics. The **runner** (`ms2exp.run.runner`) runs
+one job on either platform: it stages and verifies inputs, runs cells in a random order, checks them,
+and writes per-cell records once it finishes.  An interrupted job can resume where it stopped. One
 **launcher** per platform starts runners: `launchers/rockfish` for staging, dry runs and counting
-runs, and `launchers/aws` for the timed runs. `ms2exp.collect` then gathers the cells into one
-summary per cell group and checks them across tools.
+runs (i.e. runs that produce needed outputs but aren't important to time/measure), and `launchers/aws`
+for the timed runs. `ms2exp.collect` then gathers the cells into one summary per cell group and checks
+them.
 
 | Module | Role |
 |---|---|
@@ -66,12 +66,14 @@ Every number plotted is in `figures/draft/plotted-points.csv`, with its median q
 times. The load-time table is in `figures/draft/CAPTIONS.md`. Fig rep is not regenerated from these
 results (`results/README.md` says why).
 
-## Toy run
+## Small "toy" run
 
-`toy/toy_prep.sh TOY_DIR MS2_REPO MS2_COMMIT [--submodule-repo NAME URL ...]` builds the tools and
-small mtb152 indexes at an ms2 commit, cuts small read sets, and writes a toy manifest whose cells
-cover every path of the runner. `toy/toy_run.sh TOY_DIR` runs it and collects. Both need Rockfish,
-since the toy's inputs are Rockfish paths. While ms2 is private, pass git bundles of the repository
+A good test to see if this repo is basically working in your environment is to run:
+`toy/toy_prep.sh TOY_DIR MS2_REPO MS2_COMMIT [--submodule-repo NAME URL ...]`.  This builds the tools
+and small mtb152 indexes at the given commit of the `ms2` repo, creates small read sets, and writes a
+small manifest whose cells cover every path of the runner. `toy/toy_run.sh TOY_DIR` runs it and
+collects.  Both currently assume you are running on the JHU Rockfish cluster, so some updates will
+certainly be needed to get it working on yours. While ms2 is private, pass git bundles of the repository
 and both submodules, made by `toy/make_source_bundles.sh`.
 
 ## Tools
@@ -81,4 +83,5 @@ runtime libraries shipped with them; `TOOLS.md` says how each binary was built a
 
 ## License
 
-MIT (`LICENSE`). The patches in `patches/` are under their upstream projects' licenses.
+Software in this repo uses the MIT (`LICENSE`). The patches in `patches/` are under their upstream
+projects' licenses.
