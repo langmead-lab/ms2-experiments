@@ -1,7 +1,9 @@
 This repo contains the code and records behind the experiments and measurements for the paper
-titled "Fast Pengenome Matching Statistics in Compressed Space with Move Structures".   The `ms2`
-software itself is at [langmead-lab/ms2](https://github.com/langmead-lab/ms2).
-The paper used the version at commit 2885ee86, which is tagged `paper-v1`.
+titled "Fast Pengenome Matching Statistics in Compressed Space with Move Structures" by Nathaniel K.
+Brown, Ahsan Sanaullah, Pramesh Shakya, Shaojie Zhang2, and Ben Langmead.   The `ms2` software itself
+is at [langmead-lab/ms2](https://github.com/langmead-lab/ms2). The paper used the version at commit
+[2885ee86](https://github.com/langmead-lab/ms2/commit/2885ee86270b4187fc45dcc69efd7de48a4aac03),
+which is tagged `paper-v1`.
 
 | Path | Content |
 |---|---|
@@ -80,6 +82,10 @@ and both submodules, made by `toy/make_source_bundles.sh`.
 
 `tools.lock.json` pins ms2 and its submodules, ropebwt3, MONI, PHONI and Augmented PHONI, and the
 runtime libraries shipped with them; `TOOLS.md` says how each binary was built and checked.
+
+## Acknowledgements
+
+`ms2` builts on Orbit, the move-structure library by Nathaniel Brown, and TeraTools, the move-structure building library and its TeraMS component for computing matching statistics. Its psi and phi query engine follows the design and code of TeraTools (TeraMS and TeraLCP) by Ahsan Sanaullah, Shaojie Zhang and the S. Zhang Lab at UCF, and it builds from TeraLCP's output. fmd2rlbwt uses ropebwt3's FMD reader by Heng Li.
 
 ## License
 
