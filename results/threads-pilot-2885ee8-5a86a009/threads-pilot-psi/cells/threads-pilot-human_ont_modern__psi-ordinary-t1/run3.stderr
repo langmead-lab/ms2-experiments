@@ -1,0 +1,1 @@
+query: reads=2706 bases=59934655 threads=1 index_load_s=46.1383 ftab_k=0 ftab_s=0 query_s=3.70927 read_s=0.0136596 parse_s=0.0445278 format_s=0.623919 orient=fwd flipped=0 orient_s=0 total_s=4.46173 query_ns_per_base=61.8887 wall_ns_per_base=74.4433

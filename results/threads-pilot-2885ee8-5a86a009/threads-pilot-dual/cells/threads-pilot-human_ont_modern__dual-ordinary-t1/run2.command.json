@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "numactl",
+    "--physcpubind=0",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+    "/work/stage/inputs/34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26/reads.fa",
+    "-o",
+    "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-pilot-dual/runs/threads-pilot-human_ont_modern__dual-ordinary-t1/run2/output",
+    "--threads",
+    "1",
+    "--interleave",
+    "32",
+    "--block-bytes",
+    "2097152",
+    "--mode",
+    "dual"
+  ],
+  "cwd": "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-pilot-dual/runs/threads-pilot-human_ont_modern__dual-ordinary-t1/run2",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 100.05547714099976,
+  "stdout": "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-pilot-dual/runs/threads-pilot-human_ont_modern__dual-ordinary-t1/run2/run2.stdout",
+  "stderr": "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-pilot-dual/runs/threads-pilot-human_ont_modern__dual-ordinary-t1/run2/run2.stderr",
+  "native_wall_seconds": 100.04,
+  "user_seconds": 27.07,
+  "system_seconds": 72.93,
+  "peak_rss_kib": 238837280
+}

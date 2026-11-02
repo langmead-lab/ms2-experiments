@@ -1,0 +1,106 @@
+{
+  "job": "threads-pilot-psi",
+  "manifest_id": "threads-pilot-2885ee8-5a86a009",
+  "host": {
+    "hostname": "ip-10-0-3-177.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-02493184d6244458a",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793647740.357666,
+  "argv": [
+    "/work/code/ms2exp/run/runner.py",
+    "threads-pilot-psi",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/threads/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 4,
+  "already_done": 0,
+  "order": [
+    "threads-pilot-human_short/psi-ordinary-t32",
+    "threads-pilot-human_ont_modern/psi-ordinary-t1",
+    "threads-pilot-human_ont_modern/psi-ordinary-t32",
+    "threads-pilot-human_short/psi-ordinary-t1"
+  ],
+  "staging": {
+    "ms2/human472/index.tms.psi.orbitidx": {
+      "sha256": "7246fde73b3e721b99949716e402e48e51109cd7ac81101c165d87dc6735d0a5",
+      "bytes": 103560962104,
+      "fresh": true,
+      "seconds": 258.4007513523102
+    },
+    "reads/human472/human_ont_modern-ms-60mb-acgt-v2/offsets.u64": {
+      "sha256": "60506322dffa16a5d9d9cbc2dc516ddf97bd61d84b05a6dfa34a7fc3ca748f71",
+      "bytes": 21656,
+      "fresh": false,
+      "seconds": 5.221366882324219e-05
+    },
+    "reads/human472/human_ont_modern-ms-60mb-acgt-v2/reads.fa": {
+      "sha256": "34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26",
+      "bytes": 59955193,
+      "fresh": false,
+      "seconds": 2.6464462280273438e-05
+    },
+    "reads/human472/human_ont_modern-ms-60mb-acgt-v2/truth.u32": {
+      "sha256": "4d04f6784335bcea477f8b4cd14a7f8134990c74a2a7c7d8af44be913a293643",
+      "bytes": 239738620,
+      "fresh": false,
+      "seconds": 2.765655517578125e-05
+    },
+    "reads/human472/human_short-ms-60mb-acgt-v2/offsets.u64": {
+      "sha256": "26fa15047d34b53e7c39b84c8870527b353e1eeaa6c824d8b951234f24377f24",
+      "bytes": 3840008,
+      "fresh": false,
+      "seconds": 2.5033950805664062e-05
+    },
+    "reads/human472/human_short-ms-60mb-acgt-v2/reads.fa": {
+      "sha256": "9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f",
+      "bytes": 64688890,
+      "fresh": false,
+      "seconds": 2.09808349609375e-05
+    },
+    "reads/human472/human_short-ms-60mb-acgt-v2/truth.u32": {
+      "sha256": "42b7cbcb1271a33b22d3801991bfddb4fee5a09ed76ce7fbd78a5bfebde28d00",
+      "bytes": 240000000,
+      "fresh": false,
+      "seconds": 2.4318695068359375e-05
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 2.1457672119140625e-05
+    },
+    "tools/ms_check": {
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab",
+      "bytes": 251000,
+      "fresh": false,
+      "seconds": 2.3365020751953125e-05
+    }
+  },
+  "finished": 1793648632.330355,
+  "results": {
+    "threads-pilot-human_short/psi-ordinary-t32": "checked",
+    "threads-pilot-human_ont_modern/psi-ordinary-t1": "checked",
+    "threads-pilot-human_ont_modern/psi-ordinary-t32": "checked",
+    "threads-pilot-human_short/psi-ordinary-t1": "checked"
+  }
+}

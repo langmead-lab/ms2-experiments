@@ -1,0 +1,294 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "psi-ordinary-t1",
+  "cell": "threads-pilot-human_short/psi-ordinary-t1",
+  "group": "threads-pilot-human_short",
+  "figures": [
+    "threads"
+  ],
+  "tool": "ms2",
+  "kind": "ms",
+  "manifest_id": "threads-pilot-2885ee8-5a86a009",
+  "job": "threads-pilot-psi",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-3-177.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-02493184d6244458a",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "physcpubind": "the first T physical cores, node 0 first; T = 64 on both hardware threads of the first 32 cores (binding smt)",
+      "membind": 0
+    },
+    "threads": "per cell",
+    "transparent_hugepages": "always",
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10; THREAD_SCALING_PLAN.md",
+    "cross_thread_check": "every run of every cell records its output sha256, which must be the same at every thread count of a tool, mode and read set (collect.py)"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 480000,
+  "bases": 60000000,
+  "reference": "human472",
+  "read_set": "human_short-ms-60mb-acgt-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "checker": {
+      "name": "tools/ms_check",
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab"
+    },
+    "index": {
+      "name": "ms2/human472/index.tms.psi.orbitidx",
+      "sha256": "7246fde73b3e721b99949716e402e48e51109cd7ac81101c165d87dc6735d0a5"
+    },
+    "reads": {
+      "name": "reads/human472/human_short-ms-60mb-acgt-v2/reads.fa",
+      "sha256": "9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f"
+    },
+    "truth": {
+      "name": "reads/human472/human_short-ms-60mb-acgt-v2/truth.u32",
+      "sha256": "42b7cbcb1271a33b22d3801991bfddb4fee5a09ed76ce7fbd78a5bfebde28d00"
+    },
+    "offsets": {
+      "name": "reads/human472/human_short-ms-60mb-acgt-v2/offsets.u64",
+      "sha256": "26fa15047d34b53e7c39b84c8870527b353e1eeaa6c824d8b951234f24377f24"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793648466.0924892,
+  "layout": "psi",
+  "mode": "ordinary",
+  "interleave": 32,
+  "block_bytes": 2097152,
+  "threads": 1,
+  "binding": "physical",
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-3-177.ec2.internal",
+      "started": 1793648466.0925798,
+      "argv": [
+        "numactl",
+        "--physcpubind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/7246fde73b3e721b99949716e402e48e51109cd7ac81101c165d87dc6735d0a5/index.tms.psi.orbitidx",
+        "/work/stage/inputs/9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f/reads.fa",
+        "-o",
+        "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-pilot-psi/runs/threads-pilot-human_short__psi-ordinary-t1/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "2097152",
+        "--mode",
+        "psi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 51.71043651199989,
+      "user_seconds": 20.61,
+      "system_seconds": 31.05,
+      "peak_rss_kib": 101174444,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 46.124,
+        "query_seconds": 5.39761,
+        "components": {
+          "index_load_s": 46.124,
+          "ftab_s": 0.0,
+          "query_s": 4.67977,
+          "read_s": 0.0118957,
+          "parse_s": 0.0544917,
+          "format_s": 0.590545,
+          "total_s": 5.39761
+        }
+      },
+      "threads": 1,
+      "cpus": [
+        0
+      ],
+      "output_sha256": "de81449841decc3e331ba73e848332d9e80323c0bf35fd8a76a7e85f0e296ecd",
+      "check": {
+        "reads": 480000,
+        "positions": 60000000,
+        "failed": 0,
+        "validation": "ms_check: every MS value equals truth"
+      },
+      "finished": 1793648519.008484
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-3-177.ec2.internal",
+      "started": 1793648519.0093324,
+      "argv": [
+        "numactl",
+        "--physcpubind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/7246fde73b3e721b99949716e402e48e51109cd7ac81101c165d87dc6735d0a5/index.tms.psi.orbitidx",
+        "/work/stage/inputs/9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f/reads.fa",
+        "-o",
+        "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-pilot-psi/runs/threads-pilot-human_short__psi-ordinary-t1/run2/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "2097152",
+        "--mode",
+        "psi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 51.65779547699981,
+      "user_seconds": 20.08,
+      "system_seconds": 31.53,
+      "peak_rss_kib": 101173348,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 46.0785,
+        "query_seconds": 5.39122,
+        "components": {
+          "index_load_s": 46.0785,
+          "ftab_s": 0.0,
+          "query_s": 4.68078,
+          "read_s": 0.0117698,
+          "parse_s": 0.0545409,
+          "format_s": 0.58436,
+          "total_s": 5.39122
+        }
+      },
+      "threads": 1,
+      "cpus": [
+        0
+      ],
+      "output_sha256": "de81449841decc3e331ba73e848332d9e80323c0bf35fd8a76a7e85f0e296ecd",
+      "finished": 1793648571.4461873
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-3-177.ec2.internal",
+      "started": 1793648571.4466329,
+      "argv": [
+        "numactl",
+        "--physcpubind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/7246fde73b3e721b99949716e402e48e51109cd7ac81101c165d87dc6735d0a5/index.tms.psi.orbitidx",
+        "/work/stage/inputs/9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f/reads.fa",
+        "-o",
+        "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-pilot-psi/runs/threads-pilot-human_short__psi-ordinary-t1/run3/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "2097152",
+        "--mode",
+        "psi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 51.623539682,
+      "user_seconds": 20.5,
+      "system_seconds": 31.08,
+      "peak_rss_kib": 101173812,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 46.0392,
+        "query_seconds": 5.39487,
+        "components": {
+          "index_load_s": 46.0392,
+          "ftab_s": 0.0,
+          "query_s": 4.68037,
+          "read_s": 0.0120945,
+          "parse_s": 0.0542826,
+          "format_s": 0.588316,
+          "total_s": 5.39487
+        }
+      },
+      "threads": 1,
+      "cpus": [
+        0
+      ],
+      "output_sha256": "de81449841decc3e331ba73e848332d9e80323c0bf35fd8a76a7e85f0e296ecd",
+      "finished": 1793648623.8467553
+    }
+  ],
+  "check": {
+    "reads": 480000,
+    "positions": 60000000,
+    "failed": 0,
+    "validation": "ms_check: every MS value equals truth"
+  },
+  "query_seconds": [
+    5.39761,
+    5.39122,
+    5.39487
+  ],
+  "median_query_seconds": 5.39487,
+  "load_seconds": [
+    46.124,
+    46.0785,
+    46.0392
+  ],
+  "median_load_seconds": 46.0785,
+  "wall_seconds": [
+    51.71043651199989,
+    51.65779547699981,
+    51.623539682
+  ],
+  "peak_rss_kib": 101174444,
+  "query_spread_fraction": 0.0011844585689739626,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 11.121676703979892,
+  "ns_per_base": 89.9145,
+  "output_sha256": [
+    "de81449841decc3e331ba73e848332d9e80323c0bf35fd8a76a7e85f0e296ecd"
+  ],
+  "finished": 1793648623.8470807
+}

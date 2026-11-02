@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "numactl",
+    "--physcpubind=0",
+    "--membind=0",
+    "/tmp/blangme2-freeze-32812808/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t1",
+    "-l1",
+    "/tmp/blangme2-freeze-32812808/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd",
+    "/tmp/blangme2-freeze-32812808/inputs/9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f/reads.fa"
+  ],
+  "cwd": "/tmp/blangme2-freeze-32812808/work/threads-pilot-2885ee8-5a86a009/threads-pilot-rope/runs/threads-pilot-human_short__rope-l1-t1/run2",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 100.7637000028044,
+  "stdout": "/tmp/blangme2-freeze-32812808/work/threads-pilot-2885ee8-5a86a009/threads-pilot-rope/runs/threads-pilot-human_short__rope-l1-t1/run2/run2.stdout",
+  "stderr": "/tmp/blangme2-freeze-32812808/work/threads-pilot-2885ee8-5a86a009/threads-pilot-rope/runs/threads-pilot-human_short__rope-l1-t1/run2/run2.stderr",
+  "native_wall_seconds": 100.76,
+  "user_seconds": 93.09,
+  "system_seconds": 7.01,
+  "peak_rss_kib": 15303016
+}

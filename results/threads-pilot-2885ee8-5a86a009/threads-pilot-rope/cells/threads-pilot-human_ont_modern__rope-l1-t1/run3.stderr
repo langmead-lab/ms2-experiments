@@ -1,0 +1,5 @@
+[M::rb3_fmi_load_all::7.057*0.96] loaded the BWT
+[M::worker_pipeline::79.832*0.99] processed 2706 sequences
+[M::main] Version: 3.10-r285-dirty
+[M::main] CMD: /tmp/blangme2-freeze-32812808/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3 mem -t1 -l1 /tmp/blangme2-freeze-32812808/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd /tmp/blangme2-freeze-32812808/inputs/34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26/reads.fa
+[M::main] Real time: 79.882 sec; CPU: 79.333 sec; Peak RSS: 14.482 GB

@@ -1,0 +1,294 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "phi-ordinary-t1",
+  "cell": "threads-pilot-human_ont_modern/phi-ordinary-t1",
+  "group": "threads-pilot-human_ont_modern",
+  "figures": [
+    "threads"
+  ],
+  "tool": "ms2",
+  "kind": "ms",
+  "manifest_id": "threads-pilot-2885ee8-5a86a009",
+  "job": "threads-pilot-phi",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-3-177.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-02493184d6244458a",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "physcpubind": "the first T physical cores, node 0 first; T = 64 on both hardware threads of the first 32 cores (binding smt)",
+      "membind": 0
+    },
+    "threads": "per cell",
+    "transparent_hugepages": "always",
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10; THREAD_SCALING_PLAN.md",
+    "cross_thread_check": "every run of every cell records its output sha256, which must be the same at every thread count of a tool, mode and read set (collect.py)"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 2706,
+  "bases": 59934655,
+  "reference": "human472",
+  "read_set": "human_ont_modern-ms-60mb-acgt-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "checker": {
+      "name": "tools/ms_check",
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab"
+    },
+    "index": {
+      "name": "ms2/human472/index.tms.phi.orbitidx",
+      "sha256": "ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070"
+    },
+    "reads": {
+      "name": "reads/human472/human_ont_modern-ms-60mb-acgt-v2/reads.fa",
+      "sha256": "34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26"
+    },
+    "truth": {
+      "name": "reads/human472/human_ont_modern-ms-60mb-acgt-v2/truth.u32",
+      "sha256": "4d04f6784335bcea477f8b4cd14a7f8134990c74a2a7c7d8af44be913a293643"
+    },
+    "offsets": {
+      "name": "reads/human472/human_ont_modern-ms-60mb-acgt-v2/offsets.u64",
+      "sha256": "60506322dffa16a5d9d9cbc2dc516ddf97bd61d84b05a6dfa34a7fc3ca748f71"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793649952.2676156,
+  "layout": "phi",
+  "mode": "ordinary",
+  "interleave": 32,
+  "block_bytes": 2097152,
+  "threads": 1,
+  "binding": "physical",
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-3-177.ec2.internal",
+      "started": 1793649952.2677026,
+      "argv": [
+        "numactl",
+        "--physcpubind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+        "/work/stage/inputs/34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26/reads.fa",
+        "-o",
+        "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-pilot-phi/runs/threads-pilot-human_ont_modern__phi-ordinary-t1/run1/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "2097152",
+        "--mode",
+        "phi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 74.21173275799993,
+      "user_seconds": 27.01,
+      "system_seconds": 47.15,
+      "peak_rss_kib": 153875700,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 61.5412,
+        "query_seconds": 12.3959,
+        "components": {
+          "index_load_s": 61.5412,
+          "ftab_s": 0.0,
+          "query_s": 11.647,
+          "read_s": 0.0133391,
+          "parse_s": 0.0445899,
+          "format_s": 0.620643,
+          "total_s": 12.3959
+        }
+      },
+      "threads": 1,
+      "cpus": [
+        0
+      ],
+      "output_sha256": "ec7bcbc7b3840a7b8011fd86237e3edf5f1e40cc17daaae56d0190cc50effda8",
+      "check": {
+        "reads": 2706,
+        "positions": 59934655,
+        "failed": 0,
+        "validation": "ms_check: every MS value equals truth"
+      },
+      "finished": 1793650027.9989948
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-3-177.ec2.internal",
+      "started": 1793650027.9997923,
+      "argv": [
+        "numactl",
+        "--physcpubind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+        "/work/stage/inputs/34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26/reads.fa",
+        "-o",
+        "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-pilot-phi/runs/threads-pilot-human_ont_modern__phi-ordinary-t1/run2/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "2097152",
+        "--mode",
+        "phi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 73.80894732199977,
+      "user_seconds": 26.38,
+      "system_seconds": 47.38,
+      "peak_rss_kib": 153877496,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 61.1453,
+        "query_seconds": 12.3874,
+        "components": {
+          "index_load_s": 61.1453,
+          "ftab_s": 0.0,
+          "query_s": 11.6401,
+          "read_s": 0.0132403,
+          "parse_s": 0.0446184,
+          "format_s": 0.619685,
+          "total_s": 12.3874
+        }
+      },
+      "threads": 1,
+      "cpus": [
+        0
+      ],
+      "output_sha256": "ec7bcbc7b3840a7b8011fd86237e3edf5f1e40cc17daaae56d0190cc50effda8",
+      "finished": 1793650102.9541311
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-3-177.ec2.internal",
+      "started": 1793650102.9547615,
+      "argv": [
+        "numactl",
+        "--physcpubind=0",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+        "/work/stage/inputs/34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26/reads.fa",
+        "-o",
+        "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-pilot-phi/runs/threads-pilot-human_ont_modern__phi-ordinary-t1/run3/output",
+        "--threads",
+        "1",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "2097152",
+        "--mode",
+        "phi"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 73.91129485500005,
+      "user_seconds": 26.0,
+      "system_seconds": 47.86,
+      "peak_rss_kib": 153876128,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 61.2442,
+        "query_seconds": 12.3934,
+        "components": {
+          "index_load_s": 61.2442,
+          "ftab_s": 0.0,
+          "query_s": 11.6449,
+          "read_s": 0.0135109,
+          "parse_s": 0.0445043,
+          "format_s": 0.61955,
+          "total_s": 12.3934
+        }
+      },
+      "threads": 1,
+      "cpus": [
+        0
+      ],
+      "output_sha256": "ec7bcbc7b3840a7b8011fd86237e3edf5f1e40cc17daaae56d0190cc50effda8",
+      "finished": 1793650178.0062666
+    }
+  ],
+  "check": {
+    "reads": 2706,
+    "positions": 59934655,
+    "failed": 0,
+    "validation": "ms_check: every MS value equals truth"
+  },
+  "query_seconds": [
+    12.3959,
+    12.3874,
+    12.3934
+  ],
+  "median_query_seconds": 12.3934,
+  "load_seconds": [
+    61.5412,
+    61.1453,
+    61.2442
+  ],
+  "median_load_seconds": 61.2442,
+  "wall_seconds": [
+    74.21173275799993,
+    73.80894732199977,
+    73.91129485500005
+  ],
+  "peak_rss_kib": 153877496,
+  "query_spread_fraction": 0.0006858489195862096,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 4.836013926767473,
+  "ns_per_base": 206.78186935421584,
+  "output_sha256": [
+    "ec7bcbc7b3840a7b8011fd86237e3edf5f1e40cc17daaae56d0190cc50effda8"
+  ],
+  "finished": 1793650178.0065925
+}

@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "numactl",
+    "--physcpubind=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/520539c526f8c8fe9cb72a0179b2301418498bdf3eb747d026b64ed3c87021d2/index.ms.orbitidx",
+    "/work/stage/inputs/34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26/reads.fa",
+    "-o",
+    "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-pilot-ms/runs/threads-pilot-human_ont_modern__ms-ordinary-t32/run1/output",
+    "--threads",
+    "32",
+    "--interleave",
+    "32",
+    "--block-bytes",
+    "2097152",
+    "--mode",
+    "min"
+  ],
+  "cwd": "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-pilot-ms/runs/threads-pilot-human_ont_modern__ms-ordinary-t32/run1",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 42.14607578599998,
+  "stdout": "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-pilot-ms/runs/threads-pilot-human_ont_modern__ms-ordinary-t32/run1/run1.stdout",
+  "stderr": "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-pilot-ms/runs/threads-pilot-human_ont_modern__ms-ordinary-t32/run1/run1.stderr",
+  "native_wall_seconds": 42.13,
+  "user_seconds": 14.15,
+  "system_seconds": 31.46,
+  "peak_rss_kib": 105559600
+}

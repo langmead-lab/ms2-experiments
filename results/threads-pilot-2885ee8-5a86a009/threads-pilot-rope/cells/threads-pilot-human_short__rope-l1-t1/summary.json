@@ -1,0 +1,252 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "rope-l1-t1",
+  "cell": "threads-pilot-human_short/rope-l1-t1",
+  "group": "threads-pilot-human_short",
+  "figures": [
+    "threads"
+  ],
+  "tool": "ropebwt3",
+  "kind": "ms",
+  "manifest_id": "threads-pilot-2885ee8-5a86a009",
+  "job": "threads-pilot-rope",
+  "platform": "rockfish",
+  "host": {
+    "hostname": "c635",
+    "machine": "x86_64",
+    "kernel": "4.18.0-477.21.1.el8_8.x86_64",
+    "cpu": "Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz",
+    "slurm_job_id": "32812808",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "physcpubind": "the first T physical cores, node 0 first; T = 64 on both hardware threads of the first 32 cores (binding smt)",
+      "membind": 0
+    },
+    "threads": "per cell",
+    "transparent_hugepages": "always",
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10; THREAD_SCALING_PLAN.md",
+    "cross_thread_check": "every run of every cell records its output sha256, which must be the same at every thread count of a tool, mode and read set (collect.py)"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 480000,
+  "bases": 60000000,
+  "reference": "human472",
+  "read_set": "human_short-ms-60mb-acgt-v2",
+  "inputs": {
+    "binary": {
+      "name": "tools/ropebwt3-cfad8475/ropebwt3",
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+    },
+    "runtime": {
+      "name": "tools/runtime/libgomp.so.1",
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8"
+    },
+    "fmd": {
+      "name": "ropebwt3/human472/index.fmd",
+      "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626"
+    },
+    "reads": {
+      "name": "reads/human472/human_short-ms-60mb-acgt-v2/reads.fa",
+      "sha256": "9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f"
+    },
+    "truth": {
+      "name": "reads/human472/human_short-ms-60mb-acgt-v2/truth.u32",
+      "sha256": "42b7cbcb1271a33b22d3801991bfddb4fee5a09ed76ce7fbd78a5bfebde28d00"
+    },
+    "offsets": {
+      "name": "reads/human472/human_short-ms-60mb-acgt-v2/offsets.u64",
+      "sha256": "26fa15047d34b53e7c39b84c8870527b353e1eeaa6c824d8b951234f24377f24"
+    }
+  },
+  "numa": true,
+  "root": false,
+  "started": 1793642080.4284847,
+  "min_len": 1,
+  "threads": 1,
+  "binding": "physical",
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "c635",
+      "started": 1793642080.4285886,
+      "argv": [
+        "numactl",
+        "--physcpubind=0",
+        "--membind=0",
+        "/tmp/blangme2-freeze-32812808/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-l1",
+        "/tmp/blangme2-freeze-32812808/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd",
+        "/tmp/blangme2-freeze-32812808/inputs/9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f/reads.fa"
+      ],
+      "timeout_s": 7200,
+      "cache": "fadvise-dontneed",
+      "wall_seconds": 100.7511545624584,
+      "user_seconds": 92.97,
+      "system_seconds": 7.11,
+      "peak_rss_kib": 15303016,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 7.118,
+        "query_seconds": 93.57000000000001,
+        "components": {
+          "last_loaded_s": 7.118,
+          "last_processed_s": 100.688,
+          "processed_sequences": 480000
+        }
+      },
+      "threads": 1,
+      "cpus": [
+        0
+      ],
+      "output_sha256": "029ca945a614e7f1df12d2e90f8157278d8cf51517860f52d4aa5e444360ec03",
+      "check": {
+        "reads": 480000,
+        "positions": 60000000,
+        "failed": 0,
+        "validation": "MS rebuilt from every -l1 SMEM equals truth"
+      },
+      "finished": 1793642193.742423
+    },
+    {
+      "run": 2,
+      "host": "c635",
+      "started": 1793642193.7427816,
+      "argv": [
+        "numactl",
+        "--physcpubind=0",
+        "--membind=0",
+        "/tmp/blangme2-freeze-32812808/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-l1",
+        "/tmp/blangme2-freeze-32812808/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd",
+        "/tmp/blangme2-freeze-32812808/inputs/9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f/reads.fa"
+      ],
+      "timeout_s": 7200,
+      "cache": "fadvise-dontneed",
+      "wall_seconds": 100.7637000028044,
+      "user_seconds": 93.09,
+      "system_seconds": 7.01,
+      "peak_rss_kib": 15303016,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 7.052,
+        "query_seconds": 93.64599999999999,
+        "components": {
+          "last_loaded_s": 7.052,
+          "last_processed_s": 100.698,
+          "processed_sequences": 480000
+        }
+      },
+      "threads": 1,
+      "cpus": [
+        0
+      ],
+      "output_sha256": "029ca945a614e7f1df12d2e90f8157278d8cf51517860f52d4aa5e444360ec03",
+      "finished": 1793642295.7827148
+    },
+    {
+      "run": 3,
+      "host": "c635",
+      "started": 1793642295.7830825,
+      "argv": [
+        "numactl",
+        "--physcpubind=0",
+        "--membind=0",
+        "/tmp/blangme2-freeze-32812808/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t1",
+        "-l1",
+        "/tmp/blangme2-freeze-32812808/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd",
+        "/tmp/blangme2-freeze-32812808/inputs/9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f/reads.fa"
+      ],
+      "timeout_s": 7200,
+      "cache": "fadvise-dontneed",
+      "wall_seconds": 100.69053339213133,
+      "user_seconds": 92.98,
+      "system_seconds": 7.05,
+      "peak_rss_kib": 15303016,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 7.053,
+        "query_seconds": 93.57300000000001,
+        "components": {
+          "last_loaded_s": 7.053,
+          "last_processed_s": 100.626,
+          "processed_sequences": 480000
+        }
+      },
+      "threads": 1,
+      "cpus": [
+        0
+      ],
+      "output_sha256": "029ca945a614e7f1df12d2e90f8157278d8cf51517860f52d4aa5e444360ec03",
+      "finished": 1793642397.7315073
+    }
+  ],
+  "check": {
+    "reads": 480000,
+    "positions": 60000000,
+    "failed": 0,
+    "validation": "MS rebuilt from every -l1 SMEM equals truth"
+  },
+  "query_seconds": [
+    93.57000000000001,
+    93.64599999999999,
+    93.57300000000001
+  ],
+  "median_query_seconds": 93.57300000000001,
+  "load_seconds": [
+    7.118,
+    7.052,
+    7.053
+  ],
+  "median_load_seconds": 7.053,
+  "wall_seconds": [
+    100.7511545624584,
+    100.7637000028044,
+    100.69053339213133
+  ],
+  "peak_rss_kib": 15303016,
+  "query_spread_fraction": 0.0008122001004561058,
+  "cache": [
+    "fadvise-dontneed"
+  ],
+  "mbases_per_second": 0.6412106056234169,
+  "ns_per_base": 1559.5500000000002,
+  "output_sha256": [
+    "029ca945a614e7f1df12d2e90f8157278d8cf51517860f52d4aa5e444360ec03"
+  ],
+  "finished": 1793642397.731787
+}

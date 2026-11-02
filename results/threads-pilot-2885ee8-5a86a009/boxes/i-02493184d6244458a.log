@@ -1,0 +1,100 @@
+2026-11-02T19:12:08 run threads-smt-check
+19:12:08 threads-smt-check: 1 of 1 cells to run
+19:12:08 stage ms2/human472/index.ms.orbitidx
+19:16:48 stage reads/human472/human_ont_modern-ms-60mb-acgt-v2/offsets.u64
+19:16:48 stage reads/human472/human_ont_modern-ms-60mb-acgt-v2/reads.fa
+19:16:50 stage reads/human472/human_ont_modern-ms-60mb-acgt-v2/truth.u32
+19:16:51 stage tools/ms2-2885ee8/ms2-bench
+19:16:52 stage tools/ms_check
+19:16:53 threads-smt-check/ms-ordinary-t64 run1
+19:17:41 threads-smt-check/ms-ordinary-t64 run2
+19:18:23 threads-smt-check/ms-ordinary-t64 run3
+19:19:14 threads-smt-check/ms-ordinary-t64 checked 0.269929 
+19:19:16 threads-smt-check: 0 cells without a done marker
+2026-11-02T19:19:16 job threads-smt-check exit 0
+2026-11-02T19:19:18 run threads-pilot-ms
+19:19:20 threads-pilot-ms: 4 of 4 cells to run
+19:19:20 stage reads/human472/human_short-ms-60mb-acgt-v2/offsets.u64
+19:19:21 stage reads/human472/human_short-ms-60mb-acgt-v2/reads.fa
+19:19:22 stage reads/human472/human_short-ms-60mb-acgt-v2/truth.u32
+19:19:23 threads-pilot-human_ont_modern/ms-ordinary-t1 run1
+19:20:10 threads-pilot-human_ont_modern/ms-ordinary-t1 run2
+19:20:57 threads-pilot-human_ont_modern/ms-ordinary-t1 run3
+19:21:51 threads-pilot-human_ont_modern/ms-ordinary-t1 checked 2.7728 
+19:21:51 threads-pilot-human_ont_modern/ms-ordinary-t32 run1
+19:22:35 threads-pilot-human_ont_modern/ms-ordinary-t32 run2
+19:23:18 threads-pilot-human_ont_modern/ms-ordinary-t32 run3
+19:24:09 threads-pilot-human_ont_modern/ms-ordinary-t32 checked 0.257287 
+19:24:09 threads-pilot-human_short/ms-ordinary-t32 run1
+19:24:52 threads-pilot-human_short/ms-ordinary-t32 run2
+19:25:35 threads-pilot-human_short/ms-ordinary-t32 run3
+19:26:26 threads-pilot-human_short/ms-ordinary-t32 checked 0.372298 
+19:26:26 threads-pilot-human_short/ms-ordinary-t1 run1
+19:27:13 threads-pilot-human_short/ms-ordinary-t1 run2
+19:28:00 threads-pilot-human_short/ms-ordinary-t1 run3
+19:28:55 threads-pilot-human_short/ms-ordinary-t1 checked 2.81663 
+19:28:58 threads-pilot-ms: 0 cells without a done marker
+2026-11-02T19:28:58 job threads-pilot-ms exit 0
+2026-11-02T19:29:00 run threads-pilot-psi
+19:29:01 threads-pilot-psi: 4 of 4 cells to run
+19:29:01 stage ms2/human472/index.tms.psi.orbitidx
+19:33:20 threads-pilot-human_short/psi-ordinary-t32 run1
+19:34:11 threads-pilot-human_short/psi-ordinary-t32 run2
+19:34:57 threads-pilot-human_short/psi-ordinary-t32 run3
+19:35:52 threads-pilot-human_short/psi-ordinary-t32 checked 0.421969 
+19:35:52 threads-pilot-human_ont_modern/psi-ordinary-t1 run1
+19:36:44 threads-pilot-human_ont_modern/psi-ordinary-t1 run2
+19:37:36 threads-pilot-human_ont_modern/psi-ordinary-t1 run3
+19:38:36 threads-pilot-human_ont_modern/psi-ordinary-t1 checked 4.46173 
+19:38:36 threads-pilot-human_ont_modern/psi-ordinary-t32 run1
+19:39:23 threads-pilot-human_ont_modern/psi-ordinary-t32 run2
+19:40:10 threads-pilot-human_ont_modern/psi-ordinary-t32 run3
+19:41:06 threads-pilot-human_ont_modern/psi-ordinary-t32 checked 0.343877 
+19:41:06 threads-pilot-human_short/psi-ordinary-t1 run1
+19:41:59 threads-pilot-human_short/psi-ordinary-t1 run2
+19:42:51 threads-pilot-human_short/psi-ordinary-t1 run3
+19:43:52 threads-pilot-human_short/psi-ordinary-t1 checked 5.39487 
+19:43:55 threads-pilot-psi: 0 cells without a done marker
+2026-11-02T19:43:55 job threads-pilot-psi exit 0
+2026-11-02T19:43:57 run threads-pilot-phi
+19:43:59 threads-pilot-phi: 4 of 4 cells to run
+19:43:59 stage ms2/human472/index.tms.phi.orbitidx
+19:57:36 threads-pilot-human_short/phi-ordinary-t32 run1
+19:58:54 threads-pilot-human_short/phi-ordinary-t32 run2
+19:59:56 threads-pilot-human_short/phi-ordinary-t32 run3
+20:01:07 threads-pilot-human_short/phi-ordinary-t32 checked 1.27191 
+20:01:07 threads-pilot-human_short/phi-ordinary-t1 run1
+20:02:39 threads-pilot-human_short/phi-ordinary-t1 run2
+20:04:12 threads-pilot-human_short/phi-ordinary-t1 run3
+20:05:52 threads-pilot-human_short/phi-ordinary-t1 checked 29.6469 
+20:05:52 threads-pilot-human_ont_modern/phi-ordinary-t1 run1
+20:07:07 threads-pilot-human_ont_modern/phi-ordinary-t1 run2
+20:08:22 threads-pilot-human_ont_modern/phi-ordinary-t1 run3
+20:09:45 threads-pilot-human_ont_modern/phi-ordinary-t1 checked 12.3934 
+20:09:45 threads-pilot-human_ont_modern/phi-ordinary-t32 run1
+20:10:48 threads-pilot-human_ont_modern/phi-ordinary-t32 run2
+20:11:50 threads-pilot-human_ont_modern/phi-ordinary-t32 run3
+20:13:00 threads-pilot-human_ont_modern/phi-ordinary-t32 checked 0.876175 
+20:13:03 threads-pilot-phi: 0 cells without a done marker
+2026-11-02T20:13:03 job threads-pilot-phi exit 0
+2026-11-02T20:13:05 run threads-pilot-dual
+20:13:07 threads-pilot-dual: 4 of 4 cells to run
+20:13:07 stage ms2/human472/index.tms.full.seqids.orbitidx
+20:31:33 threads-pilot-human_short/dual-ordinary-t1 run1
+20:33:36 threads-pilot-human_short/dual-ordinary-t1 run2
+20:35:19 threads-pilot-human_short/dual-ordinary-t1 run3
+20:37:09 threads-pilot-human_short/dual-ordinary-t1 checked 4.34207 
+20:37:09 threads-pilot-human_ont_modern/dual-ordinary-t32 run1
+20:38:47 threads-pilot-human_ont_modern/dual-ordinary-t32 run2
+20:40:23 threads-pilot-human_ont_modern/dual-ordinary-t32 run3
+20:42:09 threads-pilot-human_ont_modern/dual-ordinary-t32 checked 0.274295 
+20:42:09 threads-pilot-human_ont_modern/dual-ordinary-t1 run1
+20:43:51 threads-pilot-human_ont_modern/dual-ordinary-t1 run2
+20:45:33 threads-pilot-human_ont_modern/dual-ordinary-t1 run3
+20:47:22 threads-pilot-human_ont_modern/dual-ordinary-t1 checked 3.10329 
+20:47:22 threads-pilot-human_short/dual-ordinary-t32 run1
+20:48:59 threads-pilot-human_short/dual-ordinary-t32 run2
+20:50:34 threads-pilot-human_short/dual-ordinary-t32 run3
+20:52:20 threads-pilot-human_short/dual-ordinary-t32 checked 0.403733 
+20:52:23 threads-pilot-dual: 0 cells without a done marker
+2026-11-02T20:52:23 job threads-pilot-dual exit 0

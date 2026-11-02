@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "numactl",
+    "--physcpubind=0,64,1,65,2,66,3,67,4,68,5,69,6,70,7,71,8,72,9,73,10,74,11,75,12,76,13,77,14,78,15,79,16,80,17,81,18,82,19,83,20,84,21,85,22,86,23,87,24,88,25,89,26,90,27,91,28,92,29,93,30,94,31,95",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/520539c526f8c8fe9cb72a0179b2301418498bdf3eb747d026b64ed3c87021d2/index.ms.orbitidx",
+    "/work/stage/inputs/34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26/reads.fa",
+    "-o",
+    "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-smt-check/runs/threads-smt-check__ms-ordinary-t64/run1/output",
+    "--threads",
+    "64",
+    "--interleave",
+    "32",
+    "--block-bytes",
+    "2097152",
+    "--mode",
+    "min"
+  ],
+  "cwd": "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-smt-check/runs/threads-smt-check__ms-ordinary-t64/run1",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 41.75179621199999,
+  "stdout": "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-smt-check/runs/threads-smt-check__ms-ordinary-t64/run1/run1.stdout",
+  "stderr": "/work/stage/work/threads-pilot-2885ee8-5a86a009/threads-smt-check/runs/threads-smt-check__ms-ordinary-t64/run1/run1.stderr",
+  "native_wall_seconds": 41.74,
+  "user_seconds": 13.87,
+  "system_seconds": 31.51,
+  "peak_rss_kib": 105510084
+}

@@ -1,0 +1,39 @@
+{
+  "run": 3,
+  "host": "c635",
+  "started": 1793642624.9213953,
+  "argv": [
+    "numactl",
+    "--physcpubind=0",
+    "--membind=0",
+    "/tmp/blangme2-freeze-32812808/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t1",
+    "-l1",
+    "/tmp/blangme2-freeze-32812808/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd",
+    "/tmp/blangme2-freeze-32812808/inputs/34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26/reads.fa"
+  ],
+  "timeout_s": 7200,
+  "cache": "fadvise-dontneed",
+  "wall_seconds": 79.89272981509566,
+  "user_seconds": 72.41,
+  "system_seconds": 6.92,
+  "peak_rss_kib": 15185620,
+  "phase": {
+    "source": "ropebwt3-log-stamps",
+    "query_definition": "last processed stamp - last loaded stamp",
+    "load_seconds": 7.057,
+    "query_seconds": 72.77499999999999,
+    "components": {
+      "last_loaded_s": 7.057,
+      "last_processed_s": 79.832,
+      "processed_sequences": 2706
+    }
+  },
+  "threads": 1,
+  "cpus": [
+    0
+  ],
+  "output_sha256": "5c15cf3cb1fda7e2e3af665acc0ca2f19756fda94a9537991425b30b0ceef434",
+  "finished": 1793642706.0282388
+}
