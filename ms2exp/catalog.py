@@ -17,6 +17,12 @@ Commands:
       checking the sha256 first; objects already present with the same size are skipped.
       Traces recorded by Rockfish runs (results traces/) are published with --traces DIR. Inputs an
       all-AWS manifest builds (sha256 "built") are skipped: their build jobs publish them.
+  catalog.py from-results --results DIR [--add inputs.json ...] --out inputs.json
+      A catalog of every input of a run's manifest (DIR/manifest.json) with its checksum, those
+      the run built taken from their build jobs' DIR/JOB/outputs.json, plus the entries of each
+      --add catalog. A later manifest reuses the inputs of an earlier run this way, for example
+      the thread-scaling manifest those of freeze-2885ee8-00e665de. A name cataloged twice with
+      different checksums is an error.
 """
 import argparse
 import json
@@ -94,6 +100,29 @@ def cmd_publish(args):
             s3.put(source, name)
 
 
+def cmd_from_results(args):
+    results = Path(args.results)
+    manifest = load_manifest(results/'manifest.json')
+    built = {}
+    inputs = {}
+    for name, entry in sorted(manifest['inputs'].items()):
+        if entry['sha256'] == 'pending':
+            continue
+        if entry['sha256'] == 'built':
+            producer = entry['producer']
+            if producer not in built:
+                built[producer] = json.loads((results/producer/'outputs.json').read_text())['outputs']
+            entry = built[producer][name]
+        inputs[name] = dict(sha256=entry['sha256'], bytes=entry['bytes'], source=manifest['id'])
+    for path in args.add or ():
+        for name, entry in json.loads(Path(path).read_text())['inputs'].items():
+            if name in inputs and inputs[name]['sha256'] != entry['sha256']:
+                raise SystemExit(f'{name}: {path} and {manifest["id"]} differ')
+            inputs.setdefault(name, entry)
+    atomic_json(args.out, dict(format='ms2-freeze-inputs-v1', inputs=dict(sorted(inputs.items()))))
+    print(f'{len(inputs)} inputs in {args.out}')
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest='command', required=True)
@@ -109,8 +138,12 @@ def main():
     u.add_argument('--s3', required=True)
     u.add_argument('--traces')
     u.add_argument('--dry-run', action='store_true')
+    r = sub.add_parser('from-results')
+    r.add_argument('--results', required=True)
+    r.add_argument('--add', nargs='*')
+    r.add_argument('--out', required=True)
     args = p.parse_args()
-    dict(hash=cmd_hash, link=cmd_link, publish=cmd_publish)[args.command](args)
+    {'hash': cmd_hash, 'link': cmd_link, 'publish': cmd_publish, 'from-results': cmd_from_results}[args.command](args)
 
 
 if __name__ == '__main__':

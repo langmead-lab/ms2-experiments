@@ -12,9 +12,13 @@ The same script runs on Rockfish and on AWS (BENCH_FREEZE_DESIGN.md D11):
   files no remaining cell of this job needs when the disk would otherwise be too full.
 - Cells run in an order shuffled from the manifest seed and the job id. Each cell runs its
   runs back to back (D6: three timed runs, no warmup), every command under numactl on socket 0
-  (D5). Before every run the page cache is dropped when running as root; otherwise each staged
-  input of the cell is evicted from the cache with posix_fadvise, which needs no root but does
-  not drop the cached pages other processes hold.
+  (D5). A cell with a threads field (the thread-scaling matrix) runs with that many threads,
+  bound with --physcpubind to its first threads physical cores, node 0's first, or with binding
+  smt to both hardware threads of its first threads/2 cores, and memory on node 0. Before every
+  run the page cache is dropped when running as root; otherwise each staged input of the cell is
+  evicted from the cache with posix_fadvise, which needs no root but does not drop the cached
+  pages other processes hold.
+- With hash_output, every run's output sha256 is recorded for collect.py's cross-thread check.
 - Run 1's whole output is checked against truth: ms2 MS with ms_check.cpp; ropebwt3 -l1 by the
   MS rebuilt from its SMEMs (real-hprc2 benchmark.check); ropebwt3 -lL against the SMEMs truth
   implies and an untimed --old-mem count reference (rope_validation.check_default); MONI, PHONI
@@ -213,12 +217,42 @@ class Runner:
 
     # Commands.
 
-    def bind(self):
-        return [] if self.args.no_numa else ['numactl', '--cpunodebind=0', '--membind=0']
+    def bind(self, cell=None):
+        if self.args.no_numa:
+            return []
+        if cell is None or 'threads' not in cell:
+            return ['numactl', '--cpunodebind=0', '--membind=0']
+        return ['numactl', '--physcpubind=' + ','.join(map(str, self.cpus(cell))), '--membind=0']
+
+    def cpus(self, cell):
+        """The CPUs of a threads cell: one per physical core, node 0's cores first, or with binding
+        smt every hardware thread of as many cores as the thread count needs. On AWS only node 0's
+        cores qualify (decision 6: socket 0 only); a Rockfish pilot node may spill onto node 1."""
+        cores = [c for node, c in self.host_cores() if node == 0 or self.platform != 'aws']
+        threads = cell['threads']
+        if cell.get('binding') == 'smt':
+            width = len(cores[0])
+            if threads % width or threads // width > len(cores):
+                raise CellFailed(f'{threads} threads do not fill whole cores of {width} hardware threads')
+            return [c for core in cores[:threads // width] for c in core]
+        if threads > len(cores):
+            raise CellFailed(f'{threads} threads but {len(cores)} physical cores')
+        return [core[0] for core in cores[:threads]]
+
+    def host_cores(self):
+        if 'cores' not in self.context:
+            self.context['cores'] = physical_cores()
+        return self.context['cores']
+
+    def env(self, cell):
+        """The command environment; a threads cell sets the OpenMP thread count to its own."""
+        if 'threads' not in cell:
+            return None
+        return dict(common.ENV, OMP_NUM_THREADS=str(cell['threads']))
 
     def ms2_argv(self, cell, output, trace=None, record=None):
         argv = [self.file(cell, 'binary'), 'query', self.file(cell, 'index'), self.file(cell, 'reads'),
-                '-o', output, '--threads', '1', '--interleave', str(cell['interleave'])]
+                '-o', output, '--threads', str(cell.get('threads', 1)), '--interleave', str(cell['interleave'])]
         if cell.get('block_bytes'):
             argv += ['--block-bytes', str(cell['block_bytes'])]
         if cell['mode'] == 'oracle':
@@ -231,7 +265,7 @@ class Runner:
                 argv += ['--ftab', self.file(cell, 'ftab')]
         if cell['kind'] == 'locate':
             argv += ['--report', 'smem-all', '--min-smem-len', '1', '--max-smem-positions', str(cell['cap'])]
-        return self.bind() + [str(a) for a in argv]
+        return self.bind(cell) + [str(a) for a in argv]
 
     def rope_argv(self, cell, min_len=None, old_mem=False):
         options = ['-K', cell['batch']] if cell.get('batch') else []
@@ -244,7 +278,7 @@ class Runner:
             length = min_len or cell['min_len']
             options += [] if (length == 19 and not old_mem) else [f'-l{length}']
             fmd = self.file(cell, 'fmd')
-        return self.bind() + [str(self.file(cell, 'binary')), 'mem', '-t1', *options, str(fmd),
+        return self.bind(cell) + [str(self.file(cell, 'binary')), 'mem', f"-t{cell.get('threads', 1)}", *options, str(fmd),
                               str(self.file(cell, 'reads'))]
 
     def rope_dir(self, cell):
@@ -300,7 +334,7 @@ class Runner:
         folder.mkdir(parents=True, exist_ok=True)
         cache = self.cold(cell)
         try:
-            row = common.execute(argv, folder, label, timeout=timeout)
+            row = common.execute(argv, folder, label, timeout=timeout, env=self.env(cell))
             row['cache'] = cache
             return row, None
         except RuntimeError as error:
@@ -444,6 +478,10 @@ class Runner:
             contigs = len(self.locate_truth(cell)['contigs'])
             if f'smem-all: positions as contig:strand:offset, {contigs} sequences' not in stderr:
                 raise CellFailed('ms2 index lacks the expected sequence-ID table')
+        if 'threads' in cell:
+            record.update(threads=cell['threads'], cpus=self.cpus(cell) if not self.args.no_numa else None)
+        if cell.get('hash_output'):
+            record['output_sha256'] = file_sha256(output)
         if check:
             record['check'] = self.check_output(cell, folder, row, output)
         shutil.rmtree(folder)
@@ -572,7 +610,8 @@ class Runner:
                    inputs={role: dict(name=name, sha256=self.entry(name)['sha256'])
                            for role, name in cell['inputs'].items()},
                    numa=not self.args.no_numa, root=self.root, started=time.time())
-        for field in ('layout', 'mode', 'interleave', 'block_bytes', 'cap', 'min_len', 'shift', 'batch', 'cap_s'):
+        for field in ('layout', 'mode', 'interleave', 'block_bytes', 'cap', 'min_len', 'shift', 'batch', 'cap_s',
+                      'threads', 'binding'):
             if field in cell:
                 out[field] = cell[field]
         return out
@@ -612,6 +651,8 @@ class Runner:
                 out['locations_per_second'] = locations / med
         if cell['kind'] == 'count':
             out['ops_per_base'] = records[0].get('ops_per_base')
+        if cell.get('hash_output'):
+            out['output_sha256'] = sorted({r['output_sha256'] for r in records})
         return out
 
     def run(self):
@@ -662,6 +703,31 @@ def host_info():
         except (OSError, IndexError):
             pass
     return info
+
+
+def cpu_list(text):
+    """CPU numbers of a sysfs list such as '0-3,8,10-11'."""
+    out = []
+    for part in text.strip().split(','):
+        if part:
+            a, _, b = part.partition('-')
+            out += range(int(a), int(b or a) + 1)
+    return out
+
+
+def physical_cores(sys_root='/sys/devices/system'):
+    """(node, hardware threads) of each physical core, node 0's cores first, then node 1's and so
+    on, each node's ordered by its first hardware thread."""
+    root = Path(sys_root)
+    nodes = sorted((int(p.name[4:]), p) for p in (root/'node').glob('node[0-9]*'))
+    out = []
+    for number, node in nodes:
+        cores = {}
+        for cpu in cpu_list((node/'cpulist').read_text()):
+            siblings = cpu_list((root/'cpu'/f'cpu{cpu}'/'topology'/'thread_siblings_list').read_text())
+            cores.setdefault(tuple(sorted(siblings)), sorted(siblings))
+        out += [(number, c) for c in sorted(cores.values())]
+    return out
 
 
 def imds(path):

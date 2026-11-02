@@ -7,8 +7,13 @@ taken from an inputs catalog (catalog.py hash). The ms2 source (repo URL plus co
 ropebwt3 pin and the D6 protocol are recorded once at the top and in every result.
 
 Matrices:
-  freeze  the paper's cells: Fig 3 timing and counting, Fig 4/A2, Fig 5/A5, Fig 6/A3/A4/A6
-  toy     mtb152-sized cells that exercise every code path of run_job.py (toy_prep.sh)
+  freeze         the paper's cells: Fig 3 timing and counting, Fig 4/A2, Fig 5/A5, Fig 6/A3/A4/A6
+  toy            mtb152-sized cells that exercise every code path of run_job.py (toy_prep.sh)
+  threads        thread scaling (THREAD_SCALING_PLAN.md): HPRC2 short and ONT 1 Gbase sets, ms2
+                 min, psi, phi and dual and ropebwt3 -l1, at 1 to 32 threads on physical cores and
+                 64 on both hardware threads of 32 cores; AWS only
+  threads-pilot  the threads cells at 1 and 32 threads on the Fig 5 60 Mb sets, which are prefixes
+                 of the 1 Gbase sets; Rockfish only (decision 10)
 
 Usage:
   make_manifest.py --matrix freeze --inputs inputs.json --ms2-repo URL --ms2-commit SHA \
@@ -55,6 +60,20 @@ PROTOCOL = dict(
                     ropebwt3='log stamps: load = last loaded stamp, query = last processed stamp minus load',
                     legacy='whole-process wall of the full run minus the one-read run, both cold'),
     design='BENCH_FREEZE_DESIGN.md D5, D6, D10')
+# Thread scaling (THREAD_SCALING_PLAN.md decisions 5 to 7): physical cores of socket 0, then both
+# hardware threads of all 32 of them; ms2 splits the reads into 2 MiB blocks at every thread
+# count, and ropebwt3 keeps its default batch.
+THREADS = (1, 2, 4, 8, 16, 32, 64)
+PILOT_THREADS = (1, 32)
+THREAD_SETS = ('human_short', 'human_ont_modern')
+THREAD_BLOCK = 2 << 20
+THREADS_PROTOCOL = dict(
+    PROTOCOL, threads='per cell',
+    numa=dict(physcpubind='the first T physical cores, node 0 first; T = 64 on both hardware threads of the '
+                          'first 32 cores (binding smt)', membind=0),
+    cross_thread_check='every run of every cell records its output sha256, which must be the same at every '
+                       'thread count of a tool, mode and read set (collect.py)',
+    design='BENCH_FREEZE_DESIGN.md D5, D6, D10; THREAD_SCALING_PLAN.md')
 # Per-run limits in seconds. HPRC2 phi ordinary keeps the 3600 s cap and is reported as capped.
 TIMEOUT = dict(ms2=7200, ropebwt3=7200, legacy=7200, count=14400, locate=14400)
 PHI_CAP_S = 3600
@@ -333,6 +352,42 @@ BUILD_LAYOUT = {'ms': 'min', 'psi': 'psi', 'phi': 'phi', 'full': 'full', 'psi-lo
 FMD_REFS = ('human472', 'mtb152', 'chr22-h10', 'chr22-h100')
 
 
+def thread_cells(b, group, rset, threads):
+    """Five configurations at each thread count: ms2 min, psi, phi and dual, and ropebwt3 -l1."""
+    out = {}
+    for t in threads:
+        binding = dict(threads=t, binding='smt' if t > 32 else 'physical', hash_output=True)
+        for layout in LAYOUTS:
+            cell = b.ms2_ms(group, 'human472', rset, layout, 'ordinary', block_bytes=THREAD_BLOCK,
+                            figures=['threads'], fig_id=f'{layout}-ordinary-t{t}')
+            out.setdefault(layout, []).append(dict(cell, **binding))
+        cell = b.rope_ms(group, 'human472', rset, 1, figures=['threads'])
+        out.setdefault('rope', []).append(dict(cell, id=f'{group}/rope-l1-t{t}', **binding))
+    return out
+
+
+def threads_matrix(b):
+    """One job per read set and configuration, each running its seven thread counts on one box.
+    The first job is one short cell at 64 threads, so the SMT binding is seen to work before the
+    long jobs start (decision 10)."""
+    smt = thread_cells(b, 'threads-smt-check', 'human_ont_modern-ms-60mb-acgt-v2', (64,))['ms']
+    b.job('threads-smt-check', smt, platforms=['aws'], note='decision 10: one short 64-thread cell first')
+    for cohort in THREAD_SETS:
+        cells = thread_cells(b, f'threads-{cohort}', f'{cohort}-ms-1gb-acgt-v1', THREADS)
+        for config, config_cells in cells.items():
+            b.job(f'threads-{cohort}-{config}', config_cells, platforms=['aws'])
+
+
+def threads_pilot_matrix(b):
+    """Decision 10: every configuration and read set at 1 and 32 threads on the 60 Mb prefixes, one node."""
+    cells = []
+    for cohort in THREAD_SETS:
+        for config_cells in thread_cells(b, f'threads-pilot-{cohort}', f'{cohort}-ms-60mb-acgt-v2',
+                                         PILOT_THREADS).values():
+            cells += config_cells
+    b.job('threads-pilot', cells, platforms=['rockfish'])
+
+
 def build_matrix(b):
     """All-AWS mode: build jobs for every ms2 binary and index the cells use (D1's ms2 steps).
 
@@ -441,7 +496,7 @@ def toy_matrix(b):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument('--matrix', choices=('freeze', 'toy'), required=True)
+    p.add_argument('--matrix', choices=('freeze', 'toy', 'threads', 'threads-pilot'), required=True)
     p.add_argument('--inputs', required=True, help='inputs catalog (catalog.py hash)')
     p.add_argument('--ms2-repo', required=True, help='ms2 source repository URL')
     p.add_argument('--ms2-commit', required=True, help='full 40-hex ms2 commit')
@@ -470,7 +525,9 @@ def main():
     b.ms2_source = args.ms2_source
     if args.all_aws:
         build_matrix(b)
-    (freeze_matrix if args.matrix == 'freeze' else toy_matrix)(b)
+    matrices = {'freeze': freeze_matrix, 'toy': toy_matrix, 'threads': threads_matrix,
+                'threads-pilot': threads_pilot_matrix}
+    matrices[args.matrix](b)
     if args.all_aws:
         unbuilt = sorted(n for n in b.inputs if n.startswith(('ms2/', 'tools/ms2-')) and n not in b.produced)
         if unbuilt:
@@ -482,7 +539,7 @@ def main():
         raise SystemExit('The cataloged ropebwt3 binary differs from --ropebwt3-binary-sha256')
     manifest = dict(
         format=MANIFEST_FORMAT, matrix=args.matrix, created=now(), generator='ms2exp/manifest.py',
-        note=args.note, seed=args.seed, protocol=PROTOCOL,
+        note=args.note, seed=args.seed, protocol=THREADS_PROTOCOL if args.matrix.startswith('threads') else PROTOCOL,
         ms2=dict(repo=args.ms2_repo, commit=args.ms2_commit, build=args.ms2_build.format(commit=args.ms2_commit),
                  **(dict(source=args.ms2_source) if args.all_aws else {})),
         ropebwt3=dict(repo=args.ropebwt3_repo, commit=args.ropebwt3_commit,

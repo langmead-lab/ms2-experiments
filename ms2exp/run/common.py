@@ -22,7 +22,7 @@ def save(path, data):
     tmp.replace(path)
 
 
-def execute(argv, folder, label, timeout=3600):
+def execute(argv, folder, label, timeout=3600, env=None):
     """Block in wait(), not Python's timeout polling loop, for precise wall time."""
     folder = Path(folder)
     folder.mkdir(parents=True, exist_ok=True)
@@ -33,7 +33,7 @@ def execute(argv, folder, label, timeout=3600):
     expired = threading.Event()
     with out.open('w') as stdout, err.open('w') as stderr:
         started = time.perf_counter()
-        process = subprocess.Popen(command, cwd=folder, env=ENV,
+        process = subprocess.Popen(command, cwd=folder, env=env or ENV,
                                    stdout=stdout, stderr=stderr, start_new_session=True)
         def kill():
             expired.set()

@@ -29,6 +29,17 @@ Steps (run on Rockfish; the heavy ones in Slurm):
       D13.4 for the skin reads: ERR14066769 pairs in deposited order, R1 then R2, uppercased;
       reads with any non-ACGT base dropped; the first reads up to 60,000,000 bases; truth by
       ropebwt3 -l1 on the human472 FMD, converted as the historical skin truth was.
+  superset --cohort human_short|human_ont_modern NAME --prefix SET [--limit BASES]
+      Thread-scaling read sets (THREAD_SCALING_PLAN.md decision 4): the pool the 60 Mb set was
+      drawn from (real-hprc2-1d580b6 selected.fa) under the D13.4 filter, its core records first
+      in core order and then its other records in pool order, stopping at the last read that
+      keeps the total at or below BASES (default 1,000,000,000). The 60 Mb set SET is a prefix of
+      the core records in core order, so it must be a byte-exact prefix of the result (reads.fa
+      and offsets.u64), which this step checks. Reads only; the truth step adds truth.u32.
+  truth NAME [--threads N] [--work DIR]
+      ropebwt3 cfad8475 -l1 truth on the human472 FMD for a prepared set without truth,
+      converted and bounds-checked as the skin truth was; when the set names a prefix set, the
+      new truth over that set's positions must equal the prefix set's truth byte for byte.
 
 A set is never overwritten: a step whose destination exists stops.
 """
@@ -61,6 +72,8 @@ APR008_RAW = P/'inputs/heldout/apr-APR008-hap1/raw/GCA_050494745.1_apr008.1_v1_g
 SHORT_CORE = ROOT/'results/real-hprc2-1d580b6/inputs/human_short'
 SHORT_TRUTH = ROOT/'results/real-hprc2-1d580b6/truth/human_short/core.u32'
 SKIN = ROOT/'reads/guccione-PRJEB83637/skin/ERR14066769'
+POOLS = {c: ROOT/'results/real-hprc2-1d580b6/inputs'/c for c in ('human_short', 'human_ont_modern')}
+SUPERSET_LIMIT = 1_000_000_000
 ROPE = (ROOT/'results/real-hprc2-1d580b6/bin/ropebwt3', 'cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d')
 HUMAN472_FMD = Path('/vast/blangme2/hprc2-ms/ropebwt3/human472.fmd')
 
@@ -352,6 +365,116 @@ def cmd_skin(args):
     finish(dest, manifest)
 
 
+def same_prefix(path, prefix):
+    """True when the file at prefix is a byte-exact prefix of the file at path."""
+    with Path(prefix).open('rb') as a, Path(path).open('rb') as b:
+        while chunk := a.read(1 << 24):
+            if b.read(len(chunk)) != chunk:
+                return False
+    return True
+
+
+def cmd_superset(args):
+    pool = POOLS[args.cohort]
+    prefix = OUT/args.prefix if not Path(args.prefix).is_absolute() else Path(args.prefix)
+    names = {}
+    with (pool/'original-read-names.tsv').open() as f:
+        for line in f:
+            key, _, original, length = line.rstrip('\n').split('\t')
+            names[key] = (original, int(length))
+    # Core records in core order; a read split at non-ACGT characters appears in several records.
+    core = {}
+    with (pool/'core.map.tsv').open() as f:
+        for line in f:
+            core.setdefault(line.split('\t')[1], len(core))
+    order = [int(k[1:]) for k in core]
+    if order != sorted(order):
+        raise ValueError('Core order differs from pool order')
+    dest = new_dir(args.name)
+    offsets, counts = [0], dict(core=0, rest=0)
+    dropped = dict(core=0, rest=0)
+    full = False
+    with (dest/'reads.fa').open('x') as out, (dest/'map.tsv').open('x') as table:
+        table.write('name\tpool_record\toriginal_read\tpart\n')
+        for part in ('core', 'rest'):
+            for key, seq in records(pool/'selected.fa'):
+                if (key in core) != (part == 'core'):
+                    continue
+                if len(seq) != names[key][1]:
+                    raise ValueError(f'{key} length differs from original-read-names.tsv')
+                seq = seq.upper()
+                if not ACGT.match(seq):
+                    dropped[part] += 1
+                    continue
+                if offsets[-1] + len(seq) > args.limit:
+                    full = True
+                    break
+                q = len(offsets) - 1
+                out.write(f'>q{q}\n{seq}\n')
+                table.write(f'q{q}\t{key}\t{names[key][0]}\t{part}\n')
+                offsets.append(offsets[-1] + len(seq))
+                counts[part] += 1
+            if full:
+                break
+    write_u64(dest/'offsets.u64', offsets)
+    (dest/'one.fa').write_text(f">q0\n{next(records(dest/'reads.fa'))[1]}\n")
+    for f in ('reads.fa', 'offsets.u64', 'one.fa'):
+        if not same_prefix(dest/f, prefix/f):
+            raise ValueError(f'{prefix.name}/{f} is not a prefix of {dest.name}/{f}')
+    prefix_manifest = json.loads((prefix/'manifest.json').read_text())
+    manifest = dict(name=dest.name, status='reads-prepared', reference='human472', cohort=args.cohort,
+                    reads=len(offsets) - 1, bases=offsets[-1], one_bases=offsets[1], read_filter=FILTER,
+                    limit_bases=args.limit, reached_limit=full, core_reads=counts['core'], rest_reads=counts['rest'],
+                    dropped_non_acgt_reads=dropped,
+                    selection=('the reads of the pool selected.fa whose original read is entirely A, C, G and T after '
+                               'uppercasing (D13.4), the core records first in core order and then the other records '
+                               'in pool order, taken whole and stopping at the last read that keeps the total at or '
+                               f'below {args.limit} bases (THREAD_SCALING_PLAN.md decision 4); map.tsv names each read'),
+                    pool=dict(path=str(pool/'selected.fa'), sha256=sha256(pool/'selected.fa'),
+                              core_map=str(pool/'core.map.tsv'), core_map_sha256=sha256(pool/'core.map.tsv'),
+                              records=len(names)),
+                    prefix_of=dict(name=prefix.name, path=str(prefix), reads=prefix_manifest['reads'],
+                                   bases=prefix_manifest['bases'], files_equal_prefix=['reads.fa', 'offsets.u64', 'one.fa']))
+    finish(dest, manifest)
+
+
+def cmd_truth(args):
+    dest = OUT/args.name
+    manifest = json.loads((dest/'manifest.json').read_text())
+    if (dest/'truth.u32').exists():
+        raise ValueError(f'{dest.name} already has truth')
+    offsets = read_u64(dest/'offsets.u64')
+    rope, fmd = ROPE[0], HUMAN472_FMD
+    if sha256(rope) != ROPE[1]:
+        raise ValueError('ropebwt3 differs from the frozen comparator')
+    work = Path(args.work or OUT.parent/'truth-jobs')/f"{dest.name}-{os.environ.get('SLURM_JOB_ID', 'local')}"
+    work.mkdir(parents=True, exist_ok=False)
+    row = common.execute([rope, 'mem', '-t', str(args.threads), '-l1', fmd, dest/'reads.fa'], work, 'truth', 12 * 3600)
+    partial = work/'truth.u32'
+    row['check'] = check('ropebwt3', work, row, partial, offsets, write=True)
+    chr22_sim.bounded(partial, offsets)
+    row['stdout_bytes'] = Path(row['stdout']).stat().st_size
+    Path(row['stdout']).unlink()
+    row['raw_output_retained'] = False
+    record = dict(passed=True, command=row, fmd=str(fmd), fmd_sha256=sha256(fmd),
+                  ropebwt3=dict(path=str(rope), sha256=ROPE[1]))
+    prefix = manifest.get('prefix_of')
+    if prefix:
+        theirs = Path(prefix['path'])/'truth.u32'
+        if theirs.stat().st_size != 4 * prefix['bases'] or not same_prefix(partial, theirs):
+            raise ValueError(f'Truth over the first {prefix["bases"]} positions differs from {prefix["name"]}')
+        record['prefix_check'] = dict(name=prefix['name'], truth_sha256=sha256(theirs), bytes=4 * prefix['bases'],
+                                      equal=True)
+    shutil.move(str(partial), dest/'truth.u32')
+    (dest/'truth.json').write_text(json.dumps(record, indent=1, default=str))
+    manifest.update(status='prepared',
+                    truth='ropebwt3 cfad8475 mem -l1 on the human472 FMD, converted to per-position MS by '
+                          'real-hprc2 benchmark.check, every value bounds-checked' +
+                          (f'; equal to {prefix["name"]} truth over its positions' if prefix else ''))
+    manifest.pop('files', None)
+    finish(dest, manifest)
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('--out', default=str(DEFAULT_OUT))
@@ -374,11 +497,20 @@ def main():
     sub.add_parser('short-60mb')
     k = sub.add_parser('skin-60mb')
     k.add_argument('--threads', type=int, default=int(os.environ.get('SLURM_CPUS_PER_TASK', 16)))
+    u = sub.add_parser('superset')
+    u.add_argument('name')
+    u.add_argument('--cohort', required=True, choices=sorted(POOLS))
+    u.add_argument('--prefix', required=True, help='the 60 Mb set that must be a prefix (a name under --out, or a path)')
+    u.add_argument('--limit', type=int, default=SUPERSET_LIMIT)
+    t = sub.add_parser('truth')
+    t.add_argument('name')
+    t.add_argument('--threads', type=int, default=int(os.environ.get('SLURM_CPUS_PER_TASK', 16)))
+    t.add_argument('--work', help='directory for the ropebwt3 output (default OUT/../truth-jobs)')
     args = p.parse_args()
     global OUT
     OUT = Path(args.out)
     {'apr008-chr22': cmd_apr008_chr22, 'simulate': cmd_simulate, 'cap': cmd_cap, 'sample': cmd_sample,
-     'short-60mb': cmd_short, 'skin-60mb': cmd_skin}[args.step](args)
+     'short-60mb': cmd_short, 'skin-60mb': cmd_skin, 'superset': cmd_superset, 'truth': cmd_truth}[args.step](args)
 
 
 if __name__ == '__main__':
