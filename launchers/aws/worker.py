@@ -171,7 +171,7 @@ class Worker:
     def run_job(self, job):
         module = 'ms2exp.build.job' if job.get('kind') == 'build' else 'ms2exp.run.runner'
         argv = [sys.executable, '-m', module, job['id'], '--manifest', self.args.manifest,
-                '--inputs-root', self.root + '/inputs', '--results-root', self.root + '/results',
+                '--inputs-root', self.args.inputs_root or self.root + '/inputs', '--results-root', self.root + '/results',
                 '--stage', str(Path(self.args.work)/'stage'), '--platform', 'aws', '--evict']
         if module == 'ms2exp.run.runner':
             # Without a Rockfish dry run (all-AWS), oracle cells record their own traces untimed first.
@@ -248,6 +248,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('--manifest', required=True)
     p.add_argument('--root', required=True, help='bench S3 root: inputs/, results/ and code/ below it')
+    p.add_argument('--inputs-root', help='S3 prefix of the inputs (default ROOT/inputs)')
     p.add_argument('--work', required=True)
     p.add_argument('--terminate-when-empty', action='store_true')
     p.add_argument('--max-idle-minutes', type=float, default=20,

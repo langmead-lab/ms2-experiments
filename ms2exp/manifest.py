@@ -13,7 +13,8 @@ Matrices:
                  min, psi, phi and dual and ropebwt3 -l1, at 1 to 32 threads on physical cores and
                  64 on both hardware threads of 32 cores; AWS only
   threads-pilot  the threads cells at 1 and 32 threads on the Fig 5 60 Mb sets, which are prefixes
-                 of the 1 Gbase sets; Rockfish only (decision 10)
+                 of the 1 Gbase sets, and the 64-thread SMT cell (decision 10): ms2 on one AWS box,
+                 ropebwt3 on Rockfish
 
 Usage:
   make_manifest.py --matrix freeze --inputs inputs.json --ms2-repo URL --ms2-commit SHA \
@@ -379,15 +380,18 @@ def threads_matrix(b):
 
 
 def threads_pilot_matrix(b):
-    """Decision 10: every configuration and read set at 1 and 32 threads on the 60 Mb prefixes. One job
-    per configuration, so a node stages one index (all four together outgrow a Rockfish node's /tmp)."""
+    """Decision 10: every configuration and read set at 1 and 32 threads on the 60 Mb prefixes, one job
+    per configuration. The frozen ms2 indexes are in S3 only, so the ms2 jobs run on one AWS box, after
+    the 64-thread SMT cell the sweep also starts with; ropebwt3 runs on Rockfish."""
+    smt = thread_cells(b, 'threads-smt-check', 'human_ont_modern-ms-60mb-acgt-v2', (64,))['ms']
+    b.job('threads-smt-check', smt, platforms=['aws'], note='decision 10: one short 64-thread cell first')
     jobs = {}
     for cohort in THREAD_SETS:
         for config, config_cells in thread_cells(b, f'threads-pilot-{cohort}', f'{cohort}-ms-60mb-acgt-v2',
                                                  PILOT_THREADS).items():
             jobs.setdefault(config, []).extend(config_cells)
     for config, cells in jobs.items():
-        b.job(f'threads-pilot-{config}', cells, platforms=['rockfish'])
+        b.job(f'threads-pilot-{config}', cells, platforms=['rockfish'] if config == 'rope' else ['aws'])
 
 
 def build_matrix(b):

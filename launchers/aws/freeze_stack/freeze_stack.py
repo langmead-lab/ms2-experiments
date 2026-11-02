@@ -20,6 +20,10 @@ Credentials: the standing instance role is referenced, as in the other bench sta
 attaches one policy to it that lets a box scale and leave this group and read and write the
 freeze bucket, a private bucket in this account named by bench_s3_root; destroy removes that
 policy and leaves the bucket.
+
+Optional config: inputs_s3_root (default bench_s3_root/inputs) lets a later run read the inputs an
+earlier one published, such as the thread-scaling run reading the freeze's indexes, while its
+code, manifest and results stay under its own bench_s3_root; stack_name (app.py) names the stack.
 """
 
 import json
@@ -58,17 +62,19 @@ class FreezeBenchStack(Stack):
         sec_group.add_ingress_rule(ec2.Peer.ipv4(config['ssh_cidr']), ec2.Port.tcp(22), "SSH")
 
         key_pair = ec2.CfnKeyPair(
-            self, "FreezeKeyPair", key_name="ms2-freeze-bench",
+            self, "FreezeKeyPair", key_name="ms2-freeze-bench" if construct_id == "Ms2FreezeBenchStack" else construct_id,
             tags=[CfnTag(key="application", value="ms2-freeze-bench")])
 
         instance_role = iam.Role.from_role_name(
             self, "FreezeInstanceRole", config['instance_role_name'], mutable=True)
 
+        inputs_root = config.get('inputs_s3_root', config['bench_s3_root'].rstrip('/') + '/inputs').rstrip('/')
         user_data = ec2.UserData.for_linux()
         template = (HERE/'userdata.sh').read_text()
         for key, value in {
             '@REGION@': config['region'],
             '@BENCH_S3_ROOT@': config['bench_s3_root'].rstrip('/'),
+            '@INPUTS_S3_ROOT@': inputs_root,
             '@MANIFEST@': config['manifest'],
             '@MAX_HOURS@': str(int(config['max_hours_per_box'])),
             '@MAX_IDLE_MINUTES@': str(config.get('max_idle_minutes', 20)),
@@ -143,6 +149,12 @@ class FreezeBenchStack(Stack):
             actions=['s3:GetObject', 's3:PutObject', 's3:DeleteObject'],
             resources=[f'arn:aws:s3:::{bucket}/{prefix}/*' if prefix else f'arn:aws:s3:::{bucket}/*'],
         ))
+        if not inputs_root.startswith(config['bench_s3_root'].rstrip('/') + '/'):
+            in_bucket, _, in_prefix = inputs_root[len('s3://'):].partition('/')
+            instance_role.add_to_principal_policy(iam.PolicyStatement(
+                actions=['s3:ListBucket'], resources=[f'arn:aws:s3:::{in_bucket}']))
+            instance_role.add_to_principal_policy(iam.PolicyStatement(
+                actions=['s3:GetObject'], resources=[f'arn:aws:s3:::{in_bucket}/{in_prefix}/*']))
 
         CfnOutput(self, "KeyPairId", value=key_pair.attr_key_pair_id)
         CfnOutput(self, "GroupName", value=group.auto_scaling_group_name)

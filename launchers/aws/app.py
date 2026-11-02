@@ -12,6 +12,7 @@ with open(os.environ.get('FREEZE_CONFIG', 'config.json')) as f:
     config = json.load(f)
 
 app = cdk.App()
-FreezeBenchStack(app, "Ms2FreezeBenchStack",
+# stack_name lets a second run (the thread-scaling one) deploy beside the freeze stack.
+FreezeBenchStack(app, config.get('stack_name', "Ms2FreezeBenchStack"),
                  env=cdk.Environment(account=config['account'], region=config['region']))
 app.synth()

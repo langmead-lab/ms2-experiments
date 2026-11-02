@@ -39,6 +39,6 @@ aws s3 cp --only-show-errors $ROOT/code/freeze-code.tar.gz $W/freeze-code.tar.gz
 tar xzf $W/freeze-code.tar.gz -C $W/code
 aws s3 cp --only-show-errors $ROOT/@MANIFEST@ $W/manifest.json
 cd $W/code
-setsid env PYTHONPATH=$W/code python3 -m launchers.aws.worker --manifest $W/manifest.json --root $ROOT --work $W \
+setsid env PYTHONPATH=$W/code python3 -m launchers.aws.worker --manifest $W/manifest.json --root $ROOT --inputs-root @INPUTS_S3_ROOT@ --work $W \
     --terminate-when-empty --max-idle-minutes @MAX_IDLE_MINUTES@ > $W/worker.out 2>&1 < /dev/null &
 echo USERDATA_DONE
