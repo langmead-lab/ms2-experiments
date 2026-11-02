@@ -49,8 +49,9 @@ def test_threads_matrix_has_seventy_cells_and_an_smt_check_first():
 
 def test_pilot_matrix_runs_every_configuration_at_1_and_32_on_the_60mb_sets():
     b = matrix(manifest.threads_pilot_matrix)
-    assert [j['id'] for j in b.jobs] == ['threads-pilot'] and b.jobs[0]['platforms'] == ['rockfish']
-    cells = b.jobs[0]['cells']
+    assert [j['id'] for j in b.jobs] == [f'threads-pilot-{c}' for c in ('ms', 'psi', 'phi', 'dual', 'rope')]
+    assert all(j['platforms'] == ['rockfish'] and len(j['cells']) == 4 for j in b.jobs)
+    cells = [c for j in b.jobs for c in j['cells']]
     assert len(cells) == 20
     assert {c['read_set'] for c in cells} == {'human_short-ms-60mb-acgt-v2', 'human_ont_modern-ms-60mb-acgt-v2'}
     assert sorted({c['threads'] for c in cells}) == [1, 32]

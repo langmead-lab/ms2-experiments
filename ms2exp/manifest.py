@@ -379,13 +379,15 @@ def threads_matrix(b):
 
 
 def threads_pilot_matrix(b):
-    """Decision 10: every configuration and read set at 1 and 32 threads on the 60 Mb prefixes, one node."""
-    cells = []
+    """Decision 10: every configuration and read set at 1 and 32 threads on the 60 Mb prefixes. One job
+    per configuration, so a node stages one index (all four together outgrow a Rockfish node's /tmp)."""
+    jobs = {}
     for cohort in THREAD_SETS:
-        for config_cells in thread_cells(b, f'threads-pilot-{cohort}', f'{cohort}-ms-60mb-acgt-v2',
-                                         PILOT_THREADS).values():
-            cells += config_cells
-    b.job('threads-pilot', cells, platforms=['rockfish'])
+        for config, config_cells in thread_cells(b, f'threads-pilot-{cohort}', f'{cohort}-ms-60mb-acgt-v2',
+                                                 PILOT_THREADS).items():
+            jobs.setdefault(config, []).extend(config_cells)
+    for config, cells in jobs.items():
+        b.job(f'threads-pilot-{config}', cells, platforms=['rockfish'])
 
 
 def build_matrix(b):
