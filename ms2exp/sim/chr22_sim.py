@@ -633,3 +633,50 @@ def truth(name, reference, source=None, destination=None, work=None, records=rop
                     files={n: dict(bytes=(destination/n).stat().st_size, sha256=sha256(destination/n)) for n in names})
     save_new(destination/'manifest.json', manifest)
     return manifest
+
+
+def main(argv=None):
+    """Command line: simulate a read set, from the default haplotype or another ACGT-only source, or make its truth.
+
+The Fig ops PacBio sets used simulate --set pacbio --source FASTA --destination DIR --seed S (seed 2026102612
+for the APR008 haplotype 1 records, 2026102611 with --pair-reverse-complements for the 8 held-out mtb152
+genomes); data/prep/fig_ops_sets.sh has both calls.
+"""
+    import argparse
+    parser = argparse.ArgumentParser(description=main.__doc__)
+    sub = parser.add_subparsers(dest='action', required=True)
+    s = sub.add_parser('simulate')
+    s.add_argument('--set', required=True, choices=sorted(SETS))
+    s.add_argument('--threads', type=int, default=int(os.environ.get('SLURM_CPUS_PER_TASK', 8)))
+    s.add_argument('--source', help='simulate from this FASTA of ACGT-only records instead of the default haplotype')
+    s.add_argument('--destination', help='the read set directory (required with --source)')
+    s.add_argument('--pair-reverse-complements', action='store_true',
+                   help='source records are sequence and reverse-complement pairs; keep the first of each')
+    s.add_argument('--source-note', help='provenance of the source, recorded in the manifest')
+    s.add_argument('--seed', type=int, help="the set's seed by default")
+    s.add_argument('--cohort', help="the set's chr22 cohort by default")
+    s.add_argument('--real-workload', help='the real read set whose lengths give the templates (pacbio, ont)')
+    t = sub.add_parser('truth')
+    t.add_argument('--set', required=True, choices=sorted(SETS))
+    t.add_argument('--reference', required=True, choices=REFERENCES)
+    t.add_argument('--source', help='the read set directory (the default set directory otherwise)')
+    t.add_argument('--destination', help='the workload directory (the default workload directory otherwise)')
+    t.add_argument('--work', help='directory for the ropebwt3 run')
+    args = parser.parse_args(argv)
+    if args.action == 'simulate':
+        if args.source and not args.destination:
+            parser.error('--source needs --destination')
+        if not args.source and (args.destination or args.pair_reverse_complements or args.source_note):
+            parser.error('--destination, --pair-reverse-complements and --source-note go with --source')
+        source = load_source(args.source, args.pair_reverse_complements, args.source_note) if args.source else None
+        m = simulate(args.set, threads=args.threads, destination=args.destination, source=source, seed=args.seed,
+                     cohort=args.cohort, real_workload=args.real_workload)
+        print(json.dumps(dict(set=args.set, reads=m['reads'], bases=m['bases'], lengths=m['lengths'],
+                              dropped=m['simulated']['dropped_non_acgt'])), flush=True)
+    else:
+        m = truth(args.set, args.reference, source=args.source, destination=args.destination, work=args.work)
+        print(json.dumps(dict(reads=m['reads'], bases=m['bases'], truth=m['files']['truth.u32']['sha256'])), flush=True)
+
+
+if __name__ == '__main__':
+    main()
