@@ -41,6 +41,7 @@ them.
 | `ms2exp.build.tools`, `.job`, `.d13_prep` | Tool builds, AWS build jobs, D13 read-set preparation |
 | `ms2exp.sim.chr22_sim` | Simulated read sets and their truth |
 | `ms2exp.collect` | Group summaries and cross-tool checks |
+| `ms2exp.read_sets` | The read-set records in `data/read-sets.json` |
 | `ms2exp.figures` | Figure and table generators, and the driver below |
 
 ## Figures
@@ -65,8 +66,12 @@ This rebuilds `figures/` from `results/freeze-2885ee8-00e665de`. It needs latexm
 | Fig locate-ftab (appendix) | `locate_ftab.pdf` | `fig-lftab.tex` |
 
 Every number plotted is in `figures/draft/plotted-points.csv`, with its median query and load
-times. The load-time table is in `figures/draft/CAPTIONS.md`. Fig rep is not regenerated from these
-results (`results/README.md` says why).
+times. The load-time table (Table A2) is `figures/tex/tab-load.tex`. `figures/draft/CAPTIONS.md`
+holds draft captions built from the run records and `data/read-sets.json`. Every number the paper
+quotes is listed, by id, in `figures/paper-values.json`; `python -m ms2exp.figures.paper_numbers`
+computes each one from the records and writes `figures/draft/paper-numbers.md`, which also lists the
+paper edits still outstanding (`--strict` fails on any disagreement). Fig rep is not regenerated
+from these results (`results/README.md` says why).
 
 ## Small "toy" run
 
