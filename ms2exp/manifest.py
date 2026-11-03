@@ -469,15 +469,16 @@ def build_matrix(b):
 
 
 def toy_matrix(b):
-    """mtb152-sized cells covering every runner path; inputs come from toy_prep.sh."""
+    """mtb152-sized cells covering every runner path, on the freeze's read sets or cuts of them; inputs come
+    from toy_prep.sh."""
     block = 64 << 20
     ref = 'mtb152'
-    for rset in ('mtb152-heldout16-p100k-v1', 'mtb152-pacbio-60mb-v1'):
+    for rset in ('mtb152-heldout16-p100k-s600-v1', 'mtb152-pacbio-60mb-v2'):
         group = f'fig_ops-{rset}'
         cells = [b.ms2_ms(group, ref, rset, l, m, block_bytes=block, figures=['3'])
                  for l in LAYOUTS for m in ('ordinary', 'oracle')]
         b.job(f'toy-fig3-{rset}', cells)
-    rset = 'mtb152-pacbio-60mb-v1'
+    rset = 'mtb152-pacbio-60mb-v2'
     group = f'toy-ms-{rset}'
     cells = [b.ms2_ms(group, ref, rset, l, 'ftab', figures=['A5']) for l in ('ms', 'psi')]
     cells += [b.rope_ms(group, ref, rset, n, batch='1m', figures=['4']) for n in (1, 19, 30)]
@@ -486,14 +487,14 @@ def toy_matrix(b):
     b.job('toy-ms-mixed', cells)
     b.job('toy-count', [b.ms2_count(group + '-counts', ref, rset, l, 'ordinary', figures=['3'])
                         for l in ('ms', 'psi')], platforms=['rockfish'])
-    rset = 'mtb152-locate-2mb-v1'
+    rset = 'mtb152-locate-2mb-v2'
     group = 'toy-locate-2mb'
     cells = [b.ms2_locate(group, ref, rset, l, c, index_name='index.tms.full.seqids.orbitidx')
              for l in ('phi', 'dual') for c in (1, 10)]
     cells += [b.rope_locate(group, ref, rset, c, 8) for c in (1, 10)]
     b.job('toy-locate', cells)
     # MONI, PHONI and AugPHONI on their chr22-h10 indexes (D1), next to ms2-min on the same reads.
-    ref, rset = 'chr22-h10', 'simshort-4mb-v1'
+    ref, rset = 'chr22-h10', 'simshort-4mb-v2'
     group = f'toy-{ref}-ms-simshort'
     cells = [b.legacy(group, ref, rset, t, figures=['4']) for t in LEGACY_FILES]
     cells.append(b.ms2_ms(group, ref, rset, 'ms', 'ordinary', figures=['4']))

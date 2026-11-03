@@ -1,10 +1,10 @@
 # Expected toy results
 
-The collected summaries and manifest of the toy run made on 2026-11-01 on devlangmead1 with the
-freeze code as it ran on AWS (`freeze-code.tar.gz`, sha256 300e2338...), ms2 2885ee86 from source
-bundles. A run of `toy_prep.sh` and `toy_run.sh` from this repository at the same commit gave the
-same summaries, report and done markers apart from timings, memory, hosts and paths
-(`compare.py`); the only other differences were the sha256s of the separately built mtb152
-indexes, whose ORBITIDX headers record the build path and time. Timing fields here are
-devlangmead1's, from runs without root (inputs evicted with posix_fadvise), so they are for
-orientation only.
+The collected group summaries, collect report and manifest of the toy run made on 2026-11-03 on
+devlangmead1 (the lab's development server on Rockfish) with `toy_prep.sh` and `toy_run.sh` from
+this repository, ms2 2885ee86 (`paper-v1`) from GitHub, and inputs linked from the lab's copies by
+`python -m ms2exp.fetch --set toy --link`. All 34 cells finished: 33 checked against truth, and
+the `phi-ordinary-capped` cell capped by design (its cap is 1 s), and every locate comparison with
+ropebwt3 agreed. `toy/compare.py --expected toy/expected TOY_DIR` checks another run against these
+files. Timing fields are devlangmead1's, from runs without root (inputs evicted with
+posix_fadvise), so they are for orientation only.

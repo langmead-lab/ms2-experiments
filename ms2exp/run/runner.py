@@ -2,8 +2,8 @@
 """Run one job of the freeze manifest: stage its inputs, run its cells, check, record, resume.
 
 Usage:
-  run_job.py JOB_ID --manifest MANIFEST --inputs-root ROOT --results-root ROOT --stage DIR
-             [--platform rockfish|aws] [--no-numa] [--record-traces] [--evict]
+  python -m ms2exp.run.runner JOB_ID --manifest MANIFEST --inputs-root ROOT --results-root ROOT --stage DIR
+             [--platform rockfish|aws] [--no-numa] [--any-thp] [--record-traces] [--evict]
 
 The same script runs on Rockfish and on AWS (BENCH_FREEZE_DESIGN.md D11):
 - Inputs resolve by logical name under --inputs-root (a directory or an s3:// prefix) and are
@@ -99,9 +99,15 @@ class Runner:
         self.context = {}
         self.host = host_info()
         want = self.manifest['protocol'].get('transparent_hugepages')
+        self.thp_override = False
         if want and self.job.get('pool') == 'timed' and self.host.get('thp_enabled') != want:
-            raise SystemExit(f"Transparent huge pages are {self.host.get('thp_enabled')!r}; the protocol "
-                             f"times every run with {want!r}")
+            if not args.any_thp:
+                raise SystemExit(f"Transparent huge pages are {self.host.get('thp_enabled')!r}; the protocol "
+                                 f"times every run with {want!r} (--any-thp runs anyway, as the toy may)")
+            # The attempt record says the protocol's setting was overridden; summaries record the host's.
+            self.thp_override = True
+            log(f"transparent huge pages are {self.host.get('thp_enabled')!r}, not {want!r}; timings do not "
+                'follow the protocol')
 
     # Selection and order.
 
@@ -658,6 +664,8 @@ class Runner:
     def run(self):
         attempt = dict(job=self.job['id'], manifest_id=self.manifest['id'], host=self.host, platform=self.platform,
                        started=time.time(), argv=sys.argv, root=self.root)
+        if self.thp_override:
+            attempt['thp_override'] = True
         cells = self.cells()
         todo = [c for c in cells if not self.done(c)]
         attempt.update(cells=len(cells), already_done=len(cells) - len(todo),
@@ -751,7 +759,9 @@ def main():
     p.add_argument('--results-root', required=True)
     p.add_argument('--stage', required=True, help='local disk for staged inputs and work files')
     p.add_argument('--platform', choices=('rockfish', 'aws'), required=True)
-    p.add_argument('--no-numa', action='store_true', help='run without numactl (tests only)')
+    p.add_argument('--no-numa', action='store_true', help='run without numactl (tests, or hosts without it)')
+    p.add_argument('--any-thp', action='store_true',
+                   help='run timed jobs under any transparent huge page setting, recording the override')
     p.add_argument('--record-traces', action='store_true', help='record oracle traces still pending (D12)')
     p.add_argument('--evict', action='store_true', help='free cached inputs other jobs staged when short of disk')
     p.add_argument('--keep-work', action='store_true')

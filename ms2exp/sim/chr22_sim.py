@@ -1,7 +1,8 @@
 """Simulated read sets and their MS truth, as used for the chr22 and D13 read sets and Fig rep.
 
 simulate() makes about TARGET bases of whole reads, both strands, with fixed seeds, from ACGT-only
-source records (the held-out NA19240 paternal chr22 haplotype, or another FASTA given as source):
+source records: a haplotype directory (acgt.fa and its manifest.json) or another FASTA loaded with
+load_source. The freeze's chr22 sets come from APR008 hap1 chr22 (d13_prep.py simulate):
     short: ART 2.5.8 (art_illumina -ss HS25, HiSeq 2500 built-in profile, single-end 125 bases).
     pacbio: pbsim3 3.0.5 multi-pass simulation, the documented HiFi route: template strategy,
       QSHMM-RSII.model, --pass-num 10, then PacBio ccs 6.4.0 with its defaults (at least 3
@@ -19,7 +20,11 @@ counts and length quantiles.
 
 truth() runs ropebwt3 cfad8475 `mem -t1 -l1` on the reference's FMD, converts its SMEMs to
 per-position MS with ms2exp.validate.ms.check, bounds-checks them (1 <= ms[j] <= length - j) and
-writes them with copies of the reads as a workload.
+writes them with copies of the reads as a workload. It takes the ropebwt3 binary and the FMD from
+the data directory (MS2EXP_DATA) by logical name, each checked against data/inputs.tsv.
+
+The simulator binaries, models and real read-length workloads are in the lab's tree (ROOT, from
+MS2EXP_LAB_ROOT); the tests and other callers patch BINARIES, MODEL and REAL.
 """
 import array
 import bisect
@@ -37,6 +42,7 @@ import subprocess
 import sys
 import time
 
+from ms2exp import paths
 from ms2exp.run import common
 from ms2exp.run.common import atomic_save
 from ms2exp.validate.ms import check
@@ -45,13 +51,12 @@ from ms2exp.validate.ms import check
 ROPE_SHA256 = 'cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d'
 
 FORMAT = 'chr22-sim-v1'
-ROOT = Path('/scratch16/blangme2/ms-bakery')
+ROOT = paths.LAB_ROOT
 P = ROOT/'results/campaign-20261012'
 SIM = P/'inputs/chr22_sim'
 FILTER = 'acgt-only-whole-reads'
 TARGET = 60_000_000
 REFERENCES = ('chr22-h10', 'chr22-h100')
-HAPLOTYPE = SIM/'haplotype-NA19240-pat-chr22-v1'
 TOOLS = ROOT/'tools'
 SIM_ENV = TOOLS/'sim-env'
 HIFI_ENV = TOOLS/'hifi-env/.pixi/envs/default'
@@ -177,7 +182,8 @@ def binary(name):
     return dict(path=str(path), sha256=expected, version=version)
 
 
-def load_haplotype(path=HAPLOTYPE):
+def load_haplotype(path):
+    """The manifest (with its path and sha256 added) and ACGT segments of a haplotype directory."""
     path = Path(path)
     manifest = json.loads((path/'manifest.json').read_text())
     for name, record in manifest['files'].items():
@@ -185,6 +191,7 @@ def load_haplotype(path=HAPLOTYPE):
     segments = list(fasta(path/'acgt.fa'))
     if sum(len(s) for _, s in segments) != manifest['acgt_bases']:
         raise ValueError('ACGT segments differ from the haplotype manifest')
+    manifest.update(path=str(path), manifest_sha256=sha256(path/'manifest.json'))
     return manifest, segments
 
 
@@ -460,7 +467,7 @@ haplotype; cohort replaces the set's chr22 cohort.
     (destination/'offsets.u64').write_bytes(offsets.tobytes())
     files = ('reads.fa', 'one.fa', 'offsets.u64', 'origins.tsv')
     if source is None:
-        origin_entry = dict(source_haplotype=dict(path=str(HAPLOTYPE), sample=haplotype_manifest['sample'],
+        origin_entry = dict(source_haplotype=dict(path=haplotype_manifest.get('path'), sample=haplotype_manifest['sample'],
                                                   manifest_sha256=haplotype_manifest.get('manifest_sha256'),
                                                   acgt_bases=haplotype_manifest['acgt_bases']))
     else:
@@ -478,12 +485,16 @@ haplotype; cohort replaces the set's chr22 cohort.
     return manifest
 
 
-def simulate(name, threads=8, destination=None, work=None, source=None, seed=None, cohort=None, real_workload=None):
-    """Simulate one read set from the chr22 haplotype or, with source, from (record, segments) of load_source.
+def simulate(name, threads=8, destination=None, work=None, source=None, seed=None, cohort=None, real_workload=None,
+             haplotype=None):
+    """Simulate one read set from a haplotype directory (haplotype) or from (record, segments) of load_source (source).
 
-A source run needs a destination and may set its own seed and cohort; the recipe (simulator,
-model, template lengths, oversampling, filter and target) is the set's.
+Exactly one of the two is required. A source run needs a destination and may set its own seed
+and cohort; the recipe (simulator, model, template lengths, oversampling, filter and target) is
+the set's.
 """
+    if (source is None) == (haplotype is None):
+        raise ValueError('Give the reads\' source: haplotype (a haplotype directory) or source (load_source)')
     if source is not None and destination is None:
         raise ValueError('A simulation from another source needs a destination')
     destination = Path(destination or reads_dir(name))
@@ -492,8 +503,7 @@ model, template lengths, oversampling, filter and target) is the set's.
     spec = SETS[name]
     seed = spec['seed'] if seed is None else seed
     if source is None:
-        hap, segments = load_haplotype()
-        hap['manifest_sha256'] = sha256(HAPLOTYPE/'manifest.json')
+        hap, segments = load_haplotype(haplotype)
         label = name
     else:
         hap, segments = source
@@ -506,7 +516,7 @@ model, template lengths, oversampling, filter and target) is the set's.
     evidence = P/'chr22-sim-jobs'/f"{label}-{os.environ.get('SLURM_JOB_ID', 'local')}"
     evidence.mkdir(parents=True)
     try:
-        segments_path = HAPLOTYPE/'acgt.fa'
+        segments_path = Path(haplotype)/'acgt.fa' if source is None else None
         if name == 'short' and source is not None:
             segments_path = work/'segments.fa'
             with segments_path.open('x') as f:
@@ -533,10 +543,6 @@ model, template lengths, oversampling, filter and target) is the set's.
         shutil.rmtree(work, ignore_errors=True)
 
 
-# Historical chr22 cells: their staging.json files hashed the binaries, FMDs and legacy indexes.
-CELLS = ROOT/'results/real-hprc2-1d580b6/chr22/cells'
-
-
 def sha256(path):
     h = hashlib.sha256()
     with Path(path).open('rb') as f:
@@ -545,23 +551,18 @@ def sha256(path):
     return h.hexdigest()
 
 
-def staged_record(batch, member, suffix):
-    """(path, bytes, sha256) of the one file a batch member staged whose source ends with suffix."""
-    rows = [f for f in json.loads((Path(batch)/member/'staging.json').read_text())['files']
-            if str(f.get('source', '')).endswith(suffix)]
-    if len(rows) != 1 or len(rows[0].get('sha256', '')) != 64:
-        raise ValueError(f'No single verified staging record for {suffix} in {member}')
-    return dict(path=rows[0]['source'], bytes=rows[0]['bytes'], sha256=rows[0]['sha256'])
-
-
 def rope_records(reference):
-    """The ropebwt3 binary and FMD the chr22 runs stage, from the historical staging records."""
-    batch = CELLS/reference/'human_short'
-    rope = staged_record(batch, 'ropebwt3', '/bin/ropebwt3')
-    fmd = staged_record(batch, 'ropebwt3', '/ropebwt3/index.fmd')
-    if rope['sha256'] != ROPE_SHA256:
+    """The pinned ropebwt3 binary and the reference's FMD in the data directory, with their sizes and
+    sha256 from data/inputs.tsv."""
+    from ms2exp.fetch import load_table, TABLE
+    table, data = load_table(TABLE), paths.data_dir()
+    out = []
+    for name in ('tools/ropebwt3-cfad8475/ropebwt3', f'ropebwt3/{reference}/index.fmd'):
+        row = table[name]
+        out.append(dict(path=str(data/name), bytes=int(row['bytes']), sha256=row['sha256']))
+    if out[0]['sha256'] != ROPE_SHA256:
         raise ValueError('ropebwt3 differs from the frozen comparator')
-    return rope, fmd
+    return tuple(out)
 
 
 def bounded(truth, offsets):

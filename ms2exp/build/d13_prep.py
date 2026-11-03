@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Read sets and truth for design decision D13 (BENCH_FREEZE_DESIGN.md, dataset consolidation).
 
-Every set lands in OUT/<name>/ (OUT defaults to results/freeze-d13/inputs) with reads.fa,
+Every set lands in OUT/<name>/ (--out; default DATA/prepared, DATA being the data directory,
+MS2EXP_DATA) with reads.fa,
 offsets.u64 (read boundaries, n + 1 little-endian u64), truth.u32 (per-position MS, when the
 set has truth), one.fa (its first read, for the legacy one-read run) where the source has one,
 and manifest.json recording the source, rule, counts and file checksums.
@@ -42,6 +43,11 @@ Steps (run on Rockfish; the heavy ones in Slurm):
       new truth over that set's positions must equal the prefix set's truth byte for byte.
 
 A set is never overwritten: a step whose destination exists stops.
+
+Steps that start from lab-internal pools (apr008-chr22's raw assembly, short-60mb, skin-60mb's
+FASTQ files and superset) read them under the lab root, MS2EXP_LAB_ROOT. ropebwt3 and the human472
+FMD come from the data directory by logical name (tools/ropebwt3-cfad8475/ropebwt3,
+ropebwt3/human472/index.fmd), or from --ropebwt3 and --fmd, and the binary is checked against its pin.
 """
 import argparse
 import array
@@ -55,16 +61,16 @@ import shutil
 import sys
 import time
 
+from ms2exp import paths
 from ms2exp.run import common
 from ms2exp.sim import chr22_sim
 from ms2exp.sim.chr22_sim import sha256
 from ms2exp.validate.ms import check
 
-ROOT = Path('/scratch16/blangme2/ms-bakery')
+ROOT = paths.LAB_ROOT
 
 P = ROOT/'results/campaign-20261012'
-DEFAULT_OUT = ROOT/'results/freeze-d13/inputs'
-OUT = DEFAULT_OUT
+OUT = None
 LIMIT = 60_000_000
 FILTER = 'acgt-only-whole-reads'
 ACGT = re.compile('^[ACGT]+$')
@@ -74,8 +80,17 @@ SHORT_TRUTH = ROOT/'results/real-hprc2-1d580b6/truth/human_short/core.u32'
 SKIN = ROOT/'reads/guccione-PRJEB83637/skin/ERR14066769'
 POOLS = {c: ROOT/'results/real-hprc2-1d580b6/inputs'/c for c in ('human_short', 'human_ont_modern')}
 SUPERSET_LIMIT = 1_000_000_000
-ROPE = (ROOT/'results/real-hprc2-1d580b6/bin/ropebwt3', 'cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d')
-HUMAN472_FMD = Path('/vast/blangme2/hprc2-ms/ropebwt3/human472.fmd')
+ROPE_SHA256 = 'cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d'
+
+
+def rope_and_fmd(args):
+    """The pinned ropebwt3 and the human472 FMD: --ropebwt3 and --fmd, else the data directory's."""
+    data = None if args.ropebwt3 and args.fmd else paths.data_dir()
+    rope = Path(args.ropebwt3 or data/'tools/ropebwt3-cfad8475/ropebwt3')
+    fmd = Path(args.fmd or data/'ropebwt3/human472/index.fmd')
+    if sha256(rope) != ROPE_SHA256:
+        raise ValueError('ropebwt3 differs from the frozen comparator')
+    return rope, fmd
 
 
 def read_u64(path):
@@ -339,9 +354,7 @@ def cmd_skin(args):
                 break
     write_u64(dest/'offsets.u64', offsets)
     (dest/'one.fa').write_text(f">q0\n{next(records(dest/'reads.fa'))[1]}\n")
-    rope, fmd = ROPE[0], HUMAN472_FMD
-    if sha256(rope) != ROPE[1]:
-        raise ValueError('ropebwt3 differs from the frozen comparator')
+    rope, fmd = rope_and_fmd(args)
     work = OUT.parent/'truth-jobs'/f"skin-{os.environ.get('SLURM_JOB_ID', 'local')}"
     work.mkdir(parents=True, exist_ok=False)
     row = common.execute([rope, 'mem', '-t', str(args.threads), '-l1', fmd, dest/'reads.fa'], work, 'truth', 6 * 3600)
@@ -352,7 +365,7 @@ def cmd_skin(args):
     row['raw_output_retained'] = False
     shutil.move(str(partial), dest/'truth.u32')
     (dest/'truth.json').write_text(json.dumps(dict(passed=True, command=row, fmd=str(fmd),
-                                                   ropebwt3=dict(path=str(rope), sha256=ROPE[1])), indent=1, default=str))
+                                                   ropebwt3=dict(path=str(rope), sha256=ROPE_SHA256)), indent=1, default=str))
     manifest = dict(name=dest.name, status='prepared', reference='human472', cohort='guccione_skin',
                     reads=len(offsets) - 1, bases=bases, one_bases=offsets[1], read_filter=FILTER, limit_bases=LIMIT,
                     run='ERR14066769', dropped_non_acgt_reads=dropped,
@@ -444,9 +457,7 @@ def cmd_truth(args):
     if (dest/'truth.u32').exists():
         raise ValueError(f'{dest.name} already has truth')
     offsets = read_u64(dest/'offsets.u64')
-    rope, fmd = ROPE[0], HUMAN472_FMD
-    if sha256(rope) != ROPE[1]:
-        raise ValueError('ropebwt3 differs from the frozen comparator')
+    rope, fmd = rope_and_fmd(args)
     work = Path(args.work or OUT.parent/'truth-jobs')/f"{dest.name}-{os.environ.get('SLURM_JOB_ID', 'local')}"
     work.mkdir(parents=True, exist_ok=False)
     row = common.execute([rope, 'mem', '-t', str(args.threads), '-l1', fmd, dest/'reads.fa'], work, 'truth', 12 * 3600)
@@ -457,7 +468,7 @@ def cmd_truth(args):
     Path(row['stdout']).unlink()
     row['raw_output_retained'] = False
     record = dict(passed=True, command=row, fmd=str(fmd), fmd_sha256=sha256(fmd),
-                  ropebwt3=dict(path=str(rope), sha256=ROPE[1]))
+                  ropebwt3=dict(path=str(rope), sha256=ROPE_SHA256))
     prefix = manifest.get('prefix_of')
     if prefix:
         theirs = Path(prefix['path'])/'truth.u32'
@@ -477,7 +488,7 @@ def cmd_truth(args):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument('--out', default=str(DEFAULT_OUT))
+    p.add_argument('--out', help='directory of the prepared sets (default DATA/prepared)')
     sub = p.add_subparsers(dest='step', required=True)
     a = sub.add_parser('apr008-chr22')
     a.add_argument('--scaffold', required=True)
@@ -497,6 +508,8 @@ def main():
     sub.add_parser('short-60mb')
     k = sub.add_parser('skin-60mb')
     k.add_argument('--threads', type=int, default=int(os.environ.get('SLURM_CPUS_PER_TASK', 16)))
+    k.add_argument('--ropebwt3', help='the pinned ropebwt3 binary (default: the data directory\'s)')
+    k.add_argument('--fmd', help='the human472 FMD (default: the data directory\'s)')
     u = sub.add_parser('superset')
     u.add_argument('name')
     u.add_argument('--cohort', required=True, choices=sorted(POOLS))
@@ -506,9 +519,11 @@ def main():
     t.add_argument('name')
     t.add_argument('--threads', type=int, default=int(os.environ.get('SLURM_CPUS_PER_TASK', 16)))
     t.add_argument('--work', help='directory for the ropebwt3 output (default OUT/../truth-jobs)')
+    t.add_argument('--ropebwt3', help='the pinned ropebwt3 binary (default: the data directory\'s)')
+    t.add_argument('--fmd', help='the human472 FMD (default: the data directory\'s)')
     args = p.parse_args()
     global OUT
-    OUT = Path(args.out)
+    OUT = Path(args.out) if args.out else paths.data_dir()/'prepared'
     {'apr008-chr22': cmd_apr008_chr22, 'simulate': cmd_simulate, 'cap': cmd_cap, 'sample': cmd_sample,
      'short-60mb': cmd_short, 'skin-60mb': cmd_skin, 'superset': cmd_superset, 'truth': cmd_truth}[args.step](args)
 

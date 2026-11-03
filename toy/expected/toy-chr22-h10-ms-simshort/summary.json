@@ -1,17 +1,17 @@
 {
   "format": "ms2-freeze-group-v1",
   "group": "toy-chr22-h10-ms-simshort",
-  "manifest_id": "toy-2885ee8-4bc8752a",
+  "manifest_id": "toy-2885ee8-0eb9d475",
   "config": {
     "workload": {
       "reads": 32000,
       "bases": 4000000,
       "reference": "chr22-h10",
-      "read_set": "simshort-4mb-v1"
+      "read_set": "simshort-4mb-v2"
     },
     "orbit": {
       "revision": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
-      "repo": "/scratch16/blangme2/ms2-experiments-check/source-2885ee8/ms2.bundle"
+      "repo": "https://github.com/langmead-lab/ms2.git"
     },
     "rope": {
       "batch_size": null,
@@ -42,22 +42,22 @@
     {
       "id": "augphoni",
       "status": "checked",
-      "median_query_seconds": 6.4456070102751255,
-      "median_load_seconds": 0.799184612929821,
+      "median_query_seconds": 6.275292206555605,
+      "median_load_seconds": 0.6814485937356949,
       "query_seconds": [
-        5.888306122273207,
-        6.608487520366907,
-        6.4456070102751255
+        6.275292206555605,
+        6.534445010125637,
+        6.248228128999472
       ],
       "load_seconds": [
-        0.8046132512390614,
-        0.799184612929821,
-        0.7817760109901428
+        0.6907059475779533,
+        0.6814485937356949,
+        0.6690068393945694
       ],
-      "peak_rss_kib": 979748,
-      "mbases_per_second": 0.6205777041050573,
-      "ns_per_base": 1611.4017525687814,
-      "query_spread_fraction": 0.11173212964203973,
+      "peak_rss_kib": 979416,
+      "mbases_per_second": 0.6374205165810961,
+      "ns_per_base": 1568.8230516389012,
+      "query_spread_fraction": 0.04561012805541763,
       "tool": "augphoni",
       "kind": "ms",
       "figures": [
@@ -81,22 +81,22 @@
     {
       "id": "moni",
       "status": "checked",
-      "median_query_seconds": 6.632292177528143,
-      "median_load_seconds": 0.5269343741238117,
+      "median_query_seconds": 6.514104884117842,
+      "median_load_seconds": 0.4695747569203377,
       "query_seconds": [
-        6.652509614825249,
-        6.632292177528143,
-        6.478655472397804
+        6.423927430063486,
+        6.795679219067097,
+        6.514104884117842
       ],
       "load_seconds": [
-        0.5265778824687004,
-        0.5269343741238117,
-        0.5339046753942966
+        0.48599420115351677,
+        0.4695747569203377,
+        0.4658505357801914
       ],
-      "peak_rss_kib": 673260,
-      "mbases_per_second": 0.6031097383726544,
-      "ns_per_base": 1658.0730443820357,
-      "query_spread_fraction": 0.026213281588604552,
+      "peak_rss_kib": 673048,
+      "mbases_per_second": 0.6140521332029014,
+      "ns_per_base": 1628.5262210294604,
+      "query_spread_fraction": 0.057068744764915504,
       "tool": "moni",
       "kind": "ms",
       "figures": [
@@ -123,22 +123,22 @@
       "layout": "ms",
       "mode": "ordinary",
       "interleave": 32,
-      "median_query_seconds": 0.207186,
-      "median_load_seconds": 0.509151,
+      "median_query_seconds": 0.191308,
+      "median_load_seconds": 0.509304,
       "query_seconds": [
-        0.20583,
-        0.207452,
-        0.207186
+        0.192292,
+        0.190831,
+        0.191308
       ],
       "load_seconds": [
-        0.5066,
-        0.512711,
-        0.509151
+        0.542554,
+        0.507449,
+        0.509304
       ],
-      "peak_rss_kib": 505696,
-      "mbases_per_second": 19.306323786356224,
-      "ns_per_base": 51.7965,
-      "query_spread_fraction": 0.007828714295367373,
+      "peak_rss_kib": 605668,
+      "mbases_per_second": 20.90869174315763,
+      "ns_per_base": 47.827000000000005,
+      "query_spread_fraction": 0.0076368996591882725,
       "tool": "ms2",
       "kind": "ms",
       "figures": [
@@ -162,22 +162,22 @@
     {
       "id": "phoni",
       "status": "checked",
-      "median_query_seconds": 8.419878296554089,
-      "median_load_seconds": 0.4846605099737644,
+      "median_query_seconds": 8.061413377523422,
+      "median_load_seconds": 0.42029036581516266,
       "query_seconds": [
-        8.433143265545368,
-        8.419878296554089,
-        8.247193548828363
+        8.171087563037872,
+        8.060384530574083,
+        8.061413377523422
       ],
       "load_seconds": [
-        0.4846605099737644,
-        0.5050616525113583,
-        0.4561775177717209
+        0.42429277673363686,
+        0.4196355752646923,
+        0.42029036581516266
       ],
-      "peak_rss_kib": 612376,
-      "mbases_per_second": 0.4750662490735806,
-      "ns_per_base": 2104.969574138522,
-      "query_spread_fraction": 0.022084608609260585,
+      "peak_rss_kib": 612524,
+      "mbases_per_second": 0.49619090507784575,
+      "ns_per_base": 2015.3533443808556,
+      "query_spread_fraction": 0.013732459468267398,
       "tool": "phoni",
       "kind": "ms",
       "figures": [
