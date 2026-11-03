@@ -26,5 +26,34 @@
     },
     "patch": "aug_phoni.patch",
     "license": "MIT"
+  },
+  "moni": {
+    "upstream": "7f3f954f5bc6174457ea374acee1f2dcca61527b",
+    "patch": "moni.patch",
+    "relation": "the freeze source tree matched this commit plus the patch in every file",
+    "license": "GPL-3.0-or-later"
+  },
+  "bwt2lcp": {
+    "repo": "https://github.com/nicolaprezza/bwt2lcp",
+    "upstream": "c08e6885155cabcab21eabdaacd3a66ca33209a3",
+    "patch": "bwt2lcp-cstdint.patch",
+    "used_by": [
+      "moni",
+      "phoni",
+      "aug_phoni"
+    ],
+    "license": "MIT"
+  },
+  "sux": {
+    "repo": "https://github.com/vigna/sux",
+    "upstream": "73f24792cb84157826567a868bf974be6a810947",
+    "within": "ShapedSlp 883f700eece54d86e4d27729c7eef33c921a3645, external/sux",
+    "patch": "sux-utility.patch",
+    "used_by": [
+      "moni",
+      "phoni",
+      "aug_phoni"
+    ],
+    "license": "LGPL-3.0-or-later, or GPL-3.0-or-later with the GCC Runtime Library Exception"
   }
 }

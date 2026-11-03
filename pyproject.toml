@@ -21,4 +21,4 @@ build-backend = "setuptools.build_meta"
 include = ["ms2exp*"]
 
 [tool.setuptools.package-data]
-"ms2exp.build" = ["ms_check.cpp"]
+"ms2exp.build" = ["ms_check.cpp", "build_legacy.sh"]

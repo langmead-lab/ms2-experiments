@@ -1,0 +1,8 @@
+diff --git a/src/compress_dictionary.cpp b/src/compress_dictionary.cpp
+--- a/src/compress_dictionary.cpp
++++ b/src/compress_dictionary.cpp
+@@ -1,3 +1,4 @@
++#include <array>
+ /* compress_dictionary - Computes the compressed dictionary from prefix-free parse dictionary
+     Copyright (C) 2020 Massimiliano Rossi
+     This program is free software: you can redistribute it and/or modify
