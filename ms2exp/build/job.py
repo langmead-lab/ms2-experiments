@@ -16,7 +16,9 @@ When every step has run, each output is hashed and uploaded to the inputs store 
 name, and RESULTS_ROOT/MANIFEST_ID/JOB_ID/outputs.json records its sha256 and size. Jobs that use
 an output carry sha256 "built" in the manifest; run_job.py takes the checksum from outputs.json
 and verifies the staged copy against it, and worker.py offers those jobs only once job.done of
-the build exists. A rerun of a finished build job does nothing.
+the build exists. A rerun of a finished build job does nothing. Build records that a step writes
+as tools/build-*.json in the output directory (ms2exp.build.tools writes one) go to the job's
+results prefix beside outputs.json, which lists them under provenance.
 """
 import argparse
 import json
@@ -93,8 +95,10 @@ class Builder(Runner):
                 log(job['id'], 'publish', name, outputs[name]['sha256'][:12])
                 inputs.put(path, name)
             if status == 0:
+                provenance = self.publish_provenance(out_root)
                 self.results.put_json(dict(job=job['id'], manifest_id=self.manifest['id'], outputs=outputs,
-                                           host=self.host, finished=time.time()), record_name)
+                                           provenance=provenance, host=self.host, finished=time.time()),
+                                      record_name)
                 self.results.put_json(dict(job=job['id'], finished=time.time(), outputs=len(outputs)),
                                       f'{self.prefix}/job.done')
                 # Later jobs on this box stage the outputs from the cache instead of from S3.
@@ -109,6 +113,17 @@ class Builder(Runner):
         stamp = time.strftime('%Y%m%dT%H%M%S')
         self.results.put_json(attempt, f"{self.prefix}/attempts/{stamp}-{self.host['hostname']}.json")
         return status
+
+    def publish_provenance(self, out_root):
+        """Uploads the build records a step wrote beside its outputs (ms2exp.build.tools writes
+        tools/build-<c7>.json: commands, compiler and binary checksums) to the job's results prefix,
+        and returns their names there. They are records, not inputs, so no later job stages them."""
+        names = []
+        for path in sorted(out_root.glob('tools/build-*.json')):
+            name = f'{self.prefix}/{path.relative_to(out_root).as_posix()}'
+            self.results.put(path, name)
+            names.append(name)
+        return names
 
 
 def main():
