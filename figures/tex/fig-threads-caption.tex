@@ -6,7 +6,7 @@ phi and dual and for ropebwt3 \texttt{-l1}, which reports every MS value. Right:
 same configuration at one thread; the dashed line marks linear scaling up to 32 threads. Query
 sets: Short reads (Illumina, ACGT-only), 7,982,098 reads, 997.8 Mbases; Nanopore (HG002 Q28),
 43,346 reads, 1,000.0 Mbases. The first 60 Mbases of each set are exactly the
-query set of the same name in Fig.~\ref{fig:ms}. All runs used one AWS i4i.metal instance (two sockets of
+query set of the same name in Figure~4. All runs used one AWS i4i.metal instance (two sockets of
 32 cores each). With $T \le 32$ threads, each thread was bound to its own physical core of the
 first socket. At $T = 64$ (gray band), two threads shared each of those 32 cores through
 hyperthreading, also called simultaneous multithreading (SMT). Memory was bound to the same
