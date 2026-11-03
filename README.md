@@ -70,13 +70,35 @@ results (`results/README.md` says why).
 
 ## Small "toy" run
 
-A good test to see if this repo is basically working in your environment is to run:
-`toy/toy_prep.sh TOY_DIR MS2_REPO MS2_COMMIT [--submodule-repo NAME URL ...]`.  This builds the tools
-and small mtb152 indexes at the given commit of the `ms2` repo, creates small read sets, and writes a
-small manifest whose cells cover every path of the runner. `toy/toy_run.sh TOY_DIR` runs it and
-collects.  Both currently assume you are running on the JHU Rockfish cluster, so some updates will
-certainly be needed to get it working on yours. While ms2 is private, pass git bundles of the repository
-and both submodules, made by `toy/make_source_bundles.sh`.
+The toy runs every path of the runner (ms2 MS, oracle, counting and locate cells, ropebwt3, MONI,
+PHONI and Augmented PHONI) on mtb152 and chr22-h10 inputs, then checks the results against
+`toy/expected/`. It needs x86_64 Linux with glibc 2.28 or later, g++ with C++17 and static
+libstdc++, make, zlib headers, git and Python 3.10 or later; numactl is optional. Expect about
+4.6 GB of downloads, 15 GB of disk and under 1.5 GB of memory. On the lab's development server it
+took about 11 minutes to prepare and 10 minutes to run, at 1.3 GB peak memory.
+
+```bash
+git clone https://github.com/langmead-lab/ms2-experiments.git && cd ms2-experiments
+export MS2EXP_DATA=$HOME/ms2exp-data TOY=$HOME/ms2exp-toy
+python3 -m ms2exp.fetch --set toy          # 34 inputs, each checked by sha256
+toy/toy_prep.sh $TOY                       # builds ms2 at paper-v1, the toy indexes and manifest
+toy/toy_run.sh $TOY                        # runs the 34 cells on this machine, then collects
+python3 toy/compare.py --expected toy/expected $TOY
+```
+
+The inputs are not public yet: `data/inputs.tsv` lists each with its sha256 and planned Zenodo
+record, and the fetch step works once those records exist. Until then, inside the Langmead lab,
+`python3 -m ms2exp.fetch --set toy --link --from-locations data/locations/*.json` links the lab's
+copies instead.
+
+`toy_run.sh` runs each job directly on this machine; it does not use Slurm. The protocol times runs
+with transparent huge pages set to `always` (`sudo sh -c 'echo always >
+/sys/kernel/mm/transparent_hugepage/enabled'`); without that setting the toy warns and runs anyway.
+The last command prints `equivalent` when every status, check, operation count, location count,
+command and input matches; timings are not compared. The toy builds ms2 with your compiler, so it
+checks the workflow, not the bytes of the AWS freeze binaries; ropebwt3 and the legacy tools are the
+pinned binaries. `toy/expected-v1-snapshot/` holds the earlier toy, on v1 read sets, that showed
+`ms2exp` gives the same results as the code snapshot the freeze ran (`results/README.md`).
 
 ## Tools
 
