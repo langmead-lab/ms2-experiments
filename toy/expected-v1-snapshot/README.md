@@ -1,4 +1,8 @@
-# Expected toy results
+# Toy results on the v1 read sets (snapshot check)
+
+The toy as it was before it moved to the freeze's v2 read sets; `results/README.md` cites these
+files as the check that `ms2exp` behaves as the code snapshot the freeze ran. `toy/expected/` holds
+the current toy's results.
 
 The collected summaries and manifest of the toy run made on 2026-11-01 on devlangmead1 with the
 freeze code as it ran on AWS (`freeze-code.tar.gz`, sha256 300e2338...), ms2 2885ee86 from source

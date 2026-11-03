@@ -1,0 +1,1214 @@
+{
+ "format": "ms2-freeze-manifest-v1",
+ "matrix": "toy",
+ "created": 1793726983.599288,
+ "generator": "ms2exp/manifest.py",
+ "note": "toy end-to-end run; mtb152 and chr22-h10 indexes built at the ms2 commit",
+ "seed": 20261029,
+ "protocol": {
+  "runs": 3,
+  "warmup_runs": 0,
+  "report": "median",
+  "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+  "numa": {
+   "cpunodebind": 0,
+   "membind": 0
+  },
+  "threads": 1,
+  "transparent_hugepages": "always",
+  "truth_check": "run 1 of every cell, whole output",
+  "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+  "time_basis": {
+   "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+   "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+   "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+  },
+  "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10"
+ },
+ "ms2": {
+  "repo": "https://github.com/langmead-lab/ms2.git",
+  "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+  "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench"
+ },
+ "ropebwt3": {
+  "repo": "https://github.com/lh3/ropebwt3.git",
+  "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+  "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+ },
+ "inputs": {
+  "augphoni/chr22-h10/reference.txt": {
+   "sha256": "e298fd9187150e394d086b04faa7c214108aa96041976afb27db6daa01a62eef",
+   "bytes": 1016136629
+  },
+  "augphoni/chr22-h10/reference.txt.aug": {
+   "sha256": "83c727ad499b257eb157f9b3830c0b15a0c0d5b124915f98d1be991d09830ebb",
+   "bytes": 859750127
+  },
+  "augphoni/chr22-h10/reference.txt.plain.slp": {
+   "sha256": "f146ce25a847cebc9caa51a76c4c32d433fccc35fb7d71a87b7c3cfc9a39f443",
+   "bytes": 122727903
+  },
+  "moni/chr22-h10/index.idx": {
+   "sha256": "f0063bff7aff9194769aa421b1ea00becdfb61498d48fceae1a6157a1eb62c51",
+   "bytes": 207
+  },
+  "moni/chr22-h10/index.plain.slp": {
+   "sha256": "f146ce25a847cebc9caa51a76c4c32d433fccc35fb7d71a87b7c3cfc9a39f443",
+   "bytes": 122727903
+  },
+  "moni/chr22-h10/index.thrbv.ms": {
+   "sha256": "e7335f385772b2fd11375c4e7058bb06a07127e865085ba1bf75de532f2a77e3",
+   "bytes": 550179310
+  },
+  "ms2/chr22-h10/index.ms.orbitidx": {
+   "sha256": "23e28ee83cf8bf84a42c18f98a4f168e7fdc188dc080fb99bd041d6d567b1330",
+   "bytes": 616588583
+  },
+  "ms2/mtb152/index.ms.orbitidx": {
+   "sha256": "665d0a23089f8b6660ecfa2eb9fa7fa8b276a37a810aac48442e38a564ecb81c",
+   "bytes": 81097318
+  },
+  "ms2/mtb152/index.ms.orbitidx.ftab": {
+   "sha256": "0e04a7b60e409b36502b1e9e4980f614d9a4a090c5c6cdc1bbc05a1f37a7f737",
+   "bytes": 1150984
+  },
+  "ms2/mtb152/index.tms.full.orbitidx": {
+   "sha256": "0d2bdcf7d445e4517d2fafa388b8c837c9542d19d6b1d9cd41a4cc8729ed6252",
+   "bytes": 406217055
+  },
+  "ms2/mtb152/index.tms.full.seqids.orbitidx": {
+   "sha256": "7747648c151bb7d54904a3476ec049e2e599eaf086758dababb90e84c8b49a66",
+   "bytes": 406222994
+  },
+  "ms2/mtb152/index.tms.phi.orbitidx": {
+   "sha256": "44edb9fc7b5afbd81abe0a1146671712e8ac1c0de87711f415341cdbb7258aae",
+   "bytes": 334946655
+  },
+  "ms2/mtb152/index.tms.psi.orbitidx": {
+   "sha256": "73d5f5239680a82c1b380b44ee0b14c19b5c983026dda22e666aa510b87a075b",
+   "bytes": 93302840
+  },
+  "ms2/mtb152/index.tms.psi.orbitidx.ftab": {
+   "sha256": "5a2fd5038552a9c606af3ce2d06d3f80175e79970dd964251ff181d9cde182f5",
+   "bytes": 1183752
+  },
+  "phoni/chr22-h10/reference.txt": {
+   "sha256": "e298fd9187150e394d086b04faa7c214108aa96041976afb27db6daa01a62eef",
+   "bytes": 1016136629
+  },
+  "phoni/chr22-h10/reference.txt.phoni": {
+   "sha256": "f546f86d0adff338f7c54c4343e0a2df30bb88a9ddbebbf1ed7f6b4582eb0bfb",
+   "bytes": 492033503
+  },
+  "phoni/chr22-h10/reference.txt.plain.slp": {
+   "sha256": "f146ce25a847cebc9caa51a76c4c32d433fccc35fb7d71a87b7c3cfc9a39f443",
+   "bytes": 122727903
+  },
+  "reads/chr22-h10/simshort-4mb-v2/offsets.u64": {
+   "sha256": "beacb716cb3f49587caa1b85e7f802db16df901b844b22a4acc32ab2948dead6",
+   "bytes": 256008
+  },
+  "reads/chr22-h10/simshort-4mb-v2/one.fa": {
+   "sha256": "c6f2290c0ff99f3ae8bd2092949a32955f41bcd80a63e2973743d6febe22c4f7",
+   "bytes": 130
+  },
+  "reads/chr22-h10/simshort-4mb-v2/reads.fa": {
+   "sha256": "1ea5d54d3960895104654c4566e50290c391a311cc9837821359ed803b602d1c",
+   "bytes": 4276890
+  },
+  "reads/chr22-h10/simshort-4mb-v2/truth.u32": {
+   "sha256": "a8a2fe87f5e904c6e36104603ae8543852e1de65541e397c5ce9abb1d0bcb56d",
+   "bytes": 16000000
+  },
+  "reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64": {
+   "sha256": "9de94e142446fe7357a4ca582e738e6b81b801177e634ca0c6857ec33a52e2b1",
+   "bytes": 4808
+  },
+  "reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa": {
+   "sha256": "443da8857d5413ee2abc9353e2ab116f9f10e01de3b963a1e65257c27b7dfdde",
+   "bytes": 59144122
+  },
+  "reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32": {
+   "sha256": "22b995df1e45cdce31c15920beef160d5ff6d1507ae9986bb34ff1fefd7abd45",
+   "bytes": 236560128
+  },
+  "reads/mtb152/mtb152-locate-2mb-v2/offsets.u64": {
+   "sha256": "5688191697b4e6326eff44437a4bcc1c606e10c6e2fa7cbbdd0590ee5d62b9ba",
+   "bytes": 784
+  },
+  "reads/mtb152/mtb152-locate-2mb-v2/reads.fa": {
+   "sha256": "96b9c88dd2ef380750380c6ab845fbed1b71d8f7cecd9300bf0a469020201399",
+   "bytes": 2007965
+  },
+  "reads/mtb152/mtb152-locate-2mb-v2/truth.u32": {
+   "sha256": "29ba0dcec352e1c0c68cdee465ba20d577a369bb3fe83cfc9b104b467400e5d1",
+   "bytes": 8029572
+  },
+  "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64": {
+   "sha256": "e73a306f0ff5f6e74e77cdbf158597fb27f00d2d7db23273f6198af4568d8709",
+   "bytes": 22848
+  },
+  "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa": {
+   "sha256": "a8dbcee173b893bd5cf791ec7553fc0eddd971da57a054ec99374e7620f37435",
+   "bytes": 60012512
+  },
+  "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32": {
+   "sha256": "a2a9ea4d3388c3ff6a35133c034c1e7fb3d3dac99421703c9f48243d2d4e6ccb",
+   "bytes": 239963128
+  },
+  "ropebwt3/mtb152/index.fmd": {
+   "sha256": "181c92baeda3f414e50c1e5e87b71ac2c3e54d8bc47237da151aecc192b03381",
+   "bytes": 19833552
+  },
+  "ropebwt3/mtb152/index.fmd.len.gz": {
+   "sha256": "76a751b369d4bb43ca5b8d1987f5d8de7301917ac1580efe397c68ffb1bd2e17",
+   "bytes": 753
+  },
+  "ropebwt3/mtb152/index.fmd.s8.ssa": {
+   "sha256": "74ac71af67c6d4b7c6d41ee71088423a91712a54b9576ec394124542500ea4f8",
+   "bytes": 39717860
+  },
+  "tools/augphoni/aug_phoni": {
+   "sha256": "79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b",
+   "bytes": 486296
+  },
+  "tools/moni/moni-ms": {
+   "sha256": "4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f",
+   "bytes": 453664
+  },
+  "tools/ms2-2885ee8/ms2-bench": {
+   "sha256": "8ec3a4b7327b121aba8b572e491c3a210bb3af9a4f575c3ae56c97ca07a20400",
+   "bytes": 15044064
+  },
+  "tools/ms2-2885ee8/ms2-stats": {
+   "sha256": "bc6253f7d4fde9ae1c5d34bc78ac99e8f25c881dc3682340a2b0254453f3bfac",
+   "bytes": 15121416
+  },
+  "tools/ms_check": {
+   "sha256": "08b7db0b493137a27db94beadafd8b992bd1607dda3402ddad912c49ef2fdcd9",
+   "bytes": 1513928
+  },
+  "tools/phoni/phoni": {
+   "sha256": "aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58",
+   "bytes": 451192
+  },
+  "tools/ropebwt3-cfad8475/ropebwt3": {
+   "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d",
+   "bytes": 1595032
+  },
+  "tools/runtime/libgcc_s.so.1": {
+   "sha256": "6a15a152c0f5073642a8c23e13097fe6f30d269cd61d3b10bd542f676241d79d",
+   "bytes": 748744
+  },
+  "tools/runtime/libgomp.so.1": {
+   "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8",
+   "bytes": 1501072
+  },
+  "tools/runtime/libstdc++.so.6": {
+   "sha256": "2e64f6e616747bde59b3f05e9850dde0476cb21703fc53b7d80e1acc49f464c4",
+   "bytes": 20888792
+  },
+  "traces/mtb152/mtb152-heldout16-p100k-s600-v1/dual.oracle": {
+   "sha256": "pending",
+   "bytes": null
+  },
+  "traces/mtb152/mtb152-heldout16-p100k-s600-v1/ms.oracle": {
+   "sha256": "pending",
+   "bytes": null
+  },
+  "traces/mtb152/mtb152-heldout16-p100k-s600-v1/phi.oracle": {
+   "sha256": "pending",
+   "bytes": null
+  },
+  "traces/mtb152/mtb152-heldout16-p100k-s600-v1/psi.oracle": {
+   "sha256": "pending",
+   "bytes": null
+  },
+  "traces/mtb152/mtb152-pacbio-60mb-v2/dual.oracle": {
+   "sha256": "pending",
+   "bytes": null
+  },
+  "traces/mtb152/mtb152-pacbio-60mb-v2/ms.oracle": {
+   "sha256": "pending",
+   "bytes": null
+  },
+  "traces/mtb152/mtb152-pacbio-60mb-v2/phi.oracle": {
+   "sha256": "pending",
+   "bytes": null
+  },
+  "traces/mtb152/mtb152-pacbio-60mb-v2/psi.oracle": {
+   "sha256": "pending",
+   "bytes": null
+  }
+ },
+ "jobs": [
+  {
+   "id": "toy-fig3-mtb152-heldout16-p100k-s600-v1",
+   "kind": "cells",
+   "pool": "timed",
+   "platforms": [
+    "rockfish",
+    "aws"
+   ],
+   "inputs": [
+    "ms2/mtb152/index.ms.orbitidx",
+    "ms2/mtb152/index.tms.full.orbitidx",
+    "ms2/mtb152/index.tms.phi.orbitidx",
+    "ms2/mtb152/index.tms.psi.orbitidx",
+    "reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64",
+    "reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa",
+    "reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32",
+    "tools/ms2-2885ee8/ms2-bench",
+    "tools/ms_check",
+    "traces/mtb152/mtb152-heldout16-p100k-s600-v1/dual.oracle",
+    "traces/mtb152/mtb152-heldout16-p100k-s600-v1/ms.oracle",
+    "traces/mtb152/mtb152-heldout16-p100k-s600-v1/phi.oracle",
+    "traces/mtb152/mtb152-heldout16-p100k-s600-v1/psi.oracle"
+   ],
+   "cells": [
+    {
+     "id": "fig_ops-mtb152-heldout16-p100k-s600-v1/ms-ordinary",
+     "group": "fig_ops-mtb152-heldout16-p100k-s600-v1",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "ms",
+     "mode": "ordinary",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-heldout16-p100k-s600-v1",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.ms.orbitidx",
+      "reads": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa",
+      "truth": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32",
+      "offsets": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    },
+    {
+     "id": "fig_ops-mtb152-heldout16-p100k-s600-v1/ms-oracle",
+     "group": "fig_ops-mtb152-heldout16-p100k-s600-v1",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "ms",
+     "mode": "oracle",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-heldout16-p100k-s600-v1",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.ms.orbitidx",
+      "reads": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa",
+      "truth": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32",
+      "offsets": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64",
+      "trace": "traces/mtb152/mtb152-heldout16-p100k-s600-v1/ms.oracle"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    },
+    {
+     "id": "fig_ops-mtb152-heldout16-p100k-s600-v1/psi-ordinary",
+     "group": "fig_ops-mtb152-heldout16-p100k-s600-v1",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "psi",
+     "mode": "ordinary",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-heldout16-p100k-s600-v1",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.psi.orbitidx",
+      "reads": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa",
+      "truth": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32",
+      "offsets": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    },
+    {
+     "id": "fig_ops-mtb152-heldout16-p100k-s600-v1/psi-oracle",
+     "group": "fig_ops-mtb152-heldout16-p100k-s600-v1",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "psi",
+     "mode": "oracle",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-heldout16-p100k-s600-v1",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.psi.orbitidx",
+      "reads": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa",
+      "truth": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32",
+      "offsets": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64",
+      "trace": "traces/mtb152/mtb152-heldout16-p100k-s600-v1/psi.oracle"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    },
+    {
+     "id": "fig_ops-mtb152-heldout16-p100k-s600-v1/phi-ordinary",
+     "group": "fig_ops-mtb152-heldout16-p100k-s600-v1",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "phi",
+     "mode": "ordinary",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-heldout16-p100k-s600-v1",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.phi.orbitidx",
+      "reads": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa",
+      "truth": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32",
+      "offsets": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    },
+    {
+     "id": "fig_ops-mtb152-heldout16-p100k-s600-v1/phi-oracle",
+     "group": "fig_ops-mtb152-heldout16-p100k-s600-v1",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "phi",
+     "mode": "oracle",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-heldout16-p100k-s600-v1",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.phi.orbitidx",
+      "reads": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa",
+      "truth": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32",
+      "offsets": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64",
+      "trace": "traces/mtb152/mtb152-heldout16-p100k-s600-v1/phi.oracle"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    },
+    {
+     "id": "fig_ops-mtb152-heldout16-p100k-s600-v1/dual-ordinary",
+     "group": "fig_ops-mtb152-heldout16-p100k-s600-v1",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "dual",
+     "mode": "ordinary",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-heldout16-p100k-s600-v1",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.full.orbitidx",
+      "reads": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa",
+      "truth": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32",
+      "offsets": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    },
+    {
+     "id": "fig_ops-mtb152-heldout16-p100k-s600-v1/dual-oracle",
+     "group": "fig_ops-mtb152-heldout16-p100k-s600-v1",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "dual",
+     "mode": "oracle",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-heldout16-p100k-s600-v1",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.full.orbitidx",
+      "reads": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa",
+      "truth": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32",
+      "offsets": "reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64",
+      "trace": "traces/mtb152/mtb152-heldout16-p100k-s600-v1/dual.oracle"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    }
+   ]
+  },
+  {
+   "id": "toy-fig3-mtb152-pacbio-60mb-v2",
+   "kind": "cells",
+   "pool": "timed",
+   "platforms": [
+    "rockfish",
+    "aws"
+   ],
+   "inputs": [
+    "ms2/mtb152/index.ms.orbitidx",
+    "ms2/mtb152/index.tms.full.orbitidx",
+    "ms2/mtb152/index.tms.phi.orbitidx",
+    "ms2/mtb152/index.tms.psi.orbitidx",
+    "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64",
+    "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+    "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+    "tools/ms2-2885ee8/ms2-bench",
+    "tools/ms_check",
+    "traces/mtb152/mtb152-pacbio-60mb-v2/dual.oracle",
+    "traces/mtb152/mtb152-pacbio-60mb-v2/ms.oracle",
+    "traces/mtb152/mtb152-pacbio-60mb-v2/phi.oracle",
+    "traces/mtb152/mtb152-pacbio-60mb-v2/psi.oracle"
+   ],
+   "cells": [
+    {
+     "id": "fig_ops-mtb152-pacbio-60mb-v2/ms-ordinary",
+     "group": "fig_ops-mtb152-pacbio-60mb-v2",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "ms",
+     "mode": "ordinary",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.ms.orbitidx",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    },
+    {
+     "id": "fig_ops-mtb152-pacbio-60mb-v2/ms-oracle",
+     "group": "fig_ops-mtb152-pacbio-60mb-v2",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "ms",
+     "mode": "oracle",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.ms.orbitidx",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64",
+      "trace": "traces/mtb152/mtb152-pacbio-60mb-v2/ms.oracle"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    },
+    {
+     "id": "fig_ops-mtb152-pacbio-60mb-v2/psi-ordinary",
+     "group": "fig_ops-mtb152-pacbio-60mb-v2",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "psi",
+     "mode": "ordinary",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.psi.orbitidx",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    },
+    {
+     "id": "fig_ops-mtb152-pacbio-60mb-v2/psi-oracle",
+     "group": "fig_ops-mtb152-pacbio-60mb-v2",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "psi",
+     "mode": "oracle",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.psi.orbitidx",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64",
+      "trace": "traces/mtb152/mtb152-pacbio-60mb-v2/psi.oracle"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    },
+    {
+     "id": "fig_ops-mtb152-pacbio-60mb-v2/phi-ordinary",
+     "group": "fig_ops-mtb152-pacbio-60mb-v2",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "phi",
+     "mode": "ordinary",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.phi.orbitidx",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    },
+    {
+     "id": "fig_ops-mtb152-pacbio-60mb-v2/phi-oracle",
+     "group": "fig_ops-mtb152-pacbio-60mb-v2",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "phi",
+     "mode": "oracle",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.phi.orbitidx",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64",
+      "trace": "traces/mtb152/mtb152-pacbio-60mb-v2/phi.oracle"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    },
+    {
+     "id": "fig_ops-mtb152-pacbio-60mb-v2/dual-ordinary",
+     "group": "fig_ops-mtb152-pacbio-60mb-v2",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "dual",
+     "mode": "ordinary",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.full.orbitidx",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    },
+    {
+     "id": "fig_ops-mtb152-pacbio-60mb-v2/dual-oracle",
+     "group": "fig_ops-mtb152-pacbio-60mb-v2",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "dual",
+     "mode": "oracle",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.full.orbitidx",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64",
+      "trace": "traces/mtb152/mtb152-pacbio-60mb-v2/dual.oracle"
+     },
+     "timeout_s": 7200,
+     "block_bytes": 67108864
+    }
+   ]
+  },
+  {
+   "id": "toy-ms-mixed",
+   "kind": "cells",
+   "pool": "timed",
+   "platforms": [
+    "rockfish",
+    "aws"
+   ],
+   "inputs": [
+    "ms2/mtb152/index.ms.orbitidx",
+    "ms2/mtb152/index.ms.orbitidx.ftab",
+    "ms2/mtb152/index.tms.phi.orbitidx",
+    "ms2/mtb152/index.tms.psi.orbitidx",
+    "ms2/mtb152/index.tms.psi.orbitidx.ftab",
+    "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64",
+    "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+    "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+    "ropebwt3/mtb152/index.fmd",
+    "tools/ms2-2885ee8/ms2-bench",
+    "tools/ms_check",
+    "tools/ropebwt3-cfad8475/ropebwt3",
+    "tools/runtime/libgomp.so.1"
+   ],
+   "cells": [
+    {
+     "id": "toy-ms-mtb152-pacbio-60mb-v2/ms-ftab",
+     "group": "toy-ms-mtb152-pacbio-60mb-v2",
+     "figures": [
+      "A5"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "ms",
+     "mode": "ftab",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.ms.orbitidx",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64",
+      "ftab": "ms2/mtb152/index.ms.orbitidx.ftab"
+     },
+     "timeout_s": 7200
+    },
+    {
+     "id": "toy-ms-mtb152-pacbio-60mb-v2/psi-ftab",
+     "group": "toy-ms-mtb152-pacbio-60mb-v2",
+     "figures": [
+      "A5"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "psi",
+     "mode": "ftab",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.psi.orbitidx",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64",
+      "ftab": "ms2/mtb152/index.tms.psi.orbitidx.ftab"
+     },
+     "timeout_s": 7200
+    },
+    {
+     "id": "toy-ms-mtb152-pacbio-60mb-v2/rope-l1",
+     "group": "toy-ms-mtb152-pacbio-60mb-v2",
+     "figures": [
+      "4"
+     ],
+     "tool": "ropebwt3",
+     "kind": "ms",
+     "min_len": 1,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ropebwt3-cfad8475/ropebwt3",
+      "runtime": "tools/runtime/libgomp.so.1",
+      "fmd": "ropebwt3/mtb152/index.fmd",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64"
+     },
+     "timeout_s": 7200,
+     "batch": "1m"
+    },
+    {
+     "id": "toy-ms-mtb152-pacbio-60mb-v2/rope-default",
+     "group": "toy-ms-mtb152-pacbio-60mb-v2",
+     "figures": [
+      "4"
+     ],
+     "tool": "ropebwt3",
+     "kind": "ms",
+     "min_len": 19,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ropebwt3-cfad8475/ropebwt3",
+      "runtime": "tools/runtime/libgomp.so.1",
+      "fmd": "ropebwt3/mtb152/index.fmd",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64"
+     },
+     "timeout_s": 7200,
+     "batch": "1m"
+    },
+    {
+     "id": "toy-ms-mtb152-pacbio-60mb-v2/rope-l30",
+     "group": "toy-ms-mtb152-pacbio-60mb-v2",
+     "figures": [
+      "4"
+     ],
+     "tool": "ropebwt3",
+     "kind": "ms",
+     "min_len": 30,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ropebwt3-cfad8475/ropebwt3",
+      "runtime": "tools/runtime/libgomp.so.1",
+      "fmd": "ropebwt3/mtb152/index.fmd",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64"
+     },
+     "timeout_s": 7200,
+     "batch": "1m"
+    },
+    {
+     "id": "toy-ms-mtb152-pacbio-60mb-v2/phi-ordinary-capped",
+     "group": "toy-ms-mtb152-pacbio-60mb-v2",
+     "figures": [
+      "cap-check"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "phi",
+     "mode": "ordinary",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.phi.orbitidx",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64"
+     },
+     "timeout_s": 7200,
+     "cap_s": 1
+    }
+   ]
+  },
+  {
+   "id": "toy-count",
+   "kind": "cells",
+   "pool": "timed",
+   "platforms": [
+    "rockfish"
+   ],
+   "inputs": [
+    "ms2/mtb152/index.ms.orbitidx",
+    "ms2/mtb152/index.tms.psi.orbitidx",
+    "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64",
+    "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+    "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+    "tools/ms2-2885ee8/ms2-stats",
+    "tools/ms_check"
+   ],
+   "cells": [
+    {
+     "id": "toy-ms-mtb152-pacbio-60mb-v2-counts/ms-ordinary",
+     "group": "toy-ms-mtb152-pacbio-60mb-v2-counts",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2-stats",
+     "kind": "count",
+     "layout": "ms",
+     "mode": "ordinary",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-stats",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.ms.orbitidx",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64"
+     },
+     "timeout_s": 14400,
+     "runs": 1,
+     "platforms": [
+      "rockfish"
+     ]
+    },
+    {
+     "id": "toy-ms-mtb152-pacbio-60mb-v2-counts/psi-ordinary",
+     "group": "toy-ms-mtb152-pacbio-60mb-v2-counts",
+     "figures": [
+      "3"
+     ],
+     "tool": "ms2-stats",
+     "kind": "count",
+     "layout": "psi",
+     "mode": "ordinary",
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-pacbio-60mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-stats",
+      "checker": "tools/ms_check",
+      "index": "ms2/mtb152/index.tms.psi.orbitidx",
+      "reads": "reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64"
+     },
+     "timeout_s": 14400,
+     "runs": 1,
+     "platforms": [
+      "rockfish"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "toy-locate",
+   "kind": "cells",
+   "pool": "timed",
+   "platforms": [
+    "rockfish",
+    "aws"
+   ],
+   "inputs": [
+    "ms2/mtb152/index.tms.full.seqids.orbitidx",
+    "reads/mtb152/mtb152-locate-2mb-v2/offsets.u64",
+    "reads/mtb152/mtb152-locate-2mb-v2/reads.fa",
+    "reads/mtb152/mtb152-locate-2mb-v2/truth.u32",
+    "ropebwt3/mtb152/index.fmd",
+    "ropebwt3/mtb152/index.fmd.len.gz",
+    "ropebwt3/mtb152/index.fmd.s8.ssa",
+    "tools/ms2-2885ee8/ms2-bench",
+    "tools/ropebwt3-cfad8475/ropebwt3",
+    "tools/runtime/libgomp.so.1"
+   ],
+   "cells": [
+    {
+     "id": "toy-locate-2mb/cap1-phi-ordinary",
+     "group": "toy-locate-2mb",
+     "figures": [],
+     "tool": "ms2",
+     "kind": "locate",
+     "layout": "phi",
+     "mode": "ordinary",
+     "cap": 1,
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-locate-2mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "index": "ms2/mtb152/index.tms.full.seqids.orbitidx",
+      "lengths": "ropebwt3/mtb152/index.fmd.len.gz",
+      "reads": "reads/mtb152/mtb152-locate-2mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-locate-2mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-locate-2mb-v2/offsets.u64"
+     },
+     "timeout_s": 14400
+    },
+    {
+     "id": "toy-locate-2mb/cap10-phi-ordinary",
+     "group": "toy-locate-2mb",
+     "figures": [],
+     "tool": "ms2",
+     "kind": "locate",
+     "layout": "phi",
+     "mode": "ordinary",
+     "cap": 10,
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-locate-2mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "index": "ms2/mtb152/index.tms.full.seqids.orbitidx",
+      "lengths": "ropebwt3/mtb152/index.fmd.len.gz",
+      "reads": "reads/mtb152/mtb152-locate-2mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-locate-2mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-locate-2mb-v2/offsets.u64"
+     },
+     "timeout_s": 14400
+    },
+    {
+     "id": "toy-locate-2mb/cap1-dual-ordinary",
+     "group": "toy-locate-2mb",
+     "figures": [],
+     "tool": "ms2",
+     "kind": "locate",
+     "layout": "dual",
+     "mode": "ordinary",
+     "cap": 1,
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-locate-2mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "index": "ms2/mtb152/index.tms.full.seqids.orbitidx",
+      "lengths": "ropebwt3/mtb152/index.fmd.len.gz",
+      "reads": "reads/mtb152/mtb152-locate-2mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-locate-2mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-locate-2mb-v2/offsets.u64"
+     },
+     "timeout_s": 14400
+    },
+    {
+     "id": "toy-locate-2mb/cap10-dual-ordinary",
+     "group": "toy-locate-2mb",
+     "figures": [],
+     "tool": "ms2",
+     "kind": "locate",
+     "layout": "dual",
+     "mode": "ordinary",
+     "cap": 10,
+     "interleave": 32,
+     "reference": "mtb152",
+     "read_set": "mtb152-locate-2mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "index": "ms2/mtb152/index.tms.full.seqids.orbitidx",
+      "lengths": "ropebwt3/mtb152/index.fmd.len.gz",
+      "reads": "reads/mtb152/mtb152-locate-2mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-locate-2mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-locate-2mb-v2/offsets.u64"
+     },
+     "timeout_s": 14400
+    },
+    {
+     "id": "toy-locate-2mb/cap1-rope-s8",
+     "group": "toy-locate-2mb",
+     "figures": [],
+     "tool": "ropebwt3",
+     "kind": "locate",
+     "cap": 1,
+     "shift": 8,
+     "batch": "1m",
+     "reference": "mtb152",
+     "read_set": "mtb152-locate-2mb-v2",
+     "inputs": {
+      "binary": "tools/ropebwt3-cfad8475/ropebwt3",
+      "runtime": "tools/runtime/libgomp.so.1",
+      "fmd": "ropebwt3/mtb152/index.fmd",
+      "ssa": "ropebwt3/mtb152/index.fmd.s8.ssa",
+      "lengths": "ropebwt3/mtb152/index.fmd.len.gz",
+      "reads": "reads/mtb152/mtb152-locate-2mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-locate-2mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-locate-2mb-v2/offsets.u64"
+     },
+     "timeout_s": 14400
+    },
+    {
+     "id": "toy-locate-2mb/cap10-rope-s8",
+     "group": "toy-locate-2mb",
+     "figures": [],
+     "tool": "ropebwt3",
+     "kind": "locate",
+     "cap": 10,
+     "shift": 8,
+     "batch": "1m",
+     "reference": "mtb152",
+     "read_set": "mtb152-locate-2mb-v2",
+     "inputs": {
+      "binary": "tools/ropebwt3-cfad8475/ropebwt3",
+      "runtime": "tools/runtime/libgomp.so.1",
+      "fmd": "ropebwt3/mtb152/index.fmd",
+      "ssa": "ropebwt3/mtb152/index.fmd.s8.ssa",
+      "lengths": "ropebwt3/mtb152/index.fmd.len.gz",
+      "reads": "reads/mtb152/mtb152-locate-2mb-v2/reads.fa",
+      "truth": "reads/mtb152/mtb152-locate-2mb-v2/truth.u32",
+      "offsets": "reads/mtb152/mtb152-locate-2mb-v2/offsets.u64"
+     },
+     "timeout_s": 14400
+    }
+   ]
+  },
+  {
+   "id": "toy-legacy",
+   "kind": "cells",
+   "pool": "timed",
+   "platforms": [
+    "rockfish",
+    "aws"
+   ],
+   "inputs": [
+    "augphoni/chr22-h10/reference.txt",
+    "augphoni/chr22-h10/reference.txt.aug",
+    "augphoni/chr22-h10/reference.txt.plain.slp",
+    "moni/chr22-h10/index.idx",
+    "moni/chr22-h10/index.plain.slp",
+    "moni/chr22-h10/index.thrbv.ms",
+    "ms2/chr22-h10/index.ms.orbitidx",
+    "phoni/chr22-h10/reference.txt",
+    "phoni/chr22-h10/reference.txt.phoni",
+    "phoni/chr22-h10/reference.txt.plain.slp",
+    "reads/chr22-h10/simshort-4mb-v2/offsets.u64",
+    "reads/chr22-h10/simshort-4mb-v2/one.fa",
+    "reads/chr22-h10/simshort-4mb-v2/reads.fa",
+    "reads/chr22-h10/simshort-4mb-v2/truth.u32",
+    "tools/augphoni/aug_phoni",
+    "tools/moni/moni-ms",
+    "tools/ms2-2885ee8/ms2-bench",
+    "tools/ms_check",
+    "tools/phoni/phoni",
+    "tools/runtime/libgcc_s.so.1",
+    "tools/runtime/libstdc++.so.6"
+   ],
+   "cells": [
+    {
+     "id": "toy-chr22-h10-ms-simshort/moni",
+     "group": "toy-chr22-h10-ms-simshort",
+     "figures": [
+      "4"
+     ],
+     "tool": "moni",
+     "kind": "ms",
+     "reference": "chr22-h10",
+     "read_set": "simshort-4mb-v2",
+     "inputs": {
+      "binary": "tools/moni/moni-ms",
+      "reads": "reads/chr22-h10/simshort-4mb-v2/reads.fa",
+      "truth": "reads/chr22-h10/simshort-4mb-v2/truth.u32",
+      "offsets": "reads/chr22-h10/simshort-4mb-v2/offsets.u64",
+      "one": "reads/chr22-h10/simshort-4mb-v2/one.fa",
+      "bundle/index.thrbv.ms": "moni/chr22-h10/index.thrbv.ms",
+      "bundle/index.plain.slp": "moni/chr22-h10/index.plain.slp",
+      "bundle/index.idx": "moni/chr22-h10/index.idx",
+      "runtime/libstdc++.so.6": "tools/runtime/libstdc++.so.6",
+      "runtime/libgcc_s.so.1": "tools/runtime/libgcc_s.so.1"
+     },
+     "timeout_s": 7200
+    },
+    {
+     "id": "toy-chr22-h10-ms-simshort/phoni",
+     "group": "toy-chr22-h10-ms-simshort",
+     "figures": [
+      "4"
+     ],
+     "tool": "phoni",
+     "kind": "ms",
+     "reference": "chr22-h10",
+     "read_set": "simshort-4mb-v2",
+     "inputs": {
+      "binary": "tools/phoni/phoni",
+      "reads": "reads/chr22-h10/simshort-4mb-v2/reads.fa",
+      "truth": "reads/chr22-h10/simshort-4mb-v2/truth.u32",
+      "offsets": "reads/chr22-h10/simshort-4mb-v2/offsets.u64",
+      "one": "reads/chr22-h10/simshort-4mb-v2/one.fa",
+      "bundle/reference.txt.phoni": "phoni/chr22-h10/reference.txt.phoni",
+      "bundle/reference.txt.plain.slp": "phoni/chr22-h10/reference.txt.plain.slp",
+      "bundle/reference.txt": "phoni/chr22-h10/reference.txt",
+      "runtime/libstdc++.so.6": "tools/runtime/libstdc++.so.6",
+      "runtime/libgcc_s.so.1": "tools/runtime/libgcc_s.so.1"
+     },
+     "timeout_s": 7200
+    },
+    {
+     "id": "toy-chr22-h10-ms-simshort/augphoni",
+     "group": "toy-chr22-h10-ms-simshort",
+     "figures": [
+      "4"
+     ],
+     "tool": "augphoni",
+     "kind": "ms",
+     "reference": "chr22-h10",
+     "read_set": "simshort-4mb-v2",
+     "inputs": {
+      "binary": "tools/augphoni/aug_phoni",
+      "reads": "reads/chr22-h10/simshort-4mb-v2/reads.fa",
+      "truth": "reads/chr22-h10/simshort-4mb-v2/truth.u32",
+      "offsets": "reads/chr22-h10/simshort-4mb-v2/offsets.u64",
+      "one": "reads/chr22-h10/simshort-4mb-v2/one.fa",
+      "bundle/reference.txt.aug": "augphoni/chr22-h10/reference.txt.aug",
+      "bundle/reference.txt.plain.slp": "augphoni/chr22-h10/reference.txt.plain.slp",
+      "bundle/reference.txt": "augphoni/chr22-h10/reference.txt",
+      "runtime/libstdc++.so.6": "tools/runtime/libstdc++.so.6",
+      "runtime/libgcc_s.so.1": "tools/runtime/libgcc_s.so.1"
+     },
+     "timeout_s": 7200
+    },
+    {
+     "id": "toy-chr22-h10-ms-simshort/ms-ordinary",
+     "group": "toy-chr22-h10-ms-simshort",
+     "figures": [
+      "4"
+     ],
+     "tool": "ms2",
+     "kind": "ms",
+     "layout": "ms",
+     "mode": "ordinary",
+     "interleave": 32,
+     "reference": "chr22-h10",
+     "read_set": "simshort-4mb-v2",
+     "inputs": {
+      "binary": "tools/ms2-2885ee8/ms2-bench",
+      "checker": "tools/ms_check",
+      "index": "ms2/chr22-h10/index.ms.orbitidx",
+      "reads": "reads/chr22-h10/simshort-4mb-v2/reads.fa",
+      "truth": "reads/chr22-h10/simshort-4mb-v2/truth.u32",
+      "offsets": "reads/chr22-h10/simshort-4mb-v2/offsets.u64"
+     },
+     "timeout_s": 7200
+    }
+   ]
+  }
+ ],
+ "id": "toy-2885ee8-0eb9d475"
+}

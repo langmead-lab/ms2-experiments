@@ -1,0 +1,57 @@
+{
+  "manifest_id": "toy-2885ee8-0eb9d475",
+  "cells": 34,
+  "missing": [],
+  "unchecked": [
+    "toy-ms-mtb152-pacbio-60mb-v2/phi-ordinary-capped: capped"
+  ],
+  "wrong_commit": [],
+  "locate_comparisons": [
+    {
+      "read_set": "mtb152-locate-2mb-v2",
+      "cap": 1,
+      "ms2": "toy-locate-2mb/cap1-phi-ordinary",
+      "rope": "toy-locate-2mb/cap1-rope-s8",
+      "status": "agree",
+      "disagreements": 0,
+      "examples": []
+    },
+    {
+      "read_set": "mtb152-locate-2mb-v2",
+      "cap": 1,
+      "ms2": "toy-locate-2mb/cap1-dual-ordinary",
+      "rope": "toy-locate-2mb/cap1-rope-s8",
+      "status": "agree",
+      "disagreements": 0,
+      "examples": []
+    },
+    {
+      "read_set": "mtb152-locate-2mb-v2",
+      "cap": 10,
+      "ms2": "toy-locate-2mb/cap10-phi-ordinary",
+      "rope": "toy-locate-2mb/cap10-rope-s8",
+      "status": "agree",
+      "disagreements": 0,
+      "examples": []
+    },
+    {
+      "read_set": "mtb152-locate-2mb-v2",
+      "cap": 10,
+      "ms2": "toy-locate-2mb/cap10-dual-ordinary",
+      "rope": "toy-locate-2mb/cap10-rope-s8",
+      "status": "agree",
+      "disagreements": 0,
+      "examples": []
+    }
+  ],
+  "d9_dual_seqids": [],
+  "cross_thread": [],
+  "groups": [
+    "fig_ops-mtb152-heldout16-p100k-s600-v1",
+    "fig_ops-mtb152-pacbio-60mb-v2",
+    "toy-chr22-h10-ms-simshort",
+    "toy-locate-2mb",
+    "toy-ms-mtb152-pacbio-60mb-v2",
+    "toy-ms-mtb152-pacbio-60mb-v2-counts"
+  ]
+}
