@@ -5,8 +5,8 @@ Usage:
   paper_figures_tikz.py [--csv FILE] [--captions FILE] [--out DIR]
 
 Reads plotted-points.csv and CAPTIONS.md as written by paper_figures.py (run
-that first after new runs) and writes, under DIR (default
-reports/campaign-20261012/figures-tikz/data):
+that first after new runs; defaults figures/draft/) and writes, under DIR (default
+figures/tikz/data):
 
   <fig>/<panel>.dat         one row per plotted point: key layout x y dx
   <fig>/<panel>-labels.dat  direct labels: x y dx dy anchor text
@@ -30,7 +30,7 @@ reports/campaign-20261012/figures-tikz/data):
 
 The TeX side (figures-style.tex and fig-*.tex) reads only these files, so
 regenerating after new runs is: paper_figures.py, then this script, then
-latexmk in figures-tikz.
+latexmk in figures/tikz; python -m ms2exp.figures runs all three.
 
 Columns in <panel>.dat:
   key     series key; figures-style.tex has one pgfplots style per key
@@ -54,10 +54,9 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve()
 ROOT = HERE.parents[2]
-CAMPAIGN = ROOT / 'reports' / 'campaign-20261012'
-DEFAULT_CSV = CAMPAIGN / 'figures-draft' / 'plotted-points.csv'
-DEFAULT_CAPTIONS = CAMPAIGN / 'figures-draft' / 'CAPTIONS.md'
-DEFAULT_OUT = CAMPAIGN / 'figures-tikz' / 'data'
+DEFAULT_CSV = ROOT / 'figures' / 'draft' / 'plotted-points.csv'
+DEFAULT_CAPTIONS = ROOT / 'figures' / 'draft' / 'CAPTIONS.md'
+DEFAULT_OUT = ROOT / 'figures' / 'tikz' / 'data'
 
 MS_FIGS = ['fig-ms', 'fig-ms-oracle', 'fig-ms-ftab']
 CHR22_FIGS = ['fig-ms22-10', 'fig-ms22-100']
@@ -70,7 +69,7 @@ OPS2 = 'fig-ops2'
 ALL_FIGS = MS_FIGS + CHR22_FIGS + LOC_FIGS + [LFTAB, OPS]
 
 # Fig Ops: bar order and the TeX macro suffix for each reference's limits.
-# Fig Ops time panels show all four layouts; its operation panels leave out ms2-lcp (figures-style.tex).
+# Fig Ops time panels show all four layouts; its operation panels leave out ms2-min (figures-style.tex).
 # Bar order puts ms2-dual in the rightmost slot.
 OPS_KEYS = ['lcp', 'psi', 'phi', 'dual']
 OPS_REF_MACRO = {'mtb152': 'Mtb', 'human472': 'Human'}
@@ -80,6 +79,8 @@ OPS_MACRO = {OPS: 'FigOps', OPS2: 'FigOpsTwo'}
 OPS_COUNT_STEPS = [1, 2, 5, 10, 20, 50, 100, 200]
 
 LAYOUT_KEY = {'ms': 'lcp', 'psi': 'psi', 'dual': 'dual', 'phi': 'phi'}
+# The CSV names ms2-min by its mode; the TeX styles key it lcp.
+SERIES_KEY = {'min': 'lcp'}
 MODE_SUFFIX = {'ordinary': '', 'oracle': 'O', 'oracle-scan': 'OS', 'ftab': 'F'}
 ROPE_KEY = {'rope-l1': 'rl1', 'rope-default': 'rl19', 'rope-l25': 'rl25', 'rope-l30': 'rl30',
             'rope-l40': 'rl40'}
@@ -96,7 +97,7 @@ LORACLE_DODGE = {'psi': -3.5, 'psiO': -3.5, 'dual': 3.5, 'dualO': 3.5}
 ROPE_FAN = {'rl1': 0.0, 'rl19': 2.7, 'rl25': 5.4, 'rl30': 8.1, 'rl40': 10.8}
 FAN_NOTE = ('ropebwt3 modes other than -l1 are shifted right in steps of 2.7 pt (a few GiB) so that '
             'points sharing one peak memory stay visible; plotted-points.csv keeps the measured peaks.')
-LOC_NOTE = ('ms2-psi and ms2-dual are drawn a few points to either side of their shared peak; '
+LOC_NOTE = ('ms2-psi, ms2-phi and ms2-dual are drawn a few points apart around their shared peak; '
             'plotted-points.csv keeps the measured peaks.')
 
 # Direct labels: (key, text, anchor, dx, dy, panels). panels is 'first'
@@ -233,7 +234,7 @@ def read_ops(csv_path, fig=OPS):
             if r['figure'] != fig:
                 continue
             m = re.fullmatch(r'ms2-(\w+)( oracle-scan| oracle| ops)?', r['series'])
-            key, kind = m.group(1), (m.group(2) or '').strip()
+            key, kind = SERIES_KEY.get(m.group(1), m.group(1)), (m.group(2) or '').strip()
             row = refs[r['read_set']][key]
             if kind == '':
                 row['ns'] = float(r['speed'])
@@ -290,8 +291,8 @@ def tex_escape(s):
 
 def adapt_caption(fig, text):
     """Replaces the matplotlib draft's offset wording with this version's dodges."""
-    text = text.replace('ms2-psi and ms2-dual are offset horizontally by 5 GiB to either side of their shared '
-                        'peak for visibility.', LOC_NOTE)
+    text = re.sub(r'ms2-psi, ms2-phi and ms2-dual are offset horizontally by [0-9.]+ GiB steps around their '
+                  r'shared peak for visibility\.', LOC_NOTE, text)
     if fig in MS_FIGS + CHR22_FIGS:
         text = text.replace(' Reference:', ' ' + FAN_NOTE + ' Reference:', 1)
     return text

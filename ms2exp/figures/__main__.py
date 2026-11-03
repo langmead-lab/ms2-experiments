@@ -68,6 +68,8 @@ def merge_ops(summaries, run_name, group):
         if k and k.get('status') == 'checked':
             o = k['ops_per_base']
             c['ops_per_base'] = o.get('ops_per_base', o)
+            if o.get('lf_basis'):
+                c['lf_basis'] = o['lf_basis']
         else:
             print('no counts for', group, c['id'])
     return timed

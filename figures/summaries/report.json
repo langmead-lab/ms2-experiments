@@ -27,6 +27,7 @@
       "passes": true
     }
   ],
+  "cross_thread": [],
   "groups": [
     "chr22-h10-ms-simont",
     "chr22-h10-ms-simpacbio",
