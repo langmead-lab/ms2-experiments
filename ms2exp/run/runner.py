@@ -2,7 +2,7 @@
 """Run one job of the freeze manifest: stage its inputs, run its cells, check, record, resume.
 
 Usage:
-  run_job.py JOB_ID --manifest MANIFEST --inputs-root ROOT --results-root ROOT --stage DIR
+  python -m ms2exp.run.runner JOB_ID --manifest MANIFEST --inputs-root ROOT --results-root ROOT --stage DIR
              [--platform rockfish|aws] [--no-numa] [--any-thp] [--record-traces] [--evict]
 
 The same script runs on Rockfish and on AWS (BENCH_FREEZE_DESIGN.md D11):
