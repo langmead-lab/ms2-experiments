@@ -1,0 +1,37 @@
+# Inputs of the toy run (python -m ms2exp.fetch --set toy): the read sets it uses or cuts, the
+# precursors it builds ms2 indexes from, the mtb152 FMD, the chr22-h10 legacy indexes, and the
+# pinned ropebwt3 and legacy binaries with their runtime libraries.
+reads/mtb152/mtb152-heldout16-p100k-s600-v1/reads.fa
+reads/mtb152/mtb152-heldout16-p100k-s600-v1/offsets.u64
+reads/mtb152/mtb152-heldout16-p100k-s600-v1/truth.u32
+reads/mtb152/mtb152-pacbio-60mb-v2/reads.fa
+reads/mtb152/mtb152-pacbio-60mb-v2/offsets.u64
+reads/mtb152/mtb152-pacbio-60mb-v2/truth.u32
+reads/chr22-h10/simshort-60mb-v2/reads.fa
+reads/chr22-h10/simshort-60mb-v2/offsets.u64
+reads/chr22-h10/simshort-60mb-v2/truth.u32
+reads/chr22-h10/simshort-60mb-v2/one.fa
+precursors/mtb152/bwt.heads
+precursors/mtb152/bwt.len
+precursors/mtb152/min
+precursors/mtb152/phi
+precursors/chr22-h10/bwt.heads
+precursors/chr22-h10/bwt.len
+precursors/chr22-h10/min
+ropebwt3/mtb152/index.fmd
+moni/chr22-h10/index.thrbv.ms
+moni/chr22-h10/index.plain.slp
+moni/chr22-h10/index.idx
+phoni/chr22-h10/reference.txt.phoni
+phoni/chr22-h10/reference.txt.plain.slp
+phoni/chr22-h10/reference.txt
+augphoni/chr22-h10/reference.txt.aug
+augphoni/chr22-h10/reference.txt.plain.slp
+augphoni/chr22-h10/reference.txt
+tools/ropebwt3-cfad8475/ropebwt3
+tools/runtime/libgomp.so.1
+tools/moni/moni-ms
+tools/phoni/phoni
+tools/augphoni/aug_phoni
+tools/runtime/libstdc++.so.6
+tools/runtime/libgcc_s.so.1
