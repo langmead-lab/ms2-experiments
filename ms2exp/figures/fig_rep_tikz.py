@@ -64,7 +64,7 @@ def rate(r):
 
 
 def write(out, tag, rows, tsv, T=None):
-    lines = [f'% Fig Rep series {tag.upper()}: written by bench/campaign-20261012/fig_rep_tikz.py.']
+    lines = [f'% Fig Rep series {tag.upper()}: written by ms2exp/figures/fig_rep_tikz.py.']
     ticks, labels = [], []
     for x, (run, label, s) in enumerate(rows, start=1):
         ticks.append(str(x))
@@ -102,7 +102,7 @@ def write_violins(out, tag, runs, violins, with_min=False):
     modes = (*MODES, 'min') if with_min else MODES
     offset = VIOLIN_OFFSET_MIN if with_min else VIOLIN_OFFSET
     half = VIOLIN_HALF_MIN if with_min else VIOLIN_HALF
-    lines = [f'% Fig Rep series {tag.upper()} violins: written by bench/campaign-20261012/fig_rep_tikz.py '
+    lines = [f'% Fig Rep series {tag.upper()} violins: written by ms2exp/figures/fig_rep_tikz.py '
              f'from fig_rep_violin.py densities.']
     means = {m: [] for m in modes}
     for x, run in enumerate(runs, start=1):

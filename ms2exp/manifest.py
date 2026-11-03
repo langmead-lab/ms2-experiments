@@ -3,12 +3,12 @@
 
 The manifest is the committed, declarative list of jobs. Each job is one index group and
 one read set, and lists its cells. Every input is a logical name with its sha256 and size,
-taken from an inputs catalog (catalog.py hash). The ms2 source (repo URL plus commit), the
+taken from an inputs catalog (ms2exp.catalog hash). The ms2 source (repo URL plus commit), the
 ropebwt3 pin and the D6 protocol are recorded once at the top and in every result.
 
 Matrices:
   freeze         the paper's cells: Fig 3 timing and counting, Fig 4/A2, Fig 5/A5, Fig 6/A3/A4/A6
-  toy            mtb152-sized cells that exercise every code path of run_job.py (toy_prep.sh)
+  toy            mtb152-sized cells that exercise every code path of the runner (toy_prep.sh)
   threads        thread scaling (THREAD_SCALING_PLAN.md): HPRC2 short and ONT 1 Gbase sets, ms2
                  min, psi, phi and dual and ropebwt3 -l1, at 1 to 32 threads on physical cores and
                  64 on both hardware threads of 32 cores; AWS only
@@ -17,15 +17,15 @@ Matrices:
                  ropebwt3 on Rockfish
 
 Usage:
-  make_manifest.py --matrix freeze --inputs inputs.json --ms2-repo URL --ms2-commit SHA \
+  python -m ms2exp.manifest --matrix freeze --inputs inputs.json --ms2-repo URL --ms2-commit SHA \
       [--allow-pending] [--seed N] -o manifest.json
 
 An input missing from the catalog is an error unless --allow-pending, which records it with
-sha256 "pending" (useful before the final ms2 indexes exist); run_job.py refuses to stage a
+sha256 "pending" (useful before the final ms2 indexes exist); the runner refuses to stage a
 pending input, except oracle traces, which a Rockfish run records itself (D12).
 
-Cell ids are GROUP/FIG_ID. GROUP names a summary that paper_figures.py reads (collect.py
-writes GROUP/summary.json) and FIG_ID is the id paper_figures.py looks up in it, as in the
+Cell ids are GROUP/FIG_ID. GROUP names a summary that ms2exp.figures.paper_figures reads (ms2exp.collect
+writes GROUP/summary.json) and FIG_ID is the id paper_figures looks up in it, as in the
 exploratory runs: {layout}-{mode} for ms2 MS, rope-l1, rope-default (length 19) and rope-lL,
 moni, phoni, augphoni, and cap{N}-{layout}-{ordinary|ftab} and cap{N}-rope-s{shift} for
 locate. Layout ms is ms2's min layout (ms2 query --mode min).
@@ -73,7 +73,7 @@ THREADS_PROTOCOL = dict(
     numa=dict(physcpubind='the first T physical cores, node 0 first; T = 64 on both hardware threads of the '
                           'first 32 cores (binding smt)', membind=0),
     cross_thread_check='every run of every cell records its output sha256, which must be the same at every '
-                       'thread count of a tool, mode and read set (collect.py)',
+                       'thread count of a tool, mode and read set (ms2exp.collect)',
     design='BENCH_FREEZE_DESIGN.md D5, D6, D10; THREAD_SCALING_PLAN.md')
 # Per-run limits in seconds. HPRC2 phi ordinary keeps the 3600 s cap and is reported as capped.
 TIMEOUT = dict(ms2=7200, ropebwt3=7200, legacy=7200, count=14400, locate=14400)
@@ -95,7 +95,7 @@ class Builder:
 
     def input(self, name, pending_ok=False):
         if name not in self.inputs and name in self.produced:
-            # Its checksum exists only once the build ran: run_job.py reads it from the build job's
+            # Its checksum exists only once the build ran: the runner reads it from the build job's
             # outputs.json, and worker.py offers the job only after that build is done.
             self.inputs[name] = dict(sha256='built', bytes=None, producer=self.produced[name])
         if name not in self.inputs:
@@ -126,7 +126,7 @@ class Builder:
         return self.input(f'tools/ropebwt3-{self.rope_tag}/ropebwt3')
 
     def runtime(self, soname='libgomp.so.1'):
-        """A shared library shipped with the pinned binaries (build_tools.py), put on LD_LIBRARY_PATH:
+        """A shared library shipped with the pinned binaries (ms2exp.build.tools), put on LD_LIBRARY_PATH:
         by default the OpenMP runtime the pinned ropebwt3 links."""
         return self.input(f'tools/runtime/{soname}')
 
@@ -184,7 +184,7 @@ class Builder:
 
     # Build jobs (all-AWS mode).
     def build(self, job_id, steps, outputs, note=None):
-        """A job that runs build commands and publishes its outputs as inputs (build_job.py).
+        """A job that runs build commands and publishes its outputs as inputs (ms2exp.build.job).
 
         Step argv tokens: {in:NAME} a staged input, {out:NAME} the output being written (also usable as
         the input of a later step), {outroot} the directory outputs are written under by logical name,
@@ -257,7 +257,7 @@ LEGACY_FILES = {'moni': ('index.thrbv.ms', 'index.plain.slp', 'index.idx'),
                 'phoni': ('reference.txt.phoni', 'reference.txt.plain.slp', 'reference.txt'),
                 'augphoni': ('reference.txt.aug', 'reference.txt.plain.slp', 'reference.txt')}
 LEGACY_BINARY = {'moni': 'moni-ms', 'phoni': 'phoni', 'augphoni': 'aug_phoni'}
-# The C++ runtime the legacy binaries link (build_tools.py), shipped for hosts that lack it.
+# The C++ runtime the legacy binaries link (ms2exp.build.tools), shipped for hosts that lack it.
 LEGACY_RUNTIME = ('libstdc++.so.6', 'libgcc_s.so.1')
 
 
@@ -503,14 +503,14 @@ def toy_matrix(b):
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('--matrix', choices=('freeze', 'toy', 'threads', 'threads-pilot'), required=True)
-    p.add_argument('--inputs', required=True, help='inputs catalog (catalog.py hash)')
+    p.add_argument('--inputs', required=True, help='inputs catalog (ms2exp.catalog hash)')
     p.add_argument('--ms2-repo', required=True, help='ms2 source repository URL')
     p.add_argument('--ms2-commit', required=True, help='full 40-hex ms2 commit')
     p.add_argument('--ms2-source', choices=('bundle', 'repo'), default='bundle',
                    help='--all-aws: build ms2 from the pinned inputs source/ms2-<c7>/{ms2,orbit,teratools}.bundle '
                         '(default; make_source_bundles.sh) or by fetching --ms2-repo')
     p.add_argument('--ms2-build', default='make -C src MS_COMMIT={commit} ms2-bench',
-                   help='build command recorded for the ms2 binary (build_tools.py runs it)')
+                   help='build command recorded for the ms2 binary (ms2exp.build.tools runs it)')
     p.add_argument('--ropebwt3-repo', default='https://github.com/lh3/ropebwt3.git')
     p.add_argument('--ropebwt3-commit', default='b408339d0fb08fe0f4da5140507a6b8b854fa12f')
     p.add_argument('--ropebwt3-binary-sha256',

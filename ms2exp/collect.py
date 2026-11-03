@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Assemble freeze results into the per-group summaries paper_figures.py reads, and check them.
+"""Assemble freeze results into the per-group summaries ms2exp.figures.paper_figures reads, and check them.
 
 Usage:
   python -m ms2exp.collect --manifest M --results-root DIR --out DIR [--platform aws|rockfish] [--no-compare]
@@ -8,7 +8,7 @@ For each cell group of the manifest, writes OUT/GROUP/summary.json in the shape 
 exploratory runs' summaries: top-level config.workload (reads, bases), config.orbit.revision,
 config.rope.batch_size, and a cells list whose entries carry id, status, median_query_seconds,
 median_load_seconds, peak_rss_kib, mbases_per_second, ns_per_base, locations_per_second,
-layout, mode, interleave and ops_per_base. paper_figures.py then reads OUT with its --ms-dir,
+layout, mode, interleave and ops_per_base. ms2exp.figures.paper_figures then reads OUT with its --ms-dir,
 --chr22-dir, --locate-dir and --ops-dir pointed there and its run names mapped to the groups
 (path changes only).
 

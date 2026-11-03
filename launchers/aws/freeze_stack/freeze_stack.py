@@ -9,7 +9,7 @@ done markers in S3, so the group is the orchestrator that relaunches interrupted
 
 Each box builds an NVMe RAID0 at /work from its instance-store disks, fetches the freeze
 code and the pinned tool sources from bench_s3_root, builds the tools, then runs worker.py:
-claim one job from the S3 queue, run it with run_job.py (one job per box, socket 0 only),
+claim one job from the S3 queue, run it with the runner, ms2exp.run.runner (one job per box, socket 0 only),
 and repeat. When the queue has nothing left to claim, the box removes itself from the group
 with a decrement of the desired capacity, so the group shrinks to zero instead of replacing
 it. `cdk destroy` is still the backstop.

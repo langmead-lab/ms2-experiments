@@ -4,20 +4,20 @@
 A locations file maps each logical name to a file on Rockfish:
   {"locations": {"reads/human472/human_short-ms-60mb-acgt-v1/reads.fa": "/scratch16/...", ...}}
 Entries whose value is a directory contribute every file below it, under the logical name
-plus the relative path (for tools/ trees written by build_tools.py).
+plus the relative path (for tools/ trees written by ms2exp.build.tools).
 
 Commands:
-  catalog.py hash --locations L.json [L2.json ...] --out inputs.json
+  python -m ms2exp.catalog hash --locations L.json [L2.json ...] --out inputs.json
       sha256 and size of every location. Unchanged files (same path, size and mtime as in an
       existing --out) keep their recorded sha256, so rehashing after a new build is cheap.
-  catalog.py link --locations L.json [...] --root DIR
+  python -m ms2exp.catalog link --locations L.json [...] --root DIR
       Make DIR/<logical name> a symlink to each location: the --inputs-root of Rockfish runs.
-  catalog.py publish --manifest M --root DIR --s3 s3://bucket/prefix [--dry-run]
+  python -m ms2exp.catalog publish --manifest M --root DIR --s3 s3://bucket/prefix [--dry-run]
       Upload every input of the manifest from DIR to the S3 prefix under its logical name,
       checking the sha256 first; objects already present with the same size are skipped.
       Traces recorded by Rockfish runs (results traces/) are published with --traces DIR. Inputs an
       all-AWS manifest builds (sha256 "built") are skipped: their build jobs publish them.
-  catalog.py from-results --results DIR [--add inputs.json ...] --out inputs.json
+  python -m ms2exp.catalog from-results --results DIR [--add inputs.json ...] --out inputs.json
       A catalog of every input of a run's manifest (DIR/manifest.json) with its checksum, those
       the run built taken from their build jobs' DIR/JOB/outputs.json, plus the entries of each
       --add catalog. A later manifest reuses the inputs of an earlier run this way, for example
@@ -82,7 +82,7 @@ def cmd_publish(args):
     root, s3 = Path(args.root), Store(args.s3)
     for name, entry in manifest['inputs'].items():
         if entry['sha256'] == 'built':
-            continue  # an AWS build job publishes it (build_job.py)
+            continue  # an AWS build job publishes it (ms2exp.build.job)
         if entry['sha256'] == 'pending':
             source = Path(args.traces)/name if args.traces and name.startswith('traces/') else None
             if source is None or not source.exists():

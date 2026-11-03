@@ -5,8 +5,8 @@
 # MS2_CHECKOUT must have MS2_COMMIT checked out, clean, with both submodules at the commits it
 # records (git submodule update --init). Writes OUT_DIR/{ms2,orbit,teratools}.bundle, each holding
 # its commit as HEAD with its history, and OUT_DIR/source-locations.json, which maps the logical
-# names source/ms2-<c7>/{ms2,orbit,teratools}.bundle to them for catalog.py hash and link. HASH_DIR
-# (default OUT_DIR) is where the bundles will be when catalog.py runs, as when OUT_DIR is made on the
+# names source/ms2-<c7>/{ms2,orbit,teratools}.bundle to them for ms2exp.catalog hash and link. HASH_DIR
+# (default OUT_DIR) is where the bundles will be when ms2exp.catalog runs, as when OUT_DIR is made on the
 # Mac and copied to Rockfish. The build-tools job of an all-AWS manifest (ms2exp.manifest
 # --ms2-source bundle, the default) stages the three bundles as inputs.
 set -euo pipefail

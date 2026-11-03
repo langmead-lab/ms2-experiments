@@ -8,7 +8,7 @@ shutdown -h +$((@MAX_HOURS@ * 60))
 # and ms2 does not ask for them. Timed jobs check this setting before they start.
 echo always > /sys/kernel/mm/transparent_hugepage/enabled
 dnf install -y numactl time tar gzip unzip python3 mdadm xfsprogs nvme-cli zlib
-# Build jobs of an all-AWS run compile ms2 (build_tools.py links libstdc++ statically); A1 cells need numpy (fig_rep.py).
+# Build jobs of an all-AWS run compile ms2 (ms2exp.build.tools links libstdc++ statically); A1 cells need numpy (fig_rep.py).
 dnf install -y git make gcc-c++ libstdc++-static zlib-devel python3-numpy
 command -v aws || (cd /tmp && curl -sSL https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip \
     -o awscliv2.zip && unzip -q awscliv2.zip && ./aws/install)

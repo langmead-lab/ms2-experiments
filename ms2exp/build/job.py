@@ -2,9 +2,9 @@
 """Run one build job of an all-AWS freeze manifest and publish what it builds as inputs.
 
 Usage:
-  build_job.py JOB_ID --manifest MANIFEST --inputs-root ROOT --results-root ROOT --stage DIR [--evict]
+  python -m ms2exp.build.job JOB_ID --manifest MANIFEST --inputs-root ROOT --results-root ROOT --stage DIR [--evict]
 
-A build job (make_manifest.py --all-aws) lists pinned inputs, outputs by logical name, and steps:
+A build job (ms2exp.manifest --all-aws) lists pinned inputs, outputs by logical name, and steps:
 argv lists whose tokens name staged inputs ({in:NAME}), outputs ({out:NAME}), the output
 directory ({outroot}), a scratch directory ({work}), the CPU count ({threads}) and the freeze
 code directory ({code}). The steps run in order under /usr/bin/time, without NUMA binding (a
@@ -14,7 +14,7 @@ finished step.
 
 When every step has run, each output is hashed and uploaded to the inputs store under its logical
 name, and RESULTS_ROOT/MANIFEST_ID/JOB_ID/outputs.json records its sha256 and size. Jobs that use
-an output carry sha256 "built" in the manifest; run_job.py takes the checksum from outputs.json
+an output carry sha256 "built" in the manifest; the runner takes the checksum from outputs.json
 and verifies the staged copy against it, and worker.py offers those jobs only once job.done of
 the build exists. A rerun of a finished build job does nothing.
 """

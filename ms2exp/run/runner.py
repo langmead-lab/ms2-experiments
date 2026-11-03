@@ -18,12 +18,12 @@ The same script runs on Rockfish and on AWS (BENCH_FREEZE_DESIGN.md D11):
   run the page cache is dropped when running as root; otherwise each staged input of the cell is
   evicted from the cache with posix_fadvise, which needs no root but does not drop the cached
   pages other processes hold.
-- With hash_output, every run's output sha256 is recorded for collect.py's cross-thread check.
+- With hash_output, every run's output sha256 is recorded for ms2exp.collect's cross-thread check.
 - Run 1's whole output is checked against truth: ms2 MS with ms_check.cpp; ropebwt3 -l1 by the
-  MS rebuilt from its SMEMs (real-hprc2 benchmark.check); ropebwt3 -lL against the SMEMs truth
-  implies and an untimed --old-mem count reference (rope_validation.check_default); MONI, PHONI
-  and AugPHONI with legacy_ms_validation.check_lengths; locate with offset_validation.check_smems,
-  whose canonical file is kept for the cross-tool comparison of collect.py.
+  MS rebuilt from its SMEMs (ms2exp.validate.ms.check); ropebwt3 -lL against the SMEMs truth
+  implies and an untimed --old-mem count reference (ms2exp.validate.rope.check_default); MONI, PHONI
+  and AugPHONI with ms2exp.validate.legacy.check_lengths; locate with ms2exp.validate.offsets.check_smems,
+  whose canonical file is kept for the cross-tool comparison of ms2exp.collect.
 - After a cell's runs, its records, summary and a done marker go to the results store at once
   (D10). A rerun skips cells with a done marker, so an interrupted job loses only the cell in
   progress. Finished runs of an unfinished cell are kept on local disk and reused by a rerun on
@@ -644,7 +644,7 @@ class Runner:
         if med > 0:
             out.update(mbases_per_second=bases / med / 1e6, ns_per_base=med / bases * 1e9)
         if cell['kind'] == 'locate':
-            # As explore_offsets.cell_summary: locations are the reported positions, checked in bounds.
+            # As in the exploratory locate runs: locations are the reported positions, checked in bounds.
             locations = out['check'].get('reported_locations_checked')
             out.update(locations=locations, smems=out['check'].get('intervals'))
             if locations is not None and med > 0:

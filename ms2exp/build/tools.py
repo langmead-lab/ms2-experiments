@@ -10,7 +10,7 @@ Usage:
 job of an all-AWS run uses it. --parts pinned only collects the pinned binaries, which then never
 need the commit's source.
 
-Writes, under INPUTS_DIR (logical names as make_manifest.py uses them):
+Writes, under INPUTS_DIR (logical names as ms2exp.manifest uses them):
   tools/ms2-<c7>/ms2-bench    make ms2-bench at the commit (assertions off)
   tools/ms2-<c7>/ms2-stats    the counting build: ms2-bench plus -DMS_STATS -DTMS_STATS (D7); the
                               Makefile's own ms2-stats target sets only -DMS_STATS, so this
@@ -153,7 +153,7 @@ def build_ms2(args, commit, short, root, work, commands, provenance):
     provenance['compiler'] = run([args.cxx, '--version'], source, commands).splitlines()[0]
     run(['make', f'CXX={cxx}', f'MS_COMMIT={commit}', 'ms2-bench'], source, commands)
     install(source/'ms2-bench', root/f'tools/ms2-{short}/ms2-bench', provenance, 'ms2-bench')
-    # The counting build mirrors explore_ops.compile_stats: the ms2-bench command plus both stats flags.
+    # The counting build mirrors the exploratory counting build: the ms2-bench command plus both stats flags.
     makefile = (source/'Makefile').read_text()
     srcs = re.search(r'^MS_SRCS = (.+)$', makefile, re.M).group(1).split()
     stats = source/'ms2-stats-freeze'

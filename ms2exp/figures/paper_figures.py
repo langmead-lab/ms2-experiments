@@ -6,7 +6,7 @@ Usage:
                    [--ops2-reads pacbio|ont] [--out DIR]
 
 Reads the exploratory Human472 and chr22 summaries (explore_ms.py,
-explore_ms_chr22.py, explore_offsets.py and explore_ops.py summary.json files) and writes, as
+explore_ms_chr22.py, explore_offsets.py and explore_ops.py summary.json files, from the lab's exploratory scripts, which are not in this repository) and writes, as
 PNG, SVG and PDF on a white background:
 
   fig-ms          MS-only speed against peak memory, ordinary ms2 layouts and

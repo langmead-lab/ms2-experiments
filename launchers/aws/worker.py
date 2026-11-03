@@ -12,7 +12,7 @@ is older than STALE_S is taken over (its box was reclaimed without notice). On a
 interruption notice the box releases its claim and stops its job at once, so the box the Auto
 Scaling group launches in its place resumes the job from its per-cell done markers (D10).
 
-All-AWS manifests (make_manifest.py --all-aws) add build jobs, which run build_job.py and publish
+All-AWS manifests (ms2exp.manifest --all-aws) add build jobs, which run ms2exp.build.job and publish
 indexes and binaries that other jobs use (inputs with sha256 "built"). A job is offered only when
 every build it depends on has its job.done, so the queue releases work as soon as each index
 exists. Build jobs are offered first. After each job, and while waiting, a box raises the group's

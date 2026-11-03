@@ -361,7 +361,7 @@ def cmd_skin(args):
                                f'that keeps the total at or below {LIMIT} bases (D13.4); map.tsv names each read'),
                     sources=[dict(path=str(p), sha256=sha256(p)) for p in (m1, m2)],
                     truth='ropebwt3 cfad8475 mem -l1 on the human472 FMD, converted to per-position MS by '
-                          'real-hprc2 benchmark.check, every value bounds-checked')
+                          'ms2exp.validate.ms.check, every value bounds-checked')
     finish(dest, manifest)
 
 
@@ -469,7 +469,7 @@ def cmd_truth(args):
     (dest/'truth.json').write_text(json.dumps(record, indent=1, default=str))
     manifest.update(status='prepared',
                     truth='ropebwt3 cfad8475 mem -l1 on the human472 FMD, converted to per-position MS by '
-                          'real-hprc2 benchmark.check, every value bounds-checked' +
+                          'ms2exp.validate.ms.check, every value bounds-checked' +
                           (f'; equal to {prefix["name"]} truth over its positions' if prefix else ''))
     manifest.pop('files', None)
     finish(dest, manifest)

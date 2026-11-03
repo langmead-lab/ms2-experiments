@@ -618,7 +618,7 @@ def truth(name, reference, source=None, destination=None, work=None, records=rop
     partial.unlink()
     verdict = dict(passed=True, command=row, reference=reference, reads_manifest_sha256=sha256(source/'manifest.json'),
                    sha256=digest, ropebwt3=rope, fmd=fmd,
-                   derivation='ropebwt3 mem -t1 -l1 SMEMs converted to per-position MS by real-hprc2 benchmark.check; '
+                   derivation='ropebwt3 mem -t1 -l1 SMEMs converted to per-position MS by ms2exp.validate.ms.check; '
                               'every value checked to satisfy 1 <= ms[j] <= length - j',
                    job_id=os.environ.get('SLURM_JOB_ID'), started=started, finished=time.time())
     save_new(destination/'truth.json', verdict)

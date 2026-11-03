@@ -18,7 +18,7 @@ check_smems() applies the cross-tool policy (cross-tool-v1) to output in ropebwt
 which both ropebwt3 and ms2 query --report smem-all write. It needs no reference sequence: it
 checks structure, the SMEM intervals and the matching statistics they imply against MS truth, and
 that every position lies inside its contig, and writes the canonical form. Counts and positions
-are certified by exact agreement between the two tools (compare_files, run by collect.py);
+are certified by exact agreement between the two tools (compare_files, run by ms2exp.collect);
 positions of SMEMs whose count exceeds the cap may differ between tools and are not compared.
 """
 import array
