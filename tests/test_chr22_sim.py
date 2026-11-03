@@ -267,6 +267,8 @@ class SourceTests(unittest.TestCase):
                                  cohort='fig_ops2_test')
                 with self.assertRaises(ValueError):
                     sim.simulate('ont', source=loaded)
+                with self.assertRaises(ValueError):
+                    sim.simulate('ont', destination=root/'set2')
             self.assertEqual((m['cohort'], m['seed'], m['platform']), ('fig_ops2_test', 11, sim.SETS['ont']['platform']))
             self.assertNotIn('source_haplotype', m)
             self.assertEqual(m['source_segments']['segments'], ['q0'])
@@ -284,13 +286,13 @@ class SourceTests(unittest.TestCase):
 
     def test_chr22_manifest_key_order(self):
         with tempfile.TemporaryDirectory() as tmp:
-            hap = dict(sample=SAMPLE, acgt_bases=100, manifest_sha256='h' * 64)
+            hap = dict(sample=SAMPLE, acgt_bases=100, manifest_sha256='h' * 64, path='/data/haplotype')
             with patch.object(sim, 'TARGET', 3):
                 m = sim.finish('ont', [('ACGT', dict(strand='+'))], Path(tmp)/'set', 5, dict(tools=[]), hap)
             keys = list(m)
             self.assertEqual(keys[keys.index('seed'):keys.index('seed') + 3], ['seed', 'source_haplotype', 'simulation'])
             self.assertEqual(m['cohort'], 'chr22_sim_ont')
-            self.assertEqual(m['source_haplotype'], dict(path=str(sim.HAPLOTYPE), sample=SAMPLE,
+            self.assertEqual(m['source_haplotype'], dict(path='/data/haplotype', sample=SAMPLE,
                                                          manifest_sha256='h' * 64, acgt_bases=100))
 
 
@@ -342,6 +344,15 @@ class TruthTests(unittest.TestCase):
                 sim.bounded(path, [0, 3])
             path.write_bytes(array.array('I', [3, 2, 1]).tobytes())
             sim.bounded(path, [0, 3])
+
+
+class RopeRecordTests(unittest.TestCase):
+    def test_rope_records_come_from_the_data_directory(self):
+        with patch.dict(os.environ, {'MS2EXP_DATA': '/data/ms2exp'}):
+            rope, fmd = sim.rope_records('chr22-h10')
+        self.assertEqual(rope['path'], '/data/ms2exp/tools/ropebwt3-cfad8475/ropebwt3')
+        self.assertEqual(rope['sha256'], sim.ROPE_SHA256)
+        self.assertEqual((fmd['path'], fmd['bytes']), ('/data/ms2exp/ropebwt3/chr22-h10/index.fmd', 104856784))
 
 
 if __name__ == '__main__':

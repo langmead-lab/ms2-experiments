@@ -9,6 +9,11 @@ import os
 from pathlib import Path
 
 
+# The lab root as preparation modules derive their default paths from it. Unset, it is a path that
+# names the variable, so that a step that reads a lab input fails with a message saying what to set.
+LAB_ROOT = Path(os.environ.get('MS2EXP_LAB_ROOT') or '/MS2EXP_LAB_ROOT-is-unset')
+
+
 def data_dir(arg=None):
     """The data directory: ARG, else MS2EXP_DATA."""
     value = arg or os.environ.get('MS2EXP_DATA')
