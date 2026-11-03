@@ -1,6 +1,6 @@
 This repo contains the code and records behind the experiments and measurements for the paper
-titled "Fast Pengenome Matching Statistics in Compressed Space with Move Structures" by Nathaniel K.
-Brown, Ahsan Sanaullah, Pramesh Shakya, Shaojie Zhang2, and Ben Langmead.   The `ms2` software itself
+titled "Fast Pangenome Matching Statistics in Compressed Space with Move Structures" by Nathaniel K.
+Brown, Ahsan Sanaullah, Pramesh Shakya, Shaojie Zhang, and Ben Langmead. The `ms2` software itself
 is at [langmead-lab/ms2](https://github.com/langmead-lab/ms2). The paper used the version at commit
 [2885ee86](https://github.com/langmead-lab/ms2/commit/2885ee86270b4187fc45dcc69efd7de48a4aac03),
 which is tagged `paper-v1`.
@@ -12,9 +12,9 @@ which is tagged `paper-v1`.
 | `results/` | Small recorded measurements from the two freeze runs; `results/README.md` maps them to paper elements |
 | `figures/` | Output from `python -m ms2exp.figures`: summaries, drafts, TikZ data and the paper's figure PDFs |
 | `tools.lock.json`, `TOOLS.md` | The tools pinned to specific versions, and how each was built |
-| `patches/` | The issue fixes made to PHONI and Augmented PHONI to achieve identical benchmarking results |
-| `toy/` | A small "toy" end-to-end run of the whole workflow, as though it will be run on Slurm/Rockfish |
-| `data/` | Input download and preparation scripts; `data/locations/` maps logical input names to Rockfish paths (relevant to Langmead lab, but maybe not others) |
+| `patches/` | The fixes to PHONI and Augmented PHONI that make their matching statistics correct (`TOOLS.md`) |
+| `toy/` | A small "toy" end-to-end run of the whole workflow, run directly on one machine (no Slurm) |
+| `data/` | Input download and preparation scripts; `data/locations/` maps logical input names to Rockfish paths (the Langmead lab's own copies) |
 | `tests/` | Unit tests (`python -m pytest tests`) |
 
 ## Workflow
@@ -85,9 +85,9 @@ runtime libraries shipped with them; `TOOLS.md` says how each binary was built a
 
 ## Acknowledgements
 
-`ms2` builts on Orbit, the move-structure library by Nathaniel Brown, and TeraTools, the move-structure building library and its TeraMS component for computing matching statistics. Its psi and phi query engine follows the design and code of TeraTools (TeraMS and TeraLCP) by Ahsan Sanaullah, Shaojie Zhang and the S. Zhang Lab at UCF, and it builds from TeraLCP's output. fmd2rlbwt uses ropebwt3's FMD reader by Heng Li.
+`ms2` builds on Orbit, the move-structure library by Nathaniel Brown, and TeraTools, the move-structure building library and its TeraMS component for computing matching statistics. Its psi and phi query engine follows the design and code of TeraTools (TeraMS and TeraLCP) by Ahsan Sanaullah, Shaojie Zhang and the S. Zhang Lab at UCF, and it builds from TeraLCP's output. fmd2rlbwt uses ropebwt3's FMD reader by Heng Li.
 
 ## License
 
-Software in this repo uses the MIT (`LICENSE`). The patches in `patches/` are under their upstream
+Software in this repo is under the MIT license (`LICENSE`). The patches in `patches/` are under their upstream
 projects' licenses.
