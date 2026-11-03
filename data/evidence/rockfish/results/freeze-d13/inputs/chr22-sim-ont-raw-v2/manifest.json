@@ -1,0 +1,151 @@
+{
+  "format": "chr22-sim-v1",
+  "status": "reads-prepared",
+  "set": "ont",
+  "cohort": "chr22_sim_ont",
+  "platform": "Oxford Nanopore, pbsim3 ERRHMM-ONT-HQ error model, template lengths from the HG002 Q28 workload",
+  "reads": 2783,
+  "bases": 60002041,
+  "one_bases": 16824,
+  "read_filter": "acgt-only-whole-reads",
+  "target_bases": 60000000,
+  "lengths": {
+    "reads": 2783,
+    "bases": 60002041,
+    "mean": 21560.201581027668,
+    "min": 394,
+    "q01": 669,
+    "q10": 846,
+    "q25": 1286,
+    "median": 3389,
+    "q75": 17731,
+    "q90": 67982,
+    "q99": 230989,
+    "max": 388436,
+    "n50": 89512
+  },
+  "strands": {
+    "-": 1422,
+    "+": 1361
+  },
+  "selection": "simulated reads uppercased; reads holding any non-ACGT base dropped; the rest shuffled with the seed and whole reads taken in that order until at least the target; renumbered q0, q1, ...",
+  "simulated": {
+    "reads": 3149,
+    "kept_acgt": 3149,
+    "dropped_non_acgt": {
+      "reads": 0,
+      "bases": 0
+    }
+  },
+  "seed": 2026102503,
+  "source_segments": {
+    "path": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/haplotype-APR008-hap1-chr22-v1/acgt.fa",
+    "sha256": "8495266b53c72558fc502fac8a19bf6000249947cc0097a7ee39da805aa0499d",
+    "note": "APR008 hap1 chr22 (JBHMUJ010000002.1), D13",
+    "records": 1,
+    "pair_reverse_complements": false,
+    "segments": [
+      "APR008_hap1_chr22_s0_0"
+    ],
+    "acgt_bases": 34044963,
+    "rule": "every ACGT-only record"
+  },
+  "simulation": {
+    "tools": [
+      {
+        "path": "/scratch16/blangme2/ms-bakery/tools/sim-env/bin/pbsim",
+        "sha256": "c58e20aaad3a39dc27a02f5840dc6eca16531e796ff79cb829c6499cedaecc30",
+        "version": "pbsim3 3.0.5 (bioconda pbsim3 3.0.5 h9948957_2)"
+      }
+    ],
+    "commands": [
+      {
+        "argv": [
+          "/scratch16/blangme2/ms-bakery/tools/sim-env/bin/pbsim",
+          "--strategy",
+          "templ",
+          "--template",
+          "/tmp/msbakery-1012-chr22sim-chr22-sim-ont-raw-v2-32746173/templates.fa",
+          "--method",
+          "errhmm",
+          "--errhmm",
+          "/scratch16/blangme2/ms-bakery/tools/sim-env/data/ERRHMM-ONT-HQ.model",
+          "--accuracy-mean",
+          "0.96",
+          "--seed",
+          "2026102503",
+          "--prefix",
+          "/tmp/msbakery-1012-chr22sim-chr22-sim-ont-raw-v2-32746173/pbsim"
+        ],
+        "cwd": "/tmp/msbakery-1012-chr22sim-chr22-sim-ont-raw-v2-32746173",
+        "returncode": 0,
+        "wall_seconds": 32.809569358825684
+      }
+    ],
+    "model": {
+      "path": "/scratch16/blangme2/ms-bakery/tools/sim-env/data/ERRHMM-ONT-HQ.model",
+      "sha256": "d5465d82b8c61177b4a7f57941605078509b5259ed4907c677d9e10df9bc0620"
+    },
+    "accuracy": {
+      "read num": "3149",
+      "read length mean (SD)": "21807.816767 (44431.538952)",
+      "read length min": "394",
+      "read length max": "388436",
+      "read accuracy mean (SD)": "0.958418 (0.047690)",
+      "substitution rate": "0.011235",
+      "insertion rate": "0.011927",
+      "deletion rate": "0.016908"
+    },
+    "templates": {
+      "count": 3149,
+      "bases": 69014900,
+      "seed": 2026102503,
+      "sha256": "03b5a70859476027161dfa5c94c205bf67cf598791055d7f7738c1122a495664",
+      "rule": "length drawn with replacement from the real ONT workload, start uniform over the ACGT-segment positions where it fits, strand + or - with probability 1/2"
+    },
+    "profile": "pbsim3 template strategy, --method errhmm with ERRHMM-ONT-HQ.model (its standard ONT model, recommended for read sets of 90 percent accuracy or more), --accuracy-mean 0.96, the model's ceiling; one read per template, on the template's strand",
+    "real_workload": {
+      "path": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/human_ont_modern/explore-acgt-60mb-v1",
+      "manifest_sha256": "d89275be17dcc5b83c86c97f41759e1f48468d9fac0ffb73efdf2d39d0cf930e",
+      "cohort": "human_ont_modern",
+      "offsets_sha256": "7266e4a2853d2b3583205f4ee6d7fef48a82b10309c462aa16f5f00f27d94fee"
+    },
+    "real_lengths": {
+      "reads": 2707,
+      "bases": 60015831,
+      "mean": 22170.60620613225,
+      "min": 404,
+      "q01": 667,
+      "q10": 865,
+      "q25": 1339,
+      "median": 3367,
+      "q75": 18444,
+      "q90": 67776,
+      "q99": 230778,
+      "max": 417287,
+      "n50": 91651
+    },
+    "oversample": 1.15
+  },
+  "host": "sr37",
+  "job_id": "32746173",
+  "created": 1793380384.9052136,
+  "files": {
+    "reads.fa": {
+      "bytes": 60023195,
+      "sha256": "ffb38ff77c98cd22d1771a6a24e30c7d62609153784793096f7b63e6495524cf"
+    },
+    "one.fa": {
+      "bytes": 16829,
+      "sha256": "d5e1dffd360970fd5d5a0796f1300c9db0dc3681484baa9079a10160af525f0c"
+    },
+    "offsets.u64": {
+      "bytes": 22272,
+      "sha256": "95f03479edb3b2c89baac668f3eb5737771981c859d29534d7a339fe05517aba"
+    },
+    "origins.tsv": {
+      "bytes": 166407,
+      "sha256": "c13a24053aff5bc79a39fe64659d556fe925c87a1f5eab8264cc4b6392a5c9ce"
+    }
+  }
+}

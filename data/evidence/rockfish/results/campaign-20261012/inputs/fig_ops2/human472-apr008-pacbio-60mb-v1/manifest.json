@@ -1,0 +1,37 @@
+{
+  "status": "prepared",
+  "reference": "human472",
+  "cohort": "fig_ops2",
+  "set": "apr008-pacbio-60mb-v1",
+  "reads": 2854,
+  "bases": 60008103,
+  "read_filter": "acgt-split-at-non-acgt",
+  "selection": "Fig Ops2: simulated PacBio HiFi reads (chr22 PacBio recipe: pbsim3 3.0.5 multi-pass QSHMM-RSII, 10 passes, then ccs 6.4.0 defaults; template lengths from the real PacBio workload, about 60 Mbases of whole ACGT-only reads) from APR008 haplotype 1; read set and its manifest in inputs/fig_ops2/sim-human472-apr008-pacbio-60mb-v1; uppercase; split every record at each run of characters other than A, C, G and T, which are dropped; empty pieces dropped; records renamed q0, q1, ... in source order (map.tsv gives each source record and 0-based half-open range)",
+  "source": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops2/sim-human472-apr008-pacbio-60mb-v1/reads.fa",
+  "reads_manifest_sha256": "200af7074f901f18b9a87364a7a42a4807ce15a6aa590379a0cec3ddb6979fce",
+  "truth": "ropebwt3 -l1 (binary cfad8475911f) on the human472 FMD (10e89eb17f17), job 32545014",
+  "truth_metadata_sha256": "1174ae7db0564c04d1aa17257b4a91e0be7859e2a40ed16981f7023588ee0855",
+  "reuse_old_timings": false,
+  "files": {
+    "reads.fa": {
+      "bytes": 60029825,
+      "sha256": "85a4b2396bf0823228c9290521f0498ca83546f6c353f738e4a62d14feb65d1d"
+    },
+    "offsets.u64": {
+      "bytes": 22840,
+      "sha256": "be53d52aa0ea7797891886b8bddfd96f37adc3955d4ed3f72ac540ebe6d2dae0"
+    },
+    "map.tsv": {
+      "bytes": 54858,
+      "sha256": "4f2f497ebf1ee382758950283674744d033cca1ee984cf38bd5a503c62f74a03"
+    },
+    "truth.u32": {
+      "bytes": 240032412,
+      "sha256": "6711d3fb5ef995c64db4e7118b12845df4449d5bf968cb89dca70672c2d0fc6d"
+    },
+    "truth.json": {
+      "bytes": 2050,
+      "sha256": "1174ae7db0564c04d1aa17257b4a91e0be7859e2a40ed16981f7023588ee0855"
+    }
+  }
+}

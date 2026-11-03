@@ -1,0 +1,78 @@
+[[ Preparing mtb152 dataset ]]
+[bash] Downloading /home/USER/vast/ms_lcp/data/mtb152/mtb152.tar.gz
+[bash] Unzipping /home/USER/vast/ms_lcp/data/mtb152/mtb152.tar.gz
+Finished preparing mtb152 dataset, removed temporary files: /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd.len.gz /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd.ssa /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmr /home/USER/vast/ms_lcp/data/mtb152/mtb152.tar.gz
+[[ Preparing mtb152 pattern/index split ]]
+[ropebwt3] Checking number of sequences in /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd
+Total number of sequences: 152
+Sequences to withhold for pattern: 8 (5%)
+Sequences to include in index: 144 (95%)
+[ropebwt3] Creating pattern fasta file /home/USER/vast/ms_lcp/data/mtb152/pattern/mtb152.5%.fa
+>> /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd {[0..15..1]} > /tmp/mtb152/pattern/{[0..15..1]}.fa | USING 32 JOBS
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 3
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 1
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 2
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 8
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 7
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 13
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 5
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 6
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 14
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 15
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 10
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 11
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 12
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 9
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 4
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 0
+Finished at: 13:22.26
+<<
+[bash] Cleaning pattern of N characters
+Finished creating pattern fasta file /home/USER/vast/ms_lcp/data/mtb152/pattern/mtb152.5%.fa
+[ropebwt3] Extracting reference fasta file /home/USER/vast/ms_lcp/data/mtb152/mtb152.95%.fa
+>> /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd {[16..303..2]} > /tmp/mtb152/reference/{[16..303..2]}.fa | USING 32 JOBS
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 16
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 18
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 24
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 28
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 34
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 72
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 42
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 30
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 32
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 76
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 26
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 60
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 50
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 48
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 70
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 58
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 68
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 64
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 66
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 62
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 56
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 46
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 78
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 52
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 38
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 44
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 54
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 22
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 40
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 36
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 74
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 20
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 84
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 82
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 88
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 94
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 92
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 98
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 102
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 110
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 90
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 96
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 100
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 104
+[M::main] CMD: /home/USER/repos/ropebwt3/ropebwt3 get /home/USER/vast/ms_lcp/data/mtb152/mtb152.fmd 112

@@ -1,0 +1,54 @@
+{
+  "retrieved_utc": "2026-10-01T22:40:11.488203+00:00",
+  "scope": "Complete compressed FASTQ runs; no references, simulated reads, or extraction",
+  "files": [
+    {
+      "run": "SRR3099549",
+      "experiment": "SRX1391727",
+      "url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR309/009/SRR3099549/SRR3099549_1.fastq.gz",
+      "bytes": 15321470634,
+      "md5": "985b6e76ff01126187b13bfa0fafc021",
+      "path": "sources/SRR3099549/SRR3099549_1.fastq.gz"
+    },
+    {
+      "run": "SRR3099549",
+      "experiment": "SRX1391727",
+      "url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR309/009/SRR3099549/SRR3099549_2.fastq.gz",
+      "bytes": 15277878047,
+      "md5": "5b43d9623e22bd448a03dee28f15b2ed",
+      "path": "sources/SRR3099549/SRR3099549_2.fastq.gz"
+    },
+    {
+      "run": "SRR26545347",
+      "experiment": "SRX22247149",
+      "url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR265/047/SRR26545347/SRR26545347_subreads.fastq.gz",
+      "bytes": 128448953649,
+      "md5": "560f78b3610bed914b800eaadfec8964",
+      "path": "sources/SRR26545347/SRR26545347_subreads.fastq.gz"
+    },
+    {
+      "run": "DRR290133",
+      "experiment": "DRX279589",
+      "url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/DRR290/DRR290133/DRR290133_subreads.fastq.gz",
+      "bytes": 22634606140,
+      "md5": "b8dd3095e7b01125e40f7f320e2a29e2",
+      "path": "sources/DRR290133/DRR290133_subreads.fastq.gz"
+    },
+    {
+      "run": "SRR11071395",
+      "experiment": "SRX7711546",
+      "url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR110/095/SRR11071395/SRR11071395_1.fastq.gz",
+      "bytes": 12884637592,
+      "md5": "be0cf6b51640abdd62d46573dde32b54",
+      "path": "sources/SRR11071395/SRR11071395_1.fastq.gz"
+    },
+    {
+      "run": "SRR9847854",
+      "experiment": "SRX6602475",
+      "url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR984/004/SRR9847854/SRR9847854_1.fastq.gz",
+      "bytes": 27709424582,
+      "md5": "8dbf521c62ea3a62e3544e714104a7ec",
+      "path": "sources/SRR9847854/SRR9847854_1.fastq.gz"
+    }
+  ]
+}

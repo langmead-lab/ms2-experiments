@@ -1,0 +1,66 @@
+{
+  "id": "chr22-h2",
+  "coverage": "chr22",
+  "chromosomes": [
+    "chr22"
+  ],
+  "haplotypes": 2,
+  "panel": [
+    "200001_HG002.pat",
+    "200002_HG002.mat"
+  ],
+  "native_bases_before_gap_splitting": 102825884,
+  "planning_disk_budget_bytes": 5141294200,
+  "snapshot": "HPRC2 February 2025 human472.agc; not final Release 2",
+  "archive": "/data/blangme2/fasta/hprc-v2/human472.agc",
+  "plan_sha256": "ad4b7b5943a2861dbf4dcd898159e6ed395e699ad96b6670286eb9c01416de20",
+  "plan_file": "plan-extra.json",
+  "sources": [
+    {
+      "haplotype": "200001_HG002.pat",
+      "contig": "HG002#1#chr22",
+      "begin": 0,
+      "end": 49430517,
+      "orientation": "+",
+      "contig_md5": "6150ca43c3a1aec75d690bfff04b0a2a",
+      "extracted_fasta_sha256": "b7f2a499161845d4085fc4cc5ed08b9b0c8ed348b120a17011810e8cc9a5a0fa",
+      "segments": [
+        {
+          "record": "h200001_c0_s0",
+          "begin": 0,
+          "end": 2633586
+        },
+        {
+          "record": "h200001_c0_s1",
+          "begin": 3713463,
+          "end": 49430517
+        }
+      ]
+    },
+    {
+      "haplotype": "200002_HG002.mat",
+      "contig": "HG002#2#chr22",
+      "begin": 0,
+      "end": 53395367,
+      "orientation": "+",
+      "contig_md5": "c47eb1a34dcc17278bcc5c648a3ed2c7",
+      "extracted_fasta_sha256": "adc678bcf9890013a8b0dd45eef6d4dd0106c22fc0396d86f8b35edc51520743",
+      "segments": [
+        {
+          "record": "h200002_c1_s0",
+          "begin": 0,
+          "end": 2717377
+        },
+        {
+          "record": "h200002_c1_s1",
+          "begin": 8063138,
+          "end": 53395367
+        }
+      ]
+    }
+  ],
+  "forward_acgt_bases": 96400246,
+  "reference_sha256": "4afac178333ef3d28a56109bb60b17e4c587572c1746efdb4104806266ba58f7",
+  "both_strands": true,
+  "boundary_policy": "Native mapped component intervals remain separate; split non-ACGT runs. No synthetic RagTag joins. Search both strands."
+}

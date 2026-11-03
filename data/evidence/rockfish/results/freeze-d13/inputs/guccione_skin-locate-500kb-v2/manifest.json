@@ -1,0 +1,55 @@
+{
+ "name": "guccione_skin-locate-500kb-v2",
+ "status": "prepared",
+ "reference": "human472",
+ "cohort": "guccione_skin",
+ "reads": 3698,
+ "bases": 499904,
+ "one_bases": 151,
+ "read_filter": "acgt-only-whole-reads",
+ "limit_bases": 500000,
+ "run": "ERR14066769",
+ "dropped_non_acgt_reads": 967,
+ "selection": "longest whole-read prefix of the source with at most 500000 bases (D13)",
+ "sources": [
+  {
+   "path": "/scratch16/blangme2/ms-bakery/reads/guccione-PRJEB83637/skin/ERR14066769/ERR14066769_1.fastq.gz",
+   "sha256": "5f1467b3cf255d72b503cd12339baadd3025a5a7101910cc65b91b0940b86eec"
+  },
+  {
+   "path": "/scratch16/blangme2/ms-bakery/reads/guccione-PRJEB83637/skin/ERR14066769/ERR14066769_2.fastq.gz",
+   "sha256": "cd0653a6b379b524dd0c2150d734a7e695d5f6f14592375cb78770306705f440"
+  }
+ ],
+ "truth": "ropebwt3 cfad8475 mem -l1 on the human472 FMD, converted to per-position MS by real-hprc2 benchmark.check, every value bounds-checked",
+ "created": 1793377584.9667985,
+ "job_id": "32743099",
+ "source": {
+  "path": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/guccione_skin-ms-60mb-acgt-v2",
+  "manifest_sha256": "927a35018bde65704dc609464d5108e7772a346a3eb3d0eee80224d4184280c7"
+ },
+ "source_reads": 438969,
+ "source_bases": 59999995,
+ "files": {
+  "map.tsv": {
+   "bytes": 105440,
+   "sha256": "f005fb438374cd463c39065badd6bcc495ed3d9151b585e4927aad047627449f"
+  },
+  "offsets.u64": {
+   "bytes": 29592,
+   "sha256": "60ee55c2fa46274c6410c96dc77a3f19f47464bdfb36f85e6b10e30944e81a90"
+  },
+  "one.fa": {
+   "bytes": 156,
+   "sha256": "51835fa94035042635dfd85e5bc240e3580288de87e231153cfb0a7764f7f0e3"
+  },
+  "reads.fa": {
+   "bytes": 528378,
+   "sha256": "d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c"
+  },
+  "truth.u32": {
+   "bytes": 1999616,
+   "sha256": "bbdbca28a0fbcb796168de6b5f8b59fb51b6f3780708f28490d78c21d6aed3cf"
+  }
+ }
+}

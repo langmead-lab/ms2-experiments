@@ -1,0 +1,37 @@
+{
+  "status": "prepared",
+  "reference": "mtb152",
+  "cohort": "fig_ops2",
+  "set": "pacbio-60mb-v1",
+  "reads": 2856,
+  "bases": 60014409,
+  "read_filter": "acgt-split-at-non-acgt",
+  "selection": "Fig Ops2: simulated PacBio HiFi reads (chr22 PacBio recipe: pbsim3 3.0.5 multi-pass QSHMM-RSII, 10 passes, then ccs 6.4.0 defaults; template lengths from the real PacBio workload, about 60 Mbases of whole ACGT-only reads) from the forward records of the 8 held-out mtb152 genomes; read set and its manifest in inputs/fig_ops2/sim-mtb152-pacbio-60mb-v1; uppercase; split every record at each run of characters other than A, C, G and T, which are dropped; empty pieces dropped; records renamed q0, q1, ... in source order (map.tsv gives each source record and 0-based half-open range)",
+  "source": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops2/sim-mtb152-pacbio-60mb-v1/reads.fa",
+  "reads_manifest_sha256": "b28119fa86af1710e92d4cc0a0fb28cc4dc9f5a5ebf076200abf464290902390",
+  "truth": "ropebwt3 -l1 (binary cfad8475911f) on the mtb152 FMD (181c92baeda3), job 32545011",
+  "truth_metadata_sha256": "9645e2c6688dbc3e66cee442ee4d1a1781cd91698d60b5d75b470e09e3e931fc",
+  "reuse_old_timings": false,
+  "files": {
+    "reads.fa": {
+      "bytes": 60036147,
+      "sha256": "529e6d824877f3ebeb72f7463738edba794f86c38f5f4ee6f9315b93aedfc147"
+    },
+    "offsets.u64": {
+      "bytes": 22856,
+      "sha256": "aaf6cc0c374ebce000faab1be617f8207ca9c88972c5962119ed44cf42bc7ac5"
+    },
+    "map.tsv": {
+      "bytes": 54899,
+      "sha256": "4feb6ae396bab5a60dd812bd1e2473cbb4873aad630e9bce9a0158b335518513"
+    },
+    "truth.u32": {
+      "bytes": 240057636,
+      "sha256": "8e2a55a45299edd7e2b13cb08d28385bcc2d40f0711419d4ded6a39944c8b8d5"
+    },
+    "truth.json": {
+      "bytes": 2025,
+      "sha256": "9645e2c6688dbc3e66cee442ee4d1a1781cd91698d60b5d75b470e09e3e931fc"
+    }
+  }
+}

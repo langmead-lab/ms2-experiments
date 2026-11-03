@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "command": {
+    "argv": [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/ropebwt3",
+      "mem",
+      "-t",
+      "4",
+      "-l1",
+      "-K",
+      "10g",
+      "/vast/blangme2/nbrown/ms_lcp/data/mtb152/mtb152.95%.fmd",
+      "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops/mtb152-heldout16-v1/reads.fa"
+    ],
+    "cwd": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/truth-jobs/figops-mtb152-heldout16-v1-32495568",
+    "returncode": 0,
+    "timed_out": false,
+    "wall_seconds": 10.035602474585176,
+    "stdout": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/truth-jobs/figops-mtb152-heldout16-v1-32495568/truth.stdout",
+    "stderr": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/truth-jobs/figops-mtb152-heldout16-v1-32495568/truth.stderr",
+    "native_wall_seconds": 10.03,
+    "user_seconds": 35.8,
+    "system_seconds": 0.08,
+    "peak_rss_kib": 100084,
+    "check": {
+      "reads": 16,
+      "positions": 70570430,
+      "failed": 0
+    },
+    "stdout_sha256": "4f2728f2c10433ecffe1902074514a5fb60f987e47aefd7f526ee3527af671c6",
+    "stdout_bytes": 548895,
+    "raw_output_retained": false
+  },
+  "reference": "mtb152",
+  "reads_manifest_sha256": "f4a6be6a94ecc529ad211ac46d34b7f6af6433e4fefc6f993090422b1f244bac",
+  "sha256": "44cac5d9bbccf11da29268a7205c757739d66af2ad8e2380e8942d3530c63700",
+  "ropebwt3": {
+    "path": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/ropebwt3",
+    "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "fmd": {
+    "path": "/vast/blangme2/nbrown/ms_lcp/data/mtb152/mtb152.95%.fmd",
+    "sha256": "181c92baeda3f414e50c1e5e87b71ac2c3e54d8bc47237da151aecc192b03381"
+  },
+  "derivation": "ropebwt3 mem -l1 SMEMs converted to per-position MS by real-hprc2 benchmark.check; every value checked to satisfy 1 <= ms[j] <= length - j",
+  "job_id": "32495568",
+  "started": 1792969469.692389,
+  "finished": 1792969507.4588096
+}

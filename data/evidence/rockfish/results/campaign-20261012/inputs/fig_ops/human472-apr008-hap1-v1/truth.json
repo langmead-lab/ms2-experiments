@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "command": {
+    "argv": [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/ropebwt3",
+      "mem",
+      "-t",
+      "16",
+      "-l1",
+      "-K",
+      "10g",
+      "/vast/blangme2/hprc2-ms/ropebwt3/human472.fmd",
+      "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops/human472-apr008-hap1-v1/reads.fa"
+    ],
+    "cwd": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/truth-jobs/figops-human472-apr008-hap1-v1-32495570",
+    "returncode": 0,
+    "timed_out": false,
+    "wall_seconds": 392.18273967318237,
+    "stdout": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/truth-jobs/figops-human472-apr008-hap1-v1-32495570/truth.stdout",
+    "stderr": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/truth-jobs/figops-human472-apr008-hap1-v1-32495570/truth.stderr",
+    "native_wall_seconds": 392.17,
+    "user_seconds": 4750.63,
+    "system_seconds": 10.3,
+    "peak_rss_kib": 18399900,
+    "check": {
+      "reads": 81,
+      "positions": 3038047138,
+      "failed": 0
+    },
+    "stdout_sha256": "ee6f0d9ad63899d7f5fa073c9d25a69d94d6624a2a465d55579a8d25e0c2109a",
+    "stdout_bytes": 19351230,
+    "raw_output_retained": false
+  },
+  "reference": "human472",
+  "reads_manifest_sha256": "f45e8af9d55d971a06a2c168866589ec518c5435a3d07e07c3f9ad1c205617be",
+  "sha256": "647458186a3ecccdd71891c93d6e5d8c1a41fcf3563f934511d8cf056dbab49d",
+  "ropebwt3": {
+    "path": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/ropebwt3",
+    "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "fmd": {
+    "path": "/vast/blangme2/hprc2-ms/ropebwt3/human472.fmd",
+    "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626"
+  },
+  "derivation": "ropebwt3 mem -l1 SMEMs converted to per-position MS by real-hprc2 benchmark.check; every value checked to satisfy 1 <= ms[j] <= length - j",
+  "job_id": "32495570",
+  "started": 1792969506.2416573,
+  "finished": 1792970649.3429422
+}

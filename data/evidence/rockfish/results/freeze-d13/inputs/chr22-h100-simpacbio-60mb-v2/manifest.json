@@ -1,0 +1,38 @@
+{
+  "status": "prepared",
+  "reference": "chr22-h100",
+  "cohort": "chr22_sim_pacbio",
+  "set": "pacbio",
+  "reads": 2864,
+  "bases": 59991907,
+  "one_bases": 16750,
+  "read_filter": "acgt-only-whole-reads",
+  "selection": "simulated PacBio HiFi, pbsim3 multi-pass (QSHMM-RSII, 10 passes) and ccs reads of /scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-sim-pacbio-60mb-v2 (same records, names and order)",
+  "reads_workload": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-sim-pacbio-60mb-v2",
+  "reads_manifest_sha256": "bcdb7000b9d6f606d3e8659c74933747532696aababfa6840eb63eaa8916aa59",
+  "truth": "ropebwt3 -t1 -l1 (binary cfad8475911f) on the chr22-h100 FMD (7e3c46f0db21), job 32746173",
+  "truth_metadata_sha256": "c0a353344d95d9b39fd27d445a352e872539f6d10ae32dbaf562bdbd9ac609ff",
+  "reuse_old_timings": false,
+  "files": {
+    "reads.fa": {
+      "bytes": 60013709,
+      "sha256": "8e5897988e4744c12a8f7fe9bf2734a38bb7ed3cdb9df40013370040c9da177f"
+    },
+    "one.fa": {
+      "bytes": 16755,
+      "sha256": "aac708c3bbf9dc04e2176f241a1460c86025480caba790ba0ec524b6b39d7e7c"
+    },
+    "offsets.u64": {
+      "bytes": 22920,
+      "sha256": "67170819571b8b03f75bb7c33bfebcb2f236c196cc7876a973e17662ad346435"
+    },
+    "truth.u32": {
+      "bytes": 239967628,
+      "sha256": "6a374986ec3ed3cbf560be5b0d969a41ad7d811bb4bf89cd599c6577eaf64851"
+    },
+    "truth.json": {
+      "bytes": 1910,
+      "sha256": "c0a353344d95d9b39fd27d445a352e872539f6d10ae32dbaf562bdbd9ac609ff"
+    }
+  }
+}

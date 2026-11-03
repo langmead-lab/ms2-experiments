@@ -1,0 +1,266 @@
+{
+  "format": "chr22-sim-v1",
+  "status": "reads-prepared",
+  "set": "pacbio",
+  "cohort": "fig_ops2",
+  "platform": "PacBio HiFi, pbsim3 multi-pass (QSHMM-RSII, 10 passes) and ccs",
+  "reads": 2854,
+  "bases": 60008103,
+  "one_bases": 18451,
+  "read_filter": "acgt-only-whole-reads",
+  "target_bases": 60000000,
+  "lengths": {
+    "reads": 2854,
+    "bases": 60008103,
+    "mean": 21025.96461107218,
+    "min": 6857,
+    "q01": 14091,
+    "q10": 16275,
+    "q25": 17799,
+    "median": 20189,
+    "q75": 23943,
+    "q90": 26901,
+    "q99": 31962,
+    "max": 36779,
+    "n50": 21236
+  },
+  "strands": {
+    "+": 1419,
+    "-": 1435
+  },
+  "selection": "simulated reads uppercased; reads holding any non-ACGT base dropped; the rest shuffled with the seed and whole reads taken in that order until at least the target; renumbered q0, q1, ...",
+  "simulated": {
+    "reads": 3225,
+    "kept_acgt": 3225,
+    "dropped_non_acgt": {
+      "reads": 0,
+      "bases": 0
+    }
+  },
+  "seed": 2026102612,
+  "source_segments": {
+    "path": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops/human472-apr008-hap1-v1/reads.fa",
+    "sha256": "179c5a4a8979c026b02b2c6073cee610ffaf85dd5f5ed703cff5f7466c1c6ac3",
+    "note": "Fig Ops2 source: inputs/fig_ops/human472-apr008-hap1-v1/reads.fa, Arab Pangenome Reference APR008 haplotype 1 (GenBank GCA_050494745.1), absent from Human472, as 81 ACGT-only records",
+    "records": 81,
+    "pair_reverse_complements": false,
+    "segments": [
+      "q0",
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9",
+      "q10",
+      "q11",
+      "q12",
+      "q13",
+      "q14",
+      "q15",
+      "q16",
+      "q17",
+      "q18",
+      "q19",
+      "q20",
+      "q21",
+      "q22",
+      "q23",
+      "q24",
+      "q25",
+      "q26",
+      "q27",
+      "q28",
+      "q29",
+      "q30",
+      "q31",
+      "q32",
+      "q33",
+      "q34",
+      "q35",
+      "q36",
+      "q37",
+      "q38",
+      "q39",
+      "q40",
+      "q41",
+      "q42",
+      "q43",
+      "q44",
+      "q45",
+      "q46",
+      "q47",
+      "q48",
+      "q49",
+      "q50",
+      "q51",
+      "q52",
+      "q53",
+      "q54",
+      "q55",
+      "q56",
+      "q57",
+      "q58",
+      "q59",
+      "q60",
+      "q61",
+      "q62",
+      "q63",
+      "q64",
+      "q65",
+      "q66",
+      "q67",
+      "q68",
+      "q69",
+      "q70",
+      "q71",
+      "q72",
+      "q73",
+      "q74",
+      "q75",
+      "q76",
+      "q77",
+      "q78",
+      "q79",
+      "q80"
+    ],
+    "acgt_bases": 3038047138,
+    "rule": "every ACGT-only record"
+  },
+  "simulation": {
+    "tools": [
+      {
+        "path": "/scratch16/blangme2/ms-bakery/tools/sim-env/bin/pbsim",
+        "sha256": "c58e20aaad3a39dc27a02f5840dc6eca16531e796ff79cb829c6499cedaecc30",
+        "version": "pbsim3 3.0.5 (bioconda pbsim3 3.0.5 h9948957_2)"
+      },
+      {
+        "path": "/scratch16/blangme2/ms-bakery/tools/hifi-env/.pixi/envs/default/bin/ccs",
+        "sha256": "242bd8b27185ffb6d6528556197d7c4bc04bf9dc3d04149a025f587fd138b9d8",
+        "version": "ccs 6.4.0 (bioconda pbccs 6.4.0 h9ee0642_0)"
+      },
+      {
+        "path": "/scratch16/blangme2/ms-bakery/tools/hifi-env/.pixi/envs/default/bin/samtools",
+        "sha256": "d82441443bc73aad354d54aed51d6ca98a67965c992911d96c8726b1da6a140d",
+        "version": "samtools 1.24 (bioconda samtools 1.24 h9dcdb79_1), called by pbsim3 to write BAM"
+      }
+    ],
+    "commands": [
+      {
+        "argv": [
+          "/scratch16/blangme2/ms-bakery/tools/sim-env/bin/pbsim",
+          "--strategy",
+          "templ",
+          "--template",
+          "/tmp/msbakery-1012-chr22sim-sim-human472-apr008-pacbio-60mb-v1-32545013/templates.fa",
+          "--method",
+          "qshmm",
+          "--qshmm",
+          "/scratch16/blangme2/ms-bakery/tools/sim-env/data/QSHMM-RSII.model",
+          "--pass-num",
+          "10",
+          "--seed",
+          "2026102612",
+          "--prefix",
+          "/tmp/msbakery-1012-chr22sim-sim-human472-apr008-pacbio-60mb-v1-32545013/pbsim"
+        ],
+        "cwd": "/tmp/msbakery-1012-chr22sim-sim-human472-apr008-pacbio-60mb-v1-32545013",
+        "returncode": 0,
+        "wall_seconds": 246.47431135177612
+      },
+      {
+        "argv": [
+          "/scratch16/blangme2/ms-bakery/tools/hifi-env/.pixi/envs/default/bin/ccs",
+          "-j",
+          "16",
+          "/tmp/msbakery-1012-chr22sim-sim-human472-apr008-pacbio-60mb-v1-32545013/pbsim.bam",
+          "/tmp/msbakery-1012-chr22sim-sim-human472-apr008-pacbio-60mb-v1-32545013/ccs.fastq.gz"
+        ],
+        "cwd": "/tmp/msbakery-1012-chr22sim-sim-human472-apr008-pacbio-60mb-v1-32545013",
+        "returncode": 0,
+        "wall_seconds": 183.6050636768341
+      }
+    ],
+    "model": {
+      "path": "/scratch16/blangme2/ms-bakery/tools/sim-env/data/QSHMM-RSII.model",
+      "sha256": "cff55ec94274a919529266561df48c3f72506e936a9c0ceb7840240ecdedb3b7"
+    },
+    "accuracy": {
+      "subreads": {
+        "read num": "3281",
+        "read length mean (SD)": "21551.065620 (4309.794841)",
+        "read length min": "6945",
+        "read length max": "37533",
+        "read accuracy mean (SD)": "0.851299 (0.043383)",
+        "substitution rate": "0.008939",
+        "insertion rate": "0.081909",
+        "deletion rate": "0.057893"
+      },
+      "ccs_predicted": {
+        "reads": 3225,
+        "mean_read": 0.9980226658101836,
+        "base_weighted": 0.9980256868728162,
+        "q01": 0.9913152948890744,
+        "q10": 0.9968015850706954,
+        "median": 0.998488318380462,
+        "min": 0.9901198178861326,
+        "definition": "1 - mean per-base error probability from ccs base qualities (Phred+33), as ccs rq"
+      }
+    },
+    "templates": {
+      "count": 3281,
+      "bases": 69010891,
+      "seed": 2026102612,
+      "sha256": "e301b2d79eda0edcc1d41144ef6514279e010ddc3c011c1b5b7ac505a4bd25fa",
+      "rule": "length drawn with replacement from the real PacBio workload, start uniform over the ACGT-segment positions where it fits, strand + or - with probability 1/2"
+    },
+    "ccs_report": "ZMWs input               : 3281         \n\nZMWs pass filters        : 3225 (98.29%)\nZMWs fail filters        : 56 (1.707%)\nZMWs shortcut filters    : 0 (0.000%)\n\nZMWs with tandem repeats : 49 (87.50%)\n\nExclusive failed counts\nBelow SNR threshold      : 0 (0.000%)\nMedian length filter     : 0 (0.000%)\nLacking full passes      : 0 (0.000%)\nHeteroduplex insertions  : 0 (0.000%)\nCoverage drops           : 0 (0.000%)\nInsufficient draft cov   : 0 (0.000%)\nDraft too different      : 0 (0.000%)\nDraft generation error   : 0 (0.000%)\nDraft above --max-length : 0 (0.000%)\nDraft below --min-length : 0 (0.000%)\nReads failed polishing   : 0 (0.000%)\nEmpty coverage windows   : 0 (0.000%)\nCCS did not converge     : 0 (0.000%)\nCCS below minimum RQ     : 56 (100.0%)\nUnknown error            : 0 (0.000%)\n\nAdditional passing metrics\nZMWs missing adapters    : 0 (0.000%)\n",
+    "profile": "pbsim3 template strategy, QSHMM-RSII.model with its default pass accuracy (0.85) and difference ratio, --pass-num 10; ccs 6.4.0 defaults (min passes 3, min rq 0.99). The read strand is the template strand, or its reverse if ccs reports the other orientation.",
+    "real_workload": {
+      "path": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/human_pacbio/explore-acgt-60mb-v1",
+      "manifest_sha256": "383f15bab26ca57372383a1dbb20c1eb1fe09c4130572d6542ae2d2064e9826c",
+      "cohort": "human_pacbio",
+      "offsets_sha256": "ad4cc2a7ac6d1d8cec44fbdaa456b947330957a08c31cdb069e8e2f2fb7f780a"
+    },
+    "real_lengths": {
+      "reads": 2870,
+      "bases": 60006425,
+      "mean": 20908.162020905922,
+      "min": 6858,
+      "q01": 14113,
+      "q10": 16304,
+      "q25": 17756,
+      "median": 20141,
+      "q75": 23538,
+      "q90": 26703,
+      "q99": 31924,
+      "max": 36775,
+      "n50": 21034
+    },
+    "oversample": 1.15
+  },
+  "host": "sr20",
+  "job_id": "32545013",
+  "created": 1793034040.7158048,
+  "files": {
+    "reads.fa": {
+      "bytes": 60029825,
+      "sha256": "85a4b2396bf0823228c9290521f0498ca83546f6c353f738e4a62d14feb65d1d"
+    },
+    "one.fa": {
+      "bytes": 18456,
+      "sha256": "bcb813b1c387d94116abc8c9715c3466ed62c1f342ce9bbde8b05b886ef17aee"
+    },
+    "offsets.u64": {
+      "bytes": 22840,
+      "sha256": "be53d52aa0ea7797891886b8bddfd96f37adc3955d4ed3f72ac540ebe6d2dae0"
+    },
+    "origins.tsv": {
+      "bytes": 131604,
+      "sha256": "bef91aabfefb102c227890b6001cfe0df29d3a97addb0a49bcebe0ba578a1ead"
+    }
+  }
+}

@@ -103,5 +103,86 @@
     "tools/runtime/libgomp.so.1": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8",
     "tools/runtime/libstdc++.so.6": "2e64f6e616747bde59b3f05e9850dde0476cb21703fc53b7d80e1acc49f464c4",
     "tools/runtime/libgcc_s.so.1": "6a15a152c0f5073642a8c23e13097fe6f30d269cd61d3b10bd542f676241d79d"
+  },
+  "prep_tools": {
+    "note": "Tools that prepared the freeze inputs (data/README.md) but are not run by the freeze manifests. binary_sha256 is the sha256 of the binary that ran on Rockfish; where a commit is given, it is the source of that binary. public says whether the commit is on GitHub.",
+    "seqkit": {
+      "version": "2.10.1",
+      "source": "official release archive (publisher MD5 3d97a3e7f0e59312b6d365fd638dd044)",
+      "binary_sha256": "ea5aef8dbe3d85130b84dda77c89e71f1817da1f90353b879337aa81464f214f",
+      "used_by": "ms2exp/prep/pool.py (real read pools, seeds 20261004 and 20261005)"
+    },
+    "samtools": {
+      "version": "1.15.1",
+      "source": "Rockfish spack module (gcc 9.3.0)",
+      "binary_sha256": "5203c3ef3750d78e144231c5b0f9485d37bbe773103380e6d284c576aa087faa",
+      "used_by": "data/download/prepare_hg002.py (0.8% sample, seed 20261003)"
+    },
+    "minimap2": {
+      "version": "2.28-r1209",
+      "binary_sha256": "277bc1ac6bb361746773a2bd0aca778b6cbe23dfa54d043e202cafa5a00320fd",
+      "used_by": "data/prep/apr008_chr22_map.sh"
+    },
+    "agc": {
+      "version": "3.2.0 (build 20241121.1)",
+      "binary_sha256": "805a48816116b5b1a0be543eac28659774ab554e81ebaf7dcc625a62f3435656",
+      "used_by": "data/prep/chr22_panel.py (agc getctg)"
+    },
+    "ragtag": {
+      "version": "2.1.0",
+      "source": "conda environment of the lab's Feb 2025 runs; binary not recorded",
+      "command": "ragtag.py scaffold CHM13.pri.fa HAPLOTYPE.fa (defaults)",
+      "used_by": "the chromosome assignments behind data/lists/chr22-panel.tsv (data/evidence/ragtag/)"
+    },
+    "simulators": {
+      "note": "ART 2.5.8, pbsim3 3.0.5, ccs 6.4.0 and samtools 1.24 are pinned by sha256 in ms2exp/sim/chr22_sim.py BINARIES",
+      "used_by": "ms2exp/sim/chr22_sim.py"
+    },
+    "ropebwt3_truth": {
+      "note": "every truth.u32 and the chr22 FMDs came from the ropebwt3 binary of the top-level ropebwt3 key (sha256 cfad8475, commit b408339)",
+      "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+    },
+    "fmd2rlbwt": {
+      "repo": "https://github.com/BenLangmead/runperm.git",
+      "commit": "2a3bf102d22c12e8c7d4dc9b3bf2f53818c1629d",
+      "public": true,
+      "binary_sha256": "84a359555b7154c5d6fa7f2e4b180ade90d2b2fa672a435fa1d5c558e6596ad3",
+      "used_by": "run heads and lengths of HPRC2, mtb152, chr22-h10 and chr22-h100 (data/prep/chr22_precursors.sh, data/prep/mtb152_split.sh)"
+    },
+    "teralcp_414f809": {
+      "repo": "https://github.com/BenLangmead/TeraTools.git",
+      "branch": "teraphi",
+      "commit": "414f809dfd34c79547a28ff2a4c58e4e505ce94f",
+      "public": false,
+      "binary_sha256": "5501ff6df578835867b53b84d516f97fe2bd6a40df6f81095eaddfb3b9c29fa3",
+      "used_by": "minima and phi of HPRC2 and mtb152, phi of chr22-h10 and chr22-h100"
+    },
+    "teralcp_bce9ea7": {
+      "repo": "https://github.com/BenLangmead/TeraTools.git",
+      "branch": "teraphi",
+      "commit": "bce9ea7f387b71dd413beb15b8236cd705aa83b0",
+      "public": false,
+      "binary_sha256": "cb3f6c65616ce65a8d5eb5475bcb77c7b9fe4e92de4070a5f0f465ae9dbde4fd",
+      "used_by": "minima of chr22-h10 and chr22-h100, renumbered by fmd2rlbwt --minima-in"
+    },
+    "teralcp_minima": {
+      "repo": "https://github.com/BenLangmead/TeraTools.git",
+      "branch": "teralcp-ms-minima",
+      "commit": "af42783d2816cfa278ad68ce6bda17ac3dd3a062",
+      "public": true,
+      "binary_sha256": "1c7fd06313ff99dd82a10298239557d4cdc807ecb45c1131e2a0e9b71a1ed71d",
+      "used_by": "minima of the A1 ladder rungs chr22-h1, h2, h5, h20, h50 (data/prep/ladder_precursors.sh)"
+    },
+    "build_rlbwt": {
+      "source": "data/prep/build_rlbwt.cpp",
+      "build": "g++ -O3 -std=c++17 build_rlbwt.cpp -ldivsufsort64 (libdivsufsort64 of the sdsl-lite build of indexed_ms)",
+      "binary_sha256": "69ac0d25e2ecefc1445c6ccac133ad7803a1ed1a0bd312f7c08554b39d58a1b8",
+      "used_by": "run heads and lengths of the A1 ladder rungs"
+    },
+    "ropebwt3_split": {
+      "version": "3.9-r260-dirty",
+      "binary_sha256": null,
+      "used_by": "Nate Brown's mtb152 95/5 split (ropebwt3 get and build -do), reconstructed by data/prep/mtb152_split.sh"
+    }
   }
 }

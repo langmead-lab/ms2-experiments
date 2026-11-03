@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "command": {
+    "argv": [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/ropebwt3",
+      "mem",
+      "-t",
+      "4",
+      "-l1",
+      "-K",
+      "10g",
+      "/vast/blangme2/nbrown/ms_lcp/data/mtb152/mtb152.95%.fmd",
+      "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops2/mtb152-pacbio-60mb-v1/reads.fa"
+    ],
+    "cwd": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/truth-jobs/figops-mtb152-pacbio-60mb-v1-32545011",
+    "returncode": 0,
+    "timed_out": false,
+    "wall_seconds": 6.403971159830689,
+    "stdout": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/truth-jobs/figops-mtb152-pacbio-60mb-v1-32545011/truth.stdout",
+    "stderr": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/truth-jobs/figops-mtb152-pacbio-60mb-v1-32545011/truth.stderr",
+    "native_wall_seconds": 6.4,
+    "user_seconds": 24.41,
+    "system_seconds": 0.14,
+    "peak_rss_kib": 127568,
+    "check": {
+      "reads": 2856,
+      "positions": 60014409,
+      "failed": 0
+    },
+    "stdout_sha256": "36caf22b64d80fb89c714c10df972c05b444cbfd8f42fd2c2f71c79b030e5d2e",
+    "stdout_bytes": 19420424,
+    "raw_output_retained": false
+  },
+  "reference": "mtb152",
+  "reads_manifest_sha256": "b28119fa86af1710e92d4cc0a0fb28cc4dc9f5a5ebf076200abf464290902390",
+  "sha256": "8e2a55a45299edd7e2b13cb08d28385bcc2d40f0711419d4ded6a39944c8b8d5",
+  "ropebwt3": {
+    "path": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/ropebwt3",
+    "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "fmd": {
+    "path": "/vast/blangme2/nbrown/ms_lcp/data/mtb152/mtb152.95%.fmd",
+    "sha256": "181c92baeda3f414e50c1e5e87b71ac2c3e54d8bc47237da151aecc192b03381"
+  },
+  "derivation": "ropebwt3 mem -l1 SMEMs converted to per-position MS by real-hprc2 benchmark.check; every value checked to satisfy 1 <= ms[j] <= length - j",
+  "job_id": "32545011",
+  "started": 1793034169.3400261,
+  "finished": 1793034198.2739418
+}

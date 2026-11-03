@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "command": {
+    "argv": [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/ropebwt3",
+      "mem",
+      "-t",
+      "24",
+      "-l1",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/indexes/ms/human472.fmd",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_ont_modern/core.fa"
+    ],
+    "cwd": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/truth/human_ont_modern/core",
+    "returncode": 0,
+    "timed_out": false,
+    "wall_seconds": 19.436929808929563,
+    "stdout": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/truth/human_ont_modern/core/truth.stdout",
+    "stderr": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/truth/human_ont_modern/core/truth.stderr",
+    "native_wall_seconds": 19.43,
+    "user_seconds": 262.9,
+    "system_seconds": 6.09,
+    "peak_rss_kib": 15409840,
+    "check": {
+      "reads": 8835,
+      "positions": 196109976,
+      "failed": 0
+    },
+    "raw_output_retained": false
+  },
+  "input": {
+    "reads": 8835,
+    "bases": 196109976,
+    "one_bases": 6772,
+    "ambiguous_bases_removed": 0,
+    "affected_original_reads": 0,
+    "sha256": "deda8650bfd208fde0711c6f84888d282795d8a6c024ece5925dd146f97255e1",
+    "map_sha256": "dfbaf176fe4d7a1f6177346ed3af4b957f344b49c417484b6feca2f049cb83e9"
+  }
+}

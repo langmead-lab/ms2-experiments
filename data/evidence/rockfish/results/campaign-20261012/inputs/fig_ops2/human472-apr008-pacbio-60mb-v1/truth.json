@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "command": {
+    "argv": [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/ropebwt3",
+      "mem",
+      "-t",
+      "16",
+      "-l1",
+      "-K",
+      "10g",
+      "/vast/blangme2/hprc2-ms/ropebwt3/human472.fmd",
+      "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops2/human472-apr008-pacbio-60mb-v1/reads.fa"
+    ],
+    "cwd": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/truth-jobs/figops-human472-apr008-pacbio-60mb-v1-32545014",
+    "returncode": 0,
+    "timed_out": false,
+    "wall_seconds": 14.616142306476831,
+    "stdout": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/truth-jobs/figops-human472-apr008-pacbio-60mb-v1-32545014/truth.stdout",
+    "stderr": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/truth-jobs/figops-human472-apr008-pacbio-60mb-v1-32545014/truth.stderr",
+    "native_wall_seconds": 14.59,
+    "user_seconds": 101.71,
+    "system_seconds": 7.94,
+    "peak_rss_kib": 15218180,
+    "check": {
+      "reads": 2854,
+      "positions": 60008103,
+      "failed": 0
+    },
+    "stdout_sha256": "b4440c39a0577f3550baff76717d05cfdbacdff52f1b422d814c94b499e00753",
+    "stdout_bytes": 31733138,
+    "raw_output_retained": false
+  },
+  "reference": "human472",
+  "reads_manifest_sha256": "200af7074f901f18b9a87364a7a42a4807ce15a6aa590379a0cec3ddb6979fce",
+  "sha256": "6711d3fb5ef995c64db4e7118b12845df4449d5bf968cb89dca70672c2d0fc6d",
+  "ropebwt3": {
+    "path": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/ropebwt3",
+    "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "fmd": {
+    "path": "/vast/blangme2/hprc2-ms/ropebwt3/human472.fmd",
+    "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626"
+  },
+  "derivation": "ropebwt3 mem -l1 SMEMs converted to per-position MS by real-hprc2 benchmark.check; every value checked to satisfy 1 <= ms[j] <= length - j",
+  "job_id": "32545014",
+  "started": 1793034103.2754667,
+  "finished": 1793034129.5298152
+}

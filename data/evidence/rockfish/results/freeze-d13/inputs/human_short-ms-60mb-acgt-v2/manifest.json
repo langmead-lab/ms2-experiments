@@ -1,0 +1,43 @@
+{
+ "name": "human_short-ms-60mb-acgt-v2",
+ "status": "prepared",
+ "reference": "human472",
+ "cohort": "human_short",
+ "reads": 480000,
+ "bases": 60000000,
+ "one_bases": 125,
+ "read_filter": "acgt-only-whole-reads",
+ "limit_bases": 60000000,
+ "selection": "core records whose original read became exactly one record covering it whole (so it was entirely A, C, G and T after uppercasing), in core order, stopping at the last read that keeps the total at or below 60000000 bases (D13.4)",
+ "source": {
+  "core": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_short/core.fa",
+  "core_sha256": "f75d2274c07c4587e8fbeb140217657f3d7b59a516258cf3f7c577c551f183ff",
+  "truth": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/truth/human_short/core.u32",
+  "truth_sha256": "47873dde23825129e998dbc901143a38883c5e3dbf2c429a7ace10664833a72a"
+ },
+ "truth": "sliced from the core truth",
+ "files": {
+  "map.tsv": {
+   "bytes": 11557215,
+   "sha256": "43326a78b371b76bd8e3c9c0e7e61af95d4040a4a6585c95389052caf5ebe361"
+  },
+  "offsets.u64": {
+   "bytes": 3840008,
+   "sha256": "26fa15047d34b53e7c39b84c8870527b353e1eeaa6c824d8b951234f24377f24"
+  },
+  "one.fa": {
+   "bytes": 130,
+   "sha256": "e00a7fe2514695207f1a9febe4b57307840e3780f5fd4bfed7e221ec1868f9c5"
+  },
+  "reads.fa": {
+   "bytes": 64688890,
+   "sha256": "9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f"
+  },
+  "truth.u32": {
+   "bytes": 240000000,
+   "sha256": "42b7cbcb1271a33b22d3801991bfddb4fee5a09ed76ce7fbd78a5bfebde28d00"
+  }
+ },
+ "created": 1793377473.9868622,
+ "job_id": "32743098"
+}

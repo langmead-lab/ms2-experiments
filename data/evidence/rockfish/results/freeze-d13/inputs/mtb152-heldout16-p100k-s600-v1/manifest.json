@@ -1,0 +1,38 @@
+{
+ "name": "mtb152-heldout16-p100k-s600-v1",
+ "status": "prepared",
+ "reference": "mtb152",
+ "cohort": "fig_ops",
+ "reads": 600,
+ "bases": 59140032,
+ "read_filter": "acgt-split-at-non-acgt",
+ "selection": "seeded random sample (Python random.Random(2026103002).sample) of 600 of the 718 source records, kept in source order and renamed q0, q1, ...; map.tsv names each source record (D13)",
+ "seed": 2026103002,
+ "source": {
+  "path": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops/mtb152-heldout16-p100k-v1",
+  "manifest_sha256": "980aa1452aecf09d1767d615b7b0cc51b388152abc8760db7c4e0b41414a5a66"
+ },
+ "source_reads": 718,
+ "source_bases": 70570430,
+ "truth": "sliced from the source truth.u32",
+ "files": {
+  "map.tsv": {
+   "bytes": 5819,
+   "sha256": "db7cc2020649eae5c21e91be27d195a123a0d364ce6b8670e984d98d02d63ace"
+  },
+  "offsets.u64": {
+   "bytes": 4808,
+   "sha256": "9de94e142446fe7357a4ca582e738e6b81b801177e634ca0c6857ec33a52e2b1"
+  },
+  "reads.fa": {
+   "bytes": 59144122,
+   "sha256": "443da8857d5413ee2abc9353e2ab116f9f10e01de3b963a1e65257c27b7dfdde"
+  },
+  "truth.u32": {
+   "bytes": 236560128,
+   "sha256": "22b995df1e45cdce31c15920beef160d5ff6d1507ae9986bb34ff1fefd7abd45"
+  }
+ },
+ "created": 1793377460.8911343,
+ "job_id": "32743098"
+}

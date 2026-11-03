@@ -1,0 +1,38 @@
+{
+ "name": "human472-apr008-hap1-p100k-s600-v1",
+ "status": "prepared",
+ "reference": "human472",
+ "cohort": "fig_ops",
+ "reads": 600,
+ "bases": 59859703,
+ "read_filter": "acgt-split-at-non-acgt",
+ "selection": "seeded random sample (Python random.Random(2026103001).sample) of 600 of the 30424 source records, kept in source order and renamed q0, q1, ...; map.tsv names each source record (D13)",
+ "seed": 2026103001,
+ "source": {
+  "path": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops/human472-apr008-hap1-p100k-v1",
+  "manifest_sha256": "eccc225e43f67ad06742a67ddda9211ec6ceec17b445f420fb182d152ad6824b"
+ },
+ "source_reads": 30424,
+ "source_bases": 3038047138,
+ "truth": "sliced from the source truth.u32",
+ "files": {
+  "map.tsv": {
+   "bytes": 6896,
+   "sha256": "e0ed458e514888c4c74226a9791639151500c8e2b4f33c19370e8450c594dfa2"
+  },
+  "offsets.u64": {
+   "bytes": 4808,
+   "sha256": "c1e5c080ca240e5a805c0de92f2153007b07144de7a0b379de06e0896f578194"
+  },
+  "reads.fa": {
+   "bytes": 59863793,
+   "sha256": "b940ed881ebeac87042a7fec0e30832147773b5325249faaa8f450f35ff1c74d"
+  },
+  "truth.u32": {
+   "bytes": 239438812,
+   "sha256": "8b9d44b5a9d6137399432a343352eb32e4c99499c691204f08c0198cdb5cc1d7"
+  }
+ },
+ "created": 1793377459.83308,
+ "job_id": "32743098"
+}
