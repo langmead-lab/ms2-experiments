@@ -64,6 +64,7 @@ This rebuilds `figures/` from `results/freeze-2885ee8-00e665de`. It needs latexm
 | Fig locate1, locate10 (appendix) | `locate1.pdf`, `locate10.pdf` | `fig-l1.tex`, `fig-l10.tex` |
 | Fig ms-ftab (appendix) | `ms_ftab.pdf` | `fig-ms-ftab.tex` |
 | Fig locate-ftab (appendix) | `locate_ftab.pdf` | `fig-lftab.tex` |
+| Fig threads (appendix) | `threads.pdf` | `fig-threads.tex`, from `results/threads-2885ee8-da1041e8` |
 
 Every number plotted is in `figures/draft/plotted-points.csv`, with its median query and load
 times. The load-time table is in `figures/draft/CAPTIONS.md`. Fig rep is not regenerated from these

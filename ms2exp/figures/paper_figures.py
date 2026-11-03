@@ -194,6 +194,7 @@ OTHERS_NOTE = ('MONI, PHONI and AugPHONI (purple) are drawn hollow because their
                'the one-read subtraction does not cancel.')
 
 plt.rcParams.update({
+    'svg.hashsalt': 'ms2exp',
     'font.family': 'sans-serif',
     'font.sans-serif': ['Helvetica', 'Arial', 'DejaVu Sans'],
     'font.size': 7.5,
@@ -398,9 +399,14 @@ def pad_group(handles, rows=2):
     return handles + [BLANK] * (-len(handles) % rows)
 
 
+# No dates or random ids in the SVG and PDF drafts, so a regeneration can be diffed with the committed files.
+UNDATED = {'svg': {'Date': None}, 'pdf': {'CreationDate': None}, 'png': None}
+
+
 def save(fig, out_dir, stem):
     for ext in ('png', 'svg', 'pdf'):
-        fig.savefig(out_dir / f'{stem}.{ext}', dpi=300, facecolor=SURFACE, bbox_inches='tight', pad_inches=0.03)
+        fig.savefig(out_dir / f'{stem}.{ext}', dpi=300, facecolor=SURFACE, bbox_inches='tight', pad_inches=0.03,
+                    metadata=UNDATED[ext])
     plt.close(fig)
 
 

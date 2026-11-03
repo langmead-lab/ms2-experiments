@@ -2,7 +2,7 @@
 
 Usage:
   python -m ms2exp.figures [--results results] [--out figures] [--manifest freeze-2885ee8-00e665de]
-                           [--no-pdf]
+                           [--threads threads-2885ee8-da1041e8] [--no-pdf]
 
 Steps, each written under OUT:
   summaries/       ms2exp.collect --no-compare --platform aws on the manifest's results: one
@@ -11,7 +11,8 @@ Steps, each written under OUT:
                    plotted-points.csv, every plotted value with its load time and node
   tikz/            the TikZ sources (copied from figures/tikz when OUT is elsewhere)
   tikz/data/       paper_figures_tikz.py and gap_annotations.py: the data the TikZ figures read;
-                   fig-rep/ from fig_rep_tikz.py --design 4 (the freeze's A1 runs, box statistics only)
+                   fig-rep/ from fig_rep_tikz.py --design 4 (the freeze's A1 runs, box statistics only);
+                   fig-threads/ from threads_tikz.py (the thread-scaling run)
   tex/             structure_bits.py's table of field widths (structure_bits.tex); the other .tex
                    files there are static snippets
   pdf/             the TikZ figures compiled with latexmk under the names the paper includes,
@@ -24,6 +25,7 @@ counting cells).
 """
 import argparse
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -38,7 +40,7 @@ REPO = HERE.parents[1]
 SOURCES = REPO/'figures/tikz'
 TIKZ_SOURCES = ('figures-style.tex', 'figures-tweaks.tex', 'figures-gap.tex', 'fig-ops.tex', 'fig-ops-row.tex',
                 'fig-ms22-100.tex', 'fig-ms22-10.tex', 'fig-ms-oracle.tex', 'fig-l1.tex', 'fig-l10.tex',
-                'fig-l100.tex', 'fig-ms-ftab.tex', 'fig-lftab.tex')
+                'fig-l100.tex', 'fig-ms-ftab.tex', 'fig-lftab.tex', 'fig-threads.tex')
 # Locate groups of the freeze manifest, by cohort.
 LOCATE_GROUPS = {'human_short': 'human_short-locate-6mb', 'human_pacbio': 'human_pacbio-locate-20mb',
                  'human_ont_modern': 'human_ont_modern-locate-10mb', 'guccione_skin': 'guccione_skin-locate-500kb'}
@@ -51,7 +53,7 @@ OPS_GROUPS = {OPS_RUNS['mtb152']: 'fig_ops-mtb152-heldout16-p100k-s600-v1',
 # out: its paper data come from runs outside the freeze manifests (results/README.md).
 FIGMAP = {'ops': 'fig-ops-row', 'ms22_100': 'fig-ms22-100', 'ms22_10': 'fig-ms22-10', 'ms_oracle': 'fig-ms-oracle',
           'locate1': 'fig-l1', 'locate10': 'fig-l10', 'locate100': 'fig-l100', 'ms_ftab': 'fig-ms-ftab',
-          'locate_ftab': 'fig-lftab'}
+          'locate_ftab': 'fig-lftab', 'threads': 'fig-threads'}
 
 
 def run(*argv):
@@ -84,6 +86,10 @@ def stage(summaries, folder):
         (folder/run_name/'summary.json').write_text(json.dumps(merge_ops(summaries, run_name, group), indent=1))
 
 
+# pdfTeX writes this fixed date and a matching document id, so recompiled PDFs are byte-identical.
+PDF_ENV = dict(os.environ, SOURCE_DATE_EPOCH='1793404800', FORCE_SOURCE_DATE='1')
+
+
 def compile_pdfs(out):
     tikz = out/'tikz'
     for name in TIKZ_SOURCES:
@@ -93,7 +99,7 @@ def compile_pdfs(out):
     pdf.mkdir(exist_ok=True)
     for paper, source in FIGMAP.items():
         subprocess.run(['latexmk', '-pdf', '-interaction=nonstopmode', '-outdir=build', f'{source}.tex'], cwd=tikz,
-                       check=True, capture_output=True)
+                       check=True, capture_output=True, env=PDF_ENV)
         shutil.copyfile(tikz/'build'/f'{source}.pdf', pdf/f'{paper}.pdf')
     print('wrote', pdf)
 
@@ -103,6 +109,7 @@ def main():
     ap.add_argument('--results', default='results')
     ap.add_argument('--out', default='figures')
     ap.add_argument('--manifest', default='freeze-2885ee8-00e665de')
+    ap.add_argument('--threads', default='threads-2885ee8-da1041e8', help='the thread-scaling run of Fig threads')
     ap.add_argument('--no-pdf', action='store_true')
     args = ap.parse_args()
     results, out = Path(args.results).resolve(), Path(args.out).resolve()
@@ -124,6 +131,7 @@ def main():
     run('-m', 'ms2exp.figures.fig_rep_tikz', '--a-dir', rep_runs, '--b-dir', rep_runs, '--out', data/'fig-rep',
         '--design', '4')
     shutil.rmtree(rep_runs)
+    run('-m', 'ms2exp.figures.threads_tikz', '--results', results/args.threads, '--out', data/'fig-threads')
     (out/'tex').mkdir(exist_ok=True)
     run('-m', 'ms2exp.figures.structure_bits', out/'tex/structure_bits.tex')
     if not args.no_pdf and shutil.which('latexmk'):
