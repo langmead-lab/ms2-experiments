@@ -23,7 +23,8 @@
       "tools/ms2-2885ee8/ms2-replog": "2b123fdd3470dbf05d3ec576a489d31a57daf9fd552398bcb390d6a616ef57cc",
       "tools/ms_check": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab"
     },
-    "freeze_binaries_source": "results/freeze-2885ee8-3c8c8967/build-tools/outputs.json (built on AWS i4i.metal from the source bundles; the rerun reuses them)"
+    "freeze_binaries_source": "results/freeze-2885ee8-3c8c8967/build-tools/outputs.json (built on AWS i4i.metal from the source bundles; the rerun reuses them)",
+    "compiler": "g++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-5), the Amazon Linux 2023 gcc-c++ and libstdc++-static packages, as the .comment section of each freeze binary records"
   },
   "ropebwt3": {
     "repo": "https://github.com/lh3/ropebwt3.git",
@@ -40,7 +41,8 @@
     "local_changes": "compile only: #include <array> at the top of src/compress_dictionary.cpp; CMAKE_CXX_FLAGS=-include cstdint",
     "binary": "tools/moni/moni-ms",
     "binary_sha256": "4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f",
-    "license": "GPL-3.0-or-later"
+    "license": "GPL-3.0-or-later",
+    "patch": "patches/moni.patch"
   },
   "phoni": {
     "repo": "https://github.com/koeppl/phoni.git",
@@ -183,6 +185,342 @@
       "version": "3.9-r260-dirty",
       "binary_sha256": null,
       "used_by": "Nate Brown's mtb152 95/5 split (ropebwt3 get and build -do), reconstructed by data/prep/mtb152_split.sh"
+    }
+  },
+  "legacy_build": {
+    "note": "How the pinned ropebwt3, MONI, PHONI and Augmented PHONI binaries were built on Rockfish, and what ms2exp/build/build_legacy.sh needs to build them again: the compiler, the CMake flags and targets, the commit of every dependency CMake fetched (FetchContent) at configure time, and the freeze build directories, which --freeze-paths maps the new build paths onto",
+    "compiler": {
+      "version": "13.1.0",
+      "name": "GCC 13.1.0, Rockfish spack build",
+      "rockfish_bin": "/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin"
+    },
+    "cmake": {
+      "version": "3.27.7",
+      "rockfish_bin": "/data/apps/extern/spack_on/gcc/9.3.0/cmake/3.27.7-iygsadyhjln3t7tr73pq56arnaxr3cgg/bin"
+    },
+    "tools": {
+      "ropebwt3": {
+        "system": "make",
+        "jobs": 2,
+        "binary": "ropebwt3",
+        "freeze_paths": {
+          "source": "/scratch16/blangme2/ms-bakery/ropebwt3"
+        },
+        "built": "2026-09-21T17:29:29-04:00",
+        "make_args": [],
+        "note": "the Makefile defaults: CFLAGS -g -Wall -Wc++-compat -O3 plus -fopenmp and -DLIBSAIS_OPENMP (omp is on unless omp=0); --freeze-paths passes its prefix map through INCLUDES, which the Makefile leaves empty, so the default flags stay as they are"
+      },
+      "moni": {
+        "system": "cmake",
+        "build_type": "Release",
+        "cxx_flags": "-include cstdint",
+        "targets": [
+          "newscanNT.x",
+          "pscan.x",
+          "newscan.x",
+          "pfp_thresholds",
+          "pfp_thresholds64",
+          "compress_dictionary",
+          "SlpEncBuild",
+          "ms",
+          "mems",
+          "rlebwt_ms_build",
+          "build_seqidx",
+          "procdic",
+          "postproc",
+          "largeb_irepair"
+        ],
+        "jobs": 2,
+        "binary": "src/ms",
+        "patches": [
+          "patches/moni.patch"
+        ],
+        "freeze_paths": {
+          "source": "/scratch16/blangme2/ms-bakery/moni",
+          "build": "/scratch16/blangme2/ms-bakery/moni/build-bakery",
+          "deps": "/scratch16/blangme2/ms-bakery/moni/build-bakery/_deps"
+        },
+        "built": "2026-09-21T17:46:04-04:00"
+      },
+      "phoni": {
+        "system": "cmake",
+        "build_type": "Release",
+        "cxx_flags": "-include cstdint -ftrivial-auto-var-init=zero",
+        "targets": [
+          "newscanNT.x",
+          "pscan.x",
+          "newscan.x",
+          "pfp_thresholds",
+          "pfp_thresholds64",
+          "compress_dictionary",
+          "SlpEncBuild",
+          "phoni",
+          "build_phoni",
+          "rlbwt",
+          "bwtparse",
+          "pfbwtNT.x"
+        ],
+        "jobs": 2,
+        "binary": "test/src/phoni",
+        "patches": [
+          "patches/phoni.patch"
+        ],
+        "freeze_paths": {
+          "source": "/scratch16/blangme2/ms-bakery/phoni",
+          "build": "/scratch16/blangme2/ms-bakery/phoni/build-bakery",
+          "deps": "/scratch16/blangme2/ms-bakery/phoni/build-bakery/_deps"
+        },
+        "built": "2026-09-22T15:11:38-04:00"
+      },
+      "augphoni": {
+        "system": "cmake",
+        "build_type": "Release",
+        "cxx_flags": "-include cstdint -ftrivial-auto-var-init=zero",
+        "targets": [
+          "newscanNT.x",
+          "pscan.x",
+          "newscan.x",
+          "pfp_thresholds",
+          "pfp_thresholds64",
+          "compress_dictionary",
+          "SlpEncBuild",
+          "aug_phoni",
+          "build_aug",
+          "rlbwt",
+          "bwtparse",
+          "pfbwtNT.x",
+          "pfp_lcp"
+        ],
+        "jobs": 2,
+        "binary": "test/src/aug_phoni",
+        "patches": [
+          "patches/aug_phoni.patch"
+        ],
+        "freeze_paths": {
+          "source": "/scratch16/blangme2/ms-bakery/aug_phoni",
+          "build": "/scratch16/blangme2/ms-bakery/aug_phoni/build-bakery",
+          "deps": "/scratch16/blangme2/ms-bakery/aug_phoni/build-bakery/_deps"
+        },
+        "built": "2026-09-22T15:11:21-04:00"
+      }
+    },
+    "fetchcontent": {
+      "moni": {
+        "BENCHMARK": {
+          "repo": "https://github.com/google/benchmark.git",
+          "commit": "ac13143d96b61cec419b49f76e58d2045aba8536"
+        },
+        "BIGBWT": {
+          "repo": "https://github.com/alshai/Big-BWT.git",
+          "commit": "5b00650517c2bf1deef81c010985720f2f95ab03"
+        },
+        "BIGREPAIR": {
+          "repo": "https://gitlab.com/maxrossi91/bigrepair.git",
+          "commit": "34e1f4a071fa68194e3a37d5ea48356b166d3cb9"
+        },
+        "BWT2LCP": {
+          "repo": "https://github.com/nicolaprezza/bwt2lcp",
+          "commit": "c08e6885155cabcab21eabdaacd3a66ca33209a3"
+        },
+        "DIVSUFSORT": {
+          "repo": "https://github.com/simongog/libdivsufsort.git",
+          "commit": "82b01f764e342f1858d4473c17b56844aac9c12d"
+        },
+        "GSACAK": {
+          "repo": "https://github.com/felipelouza/gsa-is.git",
+          "commit": "1e533019c29617a496b6d47e929d2639632a5ded"
+        },
+        "KLIB": {
+          "repo": "https://github.com/attractivechaos/klib",
+          "commit": "9a063b33efd841fcc42d4b9f68cb78bb528bf75b"
+        },
+        "KSW2": {
+          "repo": "https://github.com/lh3/ksw2",
+          "commit": "289609bd9e5381a13b16239d0a7703f1ff03f9ca"
+        },
+        "MALLOC_COUNT": {
+          "repo": "https://github.com/bingmann/malloc_count",
+          "commit": "ddd0565f375435440982c5852b36ec27f1cb4e3a"
+        },
+        "PFP_THRESHOLDS": {
+          "repo": "https://github.com/maxrossi91/pfp-thresholds.git",
+          "commit": "e717092db4c5b979cde1b45256057f4a9edd38d2"
+        },
+        "R-INDEX": {
+          "repo": "https://github.com/maxrossi91/r-index.git",
+          "commit": "daed659f78112eb3cea0a0578f89a709509d89aa"
+        },
+        "RLBWT2LCP": {
+          "repo": "https://github.com/nicolaprezza/rlbwt2lcp",
+          "commit": "19a169b03a95be8b3381f6560cd1d2a55b6c0230"
+        },
+        "SDSL": {
+          "repo": "https://github.com/simongog/sdsl-lite",
+          "commit": "c32874cb2d8524119f25f3b501526fe692df29f4",
+          "submodules": {
+            "external/googletest": "c2d90bddc6a2a562ee7750c14351e9ca16a6a37a",
+            "external/libdivsufsort": "0f24acd8de208464769c782119dacf158647f7ed"
+          }
+        },
+        "SHAPED_SLP": {
+          "repo": "https://github.com/koeppl/ShapedSlp.git",
+          "commit": "883f700eece54d86e4d27729c7eef33c921a3645",
+          "submodules": {
+            "external/sdsl-lite": "ddb0fbbc33bb183baa616f17eb48e261ac2a3672",
+            "external/sux": "73f24792cb84157826567a868bf974be6a810947"
+          }
+        },
+        "SSW": {
+          "repo": "https://github.com/mengyao/Complete-Striped-Smith-Waterman-Library",
+          "commit": "a66636b79ef36ac178122437053be0d8ef345271"
+        }
+      },
+      "phoni": {
+        "BENCHMARK": {
+          "repo": "https://github.com/google/benchmark.git",
+          "commit": "ac13143d96b61cec419b49f76e58d2045aba8536"
+        },
+        "BIGBWT": {
+          "repo": "https://github.com/alshai/Big-BWT.git",
+          "commit": "5b00650517c2bf1deef81c010985720f2f95ab03"
+        },
+        "BIGREPAIR": {
+          "repo": "https://gitlab.com/manzai/bigrepair.git",
+          "commit": "f2266f6df0d7976fdb93da4206c73127316adb09"
+        },
+        "BWT2LCP": {
+          "repo": "https://github.com/nicolaprezza/bwt2lcp",
+          "commit": "c08e6885155cabcab21eabdaacd3a66ca33209a3"
+        },
+        "DIVSUFSORT": {
+          "repo": "https://github.com/simongog/libdivsufsort.git",
+          "commit": "82b01f764e342f1858d4473c17b56844aac9c12d"
+        },
+        "GSACAK": {
+          "repo": "https://github.com/felipelouza/gsa-is.git",
+          "commit": "1e533019c29617a496b6d47e929d2639632a5ded"
+        },
+        "KLIB": {
+          "repo": "https://github.com/attractivechaos/klib",
+          "commit": "9a063b33efd841fcc42d4b9f68cb78bb528bf75b"
+        },
+        "MALLOC_COUNT": {
+          "repo": "https://github.com/bingmann/malloc_count",
+          "commit": "ddd0565f375435440982c5852b36ec27f1cb4e3a"
+        },
+        "PFP_THRESHOLDS": {
+          "repo": "https://github.com/maxrossi91/pfp-thresholds",
+          "commit": "e717092db4c5b979cde1b45256057f4a9edd38d2"
+        },
+        "R-INDEX": {
+          "repo": "https://github.com/maxrossi91/r-index.git",
+          "commit": "daed659f78112eb3cea0a0578f89a709509d89aa"
+        },
+        "RLBWT2LCP": {
+          "repo": "https://github.com/nicolaprezza/rlbwt2lcp",
+          "commit": "19a169b03a95be8b3381f6560cd1d2a55b6c0230"
+        },
+        "SDSL": {
+          "repo": "https://github.com/simongog/sdsl-lite",
+          "commit": "c32874cb2d8524119f25f3b501526fe692df29f4",
+          "submodules": {
+            "external/googletest": "c2d90bddc6a2a562ee7750c14351e9ca16a6a37a",
+            "external/libdivsufsort": "0f24acd8de208464769c782119dacf158647f7ed"
+          }
+        },
+        "SHAPED_SLP": {
+          "repo": "https://github.com/koeppl/ShapedSlp",
+          "commit": "883f700eece54d86e4d27729c7eef33c921a3645",
+          "submodules": {
+            "external/sdsl-lite": "ddb0fbbc33bb183baa616f17eb48e261ac2a3672",
+            "external/sux": "73f24792cb84157826567a868bf974be6a810947"
+          }
+        },
+        "SSW": {
+          "repo": "https://github.com/mengyao/Complete-Striped-Smith-Waterman-Library",
+          "commit": "a66636b79ef36ac178122437053be0d8ef345271"
+        }
+      },
+      "augphoni": {
+        "BENCHMARK": {
+          "repo": "https://github.com/google/benchmark.git",
+          "commit": "ac13143d96b61cec419b49f76e58d2045aba8536"
+        },
+        "BIGBWT": {
+          "repo": "https://github.com/alshai/Big-BWT.git",
+          "commit": "5b00650517c2bf1deef81c010985720f2f95ab03"
+        },
+        "BIGREPAIR": {
+          "repo": "https://gitlab.com/manzai/bigrepair.git",
+          "commit": "f2266f6df0d7976fdb93da4206c73127316adb09"
+        },
+        "BWT2LCP": {
+          "repo": "https://github.com/nicolaprezza/bwt2lcp",
+          "commit": "c08e6885155cabcab21eabdaacd3a66ca33209a3"
+        },
+        "DIVSUFSORT": {
+          "repo": "https://github.com/simongog/libdivsufsort.git",
+          "commit": "82b01f764e342f1858d4473c17b56844aac9c12d"
+        },
+        "GSACAK": {
+          "repo": "https://github.com/felipelouza/gsa-is.git",
+          "commit": "1e533019c29617a496b6d47e929d2639632a5ded"
+        },
+        "KLIB": {
+          "repo": "https://github.com/drnatebrown/klib",
+          "commit": "f7742b31bf816af4a66b408841be05754fe86e1a"
+        },
+        "MALLOC_COUNT": {
+          "repo": "https://github.com/bingmann/malloc_count",
+          "commit": "ddd0565f375435440982c5852b36ec27f1cb4e3a"
+        },
+        "PFP_THRESHOLDS": {
+          "repo": "https://github.com/drnatebrown/pfp-thresholds",
+          "commit": "2d75096d30c38728edab7119d062960d07f99835"
+        },
+        "R-INDEX": {
+          "repo": "https://github.com/maxrossi91/r-index.git",
+          "commit": "daed659f78112eb3cea0a0578f89a709509d89aa"
+        },
+        "RLBWT2LCP": {
+          "repo": "https://github.com/nicolaprezza/rlbwt2lcp",
+          "commit": "19a169b03a95be8b3381f6560cd1d2a55b6c0230"
+        },
+        "SDSL": {
+          "repo": "https://github.com/simongog/sdsl-lite",
+          "commit": "c32874cb2d8524119f25f3b501526fe692df29f4",
+          "submodules": {
+            "external/googletest": "c2d90bddc6a2a562ee7750c14351e9ca16a6a37a",
+            "external/libdivsufsort": "0f24acd8de208464769c782119dacf158647f7ed"
+          }
+        },
+        "SHAPED_SLP": {
+          "repo": "https://github.com/koeppl/ShapedSlp",
+          "commit": "883f700eece54d86e4d27729c7eef33c921a3645",
+          "submodules": {
+            "external/sdsl-lite": "ddb0fbbc33bb183baa616f17eb48e261ac2a3672",
+            "external/sux": "73f24792cb84157826567a868bf974be6a810947"
+          }
+        },
+        "SSW": {
+          "repo": "https://github.com/mengyao/Complete-Striped-Smith-Waterman-Library",
+          "commit": "a66636b79ef36ac178122437053be0d8ef345271"
+        }
+      }
+    },
+    "dependency_patches": {
+      "BWT2LCP": [
+        {
+          "patch": "patches/bwt2lcp-cstdint.patch",
+          "dir": "."
+        }
+      ],
+      "SHAPED_SLP": [
+        {
+          "patch": "patches/sux-utility.patch",
+          "dir": "external/sux"
+        }
+      ]
     }
   }
 }

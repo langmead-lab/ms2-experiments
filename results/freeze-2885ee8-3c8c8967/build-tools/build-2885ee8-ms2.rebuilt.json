@@ -1,0 +1,261 @@
+{
+  "ms2": {
+    "repo": "/work/stage/inputs/cc88d25eec54d2cdb21f2e934cafba53fc4b4c55a24af722dc098703d1bf323e/ms2.bundle",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "subdir": "src",
+    "submodules": [
+      " bc4b455b04cca7c339b6b8be26caa9cfcd0cf0cc orbit (bc4b455)",
+      " de922b0331740569dbcd6a8b1b0b2ea47df14ee2 teratools (de922b0)"
+    ],
+    "submodule_repos": [
+      [
+        "orbit",
+        "/work/stage/inputs/f13bff97b6f373b18da426da9130966a8c9ad380eee91a3b3d4dfadae592a960/orbit.bundle"
+      ],
+      [
+        "teratools",
+        "/work/stage/inputs/c941f5cf0ce8108d0087c9a826bad138c45b688d82d30e70356dfd97ee986ed1/teratools.bundle"
+      ]
+    ]
+  },
+  "started": 1793727203.5719285,
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "init",
+        "-q"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src",
+      "returncode": 0,
+      "seconds": 0.017812490463256836,
+      "log": ""
+    },
+    {
+      "argv": [
+        "git",
+        "remote",
+        "add",
+        "origin",
+        "/work/stage/inputs/cc88d25eec54d2cdb21f2e934cafba53fc4b4c55a24af722dc098703d1bf323e/ms2.bundle"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src",
+      "returncode": 0,
+      "seconds": 0.0070950984954833984,
+      "log": ""
+    },
+    {
+      "argv": [
+        "git",
+        "fetch",
+        "-q",
+        "--depth",
+        "1",
+        "origin",
+        "2885ee86270b4187fc45dcc69efd7de48a4aac03"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src",
+      "returncode": 0,
+      "seconds": 0.22873950004577637,
+      "log": "warning: option \"depth\" is ignored for /work/stage/inputs/cc88d25eec54d2cdb21f2e934cafba53fc4b4c55a24af722dc098703d1bf323e/ms2.bundle\n"
+    },
+    {
+      "argv": [
+        "git",
+        "checkout",
+        "-q",
+        "FETCH_HEAD"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src",
+      "returncode": 0,
+      "seconds": 0.056396484375,
+      "log": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src",
+      "returncode": 0,
+      "seconds": 0.006439924240112305,
+      "log": "2885ee86270b4187fc45dcc69efd7de48a4aac03\n"
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "init"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src",
+      "returncode": 0,
+      "seconds": 0.0835120677947998,
+      "log": "Submodule 'orbit' (https://github.com/BenLangmead/runperm.git) registered for path 'orbit'\nSubmodule 'teratools' (https://github.com/BenLangmead/TeraTools.git) registered for path 'teratools'\n"
+    },
+    {
+      "argv": [
+        "git",
+        "config",
+        "submodule.orbit.url",
+        "/work/stage/inputs/f13bff97b6f373b18da426da9130966a8c9ad380eee91a3b3d4dfadae592a960/orbit.bundle"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src",
+      "returncode": 0,
+      "seconds": 0.007607936859130859,
+      "log": ""
+    },
+    {
+      "argv": [
+        "git",
+        "config",
+        "submodule.teratools.url",
+        "/work/stage/inputs/c941f5cf0ce8108d0087c9a826bad138c45b688d82d30e70356dfd97ee986ed1/teratools.bundle"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src",
+      "returncode": 0,
+      "seconds": 0.0064296722412109375,
+      "log": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "protocol.file.allow=always",
+        "submodule",
+        "update",
+        "--depth",
+        "1"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src",
+      "returncode": 0,
+      "seconds": 1.6243035793304443,
+      "log": "Submodule path 'orbit': checked out 'bc4b455b04cca7c339b6b8be26caa9cfcd0cf0cc'\nSubmodule path 'teratools': checked out 'de922b0331740569dbcd6a8b1b0b2ea47df14ee2'\nCloning into '/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src/orbit'...\nCloning into '/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src/teratools'...\n"
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "status"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src",
+      "returncode": 0,
+      "seconds": 0.1117711067199707,
+      "log": " bc4b455b04cca7c339b6b8be26caa9cfcd0cf0cc orbit (bc4b455)\n de922b0331740569dbcd6a8b1b0b2ea47df14ee2 teratools (de922b0)\n"
+    },
+    {
+      "argv": [
+        "g++",
+        "--version"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src/src",
+      "returncode": 0,
+      "seconds": 0.005563259124755859,
+      "log": "g++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-5)\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n"
+    },
+    {
+      "argv": [
+        "make",
+        "CXX=g++ -static-libstdc++ -static-libgcc",
+        "MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03",
+        "ms2-bench"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src/src",
+      "returncode": 0,
+      "seconds": 143.37427139282227,
+      "log": "g++ -static-libstdc++ -static-libgcc -std=c++17 -I../orbit/include -I. -O3 -pthread -DMS_COMMIT='\"2885ee86270b4187fc45dcc69efd7de48a4aac03\"' -DNDEBUG -o ms2-bench ms.cpp ms_io.cpp index_format.cpp ms_test.cpp inspect.cpp tms_test.cpp fmd_test.cpp -lz\n"
+    },
+    {
+      "argv": [
+        "g++",
+        "-static-libstdc++",
+        "-static-libgcc",
+        "-std=c++17",
+        "-I../orbit/include",
+        "-I.",
+        "-O3",
+        "-pthread",
+        "-DMS_COMMIT=\"2885ee86270b4187fc45dcc69efd7de48a4aac03\"",
+        "-DNDEBUG",
+        "-DMS_STATS",
+        "-DTMS_STATS",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src/src/ms2-stats-freeze",
+        "ms.cpp",
+        "ms_io.cpp",
+        "index_format.cpp",
+        "ms_test.cpp",
+        "inspect.cpp",
+        "tms_test.cpp",
+        "fmd_test.cpp",
+        "-lz"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src/src",
+      "returncode": 0,
+      "seconds": 148.34400820732117,
+      "log": ""
+    },
+    {
+      "argv": [
+        "make",
+        "CXX=g++ -static-libstdc++ -static-libgcc",
+        "MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03",
+        "ms2-replog"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src/src",
+      "returncode": 0,
+      "seconds": 151.00398993492126,
+      "log": "g++ -static-libstdc++ -static-libgcc -std=c++17 -I../orbit/include -I. -O3 -pthread -DMS_COMMIT='\"2885ee86270b4187fc45dcc69efd7de48a4aac03\"' -DNDEBUG -DMS_STATS -DTMS_STATS -DTMS_REP_LOG -o ms2-replog ms.cpp ms_io.cpp index_format.cpp ms_test.cpp inspect.cpp tms_test.cpp fmd_test.cpp -lz\n"
+    },
+    {
+      "argv": [
+        "g++",
+        "-static-libstdc++",
+        "-static-libgcc",
+        "-O2",
+        "-std=c++17",
+        "-o",
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src/ms_check",
+        "/work/code/bench/campaign-20261012/ms_check.cpp"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src",
+      "returncode": 0,
+      "seconds": 0.5766682624816895,
+      "log": ""
+    },
+    {
+      "argv": [
+        "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/outputs/tools/ms2-2885ee8/ms2-bench",
+        "--help"
+      ],
+      "cwd": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/scratch/ms2-src",
+      "returncode": 0,
+      "seconds": 0.005519390106201172,
+      "log": "    .len.gz) for smem-all.  --lf-split sets Orbit's balancing factor for\n      LF (positive; default: Orbit's default) and --phi-split for phi (0\n      leaves phi unsplit).  Results do not depend on either.  build refuses\n      the options its layout does not take.\n\nQuery:\n  query INDEX READS [options]\n      Compute matching statistics for every read in READS (FASTA, FASTQ,\n      or one sequence per line; - for stdin).  Writes one line per read:\n      its name, a tab, and its values, space-separated (QUERY_OUTPUT.md).\n      A summary goes to stderr.  Results and their order do not depend on\n      the thread count.\n    -o FILE                  write to FILE (default stdout); FILE.gz is gzipped\n    -p N, --threads N        query on N threads (default 0: every CPU)\n    --gzip-level LEVEL       gzip level for .gz output, 0 to 9 (default 1)\n    --ftab FILE              start reads KLEN steps in from a stored ftab\n                             (ftab-build); it must be built from INDEX\n    --build-ftab[=KLEN]      build an ftab of KLEN-mers after loading\n                             (default KLEN 14)\n    --mode min|psi|phi|dual  how repositions compute LCEs: min reads the LCP\n                             minima of a min index; psi compares the read\n                             with the candidate's suffix using psi; phi takes\n                             whole rows' LCP minima from the index's LCP\n                             summaries and walks phi only over the current\n                             row; dual does as phi, and where the summaries\n                             leave a side open, races a psi walk against\n                             phi's.  min needs a min index, psi a psi, full\n                             or psi-locate index, phi a phi or full index,\n                             and dual a full index.  The default is min on a\n                             min index, phi on a phi index, and psi\n                             otherwise.\n  needs a phi, full or psi-locate index:\n    --positions              add a field with an occurrence position for each\n                             value (-1 where it is 0)\n    --report ms|smem-one|smem-all\n                             ms (default) adds nothing; smem-one adds the\n                             read's SMEMs as i:L:p; smem-all writes SMEMs as\n                             ropebwt3 mem -p does, one line each\n    --min-smem-len L         report SMEMs of length L or more, as ropebwt3's\n                             -l L (default 1: all)\n    --max-smem-positions MAXPOS\n                             smem-all lists at most MAXPOS positions per SMEM\n                             (default: all), as ropebwt3's -p\n\nFtabs (FTAB_FORMAT.md):\n  ftab-build INDEX FTAB [--kmer-len KLEN | --auto] [-p N]\n      Build an index's ftab, a table of the query state after each KLEN-mer\n      over ACGT, and write it to FTAB.  --auto (the default) takes the\n      largest KLEN whose table fits in 5% of the index file, then steps\n      down while fewer than 80% of its KLEN-mers occur.  -p as for query.\n  ftab-verify INDEX FTAB [--crc]\n      Check from the headers that FTAB was built from INDEX; --crc also\n      checks its payload CRC-32s.\n  ftab-info FTAB\n      Print an ftab's header.\n\nIndex files (INDEX_FORMAT.md):\n  index-plan INDEX [--mode M] [--positions] [--report R]\n      Print an index's header and what each query loads, and its RAM; with\n      query options, for that query alone.\n  index-verify INDEX\n      Check every section's CRC-32 and that the file is whole.\n  index-add-seq-ids INDEX SEQ_IDS OUT\n      Write INDEX, a psi, phi, full or psi-locate index, to OUT with the\n      sequence-ID table SEQ_IDS (see build --seq-ids), copying its other\n      sections unchanged.\n  index-psi-locate INDEX OUT\n      Write INDEX, a full index with phi_inv, to OUT as a psi-locate index\n      (see build --layout), copying every section but PHI_LEN unchanged.\n\nRun 'ms2 --help-advanced' for development and advanced options.\n"
+    }
+  ],
+  "binaries": {
+    "ms2-bench": {
+      "path": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/outputs/tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "ms2-stats": {
+      "path": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/outputs/tools/ms2-2885ee8/ms2-stats",
+      "sha256": "e47323d8b749323cab0fc1976471c3e18fda5ea5509cafe193abac30fce802e8"
+    },
+    "ms2-replog": {
+      "path": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/outputs/tools/ms2-2885ee8/ms2-replog",
+      "sha256": "2b123fdd3470dbf05d3ec576a489d31a57daf9fd552398bcb390d6a616ef57cc"
+    },
+    "ms_check": {
+      "path": "/work/stage/work/freeze-2885ee8-3c8c8967/build-tools/outputs/tools/ms_check",
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab"
+    }
+  },
+  "parts": [
+    "ms2"
+  ],
+  "compiler": "g++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-5)",
+  "help": "ms2: matching statistics over Orbit move structures (commit 2885ee86270b4187fc45dcc69efd7de48a4aac03)",
+  "finished": 1793727649.1649098
+}

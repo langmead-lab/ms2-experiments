@@ -1,0 +1,9 @@
+diff --git a/sux/util/Vector.hpp b/sux/util/Vector.hpp
+index 0459041..ab857bc 100644
+--- a/sux/util/Vector.hpp
++++ b/sux/util/Vector.hpp
+@@ -1,3 +1,4 @@
++#include <utility>
+ /*
+  * Sux: Succinct data structures
+  *
