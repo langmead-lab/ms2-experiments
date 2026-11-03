@@ -1,68 +1,83 @@
 #!/bin/bash
-# Prepare the toy end-to-end run of the freeze workflow on Rockfish (devlangmead1): mtb152 inputs,
-# tools built from the ms2 commit, the inputs catalog, the toy manifest and its inputs tree.
-# Usage: toy_prep.sh TOY_DIR MS2_REPO MS2_COMMIT [--submodule-repo NAME URL ...]
-# MS2_REPO is a URL, a local repository path or a git bundle; the options after MS2_COMMIT go to
-# ms2exp.build.tools. Inputs are Rockfish paths (lab-internal).
+# Prepare the toy end-to-end run of the freeze workflow: tools built from the ms2 commit, the toy's
+# ms2 indexes, its two cut read sets, the inputs catalog, the toy manifest and its inputs tree.
+# Usage: toy_prep.sh TOY_DIR [--data DIR] [--ms2-repo URL] [--ms2-commit SHA] [ms2exp.build.tools options ...]
+# Every input comes from the data directory (--data, else MS2EXP_DATA), which
+# `python -m ms2exp.fetch --set toy` fills; this script checks it first. The ms2 repository and
+# commit default to tools.lock.json (langmead-lab/ms2 at paper-v1); the repository may also be a
+# local path or a git bundle (toy/make_source_bundles.sh), and the options after it go to
+# ms2exp.build.tools (for example --submodule-repo NAME URL). THREADS (default: the core count, at
+# most 16) sets the threads of the index and SSA builds.
 # The toy builds the mtb152 indexes from their precursors with the ms2 build commands of the
 # all-AWS build jobs (ms2exp.manifest build_matrix): min with --minima, psi, and phi and full with
-# --phi and --minima as for an FMD, plus ftabs for min and psi and a full index with seqids. It
-# also makes what locate needs: a ropebwt3 .len.gz from the FMD itself, an s8 SSA, and a 2 Mb
-# locate read set cut from the mtb152 PacBio set with its truth sliced to match. The legacy job
-# reuses the chr22-h10 MONI, PHONI and AugPHONI indexes and their pinned binaries (D1), the
-# 1d580b6 chr22-h10 min index (which ms2 reads), and a 4 Mb cut of the chr22-h10 simulated
-# short-read set with its truth and one-read file.
+# --phi and --minima as for an FMD, plus ftabs for min and psi and a full index with seqids, and
+# the chr22-h10 min index the legacy job's ms2 cell reads. It also makes what locate needs: a
+# ropebwt3 .len.gz from the FMD itself and an s8 SSA. It cuts two read sets with their truth
+# sliced to match: 2 Mbases of the mtb152 PacBio set for locate, and 4 Mbases of the chr22-h10
+# simulated short reads for the legacy job, which runs MONI, PHONI and AugPHONI on their chr22-h10
+# indexes with the pinned binaries (D1).
 set -euo pipefail
-T=$(readlink -f "$1")
-MS2_REPO=$2
-COMMIT=$3
-shift 3
+T=$(mkdir -p "$1" && cd "$1" && pwd -P)
+shift
 REPO=$(dirname "$(dirname "$(readlink -f "$0")")")
 PY="env PYTHONPATH=$REPO${PYTHONPATH:+:$PYTHONPATH} python3"
-P=/scratch16/blangme2/ms-bakery/results/campaign-20261012
-ROPE=/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/ropebwt3
-D=/vast/blangme2/terams-fig/build/mtb152/orbit
-FMD=/vast/blangme2/nbrown/ms_lcp/data/mtb152/mtb152.95%.fmd
-X=$T/extra
-mkdir -p $X
-# chr22-h10 legacy indexes and binaries, as staged by the real-hprc2 chr22 cells.
-LADDER=/scratch16/blangme2/ms-bakery/results/ladder/chr22-h10
-LEGBIN=/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/chr22/bin
-CHR22_MS=/scratch16/blangme2/ms-bakery/results/orbit-1d580b6-chr22/chr22-h10/Orbit-ms/index.orbitidx
-SHORT=$P/inputs/chr22_sim/chr22-h10-short-60mb-v1
-# Pins of chr22-legacy-binary-verification.json.
-sha256sum -c --quiet <<SUMS
-4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f  $LEGBIN/moni-ms
-aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58  $LEGBIN/phoni
-79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b  $LEGBIN/aug_phoni
-SUMS
+lock() { python3 -c "import json, sys; print(json.load(open('$REPO/tools.lock.json'))['ms2'][sys.argv[1]])" "$1"; }
+DATA=${MS2EXP_DATA:-}
+MS2_REPO=$(lock repo)
+COMMIT=$(lock commit)
+while [ $# -gt 0 ]; do
+    case $1 in
+        --data) DATA=$2; shift 2 ;;
+        --ms2-repo) MS2_REPO=$2; shift 2 ;;
+        --ms2-commit) COMMIT=$2; shift 2 ;;
+        *) break ;;
+    esac
+done
+[ -n "$DATA" ] || { echo "Give --data DIR or set MS2EXP_DATA (python -m ms2exp.fetch --set toy fills it)" >&2; exit 1; }
+DATA=$(cd "$DATA" && pwd -P)
+THREADS=${THREADS:-$(n=$(nproc); echo $((n < 16 ? n : 16)))}
 
-$PY -m ms2exp.build.tools --ms2-repo $MS2_REPO --ms2-commit $COMMIT --root $T/built --ropebwt3 $ROPE \
-    --legacy moni=$LEGBIN/moni-ms --legacy phoni=$LEGBIN/phoni --legacy augphoni=$LEGBIN/aug_phoni \
-    --work $T/ms2-src-${COMMIT:0:7} "$@"
+$PY -m ms2exp.fetch --data "$DATA" --set toy --verify-only > "$T/fetch-verify.log"
+ROPE=$DATA/tools/ropebwt3-cfad8475/ropebwt3
+# The pinned ropebwt3 loads the OpenMP runtime shipped beside it.
+RL=$DATA/tools/runtime${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+M=$DATA/precursors/mtb152
+C=$DATA/precursors/chr22-h10
+FMD=$DATA/ropebwt3/mtb152/index.fmd
+R=$DATA/reads
+X=$T/extra
+mkdir -p "$X"
+
+$PY -m ms2exp.build.tools --lock "$REPO/tools.lock.json" --ms2-repo "$MS2_REPO" --ms2-commit "$COMMIT" \
+    --root "$T/built" --ropebwt3 "$ROPE" --runtime "$DATA/tools/runtime" \
+    --legacy moni="$DATA/tools/moni/moni-ms" --legacy phoni="$DATA/tools/phoni/phoni" \
+    --legacy augphoni="$DATA/tools/augphoni/aug_phoni" --work "$T/ms2-src-${COMMIT:0:7}" "$@"
 MS=$T/built/tools/ms2-${COMMIT:0:7}/ms2-bench
 
 # Sequence lengths in FMD order: sequence 2k is the forward strand of contig k.
-if [ ! -s $X/mtb152.fmd.len.gz ]; then
-    n=$($ROPE stat $FMD 2>/dev/null | awk '$1 == "sequences" || /Number of sequences/ {print $NF}' | head -1)
+if [ ! -s "$X/mtb152.fmd.len.gz" ]; then
+    n=$(env LD_LIBRARY_PATH="$RL" "$ROPE" stat "$FMD" 2>/dev/null | awk '$1 == "sequences" || /Number of sequences/ {print $NF}' | head -1)
     n=${n:-288}
-    seq 0 2 $((n - 2)) | xargs -P 16 -I{} sh -c "$ROPE get $FMD {} | awk -v i={} 'NR > 1 {l += length(\$0)} END {print i/2 \"\t\" l}'" \
-        | sort -n | awk '{print "s" $1 "\t" $2}' | gzip -n > $X/mtb152.fmd.len.gz
+    seq 0 2 $((n - 2)) | xargs -P "$THREADS" -I{} env LD_LIBRARY_PATH="$RL" sh -c \
+        "'$ROPE' get '$FMD' {} | awk -v i={} 'NR > 1 {l += length(\$0)} END {print i/2 \"\t\" l}'" \
+        | sort -n | awk '{print "s" $1 "\t" $2}' | gzip -n > "$X/mtb152.fmd.len.gz"
 fi
-[ -s $X/mtb152.fmd.s8.ssa ] || $ROPE ssa -o $X/mtb152.fmd.s8.ssa -s8 -t16 $FMD
-# mtb152 indexes at this commit, built as build_matrix's index_steps builds them.
+[ -s "$X/mtb152.fmd.s8.ssa" ] || env LD_LIBRARY_PATH="$RL" "$ROPE" ssa -o "$X/mtb152.fmd.s8.ssa" -s8 -t"$THREADS" "$FMD"
+# ms2 indexes at this commit, built as build_matrix's index_steps builds them.
 I=$X/ms2-${COMMIT:0:7}
-mkdir -p $I
-[ -s $I/min.idx ] || $MS build $D/mtb152.bwt.heads $D/mtb152.bwt.len $I/min.idx --layout min --minima $D/mtb152.min
-[ -s $I/psi.idx ] || $MS build $D/mtb152.bwt.heads $D/mtb152.bwt.len $I/psi.idx --layout psi
+mkdir -p "$I"
+[ -s "$I/min.idx" ] || "$MS" build "$M/bwt.heads" "$M/bwt.len" "$I/min.idx" --layout min --minima "$M/min"
+[ -s "$I/psi.idx" ] || "$MS" build "$M/bwt.heads" "$M/bwt.len" "$I/psi.idx" --layout psi
 for layout in phi full; do
-    [ -s $I/$layout.idx ] || $MS build $D/mtb152.bwt.heads $D/mtb152.bwt.len $I/$layout.idx --layout $layout \
-        --phi $D/mtb152.phi --minima $D/mtb152.min
+    [ -s "$I/$layout.idx" ] || "$MS" build "$M/bwt.heads" "$M/bwt.len" "$I/$layout.idx" --layout $layout \
+        --phi "$M/phi" --minima "$M/min"
 done
 for layout in min psi; do
-    [ -s $I/$layout.idx.ftab ] || $MS ftab-build $I/$layout.idx $I/$layout.idx.ftab --auto -p 16
+    [ -s "$I/$layout.idx.ftab" ] || "$MS" ftab-build "$I/$layout.idx" "$I/$layout.idx.ftab" --auto -p "$THREADS"
 done
-[ -s $I/full.seqids.idx ] || $MS index-add-seq-ids $I/full.idx $X/mtb152.fmd.len.gz $I/full.seqids.idx
+[ -s "$I/full.seqids.idx" ] || "$MS" index-add-seq-ids "$I/full.idx" "$X/mtb152.fmd.len.gz" "$I/full.seqids.idx"
+# The chr22-h10 min index (about 20 s and 0.6 GB).
+[ -s "$I/chr22-h10.min.idx" ] || "$MS" build "$C/bwt.heads" "$C/bwt.len" "$I/chr22-h10.min.idx" --layout min --minima "$C/min"
 
 # cut_set SRC DST BASES: the first reads of SRC up to BASES bases, with their slice of the MS
 # truth; one.fa (the first read, for the legacy one-read run) is copied when SRC has it.
@@ -94,51 +109,38 @@ print(f'{dst.name}: {n} reads, {bounds[n]} bases')
 EOF
 }
 # Locate reads: the first PacBio reads up to 2 Mbases.
-L=$X/mtb152-locate-2mb-v1
-cut_set $P/inputs/fig_ops2/mtb152-pacbio-60mb-v1 $L 2000000
+L=$X/mtb152-locate-2mb-v2
+cut_set "$R/mtb152/mtb152-pacbio-60mb-v2" "$L" 2000000
 # Legacy reads: the first chr22-h10 simulated short reads up to 4 Mbases.
-S=$X/chr22-h10-simshort-4mb-v1
-cut_set $SHORT $S 4000000
+S=$X/chr22-h10-simshort-4mb-v2
+cut_set "$R/chr22-h10/simshort-60mb-v2" "$S" 4000000
 
-cat > $T/toy-locations.json <<EOF
-{"locations": {
-  "tools": "$T/built/tools",
-  "reads/mtb152/mtb152-heldout16-p100k-v1/reads.fa": "$P/inputs/fig_ops/mtb152-heldout16-p100k-v1/reads.fa",
-  "reads/mtb152/mtb152-heldout16-p100k-v1/truth.u32": "$P/inputs/fig_ops/mtb152-heldout16-p100k-v1/truth.u32",
-  "reads/mtb152/mtb152-heldout16-p100k-v1/offsets.u64": "$P/inputs/fig_ops/mtb152-heldout16-p100k-v1/offsets.u64",
-  "reads/mtb152/mtb152-pacbio-60mb-v1/reads.fa": "$P/inputs/fig_ops2/mtb152-pacbio-60mb-v1/reads.fa",
-  "reads/mtb152/mtb152-pacbio-60mb-v1/truth.u32": "$P/inputs/fig_ops2/mtb152-pacbio-60mb-v1/truth.u32",
-  "reads/mtb152/mtb152-pacbio-60mb-v1/offsets.u64": "$P/inputs/fig_ops2/mtb152-pacbio-60mb-v1/offsets.u64",
-  "reads/mtb152/mtb152-locate-2mb-v1/reads.fa": "$L/reads.fa",
-  "reads/mtb152/mtb152-locate-2mb-v1/truth.u32": "$L/truth.u32",
-  "reads/mtb152/mtb152-locate-2mb-v1/offsets.u64": "$L/offsets.u64",
-  "ms2/mtb152/index.ms.orbitidx": "$I/min.idx",
-  "ms2/mtb152/index.ms.orbitidx.ftab": "$I/min.idx.ftab",
-  "ms2/mtb152/index.tms.psi.orbitidx": "$I/psi.idx",
-  "ms2/mtb152/index.tms.psi.orbitidx.ftab": "$I/psi.idx.ftab",
-  "ms2/mtb152/index.tms.phi.orbitidx": "$I/phi.idx",
-  "ms2/mtb152/index.tms.full.orbitidx": "$I/full.idx",
-  "ms2/mtb152/index.tms.full.seqids.orbitidx": "$I/full.seqids.idx",
-  "ropebwt3/mtb152/index.fmd": "$FMD",
-  "ropebwt3/mtb152/index.fmd.len.gz": "$X/mtb152.fmd.len.gz",
-  "ropebwt3/mtb152/index.fmd.s8.ssa": "$X/mtb152.fmd.s8.ssa",
-  "reads/chr22-h10/simshort-4mb-v1/reads.fa": "$S/reads.fa",
-  "reads/chr22-h10/simshort-4mb-v1/truth.u32": "$S/truth.u32",
-  "reads/chr22-h10/simshort-4mb-v1/offsets.u64": "$S/offsets.u64",
-  "reads/chr22-h10/simshort-4mb-v1/one.fa": "$S/one.fa",
-  "ms2/chr22-h10/index.ms.orbitidx": "$CHR22_MS",
-  "moni/chr22-h10/index.thrbv.ms": "$LADDER/moni/index.thrbv.ms",
-  "moni/chr22-h10/index.plain.slp": "$LADDER/moni/index.plain.slp",
-  "moni/chr22-h10/index.idx": "$LADDER/moni/index.idx",
-  "phoni/chr22-h10/reference.txt.phoni": "$LADDER/phoni/reference.txt.phoni",
-  "phoni/chr22-h10/reference.txt.plain.slp": "$LADDER/phoni/reference.txt.plain.slp",
-  "phoni/chr22-h10/reference.txt": "$LADDER/phoni/reference.txt",
-  "augphoni/chr22-h10/reference.txt.aug": "$LADDER/aug_phoni/reference.txt.aug",
-  "augphoni/chr22-h10/reference.txt.plain.slp": "$LADDER/aug_phoni/reference.txt.plain.slp",
-  "augphoni/chr22-h10/reference.txt": "$LADDER/aug_phoni/reference.txt"
-}}
+# The fetched inputs the toy reads directly (not the tools, which ms2exp.build.tools installed
+# under built/tools, nor the precursors, which only the builds above read), then what it made.
+python3 - "$DATA/locations.json" "$T/toy-locations.json" <<EOF
+import json, sys
+fetched = json.load(open(sys.argv[1]))['locations']
+locations = {n: p for n, p in fetched.items() if not n.startswith(('tools/', 'precursors/'))}
+for f in ('reads.fa', 'truth.u32', 'offsets.u64'):
+    locations[f'reads/mtb152/mtb152-locate-2mb-v2/{f}'] = f'$L/{f}'
+for f in ('reads.fa', 'truth.u32', 'offsets.u64', 'one.fa'):
+    locations[f'reads/chr22-h10/simshort-4mb-v2/{f}'] = f'$S/{f}'
+locations.update({
+    'tools': '$T/built/tools',
+    'ms2/mtb152/index.ms.orbitidx': '$I/min.idx',
+    'ms2/mtb152/index.ms.orbitidx.ftab': '$I/min.idx.ftab',
+    'ms2/mtb152/index.tms.psi.orbitidx': '$I/psi.idx',
+    'ms2/mtb152/index.tms.psi.orbitidx.ftab': '$I/psi.idx.ftab',
+    'ms2/mtb152/index.tms.phi.orbitidx': '$I/phi.idx',
+    'ms2/mtb152/index.tms.full.orbitidx': '$I/full.idx',
+    'ms2/mtb152/index.tms.full.seqids.orbitidx': '$I/full.seqids.idx',
+    'ms2/chr22-h10/index.ms.orbitidx': '$I/chr22-h10.min.idx',
+    'ropebwt3/mtb152/index.fmd.len.gz': '$X/mtb152.fmd.len.gz',
+    'ropebwt3/mtb152/index.fmd.s8.ssa': '$X/mtb152.fmd.s8.ssa',
+})
+json.dump(dict(locations=dict(sorted(locations.items()))), open(sys.argv[2], 'w'), indent=1)
 EOF
-$PY -m ms2exp.catalog hash --locations $T/toy-locations.json --out $T/toy-inputs.json
-$PY -m ms2exp.catalog link --locations $T/toy-locations.json --root $T/inputs-root
-$PY -m ms2exp.manifest --matrix toy --inputs $T/toy-inputs.json --ms2-repo $MS2_REPO --ms2-commit $COMMIT \
-    --note "toy end-to-end run; mtb152 indexes built at the ms2 commit; reuses the 1d580b6 chr22-h10 min index" -o $T/manifest-toy.json
+$PY -m ms2exp.catalog hash --locations "$T/toy-locations.json" --out "$T/toy-inputs.json"
+$PY -m ms2exp.catalog link --locations "$T/toy-locations.json" --root "$T/inputs-root"
+$PY -m ms2exp.manifest --matrix toy --inputs "$T/toy-inputs.json" --ms2-repo "$MS2_REPO" --ms2-commit "$COMMIT" \
+    --note "toy end-to-end run; mtb152 and chr22-h10 indexes built at the ms2 commit" -o "$T/manifest-toy.json"
