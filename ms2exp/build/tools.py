@@ -4,7 +4,7 @@
 Usage:
   python -m ms2exp.build.tools [--lock tools.lock.json] [--ms2-repo URL --ms2-commit SHA] --root INPUTS_DIR --ropebwt3 PATH
                  [--ropebwt3-sha256 SHA] [--legacy moni=PATH --legacy phoni=PATH --legacy augphoni=PATH]
-                 [--subdir src] [--work DIR] [--parts ms2,pinned] [--submodule-repo NAME URL ...]
+                 [--runtime DIR] [--subdir src] [--work DIR] [--parts ms2,pinned] [--submodule-repo NAME URL ...]
 
 --parts ms2 builds only what depends on the ms2 commit (the first four files below); the AWS build
 job of an all-AWS run uses it. --parts pinned only collects the pinned binaries, which then never
@@ -24,6 +24,11 @@ Writes, under INPUTS_DIR (logical names as make_manifest.py uses them):
                               the C++ runtime the legacy binaries resolve through ldd (Rockfish's
                               GCC 13), for hosts whose own is older or absent
   tools/build-<c7>.json       provenance: commands, compiler, sha256 of every binary
+
+The runtime libraries are found with ldd on the pinned binaries, which on Rockfish resolves to the
+spack GCC 13.1 copies the freeze shipped. --runtime DIR takes them from DIR instead (the
+tools/runtime directory of a data directory that ms2exp.fetch filled), each checked against the
+lock file's runtime sha256; this is how a host without those copies installs them.
 
 The ms2 source is fetched by commit from --ms2-repo (a URL, a local repository path, or a git
 bundle such as make_source_bundles.sh writes), with its Orbit and TeraTools submodules at the
@@ -106,6 +111,8 @@ def main():
     p.add_argument('--ropebwt3', help='the pinned ropebwt3 binary (needed with --parts pinned)')
     p.add_argument('--ropebwt3-sha256')
     p.add_argument('--legacy', action='append', default=[], metavar='TOOL=PATH')
+    p.add_argument('--runtime', help='directory holding libgomp.so.1, libstdc++.so.6 and libgcc_s.so.1 to install '
+                   'in place of the copies ldd finds')
     p.add_argument('--subdir', default='src', help='directory of the ms2 Makefile in the repository')
     p.add_argument('--cxx', default='g++')
     p.add_argument('--work', default=None, help='checkout directory (default ROOT/../ms2-src-<c7>)')
@@ -119,6 +126,8 @@ def main():
     args.ropebwt3_sha256 = (args.ropebwt3_sha256 or lock.get('ropebwt3', {}).get('binary_sha256')
                             or 'cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d')
     args.legacy_sha256 = {tool: lock[tool]['binary_sha256'] for tool in LEGACY_BINARY if tool in lock}
+    args.runtime_sha256 = {name.rsplit('/', 1)[1]: sha for name, sha in lock.get('runtime', {}).items()
+                           if name.startswith('tools/runtime/')}
     if not args.ms2_repo or not args.ms2_commit:
         raise SystemExit('Give --ms2-repo and --ms2-commit, or --lock')
     parts = set(args.parts.split(','))
@@ -176,16 +185,21 @@ def collect_pinned(args, root, work, commands, provenance):
     if file_sha256(args.ropebwt3) != args.ropebwt3_sha256:
         raise SystemExit('ropebwt3 binary differs from its pinned sha256')
     install(Path(args.ropebwt3), root/f'tools/ropebwt3-{args.ropebwt3_sha256[:8]}/ropebwt3', provenance, 'ropebwt3')
-    gomp = [line.split('=>')[1].split()[0] for line in run(['ldd', args.ropebwt3], work, commands).splitlines()
-            if 'libgomp' in line and '=>' in line]
-    if gomp:
-        install(Path(gomp[0]), root/'tools/runtime/libgomp.so.1', provenance, 'libgomp')
+    if args.runtime:
+        install_runtime(args, root, provenance)
+    else:
+        gomp = [line.split('=>')[1].split()[0] for line in run(['ldd', args.ropebwt3], work, commands).splitlines()
+                if 'libgomp' in line and '=>' in line]
+        if gomp:
+            install(Path(gomp[0]), root/'tools/runtime/libgomp.so.1', provenance, 'libgomp')
     runtime = {}
     for item in args.legacy:
         tool, path = item.split('=', 1)
         if tool in args.legacy_sha256 and file_sha256(path) != args.legacy_sha256[tool]:
             raise SystemExit(f'{tool} binary differs from its pinned sha256 in the lock file')
         install(Path(path), root/f'tools/{tool}/{LEGACY_BINARY[tool]}', provenance, tool)
+        if args.runtime:
+            continue
         for line in run(['ldd', path], work, commands).splitlines():
             soname, _, target = line.partition('=>')
             if soname.strip() in LEGACY_RUNTIME and target.split():
@@ -194,8 +208,19 @@ def collect_pinned(args, root, work, commands, provenance):
         if len(paths) > 1:
             raise SystemExit(f'Legacy binaries resolve {soname} to different files: {sorted(paths)}')
         install(Path(paths.pop()), root/f'tools/runtime/{soname}', provenance, soname)
-    if args.legacy and set(runtime) != set(LEGACY_RUNTIME):
+    if args.legacy and not args.runtime and set(runtime) != set(LEGACY_RUNTIME):
         raise SystemExit(f'ldd found {sorted(runtime)} of the legacy runtime {LEGACY_RUNTIME}')
+
+
+def install_runtime(args, root, provenance):
+    """The runtime libraries from --runtime, each checked against the lock file when it pins one."""
+    for soname in ('libgomp.so.1',) + (LEGACY_RUNTIME if args.legacy else ()):
+        src = Path(args.runtime)/soname
+        if not src.exists():
+            raise SystemExit(f'--runtime {args.runtime} has no {soname}')
+        if soname in args.runtime_sha256 and file_sha256(src) != args.runtime_sha256[soname]:
+            raise SystemExit(f'{src} differs from its pinned sha256 in the lock file')
+        install(src, root/f'tools/runtime/{soname}', provenance, 'libgomp' if soname == 'libgomp.so.1' else soname)
 
 
 if __name__ == '__main__':
