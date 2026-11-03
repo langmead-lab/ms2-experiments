@@ -225,7 +225,8 @@ def cmd_get(args):
         raise SystemExit('Not in the inputs table: ' + ', '.join(unknown))
     locations = {}
     for path in args.from_locations:
-        locations.update(json.loads(Path(path).read_text())['locations'])
+        for name, location in json.loads(Path(path).read_text())['locations'].items():
+            locations.setdefault(name, location)
     index_path = data/'locations.json'
     index = json.loads(index_path.read_text())['locations'] if index_path.exists() else {}
     by_sha, missing, total = {}, [], 0
