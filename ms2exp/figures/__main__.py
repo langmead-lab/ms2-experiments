@@ -13,8 +13,10 @@ Steps, each written under OUT:
   tikz/data/       paper_figures_tikz.py and gap_annotations.py: the data the TikZ figures read;
                    fig-rep/ from fig_rep_tikz.py --design 4 (the freeze's A1 runs, box statistics only);
                    fig-threads/ from threads_tikz.py (the thread-scaling run)
-  tex/             structure_bits.py's table of field widths (structure_bits.tex); the other .tex
-                   files there are static snippets
+  tex/             structure_bits.py's table of field widths (structure_bits.tex) and paper_numbers.py's
+                   Table A2 of load times (tab-load.tex); the other .tex files there are static snippets
+  draft/paper-numbers.md
+                   paper_numbers.py's check of every number the paper quotes (figures/paper-values.json)
   pdf/             the TikZ figures compiled with latexmk under the names the paper includes,
                    unless --no-pdf or latexmk is missing
 
@@ -70,6 +72,8 @@ def merge_ops(summaries, run_name, group):
         if k and k.get('status') == 'checked':
             o = k['ops_per_base']
             c['ops_per_base'] = o.get('ops_per_base', o)
+            if o.get('lf_basis'):
+                c['lf_basis'] = o['lf_basis']
         else:
             print('no counts for', group, c['id'])
     return timed
@@ -134,6 +138,8 @@ def main():
     run('-m', 'ms2exp.figures.threads_tikz', '--results', results/args.threads, '--out', data/'fig-threads')
     (out/'tex').mkdir(exist_ok=True)
     run('-m', 'ms2exp.figures.structure_bits', out/'tex/structure_bits.tex')
+    run('-m', 'ms2exp.figures.paper_numbers', '--figures', out, '--results', results, '--md',
+        out/'draft/paper-numbers.md', '--table', out/'tex/tab-load.tex')
     if not args.no_pdf and shutil.which('latexmk'):
         compile_pdfs(out)
 

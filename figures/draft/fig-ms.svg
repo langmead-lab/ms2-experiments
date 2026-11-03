@@ -450,7 +450,7 @@ z
     </g>
    </g>
    <g id="text_6">
-    <text style="font-size: 6.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #52514e" x="114.95718" y="34.914694" transform="rotate(-0 114.95718 34.914694)">lcp</text>
+    <text style="font-size: 6.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #52514e" x="114.95718" y="35.039869" transform="rotate(-0 114.95718 35.039869)">min</text>
    </g>
    <g id="PathCollection_7">
     <defs>
@@ -847,7 +847,7 @@ L 489.642812 155.130273
     </g>
    </g>
    <g id="text_12">
-    <text style="font-size: 6.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #52514e" x="350.43769" y="31.520859" transform="rotate(-0 350.43769 31.520859)">lcp</text>
+    <text style="font-size: 6.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #52514e" x="350.43769" y="31.646034" transform="rotate(-0 350.43769 31.646034)">min</text>
    </g>
    <g id="PathCollection_16">
     <g clip-path="url(#p5b895d138c)">
@@ -1222,7 +1222,7 @@ L 254.382812 320.600547
     </g>
    </g>
    <g id="text_27">
-    <text style="font-size: 8px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0b0b0b" x="30.122813" y="173.630273" transform="rotate(-0 30.122813 173.630273)">Nanopore (HG002 Q28)</text>
+    <text style="font-size: 8px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0b0b0b" x="30.122813" y="173.630273" transform="rotate(-0 30.122813 173.630273)">Nanopore (HG002)</text>
    </g>
    <g id="PathCollection_23">
     <g clip-path="url(#pcee7ee0279)">
@@ -1235,7 +1235,7 @@ L 254.382812 320.600547
     </g>
    </g>
    <g id="text_28">
-    <text style="font-size: 6.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #52514e" x="115.315316" y="198.858282" transform="rotate(-0 115.315316 198.858282)">lcp</text>
+    <text style="font-size: 6.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #52514e" x="115.315316" y="198.983458" transform="rotate(-0 115.315316 198.983458)">min</text>
    </g>
    <g id="PathCollection_25">
     <g clip-path="url(#pcee7ee0279)">
@@ -1611,7 +1611,7 @@ L 489.642812 320.600547
     </g>
    </g>
    <g id="text_40">
-    <text style="font-size: 6.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #52514e" x="350.21741" y="215.599865" transform="rotate(-0 350.21741 215.599865)">lcp</text>
+    <text style="font-size: 6.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #52514e" x="350.21741" y="215.725041" transform="rotate(-0 350.21741 215.725041)">min</text>
    </g>
    <g id="PathCollection_34">
     <g clip-path="url(#p74889a4e2c)">
@@ -1657,11 +1657,11 @@ z
 " style="stroke: #2a78d6; stroke-width: 0.5"/>
     </defs>
     <g>
-     <use xlink:href="#mfd6e7903bf" x="102.745937" y="363.16" style="fill: #2a78d6; stroke: #2a78d6; stroke-width: 0.5"/>
+     <use xlink:href="#mfd6e7903bf" x="101.580547" y="363.16" style="fill: #2a78d6; stroke: #2a78d6; stroke-width: 0.5"/>
     </g>
    </g>
    <g id="text_45">
-    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="111.845937" y="365.61" transform="rotate(-0 111.845937 365.61)">ms2-lcp</text>
+    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.680547" y="365.61" transform="rotate(-0 110.680547 365.61)">ms2-min</text>
    </g>
    <g id="line2d_166">
     <defs>
@@ -1678,11 +1678,11 @@ z
 " style="stroke: #1baf7a; stroke-width: 0.5"/>
     </defs>
     <g>
-     <use xlink:href="#m6b7bf6ddc9" x="102.745937" y="373.369063" style="fill: #1baf7a; stroke: #1baf7a; stroke-width: 0.5"/>
+     <use xlink:href="#m6b7bf6ddc9" x="101.580547" y="373.099453" style="fill: #1baf7a; stroke: #1baf7a; stroke-width: 0.5"/>
     </g>
    </g>
    <g id="text_46">
-    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="111.845937" y="375.819063" transform="rotate(-0 111.845937 375.819063)">ms2-psi</text>
+    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.680547" y="375.549453" transform="rotate(-0 110.680547 375.549453)">ms2-psi</text>
    </g>
    <g id="line2d_167">
     <defs>
@@ -1699,11 +1699,11 @@ z
 " style="stroke: #a3478f; stroke-width: 0.5"/>
     </defs>
     <g>
-     <use xlink:href="#m79b2cd7592" x="151.048125" y="363.16" style="fill: #a3478f; stroke: #a3478f; stroke-width: 0.5"/>
+     <use xlink:href="#m79b2cd7592" x="152.213516" y="363.16" style="fill: #a3478f; stroke: #a3478f; stroke-width: 0.5"/>
     </g>
    </g>
    <g id="text_47">
-    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="160.148125" y="365.61" transform="rotate(-0 160.148125 365.61)">ms2-phi</text>
+    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="161.313516" y="365.61" transform="rotate(-0 161.313516 365.61)">ms2-phi</text>
    </g>
    <g id="line2d_168">
     <defs>
@@ -1720,11 +1720,11 @@ z
 " style="stroke: #c98500; stroke-width: 0.5"/>
     </defs>
     <g>
-     <use xlink:href="#m09434039ee" x="151.048125" y="373.369063" style="fill: #c98500; stroke: #c98500; stroke-width: 0.5"/>
+     <use xlink:href="#m09434039ee" x="152.213516" y="373.369063" style="fill: #c98500; stroke: #c98500; stroke-width: 0.5"/>
     </g>
    </g>
    <g id="text_48">
-    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="160.148125" y="375.819063" transform="rotate(-0 160.148125 375.819063)">ms2-dual</text>
+    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="161.313516" y="375.819063" transform="rotate(-0 161.313516 375.819063)">ms2-dual</text>
    </g>
    <g id="line2d_169">
     <defs>
@@ -1741,11 +1741,11 @@ z
 " style="stroke: #ffffff; stroke-width: 0.5"/>
     </defs>
     <g>
-     <use xlink:href="#m4c935af2c3" x="203.635625" y="363.16" style="fill: #e34948; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m4c935af2c3" x="204.801016" y="363.16" style="fill: #e34948; stroke: #ffffff; stroke-width: 0.5"/>
     </g>
    </g>
    <g id="text_49">
-    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="212.735625" y="365.61" transform="rotate(-0 212.735625 365.61)">ropebwt3 -l1</text>
+    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="213.901016" y="365.61" transform="rotate(-0 213.901016 365.61)">ropebwt3 -l1</text>
    </g>
    <g id="line2d_170">
     <defs>
@@ -1765,11 +1765,11 @@ z
 " style="stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
     </defs>
     <g>
-     <use xlink:href="#m06517ec676" x="203.635625" y="373.369063" style="fill: #4d4d4d; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+     <use xlink:href="#m06517ec676" x="204.801016" y="373.369063" style="fill: #4d4d4d; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_50">
-    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="212.735625" y="375.819063" transform="rotate(-0 212.735625 375.819063)">ropebwt3 -l19*</text>
+    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="213.901016" y="375.819063" transform="rotate(-0 213.901016 375.819063)">ropebwt3 -l19*</text>
    </g>
    <g id="line2d_171">
     <defs>
@@ -1780,11 +1780,11 @@ z
 " style="stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
     </defs>
     <g>
-     <use xlink:href="#m5926a40dd0" x="272.570312" y="363.16" style="fill: #6e6e6e; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+     <use xlink:href="#m5926a40dd0" x="273.735703" y="363.16" style="fill: #6e6e6e; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_51">
-    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="281.670313" y="365.61" transform="rotate(-0 281.670313 365.61)">ropebwt3 -l25*</text>
+    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="282.835703" y="365.61" transform="rotate(-0 282.835703 365.61)">ropebwt3 -l25*</text>
    </g>
    <g id="line2d_172">
     <defs>
@@ -1797,11 +1797,11 @@ z
 " style="stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
     </defs>
     <g>
-     <use xlink:href="#m40169ef1ab" x="272.570312" y="373.369063" style="fill: #919191; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+     <use xlink:href="#m40169ef1ab" x="273.735703" y="373.369063" style="fill: #919191; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_52">
-    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="281.670313" y="375.819063" transform="rotate(-0 281.670313 375.819063)">ropebwt3 -l30*</text>
+    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="282.835703" y="375.819063" transform="rotate(-0 282.835703 375.819063)">ropebwt3 -l30*</text>
    </g>
    <g id="line2d_173">
     <defs>
@@ -1815,15 +1815,15 @@ z
 " style="stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
     </defs>
     <g>
-     <use xlink:href="#m7ac70b944c" x="341.505" y="363.16" style="fill: #b3b3b3; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+     <use xlink:href="#m7ac70b944c" x="342.670391" y="363.16" style="fill: #b3b3b3; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_53">
-    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="350.605" y="365.61" transform="rotate(-0 350.605 365.61)">ropebwt3 -l40*</text>
+    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="351.770391" y="365.61" transform="rotate(-0 351.770391 365.61)">ropebwt3 -l40*</text>
    </g>
    <g id="line2d_174"/>
    <g id="text_54">
-    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="350.605" y="375.819063" transform="rotate(-0 350.605 375.819063)"> </text>
+    <text style="font-size: 7px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="351.770391" y="375.819063" transform="rotate(-0 351.770391 375.819063)"> </text>
    </g>
   </g>
  </g>

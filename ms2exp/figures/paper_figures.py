@@ -1,18 +1,17 @@
 #!/usr/bin/env python3
-"""Draft paper figures for the ms2 (Orbit) matching-statistics paper.
+"""Draft paper figures for the ms2 matching-statistics paper.
 
 Usage:
-  paper_figures.py [--ms-dir DIR] [--chr22-dir DIR] [--locate-dir DIR] [--ops-dir DIR]
-                   [--ops2-reads pacbio|ont] [--out DIR]
+  paper_figures.py --ms-dir DIR --chr22-dir DIR --locate-dir DIR --ops-dir DIR --out DIR
+                   [--ops2-reads pacbio|ont] [--read-sets FILE]
 
-Reads the exploratory Human472 and chr22 summaries (explore_ms.py,
-explore_ms_chr22.py, explore_offsets.py and explore_ops.py summary.json files, from the lab's exploratory scripts, which are not in this repository) and writes, as
-PNG, SVG and PDF on a white background:
+python -m ms2exp.figures runs this on the freeze's group summaries, staged under the run names
+below (LOCATE_RUNS, OPS_RUNS, OPS2_RUNS). It writes, as PNG, SVG and PDF on a white background:
 
-  fig-ms          MS-only speed against peak memory, ordinary ms2 layouts and
+  fig-ms          MS-only speed against peak memory, ordinary ms2 modes and
                   every ropebwt3 MS-only mode, one panel per read set
-  fig-ms-oracle   fig-ms plus oracle replay for each ms2 layout
-  fig-ms-ftab     short reads only, ms2 layouts with and without ftab
+  fig-ms-oracle   fig-ms plus oracle replay for each ms2 mode
+  fig-ms-ftab     short reads only, ms2 modes with and without ftab
   fig-ms22-10, fig-ms22-100
                   MS-only on chr22-h10 and chr22-h100 with simulated short,
                   PacBio HiFi and Nanopore reads, adding MONI, PHONI, AugPHONI
@@ -20,35 +19,27 @@ PNG, SVG and PDF on a white background:
                   SMEM offset reporting (locate) at caps 1, 10 and 100
   fig-lftab       short reads only, the three caps with and without ftab
   fig-loracle, fig-loracle1
-                  locate at N = 100 and N = 1 with oracle replay ticks for
-                  ms2-psi and ms2-dual
-  fig-ops         time and operations per base for ms2-lcp, ms2-psi, ms2-dual
-                  and ms2-phi on held-out genomes (mtb152 and HPRC2 full), with
+                  locate at N = 100 and N = 1 with oracle replay ticks
+  fig-ops         time and operations per base for ms2-min, ms2-psi, ms2-dual
+                  and ms2-phi on held-out genomes (mtb152 and HPRC2), with
                   oracle replay
   fig-ops2        as fig-ops on simulated reads drawn from the same held-out
-                  genomes (chr22 recipe; --ops2-reads picks PacBio HiFi, the
-                  default, or Nanopore); drawn once its summaries are in --ops-dir
+                  genomes (--ops2-reads picks the read type; the freeze has PacBio HiFi)
 
-It also writes CAPTIONS.md (draft captions with workload sizes taken from the
-summaries, a load-time table, and the gaps found in the data) and
-plotted-points.csv (every plotted value with its load time and node).
+It also writes CAPTIONS.md (draft captions built from the summaries' protocol, commit and workload
+and from the read-set records in data/read-sets.json, a load-time table per figure, and the cells
+absent or not checked) and plotted-points.csv (every plotted value with its load time and node).
+A chr22 figure draws only the panels whose summary is present.
 
-The chr22 summaries are copied from Rockfish into --chr22-dir as
-chr22-h{10,100}-ms-sim{short,pacbio,ont}/summary.json (source runs:
-results/campaign-20261012/explore/chr22-h*-ms-sim*-e637ac0-v1). A chr22 figure
-draws only the panels whose summary is present; copy a missing summary in and
-rerun to complete it.
-
-Conventions shared by every figure: one color per ms2 layout (lcp, psi, dual),
-one marker per mode (ordinary, ftab). The ms2 MS-only set is ms2-lcp, ms2-psi
-and ms2-dual. ropebwt3 -l1 and the ropebwt3 SMEM reporting set (-l1 at SSA
-shifts 11, 8 and 6) are red. ropebwt3 at longer minimum lengths reports only
+Conventions shared by every figure: one color per ms2 mode (min, psi, phi, dual),
+one marker per variant (ordinary, ftab). ropebwt3 -l1 and the ropebwt3 SMEM reporting set (-l1 at
+SSA shifts 11, 8 and 6) are red. ropebwt3 at longer minimum lengths reports only
 SMEMs of at least that length; those points are a gray ramp and their labels
 carry an asterisk. MONI, PHONI and AugPHONI share one purple and are hollow,
 because their speed comes from the one-read wall fallback rather than the
 load/query split. Speed is on a log axis and measures query time only; load
 time is excluded. Oracle replay is a horizontal tick on a vertical line rising
-from the layout's ordinary point, at the ordinary point's peak memory, because
+from the mode's ordinary point, at the ordinary point's peak memory, because
 replay loads only LF and its own peak would understate what a real query needs.
 Runs may also record oracle-scan replay; no figure, caption or CSV row uses it.
 """
@@ -66,48 +57,28 @@ from matplotlib.ticker import FixedLocator, FuncFormatter, NullFormatter
 
 HERE = Path(__file__).resolve()
 ROOT = HERE.parents[2]
-CAMPAIGN = ROOT / 'reports' / 'campaign-20261012'
-DEFAULT_MS = CAMPAIGN / 'explore-ms' / 'summaries-v2'
-DEFAULT_CHR22 = CAMPAIGN / 'explore-ms' / 'summaries-v2'
-DEFAULT_LOCATE = CAMPAIGN / 'explore-oracle-locate' / 'summaries'
-DEFAULT_OPS = CAMPAIGN / 'explore-ops' / 'summaries'
-DEFAULT_OUT = CAMPAIGN / 'figures-draft'
+READ_SETS = ROOT / 'data' / 'read-sets.json'
 
 COHORTS = ['human_short', 'human_pacbio', 'human_ont_modern', 'guccione_skin']
 CHR22_REFS = [10, 100]
 CHR22_SETS = ['simshort', 'simpacbio', 'simont']
 CHR22_RUN = 'chr22-h{h}-ms-{s}'
-CHR22_REMOTE = 'results/campaign-20261012/explore/chr22-h{h}-ms-{s}-e637ac0-v1/summary.json'
 TITLES = {
     'human_short': 'Short reads (Illumina, ACGT-only)',
     'human_pacbio': 'PacBio HiFi',
-    'human_ont_modern': 'Nanopore (HG002 Q28)',
+    'human_ont_modern': 'Nanopore (HG002)',
     'guccione_skin': 'Skin metagenome (Illumina, ERR14066769)',
     'simshort': 'Simulated short reads',
     'simpacbio': 'Simulated PacBio HiFi',
     'simont': 'Simulated Nanopore',
     'mtb152': 'mtb152, 8 held-out genomes and their reverse complements',
-    'human472': 'HPRC2 full, APR008 haplotype 1',
+    'human472': 'HPRC2, APR008 haplotype 1',
 }
-# Reference panels, from data/ladder/chr22-h*/manifest.json as recorded in the
-# held-out haplotype manifest.
+# The chr22 indexes (the paper's Table A1 lists their haplotypes).
 CHR22_REF_TEXT = {10: 'chr22-h10 (chr22 of 10 HPRC haplotypes from 5 donors)',
                   100: 'chr22-h100 (chr22 of 100 HPRC haplotypes from 50 donors)'}
-# Simulation details, from inputs/chr22_sim/{short,pacbio,ont}-60mb-v1/manifest.json.
-CHR22_SIM_TEXT = {
-    'simshort': ('Simulated short reads: ART 2.5.8, HiSeq 2500 profile (-ss HS25), single-end 125 bp'),
-    'simpacbio': ('Simulated PacBio HiFi: pbsim3 3.0.5 multi-pass subreads (QSHMM-RSII model, 10 passes) made '
-                  'into HiFi reads by ccs 6.4.0 (defaults: at least 3 passes, predicted accuracy at least 0.99), '
-                  'with read lengths drawn from the real PacBio HiFi set (median 20,177 bases)'),
-    'simont': ('Simulated Nanopore: pbsim3 3.0.5 with its standard ONT model (ERRHMM-ONT-HQ) at mean accuracy '
-               '0.96, the model\'s ceiling (measured 95.98 percent), below the accuracy of real HG002 Q28 data, '
-               'with read lengths drawn from the real Nanopore (HG002 Q28) set (N50 94,132 bases)'),
-}
-# Read counts from the same manifests, used only when a summary is not yet present.
-CHR22_SIM_SIZE = {'simshort': (480000, 60000000), 'simpacbio': (2867, 60005589), 'simont': (2682, 60033032)}
 MS_RUN = '{cohort}-ms-acgt60mb'
-# Locate runs: the October 25 oracle-locate runs (explore_offsets.py prepare --oracle), which add oracle
-# replay to the October 23 s6 cells and run ropebwt3 with -K 1m.
+# Run names paper_figures.py reads; python -m ms2exp.figures stages the freeze's locate groups under them.
 LOCATE_RUNS = {
     'human_short': 'human_short-acgt49152-e637ac0-oracle-v2',
     'human_pacbio': 'human_pacbio-acgt20mb-e637ac0-oracle-v2',
@@ -117,30 +88,18 @@ LOCATE_RUNS = {
 # Fig LOracle: locate with oracle replay, at these caps (stem fig-loracle for N = 100, fig-loracle1 for N = 1).
 LORACLE_CAPS = {100: 'fig-loracle', 1: 'fig-loracle1'}
 CAPS = [1, 10, 100]
-# Fig Ops runs (results/campaign-20261012/explore/<run>/summary.json on Rockfish).
+# Fig Ops run names; python -m ms2exp.figures stages each freeze fig_ops group, with its counts, under one.
 OPS_REFS = ['mtb152', 'human472']
 OPS_RUNS = {'mtb152': 'fig_ops-mtb152-e637ac0-v1', 'human472': 'fig_ops-human472-apr008-e637ac0-v2'}
-OPS_TITLE = {'mtb152': 'mtb152', 'human472': 'HPRC2 full'}
-# Fig Ops2 runs: the same cells on simulated reads from the same held-out genomes, one set of runs per read
-# type. The Nanopore runs were stopped after mtb152 (EXECUTION.md, 2026-10-26); PacBio HiFi is the default.
+OPS_TITLE = {'mtb152': 'mtb152', 'human472': 'HPRC2'}
+# Fig Ops2 run names: the same cells on simulated reads from the same held-out genomes, one set of names per
+# read type. The freeze has PacBio HiFi only.
 OPS2_RUNS = {
     'pacbio': {'mtb152': 'fig_ops2-mtb152-pacbio-e637ac0-v1', 'human472': 'fig_ops2-human472-apr008-pacbio-e637ac0-v1'},
     'ont': {'mtb152': 'fig_ops2-mtb152-ont-e637ac0-v1', 'human472': 'fig_ops2-human472-apr008-ont-e637ac0-v1'},
 }
 OPS2_DEFAULT_READS = 'pacbio'
-# How each read type was simulated, from inputs/fig_ops2/sim-*/manifest.json (the chr22 recipes).
-OPS2_SIM_TEXT = {
-    'pacbio': ('simulated PacBio HiFi reads in place of whole held-out genomes. The reads are simulated as for '
-               'chr22, from the held-out genomes: pbsim3 3.0.5 multi-pass subreads (QSHMM-RSII model, 10 passes) '
-               'made into HiFi reads by ccs 6.4.0 (defaults: at least 3 passes, predicted accuracy at least 0.99), '
-               'read lengths drawn from the real PacBio HiFi set, both strands, whole ACGT-only reads to about '
-               '60 Mbases.'),
-    'ont': ('simulated Nanopore reads in place of whole held-out genomes. The reads are simulated as for chr22, '
-            'from the held-out genomes: pbsim3 3.0.5 with its standard ONT model (ERRHMM-ONT-HQ) at mean accuracy '
-            '0.96, read lengths drawn from the real Nanopore (HG002 Q28) set, both strands, whole ACGT-only reads '
-            'to about 60 Mbases.'),
-}
-HUMAN472 = 'HPRC2 full (Human472, 472 haplotypes)'
+HUMAN472 = 'HPRC2 (Human472, 472 haplotypes)'
 
 # Ink and surface. Text never wears a series color.
 INK = '#0b0b0b'
@@ -153,15 +112,12 @@ SURFACE = '#ffffff'
 # (validate_palette.js, light, all pairs): no normal-vision failure; the CVD
 # warn band is covered by markers, direct labels and the legend.
 LAYOUTS = ['ms', 'psi', 'dual']
-LAYOUT_NAME = {'ms': 'ms2-lcp', 'psi': 'ms2-psi', 'dual': 'ms2-dual', 'phi': 'ms2-phi'}
+LAYOUT_NAME = {'ms': 'ms2-min', 'psi': 'ms2-psi', 'dual': 'ms2-dual', 'phi': 'ms2-phi'}
 # The chr22 figures also draw ms2-phi, which no other speed-against-memory figure shows.
 CHR22_PHI_REFS = (10, 100)
 LAYOUT_COLOR = {'ms': '#2a78d6', 'psi': '#1baf7a', 'dual': '#c98500', 'phi': '#a3478f'}
 ROPE_RED = '#e34948'
-# ms2-phi appears only in Fig Ops, so the layout set there adds a plum. The
-# four layout colors pass validate_palette.js as a set (light, all pairs). The
-# plum sits too close to the Others purple and ropebwt3 red to share a figure
-# with them; no figure draws those together.
+# The four mode colors, ms2-phi's plum among them, pass validate_palette.js as a set (light, all pairs).
 LAYOUT_COLOR_OPS = dict(LAYOUT_COLOR, phi='#a3478f')
 OTHERS_COLOR = '#7d3c98'
 
@@ -187,7 +143,7 @@ FIG_W = 7.0
 ASTERISK_NOTE = ('An asterisk marks ropebwt3 modes that report only SMEMs of at least the given length '
                  '(-l19 is the default), so they cannot find all MS values or all SMEMs.')
 ORACLE_NOTE = ('Oracle replay runs a recorded query and loads only LF, so it is drawn at the peak memory of '
-               'the same layout\'s ordinary run.')
+               'the same mode\'s ordinary run.')
 OTHERS_NOTE = ('MONI, PHONI and AugPHONI (purple) are drawn hollow because their speed uses the one-read wall '
                'fallback: whole-process wall time minus the wall time of a one-read run, rather than the '
                'load/query split that ms2 and ropebwt3 report, so their speed includes any load work that '
@@ -276,15 +232,6 @@ def ok(cell):
 
 def gib(cell):
     return cell['peak_rss_kib'] / 2 ** 20
-
-
-def workload(summary):
-    w = summary['config']['workload']
-    return int(w['reads']), int(w['bases'])
-
-
-def revisions(summaries):
-    return sorted({s['config']['orbit']['revision'][:7] for s in summaries})
 
 
 # The Human472 MS grids (fig-ms, fig-ms-oracle) draw ms2-phi beside ms2-psi.
@@ -702,7 +649,7 @@ def locate_ftab_figure(loc, out_dir, rec):
 # Ops figure: time and operation counts per base on held-out genomes
 
 OPS_LAYOUTS = ['ms', 'psi', 'dual', 'phi']
-OPS_NAME = {'ms': 'lcp', 'psi': 'psi', 'dual': 'dual', 'phi': 'phi'}
+OPS_NAME = {'ms': 'min', 'psi': 'psi', 'dual': 'dual', 'phi': 'phi'}
 TIME_YLABEL = 'ns per base (query time)'
 OPS_YLABEL = 'Operations per base'
 BAR_W = 0.64
@@ -823,6 +770,13 @@ def ops_figure(ops, out_dir, rec, stem='fig-ops'):
 
 
 # Captions
+#
+# Every caption is built from the group summaries and data/read-sets.json: the protocol from
+# config.protocol, the commit from config.orbit, the read sets from their records, and the
+# ropebwt3 batch setting from config.rope. The paper's captions are written by hand.
+
+NUM = {0: 'no', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five'}
+
 
 def fmt_int(n):
     return f'{n:,}'
@@ -832,21 +786,65 @@ def fmt_mb(bases):
     return f'{bases / 1e6:.2f} Mbases' if bases >= 1e6 else f'{bases / 1e3:.0f} kbases'
 
 
-def query_sets(summaries, cohorts):
-    parts = []
-    for cohort in cohorts:
-        if cohort in summaries:
-            reads, bases = workload(summaries[cohort])
-            parts.append(f'{TITLES[cohort]}, {fmt_int(reads)} reads, {fmt_mb(bases)}')
-    return '; '.join(parts)
+def load_read_sets(path=READ_SETS):
+    return load_json(path)['sets']
+
+
+def read_set(summary, read_sets):
+    """The data/read-sets.json record of a group's read set, checked against the group's workload."""
+    w = summary['config']['workload']
+    record = read_sets[f"{w['reference']}/{w['read_set']}"]
+    if (record['reads'], record['bases']) != (w['reads'], w['bases']):
+        raise ValueError(f"{w['read_set']}: the read-set record and the summary disagree on reads or bases")
+    return record
+
+
+def describe_read_set(record, title=None):
+    text = (f'{title}: ' if title else '') + f"{record.get('platform') or record['kind']}, from {record['source']}"
+    if record.get('recipe'):
+        text += f"; {record['recipe']}"
+    median = record['length']['median']
+    return text + f"; {fmt_int(record['reads'])} reads, {fmt_mb(record['bases'])}, median length {median:,} bases"
+
+
+def query_sets(summaries, cohorts, read_sets):
+    return '. '.join(describe_read_set(read_set(summaries[c], read_sets), TITLES[c]) for c in cohorts if c in summaries)
+
+
+def protocol_sentence(summaries):
+    """The measurement protocol the groups' records state; the groups must agree."""
+    protocols = {json.dumps(s['config']['protocol'], sort_keys=True) for s in summaries}
+    if len(protocols) != 1:
+        raise ValueError('the groups of one figure record different protocols')
+    p = summaries[0]['config']['protocol']
+    warm = p['warmup_runs']
+    text = f"Each value is the {p['report']} of {NUM[p['runs']]} runs"
+    text += f" after {NUM[warm]} warmup run{'s' if warm > 1 else ''}" if warm else ', with no warmup run'
+    if str(p.get('drop_page_cache', '')).startswith('before every run'):
+        text += ', each after dropping the page cache'
+    numa = p['numa']
+    return (text + f"; {NUM.get(p['threads'], p['threads'])} thread, bound by numactl to the cores of NUMA node "
+            f"{numa['cpunodebind']} and the memory of node {numa['membind']}; transparent huge pages "
+            f"{p['transparent_hugepages']}. Checked against the truth: {p['truth_check']}.")
+
+
+def revisions(summaries):
+    return sorted({s['config']['orbit']['revision'][:7] for s in summaries})
+
+
+def rope_batch(summaries):
+    ks = {s['config'].get('rope', {}).get('batch_size') for s in summaries}
+    if ks == {None}:
+        return 'ropebwt3 runs with its default -K.'
+    if None not in ks:
+        return f"ropebwt3 runs with -K {', '.join(sorted(ks))}."
+    return 'ropebwt3 runs with -K 1m on some read sets and its default -K on others.'
 
 
 def common_tail(summaries, reference=HUMAN472):
-    revs = ', '.join(revisions(summaries))
-    return (f'Reference: {reference}. Single thread, NUMA-bound (numactl CPU and memory '
-            f'binding to one node). Speed is query time only; index load time is excluded and reported separately '
-            f'(Load times table below). Each value is the median of two timed runs after one warmup run. Orbit '
-            f'commit {revs}. Peak resident memory is the process peak RSS.')
+    return (f'Reference: {reference}. {protocol_sentence(summaries)} Speed is query time only; index load time is '
+            'excluded (Table A2, figures/tex/tab-load.tex, and the Load times table below). Peak resident memory '
+            f'is the process peak RSS. ms2 commit {", ".join(revisions(summaries))}.')
 
 
 def load_table(rows, figure):
@@ -881,6 +879,7 @@ def missing_cells(ms, chr22, loc):
     for h in CHR22_REFS:
         for s in CHR22_SETS:
             if (h, s) not in chr22:
+                out.append(f'MS chr22-h{h} {TITLES[s]}: summary not found.')
                 continue
             cs = cells(chr22[(h, s)])
             for cid in CHR22_MS_IDS:
@@ -897,71 +896,64 @@ def missing_cells(ms, chr22, loc):
     return out
 
 
-def chr22_caption(chr22, h):
+def names(layouts):
+    n = [LAYOUT_NAME[l] for l in layouts]
+    return ', '.join(n[:-1]) + ' and ' + n[-1]
+
+
+def chr22_caption(chr22, h, read_sets):
     present = [s for s in CHR22_SETS if (h, s) in chr22]
-    missing = [s for s in CHR22_SETS if (h, s) not in chr22]
-    sets = []
-    for s in CHR22_SETS:
-        if (h, s) in chr22:
-            reads, bases = workload(chr22[(h, s)])
-        else:
-            reads, bases = CHR22_SIM_SIZE[s]
-        sets.append(f'{CHR22_SIM_TEXT[s]}; {fmt_int(reads)} reads, {fmt_mb(bases)}.')
-    rope_k = {chr22[(h, s)]['config'].get('rope', {}).get('batch_size') for s in present}
-    k_note = ' ropebwt3 runs with -K 1m.' if rope_k == {'1m'} else ''
-    body = (f'Matching statistics (MS) only on {CHR22_REF_TEXT[h].split(" (")[0]}, simulated reads: query speed '
-            'against peak resident memory for ms2 layouts (ms2-lcp, ms2-psi, ms2-dual, ordinary queries), '
-            'ropebwt3 MS-only modes, and MONI, PHONI and AugPHONI. Reads are simulated from chr22 of the held-out '
-            'haplotype NA19240 paternal (HPRC sample 200245_NA19240.pat; chr22 contigs placed by its RagTag '
-            'scaffold, 51.09 Mbases of ACGT), which is absent from both the chr22-h10 and the chr22-h100 '
-            'references (neither the sample nor its donor is in either panel). Each set targets 60 Mbases of '
-            'whole ACGT-only reads. ' + ' '.join(sets) +
-            ' Manifests: results/campaign-20261012/inputs/chr22_sim/ (short-60mb-v1, pacbio-60mb-v1, '
-            f'ont-60mb-v1, haplotype-NA19240-pat-chr22-v1). ropebwt3 -l1 (red) reports every MS value. '
-            f'{ASTERISK_NOTE}{k_note} {OTHERS_NOTE}')
+    records = {s: read_set(chr22[(h, s)], read_sets) for s in present}
+    sources = {r['source'] for r in records.values()}
+    layouts = ['ms', 'psi', 'phi', 'dual'] if h in CHR22_PHI_REFS else LAYOUTS
+    body = (f'Matching statistics (MS) only on {CHR22_REF_TEXT[h]}, simulated reads: query speed against peak '
+            f'resident memory for the ms2 modes {names(layouts)} (ordinary queries), ropebwt3 MS-only modes, and '
+            f'MONI, PHONI and AugPHONI. The reads are simulated from {" and ".join(sorted(sources))}, which is in '
+            'neither chr22 index. ' +
+            ' '.join(f"{TITLES[s]}: {records[s]['recipe']}; {fmt_int(records[s]['reads'])} reads, "
+                     f"{fmt_mb(records[s]['bases'])}." for s in present) +
+            f' ropebwt3 -l1 (red) reports every MS value. {ASTERISK_NOTE} {rope_batch([chr22[(h, s)] for s in present])} '
+            f'{OTHERS_NOTE}')
+    missing = [s for s in CHR22_SETS if s not in present]
     if missing:
-        body += (' Pending: the ' + ', '.join(TITLES[s] for s in missing) +
-                 ' panel is not drawn because its run had not finished when this draft was made.')
+        body += ' Not drawn, for want of a summary: ' + ', '.join(TITLES[s] for s in missing) + '.'
     return body, common_tail([chr22[(h, s)] for s in present], reference=CHR22_REF_TEXT[h])
 
 
-def ops_caption(ops):
-    sizes = {r: workload(ops[r]) for r in ops}
+def lf_note(ops):
+    """How the count cells obtained LF steps per base: counted, or the basis their records state."""
+    notes = {c['lf_basis'] for r in ops for c in ops_cells(ops[r]).values() if c.get('lf_basis')}
+    if not notes:
+        return 'LF, psi and phi steps were counted by an instrumented build of the same commit.'
+    return ('Psi and phi steps and walk rows were counted by an instrumented build of the same commit; LF steps '
+            f'are drawn as one per query base rather than counted (the count cells record: {"; ".join(sorted(notes))}).')
+
+
+def ops_caption(ops, read_sets):
     rep = {r: ops_cells(ops[r])['ms-ordinary']['ops_per_base']['repositions'] for r in ops}
-    m_reads, m_bases = sizes.get('mtb152', (16, 70570430))
-    h_reads, h_bases = sizes.get('human472', (81, 3038047138))
-    return ('Time and operations per base for held-out genomes: ms2-lcp, ms2-psi, ms2-dual and ms2-phi '
-            '(MS only, ordinary queries). Left pair: nanoseconds per query base, one bar per layout; a black '
-            'tick across the bar marks the same layout\'s oracle replay. Right '
-            'pair: operations per query base, stacked as LF steps (light segment) and the steps the layout adds '
-            'on top (full color): psi steps for ms2-psi, phi steps for ms2-phi, both for ms2-dual, and walk '
-            'rows (LCP rows scanned while repositioning) for ms2-lcp. The oracle takes exactly one LF step per '
-            'base and nothing else, so the light segment is also the oracle\'s operation count; the full-color '
-            'segment is the work the oracle avoids. Queries are genomes absent from the index. mtb152 is the '
-            'TeraTools paper\'s 95 percent split queried with the 8 held-out genomes, each followed by its '
-            f'reverse complement ({fmt_int(m_reads)} records, {m_bases / 1e6:.1f} Mbases). HPRC2 full is '
-            'Human472 queried with APR008 haplotype 1 from the Arab Pangenome Reference (GenBank '
-            'GCA_050494745.1, OpenHGL 210019_APR008.hap1), absent from Human472 '
-            f'({fmt_int(h_reads)} ACGT-only records, {h_bases / 1e9:.2f} Gbases). Records are split at every '
-            'run of characters other than A, C, G and T. Repositions (mismatches that force the query to '
-            f'restart its match) are rare: {rep.get("mtb152", 0):.5f} per base on mtb152 and '
-            f'{rep.get("human472", 0):.5f} on HPRC2 full, which is why replay saves so little for ms2-lcp, '
-            'whose only extra work is the walk at a reposition.')
+    sets = '; '.join(f'{OPS_TITLE[r]}: {describe_read_set(read_set(ops[r], read_sets))}' for r in OPS_REFS if r in ops)
+    return ('Time and operations per base for held-out genomes: ms2-min, ms2-psi, ms2-dual and ms2-phi '
+            '(MS only, ordinary queries). Left pair: nanoseconds per query base, one bar per mode; a black '
+            'tick across the bar marks the same mode\'s oracle replay. Right pair: operations per query base, '
+            'stacked as LF steps (light segment) and the steps the mode adds on top (full color): psi steps for '
+            'ms2-psi, phi steps for ms2-phi, both for ms2-dual, and walk rows (LCP rows scanned while '
+            f'recovering) for ms2-min. {lf_note(ops)} The oracle takes one LF step per base and nothing else, '
+            'so the light segment is also the oracle\'s operation count. Query sets: ' + sets + '. Recoveries '
+            f'(mismatches that force the query to restart its match) are rare: {rep.get("mtb152", 0):.5f} per '
+            f'base on mtb152 and {rep.get("human472", 0):.5f} on HPRC2, which is why replay saves so little for '
+            'ms2-min, whose only extra work is the walk at a recovery.')
 
 
-def ops2_caption(ops2, reads=OPS2_DEFAULT_READS):
-    sizes = {r: workload(ops2[r]) for r in ops2}
+def ops2_caption(ops2, read_sets):
     rep = {r: (ops_cells(ops2[r]).get('ms-ordinary') or {}).get('ops_per_base', {}).get('repositions') for r in ops2}
-    parts = [f'{OPS_TITLE[r]} {fmt_int(sizes[r][0])} reads, {sizes[r][1] / 1e6:.1f} Mbases' for r in OPS_REFS if r in sizes]
+    sets = '; '.join(f'{OPS_TITLE[r]}: {describe_read_set(read_set(ops2[r], read_sets))}' for r in OPS_REFS if r in ops2)
     reps = [f'{rep[r]:.4f} on {OPS_TITLE[r]}' for r in OPS_REFS if rep.get(r) is not None]
     capped = [f'ms2-{OPS_NAME[c["layout"]]} {c["mode"]} on {OPS_TITLE[r]} (cap {c.get("cap_s")} s)'
               for r in OPS_REFS if r in ops2 for c in ops2[r]['cells']
               if c.get('interleave') == 32 and c.get('status') == 'capped' and c['mode'] != 'oracle-scan']
-    text = ('As Fig Ops, with ' + OPS2_SIM_TEXT[reads] + ' mtb152 reads come from the forward strand of the 8 '
-            'held-out genomes and HPRC2 full reads from APR008 haplotype 1 '
-            f'({"; ".join(parts)}).')
+    text = f'As Fig Ops, with simulated reads in place of the genome pieces. Query sets: {sets}.'
     if reps:
-        text += f' Repositions per base: {", ".join(reps)}.'
+        text += f' Recoveries per base: {", ".join(reps)}.'
     if capped:
         text += (' Capped (a per-command time limit was reached, so no bar is drawn): ' + ', '.join(capped) + '.')
     return text
@@ -969,152 +961,101 @@ def ops2_caption(ops2, reads=OPS2_DEFAULT_READS):
 
 def ops_tail(ops):
     summaries = [ops[r] for r in OPS_REFS if r in ops]
-    revs = ', '.join(revisions(summaries))
-    return (f'References: mtb152 and {HUMAN472}. Single thread, interleave 32 (queries in flight at once), '
-            'NUMA-bound (numactl CPU and memory binding to one node). Time is query time only; index load time '
-            'is excluded and reported separately (Load times table below). Each time is the median of two '
-            'timed runs after one warmup run. Operation counts come from a counting build of the same commit; '
-            f'Orbit commit {revs}.')
+    interleave = sorted({c.get('interleave') for s in summaries for c in ops_cells(s).values()})
+    return (f'References: mtb152 and {HUMAN472}. {protocol_sentence(summaries)} Interleave '
+            f'{", ".join(map(str, interleave))} (queries in flight at once). Time is query time only; index load '
+            'time is excluded (Load times table below). Operation counts come from an instrumented build of the '
+            f'same commit, run once. ms2 commit {", ".join(revisions(summaries))}.')
 
 
-def write_captions(ms, chr22, loc, ops, rows, chr22_drawn, out_dir, ops2=None, ops2_reads=OPS2_DEFAULT_READS):
+def oracle_sentence(loc, cap):
+    speedups = oracle_speedups(loc, cap)
+    if not speedups:
+        return 'The run records hold no locate oracle cells, so no oracle tick is drawn.'
+    return ('Oracle over ordinary locations per second: ' +
+            '; '.join(f'{TITLES[c]} {LAYOUT_NAME[l].replace("ms2-", "")} ×{r:.2f}' for (c, l), r in speedups.items())
+            + '.')
+
+
+def all_checked(summaries):
+    bad = [c['id'] for s in summaries for c in s['cells'] if not ok(c)]
+    return 'Every cell passed its check against the truth.' if not bad else f'Not checked: {", ".join(bad)}.'
+
+
+def write_captions(ms, chr22, loc, ops, rows, chr22_drawn, out_dir, ops2=None, read_sets=None):
+    read_sets = load_read_sets() if read_sets is None else read_sets
     ms_all = [ms[c] for c in COHORTS if c in ms]
     loc_all = [loc[c] for c in COHORTS if c in loc]
-    ms_sets = query_sets(ms, COHORTS)
-    loc_sets = query_sets(loc, COHORTS)
+    ms_sets = query_sets(ms, COHORTS, read_sets)
+    loc_sets = query_sets(loc, COHORTS, read_sets)
     ms_tail = common_tail(ms_all)
     loc_tail = common_tail(loc_all)
-    loc_k = {s['config'].get('rope', {}).get('batch_size') for s in loc_all}
-    loc_scope = ('ms2-min has no locate support, so the ms2 SMEM reporting set is ms2-psi and ms2-dual '
-                 '(ordinary). Both locate from the same index file (the Dual index with sequence ids), so they '
-                 'share one peak memory. ropebwt3 runs -l1 -pN with sampled suffix arrays at shifts 11, 8 and 6 '
-                 '(-s11, -s8, -s6; denser sampling uses more memory)' +
-                 (', with -K 1m' if loc_k == {'1m'} else '') + '. Every output was checked: ms2 and ropebwt3 '
-                 'agree with zero differences at each cap.')
+    loc_scope = ('ms2-min does not locate, so the ms2 locate set is ms2-psi, ms2-phi and ms2-dual (ordinary '
+                 'queries). All three locate from the same index file (the full index with sequence names), so '
+                 'they share one peak memory. ropebwt3 runs -l1 -pN with sampled suffix arrays at shifts 11, 8 and 6 '
+                 f'(-s11, -s8, -s6; denser sampling uses more memory). {rope_batch(loc_all)} {all_checked(loc_all)}')
+    loc_offset = (f'ms2-psi, ms2-phi and ms2-dual are offset horizontally by {abs(DODGE["psi"]):g} GiB steps around '
+                  'their shared peak for visibility.')
+    manifests = sorted({s['manifest_id'] for s in ms_all + loc_all + list(chr22.values()) + list(ops.values())
+                        if s.get('manifest_id')})
     out = ['# Draft figure captions', '',
-           'Generated by `bench/campaign-20261012/paper_figures.py`. Rerun the script to '
-           'refresh the figures, captions and `plotted-points.csv` after the frozen runs.', '']
+           'Generated by `python -m ms2exp.figures` (`ms2exp/figures/paper_figures.py`) from '
+           + ', '.join(f'`results/{m}`' for m in manifests) + ' and `data/read-sets.json`. These captions record '
+           'what the run records say; the paper\'s captions are written by hand. Every number quoted in the paper is '
+           'checked by `python -m ms2exp.figures.paper_numbers` (`figures/draft/paper-numbers.md`).', '']
 
     def fig(stem, title, body, tail):
         out.extend([f'## {title} (`{stem}`)', '', f'![{title}]({stem}.png)', '', body + ' ' + tail, '',
                     '<details><summary>Load times</summary>', '', load_table(rows, stem), '', '</details>', ''])
 
     fig('fig-ms', 'Fig MS',
-        'Matching statistics (MS) only: query speed against peak resident memory for ms2 layouts '
-        '(ms2-lcp, ms2-psi, ms2-dual, ordinary queries) and ropebwt3 MS-only modes. Query sets: '
-        f'{ms_sets}; all reads are whole ACGT-only records. ropebwt3 -l1 (red) reports every MS value. '
-        f'{ASTERISK_NOTE}', ms_tail)
+        'Matching statistics (MS) only: query speed against peak resident memory for the ms2 modes '
+        f'{names(MS_GRID_LAYOUTS)} (ordinary queries) and ropebwt3 MS-only modes. Query sets: {ms_sets}. '
+        f'ropebwt3 -l1 (red) reports every MS value. {ASTERISK_NOTE} {rope_batch(ms_all)}', ms_tail)
     fig('fig-ms-oracle', 'Fig MS+Oracle',
-        'As Fig MS, adding oracle replay for each ms2 layout. A vertical line in the layout\'s color rises from '
-        f'the ordinary point (circle) to a horizontal tick for the oracle. {ORACLE_NOTE} '
-        f'Query sets: {ms_sets}. {ASTERISK_NOTE}', ms_tail)
+        'As Fig MS, adding oracle replay for each ms2 mode. A vertical line in the mode\'s color rises from '
+        f'the ordinary point (circle) to a horizontal tick for the oracle. {ORACLE_NOTE} {ASTERISK_NOTE}', ms_tail)
     fig('fig-ms-ftab', 'Fig MS+ftab',
-        'Short reads only: MS speed against peak memory for ms2 layouts without (circle) and with (diamond) an '
+        'Short reads only: MS speed against peak memory for the ms2 modes without (circle) and with (diamond) an '
         'ftab (k-mer lookup table that skips the first steps of backward search), plus ropebwt3 MS-only modes. '
-        'Lines join each layout with its ftab variant; the ftab point is at its own measured peak. '
-        f'Query set: {query_sets(ms, ["human_short"])}. {ASTERISK_NOTE}',
-        common_tail([ms['human_short']]))
+        'Lines join each mode with its ftab variant; the ftab point is at its own measured peak. '
+        f'Query set: {query_sets(ms, ["human_short"], read_sets)}. {ASTERISK_NOTE}', common_tail([ms['human_short']]))
     for h in CHR22_REFS:
         if h in chr22_drawn:
-            body, tail = chr22_caption(chr22, h)
+            body, tail = chr22_caption(chr22, h, read_sets)
             fig(f'fig-ms22-{h}', f'Fig MS22-{h}', body, tail)
         else:
             out.extend([f'## Fig MS22-{h} (`fig-ms22-{h}`)', '', 'Not drawn: no chr22 summary found.', ''])
     for cap in CAPS:
         fig(f'fig-l{cap}', f'Fig L{cap}',
             f'SMEM offset reporting (locate) with at most N = {cap} reported positions per SMEM: reported locations '
-            f'per second of query time against peak memory. {loc_scope} ms2-psi and ms2-dual are offset '
-            f'horizontally by 5 GiB to either side of their shared peak for visibility. Query sets (smaller than '
-            f'the MS sets): {loc_sets}.', loc_tail)
+            f'per second of query time against peak memory. {loc_scope} {loc_offset} Query sets (prefixes of the MS '
+            f'sets): {loc_sets}.', loc_tail)
     fig('fig-lftab', 'Fig LFtab',
-        'Short reads only, SMEM offset reporting at N = 1, 10 and 100: ms2-psi and ms2-dual without (circle) and '
-        'with (diamond) ftab, plus ropebwt3 -s11, -s8 and -s6. Each ftab point is labeled with its speed ratio '
-        'over the same layout without ftab. The four ms2 points are spread horizontally for visibility (left '
-        'to right: psi, psi+ftab, dual, dual+ftab); measured peaks are about 293 GiB without ftab and 296 GiB '
-        'with it. ' + loc_scope +
-        f' Query set: {query_sets(loc, ["human_short"])}.', common_tail([loc['human_short']]))
+        'Short reads only, SMEM offset reporting at N = 1, 10 and 100: ms2-psi, ms2-phi and ms2-dual without '
+        '(circle) and with (diamond) ftab, plus ropebwt3 -s11, -s8 and -s6. Each ftab point is labeled with its '
+        'speed ratio over the same mode without ftab. The six ms2 points are spread horizontally for visibility '
+        '(left to right: psi, psi+ftab, phi, phi+ftab, dual, dual+ftab). ' + loc_scope +
+        f' Query set: {query_sets(loc, ["human_short"], read_sets)}.', common_tail([loc['human_short']]))
     for cap, stem in sorted(LORACLE_CAPS.items(), key=lambda item: -item[0]):
         if loc:
             fig(stem, f'Fig LOracle{"" if cap == 100 else cap}',
                 f'SMEM offset reporting (locate) with at most N = {cap} reported positions per SMEM, as Fig L{cap}, '
-                'adding oracle replay for ms2-psi and ms2-dual. A vertical line in the layout\'s color rises from '
-                'the ordinary point (circle) to a horizontal tick for the oracle, which replays a recorded run with '
-                'every repositioning decision known in advance; its output is identical to the ordinary run\'s. '
-                'The oracle replaces only the matching-statistics phase; counting, listing and formatting the '
-                'reported locations run unchanged. ' + loc_scope + ' ms2-psi and ms2-dual are offset horizontally '
-                'by 5 GiB to either side of their shared peak for visibility. Oracle over ordinary locations per '
-                'second: ' + '; '.join(f'{TITLES[c]} {LAYOUT_NAME[l].replace("ms2-", "")} ×{r:.2f}'
-                                         for (c, l), r in oracle_speedups(loc, cap).items()) +
-                f'. Query sets (smaller than the MS sets): {loc_sets}.', loc_tail)
+                'adding oracle replay. A vertical line in the mode\'s color rises from the ordinary point (circle) '
+                'to a horizontal tick for the oracle, which replays a recorded run with every recovery known in '
+                'advance; its output is identical to the ordinary run\'s. The oracle replaces only the '
+                'matching-statistics phase; counting, listing and formatting the reported locations run unchanged. '
+                + loc_scope + ' ' + loc_offset + ' ' + oracle_sentence(loc, cap) +
+                f' Query sets (prefixes of the MS sets): {loc_sets}.', loc_tail)
     if ops:
-        fig('fig-ops', 'Fig Ops', ops_caption(ops), ops_tail(ops))
+        fig('fig-ops', 'Fig Ops', ops_caption(ops, read_sets), ops_tail(ops))
     if ops2:
-        fig('fig-ops2', 'Fig Ops2', ops2_caption(ops2, ops2_reads), ops_tail(ops2))
+        fig('fig-ops2', 'Fig Ops2', ops2_caption(ops2, read_sets), ops_tail(ops2))
 
-    still = [
-        '- Freeze reruns with ropebwt3 -K 1m for the Human472 MS cells, which used the default -K 100m. At -l1 '
-        'that buffers SMEMs, visible on the skin metagenome (15.9 GiB at -l1 against 14.5 GiB for other '
-        'lengths). The locate figures already use the -K 1m oracle-locate runs.',
-    ]
-    for h in CHR22_REFS:
-        gone = [TITLES[s] for s in CHR22_SETS if (h, s) not in chr22]
-        if gone:
-            still.append(f'- Fig MS22-{h}: {", ".join(gone)} panel pending (summary not yet on Rockfish at '
-                         f'{CHR22_REMOTE.format(h=h, s="simont")}); copy it to '
-                         f'reports/campaign-20261012/explore-ms/summaries-v2/{CHR22_RUN.format(h=h, s="simont")}/summary.json and rerun.')
-    out.extend(['## Still missing', ''] + still + [''])
-
-    out.extend(['## Gaps and questions', '', '### Cells absent or not checked (generated)', ''])
+    out.extend(['## Cells absent or not checked', ''])
     gaps = missing_cells(ms, chr22, loc)
-    if gaps:
-        out.extend(f'- {m}' for m in gaps)
-    else:
-        out.append('- None among the plotted series.')
-    out.extend(['', '### Naming', '',
-                '- The ONT set in the Human472 MS and offset runs is human_ont_modern, HG002 Q28; panels use '
-                '"Nanopore (HG002 Q28)".',
-                '- Guccione ERR14066769 is an Illumina paired-end run with both mates entering the workload as '
-                'interleaved reads (EXECUTION.md, October 16: 219,488 read pairs as 439,912 records); panels use '
-                '"Skin metagenome (Illumina, ERR14066769)".',
-                '- The short-read MS set is the ACGT-only 60 Mbase set (478,638 reads); the short-read offset set '
-                'is a different, smaller ACGT-only set (49,152 reads, 6.14 Mbases).', '',
-                '### Other observations', '',
-                '- ms2-phi is out of the MS-only set and absent from every MS figure. Its cells remain in the '
-                'summaries and in no plot.',
-                '- Oracle placement: for ms2-dual the replay runs measured lower peaks than ordinary (about '
-                '127 GiB against 184 GiB on Human472). The figures place replay ticks at the ordinary peak, as '
-                'requested; `plotted-points.csv` keeps both values.',
-                '- ms2-psi and ms2-dual locate from the same index file (human472.tms.full.seqids.orbitidx, '
-                '362 GB), so their peaks are equal (about 293 GiB, 296 GiB with ftab). This also means the ms2-psi '
-                'locate peak is far above its MS-only peak (97 GiB); a Psi-appropriate locate index is to be '
-                'checked before building anything (October 25).',
-                '- ropebwt3 -s6 (about 345 GiB) uses more memory than ms2 locate (about 293 GiB) and is still '
-                '5 to 10 times slower in locations per second.',
-                '- ftab in locate: on short reads ftab helps at every cap, but on PacBio and ONT at N = 100 the ftab '
-                'variants are slower than without (for example PacBio Psi 3.40M against 3.75M locations/s). Likely '
-                'node noise; only short reads are plotted with ftab.',
-                '- Each Human472 read set ran on a different node (MS: bigmem06, 09, 10, 11; offsets: bigmem08, '
-                '14, 16, 17). Earlier notes record node-to-node speed variation of a few percent, so cross-panel '
-                'comparisons carry that noise.',
-                '- MS v2 runs record three runs per cell (warmup plus two timed); the value plotted is the median '
-                'of the two timed runs.',
-                '- Fig Ops time is the query phase as the harness measures it (read, parse, query, format, '
-                'write). Orbit\'s own query-only time is much lower on mtb152 (30.6 against 55.6 ns per base '
-                'for ms2-lcp), so on mtb152 about 25 ns per base of every bar is I/O and parsing that no layout '
-                'can remove; the relative gaps between layouts are larger in query-only terms. On HPRC2 full the '
-                'same overhead is about 26 ns per base of 140.',
-                '- Fig Ops peak memory on HPRC2 full: ms2-lcp 90 GiB, ms2-psi 102 GiB, ms2-phi 122 GiB, ms2-dual '
-                '189 GiB (ordinary); replay runs load less (ms2-dual 132 GiB, ms2-phi 65 GiB). The figure does '
-                'not draw memory; the Load times table and plotted-points.csv keep it.',
-                '- Fig Ops ms2-phi uses a plum (#a3478f) that passes the palette checker with the other three '
-                'layout colors but is too close to the Others purple and ropebwt3 red to share a figure with '
-                'them; no current figure does.',
-                '- Figure colors: layout colors, ropebwt3 red and the Others purple were validated as one set with '
-                'the palette checker (no normal-vision failure). Two colors (psi aqua, dual dark yellow) sit just '
-                'under 3:1 contrast on white, and the closest color-vision-deficiency pair (dual against ropebwt3 '
-                'red) is in the warning band, so identity also rides on markers, direct labels and the legend. '
-                'Grayscale printing will not separate the layouts.',
-                ''])
+    out.extend(f'- {m}' for m in gaps) if gaps else out.append('- None among the plotted series.')
+    out.append('')
     (out_dir / 'CAPTIONS.md').write_text('\n'.join(out))
 
 
@@ -1129,13 +1070,14 @@ def write_csv(rows, out_dir):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
-    ap.add_argument('--ms-dir', default=DEFAULT_MS)
-    ap.add_argument('--chr22-dir', default=DEFAULT_CHR22)
-    ap.add_argument('--locate-dir', default=DEFAULT_LOCATE)
-    ap.add_argument('--ops-dir', default=DEFAULT_OPS)
+    ap.add_argument('--ms-dir', required=True)
+    ap.add_argument('--chr22-dir', required=True)
+    ap.add_argument('--locate-dir', required=True)
+    ap.add_argument('--ops-dir', required=True)
     ap.add_argument('--ops2-reads', choices=sorted(OPS2_RUNS), default=OPS2_DEFAULT_READS,
                     help='simulated read type drawn in fig-ops2')
-    ap.add_argument('--out', default=DEFAULT_OUT)
+    ap.add_argument('--out', required=True)
+    ap.add_argument('--read-sets', default=READ_SETS)
     args = ap.parse_args()
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -1159,7 +1101,7 @@ def main():
     ops_figure(ops, out_dir, rec)
     ops_figure(ops2, out_dir, rec, stem='fig-ops2')
     write_csv(rec.rows, out_dir)
-    write_captions(ms, chr22, loc, ops, rec.rows, chr22_drawn, out_dir, ops2, args.ops2_reads)
+    write_captions(ms, chr22, loc, ops, rec.rows, chr22_drawn, out_dir, ops2, load_read_sets(args.read_sets))
     for h in CHR22_REFS:
         gone = [s for s in CHR22_SETS if (h, s) not in chr22]
         if gone:

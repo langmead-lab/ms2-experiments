@@ -1,0 +1,520 @@
+{
+  "format": "ms2-read-sets-v1",
+  "manifests": [
+    "freeze-2885ee8-00e665de"
+  ],
+  "sets": {
+    "chr22-h10/simont-60mb-v2": {
+      "kind": "simulated",
+      "platform": "Oxford Nanopore",
+      "source": "APR008 haplotype 1 (Arab Pangenome Reference, GCA_050494745.1), long arm of chromosome 22",
+      "recipe": "pbsim3 3.0.5 standard ONT model (ERRHMM-ONT-HQ), 96% mean accuracy, read lengths drawn from the real Nanopore set, both strands",
+      "reads_fa": {
+        "sha256": "2cf92676c29eb68f71c4c3181e273b56a94c38f73baa2a80b1b9ac36410bdf2e",
+        "bytes": 60019991
+      },
+      "reads": 2782,
+      "bases": 59998845,
+      "length": {
+        "min": 394,
+        "median": 3393.5,
+        "n50": 89512,
+        "max": 388436
+      }
+    },
+    "chr22-h10/simpacbio-60mb-v2": {
+      "kind": "simulated",
+      "platform": "PacBio HiFi",
+      "source": "APR008 haplotype 1 (Arab Pangenome Reference, GCA_050494745.1), long arm of chromosome 22",
+      "recipe": "pbsim3 3.0.5 multi-pass subreads (QSHMM-RSII model, 10 passes) made into HiFi reads by ccs 6.4.0 (at least 3 passes, predicted accuracy at least 0.99), read lengths drawn from the real PacBio HiFi set, both strands",
+      "reads_fa": {
+        "sha256": "8e5897988e4744c12a8f7fe9bf2734a38bb7ed3cdb9df40013370040c9da177f",
+        "bytes": 60013709
+      },
+      "reads": 2864,
+      "bases": 59991907,
+      "length": {
+        "min": 6863,
+        "median": 20287.5,
+        "n50": 21140,
+        "max": 34397
+      }
+    },
+    "chr22-h10/simshort-60mb-v2": {
+      "kind": "simulated",
+      "platform": "Illumina short reads",
+      "source": "APR008 haplotype 1 (Arab Pangenome Reference, GCA_050494745.1), long arm of chromosome 22",
+      "recipe": "ART 2.5.8, HiSeq 2500 profile (-ss HS25), single-end 125 bases",
+      "reads_fa": {
+        "sha256": "2c0295c2b8a7293650484eabe480e6f9a68ed354bb3ceda91a23fe982176505b",
+        "bytes": 64688890
+      },
+      "reads": 480000,
+      "bases": 60000000,
+      "length": {
+        "min": 125,
+        "median": 125,
+        "n50": 125,
+        "max": 125
+      }
+    },
+    "chr22-h100/simont-60mb-v2": {
+      "kind": "simulated",
+      "platform": "Oxford Nanopore",
+      "source": "APR008 haplotype 1 (Arab Pangenome Reference, GCA_050494745.1), long arm of chromosome 22",
+      "recipe": "pbsim3 3.0.5 standard ONT model (ERRHMM-ONT-HQ), 96% mean accuracy, read lengths drawn from the real Nanopore set, both strands",
+      "reads_fa": {
+        "sha256": "2cf92676c29eb68f71c4c3181e273b56a94c38f73baa2a80b1b9ac36410bdf2e",
+        "bytes": 60019991
+      },
+      "reads": 2782,
+      "bases": 59998845,
+      "length": {
+        "min": 394,
+        "median": 3393.5,
+        "n50": 89512,
+        "max": 388436
+      }
+    },
+    "chr22-h100/simpacbio-60mb-v2": {
+      "kind": "simulated",
+      "platform": "PacBio HiFi",
+      "source": "APR008 haplotype 1 (Arab Pangenome Reference, GCA_050494745.1), long arm of chromosome 22",
+      "recipe": "pbsim3 3.0.5 multi-pass subreads (QSHMM-RSII model, 10 passes) made into HiFi reads by ccs 6.4.0 (at least 3 passes, predicted accuracy at least 0.99), read lengths drawn from the real PacBio HiFi set, both strands",
+      "reads_fa": {
+        "sha256": "8e5897988e4744c12a8f7fe9bf2734a38bb7ed3cdb9df40013370040c9da177f",
+        "bytes": 60013709
+      },
+      "reads": 2864,
+      "bases": 59991907,
+      "length": {
+        "min": 6863,
+        "median": 20287.5,
+        "n50": 21140,
+        "max": 34397
+      }
+    },
+    "chr22-h100/simshort-60mb-v2": {
+      "kind": "simulated",
+      "platform": "Illumina short reads",
+      "source": "APR008 haplotype 1 (Arab Pangenome Reference, GCA_050494745.1), long arm of chromosome 22",
+      "recipe": "ART 2.5.8, HiSeq 2500 profile (-ss HS25), single-end 125 bases",
+      "reads_fa": {
+        "sha256": "2c0295c2b8a7293650484eabe480e6f9a68ed354bb3ceda91a23fe982176505b",
+        "bytes": 64688890
+      },
+      "reads": 480000,
+      "bases": 60000000,
+      "length": {
+        "min": 125,
+        "median": 125,
+        "n50": 125,
+        "max": 125
+      }
+    },
+    "chr22-sim/pacbio-60mb-v2": {
+      "kind": "simulated",
+      "platform": "PacBio HiFi",
+      "source": "APR008 haplotype 1 (Arab Pangenome Reference, GCA_050494745.1), long arm of chromosome 22",
+      "recipe": "pbsim3 3.0.5 multi-pass subreads (QSHMM-RSII model, 10 passes) made into HiFi reads by ccs 6.4.0 (at least 3 passes, predicted accuracy at least 0.99), read lengths drawn from the real PacBio HiFi set, both strands",
+      "reads_fa": {
+        "sha256": "8e5897988e4744c12a8f7fe9bf2734a38bb7ed3cdb9df40013370040c9da177f",
+        "bytes": 60013709
+      },
+      "reads": 2864,
+      "bases": 59991907,
+      "length": {
+        "min": 6863,
+        "median": 20287.5,
+        "n50": 21140,
+        "max": 34397
+      }
+    },
+    "human472/guccione_skin-locate-500kb-v2": {
+      "kind": "real",
+      "platform": "Illumina NovaSeq 6000, pairs of up to 2x151 bp",
+      "source": "atopic dermatitis skin swab, ERR14066769 (Guccione et al.)",
+      "reads_fa": {
+        "sha256": "d6b4ea2f1524393b494ed00988cd73ebeb8ce19937b47e2c31db44f5871cd20c",
+        "bytes": 528378
+      },
+      "reads": 3698,
+      "bases": 499904,
+      "length": {
+        "min": 45,
+        "median": 151,
+        "n50": 151,
+        "max": 151
+      }
+    },
+    "human472/guccione_skin-ms-60mb-acgt-v2": {
+      "kind": "real",
+      "platform": "Illumina NovaSeq 6000, pairs of up to 2x151 bp",
+      "source": "atopic dermatitis skin swab, ERR14066769 (Guccione et al.)",
+      "reads_fa": {
+        "sha256": "b75f41ae7ce8983c6db6e20dbfe76094795ebc95dd02720d6d40220c41c499ae",
+        "bytes": 64278575
+      },
+      "reads": 438969,
+      "bases": 59999995,
+      "length": {
+        "min": 45,
+        "median": 151,
+        "n50": 151,
+        "max": 151
+      }
+    },
+    "human472/human472-apr008-hap1-p100k-s600-v1": {
+      "kind": "genome pieces",
+      "source": "APR008 haplotype 1 (Arab Pangenome Reference, GCA_050494745.1), absent from HPRC2",
+      "recipe": "a seeded sample of 600 pieces of 100 kbases",
+      "reads_fa": {
+        "sha256": "b940ed881ebeac87042a7fec0e30832147773b5325249faaa8f450f35ff1c74d",
+        "bytes": 59863793
+      },
+      "reads": 600,
+      "bases": 59859703,
+      "length": {
+        "min": 6755,
+        "median": 100000,
+        "n50": 100000,
+        "max": 100000
+      }
+    },
+    "human472/human472-apr008-pacbio-60mb-v2": {
+      "kind": "simulated",
+      "platform": "PacBio HiFi",
+      "source": "APR008 haplotype 1 (Arab Pangenome Reference, GCA_050494745.1), absent from HPRC2",
+      "recipe": "pbsim3 3.0.5 multi-pass subreads (QSHMM-RSII model, 10 passes) made into HiFi reads by ccs 6.4.0 (at least 3 passes, predicted accuracy at least 0.99), read lengths drawn from the real PacBio HiFi set, both strands",
+      "reads_fa": {
+        "sha256": "c8ce0e7314229be50c85c7dc652cb74c08c4d2a5378ef5471c70890c87606db0",
+        "bytes": 60004416
+      },
+      "reads": 2853,
+      "bases": 59982702,
+      "length": {
+        "min": 6857,
+        "median": 20189,
+        "n50": 21227,
+        "max": 36779
+      }
+    },
+    "human472/human_ont_modern-locate-10mb-v2": {
+      "kind": "real",
+      "platform": "Oxford Nanopore R10.4.1",
+      "source": "HG002, ONT gm24385_2023.12 quality-passing reads",
+      "reads_fa": {
+        "sha256": "2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83",
+        "bytes": 9952584
+      },
+      "reads": 494,
+      "bases": 9949236,
+      "length": {
+        "min": 456,
+        "median": 2863,
+        "n50": 87223,
+        "max": 417287
+      }
+    },
+    "human472/human_ont_modern-ms-60mb-acgt-v2": {
+      "kind": "real",
+      "platform": "Oxford Nanopore R10.4.1",
+      "source": "HG002, ONT gm24385_2023.12 quality-passing reads",
+      "reads_fa": {
+        "sha256": "34e69a89fb8b154a4e0d5e4c594a02fe12228152720c44524595f5f4ec9c0a26",
+        "bytes": 59955193
+      },
+      "reads": 2706,
+      "bases": 59934655,
+      "length": {
+        "min": 404,
+        "median": 3364.5,
+        "n50": 91687,
+        "max": 417287
+      }
+    },
+    "human472/human_pacbio-locate-20mb-v2": {
+      "kind": "real",
+      "platform": "PacBio Sequel II HiFi",
+      "source": "HPRC sample HG00099, SRR26545347",
+      "reads_fa": {
+        "sha256": "8eca4b06b72beec9b6ecbc692c5b0fbdc970cd5bd53dc3609861ed70ebcdfde5",
+        "bytes": 19993392
+      },
+      "reads": 953,
+      "bases": 19986831,
+      "length": {
+        "min": 6858,
+        "median": 20170,
+        "n50": 21195,
+        "max": 35854
+      }
+    },
+    "human472/human_pacbio-ms-60mb-acgt-v2": {
+      "kind": "real",
+      "platform": "PacBio Sequel II HiFi",
+      "source": "HPRC sample HG00099, SRR26545347",
+      "reads_fa": {
+        "sha256": "6861789d6d73968791997b513495c24fdfc967971d5a9faaca41acf712e85905",
+        "bytes": 60011268
+      },
+      "reads": 2869,
+      "bases": 59989426,
+      "length": {
+        "min": 6858,
+        "median": 20141,
+        "n50": 21034,
+        "max": 36775
+      }
+    },
+    "human472/human_short-locate-6mb-v2": {
+      "kind": "real",
+      "platform": "Illumina HiSeq 2500, 2x125 bp",
+      "source": "CHM1 hydatidiform mole cell line, SRR3099549; each end a separate query",
+      "reads_fa": {
+        "sha256": "a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338",
+        "bytes": 6420890
+      },
+      "reads": 48000,
+      "bases": 6000000,
+      "length": {
+        "min": 125,
+        "median": 125,
+        "n50": 125,
+        "max": 125
+      }
+    },
+    "human472/human_short-ms-60mb-acgt-v2": {
+      "kind": "real",
+      "platform": "Illumina HiSeq 2500, 2x125 bp",
+      "source": "CHM1 hydatidiform mole cell line, SRR3099549; each end a separate query",
+      "reads_fa": {
+        "sha256": "9ca9229680949429415467ebad320f7b514a8efc64eb59a81c5817102c58f66f",
+        "bytes": 64688890
+      },
+      "reads": 480000,
+      "bases": 60000000,
+      "length": {
+        "min": 125,
+        "median": 125,
+        "n50": 125,
+        "max": 125
+      }
+    },
+    "mtb152/mtb152-A2-e0.000032-v1": {
+      "kind": "simulated",
+      "platform": "PacBio-like",
+      "source": "the 8 mtb152 genomes held out of the index",
+      "recipe": "templates with lengths drawn from the real PacBio HiFi set and independent substitutions, insertions and deletions at the rate in the set name",
+      "reads_fa": {
+        "sha256": "ef85fb65d3f1ee66139293050246282b6ad13f2d8325c546994ec2a4bf7423bf",
+        "bytes": 20013253
+      },
+      "reads": 947,
+      "bases": 20006734,
+      "length": {
+        "min": 10601,
+        "median": 20219,
+        "n50": 21340,
+        "max": 36774
+      }
+    },
+    "mtb152/mtb152-A2-e0.00011-v1": {
+      "kind": "simulated",
+      "platform": "PacBio-like",
+      "source": "the 8 mtb152 genomes held out of the index",
+      "recipe": "templates with lengths drawn from the real PacBio HiFi set and independent substitutions, insertions and deletions at the rate in the set name",
+      "reads_fa": {
+        "sha256": "b84f9070c69d2735f05e173baffe6dfd8074b93eac8cce8710227cb29d1ab616",
+        "bytes": 20025016
+      },
+      "reads": 962,
+      "bases": 20018392,
+      "length": {
+        "min": 6857,
+        "median": 19872.5,
+        "n50": 20789,
+        "max": 35743
+      }
+    },
+    "mtb152/mtb152-A2-e0.00019-v1": {
+      "kind": "simulated",
+      "platform": "PacBio-like",
+      "source": "the 8 mtb152 genomes held out of the index",
+      "recipe": "templates with lengths drawn from the real PacBio HiFi set and independent substitutions, insertions and deletions at the rate in the set name",
+      "reads_fa": {
+        "sha256": "53a8d65521d2f532b2d5d62143a94884aff8f71cb773711fc4a869bc5c1914af",
+        "bytes": 20012869
+      },
+      "reads": 952,
+      "bases": 20006315,
+      "length": {
+        "min": 10600,
+        "median": 20500,
+        "n50": 21241,
+        "max": 35854
+      }
+    },
+    "mtb152/mtb152-A2-e0.00030-v1": {
+      "kind": "simulated",
+      "platform": "PacBio-like",
+      "source": "the 8 mtb152 genomes held out of the index",
+      "recipe": "templates with lengths drawn from the real PacBio HiFi set and independent substitutions, insertions and deletions at the rate in the set name",
+      "reads_fa": {
+        "sha256": "7ac1737f145d508ee16bcf54f246687c4125394958f1b11782fe2ccc92fc4c7d",
+        "bytes": 20023051
+      },
+      "reads": 958,
+      "bases": 20016455,
+      "length": {
+        "min": 6860,
+        "median": 20220.5,
+        "n50": 21231,
+        "max": 36778
+      }
+    },
+    "mtb152/mtb152-A2-e0.00047-v1": {
+      "kind": "simulated",
+      "platform": "PacBio-like",
+      "source": "the 8 mtb152 genomes held out of the index",
+      "recipe": "templates with lengths drawn from the real PacBio HiFi set and independent substitutions, insertions and deletions at the rate in the set name",
+      "reads_fa": {
+        "sha256": "0708604622a52bf9d0dacedd4ad237d10506dd62cae4ee430722c15c1e78f4c0",
+        "bytes": 20030766
+      },
+      "reads": 952,
+      "bases": 20024212,
+      "length": {
+        "min": 13407,
+        "median": 20291,
+        "n50": 21037,
+        "max": 35750
+      }
+    },
+    "mtb152/mtb152-A2-e0.00076-v1": {
+      "kind": "simulated",
+      "platform": "PacBio-like",
+      "source": "the 8 mtb152 genomes held out of the index",
+      "recipe": "templates with lengths drawn from the real PacBio HiFi set and independent substitutions, insertions and deletions at the rate in the set name",
+      "reads_fa": {
+        "sha256": "f824458f319b510012a381c134ad17cccb9416a43d672126e8da91c13e5b2941",
+        "bytes": 20024300
+      },
+      "reads": 957,
+      "bases": 20017711,
+      "length": {
+        "min": 10602,
+        "median": 19996,
+        "n50": 21014,
+        "max": 36772
+      }
+    },
+    "mtb152/mtb152-A2-e0.0014-v1": {
+      "kind": "simulated",
+      "platform": "PacBio-like",
+      "source": "the 8 mtb152 genomes held out of the index",
+      "recipe": "templates with lengths drawn from the real PacBio HiFi set and independent substitutions, insertions and deletions at the rate in the set name",
+      "reads_fa": {
+        "sha256": "9c5269820b758590c3adeeae65e3934074c2a25d469c5ce7ecf48968ba4cb3c2",
+        "bytes": 20016141
+      },
+      "reads": 953,
+      "bases": 20009580,
+      "length": {
+        "min": 13062,
+        "median": 20302,
+        "n50": 21156,
+        "max": 35752
+      }
+    },
+    "mtb152/mtb152-A2-e0.0030-v1": {
+      "kind": "simulated",
+      "platform": "PacBio-like",
+      "source": "the 8 mtb152 genomes held out of the index",
+      "recipe": "templates with lengths drawn from the real PacBio HiFi set and independent substitutions, insertions and deletions at the rate in the set name",
+      "reads_fa": {
+        "sha256": "42cd6a991eb3a82aaa724881bfdab70cd3af21dff6537f2e18b8874a80435dc1",
+        "bytes": 20029309
+      },
+      "reads": 963,
+      "bases": 20022678,
+      "length": {
+        "min": 12819,
+        "median": 19911,
+        "n50": 20852,
+        "max": 36796
+      }
+    },
+    "mtb152/mtb152-A2-e0.0050-v1": {
+      "kind": "simulated",
+      "platform": "PacBio-like",
+      "source": "the 8 mtb152 genomes held out of the index",
+      "recipe": "templates with lengths drawn from the real PacBio HiFi set and independent substitutions, insertions and deletions at the rate in the set name",
+      "reads_fa": {
+        "sha256": "4351e2c79930af319de217d517581fe984d20dc908ae783d4879f2033813228b",
+        "bytes": 20024402
+      },
+      "reads": 952,
+      "bases": 20017848,
+      "length": {
+        "min": 11883,
+        "median": 20340.5,
+        "n50": 21372,
+        "max": 36819
+      }
+    },
+    "mtb152/mtb152-A2-exact-v1": {
+      "kind": "simulated",
+      "platform": "PacBio-like",
+      "source": "the 8 mtb152 genomes held out of the index",
+      "recipe": "error-free templates with lengths drawn from the real PacBio HiFi set",
+      "reads_fa": {
+        "sha256": "220ef90b47078cb01cedb8e379224c0958500face23f804fd665102b7e2a48fe",
+        "bytes": 20010045
+      },
+      "reads": 962,
+      "bases": 20003421,
+      "length": {
+        "min": 11662,
+        "median": 20013.5,
+        "n50": 20848,
+        "max": 32719
+      }
+    },
+    "mtb152/mtb152-heldout16-p100k-s600-v1": {
+      "kind": "genome pieces",
+      "source": "the 8 mtb152 genomes held out of the index and their reverse complements",
+      "recipe": "a seeded sample of 600 pieces of 100 kbases",
+      "reads_fa": {
+        "sha256": "443da8857d5413ee2abc9353e2ab116f9f10e01de3b963a1e65257c27b7dfdde",
+        "bytes": 59144122
+      },
+      "reads": 600,
+      "bases": 59140032,
+      "length": {
+        "min": 6184,
+        "median": 100000,
+        "n50": 100000,
+        "max": 100000
+      }
+    },
+    "mtb152/mtb152-pacbio-60mb-v2": {
+      "kind": "simulated",
+      "platform": "PacBio HiFi",
+      "source": "the 8 mtb152 genomes held out of the index",
+      "recipe": "pbsim3 3.0.5 multi-pass subreads (QSHMM-RSII model, 10 passes) made into HiFi reads by ccs 6.4.0 (at least 3 passes, predicted accuracy at least 0.99), read lengths drawn from the real PacBio HiFi set, both strands",
+      "reads_fa": {
+        "sha256": "a8dbcee173b893bd5cf791ec7553fc0eddd971da57a054ec99374e7620f37435",
+        "bytes": 60012512
+      },
+      "reads": 2855,
+      "bases": 59990782,
+      "length": {
+        "min": 6869,
+        "median": 20244,
+        "n50": 21189,
+        "max": 36879
+      }
+    }
+  }
+}

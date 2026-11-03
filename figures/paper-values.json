@@ -1,0 +1,1080 @@
+{
+ "format": "ms2-paper-values-v1",
+ "paper": "papers/matching-stats at 796e562",
+ "numbers": [
+  {
+   "id": "chr22.min_over_phoni",
+   "where": "Abstract",
+   "label": "ms2-min over PHONI, chr22 100 haplotypes (also Introduction, Results)",
+   "paper": "35--48"
+  },
+  {
+   "id": "ms.min_over_rope_human",
+   "where": "Abstract",
+   "label": "ms2-min over ropebwt3 -l1, human reads, at least (also Introduction)",
+   "paper": "22"
+  },
+  {
+   "id": "ms.dual_over_rope_human",
+   "where": "Abstract",
+   "label": "ms2-dual over ropebwt3 -l1, human reads, at least",
+   "paper": "19"
+  },
+  {
+   "id": "ms.psi_over_rope_human",
+   "where": "Abstract",
+   "label": "ms2-psi over ropebwt3 -l1, human reads, at least",
+   "paper": "15"
+  },
+  {
+   "id": "ms.rope_size_pct",
+   "where": "Abstract",
+   "label": "ropebwt3 index as a percentage of ms2-min's, about (also Introduction)",
+   "paper": "15"
+  },
+  {
+   "id": "loc.n100_over_s8",
+   "where": "Abstract",
+   "label": "ms2-psi and ms2-dual over ropebwt3 -s8, N=100 (also Results)",
+   "paper": "25--34"
+  },
+  {
+   "id": "ms.flow_cells",
+   "where": "Abstract",
+   "label": "PromethION flow cells per ms2-min thread (also Introduction, Results)",
+   "paper": "21"
+  },
+  {
+   "id": "loc.n100_over_s6",
+   "where": "Introduction",
+   "label": "ms2-psi and ms2-dual over ropebwt3 -s6, N=100 (also Results)",
+   "paper": "8.8--11"
+  },
+  {
+   "id": "ops.mtb152_genome_mbases",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "mtb152 genome pieces, Mbases",
+   "paper": "59.1"
+  },
+  {
+   "id": "ops.hprc2_genome_mbases",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "HPRC2 genome pieces, Mbases",
+   "paper": "59.9"
+  },
+  {
+   "id": "ops.pieces",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "genome pieces sampled per index",
+   "paper": "600"
+  },
+  {
+   "id": "ops.hifi_mbases",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "simulated HiFi reads per index, Mbases",
+   "paper": "60"
+  },
+  {
+   "id": "ops.hifi_median_kbases",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "simulated HiFi median read length, kbases",
+   "paper": "20"
+  },
+  {
+   "id": "ops.rec_mtb152_genomes",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "recoveries per base, mtb152 genomes (also caption)",
+   "paper": "0.00065"
+  },
+  {
+   "id": "ops.rec_hprc2_genomes",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "recoveries per base, HPRC2 genomes (also caption)",
+   "paper": "0.00055"
+  },
+  {
+   "id": "ops.rec_mtb152_hifi",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "recoveries per base, mtb152 HiFi reads (also caption)",
+   "paper": "0.021"
+  },
+  {
+   "id": "ops.rec_hprc2_hifi",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "recoveries per base, HPRC2 HiFi reads (also caption)",
+   "paper": "0.036"
+  },
+  {
+   "id": "ops.genomes_min_dual_gap_hprc2",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "ms2-min and ms2-dual above their oracles on HPRC2 genomes, within %",
+   "paper": "6"
+  },
+  {
+   "id": "ops.genomes_min_dual_gap_both",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "ms2-min and ms2-dual above their oracles on genomes, as worded (mtb152 and HPRC2), within %",
+   "paper": "6",
+   "expected_change": {
+    "to": null,
+    "edit": "replace \"We observed that ms2-min's and ms2-dual's times on genomes stayed within 6\\% of the oracle-based lower bound (42 and 40\\,ns per base on HPRC2, against 42 and 38 for their oracles)\" with \"We observed that on the HPRC2 genomes, ms2-min's and ms2-dual's times stayed within 6\\% of the oracle-based lower bound (42 and 40\\,ns per base, against 42 and 38 for their oracles)\". On mtb152, ms2-dual is 7.8% above its oracle (33.4 against 31.0 ns per base); keeping the sentence unscoped needs \"within 8\\%\" instead."
+   }
+  },
+  {
+   "id": "ops.hprc2_min_ns",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "HPRC2 genomes, ms2-min ns per base",
+   "paper": "42"
+  },
+  {
+   "id": "ops.hprc2_dual_ns",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "HPRC2 genomes, ms2-dual ns per base",
+   "paper": "40"
+  },
+  {
+   "id": "ops.hprc2_min_oracle_ns",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "HPRC2 genomes, ms2-min oracle ns per base",
+   "paper": "42"
+  },
+  {
+   "id": "ops.hprc2_dual_oracle_ns",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "HPRC2 genomes, ms2-dual oracle ns per base",
+   "paper": "38"
+  },
+  {
+   "id": "ops.hprc2_dual_ops",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "HPRC2 genomes, ms2-dual operations per base",
+   "paper": "1.01"
+  },
+  {
+   "id": "ops.hprc2_psi_ops",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "HPRC2 genomes, ms2-psi operations per base",
+   "paper": "3.41"
+  },
+  {
+   "id": "ops.hprc2_phi_ops",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "HPRC2 genomes, ms2-phi operations per base",
+   "paper": "1.07"
+  },
+  {
+   "id": "ops.hprc2_psi_ns",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "HPRC2 genomes, ms2-psi ns per base",
+   "paper": "68"
+  },
+  {
+   "id": "ops.hprc2_phi_ns",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "HPRC2 genomes, ms2-phi ns per base",
+   "paper": "47"
+  },
+  {
+   "id": "ops.mtb152_min_ns",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "mtb152 genomes, ms2-min ns per base",
+   "paper": "31"
+  },
+  {
+   "id": "ops.mtb152_dual_ns",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "mtb152 genomes, ms2-dual ns per base",
+   "paper": "33"
+  },
+  {
+   "id": "ops.mtb152_phi_ns",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "mtb152 genomes, ms2-phi ns per base",
+   "paper": "36"
+  },
+  {
+   "id": "ops.mtb152_psi_ns",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "mtb152 genomes, ms2-psi ns per base",
+   "paper": "47"
+  },
+  {
+   "id": "ops.rec_hifi_over_genomes",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "HiFi reads over genomes, recoveries per base (times)",
+   "paper": "33--65"
+  },
+  {
+   "id": "ops.hifi_min_gap",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "HiFi reads, ms2-min above its oracle, within %",
+   "paper": "9"
+  },
+  {
+   "id": "ops.hifi_dual_gap",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "HiFi reads, ms2-dual slower than its oracle (%)",
+   "paper": "32--37"
+  },
+  {
+   "id": "ops.hifi_hprc2_phi_over_oracle",
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "HiFi reads on HPRC2, ms2-phi time over its oracle (times)",
+   "paper": "5.9"
+  },
+  {
+   "id": "chr22.reads_mbases",
+   "where": "Results: Comparison on chr22",
+   "label": "simulated reads per type, Mbases",
+   "paper": "60"
+  },
+  {
+   "id": "chr22.min_mbases",
+   "where": "Results: Comparison on chr22",
+   "label": "ms2-min Mbases/s, 100 haplotypes",
+   "paper": "22--29"
+  },
+  {
+   "id": "chr22.min_over_best_legacy",
+   "where": "Results: Comparison on chr22",
+   "label": "ms2-min over the fastest of MONI, PHONI and AugPHONI",
+   "paper": "32--35"
+  },
+  {
+   "id": "chr22.min_gib",
+   "where": "Results: Comparison on chr22",
+   "label": "ms2-min peak GiB",
+   "paper": "1.0--1.4"
+  },
+  {
+   "id": "chr22.legacy_gib",
+   "where": "Results: Comparison on chr22",
+   "label": "MONI, PHONI and AugPHONI peak GiB",
+   "paper": "0.9--1.5"
+  },
+  {
+   "id": "chr22.phi_mbases",
+   "where": "Results: Comparison on chr22",
+   "label": "ms2-phi Mbases/s",
+   "paper": "4.7--12.6"
+  },
+  {
+   "id": "chr22.phi_over_best_legacy",
+   "where": "Results: Comparison on chr22",
+   "label": "ms2-phi over the fastest of MONI, PHONI and AugPHONI",
+   "paper": "7.7--14"
+  },
+  {
+   "id": "chr22.rope_gib",
+   "where": "Results: Comparison on chr22",
+   "label": "ropebwt3 peak GiB",
+   "paper": "0.2"
+  },
+  {
+   "id": "chr22.min_over_rope",
+   "where": "Results: Comparison on chr22",
+   "label": "ms2-min over ropebwt3 -l1 (times)",
+   "paper": "14--32"
+  },
+  {
+   "id": "chr22.h10_change_min_psi_dual",
+   "where": "Results: Comparison on chr22",
+   "label": "speed change of ms2-min, ms2-psi and ms2-dual from 100 to 10 haplotypes, within %",
+   "paper": "6"
+  },
+  {
+   "id": "chr22.phi_h10_over_h100",
+   "where": "Results: Comparison on chr22",
+   "label": "ms2-phi on 10 haplotypes over 100 (times)",
+   "paper": "1.6--2.3"
+  },
+  {
+   "id": "chr22.phi_h10_mbases",
+   "where": "Results: Comparison on chr22",
+   "label": "ms2-phi Mbases/s on 10 haplotypes",
+   "paper": "11--20"
+  },
+  {
+   "id": "reads.human_short_reads",
+   "where": "Results: Reads",
+   "label": "human_short reads",
+   "paper": "480,000"
+  },
+  {
+   "id": "reads.human_short_mbases",
+   "where": "Results: Reads",
+   "label": "human_short Mbases",
+   "paper": "60.0"
+  },
+  {
+   "id": "reads.human_pacbio_reads",
+   "where": "Results: Reads",
+   "label": "human_pacbio reads",
+   "paper": "2,869"
+  },
+  {
+   "id": "reads.human_pacbio_mbases",
+   "where": "Results: Reads",
+   "label": "human_pacbio Mbases",
+   "paper": "60.0"
+  },
+  {
+   "id": "reads.human_ont_modern_reads",
+   "where": "Results: Reads",
+   "label": "human_ont_modern reads",
+   "paper": "2,706"
+  },
+  {
+   "id": "reads.human_ont_modern_mbases",
+   "where": "Results: Reads",
+   "label": "human_ont_modern Mbases",
+   "paper": "60.0",
+   "expected_change": {
+    "to": "59.9",
+    "edit": "in the Nanopore entry, replace \"(60.0\\,Mbases)\" with \"(59.9\\,Mbases)\"."
+   }
+  },
+  {
+   "id": "reads.guccione_skin_reads",
+   "where": "Results: Reads",
+   "label": "guccione_skin reads",
+   "paper": "438,969"
+  },
+  {
+   "id": "reads.guccione_skin_mbases",
+   "where": "Results: Reads",
+   "label": "guccione_skin Mbases",
+   "paper": "60.0"
+  },
+  {
+   "id": "reads.all_mbases",
+   "where": "Results: Reads",
+   "label": "every 60 Mbase set, Mbases (\"each set holds just under 60,000,000 bases\")",
+   "paper": "just under 60,000,000",
+   "expected_change": {
+    "to": "59.9--60.0",
+    "edit": "replace \"each set holds just under 60{,}000{,}000 bases\" with \"each set holds 59.9 to 60.0\\,Mbases\" (the short-read set holds exactly 60,000,000 bases, 480,000 reads of 125)."
+   }
+  },
+  {
+   "id": "reads.pacbio_median_kbases",
+   "where": "Results: Reads",
+   "label": "PacBio median read length, kbases",
+   "paper": "20.1"
+  },
+  {
+   "id": "reads.ont_min_bp",
+   "where": "Results: Reads",
+   "label": "Nanopore shortest read, bp",
+   "paper": "404"
+  },
+  {
+   "id": "reads.ont_max_kbases",
+   "where": "Results: Reads",
+   "label": "Nanopore longest read, kbases",
+   "paper": "417"
+  },
+  {
+   "id": "reads.ont_median_kbases",
+   "where": "Results: Reads",
+   "label": "Nanopore median read length, kbases",
+   "paper": "3.4"
+  },
+  {
+   "id": "reads.ont_n50_kbases",
+   "where": "Results: Reads",
+   "label": "Nanopore N50, kbases",
+   "paper": "91.7"
+  },
+  {
+   "id": "ms.oracle_mbases",
+   "where": "Results: Matching statistics on real reads",
+   "label": "oracle Mbases/s, every mode and set",
+   "paper": "17--31"
+  },
+  {
+   "id": "ms.min_oracle_slowdown_human",
+   "where": "Results: Matching statistics on real reads",
+   "label": "human reads, ms2-min slower than its oracle (times)",
+   "paper": "1.04--1.3"
+  },
+  {
+   "id": "ms.psi_dual_oracle_slowdown_human",
+   "where": "Results: Matching statistics on real reads",
+   "label": "human reads, ms2-psi and ms2-dual slower than their oracles (times)",
+   "paper": "1.2--2.7"
+  },
+  {
+   "id": "ms.skin_min",
+   "where": "Results: Matching statistics on real reads",
+   "label": "skin, ms2-min Mbases/s",
+   "paper": "10.2"
+  },
+  {
+   "id": "ms.skin_min_oracle",
+   "where": "Results: Matching statistics on real reads",
+   "label": "skin, ms2-min oracle Mbases/s",
+   "paper": "26.1"
+  },
+  {
+   "id": "ms.skin_psi",
+   "where": "Results: Matching statistics on real reads",
+   "label": "skin, ms2-psi Mbases/s",
+   "paper": "2.8"
+  },
+  {
+   "id": "ms.skin_dual",
+   "where": "Results: Matching statistics on real reads",
+   "label": "skin, ms2-dual Mbases/s",
+   "paper": "5.2"
+  },
+  {
+   "id": "ms.skin_psi_dual_oracle",
+   "where": "Results: Matching statistics on real reads",
+   "label": "skin, ms2-psi and ms2-dual oracles Mbases/s, about",
+   "paper": "18"
+  },
+  {
+   "id": "ms.phi_mbases",
+   "where": "Results: Matching statistics on real reads",
+   "label": "ms2-phi Mbases/s",
+   "paper": "0.45--7.1"
+  },
+  {
+   "id": "ms.phi_pct_of_psi",
+   "where": "Results: Matching statistics on real reads",
+   "label": "ms2-phi as a percentage of ms2-psi's speed",
+   "paper": "16--41"
+  },
+  {
+   "id": "ms.min_over_rope_all",
+   "where": "Results: Matching statistics on real reads",
+   "label": "ms2-min over ropebwt3 -l1 (times)",
+   "paper": "23--130"
+  },
+  {
+   "id": "ms.rope_l1_mbases",
+   "where": "Results: Matching statistics on real reads",
+   "label": "ropebwt3 -l1 Mbases/s",
+   "paper": "0.08--1.12"
+  },
+  {
+   "id": "ms.phi_over_rope",
+   "where": "Results: Matching statistics on real reads",
+   "label": "ms2-phi over ropebwt3 -l1 (times)",
+   "paper": "2.6--6.3"
+  },
+  {
+   "id": "ms.min_ont_mbases",
+   "where": "Results: Matching statistics on real reads",
+   "label": "ms2-min Mbases/s on the Nanopore reads",
+   "paper": "23.5"
+  },
+  {
+   "id": "loc.human_short_reads",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "human_short prefix reads",
+   "paper": "48,000"
+  },
+  {
+   "id": "loc.human_short_mbases",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "human_short prefix Mbases",
+   "paper": "6"
+  },
+  {
+   "id": "loc.human_pacbio_reads",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "human_pacbio prefix reads",
+   "paper": "953"
+  },
+  {
+   "id": "loc.human_pacbio_mbases",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "human_pacbio prefix Mbases",
+   "paper": "20"
+  },
+  {
+   "id": "loc.human_ont_modern_reads",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "human_ont_modern prefix reads",
+   "paper": "494"
+  },
+  {
+   "id": "loc.human_ont_modern_mbases",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "human_ont_modern prefix Mbases",
+   "paper": "10"
+  },
+  {
+   "id": "loc.guccione_skin_reads",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "guccione_skin prefix reads",
+   "paper": "3,698"
+  },
+  {
+   "id": "loc.guccione_skin_mbases",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "guccione_skin prefix Mbases",
+   "paper": "0.5"
+  },
+  {
+   "id": "loc.ms2_gib",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "ms2 locate index resident GiB",
+   "paper": "337"
+  },
+  {
+   "id": "loc.n100_psi_dual_mloc",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "ms2-psi and ms2-dual million locations/s",
+   "paper": "5.4--8.7"
+  },
+  {
+   "id": "loc.s8_gib",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "ropebwt3 -s8 GiB",
+   "paper": "97"
+  },
+  {
+   "id": "loc.s6_gib",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "ropebwt3 -s6 GiB",
+   "paper": "345"
+  },
+  {
+   "id": "loc.s11_gib",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "ropebwt3 -s11 GiB",
+   "paper": "25"
+  },
+  {
+   "id": "loc.n100_phi_mloc",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "ms2-phi million locations/s",
+   "paper": "4.0--8.5"
+  },
+  {
+   "id": "loc.n100_short_phi_over_dual",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "short reads, ms2-phi over ms2-dual",
+   "paper": "0.60"
+  },
+  {
+   "id": "loc.n100_other_phi_over_dual",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "other sets, ms2-phi over ms2-dual",
+   "paper": "0.79--0.98"
+  },
+  {
+   "id": "loc.n100_s11_kloc",
+   "where": "Results: Locating SMEM occurrences",
+   "label": "ropebwt3 -s11 thousand locations/s",
+   "paper": "25--30"
+  },
+  {
+   "id": "threads.ms2_32_over_1",
+   "where": "Results: Thread scaling",
+   "label": "ms2 modes, 32 threads over 1",
+   "paper": "21.5--27.6"
+  },
+  {
+   "id": "threads.rope_32_over_1",
+   "where": "Results: Thread scaling",
+   "label": "ropebwt3 -l1, 32 threads over 1",
+   "paper": "25--30"
+  },
+  {
+   "id": "threads.min_32_mbases",
+   "where": "Results: Thread scaling",
+   "label": "ms2-min Mbases/s at 32 threads",
+   "paper": "469--498"
+  },
+  {
+   "id": "threads.phi_rope_64_over_32",
+   "where": "Results: Thread scaling",
+   "label": "ms2-phi and ropebwt3, 64 threads over 32",
+   "paper": "1.16--1.28"
+  },
+  {
+   "id": "threads.min_dual_64_over_32",
+   "where": "Results: Thread scaling",
+   "label": "ms2-min and ms2-dual, 64 threads over 32, at most (\"did not\" benefit)",
+   "paper": "1.00"
+  },
+  {
+   "id": "threads.human_short_reads",
+   "where": "Appendix: Fig threads caption",
+   "label": "short-read superset, reads",
+   "paper": "7,982,098"
+  },
+  {
+   "id": "threads.human_short_mbases",
+   "where": "Appendix: Fig threads caption",
+   "label": "short-read superset, Mbases",
+   "paper": "997.8"
+  },
+  {
+   "id": "threads.human_ont_modern_reads",
+   "where": "Appendix: Fig threads caption",
+   "label": "Nanopore superset, reads",
+   "paper": "43,346"
+  },
+  {
+   "id": "threads.human_ont_modern_mbases",
+   "where": "Appendix: Fig threads caption",
+   "label": "Nanopore superset, Mbases",
+   "paper": "1,000.0"
+  },
+  {
+   "id": "rep.a_psi_exact",
+   "where": "Appendix: Fig rep caption",
+   "label": "(A) ms2-psi mean, exact reads",
+   "paper": "1,471",
+   "optional": true
+  },
+  {
+   "id": "rep.a_psi_014",
+   "where": "Appendix: Fig rep caption",
+   "label": "(A) ms2-psi mean at 0.14% errors",
+   "paper": "41",
+   "optional": true
+  },
+  {
+   "id": "rep.a_psi_floor",
+   "where": "Appendix: Fig rep caption",
+   "label": "(A) ms2-psi mean, level near",
+   "paper": "22",
+   "optional": true
+  },
+  {
+   "id": "rep.a_phi",
+   "where": "Appendix: Fig rep caption",
+   "label": "(A) ms2-phi mean",
+   "paper": "35--44",
+   "optional": true
+  },
+  {
+   "id": "rep.b_phi",
+   "where": "Appendix: Fig rep caption",
+   "label": "(B) ms2-phi mean, 5 to 464 haplotypes",
+   "paper": "2.4--143",
+   "optional": true
+  },
+  {
+   "id": "rep.b_psi",
+   "where": "Appendix: Fig rep caption",
+   "label": "(B) ms2-psi mean",
+   "paper": "35--45",
+   "optional": true
+  },
+  {
+   "id": "rep.b_dual",
+   "where": "Appendix: Fig rep caption",
+   "label": "(B) ms2-dual mean, as worded inside (B)",
+   "paper": "0.3--2.5",
+   "optional": true,
+   "expected_change": {
+    "to": "0.7--2.5",
+    "edit": "in panel (B), replace \"ms2-dual's mean stayed between 0.3 and 2.5\" with \"ms2-dual's mean stayed between 0.7 and 2.5\" (0.3 is the lowest mean in panel (A))."
+   }
+  },
+  {
+   "id": "rep.ab_dual",
+   "where": "Appendix: Fig rep caption",
+   "label": "ms2-dual mean over both panels",
+   "paper": "0.3--2.5",
+   "optional": true
+  },
+  {
+   "id": "load.min_resident",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-min, matching statistics: resident GiB",
+   "paper": "100"
+  },
+  {
+   "id": "load.min_seconds",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-min, matching statistics: load s",
+   "paper": "41.9"
+  },
+  {
+   "id": "load.min_nodes",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-min, matching statistics: range of per-node medians, s",
+   "paper": "41.3--43.2"
+  },
+  {
+   "id": "load.min_rate",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-min, matching statistics: GiB/s",
+   "paper": "2.4"
+  },
+  {
+   "id": "load.psi_resident",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-psi, matching statistics: resident GiB",
+   "paper": "97"
+  },
+  {
+   "id": "load.psi_seconds",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-psi, matching statistics: load s",
+   "paper": "45.2"
+  },
+  {
+   "id": "load.psi_nodes",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-psi, matching statistics: range of per-node medians, s",
+   "paper": "45.2--45.7"
+  },
+  {
+   "id": "load.psi_rate",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-psi, matching statistics: GiB/s",
+   "paper": "2.1"
+  },
+  {
+   "id": "load.phi_resident",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-phi, matching statistics: resident GiB",
+   "paper": "147"
+  },
+  {
+   "id": "load.phi_seconds",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-phi, matching statistics: load s",
+   "paper": "60.7"
+  },
+  {
+   "id": "load.phi_nodes",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-phi, matching statistics: range of per-node medians, s",
+   "paper": "60.6--60.8"
+  },
+  {
+   "id": "load.phi_rate",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-phi, matching statistics: GiB/s",
+   "paper": "2.4"
+  },
+  {
+   "id": "load.dual_resident",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-dual, matching statistics: resident GiB",
+   "paper": "228"
+  },
+  {
+   "id": "load.dual_seconds",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-dual, matching statistics: load s",
+   "paper": "94.7"
+  },
+  {
+   "id": "load.dual_nodes",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-dual, matching statistics: range of per-node medians, s",
+   "paper": "92.5--95.5"
+  },
+  {
+   "id": "load.dual_rate",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-dual, matching statistics: GiB/s",
+   "paper": "2.4"
+  },
+  {
+   "id": "load.ms2_locate_resident",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-psi, ms2-phi, ms2-dual, locating: resident GiB",
+   "paper": "337"
+  },
+  {
+   "id": "load.ms2_locate_seconds",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-psi, ms2-phi, ms2-dual, locating: load s",
+   "paper": "186.7"
+  },
+  {
+   "id": "load.ms2_locate_nodes",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-psi, ms2-phi, ms2-dual, locating: range of per-node medians, s",
+   "paper": "184.3--189.6"
+  },
+  {
+   "id": "load.ms2_locate_rate",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ms2-psi, ms2-phi, ms2-dual, locating: GiB/s",
+   "paper": "1.8"
+  },
+  {
+   "id": "load.rope_resident",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -l1, matching statistics: resident GiB",
+   "paper": "15"
+  },
+  {
+   "id": "load.rope_seconds",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -l1, matching statistics: load s",
+   "paper": "4.2"
+  },
+  {
+   "id": "load.rope_nodes",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -l1, matching statistics: range of per-node medians, s",
+   "paper": "4.2--4.3"
+  },
+  {
+   "id": "load.rope_rate",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -l1, matching statistics: GiB/s",
+   "paper": "3.5",
+   "expected_change": {
+    "to": "3.4",
+    "edit": "in Table A2, the ropebwt3 matching-statistics row, replace the GiB/s \"3.5\" with \"3.4\" (14.5 GiB over 4.25 s), or \\input the generated figures/tex/tab-load.tex."
+   }
+  },
+  {
+   "id": "load.rope_s11_resident",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -s11, locating: resident GiB",
+   "paper": "25"
+  },
+  {
+   "id": "load.rope_s11_seconds",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -s11, locating: load s",
+   "paper": "7.2"
+  },
+  {
+   "id": "load.rope_s11_nodes",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -s11, locating: range of per-node medians, s",
+   "paper": "7.1--7.2"
+  },
+  {
+   "id": "load.rope_s11_rate",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -s11, locating: GiB/s",
+   "paper": "3.5"
+  },
+  {
+   "id": "load.rope_s8_resident",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -s8, locating: resident GiB",
+   "paper": "97"
+  },
+  {
+   "id": "load.rope_s8_seconds",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -s8, locating: load s",
+   "paper": "27.6"
+  },
+  {
+   "id": "load.rope_s8_nodes",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -s8, locating: range of per-node medians, s",
+   "paper": "27.5--28.0"
+  },
+  {
+   "id": "load.rope_s8_rate",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -s8, locating: GiB/s",
+   "paper": "3.5"
+  },
+  {
+   "id": "load.rope_s6_resident",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -s6, locating: resident GiB",
+   "paper": "345"
+  },
+  {
+   "id": "load.rope_s6_seconds",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -s6, locating: load s",
+   "paper": "98.6"
+  },
+  {
+   "id": "load.rope_s6_nodes",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -s6, locating: range of per-node medians, s",
+   "paper": "98.3--99.4"
+  },
+  {
+   "id": "load.rope_s6_rate",
+   "where": "Appendix: Table A2 (load times)",
+   "label": "ropebwt3 -s6, locating: GiB/s",
+   "paper": "3.5"
+  },
+  {
+   "id": "load.ms2_rates",
+   "where": "Appendix: Index loading time",
+   "label": "ms2 load rates, GiB/s",
+   "paper": "1.8--2.4"
+  },
+  {
+   "id": "load.rope_rates",
+   "where": "Appendix: Index loading time",
+   "label": "ropebwt3 load rate, GiB/s, about",
+   "paper": "3.5"
+  },
+  {
+   "id": "load.short_load_over_query",
+   "where": "Appendix: Index loading time",
+   "label": "short reads, load over query time, ms2-min, ms2-psi and ms2-dual",
+   "paper": "9--23",
+   "expected_change": {
+    "to": "9--22",
+    "edit": "replace \"loading took 9 to 23 times longer\" with \"loading took 9 to 22 times longer\" (ms2-dual: 94.9 s against 4.22 s, 22.5 times)."
+   }
+  },
+  {
+   "id": "load.short_load_over_query_phi",
+   "where": "Appendix: Index loading time",
+   "label": "short reads, load over query time, ms2-phi",
+   "paper": "2"
+  },
+  {
+   "id": "thp.ms2_range",
+   "where": "Appendix: Measurement setup",
+   "label": "THP always over the default, ms2 on HPRC2 (times)",
+   "paper": "1.4--2.2"
+  },
+  {
+   "id": "thp.ms2_ms_median",
+   "where": "Appendix: Measurement setup",
+   "label": "THP, ms2 matching statistics median",
+   "paper": "1.8"
+  },
+  {
+   "id": "thp.ms2_locate_median",
+   "where": "Appendix: Measurement setup",
+   "label": "THP, ms2 locating median",
+   "paper": "1.6"
+  },
+  {
+   "id": "thp.rope_median",
+   "where": "Appendix: Measurement setup",
+   "label": "THP, ropebwt3 median, about",
+   "paper": "1.2"
+  },
+  {
+   "id": "thp.peak_change_pct",
+   "where": "Appendix: Measurement setup",
+   "label": "THP, change in peak memory, at most % (\"without changing peak memory\")",
+   "paper": "0"
+  },
+  {
+   "id": "app10.min_mbases",
+   "where": "Appendix: Chromosome 22 with 10 haplotypes",
+   "label": "ms2-min Mbases/s on 10 haplotypes",
+   "paper": "23--30"
+  },
+  {
+   "id": "app10.min_change",
+   "where": "Appendix: Chromosome 22 with 10 haplotypes",
+   "label": "ms2-min change from 100 haplotypes, within %",
+   "paper": "6"
+  },
+  {
+   "id": "app10.legacy_mbases",
+   "where": "Appendix: Chromosome 22 with 10 haplotypes",
+   "label": "MONI, PHONI and AugPHONI Mbases/s",
+   "paper": "0.5--1.0"
+  },
+  {
+   "id": "app10.min_gib",
+   "where": "Appendix: Chromosome 22 with 10 haplotypes",
+   "label": "ms2-min peak GiB",
+   "paper": "0.6--1.0"
+  },
+  {
+   "id": "app10.legacy_gib",
+   "where": "Appendix: Chromosome 22 with 10 haplotypes",
+   "label": "MONI, PHONI and AugPHONI peak GiB",
+   "paper": "0.6--1.0"
+  },
+  {
+   "id": "appn.over_s6",
+   "where": "Appendix: Locating with N=1 and N=10",
+   "label": "ms2-psi and ms2-dual over ropebwt3 -s6 at N=1 and N=10",
+   "paper": "5--11"
+  },
+  {
+   "id": "appn.n1_kloc",
+   "where": "Appendix: Locating with N=1 and N=10",
+   "label": "ms2-psi and ms2-dual thousand locations/s at N=1",
+   "paper": "111--364"
+  },
+  {
+   "id": "appn.n10_mloc",
+   "where": "Appendix: Locating with N=1 and N=10",
+   "label": "ms2-psi and ms2-dual million locations/s at N=10",
+   "paper": "0.92--2.52"
+  },
+  {
+   "id": "appn.n1_short_phi_over_dual",
+   "where": "Appendix: Locating with N=1 and N=10",
+   "label": "short reads, ms2-phi over ms2-dual at N=1",
+   "paper": "0.43"
+  },
+  {
+   "id": "appn.n10_short_phi_over_dual",
+   "where": "Appendix: Locating with N=1 and N=10",
+   "label": "short reads, ms2-phi over ms2-dual at N=10",
+   "paper": "0.45"
+  },
+  {
+   "id": "appn.other_phi_over_dual",
+   "where": "Appendix: Locating with N=1 and N=10",
+   "label": "other sets, ms2-phi over ms2-dual at N=1 and N=10",
+   "paper": "0.68--0.90"
+  }
+ ],
+ "unchecked": [
+  {
+   "where": "Results: Reads",
+   "label": "PacBio predicted mean error rate",
+   "paper": "0.18%",
+   "reason": "Computed from the FASTQ base qualities, which the FASTA read sets do not keep."
+  },
+  {
+   "where": "Results: Recovery cost for ms2 modes",
+   "label": "simulated HiFi mean predicted accuracy",
+   "paper": "99.8%",
+   "reason": "In the read sets' simulation manifests on Rockfish, not in data/read-sets.json."
+  },
+  {
+   "where": "Results: Comparison on chr22",
+   "label": "APR008 chr22 long arm",
+   "paper": "34.0 Mbases",
+   "reason": "In the source haplotype record on Rockfish (d13_prep.py apr008-chr22), not in this repository."
+  },
+  {
+   "where": "Results: Reads",
+   "label": "Nanopore sampling rate and seed",
+   "paper": "0.8%, seed 20261003",
+   "reason": "A preparation setting (data/download/prepare_hg002.py), not a measurement."
+  },
+  {
+   "where": "Appendix: Data availability",
+   "label": "HPRC2 precursor builds",
+   "paper": "147 GiB, about 13 hours, 48 threads, 171 GiB; 83 and 331 GiB, about 10 hours, 46 to 48 threads",
+   "reason": "Build records of Rockfish runs outside the freeze manifests."
+  }
+ ],
+ "text_edits": [
+  {
+   "where": "Results: Fig ops caption",
+   "edit": "after \"whereas the other approaches add further $\\phi$ or $\\Psi$ steps (dark shading).\", add \"$\\Psi$ and $\\phi$ steps were counted by an instrumented build of the same ms2 commit; \\LF steps are drawn as one per base rather than counted.\""
+  },
+  {
+   "where": "Appendix: Fig rep caption",
+   "edit": "add at the end of the caption: \"The batches at 1\\% and 2\\% errors and the indexes of 200 and 464 haplotypes were counted on a separate cluster with the same instrumented ms2 build (commit 2885ee8), outside the benchmark protocol of the other experiments; the other batches come from the benchmark runs.\""
+  },
+  {
+   "where": "Appendix: Measurement setup",
+   "edit": "replace \"Compared with an earlier run using the operating system's default setting (\\texttt{madvise}), this made\" with \"Compared with an earlier run under the operating system's default setting, which is \\texttt{madvise} on Amazon Linux 2023 (that run did not record the setting), this made\"."
+  }
+ ]
+}
