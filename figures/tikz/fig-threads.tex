@@ -1,7 +1,7 @@
 % Fig Threads (appendix): thread scaling on the HPRC2 1 Gbase short-read and Nanopore sets.
 % Left pair: speed (Mbases/s of query time) against threads; right pair: speedup over one
 % thread, with the dashed line for linear scaling up to the 32 physical cores. Threads 1 to 32 run on physical cores of one
-% socket; 64 runs on both hardware threads of those 32 cores, the shaded SMT band. Data from
+% socket; 64 runs on both hardware threads of those 32 cores, the shaded band, labeled Hyperthreading (SMT). Data from
 % fig_threads_data.py.
 \documentclass[border=1pt]{standalone}
 \input{figures-style}
@@ -9,18 +9,18 @@
 \begin{document}
 \pgfplotsset{
   ms link/rl1/.style={fig link=ropeRed},
-  threads axis/.style={fig axis, xmin=0.8, xmax=80,
+  threads axis/.style={fig axis, xmin=0.8, xmax=128,
     xtick={1,2,4,8,16,32,64}, xticklabels={1,2,4,8,16,32,64}},
   speed axis/.style={threads axis, ymin=0.4, ymax=1500,
     ytick={1,10,100,1000}, yticklabels={1,10,100,1000}},
   speedup axis/.style={threads axis, ymin=0.8, ymax=80,
     ytick={1,2,4,8,16,32,64}, yticklabels={1,2,4,8,16,32,64}},
 }
-% \figThreadsBand: the SMT band at 64 threads, drawn under the data.
+% \figThreadsBand: the hyperthreading (SMT) band at 64 threads, drawn under the data.
 \newcommand{\figThreadsBand}{%
   \fill[figGrid!55] ({axis cs:45.25,1} |- {rel axis cs:0,0}) rectangle ({rel axis cs:1,1});
-  \node[anchor=north, inner sep=1.5pt, font=\figPointFont, text=figInkTwo]
-    at ({axis cs:60,1} |- {rel axis cs:0,1}) {SMT};}
+  \node[rotate=90, anchor=east, inner sep=1.5pt, font=\figPointFont, text=figInkTwo]
+    at ({axis cs:96,1} |- {rel axis cs:0,1}) {Hyperthreading};}
 % \figThreadsSeries{file}{column}: joining lines then marks, one per configuration.
 \newcommand{\figThreadsSeries}[2]{%
   \pgfplotsinvokeforeach{rl1,phi,psi,dual,lcp}{%
