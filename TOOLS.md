@@ -121,6 +121,16 @@ bytes that were timed can be rebuilt from public commits and the patches here, a
 heads give the same binaries as the local branches the freeze builds came from.
 
 
+## Preparation tools
+
+The tools that prepared the inputs, but that the freeze manifests do not run, are pinned under
+`prep_tools` in `tools.lock.json`, and `data/README.md` says which step used each. Three TeraLCP
+builds made the index precursors, none of them the TeraTools commit that ms2 `paper-v1` pins
+(de922b03): bce9ea7 the chr22-h10 and chr22-h100 minima (renumbered by `fmd2rlbwt`), 414f809 the
+HPRC2 and mtb152 minima and phi and the chr22 phi, and af42783 (TeraLCP-minima) the Fig rep ladder
+rungs, which were built from text with `data/prep/build_rlbwt.cpp` rather than from an FMD. Commits
+bce9ea7 and 414f809 are not on GitHub yet (`prep_tools` records `public: false`).
+
 ## Runtime libraries
 
 MONI, PHONI and Augmented PHONI link the spack GCC 13.1 runtime (`libstdc++.so.6`,
@@ -131,6 +141,6 @@ legacy binaries also carry that directory as their RPATH, so on Rockfish they ne
 `LD_LIBRARY_PATH`. The GCC runtime libraries are GPL-3.0 with the GCC Runtime Library Exception.
 
 All of these binaries, and the runtime libraries, are pinned by sha256 in `tools.lock.json` and in
-the manifests; how they will be distributed is still to be decided. `build_legacy.sh
+the manifests (`ms2exp.build.tools --runtime` checks the runtime libraries against those pins); how they will be distributed is still to be decided. `build_legacy.sh
 --static-runtime` builds MONI, PHONI and Augmented PHONI with the C++ runtime linked statically,
 for hosts without a GCC 13 runtime; those binaries differ from the pinned ones by construction.

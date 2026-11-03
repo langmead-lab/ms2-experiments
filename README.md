@@ -14,7 +14,8 @@ which is tagged `paper-v1`.
 | `tools.lock.json`, `TOOLS.md` | The tools pinned to specific versions, and how each was built |
 | `patches/` | The fixes to PHONI and Augmented PHONI that make their matching statistics correct (`TOOLS.md`) |
 | `toy/` | A small "toy" end-to-end run of the whole workflow, run directly on one machine (no Slurm) |
-| `data/` | Input download and preparation scripts; `data/locations/` maps logical input names to Rockfish paths (the Langmead lab's own copies) |
+| `data/` | Where every input came from (`data/README.md`, the entry point), with the download and preparation scripts, input lists and evidence; `data/inputs.tsv` pins each input by sha256, and `data/locations/` maps logical input names to Rockfish paths (the Langmead lab's own copies) |
+| `evidence/` | Records of the binary checks and byte-identical rebuilds that `TOOLS.md` cites |
 | `docs/` | Design records of the freeze and thread-scaling runs. Code docstrings and the committed result records cite them by bare file name: `BENCH_FREEZE_DESIGN.md` (decisions D1 to D13) and `THREAD_SCALING_PLAN.md` |
 | `tests/` | Unit tests (`python -m pytest tests`) |
 

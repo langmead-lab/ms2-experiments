@@ -25,7 +25,7 @@ rerun. About 15 MB and 3,300 files per manifest.
 Not here, but recorded by key, size and sha256 in each directory's `s3-excluded.tsv`: the locate
 outputs in canonical form (`canonical.gz`), the oracle traces (`.oracle`) and the repositioning logs
 of Fig rep (`.replog`), about 24 GB in all. They stay in the lab's freeze bucket, `results/` of the
-S3 root that `launchers/aws/config.json` names (`bench_s3_root`). The sha256 of each canonical
+S3 root that the launcher config names (`bench_s3_root`; the as-run configs are in `results/code/`). The sha256 of each canonical
 file's uncompressed content is also in its cell's `run1.json` (`check.canonical.sha256`).
 
 ## From results to figures
@@ -103,12 +103,12 @@ before it starts, and the host record includes it.
 ### Equivalence with `ms2exp`
 
 The toy run (`toy/`) checks that `ms2exp` behaves as the snapshot did. On 2026-11-01 both ran the
-toy on devlangmead1 at ms2 2885ee86 from the same source bundles, and `toy/compare.py` found the
+toy on devlangmead1 (the lab's development server on Rockfish) at ms2 2885ee86 from the same source bundles, and `toy/compare.py` found the
 same group summaries, collect report, cell records and done markers, apart from timings, memory,
 hosts and paths. The only other differences were the sha256s of the separately built toy indexes,
 whose headers record their build path and time. The `ms2exp` runner and collect, run on the
-snapshot side's own manifest and inputs, gave identical records. `toy/expected/` holds the
-snapshot side's summaries. The toy covers the mtb152 and chr22-h10 cells; the HPRC2 cells run the
+snapshot side's own manifest and inputs, gave identical records. `toy/expected-v1-snapshot/` holds the
+snapshot side's summaries; `toy/expected/` holds those of the current toy, on the v2 read sets. The toy covers the mtb152 and chr22-h10 cells; the HPRC2 cells run the
 same code at larger sizes.
 
 After that check, commit 49d08f0 added thread scaling to `ms2exp/run/runner.py`,
