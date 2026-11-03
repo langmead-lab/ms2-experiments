@@ -1,0 +1,7 @@
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 14:43.25
+	Maximum resident set size (kbytes): 587476
+	Exit status: 0
+ropebwt3: cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d (matches the pin)
+moni: 4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f (matches the pin)
+phoni: aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58 (matches the pin)
+augphoni: 79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b (matches the pin)

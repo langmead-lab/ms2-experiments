@@ -1,0 +1,3070 @@
+{
+  "started": 1793726596.7963424,
+  "argv": [
+    "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/repo/ms2exp/build/legacy.py",
+    "--cc",
+    "/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/gcc",
+    "--cxx",
+    "/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/g++",
+    "--cmake",
+    "/data/apps/extern/spack_on/gcc/9.3.0/cmake/3.27.7-iygsadyhjln3t7tr73pq56arnaxr3cgg/bin/cmake",
+    "--work",
+    "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work",
+    "--out",
+    "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/out",
+    "--freeze-paths",
+    "--jobs",
+    "1"
+  ],
+  "lock": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/repo/tools.lock.json",
+  "freeze_paths": true,
+  "static_runtime": false,
+  "tools": {
+    "ropebwt3": {
+      "repo": "https://github.com/lh3/ropebwt3.git",
+      "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+      "make": [
+        "make",
+        "-j1",
+        "CC=/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/gcc",
+        "INCLUDES=-ffile-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/ropebwt3=/scratch16/blangme2/ms-bakery/ropebwt3"
+      ],
+      "includes": "-ffile-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/ropebwt3=/scratch16/blangme2/ms-bakery/ropebwt3",
+      "patches": [],
+      "binary": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/out/tools/ropebwt3/ropebwt3",
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d",
+      "pinned_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d",
+      "matches_freeze": true
+    },
+    "moni": {
+      "repo": "https://github.com/maxrossi91/moni.git",
+      "commit": "7f3f954f5bc6174457ea374acee1f2dcca61527b",
+      "patches": [
+        {
+          "path": "patches/moni.patch",
+          "sha256": "394b836dcbd536e7f4b5ee2232a5534be35586d1c7a3f2e34d4126b5df1e60c0"
+        }
+      ],
+      "dependencies": {
+        "BENCHMARK": {
+          "repo": "https://github.com/google/benchmark.git",
+          "commit": "ac13143d96b61cec419b49f76e58d2045aba8536",
+          "patches": []
+        },
+        "BIGBWT": {
+          "repo": "https://github.com/alshai/Big-BWT.git",
+          "commit": "5b00650517c2bf1deef81c010985720f2f95ab03",
+          "patches": []
+        },
+        "BIGREPAIR": {
+          "repo": "https://gitlab.com/maxrossi91/bigrepair.git",
+          "commit": "34e1f4a071fa68194e3a37d5ea48356b166d3cb9",
+          "patches": []
+        },
+        "BWT2LCP": {
+          "repo": "https://github.com/nicolaprezza/bwt2lcp",
+          "commit": "c08e6885155cabcab21eabdaacd3a66ca33209a3",
+          "patches": [
+            {
+              "patch": "patches/bwt2lcp-cstdint.patch",
+              "dir": "."
+            }
+          ]
+        },
+        "DIVSUFSORT": {
+          "repo": "https://github.com/simongog/libdivsufsort.git",
+          "commit": "82b01f764e342f1858d4473c17b56844aac9c12d",
+          "patches": []
+        },
+        "GSACAK": {
+          "repo": "https://github.com/felipelouza/gsa-is.git",
+          "commit": "1e533019c29617a496b6d47e929d2639632a5ded",
+          "patches": []
+        },
+        "KLIB": {
+          "repo": "https://github.com/attractivechaos/klib",
+          "commit": "9a063b33efd841fcc42d4b9f68cb78bb528bf75b",
+          "patches": []
+        },
+        "KSW2": {
+          "repo": "https://github.com/lh3/ksw2",
+          "commit": "289609bd9e5381a13b16239d0a7703f1ff03f9ca",
+          "patches": []
+        },
+        "MALLOC_COUNT": {
+          "repo": "https://github.com/bingmann/malloc_count",
+          "commit": "ddd0565f375435440982c5852b36ec27f1cb4e3a",
+          "patches": []
+        },
+        "PFP_THRESHOLDS": {
+          "repo": "https://github.com/maxrossi91/pfp-thresholds.git",
+          "commit": "e717092db4c5b979cde1b45256057f4a9edd38d2",
+          "patches": []
+        },
+        "R-INDEX": {
+          "repo": "https://github.com/maxrossi91/r-index.git",
+          "commit": "daed659f78112eb3cea0a0578f89a709509d89aa",
+          "patches": []
+        },
+        "RLBWT2LCP": {
+          "repo": "https://github.com/nicolaprezza/rlbwt2lcp",
+          "commit": "19a169b03a95be8b3381f6560cd1d2a55b6c0230",
+          "patches": []
+        },
+        "SDSL": {
+          "repo": "https://github.com/simongog/sdsl-lite",
+          "commit": "c32874cb2d8524119f25f3b501526fe692df29f4",
+          "submodules": {
+            "external/googletest": "c2d90bddc6a2a562ee7750c14351e9ca16a6a37a",
+            "external/libdivsufsort": "0f24acd8de208464769c782119dacf158647f7ed"
+          },
+          "patches": []
+        },
+        "SHAPED_SLP": {
+          "repo": "https://github.com/koeppl/ShapedSlp.git",
+          "commit": "883f700eece54d86e4d27729c7eef33c921a3645",
+          "submodules": {
+            "external/sdsl-lite": "ddb0fbbc33bb183baa616f17eb48e261ac2a3672",
+            "external/sux": "73f24792cb84157826567a868bf974be6a810947"
+          },
+          "patches": [
+            {
+              "patch": "patches/sux-utility.patch",
+              "dir": "external/sux"
+            }
+          ]
+        },
+        "SSW": {
+          "repo": "https://github.com/mengyao/Complete-Striped-Smith-Waterman-Library",
+          "commit": "a66636b79ef36ac178122437053be0d8ef345271",
+          "patches": []
+        }
+      },
+      "cxx_flags": "-include cstdint -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-src=/scratch16/blangme2/ms-bakery/moni -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-build=/scratch16/blangme2/ms-bakery/moni/build-bakery -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps=/scratch16/blangme2/ms-bakery/moni/build-bakery/_deps",
+      "c_flags": "-fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-src=/scratch16/blangme2/ms-bakery/moni -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-build=/scratch16/blangme2/ms-bakery/moni/build-bakery -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps=/scratch16/blangme2/ms-bakery/moni/build-bakery/_deps",
+      "targets": [
+        "newscanNT.x",
+        "pscan.x",
+        "newscan.x",
+        "pfp_thresholds",
+        "pfp_thresholds64",
+        "compress_dictionary",
+        "SlpEncBuild",
+        "ms",
+        "mems",
+        "rlebwt_ms_build",
+        "build_seqidx",
+        "procdic",
+        "postproc",
+        "largeb_irepair"
+      ],
+      "binary": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/out/tools/moni/moni-ms",
+      "sha256": "4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f",
+      "pinned_sha256": "4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f",
+      "matches_freeze": true
+    },
+    "phoni": {
+      "repo": "https://github.com/koeppl/phoni.git",
+      "commit": "1b81e468086f99a1428f8af190835659bf47f503",
+      "patches": [
+        {
+          "path": "patches/phoni.patch",
+          "sha256": "09138fb1143a786fb6fb74746075f2e79a2232056f0de3156137a0b49623593f"
+        }
+      ],
+      "dependencies": {
+        "BENCHMARK": {
+          "repo": "https://github.com/google/benchmark.git",
+          "commit": "ac13143d96b61cec419b49f76e58d2045aba8536",
+          "patches": []
+        },
+        "BIGBWT": {
+          "repo": "https://github.com/alshai/Big-BWT.git",
+          "commit": "5b00650517c2bf1deef81c010985720f2f95ab03",
+          "patches": []
+        },
+        "BIGREPAIR": {
+          "repo": "https://gitlab.com/manzai/bigrepair.git",
+          "commit": "f2266f6df0d7976fdb93da4206c73127316adb09",
+          "patches": []
+        },
+        "BWT2LCP": {
+          "repo": "https://github.com/nicolaprezza/bwt2lcp",
+          "commit": "c08e6885155cabcab21eabdaacd3a66ca33209a3",
+          "patches": [
+            {
+              "patch": "patches/bwt2lcp-cstdint.patch",
+              "dir": "."
+            }
+          ]
+        },
+        "DIVSUFSORT": {
+          "repo": "https://github.com/simongog/libdivsufsort.git",
+          "commit": "82b01f764e342f1858d4473c17b56844aac9c12d",
+          "patches": []
+        },
+        "GSACAK": {
+          "repo": "https://github.com/felipelouza/gsa-is.git",
+          "commit": "1e533019c29617a496b6d47e929d2639632a5ded",
+          "patches": []
+        },
+        "KLIB": {
+          "repo": "https://github.com/attractivechaos/klib",
+          "commit": "9a063b33efd841fcc42d4b9f68cb78bb528bf75b",
+          "patches": []
+        },
+        "MALLOC_COUNT": {
+          "repo": "https://github.com/bingmann/malloc_count",
+          "commit": "ddd0565f375435440982c5852b36ec27f1cb4e3a",
+          "patches": []
+        },
+        "PFP_THRESHOLDS": {
+          "repo": "https://github.com/maxrossi91/pfp-thresholds",
+          "commit": "e717092db4c5b979cde1b45256057f4a9edd38d2",
+          "patches": []
+        },
+        "R-INDEX": {
+          "repo": "https://github.com/maxrossi91/r-index.git",
+          "commit": "daed659f78112eb3cea0a0578f89a709509d89aa",
+          "patches": []
+        },
+        "RLBWT2LCP": {
+          "repo": "https://github.com/nicolaprezza/rlbwt2lcp",
+          "commit": "19a169b03a95be8b3381f6560cd1d2a55b6c0230",
+          "patches": []
+        },
+        "SDSL": {
+          "repo": "https://github.com/simongog/sdsl-lite",
+          "commit": "c32874cb2d8524119f25f3b501526fe692df29f4",
+          "submodules": {
+            "external/googletest": "c2d90bddc6a2a562ee7750c14351e9ca16a6a37a",
+            "external/libdivsufsort": "0f24acd8de208464769c782119dacf158647f7ed"
+          },
+          "patches": []
+        },
+        "SHAPED_SLP": {
+          "repo": "https://github.com/koeppl/ShapedSlp",
+          "commit": "883f700eece54d86e4d27729c7eef33c921a3645",
+          "submodules": {
+            "external/sdsl-lite": "ddb0fbbc33bb183baa616f17eb48e261ac2a3672",
+            "external/sux": "73f24792cb84157826567a868bf974be6a810947"
+          },
+          "patches": [
+            {
+              "patch": "patches/sux-utility.patch",
+              "dir": "external/sux"
+            }
+          ]
+        },
+        "SSW": {
+          "repo": "https://github.com/mengyao/Complete-Striped-Smith-Waterman-Library",
+          "commit": "a66636b79ef36ac178122437053be0d8ef345271",
+          "patches": []
+        }
+      },
+      "cxx_flags": "-include cstdint -ftrivial-auto-var-init=zero -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-src=/scratch16/blangme2/ms-bakery/phoni -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-build=/scratch16/blangme2/ms-bakery/phoni/build-bakery -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps=/scratch16/blangme2/ms-bakery/phoni/build-bakery/_deps",
+      "c_flags": "-fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-src=/scratch16/blangme2/ms-bakery/phoni -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-build=/scratch16/blangme2/ms-bakery/phoni/build-bakery -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps=/scratch16/blangme2/ms-bakery/phoni/build-bakery/_deps",
+      "targets": [
+        "newscanNT.x",
+        "pscan.x",
+        "newscan.x",
+        "pfp_thresholds",
+        "pfp_thresholds64",
+        "compress_dictionary",
+        "SlpEncBuild",
+        "phoni",
+        "build_phoni",
+        "rlbwt",
+        "bwtparse",
+        "pfbwtNT.x"
+      ],
+      "binary": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/out/tools/phoni/phoni",
+      "sha256": "aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58",
+      "pinned_sha256": "aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58",
+      "matches_freeze": true
+    },
+    "augphoni": {
+      "repo": "https://github.com/drnatebrown/aug_phoni.git",
+      "commit": "74395806673e3ddc4d83ac5261133d64c4885ba3",
+      "patches": [
+        {
+          "path": "patches/aug_phoni.patch",
+          "sha256": "19d10820fef78316383710410f143da72d792a8cc907dc9d20a5ba0559a1e2d9"
+        }
+      ],
+      "dependencies": {
+        "BENCHMARK": {
+          "repo": "https://github.com/google/benchmark.git",
+          "commit": "ac13143d96b61cec419b49f76e58d2045aba8536",
+          "patches": []
+        },
+        "BIGBWT": {
+          "repo": "https://github.com/alshai/Big-BWT.git",
+          "commit": "5b00650517c2bf1deef81c010985720f2f95ab03",
+          "patches": []
+        },
+        "BIGREPAIR": {
+          "repo": "https://gitlab.com/manzai/bigrepair.git",
+          "commit": "f2266f6df0d7976fdb93da4206c73127316adb09",
+          "patches": []
+        },
+        "BWT2LCP": {
+          "repo": "https://github.com/nicolaprezza/bwt2lcp",
+          "commit": "c08e6885155cabcab21eabdaacd3a66ca33209a3",
+          "patches": [
+            {
+              "patch": "patches/bwt2lcp-cstdint.patch",
+              "dir": "."
+            }
+          ]
+        },
+        "DIVSUFSORT": {
+          "repo": "https://github.com/simongog/libdivsufsort.git",
+          "commit": "82b01f764e342f1858d4473c17b56844aac9c12d",
+          "patches": []
+        },
+        "GSACAK": {
+          "repo": "https://github.com/felipelouza/gsa-is.git",
+          "commit": "1e533019c29617a496b6d47e929d2639632a5ded",
+          "patches": []
+        },
+        "KLIB": {
+          "repo": "https://github.com/drnatebrown/klib",
+          "commit": "f7742b31bf816af4a66b408841be05754fe86e1a",
+          "patches": []
+        },
+        "MALLOC_COUNT": {
+          "repo": "https://github.com/bingmann/malloc_count",
+          "commit": "ddd0565f375435440982c5852b36ec27f1cb4e3a",
+          "patches": []
+        },
+        "PFP_THRESHOLDS": {
+          "repo": "https://github.com/drnatebrown/pfp-thresholds",
+          "commit": "2d75096d30c38728edab7119d062960d07f99835",
+          "patches": []
+        },
+        "R-INDEX": {
+          "repo": "https://github.com/maxrossi91/r-index.git",
+          "commit": "daed659f78112eb3cea0a0578f89a709509d89aa",
+          "patches": []
+        },
+        "RLBWT2LCP": {
+          "repo": "https://github.com/nicolaprezza/rlbwt2lcp",
+          "commit": "19a169b03a95be8b3381f6560cd1d2a55b6c0230",
+          "patches": []
+        },
+        "SDSL": {
+          "repo": "https://github.com/simongog/sdsl-lite",
+          "commit": "c32874cb2d8524119f25f3b501526fe692df29f4",
+          "submodules": {
+            "external/googletest": "c2d90bddc6a2a562ee7750c14351e9ca16a6a37a",
+            "external/libdivsufsort": "0f24acd8de208464769c782119dacf158647f7ed"
+          },
+          "patches": []
+        },
+        "SHAPED_SLP": {
+          "repo": "https://github.com/koeppl/ShapedSlp",
+          "commit": "883f700eece54d86e4d27729c7eef33c921a3645",
+          "submodules": {
+            "external/sdsl-lite": "ddb0fbbc33bb183baa616f17eb48e261ac2a3672",
+            "external/sux": "73f24792cb84157826567a868bf974be6a810947"
+          },
+          "patches": [
+            {
+              "patch": "patches/sux-utility.patch",
+              "dir": "external/sux"
+            }
+          ]
+        },
+        "SSW": {
+          "repo": "https://github.com/mengyao/Complete-Striped-Smith-Waterman-Library",
+          "commit": "a66636b79ef36ac178122437053be0d8ef345271",
+          "patches": []
+        }
+      },
+      "cxx_flags": "-include cstdint -ftrivial-auto-var-init=zero -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-src=/scratch16/blangme2/ms-bakery/aug_phoni -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-build=/scratch16/blangme2/ms-bakery/aug_phoni/build-bakery -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps=/scratch16/blangme2/ms-bakery/aug_phoni/build-bakery/_deps",
+      "c_flags": "-fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-src=/scratch16/blangme2/ms-bakery/aug_phoni -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-build=/scratch16/blangme2/ms-bakery/aug_phoni/build-bakery -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps=/scratch16/blangme2/ms-bakery/aug_phoni/build-bakery/_deps",
+      "targets": [
+        "newscanNT.x",
+        "pscan.x",
+        "newscan.x",
+        "pfp_thresholds",
+        "pfp_thresholds64",
+        "compress_dictionary",
+        "SlpEncBuild",
+        "aug_phoni",
+        "build_aug",
+        "rlbwt",
+        "bwtparse",
+        "pfbwtNT.x",
+        "pfp_lcp"
+      ],
+      "binary": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/out/tools/augphoni/aug_phoni",
+      "sha256": "79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b",
+      "pinned_sha256": "79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b",
+      "matches_freeze": true
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/g++",
+        "-dumpfullversion"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.008
+    },
+    {
+      "argv": [
+        "/data/apps/extern/spack_on/gcc/9.3.0/cmake/3.27.7-iygsadyhjln3t7tr73pq56arnaxr3cgg/bin/cmake",
+        "--version"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.014
+    },
+    {
+      "argv": [
+        "/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/gcc",
+        "--version"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.006
+    },
+    {
+      "argv": [
+        "/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/g++",
+        "--version"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.004
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/lh3/ropebwt3.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/ropebwt3"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 1.12
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "b408339d0fb08fe0f4da5140507a6b8b854fa12f"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/ropebwt3",
+      "returncode": 0,
+      "seconds": 0.03
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/ropebwt3",
+      "returncode": 0,
+      "seconds": 0.007
+    },
+    {
+      "argv": [
+        "make",
+        "-j1",
+        "CC=/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/gcc",
+        "INCLUDES=-ffile-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/ropebwt3=/scratch16/blangme2/ms-bakery/ropebwt3"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/ropebwt3",
+      "returncode": 0,
+      "seconds": 13.273
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/maxrossi91/moni.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 5.065
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "7f3f954f5bc6174457ea374acee1f2dcca61527b"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-src",
+      "returncode": 0,
+      "seconds": 0.177
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "apply",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/repo/patches/moni.patch"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/google/benchmark.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/benchmark-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 5.819
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "ac13143d96b61cec419b49f76e58d2045aba8536"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/benchmark-src",
+      "returncode": 0,
+      "seconds": 0.073
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/benchmark-src",
+      "returncode": 0,
+      "seconds": 0.188
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/benchmark-src",
+      "returncode": 0,
+      "seconds": 0.011
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/alshai/Big-BWT.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bigbwt-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 6.034
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "5b00650517c2bf1deef81c010985720f2f95ab03"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bigbwt-src",
+      "returncode": 0,
+      "seconds": 0.122
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bigbwt-src",
+      "returncode": 0,
+      "seconds": 0.173
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bigbwt-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://gitlab.com/maxrossi91/bigrepair.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bigrepair-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.886
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "34e1f4a071fa68194e3a37d5ea48356b166d3cb9"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bigrepair-src",
+      "returncode": 0,
+      "seconds": 0.023
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bigrepair-src",
+      "returncode": 0,
+      "seconds": 0.196
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bigrepair-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/nicolaprezza/bwt2lcp",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bwt2lcp-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 2.155
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "c08e6885155cabcab21eabdaacd3a66ca33209a3"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.02
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.165
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.009
+    },
+    {
+      "argv": [
+        "git",
+        "apply",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/repo/patches/bwt2lcp-cstdint.patch"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/simongog/libdivsufsort.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/divsufsort-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 2.802
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "82b01f764e342f1858d4473c17b56844aac9c12d"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/divsufsort-src",
+      "returncode": 0,
+      "seconds": 0.024
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/divsufsort-src",
+      "returncode": 0,
+      "seconds": 0.162
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/divsufsort-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/felipelouza/gsa-is.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/gsacak-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 3.599
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "1e533019c29617a496b6d47e929d2639632a5ded"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/gsacak-src",
+      "returncode": 0,
+      "seconds": 0.115
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/gsacak-src",
+      "returncode": 0,
+      "seconds": 0.178
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/gsacak-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/attractivechaos/klib",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/klib-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 4.873
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "9a063b33efd841fcc42d4b9f68cb78bb528bf75b"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/klib-src",
+      "returncode": 0,
+      "seconds": 0.031
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/klib-src",
+      "returncode": 0,
+      "seconds": 0.166
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/klib-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/lh3/ksw2",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/ksw2-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.817
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "289609bd9e5381a13b16239d0a7703f1ff03f9ca"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/ksw2-src",
+      "returncode": 0,
+      "seconds": 0.02
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/ksw2-src",
+      "returncode": 0,
+      "seconds": 0.177
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/ksw2-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/bingmann/malloc_count",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/malloc_count-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.493
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "ddd0565f375435440982c5852b36ec27f1cb4e3a"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/malloc_count-src",
+      "returncode": 0,
+      "seconds": 0.021
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/malloc_count-src",
+      "returncode": 0,
+      "seconds": 0.168
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/malloc_count-src",
+      "returncode": 0,
+      "seconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/maxrossi91/pfp-thresholds.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/pfp_thresholds-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 4.09
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "e717092db4c5b979cde1b45256057f4a9edd38d2"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/pfp_thresholds-src",
+      "returncode": 0,
+      "seconds": 0.235
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/pfp_thresholds-src",
+      "returncode": 0,
+      "seconds": 0.164
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/pfp_thresholds-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/maxrossi91/r-index.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/r-index-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 47.255
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "daed659f78112eb3cea0a0578f89a709509d89aa"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/r-index-src",
+      "returncode": 0,
+      "seconds": 0.753
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/r-index-src",
+      "returncode": 0,
+      "seconds": 0.188
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/r-index-src",
+      "returncode": 0,
+      "seconds": 0.018
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/nicolaprezza/rlbwt2lcp",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/rlbwt2lcp-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.972
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "19a169b03a95be8b3381f6560cd1d2a55b6c0230"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/rlbwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.019
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/rlbwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.188
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/rlbwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/simongog/sdsl-lite",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/sdsl-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 4.562
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "c32874cb2d8524119f25f3b501526fe692df29f4"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/sdsl-src",
+      "returncode": 0,
+      "seconds": 0.069
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/sdsl-src",
+      "returncode": 0,
+      "seconds": 14.395
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/sdsl-src/external/googletest",
+      "returncode": 0,
+      "seconds": 0.018
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/sdsl-src/external/libdivsufsort",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/sdsl-src",
+      "returncode": 0,
+      "seconds": 0.007
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/koeppl/ShapedSlp.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/shaped_slp-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 5.15
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "883f700eece54d86e4d27729c7eef33c921a3645"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/shaped_slp-src",
+      "returncode": 0,
+      "seconds": 0.029
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/shaped_slp-src",
+      "returncode": 0,
+      "seconds": 25.632
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/shaped_slp-src/external/sdsl-lite",
+      "returncode": 0,
+      "seconds": 0.018
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/shaped_slp-src/external/sux",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/shaped_slp-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "apply",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/repo/patches/sux-utility.patch"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/shaped_slp-src/external/sux",
+      "returncode": 0,
+      "seconds": 0.019
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/mengyao/Complete-Striped-Smith-Waterman-Library",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/ssw-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 11.786
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "a66636b79ef36ac178122437053be0d8ef345271"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/ssw-src",
+      "returncode": 0,
+      "seconds": 0.249
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/ssw-src",
+      "returncode": 0,
+      "seconds": 0.193
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/ssw-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "/data/apps/extern/spack_on/gcc/9.3.0/cmake/3.27.7-iygsadyhjln3t7tr73pq56arnaxr3cgg/bin/cmake",
+        "-S",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-src",
+        "-B",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-build",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_C_COMPILER=/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/gcc",
+        "-DCMAKE_CXX_COMPILER=/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/g++",
+        "-DCMAKE_CXX_FLAGS=-include cstdint -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-src=/scratch16/blangme2/ms-bakery/moni -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-build=/scratch16/blangme2/ms-bakery/moni/build-bakery -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps=/scratch16/blangme2/ms-bakery/moni/build-bakery/_deps",
+        "-DCMAKE_C_FLAGS=-fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-src=/scratch16/blangme2/ms-bakery/moni -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-build=/scratch16/blangme2/ms-bakery/moni/build-bakery -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps=/scratch16/blangme2/ms-bakery/moni/build-bakery/_deps",
+        "-DFETCHCONTENT_FULLY_DISCONNECTED=ON",
+        "-DFETCHCONTENT_SOURCE_DIR_BENCHMARK=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/benchmark-src",
+        "-DFETCHCONTENT_SOURCE_DIR_BIGBWT=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bigbwt-src",
+        "-DFETCHCONTENT_SOURCE_DIR_BIGREPAIR=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bigrepair-src",
+        "-DFETCHCONTENT_SOURCE_DIR_BWT2LCP=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/bwt2lcp-src",
+        "-DFETCHCONTENT_SOURCE_DIR_DIVSUFSORT=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/divsufsort-src",
+        "-DFETCHCONTENT_SOURCE_DIR_GSACAK=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/gsacak-src",
+        "-DFETCHCONTENT_SOURCE_DIR_KLIB=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/klib-src",
+        "-DFETCHCONTENT_SOURCE_DIR_KSW2=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/ksw2-src",
+        "-DFETCHCONTENT_SOURCE_DIR_MALLOC_COUNT=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/malloc_count-src",
+        "-DFETCHCONTENT_SOURCE_DIR_PFP_THRESHOLDS=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/pfp_thresholds-src",
+        "-DFETCHCONTENT_SOURCE_DIR_R-INDEX=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/r-index-src",
+        "-DFETCHCONTENT_SOURCE_DIR_RLBWT2LCP=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/rlbwt2lcp-src",
+        "-DFETCHCONTENT_SOURCE_DIR_SDSL=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/sdsl-src",
+        "-DFETCHCONTENT_SOURCE_DIR_SHAPED_SLP=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/shaped_slp-src",
+        "-DFETCHCONTENT_SOURCE_DIR_SSW=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-deps/ssw-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 15.756
+    },
+    {
+      "argv": [
+        "/data/apps/extern/spack_on/gcc/9.3.0/cmake/3.27.7-iygsadyhjln3t7tr73pq56arnaxr3cgg/bin/cmake",
+        "--build",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/moni-build",
+        "--target",
+        "newscanNT.x",
+        "pscan.x",
+        "newscan.x",
+        "pfp_thresholds",
+        "pfp_thresholds64",
+        "compress_dictionary",
+        "SlpEncBuild",
+        "ms",
+        "mems",
+        "rlebwt_ms_build",
+        "build_seqidx",
+        "procdic",
+        "postproc",
+        "largeb_irepair",
+        "-j1"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 119.803
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/koeppl/phoni.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.761
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "1b81e468086f99a1428f8af190835659bf47f503"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-src",
+      "returncode": 0,
+      "seconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-src",
+      "returncode": 0,
+      "seconds": 0.008
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "user.name=build_legacy",
+        "-c",
+        "user.email=build_legacy@localhost",
+        "am",
+        "-q",
+        "--committer-date-is-author-date",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/repo/patches/phoni.patch"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-src",
+      "returncode": 0,
+      "seconds": 0.066
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/google/benchmark.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/benchmark-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 2.368
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "ac13143d96b61cec419b49f76e58d2045aba8536"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/benchmark-src",
+      "returncode": 0,
+      "seconds": 0.057
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/benchmark-src",
+      "returncode": 0,
+      "seconds": 0.187
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/benchmark-src",
+      "returncode": 0,
+      "seconds": 0.018
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/alshai/Big-BWT.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bigbwt-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 2.494
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "5b00650517c2bf1deef81c010985720f2f95ab03"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bigbwt-src",
+      "returncode": 0,
+      "seconds": 0.112
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bigbwt-src",
+      "returncode": 0,
+      "seconds": 0.179
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bigbwt-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://gitlab.com/manzai/bigrepair.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bigrepair-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.926
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "f2266f6df0d7976fdb93da4206c73127316adb09"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bigrepair-src",
+      "returncode": 0,
+      "seconds": 0.024
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bigrepair-src",
+      "returncode": 0,
+      "seconds": 0.184
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bigrepair-src",
+      "returncode": 0,
+      "seconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/nicolaprezza/bwt2lcp",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bwt2lcp-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.795
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "c08e6885155cabcab21eabdaacd3a66ca33209a3"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.018
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.172
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "apply",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/repo/patches/bwt2lcp-cstdint.patch"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.01
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/simongog/libdivsufsort.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/divsufsort-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 1.737
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "82b01f764e342f1858d4473c17b56844aac9c12d"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/divsufsort-src",
+      "returncode": 0,
+      "seconds": 0.026
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/divsufsort-src",
+      "returncode": 0,
+      "seconds": 0.208
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/divsufsort-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/felipelouza/gsa-is.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/gsacak-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 3.784
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "1e533019c29617a496b6d47e929d2639632a5ded"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/gsacak-src",
+      "returncode": 0,
+      "seconds": 0.115
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/gsacak-src",
+      "returncode": 0,
+      "seconds": 0.178
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/gsacak-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/attractivechaos/klib",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/klib-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 1.588
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "9a063b33efd841fcc42d4b9f68cb78bb528bf75b"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/klib-src",
+      "returncode": 0,
+      "seconds": 0.026
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/klib-src",
+      "returncode": 0,
+      "seconds": 0.18
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/klib-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/bingmann/malloc_count",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/malloc_count-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.607
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "ddd0565f375435440982c5852b36ec27f1cb4e3a"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/malloc_count-src",
+      "returncode": 0,
+      "seconds": 0.02
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/malloc_count-src",
+      "returncode": 0,
+      "seconds": 0.185
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/malloc_count-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/maxrossi91/pfp-thresholds",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/pfp_thresholds-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 5.513
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "e717092db4c5b979cde1b45256057f4a9edd38d2"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/pfp_thresholds-src",
+      "returncode": 0,
+      "seconds": 0.235
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/pfp_thresholds-src",
+      "returncode": 0,
+      "seconds": 0.177
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/pfp_thresholds-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/maxrossi91/r-index.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/r-index-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 33.081
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "daed659f78112eb3cea0a0578f89a709509d89aa"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/r-index-src",
+      "returncode": 0,
+      "seconds": 0.252
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/r-index-src",
+      "returncode": 0,
+      "seconds": 0.199
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/r-index-src",
+      "returncode": 0,
+      "seconds": 0.018
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/nicolaprezza/rlbwt2lcp",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/rlbwt2lcp-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.682
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "19a169b03a95be8b3381f6560cd1d2a55b6c0230"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/rlbwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.021
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/rlbwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.183
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/rlbwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/simongog/sdsl-lite",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/sdsl-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 4.916
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "c32874cb2d8524119f25f3b501526fe692df29f4"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/sdsl-src",
+      "returncode": 0,
+      "seconds": 0.082
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/sdsl-src",
+      "returncode": 0,
+      "seconds": 9.751
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/sdsl-src/external/googletest",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/sdsl-src/external/libdivsufsort",
+      "returncode": 0,
+      "seconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/sdsl-src",
+      "returncode": 0,
+      "seconds": 0.018
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/koeppl/ShapedSlp",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/shaped_slp-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.686
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "883f700eece54d86e4d27729c7eef33c921a3645"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/shaped_slp-src",
+      "returncode": 0,
+      "seconds": 0.023
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/shaped_slp-src",
+      "returncode": 0,
+      "seconds": 30.539
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/shaped_slp-src/external/sdsl-lite",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/shaped_slp-src/external/sux",
+      "returncode": 0,
+      "seconds": 0.019
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/shaped_slp-src",
+      "returncode": 0,
+      "seconds": 0.008
+    },
+    {
+      "argv": [
+        "git",
+        "apply",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/repo/patches/sux-utility.patch"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/shaped_slp-src/external/sux",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/mengyao/Complete-Striped-Smith-Waterman-Library",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/ssw-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 8.262
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "a66636b79ef36ac178122437053be0d8ef345271"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/ssw-src",
+      "returncode": 0,
+      "seconds": 0.25
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/ssw-src",
+      "returncode": 0,
+      "seconds": 0.18
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/ssw-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "/data/apps/extern/spack_on/gcc/9.3.0/cmake/3.27.7-iygsadyhjln3t7tr73pq56arnaxr3cgg/bin/cmake",
+        "-S",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-src",
+        "-B",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-build",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_C_COMPILER=/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/gcc",
+        "-DCMAKE_CXX_COMPILER=/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/g++",
+        "-DCMAKE_CXX_FLAGS=-include cstdint -ftrivial-auto-var-init=zero -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-src=/scratch16/blangme2/ms-bakery/phoni -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-build=/scratch16/blangme2/ms-bakery/phoni/build-bakery -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps=/scratch16/blangme2/ms-bakery/phoni/build-bakery/_deps",
+        "-DCMAKE_C_FLAGS=-fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-src=/scratch16/blangme2/ms-bakery/phoni -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-build=/scratch16/blangme2/ms-bakery/phoni/build-bakery -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps=/scratch16/blangme2/ms-bakery/phoni/build-bakery/_deps",
+        "-DFETCHCONTENT_FULLY_DISCONNECTED=ON",
+        "-DFETCHCONTENT_SOURCE_DIR_BENCHMARK=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/benchmark-src",
+        "-DFETCHCONTENT_SOURCE_DIR_BIGBWT=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bigbwt-src",
+        "-DFETCHCONTENT_SOURCE_DIR_BIGREPAIR=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bigrepair-src",
+        "-DFETCHCONTENT_SOURCE_DIR_BWT2LCP=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/bwt2lcp-src",
+        "-DFETCHCONTENT_SOURCE_DIR_DIVSUFSORT=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/divsufsort-src",
+        "-DFETCHCONTENT_SOURCE_DIR_GSACAK=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/gsacak-src",
+        "-DFETCHCONTENT_SOURCE_DIR_KLIB=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/klib-src",
+        "-DFETCHCONTENT_SOURCE_DIR_MALLOC_COUNT=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/malloc_count-src",
+        "-DFETCHCONTENT_SOURCE_DIR_PFP_THRESHOLDS=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/pfp_thresholds-src",
+        "-DFETCHCONTENT_SOURCE_DIR_R-INDEX=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/r-index-src",
+        "-DFETCHCONTENT_SOURCE_DIR_RLBWT2LCP=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/rlbwt2lcp-src",
+        "-DFETCHCONTENT_SOURCE_DIR_SDSL=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/sdsl-src",
+        "-DFETCHCONTENT_SOURCE_DIR_SHAPED_SLP=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/shaped_slp-src",
+        "-DFETCHCONTENT_SOURCE_DIR_SSW=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-deps/ssw-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 24.881
+    },
+    {
+      "argv": [
+        "/data/apps/extern/spack_on/gcc/9.3.0/cmake/3.27.7-iygsadyhjln3t7tr73pq56arnaxr3cgg/bin/cmake",
+        "--build",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/phoni-build",
+        "--target",
+        "newscanNT.x",
+        "pscan.x",
+        "newscan.x",
+        "pfp_thresholds",
+        "pfp_thresholds64",
+        "compress_dictionary",
+        "SlpEncBuild",
+        "phoni",
+        "build_phoni",
+        "rlbwt",
+        "bwtparse",
+        "pfbwtNT.x",
+        "-j1"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 109.705
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/drnatebrown/aug_phoni.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 14.501
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "74395806673e3ddc4d83ac5261133d64c4885ba3"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-src",
+      "returncode": 0,
+      "seconds": 0.035
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "user.name=build_legacy",
+        "-c",
+        "user.email=build_legacy@localhost",
+        "am",
+        "-q",
+        "--committer-date-is-author-date",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/repo/patches/aug_phoni.patch"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-src",
+      "returncode": 0,
+      "seconds": 0.093
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/google/benchmark.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/benchmark-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 4.283
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "ac13143d96b61cec419b49f76e58d2045aba8536"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/benchmark-src",
+      "returncode": 0,
+      "seconds": 0.076
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/benchmark-src",
+      "returncode": 0,
+      "seconds": 0.183
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/benchmark-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/alshai/Big-BWT.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bigbwt-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 6.199
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "5b00650517c2bf1deef81c010985720f2f95ab03"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bigbwt-src",
+      "returncode": 0,
+      "seconds": 0.261
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bigbwt-src",
+      "returncode": 0,
+      "seconds": 0.163
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bigbwt-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://gitlab.com/manzai/bigrepair.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bigrepair-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 0.905
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "f2266f6df0d7976fdb93da4206c73127316adb09"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bigrepair-src",
+      "returncode": 0,
+      "seconds": 0.036
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bigrepair-src",
+      "returncode": 0,
+      "seconds": 0.157
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bigrepair-src",
+      "returncode": 0,
+      "seconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/nicolaprezza/bwt2lcp",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bwt2lcp-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 3.983
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "c08e6885155cabcab21eabdaacd3a66ca33209a3"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.029
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.179
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "apply",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/repo/patches/bwt2lcp-cstdint.patch"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/simongog/libdivsufsort.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/divsufsort-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 2.418
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "82b01f764e342f1858d4473c17b56844aac9c12d"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/divsufsort-src",
+      "returncode": 0,
+      "seconds": 0.032
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/divsufsort-src",
+      "returncode": 0,
+      "seconds": 0.174
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/divsufsort-src",
+      "returncode": 0,
+      "seconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/felipelouza/gsa-is.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/gsacak-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 4.671
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "1e533019c29617a496b6d47e929d2639632a5ded"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/gsacak-src",
+      "returncode": 0,
+      "seconds": 0.122
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/gsacak-src",
+      "returncode": 0,
+      "seconds": 0.17
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/gsacak-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/drnatebrown/klib",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/klib-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 3.164
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "f7742b31bf816af4a66b408841be05754fe86e1a"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/klib-src",
+      "returncode": 0,
+      "seconds": 0.03
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/klib-src",
+      "returncode": 0,
+      "seconds": 0.167
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/klib-src",
+      "returncode": 0,
+      "seconds": 0.008
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/bingmann/malloc_count",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/malloc_count-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 2.823
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "ddd0565f375435440982c5852b36ec27f1cb4e3a"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/malloc_count-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/malloc_count-src",
+      "returncode": 0,
+      "seconds": 0.172
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/malloc_count-src",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/drnatebrown/pfp-thresholds",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/pfp_thresholds-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 5.037
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "2d75096d30c38728edab7119d062960d07f99835"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/pfp_thresholds-src",
+      "returncode": 0,
+      "seconds": 0.239
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/pfp_thresholds-src",
+      "returncode": 0,
+      "seconds": 0.178
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/pfp_thresholds-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/maxrossi91/r-index.git",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/r-index-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 71.085
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "daed659f78112eb3cea0a0578f89a709509d89aa"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/r-index-src",
+      "returncode": 0,
+      "seconds": 0.863
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/r-index-src",
+      "returncode": 0,
+      "seconds": 0.176
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/r-index-src",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/nicolaprezza/rlbwt2lcp",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/rlbwt2lcp-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 3.16
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "19a169b03a95be8b3381f6560cd1d2a55b6c0230"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/rlbwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.021
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/rlbwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.2
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/rlbwt2lcp-src",
+      "returncode": 0,
+      "seconds": 0.012
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/simongog/sdsl-lite",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/sdsl-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 6.715
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "c32874cb2d8524119f25f3b501526fe692df29f4"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/sdsl-src",
+      "returncode": 0,
+      "seconds": 0.144
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/sdsl-src",
+      "returncode": 0,
+      "seconds": 16.148
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/sdsl-src/external/googletest",
+      "returncode": 0,
+      "seconds": 0.018
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/sdsl-src/external/libdivsufsort",
+      "returncode": 0,
+      "seconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/sdsl-src",
+      "returncode": 0,
+      "seconds": 0.011
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/koeppl/ShapedSlp",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/shaped_slp-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 4.199
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "883f700eece54d86e4d27729c7eef33c921a3645"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/shaped_slp-src",
+      "returncode": 0,
+      "seconds": 0.022
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/shaped_slp-src",
+      "returncode": 0,
+      "seconds": 30.329
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/shaped_slp-src/external/sdsl-lite",
+      "returncode": 0,
+      "seconds": 0.018
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/shaped_slp-src/external/sux",
+      "returncode": 0,
+      "seconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/shaped_slp-src",
+      "returncode": 0,
+      "seconds": 0.009
+    },
+    {
+      "argv": [
+        "git",
+        "apply",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/repo/patches/sux-utility.patch"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/shaped_slp-src/external/sux",
+      "returncode": 0,
+      "seconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "-q",
+        "https://github.com/mengyao/Complete-Striped-Smith-Waterman-Library",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/ssw-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 8.976
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "advice.detachedHead=false",
+        "checkout",
+        "-q",
+        "a66636b79ef36ac178122437053be0d8ef345271"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/ssw-src",
+      "returncode": 0,
+      "seconds": 0.253
+    },
+    {
+      "argv": [
+        "git",
+        "submodule",
+        "update",
+        "-q",
+        "--init",
+        "--recursive"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/ssw-src",
+      "returncode": 0,
+      "seconds": 0.166
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/ssw-src",
+      "returncode": 0,
+      "seconds": 0.008
+    },
+    {
+      "argv": [
+        "/data/apps/extern/spack_on/gcc/9.3.0/cmake/3.27.7-iygsadyhjln3t7tr73pq56arnaxr3cgg/bin/cmake",
+        "-S",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-src",
+        "-B",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-build",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_C_COMPILER=/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/gcc",
+        "-DCMAKE_CXX_COMPILER=/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/g++",
+        "-DCMAKE_CXX_FLAGS=-include cstdint -ftrivial-auto-var-init=zero -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-src=/scratch16/blangme2/ms-bakery/aug_phoni -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-build=/scratch16/blangme2/ms-bakery/aug_phoni/build-bakery -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps=/scratch16/blangme2/ms-bakery/aug_phoni/build-bakery/_deps",
+        "-DCMAKE_C_FLAGS=-fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-src=/scratch16/blangme2/ms-bakery/aug_phoni -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-build=/scratch16/blangme2/ms-bakery/aug_phoni/build-bakery -fmacro-prefix-map=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps=/scratch16/blangme2/ms-bakery/aug_phoni/build-bakery/_deps",
+        "-DFETCHCONTENT_FULLY_DISCONNECTED=ON",
+        "-DFETCHCONTENT_SOURCE_DIR_BENCHMARK=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/benchmark-src",
+        "-DFETCHCONTENT_SOURCE_DIR_BIGBWT=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bigbwt-src",
+        "-DFETCHCONTENT_SOURCE_DIR_BIGREPAIR=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bigrepair-src",
+        "-DFETCHCONTENT_SOURCE_DIR_BWT2LCP=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/bwt2lcp-src",
+        "-DFETCHCONTENT_SOURCE_DIR_DIVSUFSORT=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/divsufsort-src",
+        "-DFETCHCONTENT_SOURCE_DIR_GSACAK=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/gsacak-src",
+        "-DFETCHCONTENT_SOURCE_DIR_KLIB=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/klib-src",
+        "-DFETCHCONTENT_SOURCE_DIR_MALLOC_COUNT=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/malloc_count-src",
+        "-DFETCHCONTENT_SOURCE_DIR_PFP_THRESHOLDS=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/pfp_thresholds-src",
+        "-DFETCHCONTENT_SOURCE_DIR_R-INDEX=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/r-index-src",
+        "-DFETCHCONTENT_SOURCE_DIR_RLBWT2LCP=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/rlbwt2lcp-src",
+        "-DFETCHCONTENT_SOURCE_DIR_SDSL=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/sdsl-src",
+        "-DFETCHCONTENT_SOURCE_DIR_SHAPED_SLP=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/shaped_slp-src",
+        "-DFETCHCONTENT_SOURCE_DIR_SSW=/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-deps/ssw-src"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 25.032
+    },
+    {
+      "argv": [
+        "/data/apps/extern/spack_on/gcc/9.3.0/cmake/3.27.7-iygsadyhjln3t7tr73pq56arnaxr3cgg/bin/cmake",
+        "--build",
+        "/scratch16/blangme2/ms-bakery/scratch/legacy-rebuild-20261103/work/augphoni-build",
+        "--target",
+        "newscanNT.x",
+        "pscan.x",
+        "newscan.x",
+        "pfp_thresholds",
+        "pfp_thresholds64",
+        "compress_dictionary",
+        "SlpEncBuild",
+        "aug_phoni",
+        "build_aug",
+        "rlbwt",
+        "bwtparse",
+        "pfbwtNT.x",
+        "pfp_lcp",
+        "-j1"
+      ],
+      "cwd": null,
+      "returncode": 0,
+      "seconds": 116.793
+    }
+  ],
+  "compiler": {
+    "cc": "/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/gcc",
+    "cxx": "/data/apps/extern/spack_on/gcc/9.5.0/gcc/13.1.0-nmocl3rvllh45gzlsritop3pidy63n2r/bin/g++",
+    "version": "13.1.0",
+    "cc_version": [
+      "gcc (Spack GCC) 13.1.0"
+    ],
+    "cxx_version": [
+      "g++ (Spack GCC) 13.1.0"
+    ],
+    "cmake": [
+      "cmake version 3.27.7"
+    ]
+  },
+  "finished": 1793727479.9592
+}
