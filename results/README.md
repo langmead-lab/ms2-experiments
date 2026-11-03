@@ -50,7 +50,8 @@ the plain full index) passes in every group: query times within 0.6%.
 
 Fig rep is the exception. The paper's current Fig rep data (`fig_rep_tikz.py --design 5`) include
 rungs the freeze never ran (1% and 2% error, 200 and 464 haplotypes), so they come from runs
-outside these manifests. `ms2exp.figures` writes the freeze's own A1 series (`--design 4`, box
+outside these manifests: counting runs on Rockfish with the same instrumented ms2 build (2885ee8),
+whose summaries are not committed here yet. `ms2exp.figures` writes the freeze's own A1 series (`--design 4`, box
 statistics only, since the violins need the `.replog` files).
 
 ## The code that ran
