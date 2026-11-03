@@ -1,0 +1,60 @@
+aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58  /scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/chr22/bin/phoni
+79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b  /scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/chr22/bin/aug_phoni
+test: src-phoni-pr/test/regression/check.py at 2722db95d379412075495996d51cd0671a7e97e7, check.py sha256 a1380086fd6e3a61
+== phoni phoni-base-zero query=/scratch16/blangme2/ms-bakery/scratch/ms2exp-binary-check/build/phoni-base-zero/test/src/phoni sha256=6021165cdda60437
+FAIL ACT: lengths [3, 2, 1], expected [2, 2, 1], pointers [13, 14, 15]
+FAIL CCT: lengths [1, 2, 1], expected [3, 2, 1], pointers [5, 14, 15]
+FAIL TCT: lengths [2, 2, 1], expected [1, 2, 1], pointers [8, 14, 15]
+4/7 queries passed
+exit=1
+== phoni phoni-base-plain query=/scratch16/blangme2/ms-bakery/scratch/ms2exp-binary-check/build/phoni-base-plain/test/src/phoni sha256=f3adccc387fa06b2
+FAIL ACT: lengths [1, 1, 1], expected [2, 2, 1], pointers [12, 4, 15]
+FAIL CCT: lengths [2, 1, 1], expected [3, 2, 1], pointers [4, 4, 15]
+FAIL TCT: lengths [2, 1, 1], expected [1, 2, 1], pointers [3, 4, 15]
+FAIL whole: lengths [1, 3, 2, 1, 3, 2, 1, 4, 3, 2, 1, 3, 2, 1, 1, 1], expected [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], pointers [12, 10, 11, 12, 4, 4, 4, 7, 8, 9, 4, 11, 12, 12, 9, 15]
+FAIL mutated: lengths [1, 3, 2, 1, 3, 2, 1, 1, 3, 2, 1, 3, 2, 1, 1, 1], expected [7, 6, 5, 4, 3, 2, 1, 2, 8, 7, 6, 5, 4, 3, 2, 1], pointers [12, 10, 11, 12, 4, 4, 4, 12, 8, 9, 4, 11, 12, 12, 9, 15]
+2/7 queries passed
+exit=1
+== phoni phoni-pr-zero query=/scratch16/blangme2/ms-bakery/scratch/ms2exp-binary-check/build/phoni-pr-zero/test/src/phoni sha256=b4974e314f326a67
+7/7 queries passed
+exit=0
+== phoni phoni-freeze-on-base-zero query=/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/chr22/bin/phoni sha256=aeb7fb3b4ec4f822
+7/7 queries passed
+exit=0
+== phoni phoni-freeze-on-pr-zero query=/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/chr22/bin/phoni sha256=aeb7fb3b4ec4f822
+7/7 queries passed
+exit=0
+== phoni phoni-freeze-on-bakery query=/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/chr22/bin/phoni sha256=aeb7fb3b4ec4f822
+7/7 queries passed
+exit=0
+test: src-aug_phoni-pr/test/regression/check.py at 0bf0b0c2cae1aa68560e25f2973fc0b91deb1d59, check.py sha256 b3caf3c919068e5e
+== aug_phoni aug_phoni-base-zero query=/scratch16/blangme2/ms-bakery/scratch/ms2exp-binary-check/build/aug_phoni-base-zero/test/src/aug_phoni sha256=5fd844a59890f843
+FAIL AA: lengths [1, 1], expected [2, 1], pointers [15, 3]
+FAIL GC: lengths [1, 1], expected [2, 1], pointers [15, 5]
+FAIL ACT: lengths [1, 2, 1], expected [2, 2, 1], pointers [3, 14, 15]
+FAIL CCT: lengths [3, 2, 1], expected [3, 2, 1], pointers [5, 14, 15]
+FAIL TCT: lengths [2, 2, 1], expected [1, 2, 1], pointers [8, 14, 15]
+FAIL mutated: lengths [5, 4, 3, 2, 1, 1, 1, 2, 8, 7, 6, 5, 4, 3, 2, 1], expected [7, 6, 5, 4, 3, 2, 1, 2, 8, 7, 6, 5, 4, 3, 2, 1], pointers [11, 12, 13, 14, 15, 15, 15, 0, 8, 9, 10, 11, 12, 13, 14, 15]
+1/7 queries passed
+exit=1
+== aug_phoni aug_phoni-base-plain query=/scratch16/blangme2/ms-bakery/scratch/ms2exp-binary-check/build/aug_phoni-base-plain/test/src/aug_phoni sha256=db578a930ed47fd3
+FAIL AA: lengths [1, 1], expected [2, 1], pointers [15, 3]
+FAIL GC: lengths [1, 1], expected [2, 1], pointers [15, 5]
+FAIL ACT: lengths [1, 2, 1], expected [2, 2, 1], pointers [3, 14, 15]
+FAIL CCT: lengths [3, 2, 1], expected [3, 2, 1], pointers [5, 14, 15]
+FAIL TCT: lengths [2, 2, 1], expected [1, 2, 1], pointers [8, 14, 15]
+FAIL mutated: lengths [5, 4, 3, 2, 1, 1, 1, 2, 8, 7, 6, 5, 4, 3, 2, 1], expected [7, 6, 5, 4, 3, 2, 1, 2, 8, 7, 6, 5, 4, 3, 2, 1], pointers [11, 12, 13, 14, 15, 15, 15, 0, 8, 9, 10, 11, 12, 13, 14, 15]
+1/7 queries passed
+exit=1
+== aug_phoni aug_phoni-pr-zero query=/scratch16/blangme2/ms-bakery/scratch/ms2exp-binary-check/build/aug_phoni-pr-zero/test/src/aug_phoni sha256=3531f38ca0977e40
+7/7 queries passed
+exit=0
+== aug_phoni aug_phoni-freeze-on-base-zero query=/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/chr22/bin/aug_phoni sha256=79d50bf5bf4997ec
+7/7 queries passed
+exit=0
+== aug_phoni aug_phoni-freeze-on-pr-zero query=/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/chr22/bin/aug_phoni sha256=79d50bf5bf4997ec
+7/7 queries passed
+exit=0
+== aug_phoni aug_phoni-freeze-on-bakery query=/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/chr22/bin/aug_phoni sha256=79d50bf5bf4997ec
+7/7 queries passed
+exit=0

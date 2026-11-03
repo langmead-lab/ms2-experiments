@@ -1,0 +1,91 @@
+# Produced on devlangmead1 on 2026-11-03 by objcmp.sh (in this directory) against the binaries of the
+# 2026-11-01 check. Instruction operands that hold addresses differ because .rodata is 64 bytes longer in
+# the rebuild (its embedded source paths are longer); with those masked, no instruction differs.
+
+== PHONI: freeze binary against the pull-request head build of 2026-11-01
+freeze:  aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58  /scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/chr22/bin/phoni
+rebuild: b4974e314f326a6785cd7070829aedabcf29e8b4edd6dca3a1c2f0b122f74fd3  /scratch16/blangme2/ms-bakery/scratch/ms2exp-binary-check/build/phoni-pr-zero/test/src/phoni
+section sizes (name freeze rebuild):
+  .bss                   100448 100448
+  .comment               000045 000045
+  .data                  000068 000068
+  .data.rel.ro           000538 000538
+  .dynamic               000240 000240
+  .dynstr                0017be 0017be
+  .dynsym                001158 001158
+  .eh_frame              006370 006370
+  .eh_frame_hdr          000eec 000eec
+  .fini                  00000d 00000d
+  .fini_array            000010 000010
+  .gcc_except_table      002596 002596
+  .gnu.build.attributes  001dac 001dac
+  .gnu.hash              000180 000180
+  .gnu.version           000172 000172
+  .gnu.version_r         000140 000140
+  .got                   000010 000010
+  .got.plt               0004c0 0004c0
+  .hash                  0004f8 0004f8
+  .init                  00001b 00001b
+  .init_array            000060 000060
+  .interp                00001c 00001c
+  .note.ABI-tag          000020 000020
+  .plt                   000960 000960
+  .rela.dyn              0002d0 0002d0
+  .rela.plt              000df8 000df8
+  .rodata                0087b0 0087f0  differs
+  .shstrtab              000125 000125
+  .strtab                00d113 00d113
+  .symtab                005520 005520
+  .text                  041735 041735
+disassembly lines: 62773 and 62773
+differing lines with only instruction addresses removed: 1162
+differing lines with every hex number of 4 or more digits masked: 0
+strings found in only one binary (strings -a -n 8):
+  < /scratch16/blangme2/ms-bakery/phoni/test/src/../../include/common/common.hpp
+  < /scratch16/blangme2/ms-bakery/phoni/test/src/phoni.cpp
+  > /scratch16/blangme2/ms-bakery/scratch/ms2exp-binary-check/src-phoni-pr/test/src/../../include/common/common.hpp
+  > /scratch16/blangme2/ms-bakery/scratch/ms2exp-binary-check/src-phoni-pr/test/src/phoni.cpp
+
+== Augmented PHONI: freeze binary against the pull-request head build of 2026-11-01
+freeze:  79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b  /scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/chr22/bin/aug_phoni
+rebuild: 3531f38ca0977e4022ef73c0d5393aa574c76475dd085b6a0415e676e70212fe  /scratch16/blangme2/ms-bakery/scratch/ms2exp-binary-check/build/aug_phoni-pr-zero/test/src/aug_phoni
+section sizes (name freeze rebuild):
+  .bss                   100448 100448
+  .comment               000045 000045
+  .data                  000068 000068
+  .data.rel.ro           000538 000538
+  .dynamic               000240 000240
+  .dynstr                00180a 00180a
+  .dynsym                001188 001188
+  .eh_frame              0065c8 0065c8
+  .eh_frame_hdr          000f4c 000f4c
+  .fini                  00000d 00000d
+  .fini_array            000010 000010
+  .gcc_except_table      002b92 002b92
+  .gnu.build.attributes  001dac 001dac
+  .gnu.hash              000180 000180
+  .gnu.version           000176 000176
+  .gnu.version_r         000140 000140
+  .got                   000010 000010
+  .got.plt               0004d0 0004d0
+  .hash                  000500 000500
+  .init                  00001b 00001b
+  .init_array            000060 000060
+  .interp                00001c 00001c
+  .note.ABI-tag          000020 000020
+  .plt                   000980 000980
+  .rela.dyn              0002d0 0002d0
+  .rela.plt              000e28 000e28
+  .rodata                008930 008970  differs
+  .shstrtab              000125 000125
+  .strtab                00d863 00d863
+  .symtab                0056d0 0056d0
+  .text                  048365 048365
+disassembly lines: 68006 and 68006
+differing lines with only instruction addresses removed: 1296
+differing lines with every hex number of 4 or more digits masked: 0
+strings found in only one binary (strings -a -n 8):
+  < /scratch16/blangme2/ms-bakery/aug_phoni/test/src/aug_phoni.cpp
+  < /scratch16/blangme2/ms-bakery/aug_phoni/test/src/../../include/common/common.hpp
+  > /scratch16/blangme2/ms-bakery/scratch/ms2exp-binary-check/src-aug_phoni-pr/test/src/aug_phoni.cpp
+  > /scratch16/blangme2/ms-bakery/scratch/ms2exp-binary-check/src-aug_phoni-pr/test/src/../../include/common/common.hpp
