@@ -1,0 +1,42 @@
+{
+ "status": "prepared",
+ "reference": "human472",
+ "cohort": "fig_ops2",
+ "set": "apr008-pacbio-60mb-v1",
+ "reads": 2853,
+ "bases": 59982702,
+ "read_filter": "acgt-split-at-non-acgt",
+ "selection": "longest whole-read prefix of the source with at most 60000000 bases (D13)",
+ "source": {
+  "path": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops2/human472-apr008-pacbio-60mb-v1",
+  "manifest_sha256": "c3224ee135994c4abd42746f254e1bccfa5c5c547b686429987a79b3525862fd"
+ },
+ "reads_manifest_sha256": "200af7074f901f18b9a87364a7a42a4807ce15a6aa590379a0cec3ddb6979fce",
+ "truth": "ropebwt3 -l1 (binary cfad8475911f) on the human472 FMD (10e89eb17f17), job 32545014",
+ "truth_metadata_sha256": "1174ae7db0564c04d1aa17257b4a91e0be7859e2a40ed16981f7023588ee0855",
+ "reuse_old_timings": false,
+ "name": "human472-apr008-pacbio-60mb-v2",
+ "limit_bases": 60000000,
+ "source_reads": 2854,
+ "source_bases": 60008103,
+ "files": {
+  "map.tsv": {
+   "bytes": 54838,
+   "sha256": "50096d68ffa9257bf2700b8ba73c21ebeffdef9ecd9b125be198c5794606d378"
+  },
+  "offsets.u64": {
+   "bytes": 22832,
+   "sha256": "206cbe31bc09fe7215a6240a72d62184b515fb7d3fb4586b0f16015b6d3bef73"
+  },
+  "reads.fa": {
+   "bytes": 60004416,
+   "sha256": "c8ce0e7314229be50c85c7dc652cb74c08c4d2a5378ef5471c70890c87606db0"
+  },
+  "truth.u32": {
+   "bytes": 239930808,
+   "sha256": "0155da562348fb0b1a7baa5b5880f64d2e5225ed824ff19c77a2d1d9774401ae"
+  }
+ },
+ "created": 1793377422.7044265,
+ "job_id": "32743098"
+}

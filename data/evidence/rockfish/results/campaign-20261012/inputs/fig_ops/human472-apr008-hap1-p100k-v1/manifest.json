@@ -1,0 +1,35 @@
+{
+  "status": "prepared",
+  "reference": "human472",
+  "cohort": "fig_ops",
+  "set": "human472-apr008-hap1-p100k-v1",
+  "reads": 30424,
+  "bases": 3038047138,
+  "read_filter": "acgt-split-at-non-acgt",
+  "selection": "Arab Pangenome Reference APR008 haplotype 1, GenBank GCA_050494745.1 (apr008.1 v1), via inputs/heldout/apr-APR008-hap1 (manifest.json there has provenance and held-out evidence); uppercase; split every record at each run of characters other than A, C, G and T, which are dropped; empty pieces dropped; records renamed q0, q1, ... in source order (map.tsv gives each source record and 0-based half-open range); then every record cut into consecutive pieces of at most 100000 bases, renamed q0, q1, ... in order (map.tsv gives each source record and 0-based half-open range)",
+  "source": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops/human472-apr008-hap1-v1",
+  "piece_length": 100000,
+  "longest": 100000,
+  "shortest": 2286,
+  "truth": "truth of human472-apr008-hap1-v1 (manifest 719f5ae884e6) clamped per piece: min(MS[i], end - i)",
+  "truth_metadata_sha256": "5b41b4f922bbc5933adb8d55cd0a23adc2b7ed6f1d2474e969e023fd9b9211ad",
+  "reuse_old_timings": false,
+  "files": {
+    "reads.fa": {
+      "bytes": 3038309844,
+      "sha256": "cb8fca9cc711eacf2a106b052a5668107a2aad18c30bcaaffdb8939b563fcc47"
+    },
+    "offsets.u64": {
+      "bytes": 243400,
+      "sha256": "6928498c93a702a5ea29005b412c05f7e9296f1b849ece8796a09c149b2995cf"
+    },
+    "map.tsv": {
+      "bytes": 864520,
+      "sha256": "2ec03b348fa8799fdcd86af94d787dc2b218e31abb876fe3967a524fdd53d545"
+    },
+    "truth.u32": {
+      "bytes": 12152188552,
+      "sha256": "7ac720108305959407bd19d16e0a276e761f8ff5fff64f542bbe65a4eb625f8b"
+    }
+  }
+}

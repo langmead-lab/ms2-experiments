@@ -1,0 +1,17 @@
+{
+ "input_acgt_bases": 3038047138,
+ "input_bases": 3038047338,
+ "input_lowercase_bases": 1199940030,
+ "input_records": 79,
+ "input_records_fully_dropped": 0,
+ "input_records_with_non_acgt": 2,
+ "longest_output_record": 245835274,
+ "non_acgt_bases_dropped": 200,
+ "non_acgt_by_char": {
+  "N": 200
+ },
+ "output_bases": 3038047138,
+ "output_records": 81,
+ "reads_fa_sha256": "197ea9f57e98afb6ecf8ec55ef8098b23377b679f4ac537a1f6717404398766d",
+ "shortest_output_record": 17743
+}

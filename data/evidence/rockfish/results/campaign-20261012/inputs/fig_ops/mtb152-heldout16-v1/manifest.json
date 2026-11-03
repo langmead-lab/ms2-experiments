@@ -1,0 +1,37 @@
+{
+  "status": "prepared",
+  "reference": "mtb152",
+  "cohort": "fig_ops",
+  "set": "heldout16-v1",
+  "reads": 16,
+  "bases": 70570430,
+  "read_filter": "acgt-split-at-non-acgt",
+  "selection": "TeraTools paper MS benchmark, Nate Brown 95/5 split: the 5 percent held out as patterns (8 genomes, each followed by its reverse complement); uppercase; split every record at each run of characters other than A, C, G and T, which are dropped; empty pieces dropped; records renamed q0, q1, ... in source order (map.tsv gives each source record and 0-based half-open range)",
+  "source": "/vast/blangme2/terams-fig/patterns/mtb152.fa",
+  "reads_manifest_sha256": "f4a6be6a94ecc529ad211ac46d34b7f6af6433e4fefc6f993090422b1f244bac",
+  "truth": "ropebwt3 -l1 (binary cfad8475911f) on the mtb152 FMD (181c92baeda3), job 32495568",
+  "truth_metadata_sha256": "8ffde60f573b71cfd68c3232f264b11e9bfc0054cf51b2f4d24a28330e0883db",
+  "reuse_old_timings": false,
+  "files": {
+    "reads.fa": {
+      "bytes": 70570516,
+      "sha256": "f2bb556e9e7ffc6fc4d8156d94b35457df3f3248690a5e73c53a6a64c00a5e1e"
+    },
+    "offsets.u64": {
+      "bytes": 136,
+      "sha256": "089ebb2d07a69d8f6fea2c3092135a8a9f706142764b315fcf68270f99427d66"
+    },
+    "map.tsv": {
+      "bytes": 252,
+      "sha256": "17233ea4b1cc5431a819a15dc9fb754a6c048c90bc11605b8f8363795998b1c9"
+    },
+    "truth.u32": {
+      "bytes": 282281720,
+      "sha256": "44cac5d9bbccf11da29268a7205c757739d66af2ad8e2380e8942d3530c63700"
+    },
+    "truth.json": {
+      "bytes": 2013,
+      "sha256": "8ffde60f573b71cfd68c3232f264b11e9bfc0054cf51b2f4d24a28330e0883db"
+    }
+  }
+}

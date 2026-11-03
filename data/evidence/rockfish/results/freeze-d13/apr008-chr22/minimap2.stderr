@@ -1,0 +1,38 @@
+[M::mm_idx_gen::0.908*1.00] collected minimizers
+[M::mm_idx_gen::1.085*1.43] sorted minimizers
+[M::main::1.085*1.43] loaded/built the index for 1 target sequence(s)
+[M::mm_mapopt_update::1.144*1.41] mid_occ = 253
+[M::mm_idx_stat] kmer size: 19; skip: 19; is_hpc: 0; #seq: 1
+[M::mm_idx_stat::1.188*1.39] distinct minimizers: 3327067 (92.08% are singletons); average occurrences: 1.550; average spacing: 9.956; total length: 51324926
+[M::worker_pipeline::860.073*1.72] mapped 4 sequences
+[M::worker_pipeline::1297.545*2.14] mapped 4 sequences
+[M::worker_pipeline::1602.539*2.28] mapped 5 sequences
+[M::worker_pipeline::1923.696*2.50] mapped 6 sequences
+[M::worker_pipeline::2086.633*2.73] mapped 10 sequences
+[M::worker_pipeline::2136.637*2.75] mapped 50 sequences
+[M::main] Version: 2.28-r1209
+[M::main] CMD: /scratch16/blangme2/ms-bakery/tools/minimap2/minimap2 -x asm5 -t 16 --secondary=no chm13-chr22.fa /scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/heldout/apr-APR008-hap1/raw/GCA_050494745.1_apr008.1_v1_genomic.fna.gz
+[M::main] Real time: 2136.696 sec; CPU: 5881.830 sec; Peak RSS: 16.047 GB
+	Command being timed: "/scratch16/blangme2/ms-bakery/tools/minimap2/minimap2 -x asm5 -t 16 --secondary=no chm13-chr22.fa /scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/heldout/apr-APR008-hap1/raw/GCA_050494745.1_apr008.1_v1_genomic.fna.gz"
+	User time (seconds): 5867.05
+	System time (seconds): 14.79
+	Percent of CPU this job got: 275%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 35:36.72
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 16826224
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 883642
+	Voluntary context switches: 20540
+	Involuntary context switches: 7204
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

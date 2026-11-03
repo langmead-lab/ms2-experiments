@@ -1,0 +1,114 @@
+{
+  "status": "complete",
+  "started_utc": "2026-10-03T12:44:56.018211+00:00",
+  "source_url": "https://ont-open-data.s3.amazonaws.com/gm24385_2023.12/all_pass.vhg002v1.bam",
+  "expected_source_bytes": 96358011601,
+  "documentation_url": "https://epi2me.nanoporetech.com/gm24385_ncm23_preview/",
+  "fraction": 0.008,
+  "seed": 20261003,
+  "excluded_flags": "0x900 (secondary and supplementary); unmapped retained",
+  "samtools_binary": "/data/apps/extern/spack_on/gcc/9.3.0/samtools/1.15.1-jzc6q5hf3lpeqa7v3d2n7cxrwzuudcjb/bin/samtools",
+  "samtools_sha256": "5203c3ef3750d78e144231c5b0f9485d37bbe773103380e6d284c576aa087faa",
+  "samtools_version": "samtools 1.15.1\nUsing htslib 1.15.1\nCopyright (C) 2022 Genome Research Ltd.\n\nSamtools compilation details:\n    Features:       build=configure curses=yes \n    CC:             /home/USER/software_spack/spack/lib/spack/env/gcc/gcc\n    CPPFLAGS:       \n    CFLAGS:         -Wall -g -O2\n    LDFLAGS:        \n    HTSDIR:         \n    LIBS:           \n    CURSES_LIB:     -lncursesw -ltinfow\n\nHTSlib compilation details:\n    Features:       build=configure plugins=no libcurl=yes S3=yes GCS=yes libdeflate=yes lzma=yes bzip2=yes htscodecs=1.2.2\n    CC:             /home/USER/software_spack/spack/lib/spack/env/gcc/gcc\n    CPPFLAGS:       \n    CFLAGS:         -Wall -g -O2 -fvisibility=hidden\n    LDFLAGS:        -fvisibility=hidden \n\nHTSlib URL scheme handlers present:\n    built-in:\t preload, data, file\n    S3 Multipart Upload:\t s3w, s3w+https, s3w+http\n    Amazon S3:\t s3+https, s3+http, s3\n    Google Cloud Storage:\t gs+http, gs+https, gs\n    libcurl:\t imaps, pop3, gophers, http, smb, gopher, ftps, imap, smtp, smtps, rtsp, ftp, telnet, mqtt, https, smbs, tftp, pop3s, dict\n    crypt4gh-needed:\t crypt4gh\n    mem:\t mem\n",
+  "python": "3.12.12 | packaged by conda-forge | (main, Oct 22 2025, 23:25:55) [GCC 14.3.0]",
+  "host": "devlangmead1",
+  "script_sha256": "39eddbdb85b7738ef03f4b2eefd7d60f62852cc69aa243d87be55cd35c58fb7c",
+  "commands": [
+    [
+      "curl",
+      "-fsSI",
+      "https://ont-open-data.s3.amazonaws.com/gm24385_2023.12/all_pass.vhg002v1.bam"
+    ],
+    [
+      "curl",
+      "--fail",
+      "--location",
+      "--connect-timeout",
+      "30",
+      "--speed-limit",
+      "1024",
+      "--speed-time",
+      "300",
+      "--header",
+      "If-Match: \"f680f198826bb949e8e636d404ceb453-5744\"",
+      "--dump-header",
+      "/scratch16/blangme2/ms-bakery/data/paper-readsets/sources/HG002-Q28-s008-seed20261003/source-get-headers.txt",
+      "https://ont-open-data.s3.amazonaws.com/gm24385_2023.12/all_pass.vhg002v1.bam"
+    ],
+    [
+      "/data/apps/extern/spack_on/gcc/9.3.0/samtools/1.15.1-jzc6q5hf3lpeqa7v3d2n7cxrwzuudcjb/bin/samtools",
+      "view",
+      "--subsample",
+      "0.008",
+      "--subsample-seed",
+      "20261003",
+      "-F",
+      "0x900",
+      "-b",
+      "-o",
+      "/scratch16/blangme2/ms-bakery/data/paper-readsets/sources/HG002-Q28-s008-seed20261003/sample.bam.partial",
+      "-"
+    ],
+    [
+      "/data/apps/extern/spack_on/gcc/9.3.0/samtools/1.15.1-jzc6q5hf3lpeqa7v3d2n7cxrwzuudcjb/bin/samtools",
+      "quickcheck",
+      "-v",
+      "/scratch16/blangme2/ms-bakery/data/paper-readsets/sources/HG002-Q28-s008-seed20261003/sample.bam"
+    ],
+    [
+      "/data/apps/extern/spack_on/gcc/9.3.0/samtools/1.15.1-jzc6q5hf3lpeqa7v3d2n7cxrwzuudcjb/bin/samtools",
+      "view",
+      "-H",
+      "/scratch16/blangme2/ms-bakery/data/paper-readsets/sources/HG002-Q28-s008-seed20261003/sample.bam"
+    ],
+    [
+      "/data/apps/extern/spack_on/gcc/9.3.0/samtools/1.15.1-jzc6q5hf3lpeqa7v3d2n7cxrwzuudcjb/bin/samtools",
+      "view",
+      "/scratch16/blangme2/ms-bakery/data/paper-readsets/sources/HG002-Q28-s008-seed20261003/sample.bam"
+    ],
+    [
+      "/data/apps/extern/spack_on/gcc/9.3.0/samtools/1.15.1-jzc6q5hf3lpeqa7v3d2n7cxrwzuudcjb/bin/samtools",
+      "fastq",
+      "-n",
+      "/scratch16/blangme2/ms-bakery/data/paper-readsets/sources/HG002-Q28-s008-seed20261003/sample.bam"
+    ],
+    [
+      "gzip",
+      "-n",
+      "-c"
+    ]
+  ],
+  "updated_utc": "2026-10-03T13:54:22.092212+00:00",
+  "source_etag": "\"f680f198826bb949e8e636d404ceb453-5744\"",
+  "etag_is_md5": false,
+  "source_bytes_streamed": 96358011601,
+  "source_sha256": "97963ac67f90a1e6e8fd4549b8e1805ddb785d3b5e8515860a679fc3fc4bf55d",
+  "selected_record_audit": {
+    "primary_records": 44459,
+    "unmapped": 131,
+    "hard_clipped": 0,
+    "missing_sequence": 0,
+    "missing_quality": 0
+  },
+  "reads": 44459,
+  "bases": 1022850476,
+  "uncompressed_fastq_sha256": "7f6612ef69b1af98ba8b1d90bf70d3761f5831f4063b468bda7ae8a2a7475bed",
+  "gzip_version": "gzip 1.9\nCopyright (C) 2017 Free Software Foundation, Inc.\nCopyright (C) 1993 Jean-loup Gailly.\nThis is free software.  You may redistribute copies of it under the terms of\nthe GNU General Public License <https://www.gnu.org/licenses/gpl.html>.\nThere is NO WARRANTY, to the extent permitted by law.\n\nWritten by Jean-loup Gailly.\n",
+  "files": [
+    {
+      "name": "sample.bam",
+      "bytes": 763710430,
+      "sha256": "b34414f4fac6071d24b33f0f1b90d388363060e29b561ca41d6fae92fff50ede"
+    },
+    {
+      "name": "sample.fastq.gz",
+      "bytes": 815710593,
+      "sha256": "c45c739b7885d34eac48afc6f9cc90c1857b2c2e1683e162517c0a3f633d6d8a"
+    },
+    {
+      "name": "read-names.txt",
+      "bytes": 1644983,
+      "sha256": "41ee24787542105e54124a2cd39e30a2adba47ef1dcdfd9f7854cded60f89ca9"
+    }
+  ]
+}

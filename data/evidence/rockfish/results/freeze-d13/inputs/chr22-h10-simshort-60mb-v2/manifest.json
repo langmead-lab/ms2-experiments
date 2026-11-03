@@ -1,0 +1,38 @@
+{
+  "status": "prepared",
+  "reference": "chr22-h10",
+  "cohort": "chr22_sim_short",
+  "set": "short",
+  "reads": 480000,
+  "bases": 60000000,
+  "one_bases": 125,
+  "read_filter": "acgt-only-whole-reads",
+  "selection": "simulated Illumina short reads, ART HiSeq 2500 profile, single-end 125 bases reads of /scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-sim-short-60mb-v2 (same records, names and order)",
+  "reads_workload": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-sim-short-60mb-v2",
+  "reads_manifest_sha256": "7f8e1114883b355e72462414197a009ad300e3fec6ecd88aa79d1d82ec5de919",
+  "truth": "ropebwt3 -t1 -l1 (binary cfad8475911f) on the chr22-h10 FMD (8b2476a20485), job 32746173",
+  "truth_metadata_sha256": "72298c3c90d3835b1659ca86783a906bded0238f29e0f60694ea9ce6733425e6",
+  "reuse_old_timings": false,
+  "files": {
+    "reads.fa": {
+      "bytes": 64688890,
+      "sha256": "2c0295c2b8a7293650484eabe480e6f9a68ed354bb3ceda91a23fe982176505b"
+    },
+    "one.fa": {
+      "bytes": 130,
+      "sha256": "c6f2290c0ff99f3ae8bd2092949a32955f41bcd80a63e2973743d6febe22c4f7"
+    },
+    "offsets.u64": {
+      "bytes": 3840008,
+      "sha256": "26fa15047d34b53e7c39b84c8870527b353e1eeaa6c824d8b951234f24377f24"
+    },
+    "truth.u32": {
+      "bytes": 240000000,
+      "sha256": "1c73cef8f388954964021056c56754e7584ad41d9085f31b409a0de11c278084"
+    },
+    "truth.json": {
+      "bytes": 1903,
+      "sha256": "72298c3c90d3835b1659ca86783a906bded0238f29e0f60694ea9ce6733425e6"
+    }
+  }
+}

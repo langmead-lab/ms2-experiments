@@ -1,0 +1,35 @@
+{
+ "passed": true,
+ "command": {
+  "argv": [
+   "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/ropebwt3",
+   "mem",
+   "-t",
+   "16",
+   "-l1",
+   "/vast/blangme2/hprc2-ms/ropebwt3/human472.fmd",
+   "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/guccione_skin-ms-60mb-acgt-v2/reads.fa"
+  ],
+  "cwd": "/scratch16/blangme2/ms-bakery/results/freeze-d13/truth-jobs/skin-32743099",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 112.28098451159894,
+  "stdout": "/scratch16/blangme2/ms-bakery/results/freeze-d13/truth-jobs/skin-32743099/truth.stdout",
+  "stderr": "/scratch16/blangme2/ms-bakery/results/freeze-d13/truth-jobs/skin-32743099/truth.stderr",
+  "native_wall_seconds": 112.27,
+  "user_seconds": 1152.16,
+  "system_seconds": 16.84,
+  "peak_rss_kib": 16626840,
+  "check": {
+   "reads": 438969,
+   "positions": 59999995,
+   "failed": 0
+  },
+  "raw_output_retained": false
+ },
+ "fmd": "/vast/blangme2/hprc2-ms/ropebwt3/human472.fmd",
+ "ropebwt3": {
+  "path": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/ropebwt3",
+  "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+ }
+}

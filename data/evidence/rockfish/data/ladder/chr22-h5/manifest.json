@@ -1,0 +1,185 @@
+{
+  "id": "chr22-h5",
+  "coverage": "chr22",
+  "chromosomes": [
+    "chr22"
+  ],
+  "haplotypes": 5,
+  "panel": [
+    "200001_HG002.pat",
+    "200002_HG002.mat",
+    "200003_HG06807.pat",
+    "200004_HG06807.mat",
+    "200005_HG00408.pat"
+  ],
+  "native_bases_before_gap_splitting": 252047369,
+  "planning_disk_budget_bytes": 12602368450,
+  "snapshot": "HPRC2 February 2025 human472.agc; not final Release 2",
+  "archive": "/data/blangme2/fasta/hprc-v2/human472.agc",
+  "plan_sha256": "ad4b7b5943a2861dbf4dcd898159e6ed395e699ad96b6670286eb9c01416de20",
+  "plan_file": "plan-extra.json",
+  "sources": [
+    {
+      "haplotype": "200001_HG002.pat",
+      "contig": "HG002#1#chr22",
+      "begin": 0,
+      "end": 49430517,
+      "orientation": "+",
+      "contig_md5": "6150ca43c3a1aec75d690bfff04b0a2a",
+      "extracted_fasta_sha256": "b7f2a499161845d4085fc4cc5ed08b9b0c8ed348b120a17011810e8cc9a5a0fa",
+      "segments": [
+        {
+          "record": "h200001_c0_s0",
+          "begin": 0,
+          "end": 2633586
+        },
+        {
+          "record": "h200001_c0_s1",
+          "begin": 3713463,
+          "end": 49430517
+        }
+      ]
+    },
+    {
+      "haplotype": "200002_HG002.mat",
+      "contig": "HG002#2#chr22",
+      "begin": 0,
+      "end": 53395367,
+      "orientation": "+",
+      "contig_md5": "c47eb1a34dcc17278bcc5c648a3ed2c7",
+      "extracted_fasta_sha256": "adc678bcf9890013a8b0dd45eef6d4dd0106c22fc0396d86f8b35edc51520743",
+      "segments": [
+        {
+          "record": "h200002_c1_s0",
+          "begin": 0,
+          "end": 2717377
+        },
+        {
+          "record": "h200002_c1_s1",
+          "begin": 8063138,
+          "end": 53395367
+        }
+      ]
+    },
+    {
+      "haplotype": "200003_HG06807.pat",
+      "contig": "HG06807#1#CM101416.1",
+      "begin": 0,
+      "end": 48384154,
+      "orientation": "+",
+      "contig_md5": "07d9724b9ee87a4c5ad3df4fd083b4bc",
+      "extracted_fasta_sha256": "7517ddc0908d14b8b8cec8b16eeffd56d9f312f485c6c6075aebd6d52799cb9b",
+      "segments": [
+        {
+          "record": "h200003_c2_s0",
+          "begin": 0,
+          "end": 3507657
+        },
+        {
+          "record": "h200003_c2_s1",
+          "begin": 3512657,
+          "end": 11723630
+        },
+        {
+          "record": "h200003_c2_s2",
+          "begin": 12149411,
+          "end": 48384154
+        }
+      ]
+    },
+    {
+      "haplotype": "200004_HG06807.mat",
+      "contig": "HG06807#2#CM101450.1",
+      "begin": 0,
+      "end": 48474193,
+      "orientation": "+",
+      "contig_md5": "13489bf9084dab733103766ea558e568",
+      "extracted_fasta_sha256": "bf47e4cd35f2007929a2e00f5c0eec3c131ca7cfa22e7102973bf9fd293c0cbe",
+      "segments": [
+        {
+          "record": "h200004_c3_s0",
+          "begin": 0,
+          "end": 4125156
+        },
+        {
+          "record": "h200004_c3_s1",
+          "begin": 4130156,
+          "end": 48474193
+        }
+      ]
+    },
+    {
+      "haplotype": "200005_HG00408.pat",
+      "contig": "HG00408#1#JBHDVK010000063.1",
+      "begin": 0,
+      "end": 3461496,
+      "orientation": "+",
+      "contig_md5": "649f18a9c5f9843a58e1e0f6e13a593a",
+      "extracted_fasta_sha256": "ae25b61a71c88b5eeafd7246b06975dfd70eafef3334269138b7962da5f85c5b",
+      "segments": [
+        {
+          "record": "h200005_c4_s0",
+          "begin": 0,
+          "end": 3461496
+        }
+      ]
+    },
+    {
+      "haplotype": "200005_HG00408.pat",
+      "contig": "HG00408#1#JBHDVK010000070.1",
+      "begin": 0,
+      "end": 4979078,
+      "orientation": "+",
+      "contig_md5": "5efee5942c3f606968c089dd180040cd",
+      "extracted_fasta_sha256": "6e24a22f4abc2faccb81c651c437fa08dcef6d84e0a1a86c0448e95139e54f45",
+      "segments": [
+        {
+          "record": "h200005_c5_s0",
+          "begin": 0,
+          "end": 3978458
+        },
+        {
+          "record": "h200005_c5_s1",
+          "begin": 3978558,
+          "end": 4979078
+        }
+      ]
+    },
+    {
+      "haplotype": "200005_HG00408.pat",
+      "contig": "HG00408#1#JBHDVK010000078.1",
+      "begin": 0,
+      "end": 2292044,
+      "orientation": "+",
+      "contig_md5": "ddadc7c813b2a1ecb9b77b850dc48ba8",
+      "extracted_fasta_sha256": "5181f9cffadb3d6f29b10a72e8993eb64eef6d9d97b6332091ad8849b4c1df84",
+      "segments": [
+        {
+          "record": "h200005_c6_s0",
+          "begin": 0,
+          "end": 2292044
+        }
+      ]
+    },
+    {
+      "haplotype": "200005_HG00408.pat",
+      "contig": "HG00408#1#JBHDVK010000018.1",
+      "begin": 0,
+      "end": 41630520,
+      "orientation": "+",
+      "contig_md5": "42123416604fa63241c5ff0d7d227346",
+      "extracted_fasta_sha256": "21958324bc5e0846a2f85af72f71d61a48b351f7ec59436a0095c9b78d6bab8b",
+      "segments": [
+        {
+          "record": "h200005_c7_s0",
+          "begin": 0,
+          "end": 41630520
+        }
+      ]
+    }
+  ],
+  "forward_acgt_bases": 245185850,
+  "reference_sha256": "b12d0fb2435817fc9af7751af4bee900fc1199ea00c173c6bff770b926a55f30",
+  "both_strands": true,
+  "boundary_policy": "Native mapped component intervals remain separate; split non-ACGT runs. No synthetic RagTag joins. Search both strands."
+}

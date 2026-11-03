@@ -1,0 +1,35 @@
+{
+  "status": "prepared",
+  "reference": "mtb152",
+  "cohort": "fig_ops",
+  "set": "mtb152-heldout16-p100k-v1",
+  "reads": 718,
+  "bases": 70570430,
+  "read_filter": "acgt-split-at-non-acgt",
+  "selection": "TeraTools paper MS benchmark, Nate Brown 95/5 split: the 5 percent held out as patterns (8 genomes, each followed by its reverse complement); uppercase; split every record at each run of characters other than A, C, G and T, which are dropped; empty pieces dropped; records renamed q0, q1, ... in source order (map.tsv gives each source record and 0-based half-open range); then every record cut into consecutive pieces of at most 100000 bases, renamed q0, q1, ... in order (map.tsv gives each source record and 0-based half-open range)",
+  "source": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops/mtb152-heldout16-v1",
+  "piece_length": 100000,
+  "longest": 100000,
+  "shortest": 6184,
+  "truth": "truth of mtb152-heldout16-v1 (manifest 7067e66ff388) clamped per piece: min(MS[i], end - i)",
+  "truth_metadata_sha256": "bd94b7ef37d2fba1a1405b18ba1bd92cb7f562f51aa984aa3c3ace5ef803618c",
+  "reuse_old_timings": false,
+  "files": {
+    "reads.fa": {
+      "bytes": 70575346,
+      "sha256": "c9aec89b3ed3a8f511a032d8490e881c5a4246848b2ecad78d2b8c2ad63792cb"
+    },
+    "offsets.u64": {
+      "bytes": 5752,
+      "sha256": "adcab0547e30df4d95a0da5c7955575fc4a604eb79fc22a8e364dd7126d5cd20"
+    },
+    "map.tsv": {
+      "bytes": 17008,
+      "sha256": "2a4369e193e485502bcd3267dc3158c86e489105e2872c191b345c20f050349e"
+    },
+    "truth.u32": {
+      "bytes": 282281720,
+      "sha256": "c30fed34e249556e41cba0695f9e0699e831ac7a75276a6e605f753d80e15eed"
+    }
+  }
+}

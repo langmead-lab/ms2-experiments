@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "command": {
+    "argv": [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/chr22/bin/ropebwt3",
+      "mem",
+      "-t1",
+      "-l1",
+      "/scratch16/blangme2/ms-bakery/results/ladder/chr22-h10/ropebwt3/index.fmd",
+      "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-sim-short-60mb-v2/reads.fa"
+    ],
+    "cwd": "/scratch16/blangme2/ms-bakery/results/freeze-d13/truth-jobs/chr22-h10-short-32746173",
+    "returncode": 0,
+    "timed_out": false,
+    "wall_seconds": 49.775932820513844,
+    "stdout": "/scratch16/blangme2/ms-bakery/results/freeze-d13/truth-jobs/chr22-h10-short-32746173/truth.stdout",
+    "stderr": "/scratch16/blangme2/ms-bakery/results/freeze-d13/truth-jobs/chr22-h10-short-32746173/truth.stderr",
+    "native_wall_seconds": 49.77,
+    "user_seconds": 48.98,
+    "system_seconds": 0.31,
+    "peak_rss_kib": 291124,
+    "check": {
+      "reads": 480000,
+      "positions": 60000000,
+      "failed": 0
+    },
+    "raw_output_retained": false
+  },
+  "reference": "chr22-h10",
+  "reads_manifest_sha256": "7f8e1114883b355e72462414197a009ad300e3fec6ecd88aa79d1d82ec5de919",
+  "sha256": "1c73cef8f388954964021056c56754e7584ad41d9085f31b409a0de11c278084",
+  "ropebwt3": {
+    "path": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/chr22/bin/ropebwt3",
+    "bytes": 1595032,
+    "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "fmd": {
+    "path": "/scratch16/blangme2/ms-bakery/results/ladder/chr22-h10/ropebwt3/index.fmd",
+    "bytes": 104856784,
+    "sha256": "8b2476a2048524cd48b04f6f97af1cd17be3e0620708cd409c1b0b700989c225"
+  },
+  "derivation": "ropebwt3 mem -t1 -l1 SMEMs converted to per-position MS by real-hprc2 benchmark.check; every value checked to satisfy 1 <= ms[j] <= length - j",
+  "job_id": "32746173",
+  "started": 1793379492.8144448,
+  "finished": 1793379556.5686262
+}

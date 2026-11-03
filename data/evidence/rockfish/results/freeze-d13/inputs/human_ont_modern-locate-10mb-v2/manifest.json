@@ -1,0 +1,140 @@
+{
+ "status": "prepared",
+ "reference": "human472",
+ "cohort": "human_ont_modern",
+ "mode": "exploratory",
+ "reads": 494,
+ "bases": 9949236,
+ "one_bases": 6772,
+ "read_filter": "acgt-only-whole-reads",
+ "min_record_length": null,
+ "selection": "longest whole-read prefix of the source with at most 10000000 bases (D13)",
+ "skipped": {
+  "records": 0,
+  "bases": 0,
+  "not_whole": 0,
+  "non_acgt": 0
+ },
+ "source": {
+  "path": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/human_ont_modern-ms-60mb-acgt-v2",
+  "manifest_sha256": "8af0e3e8b59b1972bb56274b1e78023421fdcecdc73c3482bf9bf0b980b58d49"
+ },
+ "truth": {
+  "source": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/truth/human_ont_modern/core.u32",
+  "source_sha256": "092ee8fbb1a54e617fd12ac21da39e52eec22466a677b672523ea028ac38a6a5",
+  "metadata": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/truth/human_ont_modern/core.json",
+  "metadata_sha256": "bb67954c1e90df0408067652f92b954448fba443c31499b25d48b80137c05606",
+  "generator": [
+   "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/ropebwt3",
+   "mem",
+   "-t",
+   "24",
+   "-l1",
+   "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/indexes/ms/human472.fmd",
+   "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_ont_modern/core.fa"
+  ],
+  "generator_check": {
+   "reads": 8835,
+   "positions": 196109976,
+   "failed": 0
+  },
+  "method": "ropebwt3 mem -l1 SMEMs on the Human472 FMD converted to MS; sliced per read",
+  "cross_tool_validation": {
+   "Orbit-ms": {
+    "path": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/cells/core/human_ont_modern/Orbit-ms/1/result.json",
+    "status": "accepted",
+    "full_checks_failed": [
+     0,
+     0,
+     0
+    ],
+    "positions": [
+     196109976,
+     196109976,
+     196109976
+    ]
+   },
+   "Orbit-tms-psi": {
+    "path": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/cells/core/human_ont_modern/Orbit-tms-psi/1/result.json",
+    "status": "accepted",
+    "full_checks_failed": [
+     0,
+     0,
+     0
+    ],
+    "positions": [
+     196109976,
+     196109976,
+     196109976
+    ]
+   },
+   "Orbit-tms-dual": {
+    "path": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/cells/core/human_ont_modern/Orbit-tms-dual/1/result.json",
+    "status": "accepted",
+    "full_checks_failed": [
+     0,
+     0,
+     0
+    ],
+    "positions": [
+     196109976,
+     196109976,
+     196109976
+    ]
+   },
+   "TeraMS-psi": {
+    "path": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/cells/core/human_ont_modern/TeraMS-psi/1/result.json",
+    "status": "accepted",
+    "full_checks_failed": [
+     0,
+     0,
+     0
+    ],
+    "positions": [
+     196109976,
+     196109976,
+     196109976
+    ]
+   },
+   "TeraMS-dual": {
+    "path": "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/cells/core/human_ont_modern/TeraMS-dual/1/result.json",
+    "status": "accepted",
+    "full_checks_failed": [
+     0,
+     0,
+     0
+    ],
+    "positions": [
+     196109976,
+     196109976,
+     196109976
+    ]
+   }
+  }
+ },
+ "reuse_old_timings": false,
+ "name": "human_ont_modern-locate-10mb-v2",
+ "limit_bases": 10000000,
+ "source_reads": 2706,
+ "source_bases": 59934655,
+ "created": 1793377421.5963218,
+ "job_id": "32743098",
+ "files": {
+  "offsets.u64": {
+   "bytes": 3960,
+   "sha256": "0b943e71d1e1bd7dc7f6ce977debc0dc06cda6347ab14c6b02b25b92a5074a04"
+  },
+  "one.fa": {
+   "bytes": 6777,
+   "sha256": "429e3b559f028d562cb32f0824bfef23e51317bbe11884316c175dfbacfcfdec"
+  },
+  "reads.fa": {
+   "bytes": 9952584,
+   "sha256": "2fd78f05e83f3d28bb5cb025acbe976adff8d86816ff62e46bfb98476ebe9b83"
+  },
+  "truth.u32": {
+   "bytes": 39796944,
+   "sha256": "7d70430a4d56c92922290e51cd7e94571e303669df896139934037a1f7276930"
+  }
+ }
+}

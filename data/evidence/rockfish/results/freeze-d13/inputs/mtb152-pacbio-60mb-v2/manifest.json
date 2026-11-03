@@ -1,0 +1,42 @@
+{
+ "status": "prepared",
+ "reference": "mtb152",
+ "cohort": "fig_ops2",
+ "set": "pacbio-60mb-v1",
+ "reads": 2855,
+ "bases": 59990782,
+ "read_filter": "acgt-split-at-non-acgt",
+ "selection": "longest whole-read prefix of the source with at most 60000000 bases (D13)",
+ "source": {
+  "path": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops2/mtb152-pacbio-60mb-v1",
+  "manifest_sha256": "7fdcc65a8393309c00b4f8a76fd4123e61b672f875fa29c6d64d20e18fd4a7c1"
+ },
+ "reads_manifest_sha256": "b28119fa86af1710e92d4cc0a0fb28cc4dc9f5a5ebf076200abf464290902390",
+ "truth": "ropebwt3 -l1 (binary cfad8475911f) on the mtb152 FMD (181c92baeda3), job 32545011",
+ "truth_metadata_sha256": "9645e2c6688dbc3e66cee442ee4d1a1781cd91698d60b5d75b470e09e3e931fc",
+ "reuse_old_timings": false,
+ "name": "mtb152-pacbio-60mb-v2",
+ "limit_bases": 60000000,
+ "source_reads": 2856,
+ "source_bases": 60014409,
+ "files": {
+  "map.tsv": {
+   "bytes": 54879,
+   "sha256": "5655214408dbc4db204bcdca411fb1c4b86fdd66549ca582c67b64713e77aee0"
+  },
+  "offsets.u64": {
+   "bytes": 22848,
+   "sha256": "e73a306f0ff5f6e74e77cdbf158597fb27f00d2d7db23273f6198af4568d8709"
+  },
+  "reads.fa": {
+   "bytes": 60012512,
+   "sha256": "a8dbcee173b893bd5cf791ec7553fc0eddd971da57a054ec99374e7620f37435"
+  },
+  "truth.u32": {
+   "bytes": 239963128,
+   "sha256": "a2a9ea4d3388c3ff6a35133c034c1e7fb3d3dac99421703c9f48243d2d4e6ccb"
+  }
+ },
+ "created": 1793377423.7508075,
+ "job_id": "32743098"
+}

@@ -1,0 +1,129 @@
+{
+  "format": "chr22-sim-v1",
+  "status": "reads-prepared",
+  "set": "short",
+  "cohort": "chr22_sim_short",
+  "platform": "Illumina short reads, ART HiSeq 2500 profile, single-end 125 bases",
+  "reads": 480000,
+  "bases": 60000000,
+  "one_bases": 125,
+  "read_filter": "acgt-only-whole-reads",
+  "target_bases": 60000000,
+  "lengths": {
+    "reads": 480000,
+    "bases": 60000000,
+    "mean": 125.0,
+    "min": 125,
+    "q01": 125,
+    "q10": 125,
+    "q25": 125,
+    "median": 125,
+    "q75": 125,
+    "q90": 125,
+    "q99": 125,
+    "max": 125,
+    "n50": 125
+  },
+  "strands": {
+    "-": 239958,
+    "+": 240042
+  },
+  "selection": "simulated reads uppercased; reads holding any non-ACGT base dropped; the rest shuffled with the seed and whole reads taken in that order until at least the target; renumbered q0, q1, ...",
+  "simulated": {
+    "reads": 527995,
+    "kept_acgt": 527995,
+    "dropped_non_acgt": {
+      "reads": 0,
+      "bases": 0
+    }
+  },
+  "seed": 2026102501,
+  "source_segments": {
+    "path": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/haplotype-APR008-hap1-chr22-v1/acgt.fa",
+    "sha256": "8495266b53c72558fc502fac8a19bf6000249947cc0097a7ee39da805aa0499d",
+    "note": "APR008 hap1 chr22 (JBHMUJ010000002.1), D13",
+    "records": 1,
+    "pair_reverse_complements": false,
+    "segments": [
+      "APR008_hap1_chr22_s0_0"
+    ],
+    "acgt_bases": 34044963,
+    "rule": "every ACGT-only record"
+  },
+  "simulation": {
+    "tools": [
+      {
+        "path": "/scratch16/blangme2/ms-bakery/tools/sim-env/bin/art_illumina",
+        "sha256": "a3d0c556d5c938079d616a939325fbed37eb4b1c26413304dde550fe79ad50b4",
+        "version": "ART_Illumina 2.5.8 (bioconda art 2016.06.05 h0704011_13)"
+      }
+    ],
+    "commands": [
+      {
+        "argv": [
+          "/scratch16/blangme2/ms-bakery/tools/sim-env/bin/art_illumina",
+          "-ss",
+          "HS25",
+          "-i",
+          "/tmp/msbakery-1012-chr22sim-chr22-sim-short-raw-v2-32746173/segments.fa",
+          "-l",
+          "125",
+          "-f",
+          "1.9386",
+          "-rs",
+          "2026102501",
+          "-o",
+          "/tmp/msbakery-1012-chr22sim-chr22-sim-short-raw-v2-32746173/art"
+        ],
+        "cwd": "/tmp/msbakery-1012-chr22sim-chr22-sim-short-raw-v2-32746173",
+        "returncode": 0,
+        "wall_seconds": 8.776961326599121
+      }
+    ],
+    "fold_coverage": 1.9386,
+    "profile": "ART built-in HiSeq 2500 profile (-ss HS25; ART reports \"HiSeq 2500 Length 126 R1\"), single-end, default indel rates, strand of each read chosen by ART with probability 1/2",
+    "real_workload": {
+      "path": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/human_short/ms-60mb-acgt-v1",
+      "manifest_sha256": "8c0faefc3cf0cf336419b4e073b552ecd8f798099f8c1345423918338f5069f1",
+      "cohort": "human_short",
+      "offsets_sha256": "e9480d701bfa27b55444cd6e6f493988ac6c8e7693355b16ff7e4dd78df0f0ec"
+    },
+    "real_lengths": {
+      "reads": 478638,
+      "bases": 59829750,
+      "mean": 125.0,
+      "min": 125,
+      "q01": 125,
+      "q10": 125,
+      "q25": 125,
+      "median": 125,
+      "q75": 125,
+      "q90": 125,
+      "q99": 125,
+      "max": 125,
+      "n50": 125
+    },
+    "oversample": 1.1
+  },
+  "host": "sr37",
+  "job_id": "32746173",
+  "created": 1793379490.850673,
+  "files": {
+    "reads.fa": {
+      "bytes": 64688890,
+      "sha256": "2c0295c2b8a7293650484eabe480e6f9a68ed354bb3ceda91a23fe982176505b"
+    },
+    "one.fa": {
+      "bytes": 130,
+      "sha256": "c6f2290c0ff99f3ae8bd2092949a32955f41bcd80a63e2973743d6febe22c4f7"
+    },
+    "offsets.u64": {
+      "bytes": 3840008,
+      "sha256": "26fa15047d34b53e7c39b84c8870527b353e1eeaa6c824d8b951234f24377f24"
+    },
+    "origins.tsv": {
+      "bytes": 40274566,
+      "sha256": "bb6de894cf53fbb29d317cf07682c97a8746aa76b66cf8df597c511b30c8ac84"
+    }
+  }
+}

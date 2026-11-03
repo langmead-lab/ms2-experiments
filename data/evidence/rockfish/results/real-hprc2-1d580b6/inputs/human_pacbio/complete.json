@@ -1,0 +1,133 @@
+{
+  "cohort": "human_pacbio",
+  "status": "complete",
+  "started": 1791121232.7958336,
+  "seed": 20261004,
+  "source_total_bases_for_fraction": 166559881890,
+  "source_fraction": 0.006003846716584629,
+  "seqkit_version": "seqkit v2.10.1\n",
+  "seqkit_sha256": "ea5aef8dbe3d85130b84dda77c89e71f1817da1f90353b879337aa81464f214f",
+  "commands": [
+    [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/seqkit",
+      "sample",
+      "-j",
+      "4",
+      "-s",
+      "20261004",
+      "-p",
+      "0.006003846716584629",
+      "/scratch16/blangme2/ms-bakery/data/paper-readsets/sources/SRR26545347/SRR26545347_subreads.fastq.gz",
+      "-o",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_pacbio/selected-0.fq.gz"
+    ],
+    [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/seqkit",
+      "sample",
+      "-j",
+      "4",
+      "-s",
+      "20261005",
+      "-p",
+      "0.2",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_pacbio/selected.fa",
+      "-o",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_pacbio/core.raw.fa"
+    ],
+    [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/seqkit",
+      "sample",
+      "-j",
+      "4",
+      "-s",
+      "20261005",
+      "-p",
+      "0.001",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_pacbio/selected.fa",
+      "-o",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_pacbio/pilot.raw.fa"
+    ],
+    [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/seqkit",
+      "sample",
+      "-j",
+      "4",
+      "-s",
+      "20261005",
+      "-p",
+      "0.001",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_pacbio/selected.fa",
+      "-o",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_pacbio/diagnostic.raw.fa"
+    ],
+    [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/seqkit",
+      "sample",
+      "-j",
+      "4",
+      "-s",
+      "20261005",
+      "-p",
+      "0.0001",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_pacbio/selected.fa",
+      "-o",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_pacbio/offset.raw.fa"
+    ]
+  ],
+  "sources": [
+    {
+      "path": "/scratch16/blangme2/ms-bakery/data/paper-readsets/sources/SRR26545347/SRR26545347_subreads.fastq.gz",
+      "bytes": 128448953649,
+      "mtime": 1791017451.5743992
+    }
+  ],
+  "finished": 1791121251.1521633,
+  "sets": {
+    "scaling": {
+      "reads": 48895,
+      "bases": 993367167,
+      "one_bases": 13405,
+      "ambiguous_bases_removed": 0,
+      "affected_original_reads": 0,
+      "sha256": "19ef07860c0d4ed045aa1b41ac764852c1c6ee29d40ea996ce127ceef6236159",
+      "map_sha256": "faca1a293bab7f114e043168cb1d825f7426229341b9d4226c9dbdbf861ccc05"
+    },
+    "core": {
+      "reads": 9724,
+      "bases": 198032965,
+      "one_bases": 13405,
+      "ambiguous_bases_removed": 0,
+      "affected_original_reads": 0,
+      "sha256": "469816c460cd201bc1334c0a30a9c05957d202b8499897835a3d508a25709c85",
+      "map_sha256": "52ed9c0a8c9e1002da10278728776ea71a139977b4bc179c0dd903556c6f0d25"
+    },
+    "pilot": {
+      "reads": 51,
+      "bases": 1028985,
+      "one_bases": 20435,
+      "ambiguous_bases_removed": 0,
+      "affected_original_reads": 0,
+      "sha256": "ca2989ee96911d11cb93c9d248135b643bd130fbd18f5659336191b6ffd289c5",
+      "map_sha256": "879c19351c140416545820770c90a25396fd07ac1237a95403175101923e23fa"
+    },
+    "diagnostic": {
+      "reads": 51,
+      "bases": 1028985,
+      "one_bases": 20435,
+      "ambiguous_bases_removed": 0,
+      "affected_original_reads": 0,
+      "sha256": "ca2989ee96911d11cb93c9d248135b643bd130fbd18f5659336191b6ffd289c5",
+      "map_sha256": "879c19351c140416545820770c90a25396fd07ac1237a95403175101923e23fa"
+    },
+    "offset": {
+      "reads": 4,
+      "bases": 77317,
+      "one_bases": 21392,
+      "ambiguous_bases_removed": 0,
+      "affected_original_reads": 0,
+      "sha256": "95b82f8d4862df10b1b4c2139ea4413b4ebba4b465017fce1701954b4d0dbae0",
+      "map_sha256": "6b79163c4f5db6ad231487b0111a6a0fe122ba84b3f4567468c1bc6a19ea243a"
+    }
+  },
+  "selected_original_reads": 48895
+}

@@ -1,0 +1,53 @@
+{
+ "name": "guccione_skin-ms-60mb-acgt-v2",
+ "status": "prepared",
+ "reference": "human472",
+ "cohort": "guccione_skin",
+ "reads": 438969,
+ "bases": 59999995,
+ "one_bases": 151,
+ "read_filter": "acgt-only-whole-reads",
+ "limit_bases": 60000000,
+ "run": "ERR14066769",
+ "dropped_non_acgt_reads": 967,
+ "selection": "ERR14066769 pairs in deposited order, R1 then R2; each read uppercased and dropped if it holds any non-ACGT base; the rest taken whole in that order, stopping at the last read that keeps the total at or below 60000000 bases (D13.4); map.tsv names each read",
+ "sources": [
+  {
+   "path": "/scratch16/blangme2/ms-bakery/reads/guccione-PRJEB83637/skin/ERR14066769/ERR14066769_1.fastq.gz",
+   "sha256": "5f1467b3cf255d72b503cd12339baadd3025a5a7101910cc65b91b0940b86eec"
+  },
+  {
+   "path": "/scratch16/blangme2/ms-bakery/reads/guccione-PRJEB83637/skin/ERR14066769/ERR14066769_2.fastq.gz",
+   "sha256": "cd0653a6b379b524dd0c2150d734a7e695d5f6f14592375cb78770306705f440"
+  }
+ ],
+ "truth": "ropebwt3 cfad8475 mem -l1 on the human472 FMD, converted to per-position MS by real-hprc2 benchmark.check, every value bounds-checked",
+ "files": {
+  "map.tsv": {
+   "bytes": 15248102,
+   "sha256": "b053f60714eaa054c685ec6b11b99d683906f3c0053841668dd9b78add4497af"
+  },
+  "offsets.u64": {
+   "bytes": 3511760,
+   "sha256": "588031bfe4f67069a5077f53e1a78b13e0f53423f0d6fe94a01c3bb4926ec39f"
+  },
+  "one.fa": {
+   "bytes": 156,
+   "sha256": "51835fa94035042635dfd85e5bc240e3580288de87e231153cfb0a7764f7f0e3"
+  },
+  "reads.fa": {
+   "bytes": 64278575,
+   "sha256": "b75f41ae7ce8983c6db6e20dbfe76094795ebc95dd02720d6d40220c41c499ae"
+  },
+  "truth.json": {
+   "bytes": 1152,
+   "sha256": "1fcb6e5e4eb68201b188b1f05325a9c74a0697b270f4ddd18b47c5058ad821e3"
+  },
+  "truth.u32": {
+   "bytes": 239999980,
+   "sha256": "5097de82474dea3125a026abf545af93b9cd1c4126d59d49835e0d2b0b68b1d0"
+  }
+ },
+ "created": 1793377584.9667985,
+ "job_id": "32743099"
+}

@@ -1,0 +1,174 @@
+{
+ "format": "chr22-sim-v1",
+ "status": "reads-prepared",
+ "set": "pacbio",
+ "cohort": "chr22_sim_pacbio",
+ "platform": "PacBio HiFi, pbsim3 multi-pass (QSHMM-RSII, 10 passes) and ccs",
+ "reads": 2864,
+ "bases": 59991907,
+ "one_bases": 16750,
+ "read_filter": "acgt-only-whole-reads",
+ "selection": "longest whole-read prefix of the source with at most 60000000 bases (D13)",
+ "simulated": {
+  "reads": 3257,
+  "kept_acgt": 3257,
+  "dropped_non_acgt": {
+   "reads": 0,
+   "bases": 0
+  }
+ },
+ "seed": 2026102502,
+ "source_segments": {
+  "path": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/haplotype-APR008-hap1-chr22-v1/acgt.fa",
+  "sha256": "8495266b53c72558fc502fac8a19bf6000249947cc0097a7ee39da805aa0499d",
+  "note": "APR008 hap1 chr22 (JBHMUJ010000002.1), D13",
+  "records": 1,
+  "pair_reverse_complements": false,
+  "segments": [
+   "APR008_hap1_chr22_s0_0"
+  ],
+  "acgt_bases": 34044963,
+  "rule": "every ACGT-only record"
+ },
+ "simulation": {
+  "tools": [
+   {
+    "path": "/scratch16/blangme2/ms-bakery/tools/sim-env/bin/pbsim",
+    "sha256": "c58e20aaad3a39dc27a02f5840dc6eca16531e796ff79cb829c6499cedaecc30",
+    "version": "pbsim3 3.0.5 (bioconda pbsim3 3.0.5 h9948957_2)"
+   },
+   {
+    "path": "/scratch16/blangme2/ms-bakery/tools/hifi-env/.pixi/envs/default/bin/ccs",
+    "sha256": "242bd8b27185ffb6d6528556197d7c4bc04bf9dc3d04149a025f587fd138b9d8",
+    "version": "ccs 6.4.0 (bioconda pbccs 6.4.0 h9ee0642_0)"
+   },
+   {
+    "path": "/scratch16/blangme2/ms-bakery/tools/hifi-env/.pixi/envs/default/bin/samtools",
+    "sha256": "d82441443bc73aad354d54aed51d6ca98a67965c992911d96c8726b1da6a140d",
+    "version": "samtools 1.24 (bioconda samtools 1.24 h9dcdb79_1), called by pbsim3 to write BAM"
+   }
+  ],
+  "commands": [
+   {
+    "argv": [
+     "/scratch16/blangme2/ms-bakery/tools/sim-env/bin/pbsim",
+     "--strategy",
+     "templ",
+     "--template",
+     "/tmp/msbakery-1012-chr22sim-chr22-sim-pacbio-raw-v2-32746173/templates.fa",
+     "--method",
+     "qshmm",
+     "--qshmm",
+     "/scratch16/blangme2/ms-bakery/tools/sim-env/data/QSHMM-RSII.model",
+     "--pass-num",
+     "10",
+     "--seed",
+     "2026102502",
+     "--prefix",
+     "/tmp/msbakery-1012-chr22sim-chr22-sim-pacbio-raw-v2-32746173/pbsim"
+    ],
+    "cwd": "/tmp/msbakery-1012-chr22sim-chr22-sim-pacbio-raw-v2-32746173",
+    "returncode": 0,
+    "wall_seconds": 331.2995207309723
+   },
+   {
+    "argv": [
+     "/scratch16/blangme2/ms-bakery/tools/hifi-env/.pixi/envs/default/bin/ccs",
+     "-j",
+     "16",
+     "/tmp/msbakery-1012-chr22sim-chr22-sim-pacbio-raw-v2-32746173/pbsim.bam",
+     "/tmp/msbakery-1012-chr22sim-chr22-sim-pacbio-raw-v2-32746173/ccs.fastq.gz"
+    ],
+    "cwd": "/tmp/msbakery-1012-chr22sim-chr22-sim-pacbio-raw-v2-32746173",
+    "returncode": 0,
+    "wall_seconds": 233.8106653690338
+   }
+  ],
+  "model": {
+   "path": "/scratch16/blangme2/ms-bakery/tools/sim-env/data/QSHMM-RSII.model",
+   "sha256": "cff55ec94274a919529266561df48c3f72506e936a9c0ceb7840240ecdedb3b7"
+  },
+  "accuracy": {
+   "subreads": {
+    "read num": "3299",
+    "read length mean (SD)": "21430.753289 (4142.921251)",
+    "read length min": "6981",
+    "read length max": "35948",
+    "read accuracy mean (SD)": "0.852742 (0.040759)",
+    "substitution rate": "0.008861",
+    "insertion rate": "0.081193",
+    "deletion rate": "0.057335"
+   },
+   "ccs_predicted": {
+    "reads": 3257,
+    "mean_read": 0.9979700421895509,
+    "base_weighted": 0.9979740836328498,
+    "q01": 0.9917250474441139,
+    "q10": 0.9968370626296565,
+    "median": 0.9983525218212929,
+    "min": 0.9901520249589397,
+    "definition": "1 - mean per-base error probability from ccs base qualities (Phred+33), as ccs rq"
+   }
+  },
+  "templates": {
+   "count": 3299,
+   "bases": 69013304,
+   "seed": 2026102502,
+   "sha256": "ef1f4c370a34886012f8a3ce6aead8992f6e4c005bd02c7570611e36a25c5193",
+   "rule": "length drawn with replacement from the real PacBio workload, start uniform over the ACGT-segment positions where it fits, strand + or - with probability 1/2"
+  },
+  "ccs_report": "ZMWs input               : 3299         \n\nZMWs pass filters        : 3257 (98.73%)\nZMWs fail filters        : 42 (1.273%)\nZMWs shortcut filters    : 0 (0.000%)\n\nZMWs with tandem repeats : 84 (200.00%)\n\nExclusive failed counts\nBelow SNR threshold      : 0 (0.000%)\nMedian length filter     : 0 (0.000%)\nLacking full passes      : 0 (0.000%)\nHeteroduplex insertions  : 0 (0.000%)\nCoverage drops           : 0 (0.000%)\nInsufficient draft cov   : 0 (0.000%)\nDraft too different      : 0 (0.000%)\nDraft generation error   : 2 (4.762%)\nDraft above --max-length : 0 (0.000%)\nDraft below --min-length : 0 (0.000%)\nReads failed polishing   : 0 (0.000%)\nEmpty coverage windows   : 1 (2.381%)\nCCS did not converge     : 0 (0.000%)\nCCS below minimum RQ     : 39 (92.86%)\nUnknown error            : 0 (0.000%)\n\nAdditional passing metrics\nZMWs missing adapters    : 0 (0.000%)\n",
+  "profile": "pbsim3 template strategy, QSHMM-RSII.model with its default pass accuracy (0.85) and difference ratio, --pass-num 10; ccs 6.4.0 defaults (min passes 3, min rq 0.99). The read strand is the template strand, or its reverse if ccs reports the other orientation.",
+  "real_workload": {
+   "path": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/human_pacbio/explore-acgt-60mb-v1",
+   "manifest_sha256": "383f15bab26ca57372383a1dbb20c1eb1fe09c4130572d6542ae2d2064e9826c",
+   "cohort": "human_pacbio",
+   "offsets_sha256": "ad4cc2a7ac6d1d8cec44fbdaa456b947330957a08c31cdb069e8e2f2fb7f780a"
+  },
+  "real_lengths": {
+   "reads": 2870,
+   "bases": 60006425,
+   "mean": 20908.162020905922,
+   "min": 6858,
+   "q01": 14113,
+   "q10": 16304,
+   "q25": 17756,
+   "median": 20141,
+   "q75": 23538,
+   "q90": 26703,
+   "q99": 31924,
+   "max": 36775,
+   "n50": 21034
+  },
+  "oversample": 1.15
+ },
+ "host": "sr37",
+ "job_id": "32746173",
+ "created": 1793380192.078298,
+ "name": "chr22-sim-pacbio-60mb-v2",
+ "limit_bases": 60000000,
+ "source": {
+  "path": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-sim-pacbio-raw-v2",
+  "manifest_sha256": "8ba09d3c7d35e553fc309aad9d3b3c12db51282a7a10a9b4398183e65d0b669b"
+ },
+ "source_reads": 2865,
+ "source_bases": 60013456,
+ "files": {
+  "offsets.u64": {
+   "bytes": 22920,
+   "sha256": "67170819571b8b03f75bb7c33bfebcb2f236c196cc7876a973e17662ad346435"
+  },
+  "one.fa": {
+   "bytes": 16755,
+   "sha256": "aac708c3bbf9dc04e2176f241a1460c86025480caba790ba0ec524b6b39d7e7c"
+  },
+  "origins.tsv": {
+   "bytes": 185187,
+   "sha256": "de26be2098312812be00f7d7ffa470f0f5c2cfdc54f00e18890c04e16b6328bc"
+  },
+  "reads.fa": {
+   "bytes": 60013709,
+   "sha256": "8e5897988e4744c12a8f7fe9bf2734a38bb7ed3cdb9df40013370040c9da177f"
+  }
+ }
+}

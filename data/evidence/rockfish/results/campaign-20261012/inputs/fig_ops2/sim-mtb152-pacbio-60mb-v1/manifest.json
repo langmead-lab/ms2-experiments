@@ -1,0 +1,193 @@
+{
+  "format": "chr22-sim-v1",
+  "status": "reads-prepared",
+  "set": "pacbio",
+  "cohort": "fig_ops2",
+  "platform": "PacBio HiFi, pbsim3 multi-pass (QSHMM-RSII, 10 passes) and ccs",
+  "reads": 2856,
+  "bases": 60014409,
+  "one_bases": 24860,
+  "read_filter": "acgt-only-whole-reads",
+  "target_bases": 60000000,
+  "lengths": {
+    "reads": 2856,
+    "bases": 60014409,
+    "mean": 21013.448529411766,
+    "min": 6869,
+    "q01": 14110,
+    "q10": 16319,
+    "q25": 17820,
+    "median": 20246,
+    "q75": 23711,
+    "q90": 26917,
+    "q99": 31965,
+    "max": 36879,
+    "n50": 21190
+  },
+  "strands": {
+    "+": 1425,
+    "-": 1431
+  },
+  "selection": "simulated reads uppercased; reads holding any non-ACGT base dropped; the rest shuffled with the seed and whole reads taken in that order until at least the target; renumbered q0, q1, ...",
+  "simulated": {
+    "reads": 3267,
+    "kept_acgt": 3267,
+    "dropped_non_acgt": {
+      "reads": 0,
+      "bases": 0
+    }
+  },
+  "seed": 2026102611,
+  "source_segments": {
+    "path": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops/mtb152-heldout16-v1/reads.fa",
+    "sha256": "f2bb556e9e7ffc6fc4d8156d94b35457df3f3248690a5e73c53a6a64c00a5e1e",
+    "note": "Fig Ops2 source: inputs/fig_ops/mtb152-heldout16-v1/reads.fa, the 8 mtb152 genomes held out of the TeraTools 95 percent index (Nate Brown 95/5 split), each followed by its reverse complement; forward records only",
+    "records": 16,
+    "pair_reverse_complements": true,
+    "segments": [
+      "q0",
+      "q2",
+      "q4",
+      "q6",
+      "q8",
+      "q10",
+      "q12",
+      "q14"
+    ],
+    "acgt_bases": 35285215,
+    "rule": "ACGT-only records; each forward record of a forward and reverse-complement pair"
+  },
+  "simulation": {
+    "tools": [
+      {
+        "path": "/scratch16/blangme2/ms-bakery/tools/sim-env/bin/pbsim",
+        "sha256": "c58e20aaad3a39dc27a02f5840dc6eca16531e796ff79cb829c6499cedaecc30",
+        "version": "pbsim3 3.0.5 (bioconda pbsim3 3.0.5 h9948957_2)"
+      },
+      {
+        "path": "/scratch16/blangme2/ms-bakery/tools/hifi-env/.pixi/envs/default/bin/ccs",
+        "sha256": "242bd8b27185ffb6d6528556197d7c4bc04bf9dc3d04149a025f587fd138b9d8",
+        "version": "ccs 6.4.0 (bioconda pbccs 6.4.0 h9ee0642_0)"
+      },
+      {
+        "path": "/scratch16/blangme2/ms-bakery/tools/hifi-env/.pixi/envs/default/bin/samtools",
+        "sha256": "d82441443bc73aad354d54aed51d6ca98a67965c992911d96c8726b1da6a140d",
+        "version": "samtools 1.24 (bioconda samtools 1.24 h9dcdb79_1), called by pbsim3 to write BAM"
+      }
+    ],
+    "commands": [
+      {
+        "argv": [
+          "/scratch16/blangme2/ms-bakery/tools/sim-env/bin/pbsim",
+          "--strategy",
+          "templ",
+          "--template",
+          "/tmp/msbakery-1012-chr22sim-sim-mtb152-pacbio-60mb-v1-32545010/templates.fa",
+          "--method",
+          "qshmm",
+          "--qshmm",
+          "/scratch16/blangme2/ms-bakery/tools/sim-env/data/QSHMM-RSII.model",
+          "--pass-num",
+          "10",
+          "--seed",
+          "2026102611",
+          "--prefix",
+          "/tmp/msbakery-1012-chr22sim-sim-mtb152-pacbio-60mb-v1-32545010/pbsim"
+        ],
+        "cwd": "/tmp/msbakery-1012-chr22sim-sim-mtb152-pacbio-60mb-v1-32545010",
+        "returncode": 0,
+        "wall_seconds": 337.79192209243774
+      },
+      {
+        "argv": [
+          "/scratch16/blangme2/ms-bakery/tools/hifi-env/.pixi/envs/default/bin/ccs",
+          "-j",
+          "16",
+          "/tmp/msbakery-1012-chr22sim-sim-mtb152-pacbio-60mb-v1-32545010/pbsim.bam",
+          "/tmp/msbakery-1012-chr22sim-sim-mtb152-pacbio-60mb-v1-32545010/ccs.fastq.gz"
+        ],
+        "cwd": "/tmp/msbakery-1012-chr22sim-sim-mtb152-pacbio-60mb-v1-32545010",
+        "returncode": 0,
+        "wall_seconds": 211.50668120384216
+      }
+    ],
+    "model": {
+      "path": "/scratch16/blangme2/ms-bakery/tools/sim-env/data/QSHMM-RSII.model",
+      "sha256": "cff55ec94274a919529266561df48c3f72506e936a9c0ceb7840240ecdedb3b7"
+    },
+    "accuracy": {
+      "subreads": {
+        "read num": "3293",
+        "read length mean (SD)": "21460.324203 (4197.897119)",
+        "read length min": "7045",
+        "read length max": "38337",
+        "read accuracy mean (SD)": "0.852931 (0.039491)",
+        "substitution rate": "0.008830",
+        "insertion rate": "0.080980",
+        "deletion rate": "0.057399"
+      },
+      "ccs_predicted": {
+        "reads": 3267,
+        "mean_read": 0.9984011867024875,
+        "base_weighted": 0.9984063380656403,
+        "q01": 0.9925014390699178,
+        "q10": 0.9974121554451009,
+        "median": 0.998778695100791,
+        "min": 0.990181700969692,
+        "definition": "1 - mean per-base error probability from ccs base qualities (Phred+33), as ccs rq"
+      }
+    },
+    "templates": {
+      "count": 3293,
+      "bases": 69002429,
+      "seed": 2026102611,
+      "sha256": "2c6695dcb36bfac6c8daf748b616ae5f734e62fb4fb7582dd4a820c2a2aebcb6",
+      "rule": "length drawn with replacement from the real PacBio workload, start uniform over the ACGT-segment positions where it fits, strand + or - with probability 1/2"
+    },
+    "ccs_report": "ZMWs input               : 3293         \n\nZMWs pass filters        : 3267 (99.21%)\nZMWs fail filters        : 26 (0.790%)\nZMWs shortcut filters    : 0 (0.000%)\n\nZMWs with tandem repeats : 1 (3.846%)\n\nExclusive failed counts\nBelow SNR threshold      : 0 (0.000%)\nMedian length filter     : 0 (0.000%)\nLacking full passes      : 0 (0.000%)\nHeteroduplex insertions  : 2 (7.692%)\nCoverage drops           : 0 (0.000%)\nInsufficient draft cov   : 0 (0.000%)\nDraft too different      : 0 (0.000%)\nDraft generation error   : 0 (0.000%)\nDraft above --max-length : 0 (0.000%)\nDraft below --min-length : 0 (0.000%)\nReads failed polishing   : 0 (0.000%)\nEmpty coverage windows   : 0 (0.000%)\nCCS did not converge     : 0 (0.000%)\nCCS below minimum RQ     : 24 (92.31%)\nUnknown error            : 0 (0.000%)\n\nAdditional passing metrics\nZMWs missing adapters    : 0 (0.000%)\n",
+    "profile": "pbsim3 template strategy, QSHMM-RSII.model with its default pass accuracy (0.85) and difference ratio, --pass-num 10; ccs 6.4.0 defaults (min passes 3, min rq 0.99). The read strand is the template strand, or its reverse if ccs reports the other orientation.",
+    "real_workload": {
+      "path": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/human_pacbio/explore-acgt-60mb-v1",
+      "manifest_sha256": "383f15bab26ca57372383a1dbb20c1eb1fe09c4130572d6542ae2d2064e9826c",
+      "cohort": "human_pacbio",
+      "offsets_sha256": "ad4cc2a7ac6d1d8cec44fbdaa456b947330957a08c31cdb069e8e2f2fb7f780a"
+    },
+    "real_lengths": {
+      "reads": 2870,
+      "bases": 60006425,
+      "mean": 20908.162020905922,
+      "min": 6858,
+      "q01": 14113,
+      "q10": 16304,
+      "q25": 17756,
+      "median": 20141,
+      "q75": 23538,
+      "q90": 26703,
+      "q99": 31924,
+      "max": 36775,
+      "n50": 21034
+    },
+    "oversample": 1.15
+  },
+  "host": "sr19",
+  "job_id": "32545010",
+  "created": 1793034142.4831846,
+  "files": {
+    "reads.fa": {
+      "bytes": 60036147,
+      "sha256": "529e6d824877f3ebeb72f7463738edba794f86c38f5f4ee6f9315b93aedfc147"
+    },
+    "one.fa": {
+      "bytes": 24865,
+      "sha256": "a6cac0a680ce5c4efa87ca90da7627cfe965d9d44a6cecfc18d74b3ef7e2147a"
+    },
+    "offsets.u64": {
+      "bytes": 22856,
+      "sha256": "aaf6cc0c374ebce000faab1be617f8207ca9c88972c5962119ed44cf42bc7ac5"
+    },
+    "origins.tsv": {
+      "bytes": 123266,
+      "sha256": "e9afb69021578046d5c419d0ea969d731e3869650c1c7c2b6e6bacd9d0dda9c0"
+    }
+  }
+}

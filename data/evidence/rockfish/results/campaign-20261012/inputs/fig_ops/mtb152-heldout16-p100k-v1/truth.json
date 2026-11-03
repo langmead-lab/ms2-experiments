@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "derivation": "truth of mtb152-heldout16-v1 (manifest 7067e66ff388) clamped per piece: min(MS[i], end - i)",
+  "source_workload": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops/mtb152-heldout16-v1",
+  "source_truth": "ropebwt3 -l1 (binary cfad8475911f) on the mtb152 FMD (181c92baeda3), job 32495568",
+  "clamped_positions": 13200996,
+  "created": 1793272048.0360494
+}

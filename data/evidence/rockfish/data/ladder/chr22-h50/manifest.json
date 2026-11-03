@@ -1,0 +1,2126 @@
+{
+  "id": "chr22-h50",
+  "coverage": "chr22",
+  "chromosomes": [
+    "chr22"
+  ],
+  "haplotypes": 50,
+  "panel": [
+    "200001_HG002.pat",
+    "200002_HG002.mat",
+    "200003_HG06807.pat",
+    "200004_HG06807.mat",
+    "200005_HG00408.pat",
+    "200006_HG00408.mat",
+    "200007_HG00423.pat",
+    "200008_HG00423.mat",
+    "200009_HG00438.pat",
+    "200010_HG00438.mat",
+    "200011_HG00544.pat",
+    "200012_HG00544.mat",
+    "200013_HG00558.pat",
+    "200014_HG00558.mat",
+    "200015_HG00597.pat",
+    "200016_HG00597.mat",
+    "200017_HG005.pat",
+    "200018_HG005.mat",
+    "200019_HG00609.pat",
+    "200020_HG00609.mat",
+    "200021_HG00621.pat",
+    "200022_HG00621.mat",
+    "200023_HG00639.pat",
+    "200024_HG00639.mat",
+    "200025_HG00642.pat",
+    "200026_HG00642.mat",
+    "200027_HG00658.pat",
+    "200028_HG00658.mat",
+    "200029_HG00673.pat",
+    "200030_HG00673.mat",
+    "200031_HG00706.pat",
+    "200032_HG00706.mat",
+    "200033_HG00733.pat",
+    "200034_HG00733.mat",
+    "200035_HG00735.pat",
+    "200036_HG00735.mat",
+    "200037_HG00738.pat",
+    "200038_HG00738.mat",
+    "200039_HG00741.pat",
+    "200040_HG00741.mat",
+    "200041_HG01071.pat",
+    "200042_HG01071.mat",
+    "200043_HG01074.pat",
+    "200044_HG01074.mat",
+    "200045_HG01081.pat",
+    "200046_HG01081.mat",
+    "200047_HG01099.pat",
+    "200048_HG01099.mat",
+    "200049_HG01106.pat",
+    "200050_HG01106.mat"
+  ],
+  "native_bases_before_gap_splitting": 2538060375,
+  "planning_disk_budget_bytes": 126903018750,
+  "snapshot": "HPRC2 February 2025 human472.agc; not final Release 2",
+  "archive": "/data/blangme2/fasta/hprc-v2/human472.agc",
+  "plan_sha256": "ad4b7b5943a2861dbf4dcd898159e6ed395e699ad96b6670286eb9c01416de20",
+  "plan_file": "plan-extra.json",
+  "sources": [
+    {
+      "haplotype": "200001_HG002.pat",
+      "contig": "HG002#1#chr22",
+      "begin": 0,
+      "end": 49430517,
+      "orientation": "+",
+      "contig_md5": "6150ca43c3a1aec75d690bfff04b0a2a",
+      "extracted_fasta_sha256": "b7f2a499161845d4085fc4cc5ed08b9b0c8ed348b120a17011810e8cc9a5a0fa",
+      "segments": [
+        {
+          "record": "h200001_c0_s0",
+          "begin": 0,
+          "end": 2633586
+        },
+        {
+          "record": "h200001_c0_s1",
+          "begin": 3713463,
+          "end": 49430517
+        }
+      ]
+    },
+    {
+      "haplotype": "200002_HG002.mat",
+      "contig": "HG002#2#chr22",
+      "begin": 0,
+      "end": 53395367,
+      "orientation": "+",
+      "contig_md5": "c47eb1a34dcc17278bcc5c648a3ed2c7",
+      "extracted_fasta_sha256": "adc678bcf9890013a8b0dd45eef6d4dd0106c22fc0396d86f8b35edc51520743",
+      "segments": [
+        {
+          "record": "h200002_c1_s0",
+          "begin": 0,
+          "end": 2717377
+        },
+        {
+          "record": "h200002_c1_s1",
+          "begin": 8063138,
+          "end": 53395367
+        }
+      ]
+    },
+    {
+      "haplotype": "200003_HG06807.pat",
+      "contig": "HG06807#1#CM101416.1",
+      "begin": 0,
+      "end": 48384154,
+      "orientation": "+",
+      "contig_md5": "07d9724b9ee87a4c5ad3df4fd083b4bc",
+      "extracted_fasta_sha256": "7517ddc0908d14b8b8cec8b16eeffd56d9f312f485c6c6075aebd6d52799cb9b",
+      "segments": [
+        {
+          "record": "h200003_c2_s0",
+          "begin": 0,
+          "end": 3507657
+        },
+        {
+          "record": "h200003_c2_s1",
+          "begin": 3512657,
+          "end": 11723630
+        },
+        {
+          "record": "h200003_c2_s2",
+          "begin": 12149411,
+          "end": 48384154
+        }
+      ]
+    },
+    {
+      "haplotype": "200004_HG06807.mat",
+      "contig": "HG06807#2#CM101450.1",
+      "begin": 0,
+      "end": 48474193,
+      "orientation": "+",
+      "contig_md5": "13489bf9084dab733103766ea558e568",
+      "extracted_fasta_sha256": "bf47e4cd35f2007929a2e00f5c0eec3c131ca7cfa22e7102973bf9fd293c0cbe",
+      "segments": [
+        {
+          "record": "h200004_c3_s0",
+          "begin": 0,
+          "end": 4125156
+        },
+        {
+          "record": "h200004_c3_s1",
+          "begin": 4130156,
+          "end": 48474193
+        }
+      ]
+    },
+    {
+      "haplotype": "200005_HG00408.pat",
+      "contig": "HG00408#1#JBHDVK010000063.1",
+      "begin": 0,
+      "end": 3461496,
+      "orientation": "+",
+      "contig_md5": "649f18a9c5f9843a58e1e0f6e13a593a",
+      "extracted_fasta_sha256": "ae25b61a71c88b5eeafd7246b06975dfd70eafef3334269138b7962da5f85c5b",
+      "segments": [
+        {
+          "record": "h200005_c4_s0",
+          "begin": 0,
+          "end": 3461496
+        }
+      ]
+    },
+    {
+      "haplotype": "200005_HG00408.pat",
+      "contig": "HG00408#1#JBHDVK010000070.1",
+      "begin": 0,
+      "end": 4979078,
+      "orientation": "+",
+      "contig_md5": "5efee5942c3f606968c089dd180040cd",
+      "extracted_fasta_sha256": "6e24a22f4abc2faccb81c651c437fa08dcef6d84e0a1a86c0448e95139e54f45",
+      "segments": [
+        {
+          "record": "h200005_c5_s0",
+          "begin": 0,
+          "end": 3978458
+        },
+        {
+          "record": "h200005_c5_s1",
+          "begin": 3978558,
+          "end": 4979078
+        }
+      ]
+    },
+    {
+      "haplotype": "200005_HG00408.pat",
+      "contig": "HG00408#1#JBHDVK010000078.1",
+      "begin": 0,
+      "end": 2292044,
+      "orientation": "+",
+      "contig_md5": "ddadc7c813b2a1ecb9b77b850dc48ba8",
+      "extracted_fasta_sha256": "5181f9cffadb3d6f29b10a72e8993eb64eef6d9d97b6332091ad8849b4c1df84",
+      "segments": [
+        {
+          "record": "h200005_c6_s0",
+          "begin": 0,
+          "end": 2292044
+        }
+      ]
+    },
+    {
+      "haplotype": "200005_HG00408.pat",
+      "contig": "HG00408#1#JBHDVK010000018.1",
+      "begin": 0,
+      "end": 41630520,
+      "orientation": "+",
+      "contig_md5": "42123416604fa63241c5ff0d7d227346",
+      "extracted_fasta_sha256": "21958324bc5e0846a2f85af72f71d61a48b351f7ec59436a0095c9b78d6bab8b",
+      "segments": [
+        {
+          "record": "h200005_c7_s0",
+          "begin": 0,
+          "end": 41630520
+        }
+      ]
+    },
+    {
+      "haplotype": "200006_HG00408.mat",
+      "contig": "HG00408#2#JBHDVL010000050.1",
+      "begin": 0,
+      "end": 6147666,
+      "orientation": "+",
+      "contig_md5": "a02bff4273baf39745004f3bede70b3f",
+      "extracted_fasta_sha256": "1545d1175a03946314c83cfc3428929a6af075d97147727b18070db70b9ae753",
+      "segments": [
+        {
+          "record": "h200006_c8_s0",
+          "begin": 0,
+          "end": 1419687
+        },
+        {
+          "record": "h200006_c8_s1",
+          "begin": 3359527,
+          "end": 5179096
+        },
+        {
+          "record": "h200006_c8_s2",
+          "begin": 5179196,
+          "end": 6147666
+        }
+      ]
+    },
+    {
+      "haplotype": "200006_HG00408.mat",
+      "contig": "HG00408#2#JBHDVL010000004.1",
+      "begin": 0,
+      "end": 45677478,
+      "orientation": "+",
+      "contig_md5": "2d26a8ebaf24c931330bc21a709b9816",
+      "extracted_fasta_sha256": "9d27fe3ce53b53d2f0a31f73dcccc029eb88ec9e9a9a6135ff3b7eb52962b2e1",
+      "segments": [
+        {
+          "record": "h200006_c9_s0",
+          "begin": 0,
+          "end": 45677478
+        }
+      ]
+    },
+    {
+      "haplotype": "200007_HG00423.pat",
+      "contig": "HG00423#1#JBHIIO010000012.1",
+      "begin": 0,
+      "end": 4634599,
+      "orientation": "+",
+      "contig_md5": "4ac5d32eb37383f61be08f7496e06e78",
+      "extracted_fasta_sha256": "f2fa398326c3c84b91ac593d161e829587a536d4139f440d95126d03d1ee6e26",
+      "segments": [
+        {
+          "record": "h200007_c10_s0",
+          "begin": 0,
+          "end": 4275798
+        },
+        {
+          "record": "h200007_c10_s1",
+          "begin": 4275898,
+          "end": 4634599
+        }
+      ]
+    },
+    {
+      "haplotype": "200007_HG00423.pat",
+      "contig": "HG00423#1#JBHIIO010000056.1",
+      "begin": 0,
+      "end": 3244485,
+      "orientation": "+",
+      "contig_md5": "72a35a8e4a423ce0315853a3a17ac257",
+      "extracted_fasta_sha256": "d72c5989648dc4bc87aaba051cd1edd82c2b674d65cbabdf4b1b3169ae07ae07",
+      "segments": [
+        {
+          "record": "h200007_c11_s0",
+          "begin": 0,
+          "end": 3244485
+        }
+      ]
+    },
+    {
+      "haplotype": "200007_HG00423.pat",
+      "contig": "HG00423#1#CM089411.1",
+      "begin": 0,
+      "end": 49444420,
+      "orientation": "+",
+      "contig_md5": "5e008f6508588ba3b0c339071de46f45",
+      "extracted_fasta_sha256": "9dd169de1a43c833d1539b86773a64524a7043f7753b46608f9ff1ad37dbd0e3",
+      "segments": [
+        {
+          "record": "h200007_c12_s0",
+          "begin": 0,
+          "end": 2577262
+        },
+        {
+          "record": "h200007_c12_s1",
+          "begin": 2577362,
+          "end": 2759175
+        },
+        {
+          "record": "h200007_c12_s2",
+          "begin": 2788986,
+          "end": 49444420
+        }
+      ]
+    },
+    {
+      "haplotype": "200008_HG00423.mat",
+      "contig": "HG00423#2#JBHIIP010000053.1",
+      "begin": 0,
+      "end": 4071321,
+      "orientation": "+",
+      "contig_md5": "e749b3a79384943b0c69fbb25134f457",
+      "extracted_fasta_sha256": "09b64d05830e4e3e14aaa212e0d6a53957717f85c3efc5eaa245c36ec541143c",
+      "segments": [
+        {
+          "record": "h200008_c13_s0",
+          "begin": 0,
+          "end": 4071321
+        }
+      ]
+    },
+    {
+      "haplotype": "200008_HG00423.mat",
+      "contig": "HG00423#2#CM089425.1",
+      "begin": 0,
+      "end": 51314386,
+      "orientation": "+",
+      "contig_md5": "ad788f6a51d9867623794372e6da4e9c",
+      "extracted_fasta_sha256": "222c4b7e9ea17bbbefbbc4f9dba0b7377688be7fc6ff34f0dfe6e2af06bc3db5",
+      "segments": [
+        {
+          "record": "h200008_c14_s0",
+          "begin": 0,
+          "end": 51314386
+        }
+      ]
+    },
+    {
+      "haplotype": "200009_HG00438.pat",
+      "contig": "HG00438#1#CM089184.1",
+      "begin": 0,
+      "end": 49765337,
+      "orientation": "+",
+      "contig_md5": "64f02b028c11c9c3e5dd9d4b421f5c60",
+      "extracted_fasta_sha256": "1f680a2d24d413e37bdc59ae1a17a7ef19b515720a78ba3bf76aadf3924833aa",
+      "segments": [
+        {
+          "record": "h200009_c15_s0",
+          "begin": 0,
+          "end": 21755670
+        },
+        {
+          "record": "h200009_c15_s1",
+          "begin": 21781348,
+          "end": 49765337
+        }
+      ]
+    },
+    {
+      "haplotype": "200010_HG00438.mat",
+      "contig": "HG00438#2#JAHBCA020000053.1",
+      "begin": 0,
+      "end": 4716812,
+      "orientation": "+",
+      "contig_md5": "8d5cd8d2c8808ce40c813b6284be6e65",
+      "extracted_fasta_sha256": "2e07160f8ba5556535876dcfdeaf294498d28d5a003e154fee2c089edeb5bfb8",
+      "segments": [
+        {
+          "record": "h200010_c16_s0",
+          "begin": 0,
+          "end": 4716812
+        }
+      ]
+    },
+    {
+      "haplotype": "200010_HG00438.mat",
+      "contig": "HG00438#2#JAHBCA020000011.1",
+      "begin": 0,
+      "end": 45861560,
+      "orientation": "+",
+      "contig_md5": "6401fe7e5a9b20aeca6a72785be32b1e",
+      "extracted_fasta_sha256": "2fa5eda6f051c008bf013e3fd5a3a2296cafd5a3c717beed4e3238e19d2a42d2",
+      "segments": [
+        {
+          "record": "h200010_c17_s0",
+          "begin": 0,
+          "end": 45861560
+        }
+      ]
+    },
+    {
+      "haplotype": "200011_HG00544.pat",
+      "contig": "HG00544#1#CM089381.1",
+      "begin": 0,
+      "end": 48607338,
+      "orientation": "+",
+      "contig_md5": "c2fc4f768bf8ea5db92789402bf6d061",
+      "extracted_fasta_sha256": "0db5d33936ea620f64bb19f79edae1798c93cf8a2c3aa3d8f9105ced5cb53256",
+      "segments": [
+        {
+          "record": "h200011_c18_s0",
+          "begin": 0,
+          "end": 48607338
+        }
+      ]
+    },
+    {
+      "haplotype": "200012_HG00544.mat",
+      "contig": "HG00544#2#JBHIIN010000020.1",
+      "begin": 0,
+      "end": 2840136,
+      "orientation": "+",
+      "contig_md5": "313d0a414b9a84ba73d909b3ee0d8145",
+      "extracted_fasta_sha256": "2081333c1d45ff2a5b7420208f1900f899cfa5c1bcd5a168f05f374b5a724e31",
+      "segments": [
+        {
+          "record": "h200012_c19_s0",
+          "begin": 0,
+          "end": 2840136
+        }
+      ]
+    },
+    {
+      "haplotype": "200012_HG00544.mat",
+      "contig": "HG00544#2#JBHIIN010000044.1",
+      "begin": 0,
+      "end": 4023920,
+      "orientation": "+",
+      "contig_md5": "1531f32467c47f3b491564f030672af4",
+      "extracted_fasta_sha256": "6d1c3284be7287eab621597996adeed6019be4ffb957f7cc5bf2bda54c54dc0c",
+      "segments": [
+        {
+          "record": "h200012_c20_s0",
+          "begin": 0,
+          "end": 4023920
+        }
+      ]
+    },
+    {
+      "haplotype": "200012_HG00544.mat",
+      "contig": "HG00544#2#CM089395.1",
+      "begin": 0,
+      "end": 50775831,
+      "orientation": "+",
+      "contig_md5": "09e07f8d2acbaee60d12c5f2625ee72a",
+      "extracted_fasta_sha256": "143bfad2b3184f4d4ea92e71fd5c974db0efce3b9da9e4789e567a72ecd3824d",
+      "segments": [
+        {
+          "record": "h200012_c21_s0",
+          "begin": 0,
+          "end": 50775831
+        }
+      ]
+    },
+    {
+      "haplotype": "200013_HG00558.pat",
+      "contig": "HG00558#1#JBHIHC010000065.1",
+      "begin": 0,
+      "end": 2937860,
+      "orientation": "+",
+      "contig_md5": "599abe2db6b8fb952b6c544134ed3e16",
+      "extracted_fasta_sha256": "5a261120e3667d8eb164eb141a8531b74c28a681161eb5809211210486c1c529",
+      "segments": [
+        {
+          "record": "h200013_c22_s0",
+          "begin": 0,
+          "end": 2937860
+        }
+      ]
+    },
+    {
+      "haplotype": "200013_HG00558.pat",
+      "contig": "HG00558#1#JBHIHC010000014.1",
+      "begin": 0,
+      "end": 50615493,
+      "orientation": "+",
+      "contig_md5": "6284d00b3f6574c5cee690324044d03b",
+      "extracted_fasta_sha256": "a0a27e213466a4109c4955ff4019f1e08b884e7dd243f6ca50bb3ea8e271f38b",
+      "segments": [
+        {
+          "record": "h200013_c23_s0",
+          "begin": 0,
+          "end": 50615493
+        }
+      ]
+    },
+    {
+      "haplotype": "200014_HG00558.mat",
+      "contig": "HG00558#2#JBHIHD010000051.1",
+      "begin": 0,
+      "end": 3856202,
+      "orientation": "+",
+      "contig_md5": "f06cee9ab586904c58cbd4edb98db84c",
+      "extracted_fasta_sha256": "391973c14dbde2842d4ba6024ec0e75a08a07ea0927f778ca7a046fefa526afd",
+      "segments": [
+        {
+          "record": "h200014_c24_s0",
+          "begin": 0,
+          "end": 3856202
+        }
+      ]
+    },
+    {
+      "haplotype": "200014_HG00558.mat",
+      "contig": "HG00558#2#JBHIHD010000012.1",
+      "begin": 0,
+      "end": 46101625,
+      "orientation": "+",
+      "contig_md5": "e18d39725b2f01f86d6fc86d8697fac6",
+      "extracted_fasta_sha256": "cb54a8634d9808c2d2706aad6ddc732276cb78abd96b479560748f82fbb23741",
+      "segments": [
+        {
+          "record": "h200014_c25_s0",
+          "begin": 0,
+          "end": 46101625
+        }
+      ]
+    },
+    {
+      "haplotype": "200015_HG00597.pat",
+      "contig": "HG00597#1#JBHDUU010000057.1",
+      "begin": 0,
+      "end": 3872641,
+      "orientation": "+",
+      "contig_md5": "099e2317b40ff429b494b247866dfed9",
+      "extracted_fasta_sha256": "0c072bbaf884cae2a3e7b8f6ba3083a9a02cdf3bc38dc867b11b11dbf19bb667",
+      "segments": [
+        {
+          "record": "h200015_c26_s0",
+          "begin": 0,
+          "end": 3415240
+        },
+        {
+          "record": "h200015_c26_s1",
+          "begin": 3415340,
+          "end": 3872641
+        }
+      ]
+    },
+    {
+      "haplotype": "200015_HG00597.pat",
+      "contig": "HG00597#1#JBHDUU010000056.1",
+      "begin": 0,
+      "end": 1854639,
+      "orientation": "+",
+      "contig_md5": "53fcb54329189e859095bf3d3356b20d",
+      "extracted_fasta_sha256": "3ab649637d83397c3a19f9dd5afef8e6ce476c31bb5c98adeef7da78ca019374",
+      "segments": [
+        {
+          "record": "h200015_c27_s0",
+          "begin": 0,
+          "end": 1854639
+        }
+      ]
+    },
+    {
+      "haplotype": "200015_HG00597.pat",
+      "contig": "HG00597#1#JBHDUU010000062.1",
+      "begin": 0,
+      "end": 2963561,
+      "orientation": "+",
+      "contig_md5": "98fb6591caab93ed6c8605232c34dc41",
+      "extracted_fasta_sha256": "f55663ba2a49940ce4b0115bb8e64b196f1d1447127afcf1348f3bc8cbc92f17",
+      "segments": [
+        {
+          "record": "h200015_c28_s0",
+          "begin": 0,
+          "end": 2963561
+        }
+      ]
+    },
+    {
+      "haplotype": "200015_HG00597.pat",
+      "contig": "HG00597#1#JBHDUU010000013.1",
+      "begin": 0,
+      "end": 44948375,
+      "orientation": "+",
+      "contig_md5": "3ef59397a0fc0f5f2997731d1e78e79a",
+      "extracted_fasta_sha256": "ab838c8e39a7e6c232c83d534ee5d6e8b26965caeb1c64e5f355a421cbee2d0f",
+      "segments": [
+        {
+          "record": "h200015_c29_s0",
+          "begin": 0,
+          "end": 44948375
+        }
+      ]
+    },
+    {
+      "haplotype": "200016_HG00597.mat",
+      "contig": "HG00597#2#JBHDUV010000021.1",
+      "begin": 0,
+      "end": 6107433,
+      "orientation": "+",
+      "contig_md5": "af5a4dd354df9f5bccb7d184356d6b75",
+      "extracted_fasta_sha256": "fe7247578b0ed009b206eb4f295b99e270c12a034e5d8326d6a9e46ec8bdcd7e",
+      "segments": [
+        {
+          "record": "h200016_c30_s0",
+          "begin": 0,
+          "end": 3605603
+        },
+        {
+          "record": "h200016_c30_s1",
+          "begin": 3605703,
+          "end": 6107433
+        }
+      ]
+    },
+    {
+      "haplotype": "200016_HG00597.mat",
+      "contig": "HG00597#2#JBHDUV010000015.1",
+      "begin": 0,
+      "end": 45241200,
+      "orientation": "+",
+      "contig_md5": "68442f7da09b0952caa3966ad49f691f",
+      "extracted_fasta_sha256": "01c6ce2fc50ab2ed0c87eb00358619940e6d5978d2dcda2afa95b0f8ef938495",
+      "segments": [
+        {
+          "record": "h200016_c31_s0",
+          "begin": 0,
+          "end": 45241200
+        }
+      ]
+    },
+    {
+      "haplotype": "200017_HG005.pat",
+      "contig": "HG005#1#JAHEPO020000055.1",
+      "begin": 0,
+      "end": 45727099,
+      "orientation": "+",
+      "contig_md5": "6b446a7b6c0f7658d417b1e39f304cce",
+      "extracted_fasta_sha256": "6c72f332b89cd432411abbf9a8ff649c541fb93af88623124098b3a99699f116",
+      "segments": [
+        {
+          "record": "h200017_c32_s0",
+          "begin": 0,
+          "end": 45727099
+        }
+      ]
+    },
+    {
+      "haplotype": "200018_HG005.mat",
+      "contig": "HG005#2#JAHEPN020000093.1",
+      "begin": 0,
+      "end": 3371759,
+      "orientation": "+",
+      "contig_md5": "992bdd979e3939e00d6039aa208c29c2",
+      "extracted_fasta_sha256": "d2d5a90067e0519f7a2f8ac068cccbab6367dee8bdfebb8b18c7a354c1f4fda6",
+      "segments": [
+        {
+          "record": "h200018_c33_s0",
+          "begin": 0,
+          "end": 3371759
+        }
+      ]
+    },
+    {
+      "haplotype": "200018_HG005.mat",
+      "contig": "HG005#2#JAHEPN020000083.1",
+      "begin": 0,
+      "end": 4131544,
+      "orientation": "+",
+      "contig_md5": "1ba7936366704311613355c84adc13b6",
+      "extracted_fasta_sha256": "21f66570cc21d78294441885a9c4480074caf652fffcb3466ae6e066a0897a12",
+      "segments": [
+        {
+          "record": "h200018_c34_s0",
+          "begin": 0,
+          "end": 4131544
+        }
+      ]
+    },
+    {
+      "haplotype": "200018_HG005.mat",
+      "contig": "HG005#2#JAHEPN020000036.1",
+      "begin": 0,
+      "end": 1794865,
+      "orientation": "+",
+      "contig_md5": "068af0dbb888c16b18c673bbe452b9d2",
+      "extracted_fasta_sha256": "d01790fea2c22fa47611a882d3e5aa7269832d4074aa31ce90ef4df5e776c7d5",
+      "segments": [
+        {
+          "record": "h200018_c35_s0",
+          "begin": 0,
+          "end": 1794865
+        }
+      ]
+    },
+    {
+      "haplotype": "200018_HG005.mat",
+      "contig": "HG005#2#JAHEPN020000016.1",
+      "begin": 0,
+      "end": 41602206,
+      "orientation": "+",
+      "contig_md5": "31718c2290188254e2adebe547f86a86",
+      "extracted_fasta_sha256": "e134f34da9284d132d222a48a4a7e6db5a5602e253781340d43ab3a79b855c89",
+      "segments": [
+        {
+          "record": "h200018_c36_s0",
+          "begin": 0,
+          "end": 41602206
+        }
+      ]
+    },
+    {
+      "haplotype": "200019_HG00609.pat",
+      "contig": "HG00609#1#JBHDRX010000024.1",
+      "begin": 0,
+      "end": 2950503,
+      "orientation": "+",
+      "contig_md5": "684f6b2fa10e5cb799cd8388874f4ded",
+      "extracted_fasta_sha256": "213c6ec00880e9fb49c1f6490b81c420be93ee024e62ae72b668e8e7a9db8d9e",
+      "segments": [
+        {
+          "record": "h200019_c37_s0",
+          "begin": 0,
+          "end": 2950503
+        }
+      ]
+    },
+    {
+      "haplotype": "200019_HG00609.pat",
+      "contig": "HG00609#1#JBHDRX010000016.1",
+      "begin": 0,
+      "end": 44472138,
+      "orientation": "+",
+      "contig_md5": "154a9f6b72b8e4a64d7db1630330c4ce",
+      "extracted_fasta_sha256": "8e0e22d5e254235a2a49a077bba22d2e3184075896ccfbdfd1e1e1e192eecd40",
+      "segments": [
+        {
+          "record": "h200019_c38_s0",
+          "begin": 0,
+          "end": 44472138
+        }
+      ]
+    },
+    {
+      "haplotype": "200020_HG00609.mat",
+      "contig": "HG00609#2#JBHDRY010000046.1",
+      "begin": 0,
+      "end": 3911844,
+      "orientation": "+",
+      "contig_md5": "33a951462a09e777ed46b67b4b560af8",
+      "extracted_fasta_sha256": "e7f8de6710d363b346bb2cefe8b496a8fc2b6832ae5ddb906a8236b3fef16f0c",
+      "segments": [
+        {
+          "record": "h200020_c39_s0",
+          "begin": 0,
+          "end": 3911844
+        }
+      ]
+    },
+    {
+      "haplotype": "200020_HG00609.mat",
+      "contig": "HG00609#2#JBHDRY010000015.1",
+      "begin": 0,
+      "end": 45430126,
+      "orientation": "+",
+      "contig_md5": "a4c3d5367712bd7f072f03d0f4389da0",
+      "extracted_fasta_sha256": "fbe0ac310ee9455990bc18fba77d6ff3d1b8169b229a9defb97148c905dad46a",
+      "segments": [
+        {
+          "record": "h200020_c40_s0",
+          "begin": 0,
+          "end": 7829041
+        },
+        {
+          "record": "h200020_c40_s1",
+          "begin": 7829141,
+          "end": 15804883
+        },
+        {
+          "record": "h200020_c40_s2",
+          "begin": 15827103,
+          "end": 45430126
+        }
+      ]
+    },
+    {
+      "haplotype": "200021_HG00621.pat",
+      "contig": "HG00621#1#JAHBCD020000049.1",
+      "begin": 0,
+      "end": 1414150,
+      "orientation": "+",
+      "contig_md5": "19e7fff3ec4a9a905e3adeba5124c7e9",
+      "extracted_fasta_sha256": "e9f6f9f5aeea9fa77e5bcd829686c9d7816c7132bcc21d0df6609a9f75b3a40e",
+      "segments": [
+        {
+          "record": "h200021_c41_s0",
+          "begin": 0,
+          "end": 1414150
+        }
+      ]
+    },
+    {
+      "haplotype": "200021_HG00621.pat",
+      "contig": "HG00621#1#JAHBCD020000038.1",
+      "begin": 0,
+      "end": 45333917,
+      "orientation": "+",
+      "contig_md5": "8f12135ce3e6e2768552d1e3a9204c5c",
+      "extracted_fasta_sha256": "b8487474ba1a7fa6166f18484fa9c063d23c1474ee28750c6ff849a87245c0db",
+      "segments": [
+        {
+          "record": "h200021_c42_s0",
+          "begin": 0,
+          "end": 32500149
+        },
+        {
+          "record": "h200021_c42_s1",
+          "begin": 32519272,
+          "end": 35528366
+        },
+        {
+          "record": "h200021_c42_s2",
+          "begin": 35552785,
+          "end": 45333917
+        }
+      ]
+    },
+    {
+      "haplotype": "200022_HG00621.mat",
+      "contig": "HG00621#2#JAHBCC020000043.1",
+      "begin": 0,
+      "end": 4404265,
+      "orientation": "+",
+      "contig_md5": "b99e678c086c06e8ffb37d5d9012e407",
+      "extracted_fasta_sha256": "12af2da7716cbb709de4f9970b63ec595343519f226dc87b01d9b1d979a52017",
+      "segments": [
+        {
+          "record": "h200022_c43_s0",
+          "begin": 0,
+          "end": 4404265
+        }
+      ]
+    },
+    {
+      "haplotype": "200022_HG00621.mat",
+      "contig": "HG00621#2#CM087875.1",
+      "begin": 0,
+      "end": 47868764,
+      "orientation": "+",
+      "contig_md5": "50ad5d32df3c16b048a9bda025cda253",
+      "extracted_fasta_sha256": "6191e87280ba6b25bcaaf47b032723de70e42cee78502e952652d71cec83a57a",
+      "segments": [
+        {
+          "record": "h200022_c44_s0",
+          "begin": 0,
+          "end": 47868764
+        }
+      ]
+    },
+    {
+      "haplotype": "200023_HG00639.pat",
+      "contig": "HG00639#1#JBHIHE010000015.1",
+      "begin": 0,
+      "end": 45536663,
+      "orientation": "+",
+      "contig_md5": "afa737772520aa3fef628ea2526a92da",
+      "extracted_fasta_sha256": "c132bf09289d81a73073b6119d1f048b1f60c5f5d686dc892c33d1a5ad5ffffa",
+      "segments": [
+        {
+          "record": "h200023_c45_s0",
+          "begin": 0,
+          "end": 45536663
+        }
+      ]
+    },
+    {
+      "haplotype": "200024_HG00639.mat",
+      "contig": "HG00639#2#JBHIHF010000015.1",
+      "begin": 0,
+      "end": 6632150,
+      "orientation": "+",
+      "contig_md5": "8dfab1a8d6daf9feb9c0736c7b86aaab",
+      "extracted_fasta_sha256": "ac6a51719d38b01baae2142ee455c48b83b9d75422bf773a54abde1cf8e241eb",
+      "segments": [
+        {
+          "record": "h200024_c46_s0",
+          "begin": 0,
+          "end": 6632150
+        }
+      ]
+    },
+    {
+      "haplotype": "200024_HG00639.mat",
+      "contig": "HG00639#2#JBHIHF010000012.1",
+      "begin": 0,
+      "end": 45616208,
+      "orientation": "+",
+      "contig_md5": "ef66ba8124627ecf77e8341ed6f0edcf",
+      "extracted_fasta_sha256": "8501265518e91c7aa1d0d128e5906916bfd40cb2d44ce18473e468e06e584a76",
+      "segments": [
+        {
+          "record": "h200024_c47_s0",
+          "begin": 0,
+          "end": 45616208
+        }
+      ]
+    },
+    {
+      "haplotype": "200025_HG00642.pat",
+      "contig": "HG00642#1#JBHDST010000048.1",
+      "begin": 0,
+      "end": 4150988,
+      "orientation": "+",
+      "contig_md5": "56947356b1f41c07989a691a018a2c9b",
+      "extracted_fasta_sha256": "8238ef3ba9231cfb29670affbf524866bb3958d82f36f17d4ce70dc2e6fac6d9",
+      "segments": [
+        {
+          "record": "h200025_c48_s0",
+          "begin": 0,
+          "end": 4150988
+        }
+      ]
+    },
+    {
+      "haplotype": "200025_HG00642.pat",
+      "contig": "HG00642#1#JBHDST010000011.1",
+      "begin": 0,
+      "end": 49533278,
+      "orientation": "+",
+      "contig_md5": "f812345576c678297977434c258150e7",
+      "extracted_fasta_sha256": "e3689f6a64b961036b8e9ab4313e3c3e078849e5149bc173733f27637f5025a2",
+      "segments": [
+        {
+          "record": "h200025_c49_s0",
+          "begin": 0,
+          "end": 1948915
+        },
+        {
+          "record": "h200025_c49_s1",
+          "begin": 2446767,
+          "end": 49533278
+        }
+      ]
+    },
+    {
+      "haplotype": "200026_HG00642.mat",
+      "contig": "HG00642#2#JBHDSU010000017.1",
+      "begin": 0,
+      "end": 4112554,
+      "orientation": "+",
+      "contig_md5": "d1c80b64b506a919d1b6de018239aec3",
+      "extracted_fasta_sha256": "af734b87451116fda9a1c9b3362f47c75c3d1d898e1db0ed0866620f05e09d2b",
+      "segments": [
+        {
+          "record": "h200026_c50_s0",
+          "begin": 0,
+          "end": 4112554
+        }
+      ]
+    },
+    {
+      "haplotype": "200026_HG00642.mat",
+      "contig": "HG00642#2#JBHDSU010000018.1",
+      "begin": 0,
+      "end": 47513312,
+      "orientation": "+",
+      "contig_md5": "dd97a0a217f5d9a3e0d5ef9ec00d7e20",
+      "extracted_fasta_sha256": "1791a972a24eb8464297f3f23e3219a3fe8decb3ef20a17108e44a16b9a35c77",
+      "segments": [
+        {
+          "record": "h200026_c51_s0",
+          "begin": 0,
+          "end": 47513312
+        }
+      ]
+    },
+    {
+      "haplotype": "200027_HG00658.pat",
+      "contig": "HG00658#1#JBHIHU010000118.1",
+      "begin": 0,
+      "end": 191920,
+      "orientation": "+",
+      "contig_md5": "ec9005a9f09f3492eabff21a8fd51a8a",
+      "extracted_fasta_sha256": "7b2ec0716ea359fead94ce242f46b57ae4cacf82dad4f622e286c8d39aa7aabb",
+      "segments": [
+        {
+          "record": "h200027_c52_s0",
+          "begin": 0,
+          "end": 191920
+        }
+      ]
+    },
+    {
+      "haplotype": "200027_HG00658.pat",
+      "contig": "HG00658#1#JBHIHU010000080.1",
+      "begin": 0,
+      "end": 3651008,
+      "orientation": "+",
+      "contig_md5": "a419bf32326bc332b57e7ce1a7f5b184",
+      "extracted_fasta_sha256": "5fd6dee6a939a092038767e2bea4619cb8fe22f4d9f5e2ef799df3344b9b7ae9",
+      "segments": [
+        {
+          "record": "h200027_c53_s0",
+          "begin": 0,
+          "end": 3651008
+        }
+      ]
+    },
+    {
+      "haplotype": "200027_HG00658.pat",
+      "contig": "HG00658#1#JBHIHU010000009.1",
+      "begin": 0,
+      "end": 45739703,
+      "orientation": "+",
+      "contig_md5": "03f70fe6e74fc94f99c332446b2db6d0",
+      "extracted_fasta_sha256": "c679d9b109f06c2730ce219a6b44f910485b60d6cd7c04d1f65e7b5992a65a4b",
+      "segments": [
+        {
+          "record": "h200027_c54_s0",
+          "begin": 0,
+          "end": 45739703
+        }
+      ]
+    },
+    {
+      "haplotype": "200028_HG00658.mat",
+      "contig": "HG00658#2#JBHIHV010000044.1",
+      "begin": 0,
+      "end": 4182712,
+      "orientation": "+",
+      "contig_md5": "0d135bab198c691c60471359816cecf8",
+      "extracted_fasta_sha256": "9cf0198b1d517b72850920b85eef9330a406f3b933db7b436cb32d7870a453b3",
+      "segments": [
+        {
+          "record": "h200028_c55_s0",
+          "begin": 0,
+          "end": 4182712
+        }
+      ]
+    },
+    {
+      "haplotype": "200028_HG00658.mat",
+      "contig": "HG00658#2#JBHIHV010000043.1",
+      "begin": 0,
+      "end": 4923823,
+      "orientation": "+",
+      "contig_md5": "93dd25e07ada1997b454add16c16ecb9",
+      "extracted_fasta_sha256": "9d37b90f39e369fe65bba6e2fb280e3576604dd368bf6e16df359a03aee0c7b3",
+      "segments": [
+        {
+          "record": "h200028_c56_s0",
+          "begin": 0,
+          "end": 4923823
+        }
+      ]
+    },
+    {
+      "haplotype": "200028_HG00658.mat",
+      "contig": "HG00658#2#JBHIHV010000019.1",
+      "begin": 0,
+      "end": 7766311,
+      "orientation": "+",
+      "contig_md5": "74968b8fdcf134984f14714ce50fb9ab",
+      "extracted_fasta_sha256": "f64c9df6c790173d455fbe33d0e16891a8b198d2f814ec99d43f8a49a2bd486d",
+      "segments": [
+        {
+          "record": "h200028_c57_s0",
+          "begin": 0,
+          "end": 7766311
+        }
+      ]
+    },
+    {
+      "haplotype": "200028_HG00658.mat",
+      "contig": "HG00658#2#JBHIHV010000021.1",
+      "begin": 0,
+      "end": 748438,
+      "orientation": "+",
+      "contig_md5": "b7a82cdcd248c475e5808c45626d93f5",
+      "extracted_fasta_sha256": "45a8d6bdd330d6b80924d292eeb58d39b6801ab9b1a836b127b0cec9ab9034d8",
+      "segments": [
+        {
+          "record": "h200028_c58_s0",
+          "begin": 0,
+          "end": 748438
+        }
+      ]
+    },
+    {
+      "haplotype": "200028_HG00658.mat",
+      "contig": "HG00658#2#JBHIHV010000013.1",
+      "begin": 0,
+      "end": 42269206,
+      "orientation": "+",
+      "contig_md5": "3eb9c1a44ae44a906e10c5433d1724b9",
+      "extracted_fasta_sha256": "e1dde35d917b605394fc6fa9bdb51df32368b35ac82d07c38f6c23de47a32c2a",
+      "segments": [
+        {
+          "record": "h200028_c59_s0",
+          "begin": 0,
+          "end": 4060412
+        },
+        {
+          "record": "h200028_c59_s1",
+          "begin": 4839727,
+          "end": 42269206
+        }
+      ]
+    },
+    {
+      "haplotype": "200029_HG00673.pat",
+      "contig": "HG00673#1#JAHBBZ020000010.1",
+      "begin": 0,
+      "end": 46022373,
+      "orientation": "+",
+      "contig_md5": "076c2364f0f9be32686cdf64b60632fc",
+      "extracted_fasta_sha256": "25f0b7ec32f630c657fe87125ccdb62405b5c47b00b40c28489adaef6c69af7c",
+      "segments": [
+        {
+          "record": "h200029_c60_s0",
+          "begin": 0,
+          "end": 46022373
+        }
+      ]
+    },
+    {
+      "haplotype": "200030_HG00673.mat",
+      "contig": "HG00673#2#JAHBBY020000013.1",
+      "begin": 0,
+      "end": 34422844,
+      "orientation": "+",
+      "contig_md5": "1d0e9c131b4e80c80e606fb54c373f93",
+      "extracted_fasta_sha256": "72554f0856c126cb08ae8586dba77f6d0626896e20c632c87700d6005bf1be0d",
+      "segments": [
+        {
+          "record": "h200030_c61_s0",
+          "begin": 0,
+          "end": 9597836
+        },
+        {
+          "record": "h200030_c61_s1",
+          "begin": 9597936,
+          "end": 34422844
+        }
+      ]
+    },
+    {
+      "haplotype": "200030_HG00673.mat",
+      "contig": "HG00673#2#JAHBBY020000014.1",
+      "begin": 0,
+      "end": 12814428,
+      "orientation": "+",
+      "contig_md5": "7f918ca92d0d48556fd826210759216b",
+      "extracted_fasta_sha256": "44c1658a071f1fcb7fba00898286e671196c72ba84538e1fcfec8655c1b6e6e8",
+      "segments": [
+        {
+          "record": "h200030_c62_s0",
+          "begin": 0,
+          "end": 12814428
+        }
+      ]
+    },
+    {
+      "haplotype": "200031_HG00706.pat",
+      "contig": "HG00706#1#JBJXWD010000060.1",
+      "begin": 0,
+      "end": 3919911,
+      "orientation": "+",
+      "contig_md5": "ea9b7232dc44835ebd6ed6b5149fc58b",
+      "extracted_fasta_sha256": "13110819ece6a47fa5aeb282c37bdace3d417669f64023e04ffdd8ef1fa71770",
+      "segments": [
+        {
+          "record": "h200031_c63_s0",
+          "begin": 0,
+          "end": 3919911
+        }
+      ]
+    },
+    {
+      "haplotype": "200031_HG00706.pat",
+      "contig": "HG00706#1#JBJXWD010000009.1",
+      "begin": 0,
+      "end": 46148734,
+      "orientation": "+",
+      "contig_md5": "6007c50bb687c5bd01c2e598e8fcb682",
+      "extracted_fasta_sha256": "f647b341ffd277f26d50d9d8ac0f13e87ae048e892cdd77946b82bc65af24248",
+      "segments": [
+        {
+          "record": "h200031_c64_s0",
+          "begin": 0,
+          "end": 46148734
+        }
+      ]
+    },
+    {
+      "haplotype": "200032_HG00706.mat",
+      "contig": "HG00706#2#JBJXWE010000055.1",
+      "begin": 0,
+      "end": 3454849,
+      "orientation": "+",
+      "contig_md5": "9853e5b8e7f3024da999860693472830",
+      "extracted_fasta_sha256": "fab166dd6db169af927b0ff2907ed2706140669acab084f1ac759d67587a29eb",
+      "segments": [
+        {
+          "record": "h200032_c65_s0",
+          "begin": 0,
+          "end": 3454849
+        }
+      ]
+    },
+    {
+      "haplotype": "200032_HG00706.mat",
+      "contig": "HG00706#2#JBJXWE010000056.1",
+      "begin": 0,
+      "end": 3351975,
+      "orientation": "+",
+      "contig_md5": "de3ac1ad7330bf82d0b8e16603c0936a",
+      "extracted_fasta_sha256": "8fee95d13b2095e9e4b749692c610344a32cc7f25b64f573df11079bcf1a3792",
+      "segments": [
+        {
+          "record": "h200032_c66_s0",
+          "begin": 0,
+          "end": 3351975
+        }
+      ]
+    },
+    {
+      "haplotype": "200032_HG00706.mat",
+      "contig": "HG00706#2#JBJXWE010000010.1",
+      "begin": 0,
+      "end": 45748783,
+      "orientation": "+",
+      "contig_md5": "3b8cf2191dce1b2464be3726061c6799",
+      "extracted_fasta_sha256": "4875ffec2856d5b07d275c09bb643a41331cd3991860ff47a2b1813ea0546be5",
+      "segments": [
+        {
+          "record": "h200032_c67_s0",
+          "begin": 0,
+          "end": 8013965
+        },
+        {
+          "record": "h200032_c67_s1",
+          "begin": 8014065,
+          "end": 45748783
+        }
+      ]
+    },
+    {
+      "haplotype": "200033_HG00733.pat",
+      "contig": "HG00733#1#JAHEPQ020000058.1",
+      "begin": 0,
+      "end": 3440409,
+      "orientation": "+",
+      "contig_md5": "6b9e3f71663a07d1ee64b96b6e697847",
+      "extracted_fasta_sha256": "8530a2b7bfb5b0a98b212fa157631e0647c41d904d70253664e81024e808f4a3",
+      "segments": [
+        {
+          "record": "h200033_c68_s0",
+          "begin": 0,
+          "end": 3440409
+        }
+      ]
+    },
+    {
+      "haplotype": "200033_HG00733.pat",
+      "contig": "HG00733#1#JAHEPQ020000059.1",
+      "begin": 0,
+      "end": 1321696,
+      "orientation": "+",
+      "contig_md5": "420e7002c2f8074568f4a017b4f53d8a",
+      "extracted_fasta_sha256": "9b09407fae0ffa5a11824bc6e2e0c77c1fb78b3c2a5a91d7a60bdab9bfb32eb9",
+      "segments": [
+        {
+          "record": "h200033_c69_s0",
+          "begin": 0,
+          "end": 1321696
+        }
+      ]
+    },
+    {
+      "haplotype": "200033_HG00733.pat",
+      "contig": "HG00733#1#JAHEPQ020000027.1",
+      "begin": 0,
+      "end": 539869,
+      "orientation": "+",
+      "contig_md5": "b942ac10781c6960938097fe0a8305ff",
+      "extracted_fasta_sha256": "2603f2c188de7e9bf1e53d1bc0ee10fb820104f899ac244441b84e4ee62f7a80",
+      "segments": [
+        {
+          "record": "h200033_c70_s0",
+          "begin": 0,
+          "end": 539869
+        }
+      ]
+    },
+    {
+      "haplotype": "200033_HG00733.pat",
+      "contig": "HG00733#1#JAHEPQ020000017.1",
+      "begin": 0,
+      "end": 44432770,
+      "orientation": "+",
+      "contig_md5": "a4a76cc5ef8ddd12c4002c08f18055b3",
+      "extracted_fasta_sha256": "7be3ab17de204a26ca55dfb69b3ee3009e513ca0cb1a688824a6a860c7b99143",
+      "segments": [
+        {
+          "record": "h200033_c71_s0",
+          "begin": 0,
+          "end": 6612200
+        },
+        {
+          "record": "h200033_c71_s1",
+          "begin": 6612300,
+          "end": 44432770
+        }
+      ]
+    },
+    {
+      "haplotype": "200034_HG00733.mat",
+      "contig": "HG00733#2#JAHEPP020000089.1",
+      "begin": 0,
+      "end": 3715190,
+      "orientation": "+",
+      "contig_md5": "cd8e9092e784d5f54e48066ab892f24b",
+      "extracted_fasta_sha256": "5809fb0c8a737fd05a389e18dbd4796ecd4e507f68d872d45d97f0149829fef9",
+      "segments": [
+        {
+          "record": "h200034_c72_s0",
+          "begin": 0,
+          "end": 3715190
+        }
+      ]
+    },
+    {
+      "haplotype": "200034_HG00733.mat",
+      "contig": "HG00733#2#JAHEPP020000051.1",
+      "begin": 0,
+      "end": 45291155,
+      "orientation": "+",
+      "contig_md5": "430053faa86f4868ac7b53fdffa897a7",
+      "extracted_fasta_sha256": "43d589a4b60d3e7c769206e5be894fdf9867303a5cf4ce475d66740df21986e8",
+      "segments": [
+        {
+          "record": "h200034_c73_s0",
+          "begin": 0,
+          "end": 45291155
+        }
+      ]
+    },
+    {
+      "haplotype": "200035_HG00735.pat",
+      "contig": "HG00735#1#JAHBCH020000054.1",
+      "begin": 0,
+      "end": 4988308,
+      "orientation": "+",
+      "contig_md5": "1c22252f5934d9621f63686b7f57940a",
+      "extracted_fasta_sha256": "5b230132234d9f9d57a6c99c79f6d0c0fc39c048d83f471a52324160351f9888",
+      "segments": [
+        {
+          "record": "h200035_c74_s0",
+          "begin": 0,
+          "end": 4988308
+        }
+      ]
+    },
+    {
+      "haplotype": "200035_HG00735.pat",
+      "contig": "HG00735#1#JAHBCH020000041.1",
+      "begin": 0,
+      "end": 55333,
+      "orientation": "+",
+      "contig_md5": "8dc10841bfc41907d18196dbfdfaf6f5",
+      "extracted_fasta_sha256": "ba17b41797b4da7ea4ec9d627176db8086882b6534512756831bbbc602fb5511",
+      "segments": [
+        {
+          "record": "h200035_c75_s0",
+          "begin": 0,
+          "end": 55333
+        }
+      ]
+    },
+    {
+      "haplotype": "200035_HG00735.pat",
+      "contig": "HG00735#1#JAHBCH020000014.1",
+      "begin": 0,
+      "end": 46097133,
+      "orientation": "+",
+      "contig_md5": "9961d01fca818afdf18ad47c7cdb575d",
+      "extracted_fasta_sha256": "613a5e3a3456a21affad8f02291503322c1ee3e6e329ddb361b7c1abba32dc7d",
+      "segments": [
+        {
+          "record": "h200035_c76_s0",
+          "begin": 0,
+          "end": 46097133
+        }
+      ]
+    },
+    {
+      "haplotype": "200036_HG00735.mat",
+      "contig": "HG00735#2#JAHBCG030000062.1",
+      "begin": 0,
+      "end": 1026487,
+      "orientation": "+",
+      "contig_md5": "3ca4aeac51970d8b2a3b3a756ebc1a30",
+      "extracted_fasta_sha256": "a24ab5410afd35c86c0e57cc1e2859715c4bb7aaa8db3a9e9c636652eb0696d6",
+      "segments": [
+        {
+          "record": "h200036_c77_s0",
+          "begin": 0,
+          "end": 1026487
+        }
+      ]
+    },
+    {
+      "haplotype": "200036_HG00735.mat",
+      "contig": "HG00735#2#JAHBCG030000067.1",
+      "begin": 0,
+      "end": 1425103,
+      "orientation": "+",
+      "contig_md5": "6a8e28a99abfe3802551c3ad0fabfc0a",
+      "extracted_fasta_sha256": "396275ab638754d0e042827419c340dcf420e8911fe618d1d8d00cbe49933c40",
+      "segments": [
+        {
+          "record": "h200036_c78_s0",
+          "begin": 0,
+          "end": 1425103
+        }
+      ]
+    },
+    {
+      "haplotype": "200036_HG00735.mat",
+      "contig": "HG00735#2#JAHBCG030000021.1",
+      "begin": 0,
+      "end": 1131234,
+      "orientation": "+",
+      "contig_md5": "1cb656b044c48bd63077c7dc8ea900e5",
+      "extracted_fasta_sha256": "31f374af0ef8573325c8fb36e15fc17d4a1b4c8503b1968080dc0bd51366beb5",
+      "segments": [
+        {
+          "record": "h200036_c79_s0",
+          "begin": 0,
+          "end": 1131234
+        }
+      ]
+    },
+    {
+      "haplotype": "200036_HG00735.mat",
+      "contig": "HG00735#2#JAHBCG030000015.1",
+      "begin": 0,
+      "end": 46654743,
+      "orientation": "+",
+      "contig_md5": "f7d1852a2f288b8b8e922fd845eb5afd",
+      "extracted_fasta_sha256": "5945c9cc4bb017a31b78b623f9a99ee5e13faa0f3433c56bee05873bb403fcac",
+      "segments": [
+        {
+          "record": "h200036_c80_s0",
+          "begin": 0,
+          "end": 46654743
+        }
+      ]
+    },
+    {
+      "haplotype": "200037_HG00738.pat",
+      "contig": "HG00738#1#JBHDSX010000068.1",
+      "begin": 0,
+      "end": 1672692,
+      "orientation": "+",
+      "contig_md5": "558893f990f3914c260ea6efa855fd62",
+      "extracted_fasta_sha256": "ae52822a69cafc63d3887e7940e8d8908eacfea6d928df67bb490c5c94f22b44",
+      "segments": [
+        {
+          "record": "h200037_c81_s0",
+          "begin": 0,
+          "end": 1672692
+        }
+      ]
+    },
+    {
+      "haplotype": "200037_HG00738.pat",
+      "contig": "HG00738#1#JBHDSX010000010.1",
+      "begin": 0,
+      "end": 43088302,
+      "orientation": "+",
+      "contig_md5": "83c8b3a0812716e207ae4aa2d770053a",
+      "extracted_fasta_sha256": "bb7cc7aaaffe7437775770161b9e27757b7a46c1890bb7ebbd232d8f126e4199",
+      "segments": [
+        {
+          "record": "h200037_c82_s0",
+          "begin": 0,
+          "end": 43088302
+        }
+      ]
+    },
+    {
+      "haplotype": "200038_HG00738.mat",
+      "contig": "HG00738#2#JBHDSY010000022.1",
+      "begin": 0,
+      "end": 380243,
+      "orientation": "+",
+      "contig_md5": "3400ed254b99374176fc2c5426efca6c",
+      "extracted_fasta_sha256": "ad8380bb986114a362880c8fb904448e52f7f4b96a4bc8645adf7838d0715285",
+      "segments": [
+        {
+          "record": "h200038_c83_s0",
+          "begin": 0,
+          "end": 380243
+        }
+      ]
+    },
+    {
+      "haplotype": "200038_HG00738.mat",
+      "contig": "HG00738#2#JBHDSY010000062.1",
+      "begin": 0,
+      "end": 2370334,
+      "orientation": "+",
+      "contig_md5": "b72389b0defedf3005e8f8b47745f384",
+      "extracted_fasta_sha256": "40f7cc6073eb415b454c14e37b7aecbd62c8582ed37ae88ffc38ddad1048ab00",
+      "segments": [
+        {
+          "record": "h200038_c84_s0",
+          "begin": 0,
+          "end": 2370334
+        }
+      ]
+    },
+    {
+      "haplotype": "200038_HG00738.mat",
+      "contig": "HG00738#2#JBHDSY010000038.1",
+      "begin": 0,
+      "end": 211801,
+      "orientation": "+",
+      "contig_md5": "a6a6e0b79dd13d7cf90a1c3f0955a8bc",
+      "extracted_fasta_sha256": "153c58c69463ab9300b8102dcd07ec651bbba7732a221fa86ff7a6a324d589d4",
+      "segments": [
+        {
+          "record": "h200038_c85_s0",
+          "begin": 0,
+          "end": 211801
+        }
+      ]
+    },
+    {
+      "haplotype": "200038_HG00738.mat",
+      "contig": "HG00738#2#JBHDSY010000082.1",
+      "begin": 0,
+      "end": 54771,
+      "orientation": "+",
+      "contig_md5": "f0e4e6c21874899c77dfbc90086c23a2",
+      "extracted_fasta_sha256": "f52083da0ec73fc1ae178a9f03dcbc1284d3c07b3ace0acd95acd55f1d800142",
+      "segments": [
+        {
+          "record": "h200038_c86_s0",
+          "begin": 0,
+          "end": 54771
+        }
+      ]
+    },
+    {
+      "haplotype": "200038_HG00738.mat",
+      "contig": "HG00738#2#JBHDSY010000041.1",
+      "begin": 0,
+      "end": 59262,
+      "orientation": "+",
+      "contig_md5": "fd53a2c11715bcfa39f60e319b498c7a",
+      "extracted_fasta_sha256": "455404910699fe57368ae000365b6170de0e8d0bc416d23e4e7f53db6b057abd",
+      "segments": [
+        {
+          "record": "h200038_c87_s0",
+          "begin": 0,
+          "end": 59262
+        }
+      ]
+    },
+    {
+      "haplotype": "200038_HG00738.mat",
+      "contig": "HG00738#2#CM086690.1",
+      "begin": 0,
+      "end": 48573734,
+      "orientation": "+",
+      "contig_md5": "002fb1a6cc0066284beacc7cc4397593",
+      "extracted_fasta_sha256": "c2468aa1c0a484988235d80ed341895eaf487dc2f789e780935ecd2e44c95fc9",
+      "segments": [
+        {
+          "record": "h200038_c88_s0",
+          "begin": 0,
+          "end": 48573734
+        }
+      ]
+    },
+    {
+      "haplotype": "200039_HG00741.pat",
+      "contig": "HG00741#1#JAHALY020000052.1",
+      "begin": 0,
+      "end": 1942039,
+      "orientation": "+",
+      "contig_md5": "fef3664b64c1f977c73fa763c53b6796",
+      "extracted_fasta_sha256": "c363fa0c581ead3ee030853add8cbd76f7368951204f6194633a2b7d757c78a3",
+      "segments": [
+        {
+          "record": "h200039_c89_s0",
+          "begin": 0,
+          "end": 1942039
+        }
+      ]
+    },
+    {
+      "haplotype": "200039_HG00741.pat",
+      "contig": "HG00741#1#JAHALY020000006.1",
+      "begin": 0,
+      "end": 45741124,
+      "orientation": "+",
+      "contig_md5": "a1a1f42677e0e077684b5f1bc4b1b286",
+      "extracted_fasta_sha256": "4c76d194e0c07cb4117d27426f8b20a3d97b5065a3b4f3dec7a9323d59e7b585",
+      "segments": [
+        {
+          "record": "h200039_c90_s0",
+          "begin": 0,
+          "end": 45741124
+        }
+      ]
+    },
+    {
+      "haplotype": "200040_HG00741.mat",
+      "contig": "HG00741#2#JAHALX020000011.1",
+      "begin": 0,
+      "end": 44897911,
+      "orientation": "+",
+      "contig_md5": "7e03caf5bdb08bcc199780f894c60a8c",
+      "extracted_fasta_sha256": "e7fb0c597a2625662f6931cb228a2f1cfc87542e747aee916553ab0a7db662a9",
+      "segments": [
+        {
+          "record": "h200040_c91_s0",
+          "begin": 0,
+          "end": 7377961
+        },
+        {
+          "record": "h200040_c91_s1",
+          "begin": 7378061,
+          "end": 44897911
+        }
+      ]
+    },
+    {
+      "haplotype": "200041_HG01071.pat",
+      "contig": "HG01071#1#JAHBCF020000006.1",
+      "begin": 0,
+      "end": 44969374,
+      "orientation": "+",
+      "contig_md5": "6b782a254a0b04082fc3d2cb0aa0f8dc",
+      "extracted_fasta_sha256": "cbf3acc9310855382c8bf3322ac5947fff50d4b1e0936c9fd6fac664c223e0f1",
+      "segments": [
+        {
+          "record": "h200041_c92_s0",
+          "begin": 0,
+          "end": 44969374
+        }
+      ]
+    },
+    {
+      "haplotype": "200042_HG01071.mat",
+      "contig": "HG01071#2#JAHBCE020000055.1",
+      "begin": 0,
+      "end": 3376302,
+      "orientation": "+",
+      "contig_md5": "cb040af5aef4c320ba9ab841fce35cb1",
+      "extracted_fasta_sha256": "09a93ebd68eb5f4d2d7f873395d5cff5af98773906a70d8264388769e76b5ba1",
+      "segments": [
+        {
+          "record": "h200042_c93_s0",
+          "begin": 0,
+          "end": 3376302
+        }
+      ]
+    },
+    {
+      "haplotype": "200042_HG01071.mat",
+      "contig": "HG01071#2#JAHBCE020000052.1",
+      "begin": 0,
+      "end": 3445369,
+      "orientation": "+",
+      "contig_md5": "abdc4737b9649d077d4cae96e072d1a4",
+      "extracted_fasta_sha256": "c05fe5206effa0d8197ee2329c44dea7056acf19701bab408ffb0f6a4a87be52",
+      "segments": [
+        {
+          "record": "h200042_c94_s0",
+          "begin": 0,
+          "end": 3445369
+        }
+      ]
+    },
+    {
+      "haplotype": "200042_HG01071.mat",
+      "contig": "HG01071#2#JAHBCE020000018.1",
+      "begin": 0,
+      "end": 4390767,
+      "orientation": "+",
+      "contig_md5": "fbd3724bb4c1f5d7647f9d3e8df3a1ca",
+      "extracted_fasta_sha256": "87ecdb98e78d3cea2e1c60759f689446b46b8baa934c99d605696b0f3b14e320",
+      "segments": [
+        {
+          "record": "h200042_c95_s0",
+          "begin": 0,
+          "end": 4390767
+        }
+      ]
+    },
+    {
+      "haplotype": "200042_HG01071.mat",
+      "contig": "HG01071#2#CM089140.1",
+      "begin": 0,
+      "end": 49333911,
+      "orientation": "+",
+      "contig_md5": "dcef72a66c8261058202d0dc490fd457",
+      "extracted_fasta_sha256": "b83fbd8c6fe494577b52368cb1dc10ba67bd4426e166115dee41bd453c29f8d1",
+      "segments": [
+        {
+          "record": "h200042_c96_s0",
+          "begin": 0,
+          "end": 49333911
+        }
+      ]
+    },
+    {
+      "haplotype": "200043_HG01074.pat",
+      "contig": "HG01074#1#JBHIHW010000070.1",
+      "begin": 0,
+      "end": 175248,
+      "orientation": "+",
+      "contig_md5": "92346987eefa262133146ec66d99dd99",
+      "extracted_fasta_sha256": "b617645abea11162dacff673f3ef7be9883247e26f0893faaeb56d251d755897",
+      "segments": [
+        {
+          "record": "h200043_c97_s0",
+          "begin": 0,
+          "end": 175248
+        }
+      ]
+    },
+    {
+      "haplotype": "200043_HG01074.pat",
+      "contig": "HG01074#1#JBHIHW010000057.1",
+      "begin": 0,
+      "end": 4074809,
+      "orientation": "+",
+      "contig_md5": "631a3799841a6d989ebbf58493c14d1a",
+      "extracted_fasta_sha256": "da0bdaccb81ea84bb90b4f02aba9551a1b9be98f934b76971760fdb8212a17c7",
+      "segments": [
+        {
+          "record": "h200043_c98_s0",
+          "begin": 0,
+          "end": 4074809
+        }
+      ]
+    },
+    {
+      "haplotype": "200043_HG01074.pat",
+      "contig": "HG01074#1#JBHIHW010000011.1",
+      "begin": 0,
+      "end": 44996654,
+      "orientation": "+",
+      "contig_md5": "01578c5d5ad67e1d9838473ad9b86b70",
+      "extracted_fasta_sha256": "a903c8faf497fbc38907bfc0566f1e8886e7ef279c950ad22fdf6a2221909ba7",
+      "segments": [
+        {
+          "record": "h200043_c99_s0",
+          "begin": 0,
+          "end": 44996654
+        }
+      ]
+    },
+    {
+      "haplotype": "200044_HG01074.mat",
+      "contig": "HG01074#2#JBHIHX010000007.1",
+      "begin": 0,
+      "end": 44779368,
+      "orientation": "+",
+      "contig_md5": "c3680fea9ec5cecb1139ec851fe0ea64",
+      "extracted_fasta_sha256": "c5a749c538b29ef38915cad4146e3881bf5bca81341b4fbca454b4c10f5c1ffb",
+      "segments": [
+        {
+          "record": "h200044_c100_s0",
+          "begin": 0,
+          "end": 785397
+        },
+        {
+          "record": "h200044_c100_s1",
+          "begin": 1207930,
+          "end": 13443706
+        },
+        {
+          "record": "h200044_c100_s2",
+          "begin": 13473862,
+          "end": 44779368
+        }
+      ]
+    },
+    {
+      "haplotype": "200045_HG01081.pat",
+      "contig": "HG01081#1#JBHIHG010000013.1",
+      "begin": 0,
+      "end": 44957309,
+      "orientation": "+",
+      "contig_md5": "29e4afef2b847b62966997c76a3b5540",
+      "extracted_fasta_sha256": "27ffa2079acb232a6c4d48f9a953d699bae2bec8ace523639b54f92aed512485",
+      "segments": [
+        {
+          "record": "h200045_c101_s0",
+          "begin": 0,
+          "end": 44957309
+        }
+      ]
+    },
+    {
+      "haplotype": "200046_HG01081.mat",
+      "contig": "HG01081#2#JBHIHH010000052.1",
+      "begin": 0,
+      "end": 6274341,
+      "orientation": "+",
+      "contig_md5": "97a605c28f513ee02b9eaa780688a6ac",
+      "extracted_fasta_sha256": "500edd5d60d39bb959cf748c44946738ce6411f0a62955b3b14391002d50a480",
+      "segments": [
+        {
+          "record": "h200046_c102_s0",
+          "begin": 0,
+          "end": 6274341
+        }
+      ]
+    },
+    {
+      "haplotype": "200046_HG01081.mat",
+      "contig": "HG01081#2#JBHIHH010000051.1",
+      "begin": 0,
+      "end": 4480897,
+      "orientation": "+",
+      "contig_md5": "5899e2525f5ae15c8d2b32d98c10dc51",
+      "extracted_fasta_sha256": "048e75588177c763523bfb63c771a0c292365539abd2ec033539aa5fa53b14f8",
+      "segments": [
+        {
+          "record": "h200046_c103_s0",
+          "begin": 0,
+          "end": 4480897
+        }
+      ]
+    },
+    {
+      "haplotype": "200046_HG01081.mat",
+      "contig": "HG01081#2#JBHIHH010000045.1",
+      "begin": 0,
+      "end": 3650555,
+      "orientation": "+",
+      "contig_md5": "c36b8255a373767156b5154769010ecf",
+      "extracted_fasta_sha256": "fc1d4c561e3e0457aef3c698f7ed284b76ebf361ceb61d171675b8bc76874321",
+      "segments": [
+        {
+          "record": "h200046_c104_s0",
+          "begin": 0,
+          "end": 3650555
+        }
+      ]
+    },
+    {
+      "haplotype": "200046_HG01081.mat",
+      "contig": "HG01081#2#JBHIHH010000047.1",
+      "begin": 0,
+      "end": 5635847,
+      "orientation": "+",
+      "contig_md5": "3d2bffea7c8202907c236b33fab98720",
+      "extracted_fasta_sha256": "889683a30be895601ada181361bd04ec31c653b84c57326dc4350e8f27a2d8a9",
+      "segments": [
+        {
+          "record": "h200046_c105_s0",
+          "begin": 0,
+          "end": 5526982
+        },
+        {
+          "record": "h200046_c105_s1",
+          "begin": 5527082,
+          "end": 5635847
+        }
+      ]
+    },
+    {
+      "haplotype": "200046_HG01081.mat",
+      "contig": "HG01081#2#JBHIHH010000007.1",
+      "begin": 0,
+      "end": 43638956,
+      "orientation": "+",
+      "contig_md5": "56a920da11f74f2dcd14897e8a38095d",
+      "extracted_fasta_sha256": "315662dd261009f800f7a04b28e28f3fcc8fa63162eed2210143d57dfccf51d4",
+      "segments": [
+        {
+          "record": "h200046_c106_s0",
+          "begin": 0,
+          "end": 43638956
+        }
+      ]
+    },
+    {
+      "haplotype": "200047_HG01099.pat",
+      "contig": "HG01099#1#JBHDRP010000061.1",
+      "begin": 0,
+      "end": 4085539,
+      "orientation": "+",
+      "contig_md5": "a478e4912f8dea06d255e8ae025705ee",
+      "extracted_fasta_sha256": "2102b780f1f1fcc5f148c525964e26fa135b21fcf174f32fade48f9f95bc0d81",
+      "segments": [
+        {
+          "record": "h200047_c107_s0",
+          "begin": 0,
+          "end": 4085539
+        }
+      ]
+    },
+    {
+      "haplotype": "200047_HG01099.pat",
+      "contig": "HG01099#1#JBHDRP010000063.1",
+      "begin": 0,
+      "end": 1892182,
+      "orientation": "+",
+      "contig_md5": "0c9974874731883631f8d4a62be4639f",
+      "extracted_fasta_sha256": "10b69058f4c885ce5fa3a9bcc03682fe119217185c345d604e2fc8819776df64",
+      "segments": [
+        {
+          "record": "h200047_c108_s0",
+          "begin": 0,
+          "end": 1892182
+        }
+      ]
+    },
+    {
+      "haplotype": "200047_HG01099.pat",
+      "contig": "HG01099#1#JBHDRP010000017.1",
+      "begin": 0,
+      "end": 46882058,
+      "orientation": "+",
+      "contig_md5": "82197cca1de6627ccf6fd6abe0a1f41d",
+      "extracted_fasta_sha256": "2ac6f10eab8aa78080695f7964405f89e71ff3d253797fb9ae6fd133f8cade5b",
+      "segments": [
+        {
+          "record": "h200047_c109_s0",
+          "begin": 0,
+          "end": 60990
+        },
+        {
+          "record": "h200047_c109_s1",
+          "begin": 91252,
+          "end": 148730
+        },
+        {
+          "record": "h200047_c109_s2",
+          "begin": 753774,
+          "end": 46882058
+        }
+      ]
+    },
+    {
+      "haplotype": "200048_HG01099.mat",
+      "contig": "HG01099#2#JBHDRQ010000061.1",
+      "begin": 0,
+      "end": 3878651,
+      "orientation": "+",
+      "contig_md5": "9315a40f88d0cdfe06d925e3b1a6872a",
+      "extracted_fasta_sha256": "6b8c19142ec464f450c9b69db4b25acd378cce1f1c1ae3bea603d367cb67ef41",
+      "segments": [
+        {
+          "record": "h200048_c110_s0",
+          "begin": 0,
+          "end": 3878651
+        }
+      ]
+    },
+    {
+      "haplotype": "200048_HG01099.mat",
+      "contig": "HG01099#2#JBHDRQ010000055.1",
+      "begin": 0,
+      "end": 4169447,
+      "orientation": "+",
+      "contig_md5": "a620bf457c04b0cf3f6b46a1e7faed11",
+      "extracted_fasta_sha256": "ec3a49eac9cb751a53aa5d144e15b773a606ddd8971926a9b0618ad7c7ebac74",
+      "segments": [
+        {
+          "record": "h200048_c111_s0",
+          "begin": 0,
+          "end": 4169447
+        }
+      ]
+    },
+    {
+      "haplotype": "200048_HG01099.mat",
+      "contig": "HG01099#2#JBHDRQ010000016.1",
+      "begin": 0,
+      "end": 48003254,
+      "orientation": "+",
+      "contig_md5": "5c4a9bc50758141347df9d8938706bb2",
+      "extracted_fasta_sha256": "361c26c1c0da770e56763f7a8bfe2ca245b7eebf42c8083f111faae21c343937",
+      "segments": [
+        {
+          "record": "h200048_c112_s0",
+          "begin": 0,
+          "end": 3125749
+        },
+        {
+          "record": "h200048_c112_s1",
+          "begin": 3164891,
+          "end": 48003254
+        }
+      ]
+    },
+    {
+      "haplotype": "200049_HG01106.pat",
+      "contig": "HG01106#1#JAHAMC020000063.1",
+      "begin": 0,
+      "end": 1013004,
+      "orientation": "+",
+      "contig_md5": "9cf54399bddb9ecc792c0883a5207cec",
+      "extracted_fasta_sha256": "c86f9e18697f446e3df21532f34b25a3c7cb6308fb310b97ccd93fa110d2e256",
+      "segments": [
+        {
+          "record": "h200049_c113_s0",
+          "begin": 0,
+          "end": 1013004
+        }
+      ]
+    },
+    {
+      "haplotype": "200049_HG01106.pat",
+      "contig": "HG01106#1#JAHAMC020000067.1",
+      "begin": 0,
+      "end": 1441686,
+      "orientation": "+",
+      "contig_md5": "7d77001fb4c53a9f703b163832f05a04",
+      "extracted_fasta_sha256": "77a3dfc54a7d75bf5398e74d1b776a87a7b57f01f0ecff15c36df09895616131",
+      "segments": [
+        {
+          "record": "h200049_c114_s0",
+          "begin": 0,
+          "end": 1441686
+        }
+      ]
+    },
+    {
+      "haplotype": "200049_HG01106.pat",
+      "contig": "HG01106#1#CM087962.1",
+      "begin": 0,
+      "end": 48556691,
+      "orientation": "+",
+      "contig_md5": "27aa043b2961de1f0c1bfb368316f12c",
+      "extracted_fasta_sha256": "cb9a1b4a4b5909b13f22538ac50d5326e4bf87d177ac4e7b8ac8f1b52bbf96da",
+      "segments": [
+        {
+          "record": "h200049_c115_s0",
+          "begin": 0,
+          "end": 48556691
+        }
+      ]
+    },
+    {
+      "haplotype": "200050_HG01106.mat",
+      "contig": "HG01106#2#JAHAMB020000078.1",
+      "begin": 0,
+      "end": 271973,
+      "orientation": "+",
+      "contig_md5": "4dfe52dbb127c6478e7328d7a56a9dc0",
+      "extracted_fasta_sha256": "563a1d78f881410c0ee64f9ec2d314bb5f2a81bee75c343ef3aefa9e480b2ee2",
+      "segments": [
+        {
+          "record": "h200050_c116_s0",
+          "begin": 0,
+          "end": 271973
+        }
+      ]
+    },
+    {
+      "haplotype": "200050_HG01106.mat",
+      "contig": "HG01106#2#JAHAMB020000066.1",
+      "begin": 0,
+      "end": 1307727,
+      "orientation": "+",
+      "contig_md5": "6ba38ac5c30377caa8ecc25128c3c76f",
+      "extracted_fasta_sha256": "c2c75b2dbb10d9990225db4bfa8b5b0e6101698c348de4a6fec9112e1ed1c198",
+      "segments": [
+        {
+          "record": "h200050_c117_s0",
+          "begin": 0,
+          "end": 1307727
+        }
+      ]
+    },
+    {
+      "haplotype": "200050_HG01106.mat",
+      "contig": "HG01106#2#JAHAMB020000020.1",
+      "begin": 0,
+      "end": 46729775,
+      "orientation": "+",
+      "contig_md5": "e81853c46558e465bc2d129195f12c45",
+      "extracted_fasta_sha256": "4ec8d5f6085e57c735a2929fd11f4366bf606ac140da19e4539a2a6182958c9a",
+      "segments": [
+        {
+          "record": "h200050_c118_s0",
+          "begin": 0,
+          "end": 46729775
+        }
+      ]
+    }
+  ],
+  "forward_acgt_bases": 2526732361,
+  "reference_sha256": "324b91ed1c36cf91294668786ed524992270926573943ef572943eeca213dcc2",
+  "both_strands": true,
+  "boundary_policy": "Native mapped component intervals remain separate; split non-ACGT runs. No synthetic RagTag joins. Search both strands."
+}

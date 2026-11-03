@@ -1,0 +1,43 @@
+{
+ "name": "human_short-locate-6mb-v2",
+ "status": "prepared",
+ "reference": "human472",
+ "cohort": "human_short",
+ "reads": 48000,
+ "bases": 6000000,
+ "one_bases": 125,
+ "read_filter": "acgt-only-whole-reads",
+ "limit_bases": 6000000,
+ "selection": "longest whole-read prefix of the source with at most 6000000 bases (D13)",
+ "source": {
+  "path": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/human_short-ms-60mb-acgt-v2",
+  "manifest_sha256": "71857093d614b2b861ae6ca3bbeeeba28b8eeaa3d5927569f83704b214a61d2f"
+ },
+ "truth": "sliced from the core truth",
+ "created": 1793377473.9868622,
+ "job_id": "32743098",
+ "source_reads": 480000,
+ "source_bases": 60000000,
+ "files": {
+  "map.tsv": {
+   "bytes": 1011799,
+   "sha256": "d15a0b93a941208126b6f29450a8d4c3e7a6de7fcbc2ff11d3cfe1de01a84ebe"
+  },
+  "offsets.u64": {
+   "bytes": 384008,
+   "sha256": "150eb49086d6a941657871ba57c97cf2f3af5de8698e560582d6cbdcfe879b2f"
+  },
+  "one.fa": {
+   "bytes": 130,
+   "sha256": "e00a7fe2514695207f1a9febe4b57307840e3780f5fd4bfed7e221ec1868f9c5"
+  },
+  "reads.fa": {
+   "bytes": 6420890,
+   "sha256": "a64e195718a9fc16c7fcc4f08f925525efa17264993a1d6ca5128976df7ee338"
+  },
+  "truth.u32": {
+   "bytes": 24000000,
+   "sha256": "350a3f83f92835ef6b6e732f9c55e408f8663ee8a7d6c8a885515e6a932fc176"
+  }
+ }
+}

@@ -1,0 +1,151 @@
+{
+  "cohort": "human_short",
+  "status": "complete",
+  "started": 1791119700.1361089,
+  "seed": 20261004,
+  "source_total_bases_for_fraction": 57581118000,
+  "source_fraction": 0.017366804166601975,
+  "seqkit_version": "seqkit v2.10.1\n",
+  "seqkit_sha256": "ea5aef8dbe3d85130b84dda77c89e71f1817da1f90353b879337aa81464f214f",
+  "commands": [
+    [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/seqkit",
+      "sample",
+      "-j",
+      "4",
+      "-s",
+      "20261004",
+      "-p",
+      "0.017366804166601975",
+      "/scratch16/blangme2/ms-bakery/data/paper-readsets/sources/SRR3099549/SRR3099549_1.fastq.gz",
+      "-o",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_short/selected-0.fq.gz"
+    ],
+    [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/seqkit",
+      "sample",
+      "-j",
+      "4",
+      "-s",
+      "20261004",
+      "-p",
+      "0.017366804166601975",
+      "/scratch16/blangme2/ms-bakery/data/paper-readsets/sources/SRR3099549/SRR3099549_2.fastq.gz",
+      "-o",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_short/selected-1.fq.gz"
+    ],
+    [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/seqkit",
+      "sample",
+      "-j",
+      "4",
+      "-s",
+      "20261005",
+      "-p",
+      "0.2",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_short/selected.fa",
+      "-o",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_short/core.raw.fa"
+    ],
+    [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/seqkit",
+      "sample",
+      "-j",
+      "4",
+      "-s",
+      "20261005",
+      "-p",
+      "0.001",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_short/selected.fa",
+      "-o",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_short/pilot.raw.fa"
+    ],
+    [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/seqkit",
+      "sample",
+      "-j",
+      "4",
+      "-s",
+      "20261005",
+      "-p",
+      "0.001",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_short/selected.fa",
+      "-o",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_short/diagnostic.raw.fa"
+    ],
+    [
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/bin/seqkit",
+      "sample",
+      "-j",
+      "4",
+      "-s",
+      "20261005",
+      "-p",
+      "0.0001",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_short/selected.fa",
+      "-o",
+      "/scratch16/blangme2/ms-bakery/results/real-hprc2-1d580b6/inputs/human_short/offset.raw.fa"
+    ]
+  ],
+  "sources": [
+    {
+      "path": "/scratch16/blangme2/ms-bakery/data/paper-readsets/sources/SRR3099549/SRR3099549_1.fastq.gz",
+      "bytes": 15321470634,
+      "mtime": 1790903418.5184278
+    },
+    {
+      "path": "/scratch16/blangme2/ms-bakery/data/paper-readsets/sources/SRR3099549/SRR3099549_2.fastq.gz",
+      "bytes": 15277878047,
+      "mtime": 1790912370.6972854
+    }
+  ],
+  "finished": 1791119771.1491294,
+  "sets": {
+    "scaling": {
+      "reads": 8000811,
+      "bases": 999309367,
+      "one_bases": 125,
+      "ambiguous_bases_removed": 20133,
+      "affected_original_reads": 12538,
+      "sha256": "488599956162a635141c75f149a5b2ecd04399989a3b9123d13beb3e04430ad1",
+      "map_sha256": "94d8a447471cccafa54cfe8f6f934a1c68c2582e81b8329c968a70d7d4aeef59"
+    },
+    "core": {
+      "reads": 1597660,
+      "bases": 199550197,
+      "one_bases": 125,
+      "ambiguous_bases_removed": 4053,
+      "affected_original_reads": 2542,
+      "sha256": "f75d2274c07c4587e8fbeb140217657f3d7b59a516258cf3f7c577c551f183ff",
+      "map_sha256": "0188a5fbe5a5c38c9de89a1bfa09781226c3445c4e7d0f7179bc2b34d278f94c"
+    },
+    "pilot": {
+      "reads": 8000,
+      "bases": 999610,
+      "one_bases": 125,
+      "ambiguous_bases_removed": 15,
+      "affected_original_reads": 13,
+      "sha256": "d02e412f6932e385f8c8aa4a148f943d902889356f26f3ff2f6d5dd5aac068c2",
+      "map_sha256": "a6f55f0e2b64f62c779fc03b6d74154570e60f33acb8c90a00a040a636ff50b8"
+    },
+    "diagnostic": {
+      "reads": 8000,
+      "bases": 999610,
+      "one_bases": 125,
+      "ambiguous_bases_removed": 15,
+      "affected_original_reads": 13,
+      "sha256": "d02e412f6932e385f8c8aa4a148f943d902889356f26f3ff2f6d5dd5aac068c2",
+      "map_sha256": "a6f55f0e2b64f62c779fc03b6d74154570e60f33acb8c90a00a040a636ff50b8"
+    },
+    "offset": {
+      "reads": 772,
+      "bases": 96500,
+      "one_bases": 125,
+      "ambiguous_bases_removed": 0,
+      "affected_original_reads": 0,
+      "sha256": "6236a5b3acc5a6d0fcf1dea601932d022b0dfa38dedcc9a53b4fc2739c78c833",
+      "map_sha256": "fd0485175871fcb67f433c205de09fe86711eae7624439aadfbc20059d972d79"
+    }
+  },
+  "selected_original_reads": 7994636
+}

@@ -1,0 +1,44 @@
+{
+  "format": "fig-rep-reads-v1",
+  "created": 1793193304.5560944,
+  "host": "devlangmead1",
+  "seed": 2026102801,
+  "source": {
+    "path": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/fig_ops/mtb152-heldout16-v1/reads.fa",
+    "sha256": "f2bb556e9e7ffc6fc4d8156d94b35457df3f3248690a5e73c53a6a64c00a5e1e",
+    "note": "8 forward held-out mtb152 genomes",
+    "records": 16,
+    "pair_reverse_complements": true,
+    "segments": [
+      "q0",
+      "q2",
+      "q4",
+      "q6",
+      "q8",
+      "q10",
+      "q12",
+      "q14"
+    ],
+    "acgt_bases": 35285215,
+    "rule": "ACGT-only records; each forward record of a forward and reverse-complement pair"
+  },
+  "lengths_from": {
+    "path": "/scratch16/blangme2/ms-bakery/results/campaign-20261012/inputs/human_pacbio/explore-acgt-60mb-v1",
+    "manifest_sha256": "383f15bab26ca57372383a1dbb20c1eb1fe09c4130572d6542ae2d2064e9826c",
+    "cohort": "human_pacbio",
+    "offsets_sha256": "ad4cc2a7ac6d1d8cec44fbdaa456b947330957a08c31cdb069e8e2f2fb7f780a"
+  },
+  "target_bases": 20000000,
+  "details": {
+    "method": "exact",
+    "rate": 0.0
+  },
+  "reads": 962,
+  "dropped": 0,
+  "bases": 20003421,
+  "files": {
+    "reads.fa": {
+      "sha256": "220ef90b47078cb01cedb8e379224c0958500face23f804fd665102b7e2a48fe"
+    }
+  }
+}

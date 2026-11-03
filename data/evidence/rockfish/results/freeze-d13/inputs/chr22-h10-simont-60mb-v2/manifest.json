@@ -1,0 +1,38 @@
+{
+  "status": "prepared",
+  "reference": "chr22-h10",
+  "cohort": "chr22_sim_ont",
+  "set": "ont",
+  "reads": 2782,
+  "bases": 59998845,
+  "one_bases": 16824,
+  "read_filter": "acgt-only-whole-reads",
+  "selection": "simulated Oxford Nanopore, pbsim3 ERRHMM-ONT-HQ error model, template lengths from the HG002 Q28 workload reads of /scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-sim-ont-60mb-v2 (same records, names and order)",
+  "reads_workload": "/scratch16/blangme2/ms-bakery/results/freeze-d13/inputs/chr22-sim-ont-60mb-v2",
+  "reads_manifest_sha256": "4775aed70cca14c0c6899393f053188fe7d27599f065e8baa3db8b09a7afb30b",
+  "truth": "ropebwt3 -t1 -l1 (binary cfad8475911f) on the chr22-h10 FMD (8b2476a20485), job 32746173",
+  "truth_metadata_sha256": "527216de9ad8e9eb767476274d35a47f2b2410e08553b6794164121d71ab7f6a",
+  "reuse_old_timings": false,
+  "files": {
+    "reads.fa": {
+      "bytes": 60019991,
+      "sha256": "2cf92676c29eb68f71c4c3181e273b56a94c38f73baa2a80b1b9ac36410bdf2e"
+    },
+    "one.fa": {
+      "bytes": 16829,
+      "sha256": "d5e1dffd360970fd5d5a0796f1300c9db0dc3681484baa9079a10160af525f0c"
+    },
+    "offsets.u64": {
+      "bytes": 22264,
+      "sha256": "cf4b6f0758440fae99658cd8fc4b933c70db03c0203bcecd3380401f6883d944"
+    },
+    "truth.u32": {
+      "bytes": 239995380,
+      "sha256": "be43968df413dbb567a027f3385af7cbcbe4306fa71a9a05d0b624a1455368f5"
+    },
+    "truth.json": {
+      "bytes": 1894,
+      "sha256": "527216de9ad8e9eb767476274d35a47f2b2410e08553b6794164121d71ab7f6a"
+    }
+  }
+}
