@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "numactl",
+    "--physcpubind=0,1,2,3",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070/index.tms.phi.orbitidx",
+    "/work/stage/inputs/892dcd623e6a9c8808636a77d324ca52251bfc6da2b446745666d5838c94dd64/reads.fa",
+    "-o",
+    "/work/stage/work/threads-2885ee8-da1041e8/threads-human_short-phi/runs/threads-human_short__phi-ordinary-t4/run2/output",
+    "--threads",
+    "4",
+    "--interleave",
+    "32",
+    "--block-bytes",
+    "2097152",
+    "--mode",
+    "phi"
+  ],
+  "cwd": "/work/stage/work/threads-2885ee8-da1041e8/threads-human_short-phi/runs/threads-human_short__phi-ordinary-t4/run2",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 189.79657956999972,
+  "stdout": "/work/stage/work/threads-2885ee8-da1041e8/threads-human_short-phi/runs/threads-human_short__phi-ordinary-t4/run2/run2.stdout",
+  "stderr": "/work/stage/work/threads-2885ee8-da1041e8/threads-human_short-phi/runs/threads-human_short__phi-ordinary-t4/run2/run2.stderr",
+  "native_wall_seconds": 189.78,
+  "user_seconds": 524.3,
+  "system_seconds": 47.88,
+  "peak_rss_kib": 153872456
+}

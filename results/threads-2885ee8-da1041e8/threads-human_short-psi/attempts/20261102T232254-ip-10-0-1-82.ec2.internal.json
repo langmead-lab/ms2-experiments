@@ -1,0 +1,94 @@
+{
+  "job": "threads-human_short-psi",
+  "manifest_id": "threads-2885ee8-da1041e8",
+  "host": {
+    "hostname": "ip-10-0-1-82.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-05459c6494105db47",
+    "availability_zone": "us-east-1b",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793659789.7315736,
+  "argv": [
+    "/work/code/ms2exp/run/runner.py",
+    "threads-human_short-psi",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/threads/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 7,
+  "already_done": 0,
+  "order": [
+    "threads-human_short/psi-ordinary-t8",
+    "threads-human_short/psi-ordinary-t4",
+    "threads-human_short/psi-ordinary-t2",
+    "threads-human_short/psi-ordinary-t32",
+    "threads-human_short/psi-ordinary-t16",
+    "threads-human_short/psi-ordinary-t64",
+    "threads-human_short/psi-ordinary-t1"
+  ],
+  "staging": {
+    "ms2/human472/index.tms.psi.orbitidx": {
+      "sha256": "7246fde73b3e721b99949716e402e48e51109cd7ac81101c165d87dc6735d0a5",
+      "bytes": 103560962104,
+      "fresh": true,
+      "seconds": 244.04285764694214
+    },
+    "reads/human472/human_short-ms-1gb-acgt-v1/offsets.u64": {
+      "sha256": "6ed717b9be158c2138debea9b5e23ff4f971eebc16b9cfb5030a9e688829db5b",
+      "bytes": 63856792,
+      "fresh": true,
+      "seconds": 0.9580540657043457
+    },
+    "reads/human472/human_short-ms-1gb-acgt-v1/reads.fa": {
+      "sha256": "892dcd623e6a9c8808636a77d324ca52251bfc6da2b446745666d5838c94dd64",
+      "bytes": 1084454218,
+      "fresh": true,
+      "seconds": 2.9862115383148193
+    },
+    "reads/human472/human_short-ms-1gb-acgt-v1/truth.u32": {
+      "sha256": "f432da6f5cdac08986a4e9800a419724ce6873d22b16eb7334ed4bace483e9e1",
+      "bytes": 3991049000,
+      "fresh": true,
+      "seconds": 8.642760992050171
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": true,
+      "seconds": 0.7837927341461182
+    },
+    "tools/ms_check": {
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab",
+      "bytes": 251000,
+      "fresh": true,
+      "seconds": 0.6820974349975586
+    }
+  },
+  "finished": 1793661774.6267204,
+  "results": {
+    "threads-human_short/psi-ordinary-t8": "checked",
+    "threads-human_short/psi-ordinary-t4": "checked",
+    "threads-human_short/psi-ordinary-t2": "checked",
+    "threads-human_short/psi-ordinary-t32": "checked",
+    "threads-human_short/psi-ordinary-t16": "checked",
+    "threads-human_short/psi-ordinary-t64": "checked",
+    "threads-human_short/psi-ordinary-t1": "checked"
+  }
+}

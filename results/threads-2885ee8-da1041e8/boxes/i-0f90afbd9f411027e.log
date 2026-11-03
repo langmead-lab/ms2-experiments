@@ -1,0 +1,60 @@
+2026-11-02T22:49:47 run threads-human_short-ms
+22:49:50 threads-human_short-ms: 7 of 7 cells to run
+22:49:50 stage ms2/human472/index.ms.orbitidx
+22:53:52 stage reads/human472/human_short-ms-1gb-acgt-v1/offsets.u64
+22:53:53 stage reads/human472/human_short-ms-1gb-acgt-v1/reads.fa
+22:53:57 stage reads/human472/human_short-ms-1gb-acgt-v1/truth.u32
+22:54:07 stage tools/ms2-2885ee8/ms2-bench
+22:54:08 stage tools/ms_check
+22:54:09 threads-human_short/ms-ordinary-t1 run1
+22:55:54 threads-human_short/ms-ordinary-t1 run2
+22:57:27 threads-human_short/ms-ordinary-t1 run3
+22:59:07 threads-human_short/ms-ordinary-t1 checked 46.139 
+22:59:07 threads-human_short/ms-ordinary-t8 run1
+23:00:07 threads-human_short/ms-ordinary-t8 run2
+23:00:59 threads-human_short/ms-ordinary-t8 run3
+23:01:58 threads-human_short/ms-ordinary-t8 checked 6.03742 
+23:01:58 threads-human_short/ms-ordinary-t64 run1
+23:02:54 threads-human_short/ms-ordinary-t64 run2
+23:03:42 threads-human_short/ms-ordinary-t64 run3
+23:04:38 threads-human_short/ms-ordinary-t64 checked 2.36438 
+23:04:38 threads-human_short/ms-ordinary-t4 run1
+23:05:42 threads-human_short/ms-ordinary-t4 run2
+23:06:39 threads-human_short/ms-ordinary-t4 run3
+23:07:45 threads-human_short/ms-ordinary-t4 checked 11.7982 
+23:07:45 threads-human_short/ms-ordinary-t2 run1
+23:09:02 threads-human_short/ms-ordinary-t2 run2
+23:10:12 threads-human_short/ms-ordinary-t2 run3
+23:11:30 threads-human_short/ms-ordinary-t2 checked 23.3308 
+23:11:30 threads-human_short/ms-ordinary-t16 run1
+23:12:26 threads-human_short/ms-ordinary-t16 run2
+23:13:15 threads-human_short/ms-ordinary-t16 run3
+23:14:12 threads-human_short/ms-ordinary-t16 checked 3.23062 
+23:14:12 threads-human_short/ms-ordinary-t32 run1
+23:15:07 threads-human_short/ms-ordinary-t32 run2
+23:15:55 threads-human_short/ms-ordinary-t32 run3
+23:16:52 threads-human_short/ms-ordinary-t32 checked 2.00199 
+23:16:56 threads-human_short-ms: 0 cells without a done marker
+2026-11-02T23:16:56 job threads-human_short-ms exit 0
+2026-11-02T23:17:03 run threads-human_short-rope
+23:17:05 threads-human_short-rope: 7 of 7 cells to run
+23:17:05 stage ropebwt3/human472/index.fmd
+23:17:46 stage tools/ropebwt3-cfad8475/ropebwt3
+23:17:47 stage tools/runtime/libgomp.so.1
+23:17:48 threads-human_short/rope-l1-t8 run1
+23:24:15 threads-human_short/rope-l1-t8 run2
+23:27:21 threads-human_short/rope-l1-t8 run3
+23:30:34 threads-human_short/rope-l1-t8 checked 180.499 
+23:30:34 threads-human_short/rope-l1-t32 run1
+23:34:48 threads-human_short/rope-l1-t32 run2
+23:35:41 threads-human_short/rope-l1-t32 run3
+23:36:42 threads-human_short/rope-l1-t32 checked 47.869 
+23:36:42 threads-human_short/rope-l1-t4 run1
+23:46:07 threads-human_short/rope-l1-t4 run2
+23:52:12 threads-human_short/rope-l1-t4 run3
+23:58:25 threads-human_short/rope-l1-t4 checked 359.884 
+23:58:25 threads-human_short/rope-l1-t2 run1
+00:13:49 threads-human_short/rope-l1-t2 run2
+00:25:54 threads-human_short/rope-l1-t2 run3
+2026-11-03T00:33:50 spot interruption notice
+2026-11-03T00:33:51 job threads-human_short-rope exit -15

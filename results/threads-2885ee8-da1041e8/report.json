@@ -1,0 +1,290 @@
+{
+  "manifest_id": "threads-2885ee8-da1041e8",
+  "cells": 71,
+  "missing": [],
+  "unchecked": [],
+  "wrong_commit": [],
+  "locate_comparisons": "not run",
+  "d9_dual_seqids": [],
+  "cross_thread": [
+    {
+      "read_set": "human_ont_modern-ms-1gb-acgt-v1",
+      "config": "ms2-dual-ordinary",
+      "threads": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "cells": [
+        "threads-human_ont_modern/dual-ordinary-t1",
+        "threads-human_ont_modern/dual-ordinary-t16",
+        "threads-human_ont_modern/dual-ordinary-t2",
+        "threads-human_ont_modern/dual-ordinary-t32",
+        "threads-human_ont_modern/dual-ordinary-t4",
+        "threads-human_ont_modern/dual-ordinary-t64",
+        "threads-human_ont_modern/dual-ordinary-t8"
+      ],
+      "sha256": [
+        "59e62e1e5fc07e2c3ca4eb33975e1f1eee4eaaf5952a0bbb1246ef3359a41414"
+      ],
+      "passes": true
+    },
+    {
+      "read_set": "human_ont_modern-ms-1gb-acgt-v1",
+      "config": "ms2-ms-ordinary",
+      "threads": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "cells": [
+        "threads-human_ont_modern/ms-ordinary-t1",
+        "threads-human_ont_modern/ms-ordinary-t16",
+        "threads-human_ont_modern/ms-ordinary-t2",
+        "threads-human_ont_modern/ms-ordinary-t32",
+        "threads-human_ont_modern/ms-ordinary-t4",
+        "threads-human_ont_modern/ms-ordinary-t64",
+        "threads-human_ont_modern/ms-ordinary-t8"
+      ],
+      "sha256": [
+        "59e62e1e5fc07e2c3ca4eb33975e1f1eee4eaaf5952a0bbb1246ef3359a41414"
+      ],
+      "passes": true
+    },
+    {
+      "read_set": "human_ont_modern-ms-1gb-acgt-v1",
+      "config": "ms2-phi-ordinary",
+      "threads": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "cells": [
+        "threads-human_ont_modern/phi-ordinary-t1",
+        "threads-human_ont_modern/phi-ordinary-t16",
+        "threads-human_ont_modern/phi-ordinary-t2",
+        "threads-human_ont_modern/phi-ordinary-t32",
+        "threads-human_ont_modern/phi-ordinary-t4",
+        "threads-human_ont_modern/phi-ordinary-t64",
+        "threads-human_ont_modern/phi-ordinary-t8"
+      ],
+      "sha256": [
+        "59e62e1e5fc07e2c3ca4eb33975e1f1eee4eaaf5952a0bbb1246ef3359a41414"
+      ],
+      "passes": true
+    },
+    {
+      "read_set": "human_ont_modern-ms-1gb-acgt-v1",
+      "config": "ms2-psi-ordinary",
+      "threads": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "cells": [
+        "threads-human_ont_modern/psi-ordinary-t1",
+        "threads-human_ont_modern/psi-ordinary-t16",
+        "threads-human_ont_modern/psi-ordinary-t2",
+        "threads-human_ont_modern/psi-ordinary-t32",
+        "threads-human_ont_modern/psi-ordinary-t4",
+        "threads-human_ont_modern/psi-ordinary-t64",
+        "threads-human_ont_modern/psi-ordinary-t8"
+      ],
+      "sha256": [
+        "59e62e1e5fc07e2c3ca4eb33975e1f1eee4eaaf5952a0bbb1246ef3359a41414"
+      ],
+      "passes": true
+    },
+    {
+      "read_set": "human_ont_modern-ms-1gb-acgt-v1",
+      "config": "ropebwt3-1",
+      "threads": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "cells": [
+        "threads-human_ont_modern/rope-l1-t1",
+        "threads-human_ont_modern/rope-l1-t16",
+        "threads-human_ont_modern/rope-l1-t2",
+        "threads-human_ont_modern/rope-l1-t32",
+        "threads-human_ont_modern/rope-l1-t4",
+        "threads-human_ont_modern/rope-l1-t64",
+        "threads-human_ont_modern/rope-l1-t8"
+      ],
+      "sha256": [
+        "078673e6a1631ec9376e7e3b3f1af25ed37f45e51825332e4c254be4bb542e6f"
+      ],
+      "passes": true
+    },
+    {
+      "read_set": "human_ont_modern-ms-60mb-acgt-v2",
+      "config": "ms2-ms-ordinary",
+      "threads": [
+        64
+      ],
+      "cells": [
+        "threads-smt-check/ms-ordinary-t64"
+      ],
+      "sha256": [
+        "ec7bcbc7b3840a7b8011fd86237e3edf5f1e40cc17daaae56d0190cc50effda8"
+      ],
+      "passes": true
+    },
+    {
+      "read_set": "human_short-ms-1gb-acgt-v1",
+      "config": "ms2-dual-ordinary",
+      "threads": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "cells": [
+        "threads-human_short/dual-ordinary-t1",
+        "threads-human_short/dual-ordinary-t16",
+        "threads-human_short/dual-ordinary-t2",
+        "threads-human_short/dual-ordinary-t32",
+        "threads-human_short/dual-ordinary-t4",
+        "threads-human_short/dual-ordinary-t64",
+        "threads-human_short/dual-ordinary-t8"
+      ],
+      "sha256": [
+        "5e476f921ba9b5aa33bb9c57c9c20b6df24625c272917dbdc88f871dba949120"
+      ],
+      "passes": true
+    },
+    {
+      "read_set": "human_short-ms-1gb-acgt-v1",
+      "config": "ms2-ms-ordinary",
+      "threads": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "cells": [
+        "threads-human_short/ms-ordinary-t1",
+        "threads-human_short/ms-ordinary-t16",
+        "threads-human_short/ms-ordinary-t2",
+        "threads-human_short/ms-ordinary-t32",
+        "threads-human_short/ms-ordinary-t4",
+        "threads-human_short/ms-ordinary-t64",
+        "threads-human_short/ms-ordinary-t8"
+      ],
+      "sha256": [
+        "5e476f921ba9b5aa33bb9c57c9c20b6df24625c272917dbdc88f871dba949120"
+      ],
+      "passes": true
+    },
+    {
+      "read_set": "human_short-ms-1gb-acgt-v1",
+      "config": "ms2-phi-ordinary",
+      "threads": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "cells": [
+        "threads-human_short/phi-ordinary-t1",
+        "threads-human_short/phi-ordinary-t16",
+        "threads-human_short/phi-ordinary-t2",
+        "threads-human_short/phi-ordinary-t32",
+        "threads-human_short/phi-ordinary-t4",
+        "threads-human_short/phi-ordinary-t64",
+        "threads-human_short/phi-ordinary-t8"
+      ],
+      "sha256": [
+        "5e476f921ba9b5aa33bb9c57c9c20b6df24625c272917dbdc88f871dba949120"
+      ],
+      "passes": true
+    },
+    {
+      "read_set": "human_short-ms-1gb-acgt-v1",
+      "config": "ms2-psi-ordinary",
+      "threads": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "cells": [
+        "threads-human_short/psi-ordinary-t1",
+        "threads-human_short/psi-ordinary-t16",
+        "threads-human_short/psi-ordinary-t2",
+        "threads-human_short/psi-ordinary-t32",
+        "threads-human_short/psi-ordinary-t4",
+        "threads-human_short/psi-ordinary-t64",
+        "threads-human_short/psi-ordinary-t8"
+      ],
+      "sha256": [
+        "5e476f921ba9b5aa33bb9c57c9c20b6df24625c272917dbdc88f871dba949120"
+      ],
+      "passes": true
+    },
+    {
+      "read_set": "human_short-ms-1gb-acgt-v1",
+      "config": "ropebwt3-1",
+      "threads": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "cells": [
+        "threads-human_short/rope-l1-t1",
+        "threads-human_short/rope-l1-t16",
+        "threads-human_short/rope-l1-t2",
+        "threads-human_short/rope-l1-t32",
+        "threads-human_short/rope-l1-t4",
+        "threads-human_short/rope-l1-t64",
+        "threads-human_short/rope-l1-t8"
+      ],
+      "sha256": [
+        "eb1673f7c36aa878371e84d1e1e5f0b58689bef892c6c79bd6fff7168d4650b1"
+      ],
+      "passes": true
+    }
+  ],
+  "groups": [
+    "threads-human_ont_modern",
+    "threads-human_short",
+    "threads-smt-check"
+  ]
+}

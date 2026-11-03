@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "numactl",
+    "--physcpubind=0,1,2,3,4,5,6,7",
+    "--membind=0",
+    "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+    "query",
+    "/work/stage/inputs/520539c526f8c8fe9cb72a0179b2301418498bdf3eb747d026b64ed3c87021d2/index.ms.orbitidx",
+    "/work/stage/inputs/892dcd623e6a9c8808636a77d324ca52251bfc6da2b446745666d5838c94dd64/reads.fa",
+    "-o",
+    "/work/stage/work/threads-2885ee8-da1041e8/threads-human_short-ms/runs/threads-human_short__ms-ordinary-t8/run1/output",
+    "--threads",
+    "8",
+    "--interleave",
+    "32",
+    "--block-bytes",
+    "2097152",
+    "--mode",
+    "min"
+  ],
+  "cwd": "/work/stage/work/threads-2885ee8-da1041e8/threads-human_short-ms/runs/threads-human_short__ms-ordinary-t8/run1",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 48.90039377300002,
+  "stdout": "/work/stage/work/threads-2885ee8-da1041e8/threads-human_short-ms/runs/threads-human_short__ms-ordinary-t8/run1/run1.stdout",
+  "stderr": "/work/stage/work/threads-2885ee8-da1041e8/threads-human_short-ms/runs/threads-human_short__ms-ordinary-t8/run1/run1.stderr",
+  "native_wall_seconds": 48.88,
+  "user_seconds": 57.64,
+  "system_seconds": 33.1,
+  "peak_rss_kib": 105076548
+}

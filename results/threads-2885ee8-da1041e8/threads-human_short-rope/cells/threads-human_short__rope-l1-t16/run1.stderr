@@ -1,0 +1,14 @@
+[M::rb3_fmi_load_all::4.256*1.00] loaded the BWT
+[M::worker_pipeline::13.710*11.03] processed 800000 sequences
+[M::worker_pipeline::23.538*13.11] processed 800000 sequences
+[M::worker_pipeline::31.681*13.85] processed 800000 sequences
+[M::worker_pipeline::40.499*14.32] processed 800000 sequences
+[M::worker_pipeline::48.519*14.59] processed 800000 sequences
+[M::worker_pipeline::57.435*14.81] processed 800000 sequences
+[M::worker_pipeline::66.705*14.98] processed 800000 sequences
+[M::worker_pipeline::76.856*15.11] processed 800000 sequences
+[M::worker_pipeline::86.104*15.21] processed 800000 sequences
+[M::worker_pipeline::95.830*15.22] processed 782098 sequences
+[M::main] Version: 3.10-r285-dirty
+[M::main] CMD: /work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3 mem -t16 -l1 /work/stage/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd /work/stage/inputs/892dcd623e6a9c8808636a77d324ca52251bfc6da2b446745666d5838c94dd64/reads.fa
+[M::main] Real time: 95.872 sec; CPU: 1458.759 sec; Peak RSS: 14.992 GB

@@ -1,0 +1,339 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "dual-ordinary-t16",
+  "cell": "threads-human_ont_modern/dual-ordinary-t16",
+  "group": "threads-human_ont_modern",
+  "figures": [
+    "threads"
+  ],
+  "tool": "ms2",
+  "kind": "ms",
+  "manifest_id": "threads-2885ee8-da1041e8",
+  "job": "threads-human_ont_modern-dual",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-1-82.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-05459c6494105db47",
+    "availability_zone": "us-east-1b",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "physcpubind": "the first T physical cores, node 0 first; T = 64 on both hardware threads of the first 32 cores (binding smt)",
+      "membind": 0
+    },
+    "threads": "per cell",
+    "transparent_hugepages": "always",
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10; THREAD_SCALING_PLAN.md",
+    "cross_thread_check": "every run of every cell records its output sha256, which must be the same at every thread count of a tool, mode and read set (collect.py)"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 43346,
+  "bases": 999971798,
+  "reference": "human472",
+  "read_set": "human_ont_modern-ms-1gb-acgt-v1",
+  "inputs": {
+    "binary": {
+      "name": "tools/ms2-2885ee8/ms2-bench",
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267"
+    },
+    "checker": {
+      "name": "tools/ms_check",
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab"
+    },
+    "index": {
+      "name": "ms2/human472/index.tms.full.seqids.orbitidx",
+      "sha256": "39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588"
+    },
+    "reads": {
+      "name": "reads/human472/human_ont_modern-ms-1gb-acgt-v1/reads.fa",
+      "sha256": "2e9dda84fe31c0827e8d9ce9fac308b9ab374934db328617d06258b53a44f6ae"
+    },
+    "truth": {
+      "name": "reads/human472/human_ont_modern-ms-1gb-acgt-v1/truth.u32",
+      "sha256": "a56aac90f020cbd2c8aa352fbb5da9555799c05beef9e6e059a6f23b3ac85970"
+    },
+    "offsets": {
+      "name": "reads/human472/human_ont_modern-ms-1gb-acgt-v1/offsets.u64",
+      "sha256": "8c9db2fa9ee65ba1fd19dc0e010e1fca7fcdcf26d7fb0b96def746396292fdd9"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793667740.489286,
+  "layout": "dual",
+  "mode": "ordinary",
+  "interleave": 32,
+  "block_bytes": 2097152,
+  "threads": 16,
+  "binding": "physical",
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-1-82.ec2.internal",
+      "started": 1793667740.48938,
+      "argv": [
+        "numactl",
+        "--physcpubind=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/2e9dda84fe31c0827e8d9ce9fac308b9ab374934db328617d06258b53a44f6ae/reads.fa",
+        "-o",
+        "/work/stage/work/threads-2885ee8-da1041e8/threads-human_ont_modern-dual/runs/threads-human_ont_modern__dual-ordinary-t16/run1/output",
+        "--threads",
+        "16",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "2097152",
+        "--mode",
+        "dual"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 101.9218987080003,
+      "user_seconds": 81.21,
+      "system_seconds": 76.37,
+      "peak_rss_kib": 241031664,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 97.6828,
+        "query_seconds": 3.81667,
+        "components": {
+          "index_load_s": 97.6828,
+          "ftab_s": 0.0,
+          "query_s": 46.0323,
+          "read_s": 0.257588,
+          "parse_s": 0.787033,
+          "format_s": 11.2017,
+          "total_s": 3.81667
+        }
+      },
+      "threads": 16,
+      "cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "output_sha256": "59e62e1e5fc07e2c3ca4eb33975e1f1eee4eaaf5952a0bbb1246ef3359a41414",
+      "check": {
+        "reads": 43346,
+        "positions": 999971798,
+        "failed": 0,
+        "validation": "ms_check: every MS value equals truth"
+      },
+      "finished": 1793667853.9373758
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-1-82.ec2.internal",
+      "started": 1793667853.9381921,
+      "argv": [
+        "numactl",
+        "--physcpubind=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/2e9dda84fe31c0827e8d9ce9fac308b9ab374934db328617d06258b53a44f6ae/reads.fa",
+        "-o",
+        "/work/stage/work/threads-2885ee8-da1041e8/threads-human_ont_modern-dual/runs/threads-human_ont_modern__dual-ordinary-t16/run2/output",
+        "--threads",
+        "16",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "2097152",
+        "--mode",
+        "dual"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 99.62403644500046,
+      "user_seconds": 80.75,
+      "system_seconds": 74.58,
+      "peak_rss_kib": 241052380,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 95.3882,
+        "query_seconds": 3.8166,
+        "components": {
+          "index_load_s": 95.3882,
+          "ftab_s": 0.0,
+          "query_s": 46.0364,
+          "read_s": 0.255804,
+          "parse_s": 0.789779,
+          "format_s": 11.2732,
+          "total_s": 3.8166
+        }
+      },
+      "threads": 16,
+      "cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "output_sha256": "59e62e1e5fc07e2c3ca4eb33975e1f1eee4eaaf5952a0bbb1246ef3359a41414",
+      "finished": 1793667958.9519155
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-1-82.ec2.internal",
+      "started": 1793667958.952627,
+      "argv": [
+        "numactl",
+        "--physcpubind=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15",
+        "--membind=0",
+        "/work/stage/inputs/1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267/ms2-bench",
+        "query",
+        "/work/stage/inputs/39204a6a296dcc8f220a4f1cf3ec49f06967906d793678f37d643cfbca9f3588/index.tms.full.seqids.orbitidx",
+        "/work/stage/inputs/2e9dda84fe31c0827e8d9ce9fac308b9ab374934db328617d06258b53a44f6ae/reads.fa",
+        "-o",
+        "/work/stage/work/threads-2885ee8-da1041e8/threads-human_ont_modern-dual/runs/threads-human_ont_modern__dual-ordinary-t16/run3/output",
+        "--threads",
+        "16",
+        "--interleave",
+        "32",
+        "--block-bytes",
+        "2097152",
+        "--mode",
+        "dual"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 101.76451488499879,
+      "user_seconds": 81.18,
+      "system_seconds": 76.25,
+      "peak_rss_kib": 241044772,
+      "phase": {
+        "source": "orbit-query-line",
+        "query_definition": "total_s",
+        "load_seconds": 97.5291,
+        "query_seconds": 3.81802,
+        "components": {
+          "index_load_s": 97.5291,
+          "ftab_s": 0.0,
+          "query_s": 46.0336,
+          "read_s": 0.258643,
+          "parse_s": 0.790697,
+          "format_s": 11.2011,
+          "total_s": 3.81802
+        }
+      },
+      "threads": 16,
+      "cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "output_sha256": "59e62e1e5fc07e2c3ca4eb33975e1f1eee4eaaf5952a0bbb1246ef3359a41414",
+      "finished": 1793668066.0901673
+    }
+  ],
+  "check": {
+    "reads": 43346,
+    "positions": 999971798,
+    "failed": 0,
+    "validation": "ms_check: every MS value equals truth"
+  },
+  "query_seconds": [
+    3.81667,
+    3.8166,
+    3.81802
+  ],
+  "median_query_seconds": 3.81667,
+  "load_seconds": [
+    97.6828,
+    95.3882,
+    97.5291
+  ],
+  "median_load_seconds": 97.5291,
+  "wall_seconds": [
+    101.9218987080003,
+    99.62403644500046,
+    101.76451488499879
+  ],
+  "peak_rss_kib": 241052380,
+  "query_spread_fraction": 0.0003720520768104072,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 262.00111563221344,
+  "ns_per_base": 3.8167776407630245,
+  "output_sha256": [
+    "59e62e1e5fc07e2c3ca4eb33975e1f1eee4eaaf5952a0bbb1246ef3359a41414"
+  ],
+  "finished": 1793668066.0905318
+}

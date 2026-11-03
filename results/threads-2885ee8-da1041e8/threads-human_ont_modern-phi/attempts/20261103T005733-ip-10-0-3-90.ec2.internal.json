@@ -1,0 +1,94 @@
+{
+  "job": "threads-human_ont_modern-phi",
+  "manifest_id": "threads-2885ee8-da1041e8",
+  "host": {
+    "hostname": "ip-10-0-3-90.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-0d65702d7b01aa653",
+    "availability_zone": "us-east-1d",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793663888.8334997,
+  "argv": [
+    "/work/code/ms2exp/run/runner.py",
+    "threads-human_ont_modern-phi",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/threads/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 7,
+  "already_done": 0,
+  "order": [
+    "threads-human_ont_modern/phi-ordinary-t32",
+    "threads-human_ont_modern/phi-ordinary-t64",
+    "threads-human_ont_modern/phi-ordinary-t1",
+    "threads-human_ont_modern/phi-ordinary-t8",
+    "threads-human_ont_modern/phi-ordinary-t4",
+    "threads-human_ont_modern/phi-ordinary-t2",
+    "threads-human_ont_modern/phi-ordinary-t16"
+  ],
+  "staging": {
+    "ms2/human472/index.tms.phi.orbitidx": {
+      "sha256": "ab517935b6d588fe94da3e81ae6eea764da76cd84782598f6e85c9a25c25b070",
+      "bytes": 322202280039,
+      "fresh": true,
+      "seconds": 809.4082696437836
+    },
+    "reads/human472/human_ont_modern-ms-1gb-acgt-v1/offsets.u64": {
+      "sha256": "8c9db2fa9ee65ba1fd19dc0e010e1fca7fcdcf26d7fb0b96def746396292fdd9",
+      "bytes": 346776,
+      "fresh": true,
+      "seconds": 0.8265166282653809
+    },
+    "reads/human472/human_ont_modern-ms-1gb-acgt-v1/reads.fa": {
+      "sha256": "2e9dda84fe31c0827e8d9ce9fac308b9ab374934db328617d06258b53a44f6ae",
+      "bytes": 1000350802,
+      "fresh": true,
+      "seconds": 3.9229891300201416
+    },
+    "reads/human472/human_ont_modern-ms-1gb-acgt-v1/truth.u32": {
+      "sha256": "a56aac90f020cbd2c8aa352fbb5da9555799c05beef9e6e059a6f23b3ac85970",
+      "bytes": 3999887192,
+      "fresh": true,
+      "seconds": 13.440595388412476
+    },
+    "tools/ms2-2885ee8/ms2-bench": {
+      "sha256": "1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267",
+      "bytes": 4344224,
+      "fresh": false,
+      "seconds": 3.6716461181640625e-05
+    },
+    "tools/ms_check": {
+      "sha256": "1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab",
+      "bytes": 251000,
+      "fresh": false,
+      "seconds": 3.695487976074219e-05
+    }
+  },
+  "finished": 1793667453.4803212,
+  "results": {
+    "threads-human_ont_modern/phi-ordinary-t32": "checked",
+    "threads-human_ont_modern/phi-ordinary-t64": "checked",
+    "threads-human_ont_modern/phi-ordinary-t1": "checked",
+    "threads-human_ont_modern/phi-ordinary-t8": "checked",
+    "threads-human_ont_modern/phi-ordinary-t4": "checked",
+    "threads-human_ont_modern/phi-ordinary-t2": "checked",
+    "threads-human_ont_modern/phi-ordinary-t16": "checked"
+  }
+}

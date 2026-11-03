@@ -1,0 +1,26 @@
+2026-11-03T00:37:38 run threads-human_short-rope
+00:37:40 threads-human_short-rope: 4 of 7 cells to run
+00:37:40 stage reads/human472/human_short-ms-1gb-acgt-v1/offsets.u64
+00:37:41 stage reads/human472/human_short-ms-1gb-acgt-v1/reads.fa
+00:37:46 stage reads/human472/human_short-ms-1gb-acgt-v1/truth.u32
+00:37:57 stage ropebwt3/human472/index.fmd
+00:38:44 stage tools/ropebwt3-cfad8475/ropebwt3
+00:38:45 stage tools/runtime/libgomp.so.1
+00:38:46 threads-human_short/rope-l1-t2 run1
+00:54:11 threads-human_short/rope-l1-t2 run2
+01:06:17 threads-human_short/rope-l1-t2 run3
+01:18:29 threads-human_short/rope-l1-t2 checked 719.6210000000001 
+01:18:29 threads-human_short/rope-l1-t64 run1
+01:22:35 threads-human_short/rope-l1-t64 run2
+01:23:18 threads-human_short/rope-l1-t64 run3
+01:24:09 threads-human_short/rope-l1-t64 checked 37.312 
+01:24:09 threads-human_short/rope-l1-t1 run1
+01:51:41 threads-human_short/rope-l1-t1 run2
+02:15:52 threads-human_short/rope-l1-t1 run3
+02:40:11 threads-human_short/rope-l1-t1 checked 1445.778 
+02:40:11 threads-human_short/rope-l1-t16 run1
+02:45:09 threads-human_short/rope-l1-t16 run2
+02:46:45 threads-human_short/rope-l1-t16 run3
+02:48:29 threads-human_short/rope-l1-t16 checked 91.328 
+02:48:33 threads-human_short-rope: 0 cells without a done marker
+2026-11-03T02:48:33 job threads-human_short-rope exit 0

@@ -1,0 +1,91 @@
+{
+  "job": "threads-human_short-rope",
+  "manifest_id": "threads-2885ee8-da1041e8",
+  "host": {
+    "hostname": "ip-10-0-0-250.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-02823a9e7995fbff9",
+    "availability_zone": "us-east-1a",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "platform": "aws",
+  "started": 1793666258.3808842,
+  "argv": [
+    "/work/code/ms2exp/run/runner.py",
+    "threads-human_short-rope",
+    "--manifest",
+    "/work/manifest.json",
+    "--inputs-root",
+    "s3://ms2-freeze-159168350739/freeze/inputs",
+    "--results-root",
+    "s3://ms2-freeze-159168350739/threads/results",
+    "--stage",
+    "/work/stage",
+    "--platform",
+    "aws",
+    "--evict",
+    "--record-traces"
+  ],
+  "root": true,
+  "cells": 7,
+  "already_done": 3,
+  "order": [
+    "threads-human_short/rope-l1-t8",
+    "threads-human_short/rope-l1-t32",
+    "threads-human_short/rope-l1-t4",
+    "threads-human_short/rope-l1-t2",
+    "threads-human_short/rope-l1-t64",
+    "threads-human_short/rope-l1-t1",
+    "threads-human_short/rope-l1-t16"
+  ],
+  "staging": {
+    "reads/human472/human_short-ms-1gb-acgt-v1/offsets.u64": {
+      "sha256": "6ed717b9be158c2138debea9b5e23ff4f971eebc16b9cfb5030a9e688829db5b",
+      "bytes": 63856792,
+      "fresh": true,
+      "seconds": 0.9488270282745361
+    },
+    "reads/human472/human_short-ms-1gb-acgt-v1/reads.fa": {
+      "sha256": "892dcd623e6a9c8808636a77d324ca52251bfc6da2b446745666d5838c94dd64",
+      "bytes": 1084454218,
+      "fresh": true,
+      "seconds": 4.1307055950164795
+    },
+    "reads/human472/human_short-ms-1gb-acgt-v1/truth.u32": {
+      "sha256": "f432da6f5cdac08986a4e9800a419724ce6873d22b16eb7334ed4bace483e9e1",
+      "bytes": 3991049000,
+      "fresh": true,
+      "seconds": 11.868617534637451
+    },
+    "ropebwt3/human472/index.fmd": {
+      "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626",
+      "bytes": 15427477160,
+      "fresh": true,
+      "seconds": 46.6643180847168
+    },
+    "tools/ropebwt3-cfad8475/ropebwt3": {
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d",
+      "bytes": 1595032,
+      "fresh": true,
+      "seconds": 0.8018348217010498
+    },
+    "tools/runtime/libgomp.so.1": {
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8",
+      "bytes": 1501072,
+      "fresh": true,
+      "seconds": 0.8208591938018799
+    }
+  },
+  "finished": 1793674109.2500308,
+  "results": {
+    "threads-human_short/rope-l1-t2": "checked",
+    "threads-human_short/rope-l1-t64": "checked",
+    "threads-human_short/rope-l1-t1": "checked",
+    "threads-human_short/rope-l1-t16": "checked"
+  }
+}

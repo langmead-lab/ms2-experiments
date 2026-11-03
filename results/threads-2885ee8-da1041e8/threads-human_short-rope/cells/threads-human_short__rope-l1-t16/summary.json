@@ -1,0 +1,300 @@
+{
+  "format": "ms2-freeze-cell-v1",
+  "id": "rope-l1-t16",
+  "cell": "threads-human_short/rope-l1-t16",
+  "group": "threads-human_short",
+  "figures": [
+    "threads"
+  ],
+  "tool": "ropebwt3",
+  "kind": "ms",
+  "manifest_id": "threads-2885ee8-da1041e8",
+  "job": "threads-human_short-rope",
+  "platform": "aws",
+  "host": {
+    "hostname": "ip-10-0-0-250.ec2.internal",
+    "machine": "x86_64",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "instance_type": "i4i.metal",
+    "instance_id": "i-02823a9e7995fbff9",
+    "availability_zone": "us-east-1a",
+    "lifecycle": "spot",
+    "thp_enabled": "always",
+    "thp_defrag": "madvise"
+  },
+  "timing_policy": "load-query-separate-v2",
+  "protocol": {
+    "runs": 3,
+    "warmup_runs": 0,
+    "report": "median",
+    "drop_page_cache": "before every run, when root (echo 3 > /proc/sys/vm/drop_caches)",
+    "numa": {
+      "physcpubind": "the first T physical cores, node 0 first; T = 64 on both hardware threads of the first 32 cores (binding smt)",
+      "membind": 0
+    },
+    "threads": "per cell",
+    "transparent_hugepages": "always",
+    "truth_check": "run 1 of every cell, whole output",
+    "order": "cells in an order shuffled from the manifest seed and the job id; each cell runs its three runs back to back, so a done cell is final (D10)",
+    "time_basis": {
+      "ms2": "phase timer: query = total_s (read, parse, query, format, write), load = index_load_s + ftab_s",
+      "ropebwt3": "log stamps: load = last loaded stamp, query = last processed stamp minus load",
+      "legacy": "whole-process wall of the full run minus the one-read run, both cold"
+    },
+    "design": "BENCH_FREEZE_DESIGN.md D5, D6, D10; THREAD_SCALING_PLAN.md",
+    "cross_thread_check": "every run of every cell records its output sha256, which must be the same at every thread count of a tool, mode and read set (collect.py)"
+  },
+  "ms2": {
+    "repo": "https://github.com/langmead-lab/ms2.git",
+    "commit": "2885ee86270b4187fc45dcc69efd7de48a4aac03",
+    "build": "make -C src MS_COMMIT=2885ee86270b4187fc45dcc69efd7de48a4aac03 ms2-bench"
+  },
+  "ropebwt3": {
+    "repo": "https://github.com/lh3/ropebwt3.git",
+    "commit": "b408339d0fb08fe0f4da5140507a6b8b854fa12f",
+    "binary_sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+  },
+  "reads": 7982098,
+  "bases": 997762250,
+  "reference": "human472",
+  "read_set": "human_short-ms-1gb-acgt-v1",
+  "inputs": {
+    "binary": {
+      "name": "tools/ropebwt3-cfad8475/ropebwt3",
+      "sha256": "cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d"
+    },
+    "runtime": {
+      "name": "tools/runtime/libgomp.so.1",
+      "sha256": "427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8"
+    },
+    "fmd": {
+      "name": "ropebwt3/human472/index.fmd",
+      "sha256": "10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626"
+    },
+    "reads": {
+      "name": "reads/human472/human_short-ms-1gb-acgt-v1/reads.fa",
+      "sha256": "892dcd623e6a9c8808636a77d324ca52251bfc6da2b446745666d5838c94dd64"
+    },
+    "truth": {
+      "name": "reads/human472/human_short-ms-1gb-acgt-v1/truth.u32",
+      "sha256": "f432da6f5cdac08986a4e9800a419724ce6873d22b16eb7334ed4bace483e9e1"
+    },
+    "offsets": {
+      "name": "reads/human472/human_short-ms-1gb-acgt-v1/offsets.u64",
+      "sha256": "6ed717b9be158c2138debea9b5e23ff4f971eebc16b9cfb5030a9e688829db5b"
+    }
+  },
+  "numa": true,
+  "root": true,
+  "started": 1793673611.6280427,
+  "min_len": 1,
+  "threads": 16,
+  "binding": "physical",
+  "preparation": {},
+  "status": "checked",
+  "runs": [
+    {
+      "run": 1,
+      "host": "ip-10-0-0-250.ec2.internal",
+      "started": 1793673611.6281283,
+      "argv": [
+        "numactl",
+        "--physcpubind=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t16",
+        "-l1",
+        "/work/stage/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd",
+        "/work/stage/inputs/892dcd623e6a9c8808636a77d324ca52251bfc6da2b446745666d5838c94dd64/reads.fa"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 95.90911756900005,
+      "user_seconds": 1453.6,
+      "system_seconds": 5.16,
+      "peak_rss_kib": 15720320,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 4.256,
+        "query_seconds": 91.574,
+        "components": {
+          "last_loaded_s": 4.256,
+          "last_processed_s": 95.83,
+          "processed_sequences": 7982098
+        }
+      },
+      "threads": 16,
+      "cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "output_sha256": "eb1673f7c36aa878371e84d1e1e5f0b58689bef892c6c79bd6fff7168d4650b1",
+      "check": {
+        "reads": 7982098,
+        "positions": 997762250,
+        "failed": 0,
+        "validation": "MS rebuilt from every -l1 SMEM equals truth"
+      },
+      "finished": 1793673909.0133693
+    },
+    {
+      "run": 2,
+      "host": "ip-10-0-0-250.ec2.internal",
+      "started": 1793673909.0140314,
+      "argv": [
+        "numactl",
+        "--physcpubind=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t16",
+        "-l1",
+        "/work/stage/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd",
+        "/work/stage/inputs/892dcd623e6a9c8808636a77d324ca52251bfc6da2b446745666d5838c94dd64/reads.fa"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 95.59288676000051,
+      "user_seconds": 1449.73,
+      "system_seconds": 4.98,
+      "peak_rss_kib": 15716100,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 4.187,
+        "query_seconds": 91.328,
+        "components": {
+          "last_loaded_s": 4.187,
+          "last_processed_s": 95.515,
+          "processed_sequences": 7982098
+        }
+      },
+      "threads": 16,
+      "cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "output_sha256": "eb1673f7c36aa878371e84d1e1e5f0b58689bef892c6c79bd6fff7168d4650b1",
+      "finished": 1793674005.5460405
+    },
+    {
+      "run": 3,
+      "host": "ip-10-0-0-250.ec2.internal",
+      "started": 1793674005.5469217,
+      "argv": [
+        "numactl",
+        "--physcpubind=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15",
+        "--membind=0",
+        "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+        "mem",
+        "-t16",
+        "-l1",
+        "/work/stage/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd",
+        "/work/stage/inputs/892dcd623e6a9c8808636a77d324ca52251bfc6da2b446745666d5838c94dd64/reads.fa"
+      ],
+      "timeout_s": 7200,
+      "cache": "drop_caches",
+      "wall_seconds": 95.4336366940006,
+      "user_seconds": 1447.33,
+      "system_seconds": 4.96,
+      "peak_rss_kib": 15720316,
+      "phase": {
+        "source": "ropebwt3-log-stamps",
+        "query_definition": "last processed stamp - last loaded stamp",
+        "load_seconds": 4.175,
+        "query_seconds": 91.176,
+        "components": {
+          "last_loaded_s": 4.175,
+          "last_processed_s": 95.351,
+          "processed_sequences": 7982098
+        }
+      },
+      "threads": 16,
+      "cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "output_sha256": "eb1673f7c36aa878371e84d1e1e5f0b58689bef892c6c79bd6fff7168d4650b1",
+      "finished": 1793674101.9140131
+    }
+  ],
+  "check": {
+    "reads": 7982098,
+    "positions": 997762250,
+    "failed": 0,
+    "validation": "MS rebuilt from every -l1 SMEM equals truth"
+  },
+  "query_seconds": [
+    91.574,
+    91.328,
+    91.176
+  ],
+  "median_query_seconds": 91.328,
+  "load_seconds": [
+    4.256,
+    4.187,
+    4.175
+  ],
+  "median_load_seconds": 4.187,
+  "wall_seconds": [
+    95.90911756900005,
+    95.59288676000051,
+    95.4336366940006
+  ],
+  "peak_rss_kib": 15720320,
+  "query_spread_fraction": 0.004357918710581598,
+  "cache": [
+    "drop_caches"
+  ],
+  "mbases_per_second": 10.92504215574632,
+  "ns_per_base": 91.53282758492819,
+  "output_sha256": [
+    "eb1673f7c36aa878371e84d1e1e5f0b58689bef892c6c79bd6fff7168d4650b1"
+  ],
+  "finished": 1793674101.9143386
+}

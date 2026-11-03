@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "numactl",
+    "--physcpubind=0,1,2,3,4,5,6,7",
+    "--membind=0",
+    "/work/stage/inputs/cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d/ropebwt3",
+    "mem",
+    "-t8",
+    "-l1",
+    "/work/stage/inputs/10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626/index.fmd",
+    "/work/stage/inputs/2e9dda84fe31c0827e8d9ce9fac308b9ab374934db328617d06258b53a44f6ae/reads.fa"
+  ],
+  "cwd": "/work/stage/work/threads-2885ee8-da1041e8/threads-human_ont_modern-rope/runs/threads-human_ont_modern__rope-l1-t8/run3",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_seconds": 139.09665376299927,
+  "stdout": "/work/stage/work/threads-2885ee8-da1041e8/threads-human_ont_modern-rope/runs/threads-human_ont_modern__rope-l1-t8/run3/run3.stdout",
+  "stderr": "/work/stage/work/threads-2885ee8-da1041e8/threads-human_ont_modern-rope/runs/threads-human_ont_modern__rope-l1-t8/run3/run3.stderr",
+  "native_wall_seconds": 139.08,
+  "user_seconds": 1053.8,
+  "system_seconds": 4.67,
+  "peak_rss_kib": 15429648
+}

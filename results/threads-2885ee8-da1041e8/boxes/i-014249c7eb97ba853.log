@@ -1,0 +1,86 @@
+2026-11-02T22:49:52 run threads-human_short-phi
+22:49:55 threads-human_short-phi: 7 of 7 cells to run
+22:49:55 stage ms2/human472/index.tms.phi.orbitidx
+23:02:58 stage reads/human472/human_short-ms-1gb-acgt-v1/offsets.u64
+23:02:59 stage reads/human472/human_short-ms-1gb-acgt-v1/reads.fa
+23:03:03 stage reads/human472/human_short-ms-1gb-acgt-v1/truth.u32
+23:03:14 stage tools/ms2-2885ee8/ms2-bench
+23:03:15 stage tools/ms_check
+23:03:16 threads-human_short/phi-ordinary-t64 run1
+23:05:01 threads-human_short/phi-ordinary-t64 run2
+23:06:22 threads-human_short/phi-ordinary-t64 run3
+23:07:52 threads-human_short/phi-ordinary-t64 checked 15.8541 
+23:07:52 threads-human_short/phi-ordinary-t1 run1
+23:17:31 threads-human_short/phi-ordinary-t1 run2
+23:27:05 threads-human_short/phi-ordinary-t1 run3
+23:36:47 threads-human_short/phi-ordinary-t1 checked 507.674 
+23:36:47 threads-human_short/phi-ordinary-t32 run1
+23:38:18 threads-human_short/phi-ordinary-t32 run2
+23:39:41 threads-human_short/phi-ordinary-t32 run3
+23:41:11 threads-human_short/phi-ordinary-t32 checked 18.3922 
+23:41:11 threads-human_short/phi-ordinary-t4 run1
+23:44:32 threads-human_short/phi-ordinary-t4 run2
+23:47:46 threads-human_short/phi-ordinary-t4 run3
+23:51:07 threads-human_short/phi-ordinary-t4 checked 128.169 
+23:51:07 threads-human_short/phi-ordinary-t8 run1
+23:53:26 threads-human_short/phi-ordinary-t8 run2
+23:55:36 threads-human_short/phi-ordinary-t8 run3
+23:57:52 threads-human_short/phi-ordinary-t8 checked 64.8294 
+23:57:52 threads-human_short/phi-ordinary-t16 run1
+23:59:38 threads-human_short/phi-ordinary-t16 run2
+00:01:16 threads-human_short/phi-ordinary-t16 run3
+00:03:02 threads-human_short/phi-ordinary-t16 checked 33.3584 
+00:03:02 threads-human_short/phi-ordinary-t2 run1
+00:08:30 threads-human_short/phi-ordinary-t2 run2
+00:13:50 threads-human_short/phi-ordinary-t2 run3
+00:19:18 threads-human_short/phi-ordinary-t2 checked 254.775 
+00:19:22 threads-human_short-phi: 0 cells without a done marker
+2026-11-03T00:19:22 job threads-human_short-phi exit 0
+2026-11-03T00:19:29 run threads-human_ont_modern-rope
+00:19:32 threads-human_ont_modern-rope: 7 of 7 cells to run
+00:19:32 stage reads/human472/human_ont_modern-ms-1gb-acgt-v1/offsets.u64
+00:19:32 stage reads/human472/human_ont_modern-ms-1gb-acgt-v1/reads.fa
+00:19:36 stage reads/human472/human_ont_modern-ms-1gb-acgt-v1/truth.u32
+00:19:49 stage ropebwt3/human472/index.fmd
+00:20:37 stage tools/ropebwt3-cfad8475/ropebwt3
+00:20:38 stage tools/runtime/libgomp.so.1
+00:20:39 threads-human_ont_modern/rope-l1-t2 run1
+00:32:38 threads-human_ont_modern/rope-l1-t2 run2
+00:41:28 threads-human_ont_modern/rope-l1-t2 run3
+00:50:24 threads-human_ont_modern/rope-l1-t2 checked 524.317 
+00:50:24 threads-human_ont_modern/rope-l1-t32 run1
+00:54:20 threads-human_ont_modern/rope-l1-t32 run2
+00:55:07 threads-human_ont_modern/rope-l1-t32 run3
+00:56:02 threads-human_ont_modern/rope-l1-t32 checked 42.063 
+00:56:02 threads-human_ont_modern/rope-l1-t4 run1
+01:03:40 threads-human_ont_modern/rope-l1-t4 run2
+01:08:09 threads-human_ont_modern/rope-l1-t4 run3
+01:12:45 threads-human_ont_modern/rope-l1-t4 checked 263.92 
+01:12:45 threads-human_ont_modern/rope-l1-t16 run1
+01:17:11 threads-human_ont_modern/rope-l1-t16 run2
+01:18:29 threads-human_ont_modern/rope-l1-t16 run3
+01:19:55 threads-human_ont_modern/rope-l1-t16 checked 72.872 
+01:19:55 threads-human_ont_modern/rope-l1-t64 run1
+01:23:44 threads-human_ont_modern/rope-l1-t64 run2
+01:24:24 threads-human_ont_modern/rope-l1-t64 run3
+01:25:12 threads-human_ont_modern/rope-l1-t64 checked 35.07599999999999 
+01:25:12 threads-human_ont_modern/rope-l1-t1 run1
+01:45:56 threads-human_ont_modern/rope-l1-t1 run2
+02:03:32 threads-human_ont_modern/rope-l1-t1 run3
+02:21:15 threads-human_ont_modern/rope-l1-t1 checked 1050.69 
+02:21:15 threads-human_ont_modern/rope-l1-t8 run1
+02:26:44 threads-human_ont_modern/rope-l1-t8 run2
+02:29:03 threads-human_ont_modern/rope-l1-t8 run3
+02:31:31 threads-human_ont_modern/rope-l1-t8 checked 134.86100000000002 
+02:31:35 threads-human_ont_modern-rope: 0 cells without a done marker
+2026-11-03T02:31:35 job threads-human_ont_modern-rope exit 0
+2026-11-03T02:31:38 nothing ready; 1 jobs unfinished; waiting
+2026-11-03T02:32:40 nothing ready; 1 jobs unfinished; waiting
+2026-11-03T02:33:43 nothing ready; 1 jobs unfinished; waiting
+2026-11-03T02:34:45 nothing ready; 1 jobs unfinished; waiting
+2026-11-03T02:35:48 nothing ready; 1 jobs unfinished; waiting
+2026-11-03T02:36:50 nothing ready; 1 jobs unfinished; waiting
+2026-11-03T02:37:52 nothing ready; 1 jobs unfinished; waiting
+2026-11-03T02:38:55 nothing ready; 1 jobs unfinished; waiting
+2026-11-03T02:39:57 nothing ready; 1 jobs unfinished; waiting
+2026-11-03T02:41:00 nothing ready; 1 jobs unfinished; waiting

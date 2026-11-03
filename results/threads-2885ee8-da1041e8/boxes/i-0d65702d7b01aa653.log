@@ -1,0 +1,96 @@
+2026-11-02T22:49:45 run threads-smt-check
+22:49:45 threads-smt-check: 1 of 1 cells to run
+22:49:45 stage ms2/human472/index.ms.orbitidx
+22:53:52 stage reads/human472/human_ont_modern-ms-60mb-acgt-v2/offsets.u64
+22:53:52 stage reads/human472/human_ont_modern-ms-60mb-acgt-v2/reads.fa
+22:53:53 stage reads/human472/human_ont_modern-ms-60mb-acgt-v2/truth.u32
+22:53:55 stage tools/ms2-2885ee8/ms2-bench
+22:53:56 stage tools/ms_check
+22:53:56 threads-smt-check/ms-ordinary-t64 run1
+22:54:44 threads-smt-check/ms-ordinary-t64 run2
+22:55:26 threads-smt-check/ms-ordinary-t64 run3
+22:56:17 threads-smt-check/ms-ordinary-t64 checked 0.258599 
+22:56:18 threads-smt-check: 0 cells without a done marker
+2026-11-02T22:56:18 job threads-smt-check exit 0
+2026-11-02T22:56:25 run threads-human_short-dual
+22:56:27 threads-human_short-dual: 7 of 7 cells to run
+22:56:27 stage ms2/human472/index.tms.full.seqids.orbitidx
+23:13:36 stage reads/human472/human_short-ms-1gb-acgt-v1/offsets.u64
+23:13:37 stage reads/human472/human_short-ms-1gb-acgt-v1/reads.fa
+23:13:40 stage reads/human472/human_short-ms-1gb-acgt-v1/truth.u32
+23:13:52 threads-human_short/dual-ordinary-t8 run1
+23:16:05 threads-human_short/dual-ordinary-t8 run2
+23:17:53 threads-human_short/dual-ordinary-t8 run3
+23:19:49 threads-human_short/dual-ordinary-t8 checked 9.22532 
+23:19:49 threads-human_short/dual-ordinary-t4 run1
+23:21:53 threads-human_short/dual-ordinary-t4 run2
+23:23:49 threads-human_short/dual-ordinary-t4 run3
+23:25:54 threads-human_short/dual-ordinary-t4 checked 18.1331 
+23:25:54 threads-human_short/dual-ordinary-t16 run1
+23:27:44 threads-human_short/dual-ordinary-t16 run2
+23:29:27 threads-human_short/dual-ordinary-t16 run3
+23:31:21 threads-human_short/dual-ordinary-t16 checked 4.82197 
+23:31:21 threads-human_short/dual-ordinary-t64 run1
+23:33:08 threads-human_short/dual-ordinary-t64 run2
+23:34:50 threads-human_short/dual-ordinary-t64 run3
+23:36:38 threads-human_short/dual-ordinary-t64 checked 2.91262 
+23:36:38 threads-human_short/dual-ordinary-t1 run1
+23:39:38 threads-human_short/dual-ordinary-t1 run2
+23:42:32 threads-human_short/dual-ordinary-t1 run3
+23:45:32 threads-human_short/dual-ordinary-t1 checked 72.1039 
+23:45:32 threads-human_short/dual-ordinary-t32 run1
+23:47:22 threads-human_short/dual-ordinary-t32 run2
+23:49:04 threads-human_short/dual-ordinary-t32 run3
+23:50:52 threads-human_short/dual-ordinary-t32 checked 2.88026 
+23:50:52 threads-human_short/dual-ordinary-t2 run1
+23:53:17 threads-human_short/dual-ordinary-t2 run2
+23:55:33 threads-human_short/dual-ordinary-t2 run3
+23:57:58 threads-human_short/dual-ordinary-t2 checked 36.1289 
+23:58:02 threads-human_short-dual: 0 cells without a done marker
+2026-11-02T23:58:02 job threads-human_short-dual exit 0
+2026-11-02T23:58:08 run threads-human_ont_modern-phi
+23:58:11 threads-human_ont_modern-phi: 7 of 7 cells to run
+23:58:11 stage ms2/human472/index.tms.phi.orbitidx
+00:11:40 stage reads/human472/human_ont_modern-ms-1gb-acgt-v1/offsets.u64
+00:11:41 stage reads/human472/human_ont_modern-ms-1gb-acgt-v1/reads.fa
+00:11:45 stage reads/human472/human_ont_modern-ms-1gb-acgt-v1/truth.u32
+00:11:59 threads-human_ont_modern/phi-ordinary-t32 run1
+00:13:35 threads-human_ont_modern/phi-ordinary-t32 run2
+00:14:48 threads-human_ont_modern/phi-ordinary-t32 run3
+00:16:11 threads-human_ont_modern/phi-ordinary-t32 checked 8.97873 
+00:16:11 threads-human_ont_modern/phi-ordinary-t64 run1
+00:17:30 threads-human_ont_modern/phi-ordinary-t64 run2
+00:18:43 threads-human_ont_modern/phi-ordinary-t64 run3
+00:20:02 threads-human_ont_modern/phi-ordinary-t64 checked 7.09412 
+00:20:02 threads-human_ont_modern/phi-ordinary-t1 run1
+00:24:37 threads-human_ont_modern/phi-ordinary-t1 run2
+00:29:06 threads-human_ont_modern/phi-ordinary-t1 run3
+00:33:43 threads-human_ont_modern/phi-ordinary-t1 checked 202.945 
+00:33:43 threads-human_ont_modern/phi-ordinary-t8 run1
+00:35:22 threads-human_ont_modern/phi-ordinary-t8 run2
+00:36:54 threads-human_ont_modern/phi-ordinary-t8 run3
+00:38:33 threads-human_ont_modern/phi-ordinary-t8 checked 27.2525 
+00:38:33 threads-human_ont_modern/phi-ordinary-t4 run1
+00:40:38 threads-human_ont_modern/phi-ordinary-t4 run2
+00:42:36 threads-human_ont_modern/phi-ordinary-t4 run3
+00:44:41 threads-human_ont_modern/phi-ordinary-t4 checked 52.1124 
+00:44:41 threads-human_ont_modern/phi-ordinary-t2 run1
+00:47:34 threads-human_ont_modern/phi-ordinary-t2 run2
+00:50:23 threads-human_ont_modern/phi-ordinary-t2 run3
+00:53:20 threads-human_ont_modern/phi-ordinary-t2 checked 102.365 
+00:53:20 threads-human_ont_modern/phi-ordinary-t16 run1
+00:54:47 threads-human_ont_modern/phi-ordinary-t16 run2
+00:56:06 threads-human_ont_modern/phi-ordinary-t16 run3
+00:57:33 threads-human_ont_modern/phi-ordinary-t16 checked 15.0665 
+00:57:37 threads-human_ont_modern-phi: 0 cells without a done marker
+2026-11-03T00:57:37 job threads-human_ont_modern-phi exit 0
+2026-11-03T00:57:43 nothing ready; 3 jobs unfinished; waiting
+2026-11-03T00:58:48 nothing ready; 3 jobs unfinished; waiting
+2026-11-03T00:59:53 nothing ready; 3 jobs unfinished; waiting
+2026-11-03T01:00:58 nothing ready; 3 jobs unfinished; waiting
+2026-11-03T01:02:03 nothing ready; 3 jobs unfinished; waiting
+2026-11-03T01:03:09 nothing ready; 3 jobs unfinished; waiting
+2026-11-03T01:04:14 nothing ready; 3 jobs unfinished; waiting
+2026-11-03T01:05:19 nothing ready; 3 jobs unfinished; waiting
+2026-11-03T01:06:24 nothing ready; 3 jobs unfinished; waiting
+2026-11-03T01:07:29 nothing ready; 3 jobs unfinished; waiting
