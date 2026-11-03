@@ -2,8 +2,8 @@
 Spot fleet for the ms2 freeze benchmark's timed runs (BENCH_FREEZE_DESIGN.md D4, D5, D10, D11).
 
 An Auto Scaling group keeps box_count metal spot boxes running. Its mixed-instances policy
-tries r6idn.metal first and falls back to i4i.metal (same CPU, memory and topology) when
-r6idn.metal capacity is short, in any us-east-1 availability zone. A box reclaimed by spot
+tries the types of instance_types in order, in any availability zone of the region. Every box of
+the paper's runs was i4i.metal. A box reclaimed by spot
 is replaced by the group, and the replacement resumes the interrupted job from its per-cell
 done markers in S3, so the group is the orchestrator that relaunches interrupted jobs.
 
@@ -20,6 +20,9 @@ Credentials: the standing instance role is referenced, as in the other bench sta
 attaches one policy to it that lets a box scale and leave this group and read and write the
 freeze bucket, a private bucket in this account named by bench_s3_root; destroy removes that
 policy and leaves the bucket.
+
+Boxes need no inbound access: they pull work from S3. With ssh_cidr set (an address range such
+as 203.0.113.7/32), the stack also creates a key pair and opens SSH from that range.
 
 Optional config: inputs_s3_root (default bench_s3_root/inputs) lets a later run read the inputs an
 earlier one published, such as the thread-scaling run reading the freeze's indexes, while its
@@ -59,11 +62,13 @@ class FreezeBenchStack(Stack):
                 name="freeze-public", subnet_type=ec2.SubnetType.PUBLIC, cidr_mask=24)],
         )
         sec_group = ec2.SecurityGroup(self, "FreezeSecurityGroup", vpc=vpc, allow_all_outbound=True)
-        sec_group.add_ingress_rule(ec2.Peer.ipv4(config['ssh_cidr']), ec2.Port.tcp(22), "SSH")
-
-        key_pair = ec2.CfnKeyPair(
-            self, "FreezeKeyPair", key_name="ms2-freeze-bench" if construct_id == "Ms2FreezeBenchStack" else construct_id,
-            tags=[CfnTag(key="application", value="ms2-freeze-bench")])
+        key_pair = None
+        if config.get('ssh_cidr'):
+            sec_group.add_ingress_rule(ec2.Peer.ipv4(config['ssh_cidr']), ec2.Port.tcp(22), "SSH")
+            key_pair = ec2.CfnKeyPair(
+                self, "FreezeKeyPair",
+                key_name="ms2-freeze-bench" if construct_id == "Ms2FreezeBenchStack" else construct_id,
+                tags=[CfnTag(key="application", value="ms2-freeze-bench")])
 
         instance_role = iam.Role.from_role_name(
             self, "FreezeInstanceRole", config['instance_role_name'], mutable=True)
@@ -86,7 +91,7 @@ class FreezeBenchStack(Stack):
             self, "FreezeLaunchTemplate",
             machine_image=ec2.MachineImage.latest_amazon_linux2023(),
             security_group=sec_group,
-            key_name=key_pair.key_name,
+            key_name=key_pair.key_name if key_pair else None,
             role=instance_role,
             user_data=user_data,
             associate_public_ip_address=True,
@@ -114,7 +119,7 @@ class FreezeBenchStack(Stack):
                 instances_distribution=autoscaling.InstancesDistribution(
                     on_demand_base_capacity=0,
                     on_demand_percentage_above_base_capacity=0,
-                    # Honors the order of instance_types: r6idn.metal first, i4i.metal as fallback.
+                    # Honors the order of instance_types.
                     spot_allocation_strategy=autoscaling.SpotAllocationStrategy.CAPACITY_OPTIMIZED_PRIORITIZED,
                     spot_max_price=(str(config['spot_max_price']) if config.get('spot_max_price') else None),
                 ),
@@ -156,5 +161,6 @@ class FreezeBenchStack(Stack):
             instance_role.add_to_principal_policy(iam.PolicyStatement(
                 actions=['s3:GetObject'], resources=[f'arn:aws:s3:::{in_bucket}/{in_prefix}/*']))
 
-        CfnOutput(self, "KeyPairId", value=key_pair.attr_key_pair_id)
+        if key_pair:
+            CfnOutput(self, "KeyPairId", value=key_pair.attr_key_pair_id)
         CfnOutput(self, "GroupName", value=group.auto_scaling_group_name)

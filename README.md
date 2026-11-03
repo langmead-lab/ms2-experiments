@@ -8,7 +8,7 @@ which is tagged `paper-v1`.
 | Path | Content |
 |---|---|
 | `ms2exp/` | Benchmark workflow Python package; uses standard library only, except figure rendering |
-| `launchers/rockfish/`, `launchers/aws/` | Two "launchers" we used: one using Slurm on the JHU Rockfish cluster, and another for AWS spot instances (CDK app and worker) |
+| `launchers/rockfish/`, `launchers/aws/` | Two "launchers" we used: one using Slurm on the JHU Rockfish cluster, and another for AWS spot instances (CDK app and worker; copy `launchers/aws/config.example.json` to `config.json` first) |
 | `results/` | Small recorded measurements from the two freeze runs; `results/README.md` maps them to paper elements |
 | `figures/` | Output from `python -m ms2exp.figures`: summaries, drafts, TikZ data and the paper's figure PDFs |
 | `tools.lock.json`, `TOOLS.md` | The tools pinned to specific versions, and how each was built |

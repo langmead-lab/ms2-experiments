@@ -5,9 +5,8 @@
 #   S3_ROOT is config.json's bench_s3_root; inputs go to S3_ROOT/inputs/<logical name>,
 #   TRACES_DIR is RESULTS_ROOT/MANIFEST_ID/traces from the Rockfish runs. With INPUTS_S3 set (the
 #   config's inputs_s3_root), inputs go there instead; ones already present are skipped.
-# Needs credentials for the fleet account's freeze bucket, for example AWS_PROFILE=index-zone-ec2
-# after `aws sso login --profile index-zone-ec2 --use-device-code`. This uploads; it is never run
-# by the workflow itself.
+# Needs credentials for the bucket of bench_s3_root, for example an AWS_PROFILE that can write
+# it. This uploads; it is never run by the workflow itself.
 set -euo pipefail
 manifest=$(readlink -f "$1"); inputs=$2; root=${3%/}; traces=${4:-}; dry=${5:-}
 repo=$(cd "$(dirname "$0")/../.." && pwd)

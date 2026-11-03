@@ -2,7 +2,7 @@
 """Read-only check of spot price, spot capacity and vCPU quota for the freeze fleet (D4).
 
 Usage:
-  capacity_check.py [--config config.json] [--boxes N] [--days 7] [--profile index-zone-ec2]
+  capacity_check.py [--config config.json] [--boxes N] [--days 7] [--profile PROFILE]
 
 Prints, for each instance type of config.json in its region:
 - the spot price per availability zone over the last --days (minimum, median, latest);

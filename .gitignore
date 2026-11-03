@@ -4,3 +4,5 @@ __pycache__/
 figures/tikz/build/
 launchers/aws/cdk.out/
 launchers/aws/cdk.context.json
+launchers/aws/config*.json
+!launchers/aws/config.example.json
