@@ -1,6 +1,6 @@
 # Preparation evidence
 
-Small records copied from the lab's Rockfish cluster so that each input's derivation can be read without lab access. Nothing here is needed to run the benchmark. `data/README.md` says which record backs which input.
+Small records copied from the lab's Rockfish cluster so that each input's derivation can be read without lab access. Nothing here is needed to run the benchmark. Personal home directories of lab members are written as `/home/USER`; the records are otherwise as copied. `data/README.md` says which record backs which input.
 
 ## `rockfish/`
 
