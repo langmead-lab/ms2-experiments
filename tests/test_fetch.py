@@ -14,7 +14,7 @@ def write_table(path, files):
         w.writeheader()
         for name, data in files.items():
             w.writerow(dict(name=name, bytes=len(data), sha256=hashlib.sha256(data).hexdigest(),
-                            source='zenodo:PLACEHOLDER1', file=fetch.deposit_file(name), url='-'))
+                            source='zenodo:' + fetch.DEPOSIT['reads'], file=fetch.deposit_file(name), url='-'))
 
 
 @pytest.fixture
@@ -78,11 +78,44 @@ def test_no_public_copy_is_an_error(setup):
         run(tmp_path, table, 'reads/a/reads.fa')
 
 
+def test_dry_run_reports_inputs_without_a_source(setup, capsys):
+    tmp_path, table, mirror, files = setup
+    with pytest.raises(SystemExit, match='1 inputs have no public copy'):
+        run(tmp_path, table, '--dry-run', 'reads/a/reads.fa', 'reads/b/reads.fa', 'reads/a/truth.u32',
+            '--from-locations', str(_locs(tmp_path, files, 'reads/a/truth.u32')))
+    out = capsys.readouterr().out
+    assert 'NONE    reads/a/reads.fa' in out and 'reads/b/reads.fa' not in out.split('NONE')[-1].split('\n')[0]
+    run(tmp_path, table, '--dry-run', '--mirror', str(mirror), *files)
+
+
+def _locs(tmp_path, files, name):
+    lab = tmp_path/'lab-dry'
+    lab.mkdir(exist_ok=True)
+    (lab/'f').write_bytes(files[name])
+    locs = tmp_path/'locs-dry.json'
+    locs.write_text(json.dumps(dict(locations={name: str(lab/'f')})))
+    return locs
+
+
 def test_committed_table_covers_the_toy():
     table = fetch.load_table(fetch.TABLE)
     names = [n.strip() for n in fetch.SETS['toy'].read_text().splitlines() if n.strip() and not n.startswith('#')]
     assert len(names) == 34 and all(n in table for n in names)
     for n in names:
         assert table[n]['sha256'] not in ('built', 'pending') and table[n]['file'] != '-'
-    assert table['ropebwt3/mtb152/index.fmd']['source'] == fetch.UNDECIDED
+    fmd = table['ropebwt3/mtb152/index.fmd']
+    assert fmd['source'] == 'zenodo:' + fetch.DEPOSIT['precursors']
+    assert fmd['url'] == fetch.ZENODO_URL.format(record=fetch.DEPOSIT['precursors'], file=fmd['file'])
     assert all(r['source'] == fetch.UNDECIDED for n, r in table.items() if n.startswith('tools/'))
+
+
+def test_committed_table_names_the_published_deposits():
+    table = fetch.load_table(fetch.TABLE)
+    for name, row in table.items():
+        assert 'PLACEHOLDER' not in row['source'] + row['url'], name
+        if row['source'] in fetch.DEPOSITED:
+            record = row['source'].split(':', 1)[1]
+            assert row['url'] == fetch.ZENODO_URL.format(record=record, file=row['file']), name
+    counts = {record: sum(r['source'] == 'zenodo:' + record for r in table.values())
+              for record in fetch.DEPOSIT.values()}
+    assert counts == {'23964218': 71, '23964220': 30, '23964222': 18}

@@ -82,7 +82,8 @@ The toy runs every path of the runner (ms2 MS, oracle, counting and locate cells
 PHONI and Augmented PHONI) on mtb152 and chr22-h10 inputs, then checks the results against
 `toy/expected/`. It needs x86_64 Linux with glibc 2.28 or later, g++ with C++17 and static
 libstdc++, make, zlib headers, git and Python 3.10 or later; numactl is optional. Expect about
-4.6 GB of downloads, 15 GB of disk and under 1.5 GB of memory. On the lab's development server it
+5.8 GB of downloads (about 50 minutes at the 2 MB/s we saw from Zenodo), 15 GB of disk and under
+1.5 GB of memory. On the lab's development server it
 took about 11 minutes to prepare and 10 minutes to run, at 1.3 GB peak memory.
 
 ```bash
@@ -94,10 +95,15 @@ toy/toy_run.sh $TOY                        # runs the 34 cells on this machine, 
 python3 toy/compare.py --expected toy/expected $TOY
 ```
 
-The inputs are not public yet: `data/inputs.tsv` lists each with its sha256 and planned Zenodo
-record, and the fetch step works once those records exist. Until then, inside the Langmead lab,
-`python3 -m ms2exp.fetch --set toy --link --from-locations data/locations/*.json` links the lab's
-copies instead.
+The fetch step downloads the read sets, precursors and legacy indexes from the three Zenodo
+deposits ([10.5281/zenodo.23964218](https://doi.org/10.5281/zenodo.23964218),
+[10.5281/zenodo.23964220](https://doi.org/10.5281/zenodo.23964220) and
+[10.5281/zenodo.23964222](https://doi.org/10.5281/zenodo.23964222)); `data/inputs.tsv` gives each
+input's sha256 and URL. Seven of the toy's inputs are not public yet: the pinned ropebwt3, MONI,
+PHONI and Augmented PHONI binaries and the three runtime libraries beside them (26 MB in all;
+`TOOLS.md`). `python3 -m ms2exp.fetch --set toy --dry-run` lists them, and the fetch stops when it
+reaches them. Inside the Langmead lab, `python3 -m ms2exp.fetch --set toy --link --from-locations
+data/locations/*.json` links the lab's copies of every input instead.
 
 `toy_run.sh` runs each job directly on this machine; it does not use Slurm. The protocol times runs
 with transparent huge pages set to `always` (`sudo sh -c 'echo always >

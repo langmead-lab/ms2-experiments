@@ -22,7 +22,7 @@ maps every name fetched or verified so far to its path, for ms2exp.catalog hash 
 
 table writes data/inputs.tsv: one row per input of the freeze manifest plus the toy's own inputs,
 with its size, sha256, source, deposited file name and URL. Sources are zenodo:<record> (the
-deposits; PLACEHOLDER record ids until they exist), zenodo:14854401 (Heng Li's human472 record,
+three deposits: 23964218 read sets, 23964220 precursors and ropebwt3 FMDs, 23964222 legacy indexes), zenodo:14854401 (Heng Li's human472 record,
 unchanged), rebuild (the large HPRC2 inputs, built from human472.fmd, and the ms2 source bundles), built (made by a build job of
 the manifest), recorded (oracle traces a run records) and "deposit to be decided".
 """
@@ -44,8 +44,9 @@ TABLE = REPO/'data'/'inputs.tsv'
 SETS = {'toy': REPO/'toy'/'inputs.txt'}
 FIELDS = ('name', 'bytes', 'sha256', 'source', 'file', 'url')
 UNDECIDED = 'deposit to be decided'
-# The deposits the paper's Data availability note names, by record (placeholders until created).
-DEPOSIT = {'reads': 'PLACEHOLDER1', 'precursors': 'PLACEHOLDER2', 'legacy': 'PLACEHOLDER3'}
+# The deposits the paper's Data availability note names, by Zenodo record.
+DEPOSIT = {'reads': '23964218', 'precursors': '23964220', 'legacy': '23964222'}
+DEPOSITED = {'zenodo:' + record for record in DEPOSIT.values()}
 ZENODO_URL = 'https://zenodo.org/records/{record}/files/{file}?download=1'
 LI_RECORD = '14854401'
 # Inputs of the toy that no freeze manifest has: the mtb152 FMD the mtb152 precursors were made
@@ -69,7 +70,7 @@ def source_of(name, entry):
     if top == 'precursors':
         return 'rebuild' if ref == 'human472' else 'zenodo:' + DEPOSIT['precursors']
     if top == 'ropebwt3':
-        if ref.startswith('chr22-'):
+        if ref.startswith('chr22-') or name == 'ropebwt3/mtb152/index.fmd':
             return 'zenodo:' + DEPOSIT['precursors']
         if ref == 'human472':
             leaf = rest.split('/', 1)[1]
@@ -108,7 +109,7 @@ def cmd_table(args):
             source = UNDECIDED
         sha = entry['sha256']
         file = url = '-'
-        if source.startswith('zenodo:PLACEHOLDER') or source == UNDECIDED:
+        if source in DEPOSITED or source == UNDECIDED:
             # Byte-identical inputs are deposited once, under the first name that has them.
             file = first.setdefault(sha, deposit_file(name))
             if source != UNDECIDED:
@@ -191,6 +192,20 @@ def copy_checked(src, dest, row):
     part.replace(dest)
 
 
+def public_url(row):
+    """True when the row's URL names a file that can be downloaded as is."""
+    return row['url'] not in ('', '-') and row['source'] != UNDECIDED and row['source'] != f'zenodo:{LI_RECORD}'
+
+
+def obtainable(row, args, locations):
+    """Where obtain would take the input from, or None when no source has it."""
+    if row['name'] in locations:
+        return 'location'
+    if args.mirror and row['file'] != '-':
+        return 'mirror'
+    return 'url' if public_url(row) else None
+
+
 def obtain(row, dest, args, locations):
     """Put the input at DEST from the first source that has it; returns where it came from."""
     if row['name'] in locations:
@@ -209,8 +224,8 @@ def obtain(row, dest, args, locations):
             return url
         copy_checked(Path(args.mirror)/row['file'], dest, row)
         return str(Path(args.mirror)/row['file'])
-    if row['url'] in ('', '-') or 'PLACEHOLDER' in row['url'] or row['source'] == UNDECIDED:
-        raise SystemExit(f"{row['name']}: no public copy yet (source: {row['source']}); "
+    if not public_url(row):
+        raise SystemExit(f"{row['name']}: no public copy (source: {row['source']}); "
                          'give --from-locations or --mirror')
     download(row['url'], dest, row)
     return row['url']
@@ -229,7 +244,7 @@ def cmd_get(args):
             locations.setdefault(name, location)
     index_path = data/'locations.json'
     index = json.loads(index_path.read_text())['locations'] if index_path.exists() else {}
-    by_sha, missing, total = {}, [], 0
+    by_sha, missing, unavailable, total = {}, [], [], 0
     for name in names:
         row = table[name]
         if row['bytes'] == '-' or row['sha256'] in ('built', 'pending'):
@@ -248,10 +263,16 @@ def cmd_get(args):
         if args.verify_only:
             missing.append(name)
             continue
-        total += int(row['bytes'])
         if args.dry_run:
-            print(f'fetch   {name} ({int(row["bytes"]):,} bytes)')
+            if obtainable(row, args, locations) is None and row['sha256'] not in by_sha:
+                unavailable.append(f"{name} (source: {row['source']})")
+                print(f'NONE    {name} (no public copy; source: {row["source"]})')
+            else:
+                total += int(row['bytes'])
+                print(f'fetch   {name} ({int(row["bytes"]):,} bytes)')
+            by_sha.setdefault(row['sha256'], dest)
             continue
+        total += int(row['bytes'])
         dest.parent.mkdir(parents=True, exist_ok=True)
         twin = by_sha.get(row['sha256'])
         if twin:
@@ -268,6 +289,10 @@ def cmd_get(args):
         index[name] = str(dest)
     if missing:
         raise SystemExit('Missing or different:\n  ' + '\n  '.join(missing))
+    if unavailable:
+        print(f'{len(names)} inputs; {total:,} bytes to fetch', file=sys.stderr)
+        raise SystemExit(f'{len(unavailable)} inputs have no public copy; give --from-locations or --mirror:\n  '
+                         + '\n  '.join(unavailable))
     if not args.dry_run:
         atomic_json(index_path, dict(locations=dict(sorted(index.items()))))
     print(f'{len(names)} inputs in {data}' + (f'; {total:,} bytes to fetch' if args.dry_run else ''))

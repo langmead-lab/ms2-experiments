@@ -141,6 +141,6 @@ legacy binaries also carry that directory as their RPATH, so on Rockfish they ne
 `LD_LIBRARY_PATH`. The GCC runtime libraries are GPL-3.0 with the GCC Runtime Library Exception.
 
 All of these binaries, and the runtime libraries, are pinned by sha256 in `tools.lock.json` and in
-the manifests (`ms2exp.build.tools --runtime` checks the runtime libraries against those pins); how they will be distributed is still to be decided. `build_legacy.sh
+the manifests (`ms2exp.build.tools --runtime` checks the runtime libraries against those pins); they are not yet public, so `python3 -m ms2exp.fetch --set toy` cannot obtain them outside the lab (`--dry-run` lists them). `build_legacy.sh
 --static-runtime` builds MONI, PHONI and Augmented PHONI with the C++ runtime linked statically,
 for hosts without a GCC 13 runtime; those binaries differ from the pinned ones by construction.
