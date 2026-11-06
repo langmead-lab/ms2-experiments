@@ -168,17 +168,17 @@ ropebwt3/mtb152/index.fmd	19833552	181c92baeda3f414e50c1e5e87b71ac2c3e54d8bc4723
 source/ms2-2885ee8/ms2.bundle	2324233	cc88d25eec54d2cdb21f2e934cafba53fc4b4c55a24af722dc098703d1bf323e	rebuild: toy/make_source_bundles.sh from the public ms2 repository	-	-
 source/ms2-2885ee8/orbit.bundle	2254987	f13bff97b6f373b18da426da9130966a8c9ad380eee91a3b3d4dfadae592a960	rebuild: toy/make_source_bundles.sh from the public ms2 repository	-	-
 source/ms2-2885ee8/teratools.bundle	30335251	c941f5cf0ce8108d0087c9a826bad138c45b688d82d30e70356dfd97ee986ed1	rebuild: toy/make_source_bundles.sh from the public ms2 repository	-	-
-tools/augphoni/aug_phoni	486296	79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b	deposit to be decided	tools__augphoni__aug_phoni	-
-tools/moni/moni-ms	453664	4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f	deposit to be decided	tools__moni__moni-ms	-
+tools/augphoni/aug_phoni	486296	79d50bf5bf4997ec35587eb1b0c17bdce7c728ddfd472305272c73a7317e862b	github:langmead-lab/ms2-experiments@tools-v1	tools__augphoni__aug_phoni	https://github.com/langmead-lab/ms2-experiments/releases/download/tools-v1/tools__augphoni__aug_phoni
+tools/moni/moni-ms	453664	4ea254ddf5921341a45029fe94279618db38f7db47c26b57db9695ea586efb3f	github:langmead-lab/ms2-experiments@tools-v1	tools__moni__moni-ms	https://github.com/langmead-lab/ms2-experiments/releases/download/tools-v1/tools__moni__moni-ms
 tools/ms2-2885ee8/ms2-bench	4344224	1da9ea81b9ab40350a6205df1dd57f45e4896b727ad8af2409938d9b93d98267	deposit to be decided	tools__ms2-2885ee8__ms2-bench	-
 tools/ms2-2885ee8/ms2-replog	4484664	2b123fdd3470dbf05d3ec576a489d31a57daf9fd552398bcb390d6a616ef57cc	deposit to be decided	tools__ms2-2885ee8__ms2-replog	-
 tools/ms2-2885ee8/ms2-stats	4431520	e47323d8b749323cab0fc1976471c3e18fda5ea5509cafe193abac30fce802e8	deposit to be decided	tools__ms2-2885ee8__ms2-stats	-
 tools/ms_check	251000	1142b2770f0b53bf2c9313f531a9bec9d085bd284589f8902fcbe4a4e7981bab	deposit to be decided	tools__ms_check	-
-tools/phoni/phoni	451192	aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58	deposit to be decided	tools__phoni__phoni	-
-tools/ropebwt3-cfad8475/ropebwt3	1595032	cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d	deposit to be decided	tools__ropebwt3-cfad8475__ropebwt3	-
-tools/runtime/libgcc_s.so.1	748744	6a15a152c0f5073642a8c23e13097fe6f30d269cd61d3b10bd542f676241d79d	deposit to be decided	tools__runtime__libgcc_s.so.1	-
-tools/runtime/libgomp.so.1	1501072	427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8	deposit to be decided	tools__runtime__libgomp.so.1	-
-tools/runtime/libstdc++.so.6	20888792	2e64f6e616747bde59b3f05e9850dde0476cb21703fc53b7d80e1acc49f464c4	deposit to be decided	tools__runtime__libstdc++.so.6	-
+tools/phoni/phoni	451192	aeb7fb3b4ec4f82203f015102fe3429345f2ec166ee7ce9d5a2644bc23e83c58	github:langmead-lab/ms2-experiments@tools-v1	tools__phoni__phoni	https://github.com/langmead-lab/ms2-experiments/releases/download/tools-v1/tools__phoni__phoni
+tools/ropebwt3-cfad8475/ropebwt3	1595032	cfad8475911f9298bf53177bf4a578a6d133f0464f4b9970bef9afb04697d53d	github:langmead-lab/ms2-experiments@tools-v1	tools__ropebwt3-cfad8475__ropebwt3	https://github.com/langmead-lab/ms2-experiments/releases/download/tools-v1/tools__ropebwt3-cfad8475__ropebwt3
+tools/runtime/libgcc_s.so.1	748744	6a15a152c0f5073642a8c23e13097fe6f30d269cd61d3b10bd542f676241d79d	github:langmead-lab/ms2-experiments@tools-v1	tools__runtime__libgcc_s.so.1	https://github.com/langmead-lab/ms2-experiments/releases/download/tools-v1/tools__runtime__libgcc_s.so.1
+tools/runtime/libgomp.so.1	1501072	427e4e96be837f5c5b1ec17b76a132892c4b685239353f74c1d905d0cfaf0bd8	github:langmead-lab/ms2-experiments@tools-v1	tools__runtime__libgomp.so.1	https://github.com/langmead-lab/ms2-experiments/releases/download/tools-v1/tools__runtime__libgomp.so.1
+tools/runtime/libstdc++.so.6	20888792	2e64f6e616747bde59b3f05e9850dde0476cb21703fc53b7d80e1acc49f464c4	github:langmead-lab/ms2-experiments@tools-v1	tools__runtime__libstdc++.so.6	https://github.com/langmead-lab/ms2-experiments/releases/download/tools-v1/tools__runtime__libstdc++.so.6
 traces/human472/guccione_skin-ms-60mb-acgt-v2/dual.oracle	-	pending	recorded	-	-
 traces/human472/guccione_skin-ms-60mb-acgt-v2/ms.oracle	-	pending	recorded	-	-
 traces/human472/guccione_skin-ms-60mb-acgt-v2/phi.oracle	-	pending	recorded	-	-

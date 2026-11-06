@@ -106,7 +106,12 @@ def test_committed_table_covers_the_toy():
     fmd = table['ropebwt3/mtb152/index.fmd']
     assert fmd['source'] == 'zenodo:' + fetch.DEPOSIT['precursors']
     assert fmd['url'] == fetch.ZENODO_URL.format(record=fetch.DEPOSIT['precursors'], file=fmd['file'])
-    assert all(r['source'] == fetch.UNDECIDED for n, r in table.items() if n.startswith('tools/'))
+    for n in names:
+        if n.startswith('tools/'):
+            row = table[n]
+            assert row['source'] == fetch.RELEASE, n
+            assert row['url'] == fetch.RELEASE_URL.format(file=row['file']), n
+    assert all(fetch.public_url(table[n]) for n in names)
 
 
 def test_committed_table_names_the_published_deposits():

@@ -23,7 +23,8 @@ maps every name fetched or verified so far to its path, for ms2exp.catalog hash 
 table writes data/inputs.tsv: one row per input of the freeze manifest plus the toy's own inputs,
 with its size, sha256, source, deposited file name and URL. Sources are zenodo:<record> (the
 three deposits: 23964218 read sets, 23964220 precursors and ropebwt3 FMDs, 23964222 legacy indexes), zenodo:14854401 (Heng Li's human472 record,
-unchanged), rebuild (the large HPRC2 inputs, built from human472.fmd, and the ms2 source bundles), built (made by a build job of
+unchanged), github:langmead-lab/ms2-experiments@tools-v1 (the release holding the pinned tool
+binaries and runtime libraries), rebuild (the large HPRC2 inputs, built from human472.fmd, and the ms2 source bundles), built (made by a build job of
 the manifest), recorded (oracle traces a run records) and "deposit to be decided".
 """
 import argparse
@@ -48,6 +49,10 @@ UNDECIDED = 'deposit to be decided'
 DEPOSIT = {'reads': '23964218', 'precursors': '23964220', 'legacy': '23964222'}
 DEPOSITED = {'zenodo:' + record for record in DEPOSIT.values()}
 ZENODO_URL = 'https://zenodo.org/records/{record}/files/{file}?download=1'
+# The pinned ropebwt3, MONI, PHONI and AugPHONI binaries and their runtime libraries are assets
+# of one GitHub release of this repository.
+RELEASE = 'github:langmead-lab/ms2-experiments@tools-v1'
+RELEASE_URL = 'https://github.com/langmead-lab/ms2-experiments/releases/download/tools-v1/{file}'
 LI_RECORD = '14854401'
 # Inputs of the toy that no freeze manifest has: the mtb152 FMD the mtb152 precursors were made
 # from, which the toy's ropebwt3 cells query.
@@ -77,7 +82,7 @@ def source_of(name, entry):
             return f'zenodo:{LI_RECORD}' if leaf in ('index.fmd.s11.ssa', 'index.fmd.len.gz') else 'rebuild'
         return UNDECIDED
     if top == 'tools':
-        return UNDECIDED
+        return RELEASE
     if top == 'ms2':
         return 'built'
     if top == 'traces':
@@ -109,10 +114,12 @@ def cmd_table(args):
             source = UNDECIDED
         sha = entry['sha256']
         file = url = '-'
-        if source in DEPOSITED or source == UNDECIDED:
+        if source in DEPOSITED or source in (RELEASE, UNDECIDED):
             # Byte-identical inputs are deposited once, under the first name that has them.
             file = first.setdefault(sha, deposit_file(name))
-            if source != UNDECIDED:
+            if source == RELEASE:
+                url = RELEASE_URL.format(file=file)
+            elif source != UNDECIDED:
                 url = ZENODO_URL.format(record=source.split(':', 1)[1], file=file)
         elif source == f'zenodo:{LI_RECORD}':
             url = f'https://zenodo.org/records/{LI_RECORD}'

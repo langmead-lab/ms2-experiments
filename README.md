@@ -99,10 +99,11 @@ The fetch step downloads the read sets, precursors and legacy indexes from the t
 deposits ([10.5281/zenodo.23964218](https://doi.org/10.5281/zenodo.23964218),
 [10.5281/zenodo.23964220](https://doi.org/10.5281/zenodo.23964220) and
 [10.5281/zenodo.23964222](https://doi.org/10.5281/zenodo.23964222)); `data/inputs.tsv` gives each
-input's sha256 and URL. Seven of the toy's inputs are not public yet: the pinned ropebwt3, MONI,
-PHONI and Augmented PHONI binaries and the three runtime libraries beside them (26 MB in all;
-`TOOLS.md`). `python3 -m ms2exp.fetch --set toy --dry-run` lists them, and the fetch stops when it
-reaches them. Inside the Langmead lab, `python3 -m ms2exp.fetch --set toy --link --from-locations
+input's sha256 and URL. The pinned ropebwt3, MONI, PHONI and Augmented PHONI binaries and the
+three runtime libraries beside them (26 MB in all; `TOOLS.md`) are assets of this repository's
+[`tools-v1` release](https://github.com/langmead-lab/ms2-experiments/releases/tag/tools-v1).
+`python3 -m ms2exp.fetch --set toy --dry-run` lists every input with its size and source before
+downloading anything. Inside the Langmead lab, `python3 -m ms2exp.fetch --set toy --link --from-locations
 data/locations/*.json` links the lab's copies of every input instead.
 
 `toy_run.sh` runs each job directly on this machine; it does not use Slurm. The protocol times runs
