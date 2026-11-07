@@ -11,7 +11,9 @@ Steps, each written under OUT:
                    plotted-points.csv, every plotted value with its load time and node
   tikz/            the TikZ sources (copied from figures/tikz when OUT is elsewhere)
   tikz/data/       paper_figures_tikz.py and gap_annotations.py: the data the TikZ figures read;
-                   fig-rep/ from fig_rep_tikz.py --design 4 (the freeze's A1 runs, box statistics only);
+                   fig-rep/ from fig_rep_tikz.py --design 5, the paper's batches: the freeze's A1 runs
+                   with the four counting runs of results/figrep-rungs-2885ee8 (box statistics and
+                   batches-5.tsv, whose means paper_numbers.py checks; the violins need the .replog files);
                    fig-threads/ from threads_tikz.py (the thread-scaling run)
   tex/             structure_bits.py's table of field widths (structure_bits.tex) and paper_numbers.py's
                    Table A2 of load times (tab-load.tex); the other .tex files there are static snippets
@@ -52,7 +54,7 @@ OPS_GROUPS = {OPS_RUNS['mtb152']: 'fig_ops-mtb152-heldout16-p100k-s600-v1',
               OPS2_RUNS['pacbio']['mtb152']: 'fig_ops-mtb152-pacbio-60mb-v2',
               OPS2_RUNS['pacbio']['human472']: 'fig_ops-human472-apr008-pacbio-60mb-v2'}
 # Paper figure name: TikZ source in figures/tikz (as the paper's Makefile maps them). Fig rep is left
-# out: its paper data come from runs outside the freeze manifests (results/README.md).
+# out: the paper draws violins, which need the .replog files that are not committed (results/README.md).
 FIGMAP = {'ops': 'fig-ops-row', 'ms22_100': 'fig-ms22-100', 'ms22_10': 'fig-ms22-10', 'ms_oracle': 'fig-ms-oracle',
           'locate1': 'fig-l1', 'locate10': 'fig-l10', 'locate100': 'fig-l100', 'ms_ftab': 'fig-ms-ftab',
           'locate_ftab': 'fig-lftab', 'threads': 'fig-threads'}
@@ -114,6 +116,8 @@ def main():
     ap.add_argument('--out', default='figures')
     ap.add_argument('--manifest', default='freeze-2885ee8-00e665de')
     ap.add_argument('--threads', default='threads-2885ee8-da1041e8', help='the thread-scaling run of Fig threads')
+    ap.add_argument('--rep-rungs', default='figrep-rungs-2885ee8',
+                    help="the counting runs that add Fig rep's 1%% and 2%% batches and 200 and 464 haplotypes")
     ap.add_argument('--no-pdf', action='store_true')
     args = ap.parse_args()
     results, out = Path(args.results).resolve(), Path(args.out).resolve()
@@ -132,8 +136,11 @@ def main():
     run('-m', 'ms2exp.figures.paper_figures_tikz', '--csv', out/'draft/plotted-points.csv',
         '--captions', out/'draft/CAPTIONS.md', '--out', data)
     run('-m', 'ms2exp.figures.gap_annotations', data)
+    for d in sorted((results/args.rep_rungs/'runs').iterdir()):
+        if not d.name.endswith('.check'):
+            (rep_runs/'runs'/d.name).symlink_to(d)
     run('-m', 'ms2exp.figures.fig_rep_tikz', '--a-dir', rep_runs, '--b-dir', rep_runs, '--out', data/'fig-rep',
-        '--design', '4')
+        '--design', '5')
     shutil.rmtree(rep_runs)
     run('-m', 'ms2exp.figures.threads_tikz', '--results', results/args.threads, '--out', data/'fig-threads')
     (out/'tex').mkdir(exist_ok=True)

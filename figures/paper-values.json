@@ -1,6 +1,6 @@
 {
  "format": "ms2-paper-values-v1",
- "paper": "papers/matching-stats at 567038f",
+ "paper": "papers/matching-stats at c01badc",
  "numbers": [
   {
    "id": "chr22.min_over_phoni",
@@ -613,50 +613,43 @@
    "id": "rep.a_psi_exact",
    "where": "Appendix: Fig rep caption",
    "label": "(A) ms2-psi mean, exact reads",
-   "paper": "1,471",
-   "optional": true
+   "paper": "1,471"
   },
   {
    "id": "rep.a_psi_014",
    "where": "Appendix: Fig rep caption",
    "label": "(A) ms2-psi mean at 0.14% errors",
-   "paper": "41",
-   "optional": true
+   "paper": "41"
   },
   {
    "id": "rep.a_psi_floor",
    "where": "Appendix: Fig rep caption",
    "label": "(A) ms2-psi mean, level near",
-   "paper": "22",
-   "optional": true
+   "paper": "22"
   },
   {
    "id": "rep.a_phi",
    "where": "Appendix: Fig rep caption",
    "label": "(A) ms2-phi mean",
-   "paper": "35--44",
-   "optional": true
+   "paper": "35--44"
   },
   {
    "id": "rep.b_phi",
    "where": "Appendix: Fig rep caption",
    "label": "(B) ms2-phi mean, 5 to 464 haplotypes",
-   "paper": "2.4--143",
-   "optional": true
+   "paper": "2.4--143"
   },
   {
    "id": "rep.b_psi",
    "where": "Appendix: Fig rep caption",
    "label": "(B) ms2-psi mean",
-   "paper": "35--45",
-   "optional": true
+   "paper": "35--45"
   },
   {
    "id": "rep.b_dual",
    "where": "Appendix: Fig rep caption",
    "label": "(B) ms2-dual mean",
-   "paper": "0.7--2.5",
-   "optional": true
+   "paper": "0.7--2.5"
   },
   {
    "id": "load.min_resident",

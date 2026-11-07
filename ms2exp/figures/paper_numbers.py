@@ -27,8 +27,9 @@ missing entry fails the run. The paper commit checked is printed, with a note wh
 the values file names.
 
 --md writes the report (figures/draft/paper-numbers.md from the figures driver), --table Table A2
-(index load times) as a LaTeX tabular. Fig rep's means come from runs outside the freeze
-(results/README.md) and are checked only with --rep-tsv, a fig-rep-batches.tsv of those runs.
+(index load times) as a LaTeX tabular. Fig rep's means are read from --rep-tsv, by default the
+batches-5.tsv that the figures driver writes from the freeze's A1 runs and the four counting runs of
+results/figrep-rungs-2885ee8 (results/README.md).
 """
 import argparse
 import csv
@@ -412,8 +413,7 @@ def compute(figures, results, read_sets, rep_tsv=None):
     load_values(D, v, table)
     thp_values(D, v, notes)
     thread_values(D, v)
-    if rep_tsv:
-        rep_values(rep_tsv, v)
+    rep_values(rep_tsv or Path(figures)/'tikz/data/fig-rep/batches-5.tsv', v)
     return v, table, notes
 
 
@@ -520,7 +520,7 @@ def main():
     ap.add_argument('--results', default=REPO/'results')
     ap.add_argument('--read-sets', default=REPO/'data/read-sets.json')
     ap.add_argument('--values', default=REPO/'figures/paper-values.json')
-    ap.add_argument('--rep-tsv')
+    ap.add_argument('--rep-tsv', help='default: FIGURES/tikz/data/fig-rep/batches-5.tsv')
     ap.add_argument('--md')
     ap.add_argument('--table')
     ap.add_argument('--paper', help="the paper's LaTeX source directory, to check that each number is still in it")

@@ -22,6 +22,20 @@ def test_strict_check_passes_on_the_committed_results():
     assert all(s[k] in ('edit', 'unchecked') for k in edits)
 
 
+def test_fig_rep_means_are_checked_from_the_committed_runs():
+    s = statuses(SPEC)
+    rep = {k: v for k, v in s.items() if k.startswith('rep.')}
+    assert rep and all(v == 'agrees' for v in rep.values()), rep
+    rungs = REPO/'results/figrep-rungs-2885ee8/runs'
+    rows = {(r[0], r[1], r[2]): float(r[-1]) for r in
+            (line.split('\t') for line in (REPO/'figures/tikz/data/fig-rep/batches-5.tsv').read_text().splitlines()[1:])}
+    for run, series, batch in (('mtb152-A2-e0.010', 'a2', 'e0.010'), ('mtb152-A2-e0.020', 'a2', 'e0.020'),
+                               ('chr22-B-h200', 'b2', 'h200'), ('chr22-B-h464', 'b2', 'h464')):
+        steps = json.loads((rungs/run/'summary.json').read_text())['steps_per_reposition']
+        for mode in ('psi', 'phi', 'dual'):
+            assert abs(rows[(series, batch, mode)] / steps[mode]['mean'] - 1) < 1e-5
+
+
 def test_a_paper_value_that_drifts_from_the_data_fails():
     spec = copy.deepcopy(SPEC)
     entry = next(e for e in spec['numbers'] if e['id'] == 'ops.rec_hprc2_genomes')

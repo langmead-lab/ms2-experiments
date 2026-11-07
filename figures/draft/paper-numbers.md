@@ -1,6 +1,6 @@
 # Paper numbers
 
-Written by `python -m ms2exp.figures.paper_numbers` from the committed results. Each number the paper quotes (papers/matching-stats at 567038f) is computed from the run records and rounded to the precision the paper prints. Status: agrees; edit (a known disagreement, with the paper edit below); FAIL (the paper and the data disagree, or a recorded edit no longer applies); unchecked (the data are outside this repository).
+Written by `python -m ms2exp.figures.paper_numbers` from the committed results. Each number the paper quotes (papers/matching-stats at c01badc) is computed from the run records and rounded to the precision the paper prints. Status: agrees; edit (a known disagreement, with the paper edit below); FAIL (the paper and the data disagree, or a recorded edit no longer applies); unchecked (the data are outside this repository).
 
 
 ## Abstract
@@ -153,13 +153,13 @@ Written by `python -m ms2exp.figures.paper_numbers` from the committed results. 
 
 | Number | Paper | Computed | Status |
 |---|---|---|---|
-| (A) ms2-psi mean, exact reads | 1,471 | data outside the repository | unchecked |
-| (A) ms2-psi mean at 0.14% errors | 41 | data outside the repository | unchecked |
-| (A) ms2-psi mean, level near | 22 | data outside the repository | unchecked |
-| (A) ms2-phi mean | 35 to 44 | data outside the repository | unchecked |
-| (B) ms2-phi mean, 5 to 464 haplotypes | 2.4 to 143 | data outside the repository | unchecked |
-| (B) ms2-psi mean | 35 to 45 | data outside the repository | unchecked |
-| (B) ms2-dual mean | 0.7 to 2.5 | data outside the repository | unchecked |
+| (A) ms2-psi mean, exact reads | 1,471 | 1,471 | agrees |
+| (A) ms2-psi mean at 0.14% errors | 41 | 41 | agrees |
+| (A) ms2-psi mean, level near | 22 | 22 | agrees |
+| (A) ms2-phi mean | 35 to 44 | 35 to 44 | agrees |
+| (B) ms2-phi mean, 5 to 464 haplotypes | 2.4 to 143 | 2.4 to 143 | agrees |
+| (B) ms2-psi mean | 35 to 45 | 35 to 45 | agrees |
+| (B) ms2-dual mean | 0.7 to 2.5 | 0.7 to 2.5 | agrees |
 
 ## Appendix: Table A2 (load times)
 
@@ -249,4 +249,4 @@ Written by `python -m ms2exp.figures.paper_numbers` from the committed results. 
 
 None.
 
-Totals: 148 agrees, 0 edit, 7 unchecked, 0 FAIL.
+Totals: 155 agrees, 0 edit, 0 unchecked, 0 FAIL.

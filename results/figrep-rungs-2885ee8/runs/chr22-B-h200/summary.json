@@ -1,0 +1,132 @@
+{
+ "format": "fig-rep-summary-v1",
+ "run": "chr22-B-h200",
+ "bases": 59991907,
+ "repositions": 1863551,
+ "repositions_per_base": 0.031063373264663848,
+ "cap0": 2079,
+ "aligned": "every record matches psi in pattern, at, cap, lce and dist",
+ "interval_and_scan_match_psi": {
+  "psi": true,
+  "phi": false,
+  "dual": true
+ },
+ "sums": {
+  "psi": {
+   "repositions": 1863551,
+   "psi": 80759274,
+   "phi": 0,
+   "stats_line": {
+    "repositions": 1863552.6039038,
+    "psi": 80759305.44619,
+    "phi": 0.0
+   }
+  },
+  "phi": {
+   "repositions": 1863551,
+   "psi": 0,
+   "phi": 127538824,
+   "stats_line": {
+    "repositions": 1863552.6039038,
+    "psi": 0.0,
+    "phi": 127538594.84851
+   }
+  },
+  "dual": {
+   "repositions": 1863551,
+   "psi": 2618463,
+   "phi": 896550,
+   "stats_line": {
+    "repositions": 1863552.6039038,
+    "psi": 2618460.7656383,
+    "phi": 896549.0541615
+   }
+  }
+ },
+ "outputs_identical": true,
+ "times": {
+  "psi": {
+   "index_load_s": 1.04517,
+   "query_s": 3.60838,
+   "query_ns_per_base": 60.1478
+  },
+  "phi": {
+   "index_load_s": 1.43475,
+   "query_s": 8.6734,
+   "query_ns_per_base": 144.576
+  },
+  "dual": {
+   "index_load_s": 2.35427,
+   "query_s": 3.05127,
+   "query_ns_per_base": 50.8613
+  }
+ },
+ "steps_per_reposition": {
+  "psi": {
+   "p5": 22.0,
+   "p25": 24.0,
+   "p50": 26.0,
+   "p75": 29.0,
+   "p95": 73.0,
+   "mean": 43.38463001323684,
+   "n": 1861472
+  },
+  "phi": {
+   "p5": 0.0,
+   "p25": 0.0,
+   "p50": 0.0,
+   "p75": 0.0,
+   "p95": 399.0,
+   "mean": 68.51503756167162,
+   "n": 1861472
+  },
+  "dual": {
+   "p5": 0.0,
+   "p25": 0.0,
+   "p50": 0.0,
+   "p75": 0.0,
+   "p95": 2.0,
+   "mean": 1.8882975408708806,
+   "n": 1861472
+  }
+ },
+ "min_psi_phi": {
+  "p5": 0.0,
+  "p25": 0.0,
+  "p50": 0.0,
+  "p75": 0.0,
+  "p95": 29.0,
+  "mean": 5.913440545976518,
+  "n": 1861472
+ },
+ "ratio_dual_to_min": {
+  "p5": NaN,
+  "p25": NaN,
+  "p50": NaN,
+  "p75": NaN,
+  "p95": NaN,
+  "mean": NaN,
+  "n": 1861472
+ },
+ "dual_le_2min_frac": 0.9965747537432741,
+ "dual_le_min_plus1_frac": 0.9826309501297897,
+ "psi_lt_phi_frac": 0.17094697099929518,
+ "cap": {
+  "p5": 12.0,
+  "p25": 13.0,
+  "p50": 14.0,
+  "p75": 18.0,
+  "p95": 289.0,
+  "mean": 57.281927958089085,
+  "n": 1861472
+ },
+ "dist": {
+  "p5": 1.0,
+  "p25": 1.0,
+  "p50": 198.0,
+  "p75": 396.0,
+  "p95": 1085.0,
+  "mean": 314.69294407866465,
+  "n": 1861472
+ }
+}

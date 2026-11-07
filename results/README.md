@@ -48,11 +48,12 @@ comparison ran when the rerun was collected with the canonical files present: al
 ms2 locate cell and a ropebwt3 cell of the same read set and cap agreed. The D9 check (dual on the full index with sequence names against
 the plain full index) passes in every group: query times within 0.6%.
 
-Fig rep is the exception. The paper's current Fig rep data (`fig_rep_tikz.py --design 5`) include
-rungs the freeze never ran (1% and 2% error, 200 and 464 haplotypes), so they come from runs
-outside these manifests: counting runs on Rockfish with the same instrumented ms2 build (2885ee8),
-whose summaries are not committed here yet. `ms2exp.figures` writes the freeze's own A1 series (`--design 4`, box
-statistics only, since the violins need the `.replog` files).
+Fig rep also uses four batches the freeze never ran (1% and 2% errors, 200 and 464 haplotypes).
+They come from counting runs on Rockfish of the same ms2 commit (2885ee8), whose records are in
+`figrep-rungs-2885ee8/` with their provenance and a cross-check against the freeze. `ms2exp.figures`
+links them beside the freeze's A1 runs and writes the paper's batches (`fig_rep_tikz.py --design 5`):
+box statistics, tick labels and `batches-5.tsv`, whose means `paper_numbers.py` checks. The violins
+need the `.replog` files, which are not committed.
 
 ## The code that ran
 

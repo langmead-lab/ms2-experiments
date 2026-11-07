@@ -74,8 +74,9 @@ holds draft captions built from the run records and `data/read-sets.json`. Every
 quotes is listed, by id, in `figures/paper-values.json`; `python -m ms2exp.figures.paper_numbers`
 computes each one from the records and writes `figures/draft/paper-numbers.md`, which also lists the
 paper edits still outstanding (`--strict` fails on any disagreement). Given the paper's LaTeX
-source with `--paper DIR`, it also checks that each number is still in the text. Fig rep is not regenerated
-from these results (`results/README.md` says why).
+source with `--paper DIR`, it also checks that each number is still in the text. Fig rep's batches and
+means are regenerated from the freeze and four later counting runs; its violins are not
+(`results/README.md` says why).
 
 ## Small "toy" run
 
