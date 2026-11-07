@@ -35,7 +35,6 @@ Written by `python -m ms2exp.figures.paper_numbers` from the committed results. 
 | recoveries per base, mtb152 HiFi reads (also caption) | 0.021 | 0.021 | agrees |
 | recoveries per base, HPRC2 HiFi reads (also caption) | 0.036 | 0.036 | agrees |
 | ms2-min and ms2-dual above their oracles on HPRC2 genomes, within % | 6 | max 5.19 | agrees |
-| ms2-min and ms2-dual above their oracles on genomes, as worded (mtb152 and HPRC2), within % | 6 | max 7.78 | edit |
 | HPRC2 genomes, ms2-min ns per base | 42 | 42 | agrees |
 | HPRC2 genomes, ms2-dual ns per base | 40 | 40 | agrees |
 | HPRC2 genomes, ms2-min oracle ns per base | 42 | 42 | agrees |
@@ -80,10 +79,10 @@ Written by `python -m ms2exp.figures.paper_numbers` from the committed results. 
 | human_pacbio reads | 2,869 | 2,869 | agrees |
 | human_pacbio Mbases | 60.0 | 60.0 | agrees |
 | human_ont_modern reads | 2,706 | 2,706 | agrees |
-| human_ont_modern Mbases | 60.0 (to be 59.9) | 59.9 | edit |
+| human_ont_modern Mbases | 59.9 | 59.9 | agrees |
 | guccione_skin reads | 438,969 | 438,969 | agrees |
 | guccione_skin Mbases | 60.0 | 60.0 | agrees |
-| every 60 Mbase set, Mbases ("each set holds just under 60,000,000 bases") | just under 60,000,000 (to be 59.9 to 60.0) | 59.9 to 60.0 | edit |
+| every 60 Mbase set, Mbases | 59.9 to 60.0 | 59.9 to 60.0 | agrees |
 | PacBio median read length, kbases | 20.1 | 20.1 | agrees |
 | Nanopore shortest read, bp | 404 | 404 | agrees |
 | Nanopore longest read, kbases | 417 | 417 | agrees |
@@ -190,7 +189,7 @@ Written by `python -m ms2exp.figures.paper_numbers` from the committed results. 
 | ropebwt3 -l1, matching statistics: resident GiB | 15 | 15 | agrees |
 | ropebwt3 -l1, matching statistics: load s | 4.2 | 4.2 | agrees |
 | ropebwt3 -l1, matching statistics: range of per-node medians, s | 4.2 to 4.3 | 4.2 to 4.3 | agrees |
-| ropebwt3 -l1, matching statistics: GiB/s | 3.5 (to be 3.4) | 3.4 | edit |
+| ropebwt3 -l1, matching statistics: GiB/s | 3.4 | 3.4 | agrees |
 | ropebwt3 -s11, locating: resident GiB | 25 | 25 | agrees |
 | ropebwt3 -s11, locating: load s | 7.2 | 7.2 | agrees |
 | ropebwt3 -s11, locating: range of per-node medians, s | 7.1 to 7.2 | 7.1 to 7.2 | agrees |
@@ -210,7 +209,7 @@ Written by `python -m ms2exp.figures.paper_numbers` from the committed results. 
 |---|---|---|---|
 | ms2 load rates, GiB/s | 1.8 to 2.4 | 1.8 to 2.4 | agrees |
 | ropebwt3 load rate, GiB/s, about | 3.5 | 3.48 | agrees |
-| short reads, load over query time, ms2-min, ms2-psi and ms2-dual | 9 to 23 (to be 9 to 22) | 9 to 22 | edit |
+| short reads, load over query time, ms2-min, ms2-psi and ms2-dual | 9 to 22 | 9 to 22 | agrees |
 | short reads, load over query time, ms2-phi | 2 | 2 | agrees |
 
 ## Appendix: Measurement setup
@@ -258,14 +257,9 @@ Written by `python -m ms2exp.figures.paper_numbers` from the committed results. 
 
 ## Paper edits outstanding
 
-1. Results: Recovery cost for ms2 modes: replace "We observed that ms2-min's and ms2-dual's times on genomes stayed within 6\% of the oracle-based lower bound (42 and 40\,ns per base on HPRC2, against 42 and 38 for their oracles)" with "We observed that on the HPRC2 genomes, ms2-min's and ms2-dual's times stayed within 6\% of the oracle-based lower bound (42 and 40\,ns per base, against 42 and 38 for their oracles)". On mtb152, ms2-dual is 7.8% above its oracle (33.4 against 31.0 ns per base); keeping the sentence unscoped needs "within 8\%" instead.
-2. Results: Reads: in the Nanopore entry, replace "(60.0\,Mbases)" with "(59.9\,Mbases)".
-3. Results: Reads: replace "each set holds just under 60{,}000{,}000 bases" with "each set holds 59.9 to 60.0\,Mbases" (the short-read set holds exactly 60,000,000 bases, 480,000 reads of 125).
-4. Appendix: Fig rep caption: in panel (B), replace "ms2-dual's mean stayed between 0.3 and 2.5" with "ms2-dual's mean stayed between 0.7 and 2.5" (0.3 is the lowest mean in panel (A)).
-5. Appendix: Table A2 (load times): in Table A2, the ropebwt3 matching-statistics row, replace the GiB/s "3.5" with "3.4" (14.5 GiB over 4.25 s), or \input the generated figures/tex/tab-load.tex.
-6. Appendix: Index loading time: replace "loading took 9 to 23 times longer" with "loading took 9 to 22 times longer" (ms2-dual: 94.9 s against 4.22 s, 22.5 times).
-7. Results: Fig ops caption: after "whereas the other approaches add further $\phi$ or $\Psi$ steps (dark shading).", add "$\Psi$ and $\phi$ steps were counted by an instrumented build of the same ms2 commit; \LF steps are drawn as one per base rather than counted."
-8. Appendix: Fig rep caption: add at the end of the caption: "The batches at 1\% and 2\% errors and the indexes of 200 and 464 haplotypes were counted on a separate cluster with the same instrumented ms2 build (commit 2885ee8), outside the benchmark protocol of the other experiments; the other batches come from the benchmark runs."
-9. Appendix: Measurement setup: replace "Compared with an earlier run using the operating system's default setting (\texttt{madvise}), this made" with "Compared with an earlier run under the operating system's default setting, which is \texttt{madvise} on Amazon Linux 2023 (that run did not record the setting), this made".
+1. Appendix: Fig rep caption: in panel (B), replace "ms2-dual's mean stayed between 0.3 and 2.5" with "ms2-dual's mean stayed between 0.7 and 2.5" (0.3 is the lowest mean in panel (A)).
+2. Results: Fig ops caption: after "whereas the other approaches add further $\phi$ or $\Psi$ steps (dark shading).", add "$\Psi$ and $\phi$ steps were counted by an instrumented build of the same ms2 commit; \LF steps are drawn as one per base rather than counted."
+3. Appendix: Fig rep caption: add at the end of the caption: "The batches at 1\% and 2\% errors and the indexes of 200 and 464 haplotypes were counted on a separate cluster with the same instrumented ms2 build (commit 2885ee8), outside the benchmark protocol of the other experiments; the other batches come from the benchmark runs."
+4. Appendix: Measurement setup: replace "Compared with an earlier run using the operating system's default setting (\texttt{madvise}), this made" with "Compared with an earlier run under the operating system's default setting, which is \texttt{madvise} on Amazon Linux 2023 (that run did not record the setting), this made".
 
-Totals: 153 agrees, 5 edit, 8 unchecked, 0 FAIL.
+Totals: 157 agrees, 0 edit, 8 unchecked, 0 FAIL.

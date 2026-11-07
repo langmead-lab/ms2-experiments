@@ -32,7 +32,7 @@ def test_a_paper_value_that_drifts_from_the_data_fails():
 def test_a_recorded_edit_fails_once_the_paper_agrees_or_the_data_move():
     spec = copy.deepcopy(SPEC)
     entry = next(e for e in spec['numbers'] if e['id'] == 'load.short_load_over_query')
-    entry['paper'] = entry['expected_change']['to']
+    entry['expected_change'] = {'to': entry['paper'], 'edit': 'a recorded edit the paper already carries'}
     assert statuses(spec)['load.short_load_over_query'] == 'FAIL'
     entry['paper'], entry['expected_change']['to'] = '9--23', '9--21'
     assert statuses(spec)['load.short_load_over_query'] == 'FAIL'

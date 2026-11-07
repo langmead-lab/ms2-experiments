@@ -167,8 +167,6 @@ def ops_values(D, v):
     ns = lambda fig, ref, s: D.speed(fig, ref, s)
     gap = lambda fig, ref, s: 100 * (ns(fig, ref, s) / ns(fig, ref, s + ' oracle') - 1)
     v['ops.genomes_min_dual_gap_hprc2'] = Value('within', [gap('fig-ops', 'human472', s) for s in ('ms2-min', 'ms2-dual')])
-    v['ops.genomes_min_dual_gap_both'] = Value('within', [gap('fig-ops', r, s) for r in ('mtb152', 'human472')
-                                                          for s in ('ms2-min', 'ms2-dual')])
     for s in ('min', 'dual', 'psi', 'phi'):
         v[f'ops.hprc2_{s}_ns'] = Value('value', ns('fig-ops', 'human472', f'ms2-{s}'))
         v[f'ops.mtb152_{s}_ns'] = Value('value', ns('fig-ops', 'mtb152', f'ms2-{s}'))

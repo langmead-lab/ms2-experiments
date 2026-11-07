@@ -111,16 +111,6 @@
    "paper": "6"
   },
   {
-   "id": "ops.genomes_min_dual_gap_both",
-   "where": "Results: Recovery cost for ms2 modes",
-   "label": "ms2-min and ms2-dual above their oracles on genomes, as worded (mtb152 and HPRC2), within %",
-   "paper": "6",
-   "expected_change": {
-    "to": null,
-    "edit": "replace \"We observed that ms2-min's and ms2-dual's times on genomes stayed within 6\\% of the oracle-based lower bound (42 and 40\\,ns per base on HPRC2, against 42 and 38 for their oracles)\" with \"We observed that on the HPRC2 genomes, ms2-min's and ms2-dual's times stayed within 6\\% of the oracle-based lower bound (42 and 40\\,ns per base, against 42 and 38 for their oracles)\". On mtb152, ms2-dual is 7.8% above its oracle (33.4 against 31.0 ns per base); keeping the sentence unscoped needs \"within 8\\%\" instead."
-   }
-  },
-  {
    "id": "ops.hprc2_min_ns",
    "where": "Results: Recovery cost for ms2 modes",
    "label": "HPRC2 genomes, ms2-min ns per base",
@@ -328,11 +318,7 @@
    "id": "reads.human_ont_modern_mbases",
    "where": "Results: Reads",
    "label": "human_ont_modern Mbases",
-   "paper": "60.0",
-   "expected_change": {
-    "to": "59.9",
-    "edit": "in the Nanopore entry, replace \"(60.0\\,Mbases)\" with \"(59.9\\,Mbases)\"."
-   }
+   "paper": "59.9"
   },
   {
    "id": "reads.guccione_skin_reads",
@@ -349,12 +335,8 @@
   {
    "id": "reads.all_mbases",
    "where": "Results: Reads",
-   "label": "every 60 Mbase set, Mbases (\"each set holds just under 60,000,000 bases\")",
-   "paper": "just under 60,000,000",
-   "expected_change": {
-    "to": "59.9--60.0",
-    "edit": "replace \"each set holds just under 60{,}000{,}000 bases\" with \"each set holds 59.9 to 60.0\\,Mbases\" (the short-read set holds exactly 60,000,000 bases, 480,000 reads of 125)."
-   }
+   "label": "every 60 Mbase set, Mbases",
+   "paper": "59.9--60.0"
   },
   {
    "id": "reads.pacbio_median_kbases",
@@ -828,11 +810,7 @@
    "id": "load.rope_rate",
    "where": "Appendix: Table A2 (load times)",
    "label": "ropebwt3 -l1, matching statistics: GiB/s",
-   "paper": "3.5",
-   "expected_change": {
-    "to": "3.4",
-    "edit": "in Table A2, the ropebwt3 matching-statistics row, replace the GiB/s \"3.5\" with \"3.4\" (14.5 GiB over 4.25 s), or \\input the generated figures/tex/tab-load.tex."
-   }
+   "paper": "3.4"
   },
   {
    "id": "load.rope_s11_resident",
@@ -922,11 +900,7 @@
    "id": "load.short_load_over_query",
    "where": "Appendix: Index loading time",
    "label": "short reads, load over query time, ms2-min, ms2-psi and ms2-dual",
-   "paper": "9--23",
-   "expected_change": {
-    "to": "9--22",
-    "edit": "replace \"loading took 9 to 23 times longer\" with \"loading took 9 to 22 times longer\" (ms2-dual: 94.9 s against 4.22 s, 22.5 times)."
-   }
+   "paper": "9--22"
   },
   {
    "id": "load.short_load_over_query_phi",
