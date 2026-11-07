@@ -153,17 +153,18 @@
     },
     "teralcp_414f809": {
       "repo": "https://github.com/BenLangmead/TeraTools.git",
-      "branch": "teraphi",
+      "tag": "ms2-precursors",
       "commit": "414f809dfd34c79547a28ff2a4c58e4e505ce94f",
-      "public": false,
+      "public": true,
+      "build": "data/prep/rebuild_hprc2.sh WORK tools (lh3/ropebwt3 b408339 in ropebwt3/, then make -C src thirdparty and make -C src/TeraLCP)",
       "binary_sha256": "5501ff6df578835867b53b84d516f97fe2bd6a40df6f81095eaddfb3b9c29fa3",
-      "used_by": "minima and phi of HPRC2 and mtb152, phi of chr22-h10 and chr22-h100"
+      "used_by": "minima and phi of HPRC2 and mtb152, phi of chr22-h10 and chr22-h100 (data/prep/rebuild_hprc2.sh, data/prep/mtb152_split.sh, data/prep/chr22_precursors.sh)"
     },
     "teralcp_bce9ea7": {
       "repo": "https://github.com/BenLangmead/TeraTools.git",
-      "branch": "teraphi",
+      "tag": "ms2-chr22-minima",
       "commit": "bce9ea7f387b71dd413beb15b8236cd705aa83b0",
-      "public": false,
+      "public": true,
       "binary_sha256": "cb3f6c65616ce65a8d5eb5475bcb77c7b9fe4e92de4070a5f0f465ae9dbde4fd",
       "used_by": "minima of chr22-h10 and chr22-h100, renumbered by fmd2rlbwt --minima-in"
     },

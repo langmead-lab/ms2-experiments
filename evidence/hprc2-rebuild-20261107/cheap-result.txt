@@ -1,0 +1,6 @@
+/dev/nvme0n1p4  1.7T   13G  1.7T   1% /tmp
+sr21
+human472.fmr.gz: OK
+ropebwt3/human472/index.fmd equals the frozen file (10e89eb17f17484e063746b7515a6098ab1f3f398f19db94fed4e710e05c7626)
+precursors/human472/bwt.heads equals the frozen file (7814fdcdf4c3e4878c100699a2f60213ddd32efd36f93b21f1b72450e414cd28)
+precursors/human472/bwt.len equals the frozen file (aa5d481e926c87ec6c42d10c6c0635a3648dc953bccc0acd84247ccd4f945a84)

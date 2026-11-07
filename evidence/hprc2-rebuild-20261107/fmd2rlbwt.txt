@@ -1,0 +1,13 @@
+n	2842375961968
+sequences	78264
+rld_runs	5259024318
+teralcp_runs	5259026383
+maximal_runs	5259024318
+max_run_length	53879999
+symbol	$	count	78264	rld_runs	76199	maximal_runs	76199
+symbol	A	count	840127539301	rld_runs	1476700737	maximal_runs	1476700737
+symbol	C	count	579931697323	rld_runs	1158279543	maximal_runs	1158279543
+symbol	G	count	579931697323	rld_runs	1166846952	maximal_runs	1166846952
+symbol	T	count	840127539301	rld_runs	1457092868	maximal_runs	1457092868
+symbol	N	count	2257410456	rld_runs	28019	maximal_runs	28019
+seconds	104.44
