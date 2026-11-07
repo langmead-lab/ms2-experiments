@@ -1,0 +1,91 @@
+cff-version: 1.2.0
+message: "If you use these records or this workflow, please cite the paper below and the archived version of this repository."
+title: "ms2-experiments: benchmark workflow and records for the ms2 paper"
+version: paper-v1.1
+date-released: 2026-11-07
+repository-code: https://github.com/langmead-lab/ms2-experiments
+license: MIT
+authors:
+  - family-names: Brown
+    given-names: Nathaniel K.
+  - family-names: Sanaullah
+    given-names: Ahsan
+  - family-names: Shakya
+    given-names: Pramesh
+  - family-names: Zhang
+    given-names: Shaojie
+  - family-names: Langmead
+    given-names: Ben
+preferred-citation:
+  type: unpublished
+  title: "Fast Pangenome Matching Statistics in Compressed Space with Move Structures"
+  notes: "In preparation"
+  authors:
+    - family-names: Brown
+      given-names: Nathaniel K.
+    - family-names: Sanaullah
+      given-names: Ahsan
+    - family-names: Shakya
+      given-names: Pramesh
+    - family-names: Zhang
+      given-names: Shaojie
+    - family-names: Langmead
+      given-names: Ben
+references:
+  - type: software
+    title: "ms2: matching statistics and SMEMs on Orbit move structures"
+    version: paper-v1
+    doi: 10.5281/zenodo.24044152
+    authors:
+      - family-names: Brown
+        given-names: Nathaniel K.
+      - family-names: Sanaullah
+        given-names: Ahsan
+      - family-names: Shakya
+        given-names: Pramesh
+      - family-names: Zhang
+        given-names: Shaojie
+      - family-names: Langmead
+        given-names: Ben
+  - type: data
+    title: "ms2 benchmark data (1/3): read sets with matching-statistics truth"
+    doi: 10.5281/zenodo.23964218
+    authors:
+      - family-names: Brown
+        given-names: Nathaniel K.
+      - family-names: Sanaullah
+        given-names: Ahsan
+      - family-names: Shakya
+        given-names: Pramesh
+      - family-names: Zhang
+        given-names: Shaojie
+      - family-names: Langmead
+        given-names: Ben
+  - type: data
+    title: "ms2 benchmark data (2/3): chromosome 22 and mtb152 RLBWT, LCP minima, φ samples and ropebwt3 indexes"
+    doi: 10.5281/zenodo.23964220
+    authors:
+      - family-names: Brown
+        given-names: Nathaniel K.
+      - family-names: Sanaullah
+        given-names: Ahsan
+      - family-names: Shakya
+        given-names: Pramesh
+      - family-names: Zhang
+        given-names: Shaojie
+      - family-names: Langmead
+        given-names: Ben
+  - type: data
+    title: "ms2 benchmark data (3/3): MONI, PHONI and Augmented PHONI chromosome 22 indexes"
+    doi: 10.5281/zenodo.23964222
+    authors:
+      - family-names: Brown
+        given-names: Nathaniel K.
+      - family-names: Sanaullah
+        given-names: Ahsan
+      - family-names: Shakya
+        given-names: Pramesh
+      - family-names: Zhang
+        given-names: Shaojie
+      - family-names: Langmead
+        given-names: Ben

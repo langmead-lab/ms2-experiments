@@ -19,6 +19,11 @@ which is tagged `paper-v1`.
 | `docs/` | Design records of the freeze and thread-scaling runs. Code docstrings and the committed result records cite them by bare file name: `BENCH_FREEZE_DESIGN.md` (decisions D1 to D13) and `THREAD_SCALING_PLAN.md` |
 | `tests/` | Unit tests (`python -m pytest tests`) |
 
+## Versions
+
+- `paper-v1` is the version the submitted manuscript cites. On 2026-11-07 it was moved from [5022b8c](https://github.com/langmead-lab/ms2-experiments/commit/5022b8c) (tagged `paper-v1-submitted`) to [2bb5e3b](https://github.com/langmead-lab/ms2-experiments/commit/2bb5e3b), so that `ms2exp.fetch` downloads every input from the public Zenodo deposits and the `tools-v1` release instead of lab paths. The run records, pinned tool hashes and plotted numbers did not change; the commits in between add evidence, provenance records and caption detail.
+- `paper-v1.1` adds `data/prep/rebuild_hprc2.sh`, which rebuilds the HPRC2 precursors from public code, with evidence that a clone from GitHub reproduces the deposited mtb152 files (`evidence/hprc2-rebuild-20261107/`). It also adds the run records of Fig rep's four batches counted after the freeze (`results/figrep-rungs-2885ee8/`) and a check that every number in `figures/paper-values.json` appears in the paper's text. No existing measurement changed. This version is archived on Zenodo; its DOI is on the [paper-v1.1 release](https://github.com/langmead-lab/ms2-experiments/releases/tag/paper-v1.1).
+
 ## Workflow
 
 The workflow has three parts. The **manifest** (`ms2exp.manifest`) lists jobs and cells and
