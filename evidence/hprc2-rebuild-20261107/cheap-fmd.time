@@ -1,0 +1,23 @@
+	Command being timed: "data/prep/rebuild_hprc2.sh /tmp/orbitms-hprc2-cheap-32986701/work fmd"
+	User time (seconds): 254.71
+	System time (seconds): 68.58
+	Percent of CPU this job got: 19%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 27:39.82
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 40013516
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 5
+	Minor (reclaiming a frame) page faults: 11882507
+	Voluntary context switches: 1824193
+	Involuntary context switches: 3666
+	Swaps: 0
+	File system inputs: 632
+	File system outputs: 84869928
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
