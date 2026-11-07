@@ -4,14 +4,23 @@
 tiers, that its steps reproduce the frozen files byte for byte. Both jobs ran on Rockfish compute nodes with
 Spack GCC 13.1.0 and wrote everything large to node-local `/tmp`.
 
-TeraTools came from a git bundle of the tags `ms2-precursors` (414f809) and `ms2-chr22-minima` (bce9ea7),
-made before the tags were pushed to `BenLangmead/TeraTools` (`TERATOOLS_REPO` pointed at the bundle). A
+In the medium and cheap tiers, TeraTools came from a git bundle of the tags `ms2-precursors` (414f809) and
+`ms2-chr22-minima` (bce9ea7), made before the tags were pushed to `BenLangmead/TeraTools` (`TERATOOLS_REPO`
+pointed at the bundle); the public-clone check below cloned it from GitHub. A
 bundle holds the same commits, so the checkout is the same tree a clone from GitHub gives. Everything else
 came from its public source: fmd2rlbwt from `BenLangmead/runperm` 2a3bf10, ropebwt3 b408339 from
 `lh3/ropebwt3` (in TeraTools' `ropebwt3/` directory), sdsl-lite from `simongog/sdsl-lite` (cloned at its
 head by TeraTools' Makefile), the pinned ropebwt3 binary and runtime libraries from the `tools-v1` release
 via `ms2exp.fetch`, the FMDs from deposit 2 (Zenodo 23964220) and `human472.fmr.gz` from Li's record
 (Zenodo 14854401).
+
+## Public-clone check (`github.sbatch`, job 32988613)
+
+After the tags were pushed and this directory was merged, a job cloned ms2-experiments `main` from GitHub
+(5ef92ab, `github-repo-head.txt`) and ran stage `tools` with no `TERATOOLS_REPO` or `RUNPERM_REPO` override, so
+TeraTools and runperm came from their GitHub repositories. The stage took 1 min 19 s and 0.3 GB
+(`github-tools.time`). The TeraLCP and fmd2rlbwt it built reproduced the deposited mtb152 `bwt.heads`,
+`bwt.len`, `min` and `phi` (`github-result.txt`).
 
 ## Medium tier: deposited mtb152 and chr22 precursors (`medium.sbatch`, job 32986702)
 

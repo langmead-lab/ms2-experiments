@@ -1,0 +1,4 @@
+equal   precursors/mtb152/bwt.heads 7eaaa9ae908a1bde8cd6c79de8a862f2828513a0220af951420682a4d6c09216
+equal   precursors/mtb152/bwt.len 024e9f54f656eb08fe2b36927006edcc25023fc677653ba78d34641af8f13d88
+equal   precursors/mtb152/min 61431b66c9ebc1e6a8e8006917aa7062b08fd7d93ee59683037c6f7cea84caf7
+equal   precursors/mtb152/phi 6598a9b5a38438f84693cefc1f5a37d6136cb5e921903e354f98263f7ee8fa7c
