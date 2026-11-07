@@ -4,7 +4,7 @@ Usage:
   python -m ms2exp.figures.paper_numbers [--figures figures] [--results results]
                                          [--read-sets data/read-sets.json]
                                          [--values figures/paper-values.json] [--rep-tsv FILE]
-                                         [--md OUT.md] [--table OUT.tex] [--strict]
+                                         [--md OUT.md] [--table OUT.tex] [--paper DIR] [--strict]
 
 figures/paper-values.json lists each number as the paper prints it, by id. This script computes
 every id from the committed records, rounds it half up to the precision the paper prints, and
@@ -20,6 +20,12 @@ then agree with expected_change.to (or still disagree with the paper, when to is
 entry's edit is the wording the paper needs. Without one, the data must agree with the paper.
 --strict exits nonzero when any check fails, so the text cannot drift from the data unnoticed.
 
+--paper DIR checks the other direction: every entry's number (or its text field, for an entry whose
+claim is worded rather than numeric) must still appear in the paper's LaTeX source in DIR, outside
+comments, so an entry cannot keep agreeing with text the paper no longer has. With --strict, a
+missing entry fails the run. The paper commit checked is printed, with a note when it is not the one
+the values file names.
+
 --md writes the report (figures/draft/paper-numbers.md from the figures driver), --table Table A2
 (index load times) as a LaTeX tabular. Fig rep's means come from runs outside the freeze
 (results/README.md) and are checked only with --rep-tsv, a fig-rep-batches.tsv of those runs.
@@ -31,7 +37,9 @@ from decimal import Decimal, ROUND_HALF_UP
 import glob
 import json
 from pathlib import Path
+import re
 import statistics
+import subprocess
 import sys
 
 REPO = Path(__file__).resolve().parents[2]
@@ -292,15 +300,14 @@ def load_table(D):
     groups = {'ms': [MS_GROUP.format(c) for c in COHORTS], 'loc': LOC_GROUPS}
     out = []
     for name, use, kind, ids in LOAD_ROWS:
-        loads, per_node, peaks = [], defaultdict(list), []
+        loads, peaks = [], []
         for g in groups[kind]:
             for c in D.groups[g]['cells']:
                 if c['id'] in ids:
                     loads += c['load_seconds']
-                    per_node[c['host']['instance_id']] += c['load_seconds']
                     peaks.append(c['peak_rss_kib'] / 2 ** 20)
-        median, nodes, resident = statistics.median(loads), [statistics.median(x) for x in per_node.values()], statistics.median(peaks)
-        out.append(dict(name=name, use=use, resident=resident, load=median, lo=min(nodes), hi=max(nodes),
+        median, resident = statistics.median(loads), statistics.median(peaks)
+        out.append(dict(name=name, use=use, resident=resident, load=median,
                         rate=resident / median))
     return out
 
@@ -308,12 +315,11 @@ def load_table(D):
 def load_table_tex(table):
     lines = ['% Written by python -m ms2exp.figures.paper_numbers from figures/summaries. Load: median over every',
              '% run of the cells behind Figs ms-oracle (ordinary, no ftab; ms2-dual on the full index with',
-             '% sequence names; ropebwt3 -l1) and locate100 (N=100), with the range over per-node medians.',
+             '% sequence names; ropebwt3 -l1) and locate100 (N=100).',
              '% Resident: median peak RSS of those cells. GiB/s: resident over median load.',
              r'\begin{tabular}{llrrr}', r'\hline', r'Index & Used for & Resident (GiB) & Load (s) & GiB/s \\', r'\hline']
     for r in table:
-        lines.append(f"{r['name']} & {r['use']} & {rnd(r['resident'], 0)} & {rnd(r['load'], 1)} "
-                     f"({rnd(r['lo'], 1)}--{rnd(r['hi'], 1)}) & {rnd(r['rate'], 1)} \\\\")
+        lines.append(f"{r['name']} & {r['use']} & {rnd(r['resident'], 0)} & {rnd(r['load'], 1)} & {rnd(r['rate'], 1)} \\\\")
     return '\n'.join(lines + [r'\hline', r'\end{tabular}', ''])
 
 
@@ -321,7 +327,6 @@ def load_values(D, v, table):
     for key, r in zip(LOAD_IDS, table):
         v[f'load.{key}_resident'] = Value('value', r['resident'])
         v[f'load.{key}_seconds'] = Value('value', r['load'])
-        v[f'load.{key}_nodes'] = Value('range', [r['lo'], r['hi']])
         v[f'load.{key}_rate'] = Value('value', r['rate'])
     v['load.ms2_rates'] = Value('range', [r['rate'] for r in table if r['name'].startswith('ms2')])
     v['load.rope_rates'] = Value('about', statistics.median(r['rate'] for r in table if r['name'].startswith('rope')))
@@ -394,7 +399,6 @@ def rep_values(tsv, v):
     v['rep.b_phi'] = Value('range', [b('phi')['h5'], b('phi')['h464']])
     v['rep.b_psi'] = Value('range', list(b('psi').values()))
     v['rep.b_dual'] = Value('range', list(b('dual').values()))
-    v['rep.ab_dual'] = Value('range', list(a('dual').values()) + list(b('dual').values()))
 
 
 def compute(figures, results, read_sets, rep_tsv=None):
@@ -435,6 +439,46 @@ def check(values, spec):
     if unknown:
         raise KeyError(f'computed ids missing from the values file: {sorted(unknown)}')
     return rows
+
+
+def paper_text(paper_dir):
+    """The paper's LaTeX outside comments, with thin spaces, ties, {,} and \\% made plain."""
+    paper_dir = Path(paper_dir)
+    parts = []
+    for f in sorted(paper_dir.glob('*.tex')):
+        parts.append(re.sub(r'(?m)(?<!\\)%.*$', '', f.read_text()))
+    text = '\n'.join(parts)
+    for a, b in (('{,}', ','), ('\\,', ' '), ('~', ' '), ('\\%', '%')):
+        text = text.replace(a, b)
+    return re.sub(r'\s+', ' ', text)
+
+
+def text_forms(entry):
+    if entry.get('text'):
+        return [entry['text']]
+    v = entry['paper']
+    if '--' in v:
+        a, b = v.split('--')
+        return [f'{a} to {b}', f'{a}--{b}', f'{a} and {b}', f'{a}-{b}']
+    return [v]
+
+
+def missing_from_text(spec, text):
+    """The entries whose number or text field does not appear in the paper text."""
+    def found(form):
+        return re.search(r'(?<![\d.])' + re.escape(form) + r'(?![\d])', text) is not None
+    return [e for e in spec['numbers'] if not any(found(f) for f in text_forms(e))]
+
+
+def paper_commit(paper_dir):
+    try:
+        out = subprocess.run(['git', '-C', str(paper_dir), 'rev-parse', '--short', 'HEAD'],
+                             capture_output=True, text=True, check=True)
+        dirty = subprocess.run(['git', '-C', str(paper_dir), 'status', '--porcelain', '--untracked-files=no'],
+                               capture_output=True, text=True, check=True).stdout.strip()
+        return out.stdout.strip() + (' with uncommitted edits' if dirty else '')
+    except (OSError, subprocess.CalledProcessError):
+        return None
 
 
 def paper(text):
@@ -479,6 +523,7 @@ def main():
     ap.add_argument('--rep-tsv')
     ap.add_argument('--md')
     ap.add_argument('--table')
+    ap.add_argument('--paper', help="the paper's LaTeX source directory, to check that each number is still in it")
     ap.add_argument('--strict', action='store_true')
     args = ap.parse_args()
     spec = json.loads(Path(args.values).read_text())
@@ -494,7 +539,18 @@ def main():
     for e, got in failed:
         print(f"FAIL {e['id']}: paper {e['paper']}, computed {got}", file=sys.stderr)
     print(text.rsplit('\n', 2)[-2])
-    return 1 if failed and args.strict else 0
+    missing = []
+    if args.paper:
+        missing = missing_from_text(spec, paper_text(args.paper))
+        commit = paper_commit(args.paper)
+        pinned = spec['paper'].split()[-1]
+        print(f"Paper text at {commit or 'an unknown commit'}: {len(spec['numbers']) - len(missing)} entries found, "
+              f"{len(missing)} missing.")
+        if commit and not commit.startswith(pinned):
+            print(f'Note: the values file names {pinned}; update its paper field after checking.')
+        for e in missing:
+            print(f"MISSING {e['id']}: {' / '.join(text_forms(e))} not in the paper text", file=sys.stderr)
+    return 1 if (failed or missing) and args.strict else 0
 
 
 if __name__ == '__main__':

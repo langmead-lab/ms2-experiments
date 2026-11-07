@@ -73,7 +73,8 @@ times. The load-time table (Table A2) is `figures/tex/tab-load.tex`. `figures/dr
 holds draft captions built from the run records and `data/read-sets.json`. Every number the paper
 quotes is listed, by id, in `figures/paper-values.json`; `python -m ms2exp.figures.paper_numbers`
 computes each one from the records and writes `figures/draft/paper-numbers.md`, which also lists the
-paper edits still outstanding (`--strict` fails on any disagreement). Fig rep is not regenerated
+paper edits still outstanding (`--strict` fails on any disagreement). Given the paper's LaTeX
+source with `--paper DIR`, it also checks that each number is still in the text. Fig rep is not regenerated
 from these results (`results/README.md` says why).
 
 ## Small "toy" run

@@ -1,6 +1,6 @@
 # Paper numbers
 
-Written by `python -m ms2exp.figures.paper_numbers` from the committed results. Each number the paper quotes (papers/matching-stats at 796e562) is computed from the run records and rounded to the precision the paper prints. Status: agrees; edit (a known disagreement, with the paper edit below); FAIL (the paper and the data disagree, or a recorded edit no longer applies); unchecked (the data are outside this repository).
+Written by `python -m ms2exp.figures.paper_numbers` from the committed results. Each number the paper quotes (papers/matching-stats at 567038f) is computed from the run records and rounded to the precision the paper prints. Status: agrees; edit (a known disagreement, with the paper edit below); FAIL (the paper and the data disagree, or a recorded edit no longer applies); unchecked (the data are outside this repository).
 
 
 ## Abstract
@@ -159,8 +159,7 @@ Written by `python -m ms2exp.figures.paper_numbers` from the committed results. 
 | (A) ms2-phi mean | 35 to 44 | data outside the repository | unchecked |
 | (B) ms2-phi mean, 5 to 464 haplotypes | 2.4 to 143 | data outside the repository | unchecked |
 | (B) ms2-psi mean | 35 to 45 | data outside the repository | unchecked |
-| (B) ms2-dual mean, as worded inside (B) | 0.3 to 2.5 (to be 0.7 to 2.5) | data outside the repository | unchecked |
-| ms2-dual mean over both panels | 0.3 to 2.5 | data outside the repository | unchecked |
+| (B) ms2-dual mean | 0.7 to 2.5 | data outside the repository | unchecked |
 
 ## Appendix: Table A2 (load times)
 
@@ -168,39 +167,30 @@ Written by `python -m ms2exp.figures.paper_numbers` from the committed results. 
 |---|---|---|---|
 | ms2-min, matching statistics: resident GiB | 100 | 100 | agrees |
 | ms2-min, matching statistics: load s | 41.9 | 41.9 | agrees |
-| ms2-min, matching statistics: range of per-node medians, s | 41.3 to 43.2 | 41.3 to 43.2 | agrees |
 | ms2-min, matching statistics: GiB/s | 2.4 | 2.4 | agrees |
 | ms2-psi, matching statistics: resident GiB | 97 | 97 | agrees |
 | ms2-psi, matching statistics: load s | 45.2 | 45.2 | agrees |
-| ms2-psi, matching statistics: range of per-node medians, s | 45.2 to 45.7 | 45.2 to 45.7 | agrees |
 | ms2-psi, matching statistics: GiB/s | 2.1 | 2.1 | agrees |
 | ms2-phi, matching statistics: resident GiB | 147 | 147 | agrees |
 | ms2-phi, matching statistics: load s | 60.7 | 60.7 | agrees |
-| ms2-phi, matching statistics: range of per-node medians, s | 60.6 to 60.8 | 60.6 to 60.8 | agrees |
 | ms2-phi, matching statistics: GiB/s | 2.4 | 2.4 | agrees |
 | ms2-dual, matching statistics: resident GiB | 228 | 228 | agrees |
 | ms2-dual, matching statistics: load s | 94.7 | 94.7 | agrees |
-| ms2-dual, matching statistics: range of per-node medians, s | 92.5 to 95.5 | 92.5 to 95.5 | agrees |
 | ms2-dual, matching statistics: GiB/s | 2.4 | 2.4 | agrees |
 | ms2-psi, ms2-phi, ms2-dual, locating: resident GiB | 337 | 337 | agrees |
 | ms2-psi, ms2-phi, ms2-dual, locating: load s | 186.7 | 186.7 | agrees |
-| ms2-psi, ms2-phi, ms2-dual, locating: range of per-node medians, s | 184.3 to 189.6 | 184.3 to 189.6 | agrees |
 | ms2-psi, ms2-phi, ms2-dual, locating: GiB/s | 1.8 | 1.8 | agrees |
 | ropebwt3 -l1, matching statistics: resident GiB | 15 | 15 | agrees |
 | ropebwt3 -l1, matching statistics: load s | 4.2 | 4.2 | agrees |
-| ropebwt3 -l1, matching statistics: range of per-node medians, s | 4.2 to 4.3 | 4.2 to 4.3 | agrees |
 | ropebwt3 -l1, matching statistics: GiB/s | 3.4 | 3.4 | agrees |
 | ropebwt3 -s11, locating: resident GiB | 25 | 25 | agrees |
 | ropebwt3 -s11, locating: load s | 7.2 | 7.2 | agrees |
-| ropebwt3 -s11, locating: range of per-node medians, s | 7.1 to 7.2 | 7.1 to 7.2 | agrees |
 | ropebwt3 -s11, locating: GiB/s | 3.5 | 3.5 | agrees |
 | ropebwt3 -s8, locating: resident GiB | 97 | 97 | agrees |
 | ropebwt3 -s8, locating: load s | 27.6 | 27.6 | agrees |
-| ropebwt3 -s8, locating: range of per-node medians, s | 27.5 to 28.0 | 27.5 to 28.0 | agrees |
 | ropebwt3 -s8, locating: GiB/s | 3.5 | 3.5 | agrees |
 | ropebwt3 -s6, locating: resident GiB | 345 | 345 | agrees |
 | ropebwt3 -s6, locating: load s | 98.6 | 98.6 | agrees |
-| ropebwt3 -s6, locating: range of per-node medians, s | 98.3 to 99.4 | 98.3 to 99.4 | agrees |
 | ropebwt3 -s6, locating: GiB/s | 3.5 | 3.5 | agrees |
 
 ## Appendix: Index loading time
@@ -257,9 +247,6 @@ Written by `python -m ms2exp.figures.paper_numbers` from the committed results. 
 
 ## Paper edits outstanding
 
-1. Appendix: Fig rep caption: in panel (B), replace "ms2-dual's mean stayed between 0.3 and 2.5" with "ms2-dual's mean stayed between 0.7 and 2.5" (0.3 is the lowest mean in panel (A)).
-2. Results: Fig ops caption: after "whereas the other approaches add further $\phi$ or $\Psi$ steps (dark shading).", add "$\Psi$ and $\phi$ steps were counted by an instrumented build of the same ms2 commit; \LF steps are drawn as one per base rather than counted."
-3. Appendix: Fig rep caption: add at the end of the caption: "The batches at 1\% and 2\% errors and the indexes of 200 and 464 haplotypes were counted on a separate cluster with the same instrumented ms2 build (commit 2885ee8), outside the benchmark protocol of the other experiments; the other batches come from the benchmark runs."
-4. Appendix: Measurement setup: replace "Compared with an earlier run using the operating system's default setting (\texttt{madvise}), this made" with "Compared with an earlier run under the operating system's default setting, which is \texttt{madvise} on Amazon Linux 2023 (that run did not record the setting), this made".
+None.
 
-Totals: 157 agrees, 0 edit, 8 unchecked, 0 FAIL.
+Totals: 148 agrees, 0 edit, 7 unchecked, 0 FAIL.

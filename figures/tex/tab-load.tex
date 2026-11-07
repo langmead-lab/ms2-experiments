@@ -1,19 +1,19 @@
 % Written by python -m ms2exp.figures.paper_numbers from figures/summaries. Load: median over every
 % run of the cells behind Figs ms-oracle (ordinary, no ftab; ms2-dual on the full index with
-% sequence names; ropebwt3 -l1) and locate100 (N=100), with the range over per-node medians.
+% sequence names; ropebwt3 -l1) and locate100 (N=100).
 % Resident: median peak RSS of those cells. GiB/s: resident over median load.
 \begin{tabular}{llrrr}
 \hline
 Index & Used for & Resident (GiB) & Load (s) & GiB/s \\
 \hline
-ms2-min & matching statistics & 100 & 41.9 (41.3--43.2) & 2.4 \\
-ms2-psi & matching statistics & 97 & 45.2 (45.2--45.7) & 2.1 \\
-ms2-phi & matching statistics & 147 & 60.7 (60.6--60.8) & 2.4 \\
-ms2-dual & matching statistics & 228 & 94.7 (92.5--95.5) & 2.4 \\
-ms2-psi, ms2-phi, ms2-dual & locating & 337 & 186.7 (184.3--189.6) & 1.8 \\
-ropebwt3 & matching statistics & 15 & 4.2 (4.2--4.3) & 3.4 \\
-ropebwt3 \texttt{-s11} & locating & 25 & 7.2 (7.1--7.2) & 3.5 \\
-ropebwt3 \texttt{-s8} & locating & 97 & 27.6 (27.5--28.0) & 3.5 \\
-ropebwt3 \texttt{-s6} & locating & 345 & 98.6 (98.3--99.4) & 3.5 \\
+ms2-min & matching statistics & 100 & 41.9 & 2.4 \\
+ms2-psi & matching statistics & 97 & 45.2 & 2.1 \\
+ms2-phi & matching statistics & 147 & 60.7 & 2.4 \\
+ms2-dual & matching statistics & 228 & 94.7 & 2.4 \\
+ms2-psi, ms2-phi, ms2-dual & locating & 337 & 186.7 & 1.8 \\
+ropebwt3 & matching statistics & 15 & 4.2 & 3.4 \\
+ropebwt3 \texttt{-s11} & locating & 25 & 7.2 & 3.5 \\
+ropebwt3 \texttt{-s8} & locating & 97 & 27.6 & 3.5 \\
+ropebwt3 \texttt{-s6} & locating & 345 & 98.6 & 3.5 \\
 \hline
 \end{tabular}

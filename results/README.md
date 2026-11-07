@@ -7,7 +7,7 @@ runs per cell with the median reported, and run 1 of every cell checked against 
 
 | Manifest | Run | Role |
 |---|---|---|
-| `freeze-2885ee8-3c8c8967` | Oct 30 to 31, 2026 | Transparent huge pages (THP) off: the protocol did not set THP and the host records do not include the setting, which the runner records from the rerun on. The THP attribution compares the 230 cells timed in both runs. Of the 279 cells this run recorded, the other 49 (count and Fig rep cells) were copied into the rerun rather than rerun. The 15 ms2-psi locate cells did not finish in this run |
+| `freeze-2885ee8-3c8c8967` | Oct 30 to 31, 2026 | Transparent huge pages (THP) at the operating system default, `madvise` on Amazon Linux 2023: the protocol did not set THP and the host records do not include the setting, which the runner records from the rerun on. The THP attribution compares the 230 cells timed in both runs. Of the 279 cells this run recorded, the other 49 (count and Fig rep cells) were copied into the rerun rather than rerun. The 15 ms2-psi locate cells did not finish in this run |
 | `freeze-2885ee8-00e665de` | Oct 31 to Nov 1, 2026 | The same jobs, cells and inputs with THP set to `always` (`seed_rerun`); every figure and table of the paper |
 
 Each has 83 jobs and 294 cells. The rerun copied the first run's build records, oracle traces and

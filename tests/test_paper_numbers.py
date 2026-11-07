@@ -29,6 +29,16 @@ def test_a_paper_value_that_drifts_from_the_data_fails():
     assert statuses(spec)['ops.rec_hprc2_genomes'] == 'FAIL'
 
 
+def test_paper_text_check_finds_numbers_outside_comments_only(tmp_path):
+    (tmp_path/'a.tex').write_text('loading took 9 to 22 times longer, 1{,}471 steps, within 6\\% here\n'
+                                  '% 3.4\\,GiB/s in a comment\n')
+    text = pn.paper_text(tmp_path)
+    spec = {'numbers': [{'id': 'r', 'paper': '9--22'}, {'id': 'c', 'paper': '1,471'}, {'id': 'w', 'paper': '6'},
+                        {'id': 'gone', 'paper': '3.4'}, {'id': 'near', 'paper': '2'},
+                        {'id': 'worded', 'paper': '1.00', 'text': 'times longer'}]}
+    assert [e['id'] for e in pn.missing_from_text(spec, text)] == ['gone', 'near']
+
+
 def test_a_recorded_edit_fails_once_the_paper_agrees_or_the_data_move():
     spec = copy.deepcopy(SPEC)
     entry = next(e for e in spec['numbers'] if e['id'] == 'load.short_load_over_query')
@@ -56,4 +66,4 @@ def test_committed_outputs_are_current():
     rows = pn.check(VALUES, SPEC)
     assert (REPO/'figures/draft/paper-numbers.md').read_text() == pn.report(rows, SPEC, NOTES)
     assert (REPO/'figures/tex/tab-load.tex').read_text() == pn.load_table_tex(TABLE)
-    assert r'ropebwt3 & matching statistics & 15 & 4.2 (4.2--4.3) & 3.4 \\' in pn.load_table_tex(TABLE)
+    assert r'ropebwt3 & matching statistics & 15 & 4.2 & 3.4 \\' in pn.load_table_tex(TABLE)

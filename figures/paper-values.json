@@ -1,6 +1,6 @@
 {
  "format": "ms2-paper-values-v1",
- "paper": "papers/matching-stats at 796e562",
+ "paper": "papers/matching-stats at 567038f",
  "numbers": [
   {
    "id": "chr22.min_over_phoni",
@@ -582,7 +582,8 @@
    "id": "threads.min_dual_64_over_32",
    "where": "Results: Thread scaling",
    "label": "ms2-min and ms2-dual, 64 threads over 32, at most (\"did not\" benefit)",
-   "paper": "1.00"
+   "paper": "1.00",
+   "text": "the faster ms2-min and ms2-dual modes did not"
   },
   {
    "id": "threads.human_short_reads",
@@ -653,19 +654,8 @@
   {
    "id": "rep.b_dual",
    "where": "Appendix: Fig rep caption",
-   "label": "(B) ms2-dual mean, as worded inside (B)",
-   "paper": "0.3--2.5",
-   "optional": true,
-   "expected_change": {
-    "to": "0.7--2.5",
-    "edit": "in panel (B), replace \"ms2-dual's mean stayed between 0.3 and 2.5\" with \"ms2-dual's mean stayed between 0.7 and 2.5\" (0.3 is the lowest mean in panel (A))."
-   }
-  },
-  {
-   "id": "rep.ab_dual",
-   "where": "Appendix: Fig rep caption",
-   "label": "ms2-dual mean over both panels",
-   "paper": "0.3--2.5",
+   "label": "(B) ms2-dual mean",
+   "paper": "0.7--2.5",
    "optional": true
   },
   {
@@ -679,12 +669,6 @@
    "where": "Appendix: Table A2 (load times)",
    "label": "ms2-min, matching statistics: load s",
    "paper": "41.9"
-  },
-  {
-   "id": "load.min_nodes",
-   "where": "Appendix: Table A2 (load times)",
-   "label": "ms2-min, matching statistics: range of per-node medians, s",
-   "paper": "41.3--43.2"
   },
   {
    "id": "load.min_rate",
@@ -705,12 +689,6 @@
    "paper": "45.2"
   },
   {
-   "id": "load.psi_nodes",
-   "where": "Appendix: Table A2 (load times)",
-   "label": "ms2-psi, matching statistics: range of per-node medians, s",
-   "paper": "45.2--45.7"
-  },
-  {
    "id": "load.psi_rate",
    "where": "Appendix: Table A2 (load times)",
    "label": "ms2-psi, matching statistics: GiB/s",
@@ -727,12 +705,6 @@
    "where": "Appendix: Table A2 (load times)",
    "label": "ms2-phi, matching statistics: load s",
    "paper": "60.7"
-  },
-  {
-   "id": "load.phi_nodes",
-   "where": "Appendix: Table A2 (load times)",
-   "label": "ms2-phi, matching statistics: range of per-node medians, s",
-   "paper": "60.6--60.8"
   },
   {
    "id": "load.phi_rate",
@@ -753,12 +725,6 @@
    "paper": "94.7"
   },
   {
-   "id": "load.dual_nodes",
-   "where": "Appendix: Table A2 (load times)",
-   "label": "ms2-dual, matching statistics: range of per-node medians, s",
-   "paper": "92.5--95.5"
-  },
-  {
    "id": "load.dual_rate",
    "where": "Appendix: Table A2 (load times)",
    "label": "ms2-dual, matching statistics: GiB/s",
@@ -775,12 +741,6 @@
    "where": "Appendix: Table A2 (load times)",
    "label": "ms2-psi, ms2-phi, ms2-dual, locating: load s",
    "paper": "186.7"
-  },
-  {
-   "id": "load.ms2_locate_nodes",
-   "where": "Appendix: Table A2 (load times)",
-   "label": "ms2-psi, ms2-phi, ms2-dual, locating: range of per-node medians, s",
-   "paper": "184.3--189.6"
   },
   {
    "id": "load.ms2_locate_rate",
@@ -801,12 +761,6 @@
    "paper": "4.2"
   },
   {
-   "id": "load.rope_nodes",
-   "where": "Appendix: Table A2 (load times)",
-   "label": "ropebwt3 -l1, matching statistics: range of per-node medians, s",
-   "paper": "4.2--4.3"
-  },
-  {
    "id": "load.rope_rate",
    "where": "Appendix: Table A2 (load times)",
    "label": "ropebwt3 -l1, matching statistics: GiB/s",
@@ -823,12 +777,6 @@
    "where": "Appendix: Table A2 (load times)",
    "label": "ropebwt3 -s11, locating: load s",
    "paper": "7.2"
-  },
-  {
-   "id": "load.rope_s11_nodes",
-   "where": "Appendix: Table A2 (load times)",
-   "label": "ropebwt3 -s11, locating: range of per-node medians, s",
-   "paper": "7.1--7.2"
   },
   {
    "id": "load.rope_s11_rate",
@@ -849,12 +797,6 @@
    "paper": "27.6"
   },
   {
-   "id": "load.rope_s8_nodes",
-   "where": "Appendix: Table A2 (load times)",
-   "label": "ropebwt3 -s8, locating: range of per-node medians, s",
-   "paper": "27.5--28.0"
-  },
-  {
    "id": "load.rope_s8_rate",
    "where": "Appendix: Table A2 (load times)",
    "label": "ropebwt3 -s8, locating: GiB/s",
@@ -871,12 +813,6 @@
    "where": "Appendix: Table A2 (load times)",
    "label": "ropebwt3 -s6, locating: load s",
    "paper": "98.6"
-  },
-  {
-   "id": "load.rope_s6_nodes",
-   "where": "Appendix: Table A2 (load times)",
-   "label": "ropebwt3 -s6, locating: range of per-node medians, s",
-   "paper": "98.3--99.4"
   },
   {
    "id": "load.rope_s6_rate",
@@ -1035,20 +971,6 @@
    "label": "HPRC2 precursor builds",
    "paper": "147 GiB, about 13 hours, 48 threads, 171 GiB; 83 and 331 GiB, about 10 hours, 46 to 48 threads",
    "reason": "Build records of Rockfish runs outside the freeze manifests."
-  }
- ],
- "text_edits": [
-  {
-   "where": "Results: Fig ops caption",
-   "edit": "after \"whereas the other approaches add further $\\phi$ or $\\Psi$ steps (dark shading).\", add \"$\\Psi$ and $\\phi$ steps were counted by an instrumented build of the same ms2 commit; \\LF steps are drawn as one per base rather than counted.\""
-  },
-  {
-   "where": "Appendix: Fig rep caption",
-   "edit": "add at the end of the caption: \"The batches at 1\\% and 2\\% errors and the indexes of 200 and 464 haplotypes were counted on a separate cluster with the same instrumented ms2 build (commit 2885ee8), outside the benchmark protocol of the other experiments; the other batches come from the benchmark runs.\""
-  },
-  {
-   "where": "Appendix: Measurement setup",
-   "edit": "replace \"Compared with an earlier run using the operating system's default setting (\\texttt{madvise}), this made\" with \"Compared with an earlier run under the operating system's default setting, which is \\texttt{madvise} on Amazon Linux 2023 (that run did not record the setting), this made\"."
   }
  ]
 }
