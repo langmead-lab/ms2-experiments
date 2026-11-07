@@ -164,6 +164,23 @@ def verified(data, row, path):
     return True
 
 
+def copy_with_progress(src, out, label, done, size, every=30):
+    """Copy SRC to OUT, printing the bytes so far to stderr every EVERY seconds."""
+    last = time.monotonic()
+    while chunk := src.read(16 << 20):
+        out.write(chunk)
+        done += len(chunk)
+        if time.monotonic() - last >= every:
+            print(f'  {label}: {done / 1e6:,.0f} of {size / 1e6:,.0f} MB', file=sys.stderr, flush=True)
+            last = time.monotonic()
+
+
+def make_runnable(name, path):
+    """Give a fetched tool binary or runtime library the execute bit a download does not carry."""
+    if name.startswith('tools/') and not path.is_symlink():
+        path.chmod(0o755)
+
+
 def download(url, dest, row):
     """Stream URL to DEST.part, resuming after a broken connection, then check the sha256."""
     part = dest.with_name(dest.name + '.part')
@@ -178,7 +195,7 @@ def download(url, dest, row):
                 if have and response.status != 206:
                     have = 0  # the server ignored the range: start again
                 with part.open('ab' if have else 'wb') as out:
-                    shutil.copyfileobj(response, out, 16 << 20)
+                    copy_with_progress(response, out, dest.name, have, size)
         except (urllib.error.URLError, OSError) as e:
             print(f'  {dest.name}: {e}; retrying', file=sys.stderr)
             time.sleep(2 ** attempt)
@@ -259,6 +276,7 @@ def cmd_get(args):
         dest = data/name
         if dest.is_symlink() or dest.exists():
             if verified(data, row, dest):
+                make_runnable(name, dest)
                 index[name] = str(dest)
                 by_sha.setdefault(row['sha256'], dest)
                 print(f'ok      {name}')
@@ -271,12 +289,18 @@ def cmd_get(args):
             missing.append(name)
             continue
         if args.dry_run:
-            if obtainable(row, args, locations) is None and row['sha256'] not in by_sha:
+            twin = by_sha.get(row['sha256'])
+            where = obtainable(row, args, locations)
+            if twin:
+                print(f'same    {name} (as {twin.relative_to(data)})')
+            elif where is None:
                 unavailable.append(f"{name} (source: {row['source']})")
                 print(f'NONE    {name} (no public copy; source: {row["source"]})')
             else:
                 total += int(row['bytes'])
-                print(f'fetch   {name} ({int(row["bytes"]):,} bytes)')
+                origin = dict(location=locations.get(name), url=row['url'],
+                              mirror=f"{args.mirror.rstrip('/')}/{row['file']}" if args.mirror else None)[where]
+                print(f'fetch   {name} ({int(row["bytes"]):,} bytes) from {origin}')
             by_sha.setdefault(row['sha256'], dest)
             continue
         total += int(row['bytes'])
@@ -291,6 +315,7 @@ def cmd_get(args):
         else:
             origin = obtain(row, dest, args, locations)
             verified(data, row, dest)
+            make_runnable(name, dest)
             by_sha[row['sha256']] = dest
             print(f'fetched {name} from {origin}')
         index[name] = str(dest)

@@ -124,3 +124,31 @@ def test_committed_table_names_the_published_deposits():
     counts = {record: sum(r['source'] == 'zenodo:' + record for r in table.values())
               for record in fetch.DEPOSIT.values()}
     assert counts == {'23964218': 71, '23964220': 30, '23964222': 18}
+
+
+def test_dry_run_names_each_source_and_counts_duplicates_once(setup, capsys):
+    tmp_path, table, mirror, files = setup
+    run(tmp_path, table, '--dry-run', '--mirror', str(mirror), *files)
+    out = capsys.readouterr().out
+    assert f"from {mirror}/{fetch.deposit_file('reads/a/reads.fa')}" in out
+    assert 'same    reads/b/reads.fa (as reads/a/reads.fa)' in out
+    unique = len(files['reads/a/reads.fa']) + len(files['reads/a/truth.u32'])
+    assert out.rstrip().endswith(f'; {unique:,} bytes to fetch')
+
+
+def test_fetched_tools_are_executable(tmp_path):
+    files = {'tools/x/bin': b'\x7fELF tool', 'reads/a/reads.fa': b'>q0\nACGT\n'}
+    table = tmp_path/'inputs.tsv'
+    write_table(table, files)
+    mirror = tmp_path/'mirror'
+    mirror.mkdir()
+    for name, data in files.items():
+        (mirror/fetch.deposit_file(name)).write_bytes(data)
+    run(tmp_path, table, '--mirror', str(mirror), *files)
+    data = tmp_path/'data'
+    assert (data/'tools/x/bin').stat().st_mode & 0o111 == 0o111
+    assert (data/'reads/a/reads.fa').stat().st_mode & 0o111 == 0
+    # A tool fetched before the mode was set gets it on the next run.
+    (data/'tools/x/bin').chmod(0o644)
+    run(tmp_path, table, *files)
+    assert (data/'tools/x/bin').stat().st_mode & 0o111 == 0o111

@@ -39,6 +39,9 @@ THREADS=${THREADS:-$(n=$(nproc); echo $((n < 16 ? n : 16)))}
 
 $PY -m ms2exp.fetch --data "$DATA" --set toy --verify-only > "$T/fetch-verify.log"
 ROPE=$DATA/tools/ropebwt3-cfad8475/ropebwt3
+for tool in "$ROPE" "$DATA"/tools/{moni/moni-ms,phoni/phoni,augphoni/aug_phoni}; do
+    [ -x "$tool" ] || { echo "$tool is not executable: rerun python3 -m ms2exp.fetch --set toy, which sets its mode" >&2; exit 1; }
+done
 # The pinned ropebwt3 loads the OpenMP runtime shipped beside it.
 RL=$DATA/tools/runtime${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
 M=$DATA/precursors/mtb152
@@ -56,7 +59,7 @@ MS=$T/built/tools/ms2-${COMMIT:0:7}/ms2-bench
 
 # Sequence lengths in FMD order: sequence 2k is the forward strand of contig k.
 if [ ! -s "$X/mtb152.fmd.len.gz" ]; then
-    n=$(env LD_LIBRARY_PATH="$RL" "$ROPE" stat "$FMD" 2>/dev/null | awk '$1 == "sequences" || /Number of sequences/ {print $NF}' | head -1)
+    n=$(env LD_LIBRARY_PATH="$RL" "$ROPE" stat "$FMD" | awk '$1 == "sequences" || /Number of sequences/ {print $NF}' | head -1)
     n=${n:-288}
     seq 0 2 $((n - 2)) | xargs -P "$THREADS" -I{} env LD_LIBRARY_PATH="$RL" sh -c \
         "'$ROPE' get '$FMD' {} | awk -v i={} 'NR > 1 {l += length(\$0)} END {print i/2 \"\t\" l}'" \

@@ -82,12 +82,12 @@ The toy runs every path of the runner (ms2 MS, oracle, counting and locate cells
 PHONI and Augmented PHONI) on mtb152 and chr22-h10 inputs, then checks the results against
 `toy/expected/`. It needs x86_64 Linux with glibc 2.28 or later, g++ with C++17 and static
 libstdc++, make, zlib headers, git and Python 3.10 or later; numactl is optional. Expect about
-5.8 GB of downloads (about 50 minutes at the 2 MB/s we saw from Zenodo), 15 GB of disk and under
-1.5 GB of memory. On the lab's development server it
-took about 11 minutes to prepare and 10 minutes to run, at 1.3 GB peak memory.
+4.6 GB of downloads, 15 GB of disk and under 1.5 GB of memory. On the lab's development server,
+starting from a clean clone and public sources only, the fetch took 25 minutes, preparation 5 and
+the run 9, at 1.3 GB peak memory.
 
 ```bash
-git clone https://github.com/langmead-lab/ms2-experiments.git && cd ms2-experiments
+git clone --branch paper-v1 https://github.com/langmead-lab/ms2-experiments.git && cd ms2-experiments
 export MS2EXP_DATA=$HOME/ms2exp-data TOY=$HOME/ms2exp-toy
 python3 -m ms2exp.fetch --set toy          # 34 inputs, each checked by sha256
 toy/toy_prep.sh $TOY                       # builds ms2 at paper-v1, the toy indexes and manifest
@@ -102,11 +102,14 @@ deposits ([10.5281/zenodo.23964218](https://doi.org/10.5281/zenodo.23964218),
 input's sha256 and URL. The pinned ropebwt3, MONI, PHONI and Augmented PHONI binaries and the
 three runtime libraries beside them (26 MB in all; `TOOLS.md`) are assets of this repository's
 [`tools-v1` release](https://github.com/langmead-lab/ms2-experiments/releases/tag/tools-v1).
-`python3 -m ms2exp.fetch --set toy --dry-run` lists every input with its size and source before
-downloading anything. Inside the Langmead lab, `python3 -m ms2exp.fetch --set toy --link --from-locations
+`python3 -m ms2exp.fetch --set toy --dry-run` lists every input with its size and the URL it
+would come from before downloading anything; inputs with the same content are fetched once. Inside the Langmead lab, `python3 -m ms2exp.fetch --set toy --link --from-locations
 data/locations/*.json` links the lab's copies of every input instead.
 
-`toy_run.sh` runs each job directly on this machine; it does not use Slurm. The protocol times runs
+`toy_run.sh` runs each job directly on this machine; it does not use Slurm. The runner copies each
+job's inputs to a staging directory first, `$TOY/stage` unless `STAGE` names another (about 6 GB,
+best on a local disk); the default one is removed once every job has passed (`KEEP_STAGE=1` keeps
+it). The protocol times runs
 with transparent huge pages set to `always` (`sudo sh -c 'echo always >
 /sys/kernel/mm/transparent_hugepage/enabled'`); without that setting the toy warns and runs anyway.
 The last command prints `equivalent` when every status, check, operation count, location count,

@@ -1,7 +1,8 @@
 #!/bin/bash
 # Run every job of the toy manifest directly on this machine (no Slurm), then collect.
 # Usage: toy_run.sh TOY_DIR [JOB_ID ...]   (after toy_prep.sh TOY_DIR); with no job ids, every job runs.
-# STAGE (default /tmp/$USER-ms2exp-toy) is the local disk the runner copies inputs to, about 5 GB.
+# STAGE is the local disk the runner copies inputs to, about 6 GB. It defaults to TOY_DIR/stage,
+# which is removed once every job has passed unless KEEP_STAGE=1; a STAGE given is kept.
 # Without numactl the runner runs unbound (--no-numa). When transparent huge pages are not set to
 # always, as the protocol times runs, the runner runs anyway (--any-thp) and records the override;
 # the toy's timings are for orientation only.
@@ -13,7 +14,7 @@ shift
 REPO=$(dirname "$(dirname "$(readlink -f "$0")")")
 PY="env PYTHONPATH=$REPO${PYTHONPATH:+:$PYTHONPATH} python3"
 M=$T/manifest-toy.json
-stage=${STAGE:-/tmp/${USER}-ms2exp-toy}
+stage=${STAGE:-$T/stage}
 flags=()
 if ! command -v numactl > /dev/null; then
     echo "numactl not found: running without NUMA binding" >&2
@@ -31,5 +32,8 @@ for job in $jobs; do
         --stage $stage --platform rockfish --record-traces ${flags[@]+"${flags[@]}"} || status=1
 done
 $PY -m ms2exp.collect --manifest $M --results-root $T/results --out $T/collected --platform rockfish || status=1
+if [ $status = 0 ] && [ -z "${STAGE:-}" ] && [ "${KEEP_STAGE:-0}" != 1 ]; then
+    rm -rf -- "$T/stage"
+fi
 echo "toy run status $status"
 exit $status
