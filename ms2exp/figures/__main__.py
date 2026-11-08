@@ -16,7 +16,7 @@ Steps, each written under OUT:
                    batches-5.tsv, whose means paper_numbers.py checks; the violins need the .replog files);
                    fig-threads/ from threads_tikz.py (the thread-scaling run)
   tex/             structure_bits.py's table of field widths (structure_bits.tex) and paper_numbers.py's
-                   Table A2 of load times (tab-load.tex); the other .tex files there are static snippets
+                   Table A3 of load times (tab-load.tex); the other .tex files there are static snippets
   draft/paper-numbers.md
                    paper_numbers.py's check of every number the paper quotes (figures/paper-values.json)
   pdf/             the TikZ figures compiled with latexmk under the names the paper includes,

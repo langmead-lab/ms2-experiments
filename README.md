@@ -8,8 +8,9 @@ which is tagged `paper-v1`.
 | Path | Content |
 |---|---|
 | `ms2exp/` | Benchmark workflow Python package; uses standard library only, except figure rendering |
-| `launchers/rockfish/`, `launchers/aws/` | Two "launchers" we used: one using Slurm on the JHU Rockfish cluster, and another for AWS spot instances (CDK app and worker; copy `launchers/aws/config.example.json` to `config.json` first) |
-| `results/` | Small recorded measurements from the two freeze runs; `results/README.md` maps them to paper elements |
+| `RERUN_FREEZE.md` | How to rerun the timed benchmarks from public sources: inputs, manifest, AWS run and figures |
+| `launchers/rockfish/`, `launchers/aws/` | Two "launchers" we used: one using Slurm on the JHU Rockfish cluster, and another for AWS spot instances (`launchers/aws/README.md`) |
+| `results/` | Small recorded measurements from the two freeze runs (the "freeze" is the final, recorded benchmark run behind the paper's numbers); `results/README.md` maps them to paper elements |
 | `figures/` | Output from `python -m ms2exp.figures`: summaries, drafts, TikZ data and the paper's figure PDFs |
 | `tools.lock.json`, `TOOLS.md` | The tools pinned to specific versions, and how each was built |
 | `patches/` | The fixes to PHONI and Augmented PHONI that make their matching statistics correct (`TOOLS.md`) |
@@ -22,7 +23,7 @@ which is tagged `paper-v1`.
 ## Versions
 
 - `paper-v1` is the version the submitted manuscript cites. On 2026-11-07 it was moved from [5022b8c](https://github.com/langmead-lab/ms2-experiments/commit/5022b8c) (tagged `paper-v1-submitted`) to [2bb5e3b](https://github.com/langmead-lab/ms2-experiments/commit/2bb5e3b), so that `ms2exp.fetch` downloads every input from the public Zenodo deposits and the `tools-v1` release instead of lab paths. The run records, pinned tool hashes and plotted numbers did not change; the commits in between add evidence, provenance records and caption detail.
-- `paper-v1.1` adds `data/prep/rebuild_hprc2.sh`, which rebuilds the HPRC2 precursors from public code, with evidence that a clone from GitHub reproduces the deposited mtb152 files (`evidence/hprc2-rebuild-20261107/`). It also adds the run records of Fig rep's four batches counted after the freeze (`results/figrep-rungs-2885ee8/`) and a check that every number in `figures/paper-values.json` appears in the paper's text. No existing measurement changed. It is archived at [10.5281/zenodo.24045318](https://doi.org/10.5281/zenodo.24045318) and attached to the [paper-v1.1 release](https://github.com/langmead-lab/ms2-experiments/releases/tag/paper-v1.1). The ms2 software the paper used is archived, with its submodules, at [10.5281/zenodo.24044152](https://doi.org/10.5281/zenodo.24044152).
+- `paper-v1.1` adds `data/prep/rebuild_hprc2.sh`, which rebuilds the HPRC2 precursors from public code, with evidence that a clone from GitHub reproduces the deposited mtb152 files (`evidence/hprc2-rebuild-20261107/`). It also adds the run records of the four batches of Fig. A2 (operations per recovery) counted after the freeze (`results/figrep-rungs-2885ee8/`) and a check that every number in `figures/paper-values.json` appears in the paper's text. No existing measurement changed. It is archived at [10.5281/zenodo.24045318](https://doi.org/10.5281/zenodo.24045318) and attached to the [paper-v1.1 release](https://github.com/langmead-lab/ms2-experiments/releases/tag/paper-v1.1). The ms2 software the paper used is archived, with its submodules, at [10.5281/zenodo.24044152](https://doi.org/10.5281/zenodo.24044152).
 
 ## Workflow
 
@@ -36,6 +37,13 @@ and writes per-cell records once it finishes.  An interrupted job can resume whe
 runs (i.e. runs that produce needed outputs but aren't important to time/measure), and `launchers/aws`
 for the timed runs. `ms2exp.collect` then gathers the cells into one summary per cell group and checks
 them.
+
+Some names in the code and records differ from the paper's. Layout `ms` is ms2's `min` layout (the paper's ms2-min), and
+index files named `index.tms.*` are "TeraMS-style" indexes, the ones that hold psi or phi. A "reposition" (as in
+`.replog`, the repositioning logs) is what the paper calls a recovery. Code comments and records use internal figure
+names; the table under Figures maps them to the paper's numbers. In particular, the internal name "A1" (as in the
+`a1-*` jobs and `fig_rep-a2` groups) is the paper's Fig. A2, and "series A2" (as in the read sets `mtb152-A2-*`) is
+its mtb152 error series.
 
 | Module | Role |
 |---|---|
@@ -61,25 +69,31 @@ python -m venv .venv && .venv/bin/pip install -e '.[figures,test]'
 This rebuilds `figures/` from `results/freeze-2885ee8-00e665de`. It needs latexmk for the PDFs
 (`--no-pdf` skips them). The PDFs in `figures/pdf/` carry the names the paper includes:
 
-| Paper figure | File | TikZ source |
-|---|---|---|
-| Fig ops | `ops.pdf` | `fig-ops-row.tex` |
-| Fig ms22 | `ms22_100.pdf` | `fig-ms22-100.tex` |
-| Fig ms-oracle | `ms_oracle.pdf` | `fig-ms-oracle.tex` |
-| Fig locate100 | `locate100.pdf` | `fig-l100.tex` |
-| Fig ms22-10 (appendix) | `ms22_10.pdf` | `fig-ms22-10.tex` |
-| Fig locate1, locate10 (appendix) | `locate1.pdf`, `locate10.pdf` | `fig-l1.tex`, `fig-l10.tex` |
-| Fig ms-ftab (appendix) | `ms_ftab.pdf` | `fig-ms-ftab.tex` |
-| Fig locate-ftab (appendix) | `locate_ftab.pdf` | `fig-lftab.tex` |
-| Fig threads (appendix) | `threads.pdf` | `fig-threads.tex`, from `results/threads-2885ee8-da1041e8` |
+| Paper | Internal name | File | TikZ source |
+|---|---|---|---|
+| Fig. 3 | Fig ops | `ops.pdf` | `fig-ops-row.tex` |
+| Fig. 4 | Fig ms22 | `ms22_100.pdf` | `fig-ms22-100.tex` |
+| Fig. 5 | Fig ms-oracle | `ms_oracle.pdf` | `fig-ms-oracle.tex` |
+| Fig. 6 | Fig locate100 | `locate100.pdf` | `fig-l100.tex` |
+| Fig. A1 | Fig ms22-10 | `ms22_10.pdf` | `fig-ms22-10.tex` |
+| Fig. A2 | Fig rep | not built here (see below) | data in `tikz/data/fig-rep/` |
+| Fig. A3 | Fig threads | `threads.pdf` | `fig-threads.tex`, from `results/threads-2885ee8-da1041e8` |
+| Fig. A4 | Fig locate1 | `locate1.pdf` | `fig-l1.tex` |
+| Fig. A5 | Fig locate10 | `locate10.pdf` | `fig-l10.tex` |
+| not in the paper | Fig ms-ftab | `ms_ftab.pdf` | `fig-ms-ftab.tex` |
+| not in the paper | Fig locate-ftab | `locate_ftab.pdf` | `fig-lftab.tex` |
+
+Figs. 1 and 2 are method diagrams, not drawn from these records. The two ftab figures (ms2 with a k-mer lookup table) come from the
+same run but are not in the paper. The paper's tables are Table A1 (field widths, `figures/tex/structure_bits.tex`),
+Table A2 (the chr22 haplotypes, not generated here) and Table A3 (load times).
 
 Every number plotted is in `figures/draft/plotted-points.csv`, with its median query and load
-times. The load-time table (Table A2) is `figures/tex/tab-load.tex`. `figures/draft/CAPTIONS.md`
+times. The load-time table (Table A3) is `figures/tex/tab-load.tex`. `figures/draft/CAPTIONS.md`
 holds draft captions built from the run records and `data/read-sets.json`. Every number the paper
 quotes is listed, by id, in `figures/paper-values.json`; `python -m ms2exp.figures.paper_numbers`
 computes each one from the records and writes `figures/draft/paper-numbers.md`, which also lists the
 paper edits still outstanding (`--strict` fails on any disagreement). Given the paper's LaTeX
-source with `--paper DIR`, it also checks that each number is still in the text. Fig rep's batches and
+source with `--paper DIR`, it also checks that each number is still in the text. Fig. A2's batches and
 means are regenerated from the freeze and four later counting runs; its violins are not
 (`results/README.md` says why).
 

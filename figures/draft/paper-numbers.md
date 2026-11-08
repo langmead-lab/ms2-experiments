@@ -1,6 +1,6 @@
 # Paper numbers
 
-Written by `python -m ms2exp.figures.paper_numbers` from the committed results. Each number the paper quotes (papers/matching-stats at c01badc) is computed from the run records and rounded to the precision the paper prints. Status: agrees; edit (a known disagreement, with the paper edit below); FAIL (the paper and the data disagree, or a recorded edit no longer applies); unchecked (the data are outside this repository).
+Written by `python -m ms2exp.figures.paper_numbers` from the committed results. Each number the paper quotes (papers/matching-stats at b91a4bc) is computed from the run records and rounded to the precision the paper prints. Status: agrees; edit (a known disagreement, with the paper edit below); FAIL (the paper and the data disagree, or a recorded edit no longer applies); unchecked (the data are outside this repository).
 
 
 ## Abstract
@@ -140,7 +140,7 @@ Written by `python -m ms2exp.figures.paper_numbers` from the committed results. 
 | ms2-phi and ropebwt3, 64 threads over 32 | 1.16 to 1.28 | 1.16 to 1.28 | agrees |
 | ms2-min and ms2-dual, 64 threads over 32, at most ("did not" benefit) | 1.00 | max 0.99 | agrees |
 
-## Appendix: Fig threads caption
+## Appendix: Fig. A3 caption
 
 | Number | Paper | Computed | Status |
 |---|---|---|---|
@@ -149,7 +149,7 @@ Written by `python -m ms2exp.figures.paper_numbers` from the committed results. 
 | Nanopore superset, reads | 43,346 | 43,346 | agrees |
 | Nanopore superset, Mbases | 1,000.0 | 1,000.0 | agrees |
 
-## Appendix: Fig rep caption
+## Appendix: Fig. A2 caption
 
 | Number | Paper | Computed | Status |
 |---|---|---|---|
@@ -161,7 +161,7 @@ Written by `python -m ms2exp.figures.paper_numbers` from the committed results. 
 | (B) ms2-psi mean | 35 to 45 | 35 to 45 | agrees |
 | (B) ms2-dual mean | 0.7 to 2.5 | 0.7 to 2.5 | agrees |
 
-## Appendix: Table A2 (load times)
+## Appendix: Table A3 (load times)
 
 | Number | Paper | Computed | Status |
 |---|---|---|---|
