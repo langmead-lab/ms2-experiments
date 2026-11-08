@@ -26,7 +26,7 @@ comments, so an entry cannot keep agreeing with text the paper no longer has. Wi
 missing entry fails the run. The paper commit checked is printed, with a note when it is not the one
 the values file names.
 
---md writes the report (figures/draft/paper-numbers.md from the figures driver), --table Table A2
+--md writes the report (figures/draft/paper-numbers.md from the figures driver), --table Table A3
 (index load times) as a LaTeX tabular. Fig rep's means are read from --rep-tsv, by default the
 batches-5.tsv that the figures driver writes from the freeze's A1 runs and the four counting runs of
 results/figrep-rungs-2885ee8 (results/README.md).
@@ -281,7 +281,7 @@ def locate_values(D, v):
                                                     for c in COHORTS[1:]])
 
 
-# Table A2: (row name, use, group kind, cell ids). Load is the median over every run of the cells
+# Table A3: (row name, use, group kind, cell ids). Load is the median over every run of the cells
 # behind Figs ms-oracle (ordinary, no ftab, ms2-dual on the full index with sequence names) and
 # locate100 (N = 100); the range is over per-node medians; resident is the median peak of the cells.
 LOAD_ROWS = [('ms2-min', 'matching statistics', 'ms', ['ms-ordinary']),

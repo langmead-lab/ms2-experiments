@@ -4,7 +4,8 @@ Design record of the freeze benchmark, written October 29 and 30, 2026, before t
 
 Goal: one workflow that regenerates the data for manuscript Figs 3, 4, 5, 6, A1 to A6 (and Table tab:load, which derives from the same runs), targetable at Rockfish (Slurm) or AWS (CDK, one metal instance type).
 
-Figure map: 3 ops, 4 ms22_100, 5 ms_oracle, 6 locate100, A1 rep, A2 ms22_10, A3 locate1, A4 locate10, A5 ms_ftab, A6 locate_ftab. Figure pipeline: paper_figures.py, paper_figures_tikz.py and fig_rep*.py, now `ms2exp.figures`.
+Figure map as planned: 3 ops, 4 ms22_100, 5 ms_oracle, 6 locate100, A1 rep, A2 ms22_10, A3 locate1, A4 locate10, A5 ms_ftab, A6 locate_ftab. Figure pipeline: paper_figures.py, paper_figures_tikz.py and fig_rep*.py, now `ms2exp.figures`.
+Outcome: the decisions below keep these planned appendix numbers, which code comments and records also use. The paper numbers its figures differently: Figs. 3 to 6 as above, then A1 ms22_10, A2 rep, A3 threads (`THREAD_SCALING_PLAN.md`), A4 locate1 and A5 locate10. The two ftab figures (planned A5 and A6) are not in the paper. Table tab:load is the paper's Table A3, and Table tab:haplotypes its Table A2. The figure table in `README.md` maps every name.
 
 ## Decisions
 
